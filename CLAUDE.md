@@ -1,0 +1,326 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Project Overview
+
+`cloudformation_dataclasses` is a Python library that uses **dataclasses as a declarative interface** for AWS CloudFormation template synthesis. The library focuses solely on **generating CloudFormation JSON/YAML** from Python dataclasses.
+
+**Core Innovation**: Wrapper dataclasses with declarative wiring where all infrastructure relationships are defined as typed field declarations, not imperative code.
+
+## Architecture Principles
+
+### The Wrapper Dataclass Pattern
+
+Every CloudFormation resource is wrapped in a user-defined dataclass with a `resource:` field:
+
+```python
+@dataclass
+class MyVPC:
+    resource: VPC
+    cidr_block: str = "10.0.0.0/16"
+    enable_dns_hostnames: bool = True
+
+@dataclass
+class MySubnet:
+    resource: Subnet
+    cidr_block: str = "10.0.1.0/24"
+    vpc_id: MyVPC.ref()  # Cross-resource reference in field declaration
+```
+
+**Key point**: ALL wiring happens inside dataclass field declarations, not at instantiation.
+
+### Code Generation Strategy
+
+All AWS resource classes are **pre-generated from CloudFormation specs** and **committed to git**. This is NOT runtime generation.
+
+**Rationale**:
+- Zero runtime dependencies
+- IDE autocomplete works immediately
+- Users can browse generated code on GitHub
+- No generation step during pip install
+- Tested, stable generated code
+
+### Type System
+
+- **CloudFormation → Python mappings**: String→str, Integer→int, Boolean→bool, etc.
+- **Union types for intrinsics**: Every property accepts literal values OR CloudFormation functions (Ref, GetAtt, Sub, etc.)
+- **PascalCase → snake_case**: CloudFormation properties like `BucketName` become `bucket_name`
+- **Forward references**: Handle circular dependencies between resources
+
+### Validation Strategy (Two-Layer)
+
+1. **Static Type Checking** (mypy/pyright) - Catches type errors at development time
+2. **CloudFormation Validation** - AWS validates during deployment/template validation
+
+**No Pydantic or runtime validation libraries** - keeps dependencies minimal, lets CloudFormation be the source of truth.
+
+## Project Structure
+
+```
+src/cloudformation_dataclasses/
+├── core/                # Base classes
+│   ├── base.py         # CloudFormationResource, Tag, DeploymentContext
+│   └── template.py     # Template, Parameter, Output, Condition
+├── intrinsics/         # Type-safe CloudFormation functions
+│   └── functions.py    # Ref, GetAtt, Sub, Join, If, etc.
+├── codegen/            # Code generation tools (build-time only)
+│   ├── spec_parser.py  # Download and parse AWS CloudFormation specs
+│   └── generator.py    # Generate dataclass code from specs
+└── aws/                # GENERATED - All AWS resources (committed to git)
+    ├── s3.py          # ~5,000 lines
+    ├── ec2.py         # ~15,000 lines
+    ├── lambda_.py     # ~2,000 lines
+    └── ...            # ~300+ service modules
+```
+
+## Development Commands
+
+### Setup
+
+```bash
+# Clone and install development dependencies
+uv sync --all-extras
+```
+
+### Code Generation
+
+```bash
+# Regenerate ALL AWS resource classes from latest CloudFormation spec
+./scripts/regenerate.sh
+
+# Or manually:
+python -m cloudformation_dataclasses.codegen.spec_parser download
+python -m cloudformation_dataclasses.codegen.generator --all
+uv run black src/cloudformation_dataclasses/aws/
+
+# Regenerate specific service only
+python -m cloudformation_dataclasses.codegen.generator --service s3
+```
+
+### Testing
+
+```bash
+# Run all tests
+uv run pytest tests/ -v
+
+# Run with coverage
+uv run pytest tests/ -v --cov
+
+# Run specific test file
+uv run pytest tests/test_s3.py -v
+
+# Run specific test
+uv run pytest tests/test_s3.py::test_bucket_serialization -v
+```
+
+### Type Checking
+
+```bash
+# Type check entire codebase
+uv run mypy src/cloudformation_dataclasses/
+
+# Type check specific module
+uv run mypy src/cloudformation_dataclasses/core/
+```
+
+### Linting and Formatting
+
+```bash
+# Format code
+uv run black src/ tests/
+
+# Lint
+uv run ruff check src/ tests/
+```
+
+### Building
+
+```bash
+# Full build pipeline (download spec, generate, format, test, build)
+./scripts/build.sh
+
+# Build package only
+uv build
+```
+
+## Critical Implementation Rules
+
+### 1. Block/Wrapper Syntax (Not Imperative)
+
+**ALWAYS use wrapper dataclasses** - never use imperative instantiation:
+
+```python
+# ✅ CORRECT - Block syntax with wrapper
+@dataclass
+class MyBucket:
+    resource: Bucket
+    bucket_name: str = "my-bucket"
+    versioning_configuration: VersioningConfiguration
+
+my_bucket = MyBucket()
+
+# ❌ WRONG - Imperative syntax
+bucket = Bucket(bucket_name="my-bucket", versioning_configuration=...)
+```
+
+### 2. Resource Naming
+
+CloudFormation resource names do NOT include service prefixes:
+- Class name: `Instance` (not `EC2Instance`)
+- Namespacing via module: `from cloudformation_dataclasses.aws.ec2 import Instance`
+
+### 3. Generated Code Management
+
+- Generated files in `src/cloudformation_dataclasses/aws/*.py` are **committed to git**
+- Every generated file includes a header: `⚠️ AUTO-GENERATED FILE - DO NOT EDIT MANUALLY`
+- Never manually edit generated files - regenerate instead
+- Format generated code with Black before committing
+
+### 4. Dependencies
+
+**Runtime dependencies**: NONE (zero dependencies!)
+- The published package has no required dependencies
+- Optional: `pyyaml` for YAML serialization via `pip install cloudformation_dataclasses[yaml]`
+
+**Development dependencies** (NOT shipped):
+- `black` - Format generated code (build-time only)
+- `mypy` - Static type checking
+- `pytest` - Testing
+- `ruff` - Linting
+- `requests` - Download CloudFormation specs (codegen only)
+
+### 5. Python Version
+
+Requires Python 3.13+ for latest dataclass and type hint features.
+
+## Code Generation Algorithm
+
+When modifying the code generator (`codegen/generator.py`):
+
+1. **Parse CloudFormation spec** - JSON structure with ResourceTypes and PropertyTypes
+2. **Generate nested property classes first** - Complex property types become dataclasses
+3. **Map CloudFormation types to Python types** - See type mapping table in planning.md
+4. **Convert PascalCase to snake_case** - With special handling for acronyms (VPCId → vpc_id)
+5. **Handle Python keywords** - Append underscore if needed (type → type_)
+6. **Create Union types** - Allow literals OR intrinsic functions for each property
+7. **Generate typed attribute accessors** - @property methods for GetAtt attributes
+8. **Add docstrings** - From CloudFormation documentation
+9. **Format with Black** - Ensure consistent code style
+
+## Package Build and Distribution
+
+### Build System
+
+- Uses **uv** as package manager and build system
+- No explicit `[build-system]` in pyproject.toml - uv handles it automatically
+- Src-layout: `src/cloudformation_dataclasses/` for proper isolation
+
+### Pre-Generation Workflow
+
+1. Download latest CloudFormation spec from AWS
+2. Generate all resource classes (~300 services)
+3. Format with Black
+4. Type check with mypy
+5. Run tests
+6. Build wheel
+7. Publish to PyPI
+
+### Version Strategy
+
+Semantic versioning with CloudFormation spec tracking:
+- `X.Y.Z` - Major.Minor.Patch
+- Track spec version in `__spec_version__` metadata
+- Monthly releases for spec updates
+- CI/CD monitors for new specs daily
+
+## Understanding the Codebase
+
+### Key Concepts
+
+1. **CloudFormationResource** - Base class for all AWS resources, provides:
+   - `resource_type: ClassVar[str]` - AWS resource type (e.g., "AWS::S3::Bucket")
+   - `to_dict()` - Serialize to CloudFormation JSON
+   - `ref()` - Create Ref intrinsic function
+   - `get_att()` - Create GetAtt intrinsic function
+   - Auto-naming via `resource_name` property
+   - Tag merging via `all_tags` property
+
+2. **DeploymentContext** - Provides environment defaults:
+   - Component, environment, region, account_id
+   - Auto-generates resource names (e.g., "MyComponent-MyBucket-Prod-100A")
+   - Merges tags across context and resources
+
+3. **Intrinsic Functions** - Type-safe CloudFormation functions:
+   - `Ref` - Reference to logical ID
+   - `GetAtt` - Get resource attribute
+   - `Sub` - String substitution
+   - `Join`, `If`, `Select`, etc.
+
+4. **Template** - Container for CloudFormation template:
+   - Add resources, parameters, outputs, conditions
+   - Serialize to JSON/YAML
+   - Optional validation via AWS API
+
+### Reading Generated Code
+
+Generated files follow this pattern:
+
+```python
+# Header with generation metadata
+"""AWS CloudFormation EC2 Resources
+⚠️ AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
+Specification Version: 116.0.0
+Generated: 2024-01-15T10:30:00Z
+"""
+
+# Nested property type dataclasses first
+@dataclass
+class PropertyTypeClass:
+    field: Optional[Union[str, Ref]] = None
+
+# Main resource class
+@dataclass
+class ResourceClass(CloudFormationResource):
+    resource_type: ClassVar[str] = "AWS::Service::Resource"
+
+    # Properties (snake_case)
+    property_name: Optional[Union[str, Ref, GetAtt]] = None
+
+    # Typed attribute accessors
+    @property
+    def attr_name(self) -> GetAtt:
+        return self.get_att("AttributeName")
+```
+
+## Testing Strategy
+
+### Test Structure
+
+- `tests/test_generated_*.py` - Test generated AWS resource classes
+- Use wrapper dataclass pattern in test fixtures
+- Verify serialization to CloudFormation JSON
+- Test intrinsic function serialization
+- Include mypy type error tests (files that should fail type checking)
+
+### Example Test Pattern
+
+```python
+# Define wrapper dataclasses at module level
+@dataclass
+class TestBucket:
+    resource: Bucket
+    bucket_name: str = "test-bucket"
+
+def test_serialization():
+    bucket = TestBucket()
+    result = bucket.to_dict()
+    assert result["Type"] == "AWS::S3::Bucket"
+    assert result["Properties"]["BucketName"] == "test-bucket"
+```
+
+## Important References
+
+- AWS CloudFormation Resource Specification: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification.html
+- Specification JSON: https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json
+- Detailed architecture: See planning.md sections 5 (Code Generation) and 6 (Build/Distribution)

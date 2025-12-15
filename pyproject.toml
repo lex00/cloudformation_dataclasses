@@ -1,0 +1,105 @@
+[project]
+name = "cloudformation_dataclasses"
+version = "0.1.0"  # Package version (independent of spec/generator versions)
+description = "Python dataclasses for AWS CloudFormation template synthesis"
+readme = "README.md"
+authors = [
+    { name = "lex00", email = "121451605+lex00@users.noreply.github.com" }
+]
+license = { text = "MIT" }
+requires-python = ">=3.13"
+keywords = ["aws", "cloudformation", "infrastructure", "iac", "dataclasses"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Systems Administration",
+]
+
+dependencies = []  # Zero runtime dependencies!
+
+[project.optional-dependencies]
+yaml = [
+    "pyyaml>=6.0",  # For YAML template serialization
+]
+dev = [
+    # Development/build-time only - NOT shipped with the package
+    "mypy>=1.8",
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+    "ruff>=0.1",
+    "black>=23.12",
+    "requests>=2.31",  # For downloading CloudFormation specs during codegen
+]
+
+[project.urls]
+Homepage = "https://github.com/lex00/cloudformation_dataclasses"
+Repository = "https://github.com/lex00/cloudformation_dataclasses"
+Issues = "https://github.com/lex00/cloudformation_dataclasses/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cloudformation_dataclasses"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+    "/README.md",
+    "/LICENSE",
+    "/pyproject.toml",
+]
+exclude = [
+    "/.git",
+    "/.venv",
+    "/.pytest_cache",
+    "/__pycache__",
+    "*.pyc",
+    "/tests",
+    "/examples",
+    "/.cloudformation_spec_cache",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "mypy>=1.8",
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+    "ruff>=0.1",
+    "black>=23.12",
+]
+
+[tool.black]
+line-length = 100
+target-version = ['py313']
+include = '\.pyi?$'
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --cov=cloudformation_dataclasses --cov-report=term-missing"
+
+[tool.coverage.run]
+source = ["src/cloudformation_dataclasses"]
+omit = [
+    "*/tests/*",
+    "*/codegen/*",  # Exclude code generation tools from coverage
+]

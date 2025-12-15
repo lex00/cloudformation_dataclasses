@@ -1,0 +1,17 @@
+include README.md
+include LICENSE
+include pyproject.toml
+
+# Include all Python files
+recursive-include src *.py
+recursive-include src *.pyi
+
+# Exclude development files
+exclude .gitignore
+exclude .python-version
+recursive-exclude tests *
+recursive-exclude examples *
+recursive-exclude .cloudformation_spec_cache *
+recursive-exclude * __pycache__
+recursive-exclude * *.pyc
+recursive-exclude * *.pyo
