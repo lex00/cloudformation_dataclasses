@@ -65,8 +65,8 @@ exclude = [
     "/.cloudformation_spec_cache",
 ]
 
-[tool.uv]
-dev-dependencies = [
+[dependency-groups]
+dev = [
     "mypy>=1.8",
     "pytest>=7.4",
     "pytest-cov>=4.1",
