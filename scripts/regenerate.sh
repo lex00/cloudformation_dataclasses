@@ -140,9 +140,13 @@ fi
 # Determine services to regenerate
 if [ "$REGENERATE_ALL" = true ]; then
     warn "Regenerating ALL services (this may take a while)..."
-    # Get list of all services
+    # Get list of all services (macOS-compatible)
     ALL_SERVICES=$(uv run python -m cloudformation_dataclasses.codegen.spec_parser list-services 2>/dev/null | grep -E "^\s+\w+" | awk '{print $1}' | tr -d ':')
-    readarray -t SERVICES <<< "$ALL_SERVICES"
+    # Convert to array (works on bash 3.2+)
+    SERVICES=()
+    while IFS= read -r line; do
+        [ -n "$line" ] && SERVICES+=("$line")
+    done <<< "$ALL_SERVICES"
 elif [ ${#SERVICES[@]} -eq 0 ]; then
     error "No services specified. Use --list to see available services."
     echo ""
