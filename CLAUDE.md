@@ -15,17 +15,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Every CloudFormation resource is wrapped in a user-defined dataclass with a `resource:` field:
 
 ```python
-@dataclass
+@cloudformation_dataclass
 class MyVPC:
     resource: VPC
     cidr_block: str = "10.0.0.0/16"
     enable_dns_hostnames: bool = True
 
-@dataclass
+@cloudformation_dataclass
 class MySubnet:
     resource: Subnet
     cidr_block: str = "10.0.1.0/24"
-    vpc_id: MyVPC.ref()  # Cross-resource reference in field declaration
+    vpc_id = ref(MyVPC)  # Cross-resource reference via ref() helper
 ```
 
 **Key point**: ALL wiring happens inside dataclass field declarations, not at instantiation.
@@ -200,7 +200,7 @@ When modifying the code generator (`codegen/generator.py`):
 
 1. **Parse CloudFormation spec** - JSON structure with ResourceTypes and PropertyTypes
 2. **Generate nested property classes first** - Complex property types become dataclasses
-3. **Map CloudFormation types to Python types** - See type mapping table in planning.md
+3. **Map CloudFormation types to Python types** - String→str, Integer→int, Boolean→bool, Json→Dict[str, Any], etc.
 4. **Convert PascalCase to snake_case** - With special handling for acronyms (VPCId → vpc_id)
 5. **Handle Python keywords** - Append underscore if needed (type → type_)
 6. **Create Union types** - Allow literals OR intrinsic functions for each property
@@ -323,4 +323,3 @@ def test_serialization():
 
 - AWS CloudFormation Resource Specification: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification.html
 - Specification JSON: https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json
-- Detailed architecture: See planning.md sections 5 (Code Generation) and 6 (Build/Distribution)

@@ -15,6 +15,7 @@ from cloudformation_dataclasses.core import (
     cloudformation_dataclass,
     ref,
 )
+from cloudformation_dataclasses.intrinsics import Sub
 
 __all__ = [
     "Bucket",
@@ -28,4 +29,5 @@ __all__ = [
     "Template",
     "cloudformation_dataclass",
     "ref",
+    "Sub",
 ]

@@ -2,7 +2,7 @@
 
 **Status as of 2025-12-14**
 
-This checklist tracks implementation progress based on [planning.md](planning.md).
+This checklist tracks implementation progress.
 
 ---
 

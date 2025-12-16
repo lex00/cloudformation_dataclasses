@@ -13,7 +13,7 @@ class DenyUnencryptedUploadsStatement:
     sid = "DenyUnencryptedObjectUploads"
     principal = "*"
     action = "s3:PutObject"
-    resource_arn = {"Fn::Sub": "arn:aws:s3:::${MyData}/*"}
+    resource_arn = Sub("${MyData.Arn}/*")
     condition = {
         "StringNotEquals": {"s3:x-amz-server-side-encryption": "AES256"}
     }

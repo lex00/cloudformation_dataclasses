@@ -643,7 +643,7 @@ uv run python -m cloudformation_dataclasses.codegen.spec_parser version
 
 - **Issues**: https://github.com/lex00/cloudformation_dataclasses/issues
 - **Discussions**: https://github.com/lex00/cloudformation_dataclasses/discussions
-- **Documentation**: See README.md and planning.md
+- **Documentation**: See README.md and CLAUDE.md
 
 ---
 
@@ -651,7 +651,6 @@ uv run python -m cloudformation_dataclasses.codegen.spec_parser version
 
 - **User Guide**: [README.md](README.md) - End-user documentation
 - **Changelog**: [CHANGELOG.md](CHANGELOG.md) - Version history and release notes
-- **Planning Document**: [planning.md](planning.md) - Architecture and design
 - **Project Checklist**: [CHECKLIST.md](CHECKLIST.md) - Progress tracker
 - **CloudFormation Docs**: https://docs.aws.amazon.com/AWSCloudFormation/
 

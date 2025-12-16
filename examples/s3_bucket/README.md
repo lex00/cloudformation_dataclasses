@@ -23,7 +23,7 @@ class DenyUnencryptedUploadsStatement:
     sid = "DenyUnencryptedObjectUploads"
     principal = "*"
     action = "s3:PutObject"
-    resource_arn = {"Fn::Sub": "arn:aws:s3:::${MyData}/*"}
+    resource_arn = Sub("${MyData.Arn}/*")
 
 # Zero boilerplate instantiation!
 bucket = MyData()
@@ -36,7 +36,7 @@ bucket = MyData()
 3. **Tag Merging** - Context's 3 base tags (Environment, Project, ManagedBy) + resource-specific tag (DataClassification) = 4 total tags in CloudFormation template
 4. **Declarative Wrapper Classes** - Reusable configuration components for encryption, versioning, and IAM policies
 5. **Cross-Resource References** - Using `ref()` to reference other resources (bucket policy → bucket)
-6. **CloudFormation Intrinsic Functions** - Using `{"Fn::Sub": "..."}` for string substitution with resource references
+6. **CloudFormation Intrinsic Functions** - Using `Sub()` for string substitution with resource ARN references
 7. **Zero Boilerplate** - All config in class declarations, instantiation with `MyData()` requires no parameters
 
 ## Running the Example
@@ -128,7 +128,7 @@ Bucket Tags: 4 total (3 from context + 1 resource-specific)
               "Principal": "*",
               "Action": "s3:PutObject",
               "Resource": {
-                "Fn::Sub": "arn:aws:s3:::${MyData}/*"
+                "Fn::Sub": "${MyData.Arn}/*"
               },
               "Condition": {
                 "StringNotEquals": {
@@ -289,7 +289,7 @@ class DenyUnencryptedUploadsStatement:
     sid = "DenyUnencryptedObjectUploads"
     principal = "*"
     action = "s3:PutObject"
-    resource_arn = {"Fn::Sub": "arn:aws:s3:::${MyData}/*"}
+    resource_arn = Sub("${MyData.Arn}/*")  # Use Sub() with GetAtt shorthand
     condition = {"StringNotEquals": {"s3:x-amz-server-side-encryption": "AES256"}}
 
 @cloudformation_dataclass
@@ -298,7 +298,9 @@ class EncryptionRequiredPolicyDocument:
     statement = [DenyUnencryptedUploadsStatement]
 ```
 
-**Note**: Uses `resource_arn` instead of `resource` to avoid naming conflict with wrapper pattern's `resource:` field.
+**Notes**:
+- Uses `resource_arn` instead of `resource` to avoid naming conflict with wrapper pattern's `resource:` field
+- `Sub("${MyData.Arn}/*")` uses CloudFormation's Sub shorthand for GetAtt: `${LogicalId.Attribute}`
 
 ### 4. Cross-Resource References
 
@@ -384,5 +386,4 @@ class MyData:
 
 For more information, see:
 - [Main Project README](../../README.md)
-- [Planning Document](../../planning.md)
 - [CLAUDE.md](../../CLAUDE.md) - Development guide

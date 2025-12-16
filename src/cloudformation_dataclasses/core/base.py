@@ -65,6 +65,12 @@ class PolicyStatement:
     resource_arn: Any = None
     condition: Optional[dict[str, Any]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Serialize a value, handling intrinsic functions."""
+        if hasattr(value, "to_dict"):
+            return value.to_dict()
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize statement to IAM policy format."""
         stmt: dict[str, Any] = {"Effect": self.effect}
@@ -72,11 +78,11 @@ class PolicyStatement:
         if self.sid:
             stmt["Sid"] = self.sid
         if self.principal is not None:
-            stmt["Principal"] = self.principal
+            stmt["Principal"] = self._serialize_value(self.principal)
         if self.action is not None:
-            stmt["Action"] = self.action
+            stmt["Action"] = self._serialize_value(self.action)
         if self.resource_arn is not None:
-            stmt["Resource"] = self.resource_arn
+            stmt["Resource"] = self._serialize_value(self.resource_arn)
         if self.condition is not None:
             stmt["Condition"] = self.condition
 
