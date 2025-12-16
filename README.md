@@ -55,11 +55,11 @@ print(__version__)  # Package version: 0.1.0
 print_version_info()  # Detailed version information
 ```
 
-**Current Release: v0.1.0**
-- Package: `0.1.0`
+**Current Release: v0.2.0**
+- Package: `0.2.0`
 - CloudFormation Spec: `227.0.0`
 - Generator: `1.0.0`
-- Available Resources: AWS S3 (10 resources)
+- Available Resources: All 262 AWS services (1,502 resource types)
 
 ## Quick Start
 
@@ -252,16 +252,16 @@ class MySpecial:
 - ✅ **Complete intrinsic functions** - Ref, GetAtt, Sub, Join, If, Select, Split, etc.
 - ✅ **Template system** - Template, Parameter, Output, Condition, Mapping with validation
 - ✅ **Code generator** - Auto-generate from CloudFormation specs with full serialization
-- ✅ **S3 resources** - Complete S3 service generated and tested (2,969 lines, 56 resources)
+- ✅ **All AWS services** - Complete generation of all 262 AWS services (1,502 resource types)
+- ✅ **Comprehensive test suite** - 128 tests covering framework, intrinsics, wrapper pattern, and S3 integration
 - ✅ **Inline dict support** - Tags and simple properties work with inline dicts
 - ✅ **Nested configuration** - Mix wrapper classes and inline dicts as needed
 
 ### In Progress
 
-- 🚧 **Generate remaining services** - 261 more AWS services available (1,446 resources)
 - 🚧 **Extended examples** - EC2, Lambda, DynamoDB, API Gateway, etc.
-- 🚧 **Comprehensive test suite** - Unit tests for all generated resources
-- 🚧 **Documentation** - API docs, tutorials, best practices guide
+- 🚧 **API documentation** - Auto-generated docs from docstrings
+- 🚧 **Best practices guide** - Patterns and recommendations for common use cases
 
 ## Code Generation
 

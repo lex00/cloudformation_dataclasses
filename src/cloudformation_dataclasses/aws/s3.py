@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 227.0.0
   Generator Version: 1.0.0
   Combined: spec-227.0.0_gen-1.0.0
-  Generated: 2025-12-15 13:18:57
+  Generated: 2025-12-15 17:57:34
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service S3

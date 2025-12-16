@@ -8,9 +8,78 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Planning
-- Additional AWS services (EC2, Lambda, IAM, DynamoDB, etc.)
-- Comprehensive documentation (API reference, tutorials)
+- Extended examples (EC2, Lambda, DynamoDB, API Gateway, etc.)
+- API documentation site (auto-generated from docstrings)
+- Best practices guide and tutorials
 - Contributing guidelines and code of conduct
+
+---
+
+## [0.2.0] - 2025-12-15
+
+### Added
+
+**Complete AWS Service Coverage**
+- Generated all 262 AWS services from CloudFormation spec
+- 1,502 resource types now available
+- 8,117 property types across all services
+- Full support for: EC2, Lambda, IAM, DynamoDB, RDS, ECS, EKS, SageMaker, and 254 more services
+
+**Comprehensive Test Suite**
+- 128 total tests (up from 19 in v0.1.0)
+- **Framework tests** (114 tests):
+  - 47 tests for intrinsic functions (Ref, GetAtt, Sub, Join, If, Select, Split, etc.)
+  - 41 tests for core base classes (CloudFormationResource, Tag, DeploymentContext, PolicyDocument)
+  - 26 tests for wrapper decorator and DeferredRef/DeferredGetAtt patterns
+- **Integration tests** (14 tests):
+  - S3 resource integration tests
+  - Template generation and serialization
+  - Cross-resource references
+  - Context-driven naming and tag merging
+- Test coverage: ~36% (focused on framework functionality)
+- All tests resource-agnostic for fast execution
+
+**Documentation**
+- Comprehensive test suite documentation ([tests/README.md](tests/README.md))
+- Test philosophy and organization guide
+- Framework vs integration test strategy
+
+### Changed
+- Updated README to reflect complete AWS service coverage
+- Improved project status section with accurate completion status
+
+### Technical Details
+
+**Versions**
+- Package version: 0.2.0
+- CloudFormation spec: 227.0.0 (December 2024)
+- Generator version: 1.0.0
+- Combined: spec-227.0.0_gen-1.0.0
+
+**Generated Code Statistics**
+- AWS Services: 262 (up from 1 in v0.1.0)
+- Resource Types: 1,502 (up from 10)
+- Property Types: 8,117 (up from 56)
+- Top services by resource count:
+  - EC2: 110 resources
+  - SageMaker: 34 resources
+  - Connect: 31 resources
+  - IoT: 30 resources
+  - Glue: 24 resources
+
+**Test Coverage**
+- Total tests: 128 (up from 19)
+- Framework tests: 114
+- Integration tests: 14
+- Coverage: ~36% (focused on tested paths)
+- Execution time: ~0.2 seconds for all tests
+
+**Build Artifacts**
+- Package size: 1.9 MB (wheel)
+- Source distribution: 1.7 MB (tar.gz)
+
+### Fixed
+- macOS compatibility in regenerate.sh script (replaced `readarray` with bash 3.2-compatible loop)
 
 ---
 
