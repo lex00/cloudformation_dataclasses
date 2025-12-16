@@ -82,74 +82,75 @@ print(template.to_json())
 See [examples/s3_bucket/](examples/s3_bucket/) for a complete modular example with deployment context, encryption, and bucket policies.
 
 ```python
-# Deployment context with environment defaults and shared tags
+# context.py - Deployment context with environment defaults and shared tags
 @cloudformation_dataclass
-class ProdContext:
+class ProdDeploymentContext:
     context: DeploymentContext
-    component = "DataPlatform"
-    stage = "prod"
-    deployment_name = "001"
-    deployment_group = "blue"
-    region = "us-east-1"
+    component: str = "DataPlatform"
+    stage: str = "prod"
+    deployment_name: str = "001"
+    deployment_group: str = "blue"  # For blue/green deployments
+    region: str = "us-east-1"
     tags = [
         {"Key": "Environment", "Value": "Production"},
-        {"Key": "ManagedBy", "Value": "cloudformation-dataclasses"}
+        {"Key": "Project", "Value": "MyApplication"},
+        {"Key": "ManagedBy", "Value": "cloudformation-dataclasses"},
     ]
 
-ctx = ProdContext()
+ctx = ProdDeploymentContext()
 
-# Nested configuration using wrapper dataclasses
+# bucket.py - Nested encryption configuration using wrapper dataclasses
 @cloudformation_dataclass
-class EncryptionByDefault:
+class MyServerSideEncryptionByDefault:
     resource: ServerSideEncryptionByDefault
     sse_algorithm = "AES256"
 
 @cloudformation_dataclass
-class EncryptionRule:
+class MyServerSideEncryptionRule:
     resource: ServerSideEncryptionRule
-    server_side_encryption_by_default = EncryptionByDefault
+    server_side_encryption_by_default = MyServerSideEncryptionByDefault
 
 @cloudformation_dataclass
-class BucketEncryptionConfig:
+class MyBucketEncryption:
     resource: BucketEncryption
-    server_side_encryption_configuration = [EncryptionRule]
+    server_side_encryption_configuration = [MyServerSideEncryptionRule]
 
 # S3 bucket with context, tags, encryption, and versioning
 @cloudformation_dataclass
-class DataBucket:
+class MyData:
     resource: Bucket
     context = ctx
     tags = [{"Key": "DataClassification", "Value": "sensitive"}]
-    bucket_encryption = BucketEncryptionConfig
+    bucket_encryption = MyBucketEncryption
     versioning_configuration = {"Status": "Enabled"}
 
-# Bucket policy requiring encrypted uploads
+# bucket_policy.py - Bucket policy requiring encrypted uploads
 @cloudformation_dataclass
-class DenyUnencryptedUploads:
+class DenyUnencryptedUploadsStatement:
     resource: DenyStatement
     sid = "DenyUnencryptedObjectUploads"
     principal = "*"
     action = "s3:PutObject"
-    resource_arn = {"Fn::Sub": "arn:aws:s3:::${DataBucket}/*"}
+    resource_arn = {"Fn::Sub": "arn:aws:s3:::${MyData}/*"}
     condition = {"StringNotEquals": {"s3:x-amz-server-side-encryption": "AES256"}}
 
 @cloudformation_dataclass
-class EncryptionPolicy:
+class EncryptionRequiredPolicyDocument:
     resource: PolicyDocument
-    statement = [DenyUnencryptedUploads]
+    statement = [DenyUnencryptedUploadsStatement]
 
 @cloudformation_dataclass
-class DataBucketPolicy:
+class MyDataPolicy:
     resource: BucketPolicy
     context = ctx
-    bucket = ref(DataBucket)
-    policy_document = EncryptionPolicy
+    bucket = ref(MyData)
+    policy_document = EncryptionRequiredPolicyDocument
 
-# Create template
-bucket = DataBucket()
-policy = DataBucketPolicy()
+# main.py - Create and export template
+bucket = MyData()
+policy = MyDataPolicy()
 
-template = Template(description="S3 bucket with encryption policy")
+template = Template(description="S3 bucket with encryption-required policy")
 template.add_resource(bucket)
 template.add_resource(policy)
 
@@ -178,7 +179,7 @@ The library automatically generates resource names from class names and deployme
 ```python
 # Context defines the naming pattern
 @cloudformation_dataclass
-class ProdContext:
+class ProdDeploymentContext:
     context: DeploymentContext
     component: str = "DataPlatform"          # Application/service component
     stage: str = "prod"                       # Environment stage (dev, staging, prod)
@@ -186,6 +187,8 @@ class ProdContext:
     deployment_group: str = "blue"            # For blue/green deployments
     region: str = "us-east-1"                 # AWS region
     # Default pattern: {component}-{resource_name}-{stage}-{deployment_name}-{deployment_group}-{region}
+
+ctx = ProdDeploymentContext()
 
 # Class name becomes resource_name in the pattern
 @cloudformation_dataclass
@@ -208,9 +211,9 @@ bucket = MyData()
 **Blue/Green Deployments**:
 ```python
 # Blue deployment (current production)
-ctx_blue = ProdContext(deployment_group="blue")
+ctx_blue = ProdDeploymentContext(deployment_group="blue")
 # Green deployment (new version)
-ctx_green = ProdContext(deployment_group="green")
+ctx_green = ProdDeploymentContext(deployment_group="green")
 
 # Creates separate resource sets for zero-downtime deployments:
 # DataPlatform-MyData-prod-001-blue-us-east-1
