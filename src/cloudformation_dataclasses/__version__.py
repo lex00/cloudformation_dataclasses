@@ -14,7 +14,7 @@ from cloudformation_dataclasses.codegen.config import (
 )
 
 # Package version (from pyproject.toml)
-__version__ = "0.1.0"
+__version__ = "0.2.1"
 
 # CloudFormation spec and generator versions
 __cf_spec_version__ = CLOUDFORMATION_SPEC_VERSION
@@ -45,9 +45,7 @@ def print_version_info() -> None:
     print(f"  Generator version: {__generator_version__}")
     print(f"  Combined: {__combined_version__}")
     print(f"\nGenerated resources:")
-    print(f"  - AWS S3 (10 resources)")
-    print(f"\nTo generate more services:")
-    print(f"  uv run python -m cloudformation_dataclasses.codegen.generator --service <SERVICE>")
+    print(f"  - All 262 AWS services (1,502 resource types)")
 
 
 if __name__ == "__main__":
