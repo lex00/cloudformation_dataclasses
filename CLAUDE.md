@@ -248,8 +248,8 @@ Semantic versioning with CloudFormation spec tracking:
    - Tag merging via `all_tags` property
 
 2. **DeploymentContext** - Provides environment defaults:
-   - Component, environment, region, account_id
-   - Auto-generates resource names (e.g., "MyComponent-MyBucket-Prod-100A")
+   - Project name, component, environment, region, account_id
+   - Auto-generates resource names (e.g., "MyProject-MyComponent-MyBucket-prod-001-blue-us-east-1")
    - Merges tags across context and resources
 
 3. **Intrinsic Functions** - Type-safe CloudFormation functions:

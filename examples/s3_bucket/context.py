@@ -10,10 +10,11 @@ class ProdDeploymentContext:
 
     Provides environment defaults, naming conventions, and shared tags.
 
-    Resource naming pattern: {component}-{resource_name}-{stage}-{deployment_name}-{deployment_group}-{region}
+    Resource naming pattern: {project_name}-{component}-{resource_name}-{stage}-{deployment_name}-{deployment_group}-{region}
+    - project_name is the top-level project/organization name
     - resource_name comes directly from class name (e.g., MyData)
     - deployment_group is used for blue/green deployments
-    - Example: DataPlatform-MyData-prod-001-blue-us-east-1
+    - Example: analytics-DataPlatform-MyData-prod-001-blue-us-east-1
     """
 
     context: DeploymentContext

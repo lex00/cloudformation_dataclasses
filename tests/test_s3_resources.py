@@ -257,6 +257,7 @@ def test_context_driven_naming():
     @cloudformation_dataclass
     class ProdContext:
         context: DeploymentContext
+        project_name = "acme"
         component = "TestApp"
         stage = "test"
         deployment_name = "001"
@@ -274,16 +275,17 @@ def test_context_driven_naming():
 
     # Verify context naming pattern
     # Class name: MyTestBucket
-    # Pattern: {component}-{resource_name}-{stage}-{deployment_name}-{deployment_group}-{region}
+    # Pattern: {project_name}-{component}-{resource_name}-{stage}-{deployment_name}-{deployment_group}-{region}
     assert (
         bucket.resource.resource_name
-        == "TestApp-MyTestBucket-test-001-blue-us-east-1"
+        == "acme-TestApp-MyTestBucket-test-001-blue-us-east-1"
     )
 
     # Verify logical ID comes from wrapper class name
     assert bucket.resource.logical_id == "MyTestBucket"
 
     # Verify context values
+    assert ctx.project_name == "acme"
     assert ctx.component == "TestApp"
     assert ctx.stage == "test"
     assert ctx.deployment_name == "001"
