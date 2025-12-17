@@ -251,31 +251,150 @@ class Template:
                 f"got {type(resource).__name__}"
             )
 
-    def add_parameter(self, name: str, parameter: Parameter) -> None:
+    def add_parameter(
+        self, name_or_parameter: str | Parameter | Any, parameter: Parameter | Any | None = None
+    ) -> None:
         """
         Add a parameter to the template.
 
+        Supports both direct Parameter objects and wrapper dataclasses.
+        When passing a wrapper dataclass, the name can be inferred from the class name.
+
         Args:
-            name: Parameter name (logical ID)
-            parameter: Parameter definition
+            name_or_parameter: Parameter name (logical ID) or wrapper dataclass instance
+            parameter: Parameter definition (only when name is provided as first arg)
 
-        Example:
-            >>> template.add_parameter("Environment", environment_param)
+        Example (direct parameter):
+            >>> template.add_parameter("Environment", Parameter(type="String"))
+
+        Example (wrapper dataclass with explicit name):
+            >>> template.add_parameter("Environment", Environment())
+
+        Example (wrapper dataclass with inferred name):
+            >>> @cloudformation_dataclass
+            >>> class Environment:
+            >>>     resource: Parameter
+            >>>     type = "String"
+            >>>     default = "dev"
+            >>>
+            >>> template.add_parameter(Environment())  # name inferred as "Environment"
         """
-        self.parameters[name] = parameter
+        from cloudformation_dataclasses.core.wrapper import (
+            create_wrapped_resource,
+            is_wrapper_dataclass,
+        )
 
-    def add_output(self, name: str, output: Output) -> None:
+        # Handle single-argument form: add_parameter(WrapperClass())
+        if parameter is None:
+            if is_wrapper_dataclass(type(name_or_parameter)):
+                name = type(name_or_parameter).__name__
+                param = create_wrapped_resource(name_or_parameter)
+                if isinstance(param, Parameter):
+                    self.parameters[name] = param
+                else:
+                    raise TypeError(
+                        f"Wrapper {type(name_or_parameter).__name__} wraps "
+                        f"{type(param).__name__}, expected Parameter"
+                    )
+            else:
+                raise TypeError(
+                    f"Single argument must be a wrapper dataclass, "
+                    f"got {type(name_or_parameter).__name__}"
+                )
+            return
+
+        # Handle two-argument form: add_parameter("Name", param)
+        name = name_or_parameter
+        if not isinstance(name, str):
+            raise TypeError(f"Parameter name must be a string, got {type(name).__name__}")
+
+        if is_wrapper_dataclass(type(parameter)):
+            param = create_wrapped_resource(parameter)
+            if isinstance(param, Parameter):
+                self.parameters[name] = param
+            else:
+                raise TypeError(
+                    f"Wrapper {type(parameter).__name__} wraps {type(param).__name__}, "
+                    "expected Parameter"
+                )
+        elif isinstance(parameter, Parameter):
+            self.parameters[name] = parameter
+        else:
+            raise TypeError(
+                f"Expected Parameter or wrapper dataclass, got {type(parameter).__name__}"
+            )
+
+    def add_output(
+        self, name_or_output: str | Output | Any, output: Output | Any | None = None
+    ) -> None:
         """
         Add an output to the template.
 
-        Args:
-            name: Output name (logical ID)
-            output: Output definition
+        Supports both direct Output objects and wrapper dataclasses.
+        When passing a wrapper dataclass, the name can be inferred from the class name.
 
-        Example:
-            >>> template.add_output("VPCId", vpc_id_output)
+        Args:
+            name_or_output: Output name (logical ID) or wrapper dataclass instance
+            output: Output definition (only when name is provided as first arg)
+
+        Example (direct output):
+            >>> template.add_output("VPCId", Output(value=Ref("MyVPC")))
+
+        Example (wrapper dataclass with explicit name):
+            >>> template.add_output("VPCId", VPCId())
+
+        Example (wrapper dataclass with inferred name):
+            >>> @cloudformation_dataclass
+            >>> class VPCId:
+            >>>     resource: Output
+            >>>     value = ref(MyVPC)
+            >>>
+            >>> template.add_output(VPCId())  # name inferred as "VPCId"
         """
-        self.outputs[name] = output
+        from cloudformation_dataclasses.core.wrapper import (
+            create_wrapped_resource,
+            is_wrapper_dataclass,
+        )
+
+        # Handle single-argument form: add_output(WrapperClass())
+        if output is None:
+            if is_wrapper_dataclass(type(name_or_output)):
+                name = type(name_or_output).__name__
+                out = create_wrapped_resource(name_or_output)
+                if isinstance(out, Output):
+                    self.outputs[name] = out
+                else:
+                    raise TypeError(
+                        f"Wrapper {type(name_or_output).__name__} wraps "
+                        f"{type(out).__name__}, expected Output"
+                    )
+            else:
+                raise TypeError(
+                    f"Single argument must be a wrapper dataclass, "
+                    f"got {type(name_or_output).__name__}"
+                )
+            return
+
+        # Handle two-argument form: add_output("Name", output)
+        name = name_or_output
+        if not isinstance(name, str):
+            raise TypeError(f"Output name must be a string, got {type(name).__name__}")
+
+        if is_wrapper_dataclass(type(output)):
+            out = create_wrapped_resource(output)
+            if isinstance(out, Output):
+                self.outputs[name] = out
+            else:
+                raise TypeError(
+                    f"Wrapper {type(output).__name__} wraps {type(out).__name__}, "
+                    "expected Output"
+                )
+        elif isinstance(output, Output):
+            self.outputs[name] = output
+        else:
+            raise TypeError(
+                f"Expected Output or wrapper dataclass, got {type(output).__name__}"
+            )
 
     def add_condition(self, name: str, condition: Condition) -> None:
         """
