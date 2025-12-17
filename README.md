@@ -55,8 +55,8 @@ print(__version__)  # Package version: 0.1.0
 print_version_info()  # Detailed version information
 ```
 
-**Current Release: v0.2.0**
-- Package: `0.2.0`
+**Current Release: v0.2.1**
+- Package: `0.2.1`
 - CloudFormation Spec: `227.0.0`
 - Generator: `1.0.0`
 - Available Resources: All 262 AWS services (1,502 resource types)
@@ -125,13 +125,15 @@ class MyData:
     versioning_configuration = {"Status": "Enabled"}
 
 # bucket_policy.py - Bucket policy requiring encrypted uploads
+from cloudformation_dataclasses.intrinsics import Sub
+
 @cloudformation_dataclass
 class DenyUnencryptedUploadsStatement:
     resource: DenyStatement
     sid = "DenyUnencryptedObjectUploads"
     principal = "*"
     action = "s3:PutObject"
-    resource_arn = {"Fn::Sub": "arn:aws:s3:::${MyData}/*"}
+    resource_arn = Sub("${MyData.Arn}/*")  # CloudFormation Sub with GetAtt shorthand
     condition = {"StringNotEquals": {"s3:x-amz-server-side-encryption": "AES256"}}
 
 @cloudformation_dataclass
@@ -409,7 +411,6 @@ cloudformation_dataclasses/
 │   └── aws/               # Generated resources
 ├── tests/                 # Framework validation tests
 ├── examples/              # Usage examples with focused tests
-├── planning.md            # Design document
 ├── CLAUDE.md              # Development guide
 └── README.md              # This file
 ```
@@ -424,7 +425,6 @@ cloudformation_dataclasses/
 - **User Guide**: [README.md](README.md) - This file (getting started, examples, usage)
 - **Developer Guide**: [DEVELOPERS.md](DEVELOPERS.md) - Building, testing, and publishing
 - **Changelog**: [CHANGELOG.md](CHANGELOG.md) - Version history and release notes
-- **Planning Document**: [planning.md](planning.md) - Complete architecture and design
 - **Project Checklist**: [CHECKLIST.md](CHECKLIST.md) - Implementation progress
 - **CloudFormation Spec**: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification.html
 

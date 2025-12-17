@@ -132,7 +132,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 **Documentation**
 - Comprehensive README with examples
 - Developer guide (DEVELOPERS.md)
-- Planning document (planning.md)
 - Project checklist (CHECKLIST.md)
 - S3 bucket example with encryption and policies
 
