@@ -57,7 +57,7 @@ print_version_info()  # Detailed version information
 
 **Current Release: v0.2.1**
 - Package: `0.2.1`
-- CloudFormation Spec: `227.0.0`
+- CloudFormation Spec Date: `2025.12.11` (from AWS Last-Modified header)
 - Generator: `1.0.0`
 - Available Resources: All 262 AWS services (1,502 resource types)
 

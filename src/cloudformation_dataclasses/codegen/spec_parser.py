@@ -4,6 +4,9 @@ CloudFormation spec parser and downloader.
 This module handles downloading and parsing AWS CloudFormation Resource Specifications.
 The spec is a JSON file that describes all AWS resources, their properties, and types.
 
+The spec file is committed to the repository for reproducibility. Use the 'update' command
+to download a new version from AWS.
+
 Spec URL: https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json
 """
 
@@ -13,6 +16,7 @@ import gzip
 import json
 from dataclasses import dataclass, field
 from datetime import datetime
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 from typing import Any
 
@@ -21,7 +25,16 @@ try:
 except ImportError:
     requests = None  # type: ignore
 
-from .config import CLOUDFORMATION_SPEC_VERSION, GENERATOR_VERSION, COMBINED_VERSION, SPEC_URL
+from .config import (
+    CLOUDFORMATION_SPEC_DATE,
+    GENERATOR_VERSION,
+    COMBINED_VERSION,
+    SPEC_URL,
+    SPEC_FILE,
+)
+
+# Keep legacy alias for compatibility
+CLOUDFORMATION_SPEC_VERSION = CLOUDFORMATION_SPEC_DATE
 
 
 class SpecVersionMismatchError(Exception):
@@ -283,60 +296,120 @@ def load_spec(spec_path: Path) -> CloudFormationSpec:
 
 
 def get_spec(
-    cache_dir: Path | None = None,
+    spec_file: Path | None = None,
     force_download: bool = False,
-    verify_version: bool = True,
 ) -> CloudFormationSpec:
     """
-    Get CloudFormation spec (download if needed, use cache otherwise).
+    Get CloudFormation spec from the committed spec file.
+
+    The spec file is committed to the repository for reproducibility.
+    Use the 'update' command to download a new version from AWS.
 
     Args:
-        cache_dir: Directory to cache downloaded spec (default: .cloudformation_spec_cache)
-        force_download: Force re-download even if cached
-        verify_version: Verify spec version matches pinned version (default: True)
+        spec_file: Path to spec file (default: specs/CloudFormationResourceSpecification.json)
+        force_download: Force re-download to cache (for checking updates)
 
     Returns:
         Parsed CloudFormation specification
-
-    Raises:
-        SpecVersionMismatchError: If spec version doesn't match pinned version
 
     Example:
         >>> spec = get_spec()
         >>> print(f"Spec version: {spec.spec_version}")
         >>> print(f"Services: {', '.join(spec.list_services()[:5])}...")
     """
-    if cache_dir is None:
-        cache_dir = Path(".cloudformation_spec_cache")
+    if spec_file is None:
+        spec_file = SPEC_FILE
 
-    cache_file = cache_dir / "CloudFormationResourceSpecification.json"
-
-    if force_download or not cache_file.exists():
-        spec_data = download_spec(cache_path=cache_file)
-    else:
-        print(f"Using cached spec: {cache_file}")
-        with open(cache_file, "r") as f:
-            spec_data = json.load(f)
-
-    spec = CloudFormationSpec.from_dict(spec_data)
-
-    # Verify version matches pinned version
-    if verify_version and spec.spec_version != CLOUDFORMATION_SPEC_VERSION:
-        raise SpecVersionMismatchError(
-            f"CloudFormation spec version mismatch!\n"
-            f"  Expected (pinned): {CLOUDFORMATION_SPEC_VERSION}\n"
-            f"  Downloaded: {spec.spec_version}\n\n"
-            f"This likely means AWS has released a new spec version.\n"
-            f"To update:\n"
-            f"  1. Review changes in the new spec version\n"
-            f"  2. Update CLOUDFORMATION_SPEC_VERSION in src/cloudformation_dataclasses/codegen/config.py\n"
-            f"  3. Regenerate all services: python -m cloudformation_dataclasses.codegen.generator --service <SERVICE>\n"
-            f"  4. Run tests to verify compatibility\n"
-            f"  5. Commit the updated spec and regenerated code\n\n"
-            f"To bypass version check (not recommended): get_spec(verify_version=False)"
+    if not spec_file.exists():
+        raise FileNotFoundError(
+            f"CloudFormation spec file not found: {spec_file}\n"
+            f"The spec file should be committed to the repository.\n"
+            f"Run: uv run python -m cloudformation_dataclasses.codegen.spec_parser update"
         )
 
+    print(f"Loading spec from: {spec_file}")
+    with open(spec_file, "r") as f:
+        spec_data = json.load(f)
+
+    spec = CloudFormationSpec.from_dict(spec_data)
     return spec
+
+
+def check_for_updates() -> tuple[bool, str, str]:
+    """
+    Check if a newer CloudFormation spec is available from AWS.
+
+    Returns:
+        Tuple of (has_update, current_date, remote_date)
+    """
+    if requests is None:
+        raise ImportError(
+            "requests library is required for checking updates. "
+            "Install it with: pip install cloudformation_dataclasses[dev]"
+        )
+
+    # Get Last-Modified header from AWS
+    response = requests.head(SPEC_URL, timeout=10)
+    response.raise_for_status()
+
+    last_modified = response.headers.get("Last-Modified")
+    if not last_modified:
+        raise ValueError("No Last-Modified header in response")
+
+    # Parse HTTP date format: "Thu, 11 Dec 2025 22:11:08 GMT"
+    remote_dt = parsedate_to_datetime(last_modified)
+    remote_date = remote_dt.strftime("%Y.%m.%d")
+
+    has_update = remote_date > CLOUDFORMATION_SPEC_DATE
+    return has_update, CLOUDFORMATION_SPEC_DATE, remote_date
+
+
+def update_spec() -> tuple[str, str]:
+    """
+    Download and save the latest CloudFormation spec from AWS.
+
+    Returns:
+        Tuple of (new_date, aws_version)
+    """
+    if requests is None:
+        raise ImportError(
+            "requests library is required for downloading specs. "
+            "Install it with: pip install cloudformation_dataclasses[dev]"
+        )
+
+    # Get headers first to get the date
+    head_response = requests.head(SPEC_URL, timeout=10)
+    head_response.raise_for_status()
+
+    last_modified = head_response.headers.get("Last-Modified")
+    if not last_modified:
+        raise ValueError("No Last-Modified header in response")
+
+    remote_dt = parsedate_to_datetime(last_modified)
+    new_date = remote_dt.strftime("%Y.%m.%d")
+
+    # Download the spec
+    print(f"Downloading CloudFormation spec from {SPEC_URL}...")
+    response = requests.get(SPEC_URL, timeout=60)
+    response.raise_for_status()
+
+    # Decompress
+    try:
+        content = gzip.decompress(response.content)
+        spec_data = json.loads(content)
+    except gzip.BadGzipFile:
+        spec_data = response.json()
+
+    aws_version = spec_data.get("ResourceSpecificationVersion", "Unknown")
+
+    # Save to committed spec file
+    SPEC_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(SPEC_FILE, "w") as f:
+        json.dump(spec_data, f, indent=2)
+
+    print(f"Saved spec to: {SPEC_FILE}")
+
+    return new_date, aws_version
 
 
 if __name__ == "__main__":
@@ -344,16 +417,22 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(
-        description=f"CloudFormation spec parser and downloader (pinned version: {CLOUDFORMATION_SPEC_VERSION})",
+        description=f"CloudFormation spec parser and downloader (current: {CLOUDFORMATION_SPEC_DATE})",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
 
     subparsers = parser.add_subparsers(dest="command", help="Available commands")
 
-    # Download command
-    download_parser = subparsers.add_parser(
-        "download",
-        help="Download and cache CloudFormation spec from AWS",
+    # Check command
+    check_parser = subparsers.add_parser(
+        "check",
+        help="Check if a newer CloudFormation spec is available from AWS",
+    )
+
+    # Update command
+    update_parser = subparsers.add_parser(
+        "update",
+        help="Download and save the latest CloudFormation spec from AWS",
     )
 
     # Version command
@@ -370,23 +449,40 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    if args.command == "download":
-        print(f"Pinned version: {CLOUDFORMATION_SPEC_VERSION}")
-        spec = get_spec(force_download=True)
-        print(f"\n✅ Downloaded CloudFormation spec")
-        print(f"   Version: {spec.spec_version}")
-        print(f"   Resource types: {len(spec.resource_types)}")
-        print(f"   Property types: {len(spec.property_types)}")
-        print(f"   Services: {len(spec.list_services())}")
-        print(f"\n   Services: {', '.join(spec.list_services()[:10])}...")
+    if args.command == "check":
+        print(f"Checking for CloudFormation spec updates...")
+        print(f"Current spec date: {CLOUDFORMATION_SPEC_DATE}")
+        try:
+            has_update, current, remote = check_for_updates()
+            print(f"Remote spec date:  {remote}")
+            if has_update:
+                print(f"\n🔄 Update available!")
+                print(f"   Run: uv run python -m cloudformation_dataclasses.codegen.spec_parser update")
+            else:
+                print(f"\n✅ Spec is up to date")
+        except Exception as e:
+            print(f"\n❌ Error checking for updates: {e}")
+
+    elif args.command == "update":
+        print(f"Updating CloudFormation spec...")
+        print(f"Current spec date: {CLOUDFORMATION_SPEC_DATE}")
+        try:
+            new_date, aws_version = update_spec()
+            print(f"\n✅ Downloaded CloudFormation spec")
+            print(f"   New date: {new_date}")
+            if new_date != CLOUDFORMATION_SPEC_DATE:
+                print(f"\n⚠️  Don't forget to update config.py:")
+                print(f'   CLOUDFORMATION_SPEC_DATE = "{new_date}"')
+                print(f"\n   Then regenerate services and run tests.")
+        except Exception as e:
+            print(f"\n❌ Error updating spec: {e}")
 
     elif args.command == "version":
         spec = get_spec()
         print(f"CloudFormation Code Generator Version Information:")
         print(f"\nSpec Version:")
-        print(f"  Pinned version: {CLOUDFORMATION_SPEC_VERSION}")
-        print(f"  Cached version: {spec.spec_version}")
-        print(f"  Downloaded: {spec.downloaded_at.strftime('%Y-%m-%d %H:%M:%S')}")
+        print(f"  Date (pinned): {CLOUDFORMATION_SPEC_DATE}")
+        print(f"  File version:  {spec.spec_version}")
         print(f"\nGenerator Version:")
         print(f"  Current: {GENERATOR_VERSION}")
         print(f"\nCombined Version: {COMBINED_VERSION}")
@@ -394,10 +490,7 @@ if __name__ == "__main__":
         print(f"  Resource types: {len(spec.resource_types)}")
         print(f"  Property types: {len(spec.property_types)}")
         print(f"  Services: {len(spec.list_services())}")
-        if spec.spec_version == CLOUDFORMATION_SPEC_VERSION:
-            print(f"\n✅ Spec version matches pinned version")
-        else:
-            print(f"\n⚠️  Spec version mismatch detected!")
+        print(f"\nSpec File: {SPEC_FILE}")
 
     elif args.command == "list-services":
         spec = get_spec()

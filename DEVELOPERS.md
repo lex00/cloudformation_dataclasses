@@ -226,10 +226,13 @@ The project uses **pinned versions** for reproducible builds:
 
 ```python
 # src/cloudformation_dataclasses/codegen/config.py
-CLOUDFORMATION_SPEC_VERSION = "227.0.0"  # AWS spec version
-GENERATOR_VERSION = "1.0.0"              # Our generator version
-COMBINED_VERSION = "spec-227.0.0_gen-1.0.0"
+CLOUDFORMATION_SPEC_DATE = "2025.12.11"      # Date from AWS Last-Modified header
+CLOUDFORMATION_SPEC_AWS_VERSION = "227.0.0"  # AWS's internal version (for reference)
+GENERATOR_VERSION = "1.0.0"                  # Our generator version
+COMBINED_VERSION = "spec-2025.12.11_gen-1.0.0"
 ```
+
+The CloudFormation spec file is **committed to the repository** in `specs/CloudFormationResourceSpecification.json` for reproducibility.
 
 ### Regenerating Services
 
@@ -237,8 +240,8 @@ COMBINED_VERSION = "spec-227.0.0_gen-1.0.0"
 # List available AWS services
 ./scripts/regenerate.sh --list
 
-# Verify CloudFormation spec version
-./scripts/regenerate.sh --verify-spec
+# Check for spec updates from AWS
+uv run python -m cloudformation_dataclasses.codegen.spec_parser check
 
 # Regenerate S3 service
 ./scripts/regenerate.sh S3
@@ -280,9 +283,9 @@ AWS CloudFormation S3 Resources
 ⚠️  AUTO-GENERATED FILE - DO NOT EDIT MANUALLY ⚠️
 
 Version Information:
-  CloudFormation Spec: 227.0.0
+  CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
-  Combined: spec-227.0.0_gen-1.0.0
+  Combined: spec-2025.12.11_gen-1.0.0
   Generated: 2024-12-15 13:18:57
 """
 ```
@@ -298,12 +301,12 @@ The project uses **three independent versions**:
 1. **Package Version** (`pyproject.toml`)
    ```toml
    [project]
-   version = "0.1.0"
+   version = "0.2.1"
    ```
 
-2. **CloudFormation Spec Version** (`config.py`)
+2. **CloudFormation Spec Date** (`config.py`)
    ```python
-   CLOUDFORMATION_SPEC_VERSION = "227.0.0"
+   CLOUDFORMATION_SPEC_DATE = "2025.12.11"  # Date from AWS Last-Modified header
    ```
 
 3. **Generator Version** (`config.py`)
@@ -318,8 +321,9 @@ The project uses **three independent versions**:
 - **MINOR** (0.2.0): New features, backward compatible
 - **PATCH** (0.1.1): Bug fixes, backward compatible
 
-**CloudFormation Spec Version**:
+**CloudFormation Spec Date** (YYYY.MM.DD format):
 - Update when AWS releases new CloudFormation spec
+- Date is derived from AWS's Last-Modified header
 - Always triggers regeneration of all services
 
 **Generator Version** (semantic versioning):
@@ -332,23 +336,26 @@ The project uses **three independent versions**:
 #### Updating CloudFormation Spec
 
 ```bash
-# 1. Update versions in config.py
-# CLOUDFORMATION_SPEC_VERSION = "228.0.0"  # New AWS version
-# GENERATOR_VERSION = "1.1.0"              # Bump minor
+# 1. Check for updates from AWS
+uv run python -m cloudformation_dataclasses.codegen.spec_parser check
 
-# 2. Download new spec
-uv run python -m cloudformation_dataclasses.codegen.spec_parser download
+# 2. Download and save new spec
+uv run python -m cloudformation_dataclasses.codegen.spec_parser update
 
-# 3. Regenerate services
+# 3. Update config.py with new date (shown in update output)
+# CLOUDFORMATION_SPEC_DATE = "2025.12.15"  # New date from AWS
+
+# 4. Regenerate services
 ./scripts/regenerate.sh S3
 
-# 4. Test
+# 5. Test
 ./scripts/test.sh
 
-# 5. Commit
+# 6. Commit (including the updated spec file)
+git add specs/CloudFormationResourceSpecification.json
 git add src/cloudformation_dataclasses/codegen/config.py
 git add src/cloudformation_dataclasses/aws/
-git commit -m "Update to CloudFormation spec v228.0.0 (generator v1.1.0)"
+git commit -m "Update to CloudFormation spec 2025.12.15"
 ```
 
 #### Patching Generator
@@ -358,7 +365,7 @@ git commit -m "Update to CloudFormation spec v228.0.0 (generator v1.1.0)"
 vim src/cloudformation_dataclasses/codegen/generator.py
 
 # 2. Update only generator version in config.py
-# CLOUDFORMATION_SPEC_VERSION = "227.0.0"  # Unchanged
+# CLOUDFORMATION_SPEC_DATE = "2025.12.11"  # Unchanged
 # GENERATOR_VERSION = "1.0.1"              # Patch bump
 
 # 3. Regenerate affected service
@@ -656,5 +663,5 @@ uv run python -m cloudformation_dataclasses.codegen.spec_parser version
 
 ---
 
-**Last Updated**: 2025-12-15
-**For**: v0.1.0 (spec-227.0.0_gen-1.0.0)
+**Last Updated**: 2025-12-16
+**For**: v0.2.1 (spec-2025.12.11_gen-1.0.0)
