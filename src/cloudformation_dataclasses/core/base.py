@@ -9,6 +9,7 @@ This module provides the foundational classes that all CloudFormation resources 
 
 from __future__ import annotations
 
+import warnings
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from typing import TYPE_CHECKING, Any, ClassVar, Optional
@@ -211,7 +212,19 @@ class DeploymentContext(ABC):
         formatted = naming_pattern.format(**context_vars)
         # Remove empty segments (multiple dashes, leading/trailing dashes)
         parts = [p for p in formatted.split("-") if p]
-        return "-".join(parts)
+        name = "-".join(parts)
+
+        # Warn if name exceeds AWS physical resource ID limit
+        if len(name) > 64:
+            warnings.warn(
+                f"Resource name '{name}' is {len(name)} characters, "
+                f"exceeding AWS's 64-character limit for physical resource IDs. "
+                f"Consider using a shorter naming_pattern.",
+                UserWarning,
+                stacklevel=2,
+            )
+
+        return name
 
 
 @dataclass

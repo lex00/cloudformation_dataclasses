@@ -266,6 +266,27 @@ class TestDeploymentContext:
         assert "green" in name_green
         assert name_blue != name_green
 
+    def test_deployment_context_warns_on_long_name(self):
+        """Test warning is emitted for names exceeding 64 characters."""
+        import warnings
+
+        ctx = self.TestContext(
+            project_name="very-long-project-name",
+            component="extremely-long-component-name",
+            stage="production",
+            deployment_name="deployment-001",
+            deployment_group="blue-green-canary",
+            region="us-east-1",
+        )
+
+        with warnings.catch_warnings(record=True) as w:
+            warnings.simplefilter("always")
+            name = ctx.resource_name("MyVeryLongResourceClassName")
+
+            assert len(w) == 1
+            assert "64-character limit" in str(w[0].message)
+            assert len(name) > 64
+
 
 class TestCloudFormationResource:
     """Tests for CloudFormationResource base class."""
