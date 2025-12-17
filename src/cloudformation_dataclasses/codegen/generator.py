@@ -375,7 +375,7 @@ def generate_service_module(
     lines.append("Any manual changes will be overwritten when regenerated.")
     lines.append("")
     lines.append("Version Information:")
-    lines.append(f"  CloudFormation Spec: {spec.spec_version}")
+    lines.append(f"  CloudFormation Spec: {CLOUDFORMATION_SPEC_VERSION}")
     lines.append(f"  Generator Version: {GENERATOR_VERSION}")
     lines.append(f"  Combined: {COMBINED_VERSION}")
     lines.append(f"  Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
