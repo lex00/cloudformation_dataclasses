@@ -229,10 +229,11 @@ When modifying the code generator (`codegen/generator.py`):
 ### Version Strategy
 
 Semantic versioning with CloudFormation spec tracking:
-- `X.Y.Z` - Major.Minor.Patch
-- Track spec version in `__spec_version__` metadata
-- Monthly releases for spec updates
-- CI/CD monitors for new specs daily
+- `X.Y.Z` - Major.Minor.Patch for package version
+- CloudFormation spec date in YYYY.MM.DD format (from AWS Last-Modified header)
+- Spec file committed to `specs/` directory for reproducibility
+- Check for updates: `uv run python -m cloudformation_dataclasses.codegen.spec_parser check`
+- Update spec: `uv run python -m cloudformation_dataclasses.codegen.spec_parser update`
 
 ## Understanding the Codebase
 
@@ -270,8 +271,9 @@ Generated files follow this pattern:
 # Header with generation metadata
 """AWS CloudFormation EC2 Resources
 ⚠️ AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
-Specification Version: 116.0.0
-Generated: 2024-01-15T10:30:00Z
+CloudFormation Spec: 2025.12.11
+Generator Version: 1.0.0
+Generated: 2024-12-15T13:18:57Z
 """
 
 # Nested property type dataclasses first

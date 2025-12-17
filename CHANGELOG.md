@@ -15,6 +15,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.3.0] - 2025-12-16
+- Fix use of ref() and sub()
+- use date based versioning for CF spec file
+- internalize CF spec file to repo
+
+---
+
+## [0.2.1] - 2025-12-15
+
+- Fix build version
+
+---
+
 ## [0.2.0] - 2025-12-15
 
 ### Added
@@ -52,9 +65,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 **Versions**
 - Package version: 0.2.0
-- CloudFormation spec: 227.0.0 (December 2024)
+- CloudFormation spec date: 2025.12.11
 - Generator version: 1.0.0
-- Combined: spec-227.0.0_gen-1.0.0
+- Combined: spec-2025.12.11_gen-1.0.0
 
 **Generated Code Statistics**
 - AWS Services: 262 (up from 1 in v0.1.0)
@@ -144,9 +157,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 **Versions**
 - Package version: 0.1.0
-- CloudFormation spec: 227.0.0 (December 2024)
+- CloudFormation spec date: 2025.12.11
 - Generator version: 1.0.0
-- Combined: spec-227.0.0_gen-1.0.0
+- Combined: spec-2025.12.11_gen-1.0.0
 
 **Generated Code Statistics**
 - AWS Services: 1 (S3)
@@ -192,21 +205,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 This project uses three independent versions:
 
-1. **Package Version** (0.1.0) - Semantic versioning for the package
+1. **Package Version** (0.2.1) - Semantic versioning for the package
    - MAJOR: Breaking API changes
    - MINOR: New features, backward compatible
    - PATCH: Bug fixes, backward compatible
 
-2. **CloudFormation Spec Version** (227.0.0) - AWS's specification version
+2. **CloudFormation Spec Date** (2025.12.11) - Date from AWS Last-Modified header
+   - Format: YYYY.MM.DD
    - Updated when AWS releases new CloudFormation spec
-   - Always triggers regeneration of affected services
+      - Always triggers regeneration of affected services
+   - Spec file committed to `specs/` for reproducibility
 
 3. **Generator Version** (1.0.0) - Code generator version
    - MAJOR: Breaking changes to generated code structure
    - MINOR: New generator features or optimizations
    - PATCH: Bug fixes in generator
 
-Combined version format: `spec-{CF_VERSION}_gen-{GEN_VERSION}`
+Combined version format: `spec-{SPEC_DATE}_gen-{GEN_VERSION}`
 
 ---
 
@@ -227,12 +242,13 @@ Combined version format: `spec-{CF_VERSION}_gen-{GEN_VERSION}`
 
 ### For CloudFormation Spec Updates
 
-1. Update `CLOUDFORMATION_SPEC_VERSION` in `src/cloudformation_dataclasses/codegen/config.py`
-2. Update `GENERATOR_VERSION` in same file (bump minor for spec upgrade)
-3. Download new spec: `uv run python -m cloudformation_dataclasses.codegen.spec_parser download`
+1. Check for updates: `uv run python -m cloudformation_dataclasses.codegen.spec_parser check`
+2. Download new spec: `uv run python -m cloudformation_dataclasses.codegen.spec_parser update`
+3. Update `CLOUDFORMATION_SPEC_DATE` and `CLOUDFORMATION_SPEC_AWS_VERSION` in `config.py`
 4. Regenerate services: `./scripts/regenerate.sh S3` (or other services)
 5. Add entry to CHANGELOG under "Changed" section
-6. Follow package update process above
+6. Commit spec file along with generated code: `git add specs/CloudFormationResourceSpecification.json`
+7. Follow package update process above
 
 ### For Generator Bug Fixes
 
