@@ -8,9 +8,39 @@ Demonstrates:
 - Global Secondary Index (GSI)
 - KEYS_ONLY projection type
 - Block-style @cloudformation_dataclass syntax
+- DeploymentContext for resource naming and tagging
 """
 
 from . import *  # noqa: F403
+
+
+# =============================================================================
+# Deployment Context
+# =============================================================================
+
+
+@cloudformation_dataclass
+class DynamoDBContext:
+    """
+    Deployment context for DynamoDB examples.
+
+    Resource naming pattern: {project_name}-{component}-{resource_name}-{stage}
+    Example: bookstore-catalog-TableOfBooks-prod
+    """
+
+    context: DeploymentContext
+    project_name = "bookstore"
+    component = "catalog"
+    stage = "prod"
+    region = "us-east-1"
+    tags = [
+        {"Key": "Environment", "Value": "Production"},
+        {"Key": "ManagedBy", "Value": "cloudformation-dataclasses"},
+    ]
+    naming_pattern = "{project_name}-{component}-{resource_name}-{stage}"
+
+
+ctx = DynamoDBContext()
 
 
 # =============================================================================
@@ -194,9 +224,14 @@ class TableOfBooks:
     - Primary Key: Category (HASH) + Title (RANGE)
     - LSI: LanguageIndex - Query books by language within a category
     - GSI: TitleIndex - Query books by title across all categories
+
+    Resource naming uses the deployment context pattern:
+    - Logical ID: TableOfBooks (class name)
+    - Physical name: bookstore-catalog-TableOfBooks-prod
     """
 
     resource: Table
+    context = ctx
     attribute_definitions = [TitleAttribute, CategoryAttribute, LanguageAttribute]
     key_schema = [CategoryKeySchema, TitleKeySchema]
     provisioned_throughput = TableProvisionedThroughput

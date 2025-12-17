@@ -18,6 +18,7 @@ from cloudformation_dataclasses.core import (
     S,
     STRING,
     AttributeType,
+    DeploymentContext,
     KeyType,
     Output,
     Parameter,
@@ -31,6 +32,7 @@ from cloudformation_dataclasses.core import (
 __all__ = [
     "AttributeDefinition",
     "AttributeType",
+    "DeploymentContext",
     "GlobalSecondaryIndex",
     "HASH",
     "KEYS_ONLY",

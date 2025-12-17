@@ -8,9 +8,39 @@ Demonstrates:
 - Point-in-time recovery
 - Template parameters for flexibility
 - Block-style @cloudformation_dataclass syntax
+- DeploymentContext for resource naming and tagging
 """
 
 from . import *  # noqa: F403
+
+
+# =============================================================================
+# Deployment Context
+# =============================================================================
+
+
+@cloudformation_dataclass
+class DynamoDBContext:
+    """
+    Deployment context for DynamoDB examples.
+
+    Resource naming pattern: {project_name}-{component}-{resource_name}-{stage}
+    Example: myapp-database-MyTable-prod
+    """
+
+    context: DeploymentContext
+    project_name = "myapp"
+    component = "database"
+    stage = "prod"
+    region = "us-east-1"
+    tags = [
+        {"Key": "Environment", "Value": "Production"},
+        {"Key": "ManagedBy", "Value": "cloudformation-dataclasses"},
+    ]
+    naming_pattern = "{project_name}-{component}-{resource_name}-{stage}"
+
+
+ctx = DynamoDBContext()
 
 
 # =============================================================================
@@ -110,9 +140,16 @@ class MyPointInTimeRecovery:
 
 @cloudformation_dataclass
 class MyTable:
-    """Simple DynamoDB table with hash key and point-in-time recovery."""
+    """
+    Simple DynamoDB table with hash key and point-in-time recovery.
+
+    Resource naming uses the deployment context pattern:
+    - Logical ID: MyTable (class name)
+    - Physical name: myapp-database-MyTable-prod
+    """
 
     resource: Table
+    context = ctx
     attribute_definitions = [MyAttributeDefinition]
     key_schema = [MyKeySchema]
     provisioned_throughput = MyProvisionedThroughput

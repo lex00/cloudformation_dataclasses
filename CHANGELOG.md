@@ -15,13 +15,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [0.3.1] - 2025-12-16
+## [0.3.2] - 2025-12-16
 - Fix use of ref() and sub()
 - use date based versioning for CF spec file
 - internalize CF spec file to repo
 - use context project_name in resource names
 - add aws constants
 - add DynamoDB examples (simple_table, secondary_indexes)
+- add DeploymentContext to DynamoDB examples
 
 ---
 

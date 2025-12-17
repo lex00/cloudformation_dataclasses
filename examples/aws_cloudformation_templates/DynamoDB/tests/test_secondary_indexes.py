@@ -2,7 +2,7 @@
 
 import json
 
-from ..secondary_indexes import build_template
+from ..secondary_indexes import build_template, ctx, TableOfBooks
 
 
 def test_template_structure():
@@ -203,3 +203,33 @@ def test_template_validation():
     template = build_template()
     errors = template.validate()
     assert errors == []
+
+
+def test_deployment_context():
+    """Verify deployment context is configured correctly."""
+    assert ctx.project_name == "bookstore"
+    assert ctx.component == "catalog"
+    assert ctx.stage == "prod"
+    assert ctx.region == "us-east-1"
+
+
+def test_resource_naming():
+    """Verify resource naming uses deployment context pattern."""
+    table = TableOfBooks()
+    # Resource name should follow pattern: {project_name}-{component}-{resource_name}-{stage}
+    expected_name = "bookstore-catalog-TableOfBooks-prod"
+    assert table.resource.resource_name == expected_name
+
+    # Logical ID should be the class name
+    assert table.resource.logical_id == "TableOfBooks"
+
+
+def test_resource_tags():
+    """Verify tags are applied from deployment context."""
+    table = TableOfBooks()
+    all_tags = table.resource.all_tags
+
+    # Should have context tags
+    tag_dict = {tag.key: tag.value for tag in all_tags}
+    assert tag_dict["Environment"] == "Production"
+    assert tag_dict["ManagedBy"] == "cloudformation-dataclasses"
