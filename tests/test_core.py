@@ -178,6 +178,7 @@ class TestDeploymentContext:
     def test_deployment_context_resource_naming(self):
         """Test resource name generation from context."""
         ctx = self.TestContext(
+            project_name="analytics",
             component="DataPlatform",
             stage="prod",
             deployment_name="001",
@@ -185,7 +186,7 @@ class TestDeploymentContext:
             region="us-east-1"
         )
         name = ctx.resource_name("MyData")
-        assert name == "DataPlatform-MyData-prod-001-blue-us-east-1"
+        assert name == "analytics-DataPlatform-MyData-prod-001-blue-us-east-1"
 
     def test_deployment_context_custom_pattern(self):
         """Test custom naming pattern."""
@@ -242,6 +243,7 @@ class TestDeploymentContext:
     def test_deployment_context_blue_green(self):
         """Test blue/green deployment naming."""
         ctx_blue = self.TestContext(
+            project_name="acme",
             component="API",
             stage="prod",
             deployment_name="001",
@@ -249,6 +251,7 @@ class TestDeploymentContext:
             region="us-east-1"
         )
         ctx_green = self.TestContext(
+            project_name="acme",
             component="API",
             stage="prod",
             deployment_name="001",
@@ -262,6 +265,27 @@ class TestDeploymentContext:
         assert "blue" in name_blue
         assert "green" in name_green
         assert name_blue != name_green
+
+    def test_deployment_context_warns_on_long_name(self):
+        """Test warning is emitted for names exceeding 64 characters."""
+        import warnings
+
+        ctx = self.TestContext(
+            project_name="very-long-project-name",
+            component="extremely-long-component-name",
+            stage="production",
+            deployment_name="deployment-001",
+            deployment_group="blue-green-canary",
+            region="us-east-1",
+        )
+
+        with warnings.catch_warnings(record=True) as w:
+            warnings.simplefilter("always")
+            name = ctx.resource_name("MyVeryLongResourceClassName")
+
+            assert len(w) == 1
+            assert "64-character limit" in str(w[0].message)
+            assert len(name) > 64
 
 
 class TestCloudFormationResource:
@@ -299,6 +323,7 @@ class TestCloudFormationResource:
             pass
 
         ctx = TestContext(
+            project_name="acme",
             component="MyApp",
             stage="prod",
             deployment_name="001",
@@ -306,7 +331,7 @@ class TestCloudFormationResource:
             region="us-east-1"
         )
         resource = self.TestResource(context=ctx, logical_id="Database")
-        assert resource.resource_name == "MyApp-Database-prod-001-blue-us-east-1"
+        assert resource.resource_name == "acme-MyApp-Database-prod-001-blue-us-east-1"
 
     def test_resource_tags_without_context(self):
         """Test resource tags without context."""

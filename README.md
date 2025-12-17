@@ -86,6 +86,7 @@ See [examples/s3_bucket/](examples/s3_bucket/) for a complete modular example wi
 @cloudformation_dataclass
 class ProdDeploymentContext:
     context: DeploymentContext
+    project_name: str = "analytics"  # Top-level project name
     component: str = "DataPlatform"
     stage: str = "prod"
     deployment_name: str = "001"
@@ -183,12 +184,13 @@ The library automatically generates resource names from class names and deployme
 @cloudformation_dataclass
 class ProdDeploymentContext:
     context: DeploymentContext
-    component: str = "DataPlatform"          # Application/service component
+    project_name: str = "analytics"           # Top-level project/organization
+    component: str = "DataPlatform"           # Application/service component
     stage: str = "prod"                       # Environment stage (dev, staging, prod)
     deployment_name: str = "001"              # Deployment identifier
     deployment_group: str = "blue"            # For blue/green deployments
     region: str = "us-east-1"                 # AWS region
-    # Default pattern: {component}-{resource_name}-{stage}-{deployment_name}-{deployment_group}-{region}
+    # Default pattern: {project_name}-{component}-{resource_name}-{stage}-{deployment_name}-{deployment_group}-{region}
 
 ctx = ProdDeploymentContext()
 
@@ -199,11 +201,12 @@ class MyData:
     context = ctx
 
 bucket = MyData()
-# Resource name: DataPlatform-MyData-prod-001-blue-us-east-1
+# Resource name: analytics-DataPlatform-MyData-prod-001-blue-us-east-1
 # Logical ID: MyData
 ```
 
 **Context Parameters**:
+- `project_name`: Top-level project or organization name
 - `component`: Application or service component name
 - `stage`: Deployment stage/environment (dev, staging, prod)
 - `deployment_name`: Unique deployment identifier
@@ -218,8 +221,8 @@ ctx_blue = ProdDeploymentContext(deployment_group="blue")
 ctx_green = ProdDeploymentContext(deployment_group="green")
 
 # Creates separate resource sets for zero-downtime deployments:
-# DataPlatform-MyData-prod-001-blue-us-east-1
-# DataPlatform-MyData-prod-001-green-us-east-1
+# analytics-DataPlatform-MyData-prod-001-blue-us-east-1
+# analytics-DataPlatform-MyData-prod-001-green-us-east-1
 ```
 
 **Pattern can be customized per context or overridden per resource:**

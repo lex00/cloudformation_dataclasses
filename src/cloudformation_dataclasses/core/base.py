@@ -9,6 +9,7 @@ This module provides the foundational classes that all CloudFormation resources 
 
 from __future__ import annotations
 
+import warnings
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from typing import TYPE_CHECKING, Any, ClassVar, Optional
@@ -128,9 +129,10 @@ class DeploymentContext(ABC):
     Base class for deployment context - provides environment defaults and resource naming.
 
     The context supports automatic resource naming with a configurable pattern.
-    Default pattern: {component}-{resource_name}-{stage}-{deployment_name}-{deployment_group}-{region}
+    Default pattern: {project_name}-{component}-{resource_name}-{stage}-{deployment_name}-{deployment_group}-{region}
 
     Parameters:
+        project_name: Top-level project or organization name (e.g., "Acme", "MyProject")
         component: Application or service component name (e.g., "DataPlatform", "APIGateway")
         stage: Deployment stage/environment (e.g., "dev", "staging", "prod")
         deployment_name: Unique deployment identifier (e.g., "001", "v2")
@@ -142,6 +144,7 @@ class DeploymentContext(ABC):
         @dataclass
         class MyDeploymentContext:
             context: DeploymentContext
+            project_name: str = "Acme"
             component: str = "DataPlatform"
             stage: str = "prod"
             deployment_name: str = "001"
@@ -149,7 +152,7 @@ class DeploymentContext(ABC):
             region: str = "us-east-1"
 
         ctx = MyDeploymentContext()
-        # resource_name("MyData") -> "DataPlatform-MyData-prod-001-blue-us-east-1"
+        # resource_name("MyData") -> "Acme-DataPlatform-MyData-prod-001-blue-us-east-1"
 
     Blue/Green deployments:
         ctx_blue = MyDeploymentContext(deployment_group="blue")
@@ -168,7 +171,7 @@ class DeploymentContext(ABC):
     region: Optional[str] = None
     account_id: Optional[str] = None
     project_name: Optional[str] = None
-    naming_pattern: str = "{component}-{resource_name}-{stage}-{deployment_name}-{deployment_group}-{region}"
+    naming_pattern: str = "{project_name}-{component}-{resource_name}-{stage}-{deployment_name}-{deployment_group}-{region}"
     tags: list[Tag] = field(default_factory=list)
 
     def resource_name(
@@ -188,7 +191,7 @@ class DeploymentContext(ABC):
 
         Example:
             >>> ctx.resource_name("MyData")
-            "DataPlatform-MyData-prod-001-A-us-east-1"
+            "Acme-DataPlatform-MyData-prod-001-blue-us-east-1"
             >>> ctx.resource_name("MyData", "{component}-{resource_name}")
             "DataPlatform-MyData"
         """
@@ -196,6 +199,7 @@ class DeploymentContext(ABC):
 
         # Build context dict for formatting
         context_vars = {
+            "project_name": self.project_name or "",
             "component": self.component or "",
             "resource_name": resource_class_name,
             "stage": self.stage or "",
@@ -208,7 +212,19 @@ class DeploymentContext(ABC):
         formatted = naming_pattern.format(**context_vars)
         # Remove empty segments (multiple dashes, leading/trailing dashes)
         parts = [p for p in formatted.split("-") if p]
-        return "-".join(parts)
+        name = "-".join(parts)
+
+        # Warn if name exceeds AWS physical resource ID limit
+        if len(name) > 64:
+            warnings.warn(
+                f"Resource name '{name}' is {len(name)} characters, "
+                f"exceeding AWS's 64-character limit for physical resource IDs. "
+                f"Consider using a shorter naming_pattern.",
+                UserWarning,
+                stacklevel=2,
+            )
+
+        return name
 
 
 @dataclass
@@ -261,7 +277,7 @@ class CloudFormationResource(ABC):
             # With context
             >>> bucket = MyData(context=ctx)
             >>> bucket.resource_name
-            "DataPlatform-MyData-prod-001-A-us-east-1"
+            "Acme-DataPlatform-MyData-prod-001-blue-us-east-1"
 
             # With custom pattern override
             >>> bucket = MyData(

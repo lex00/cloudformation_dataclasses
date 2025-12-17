@@ -35,8 +35,8 @@ class MyData:
 
     Resource naming:
     - Logical ID: MyData (class name)
-    - Resource name: DataPlatform-MyData-prod-001-blue-us-east-1
-      (formatted with context pattern: {component}-{resource_name}-{stage}-{deployment_name}-{deployment_group}-{region})
+    - Resource name: analytics-DataPlatform-MyData-prod-001-blue-us-east-1
+      (formatted with context pattern: {project_name}-{component}-{resource_name}-{stage}-{deployment_name}-{deployment_group}-{region})
     - deployment_group="blue" enables blue/green deployments
 
     The naming pattern can be overridden per resource:

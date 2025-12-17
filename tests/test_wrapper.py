@@ -512,6 +512,7 @@ class TestWrapperIntegration:
         @cloudformation_dataclass
         class ProdContext:
             context: TestContext
+            project_name: str = "analytics"
             component: str = "DataPlatform"
             stage: str = "prod"
             deployment_name: str = "001"
@@ -542,12 +543,13 @@ class TestWrapperIntegration:
 
         # Verify context was created
         assert data.resource.context is not None
+        assert data.resource.context.project_name == "analytics"
         assert data.resource.context.component == "DataPlatform"
         assert data.resource.context.stage == "prod"
 
         # Verify resource naming
         assert data.resource.logical_id == "MyData"
-        expected_name = "DataPlatform-MyData-prod-001-blue-us-east-1"
+        expected_name = "analytics-DataPlatform-MyData-prod-001-blue-us-east-1"
         assert data.resource.resource_name == expected_name
 
         # Verify tag merging
