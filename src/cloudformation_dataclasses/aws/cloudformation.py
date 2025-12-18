@@ -3904,6 +3904,8 @@ class WaitConditionHandle(CloudFormationResource):
 
     resource_type: ClassVar[str] = "AWS::CloudFormation::WaitConditionHandle"
 
-    pass
+    def _get_properties(self) -> dict[str, Any]:
+        """Serialize resource properties to CloudFormation format."""
+        return {}
 
 

@@ -32,6 +32,17 @@ class ParameterType:
     AWS_EC2_VPC_ID = "AWS::EC2::VPC::Id"
     AWS_ROUTE53_HOSTED_ZONE_ID = "AWS::Route53::HostedZone::Id"
 
+    # List types
+    LIST_AWS_EC2_AVAILABILITY_ZONE_NAME = "List<AWS::EC2::AvailabilityZone::Name>"
+    LIST_AWS_EC2_IMAGE_ID = "List<AWS::EC2::Image::Id>"
+    LIST_AWS_EC2_INSTANCE_ID = "List<AWS::EC2::Instance::Id>"
+    LIST_AWS_EC2_SECURITY_GROUP_GROUP_NAME = "List<AWS::EC2::SecurityGroup::GroupName>"
+    LIST_AWS_EC2_SECURITY_GROUP_ID = "List<AWS::EC2::SecurityGroup::Id>"
+    LIST_AWS_EC2_SUBNET_ID = "List<AWS::EC2::Subnet::Id>"
+    LIST_AWS_EC2_VOLUME_ID = "List<AWS::EC2::Volume::Id>"
+    LIST_AWS_EC2_VPC_ID = "List<AWS::EC2::VPC::Id>"
+    LIST_AWS_ROUTE53_HOSTED_ZONE_ID = "List<AWS::Route53::HostedZone::Id>"
+
     # SSM parameter types
     AWS_SSM_PARAMETER_NAME = "AWS::SSM::Parameter::Name"
     AWS_SSM_PARAMETER_VALUE_STRING = "AWS::SSM::Parameter::Value<String>"
