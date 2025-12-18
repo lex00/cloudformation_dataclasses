@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:38
+  Generated: 2025-12-17 21:57:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service OpenSearchService
@@ -21,7 +21,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, ClassVar, Optional, Union
 
-from cloudformation_dataclasses.core.base import CloudFormationResource
+from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
@@ -972,130 +972,38 @@ NOTAVAILABLE = ZoneStatus.NOTAVAILABLE
 
 
 @dataclass
-class AppConfig:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class AppConfig(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "value": "Value",
+        "key": "Key",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.value is not None:
-            if hasattr(self.value, 'to_dict'):
-                props['Value'] = self.value.to_dict()
-            elif isinstance(self.value, list):
-                props['Value'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.value
-                ]
-            else:
-                props['Value'] = self.value
-
-        if self.key is not None:
-            if hasattr(self.key, 'to_dict'):
-                props['Key'] = self.key.to_dict()
-            elif isinstance(self.key, list):
-                props['Key'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.key
-                ]
-            else:
-                props['Key'] = self.key
-
-        return props
-
 
 @dataclass
-class DataSource:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class DataSource(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "data_source_arn": "DataSourceArn",
+        "data_source_description": "DataSourceDescription",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_source_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_source_description: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.data_source_arn is not None:
-            if hasattr(self.data_source_arn, 'to_dict'):
-                props['DataSourceArn'] = self.data_source_arn.to_dict()
-            elif isinstance(self.data_source_arn, list):
-                props['DataSourceArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.data_source_arn
-                ]
-            else:
-                props['DataSourceArn'] = self.data_source_arn
-
-        if self.data_source_description is not None:
-            if hasattr(self.data_source_description, 'to_dict'):
-                props['DataSourceDescription'] = self.data_source_description.to_dict()
-            elif isinstance(self.data_source_description, list):
-                props['DataSourceDescription'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.data_source_description
-                ]
-            else:
-                props['DataSourceDescription'] = self.data_source_description
-
-        return props
-
 
 @dataclass
-class IamIdentityCenterOptions:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class IamIdentityCenterOptions(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "iam_identity_center_instance_arn": "IamIdentityCenterInstanceArn",
+        "iam_role_for_identity_center_application_arn": "IamRoleForIdentityCenterApplicationArn",
+        "enabled": "Enabled",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     iam_identity_center_instance_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     iam_role_for_identity_center_application_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.iam_identity_center_instance_arn is not None:
-            if hasattr(self.iam_identity_center_instance_arn, 'to_dict'):
-                props['IamIdentityCenterInstanceArn'] = self.iam_identity_center_instance_arn.to_dict()
-            elif isinstance(self.iam_identity_center_instance_arn, list):
-                props['IamIdentityCenterInstanceArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.iam_identity_center_instance_arn
-                ]
-            else:
-                props['IamIdentityCenterInstanceArn'] = self.iam_identity_center_instance_arn
-
-        if self.iam_role_for_identity_center_application_arn is not None:
-            if hasattr(self.iam_role_for_identity_center_application_arn, 'to_dict'):
-                props['IamRoleForIdentityCenterApplicationArn'] = self.iam_role_for_identity_center_application_arn.to_dict()
-            elif isinstance(self.iam_role_for_identity_center_application_arn, list):
-                props['IamRoleForIdentityCenterApplicationArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.iam_role_for_identity_center_application_arn
-                ]
-            else:
-                props['IamRoleForIdentityCenterApplicationArn'] = self.iam_role_for_identity_center_application_arn
-
-        if self.enabled is not None:
-            if hasattr(self.enabled, 'to_dict'):
-                props['Enabled'] = self.enabled.to_dict()
-            elif isinstance(self.enabled, list):
-                props['Enabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enabled
-                ]
-            else:
-                props['Enabled'] = self.enabled
-
-        return props
 
 
 @dataclass
@@ -1103,98 +1011,21 @@ class Application(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opens"""
 
     resource_type: ClassVar[str] = "AWS::OpenSearchService::Application"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "data_sources": "DataSources",
+        "app_configs": "AppConfigs",
+        "endpoint": "Endpoint",
+        "tags": "Tags",
+        "iam_identity_center_options": "IamIdentityCenterOptions",
+        "name": "Name",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     data_sources: Optional[list[DataSource]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     app_configs: Optional[list[AppConfig]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     iam_identity_center_options: Optional[IamIdentityCenterOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.data_sources is not None:
-            # Serialize data_sources (handle intrinsic functions)
-            if hasattr(self.data_sources, 'to_dict'):
-                props["DataSources"] = self.data_sources.to_dict()
-            elif isinstance(self.data_sources, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DataSources'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.data_sources
-                ]
-            else:
-                props["DataSources"] = self.data_sources
-
-        if self.app_configs is not None:
-            # Serialize app_configs (handle intrinsic functions)
-            if hasattr(self.app_configs, 'to_dict'):
-                props["AppConfigs"] = self.app_configs.to_dict()
-            elif isinstance(self.app_configs, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AppConfigs'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.app_configs
-                ]
-            else:
-                props["AppConfigs"] = self.app_configs
-
-        if self.endpoint is not None:
-            # Serialize endpoint (handle intrinsic functions)
-            if hasattr(self.endpoint, 'to_dict'):
-                props["Endpoint"] = self.endpoint.to_dict()
-            elif isinstance(self.endpoint, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Endpoint'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.endpoint
-                ]
-            else:
-                props["Endpoint"] = self.endpoint
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.iam_identity_center_options is not None:
-            # Serialize iam_identity_center_options (handle intrinsic functions)
-            if hasattr(self.iam_identity_center_options, 'to_dict'):
-                props["IamIdentityCenterOptions"] = self.iam_identity_center_options.to_dict()
-            elif isinstance(self.iam_identity_center_options, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['IamIdentityCenterOptions'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.iam_identity_center_options
-                ]
-            else:
-                props["IamIdentityCenterOptions"] = self.iam_identity_center_options
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        return props
 
     @property
     def attr_id(self) -> GetAtt:
@@ -1210,1510 +1041,374 @@ class Application(CloudFormationResource):
 
 
 @dataclass
-class AIMLOptions:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class AIMLOptions(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "s3_vectors_engine": "S3VectorsEngine",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_vectors_engine: Optional[S3VectorsEngine] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.s3_vectors_engine is not None:
-            if hasattr(self.s3_vectors_engine, 'to_dict'):
-                props['S3VectorsEngine'] = self.s3_vectors_engine.to_dict()
-            elif isinstance(self.s3_vectors_engine, list):
-                props['S3VectorsEngine'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.s3_vectors_engine
-                ]
-            else:
-                props['S3VectorsEngine'] = self.s3_vectors_engine
-
-        return props
-
 
 @dataclass
-class AdvancedSecurityOptionsInput:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class AdvancedSecurityOptionsInput(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "iam_federation_options": "IAMFederationOptions",
+        "anonymous_auth_enabled": "AnonymousAuthEnabled",
+        "internal_user_database_enabled": "InternalUserDatabaseEnabled",
+        "saml_options": "SAMLOptions",
+        "enabled": "Enabled",
+        "jwt_options": "JWTOptions",
+        "anonymous_auth_disable_date": "AnonymousAuthDisableDate",
+        "master_user_options": "MasterUserOptions",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     iam_federation_options: Optional[IAMFederationOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     anonymous_auth_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     internal_user_database_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     saml_options: Optional[SAMLOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     jwt_options: Optional[JWTOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     anonymous_auth_disable_date: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     master_user_options: Optional[MasterUserOptions] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.iam_federation_options is not None:
-            if hasattr(self.iam_federation_options, 'to_dict'):
-                props['IAMFederationOptions'] = self.iam_federation_options.to_dict()
-            elif isinstance(self.iam_federation_options, list):
-                props['IAMFederationOptions'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.iam_federation_options
-                ]
-            else:
-                props['IAMFederationOptions'] = self.iam_federation_options
-
-        if self.anonymous_auth_enabled is not None:
-            if hasattr(self.anonymous_auth_enabled, 'to_dict'):
-                props['AnonymousAuthEnabled'] = self.anonymous_auth_enabled.to_dict()
-            elif isinstance(self.anonymous_auth_enabled, list):
-                props['AnonymousAuthEnabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.anonymous_auth_enabled
-                ]
-            else:
-                props['AnonymousAuthEnabled'] = self.anonymous_auth_enabled
-
-        if self.internal_user_database_enabled is not None:
-            if hasattr(self.internal_user_database_enabled, 'to_dict'):
-                props['InternalUserDatabaseEnabled'] = self.internal_user_database_enabled.to_dict()
-            elif isinstance(self.internal_user_database_enabled, list):
-                props['InternalUserDatabaseEnabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.internal_user_database_enabled
-                ]
-            else:
-                props['InternalUserDatabaseEnabled'] = self.internal_user_database_enabled
-
-        if self.saml_options is not None:
-            if hasattr(self.saml_options, 'to_dict'):
-                props['SAMLOptions'] = self.saml_options.to_dict()
-            elif isinstance(self.saml_options, list):
-                props['SAMLOptions'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.saml_options
-                ]
-            else:
-                props['SAMLOptions'] = self.saml_options
-
-        if self.enabled is not None:
-            if hasattr(self.enabled, 'to_dict'):
-                props['Enabled'] = self.enabled.to_dict()
-            elif isinstance(self.enabled, list):
-                props['Enabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enabled
-                ]
-            else:
-                props['Enabled'] = self.enabled
-
-        if self.jwt_options is not None:
-            if hasattr(self.jwt_options, 'to_dict'):
-                props['JWTOptions'] = self.jwt_options.to_dict()
-            elif isinstance(self.jwt_options, list):
-                props['JWTOptions'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.jwt_options
-                ]
-            else:
-                props['JWTOptions'] = self.jwt_options
-
-        if self.anonymous_auth_disable_date is not None:
-            if hasattr(self.anonymous_auth_disable_date, 'to_dict'):
-                props['AnonymousAuthDisableDate'] = self.anonymous_auth_disable_date.to_dict()
-            elif isinstance(self.anonymous_auth_disable_date, list):
-                props['AnonymousAuthDisableDate'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.anonymous_auth_disable_date
-                ]
-            else:
-                props['AnonymousAuthDisableDate'] = self.anonymous_auth_disable_date
-
-        if self.master_user_options is not None:
-            if hasattr(self.master_user_options, 'to_dict'):
-                props['MasterUserOptions'] = self.master_user_options.to_dict()
-            elif isinstance(self.master_user_options, list):
-                props['MasterUserOptions'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.master_user_options
-                ]
-            else:
-                props['MasterUserOptions'] = self.master_user_options
-
-        return props
-
 
 @dataclass
-class ClusterConfig:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class ClusterConfig(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "multi_az_with_standby_enabled": "MultiAZWithStandbyEnabled",
+        "dedicated_master_enabled": "DedicatedMasterEnabled",
+        "zone_awareness_config": "ZoneAwarenessConfig",
+        "cold_storage_options": "ColdStorageOptions",
+        "node_options": "NodeOptions",
+        "warm_type": "WarmType",
+        "instance_count": "InstanceCount",
+        "warm_enabled": "WarmEnabled",
+        "warm_count": "WarmCount",
+        "dedicated_master_count": "DedicatedMasterCount",
+        "instance_type": "InstanceType",
+        "zone_awareness_enabled": "ZoneAwarenessEnabled",
+        "dedicated_master_type": "DedicatedMasterType",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     multi_az_with_standby_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dedicated_master_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     zone_awareness_config: Optional[ZoneAwarenessConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cold_storage_options: Optional[ColdStorageOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     node_options: Optional[list[NodeOption]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     warm_type: Optional[Union[str, OpenSearchWarmPartitionInstanceType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     warm_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     warm_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dedicated_master_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_type: Optional[Union[str, OpenSearchPartitionInstanceType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     zone_awareness_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dedicated_master_type: Optional[Union[str, OpenSearchPartitionInstanceType, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.multi_az_with_standby_enabled is not None:
-            if hasattr(self.multi_az_with_standby_enabled, 'to_dict'):
-                props['MultiAZWithStandbyEnabled'] = self.multi_az_with_standby_enabled.to_dict()
-            elif isinstance(self.multi_az_with_standby_enabled, list):
-                props['MultiAZWithStandbyEnabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.multi_az_with_standby_enabled
-                ]
-            else:
-                props['MultiAZWithStandbyEnabled'] = self.multi_az_with_standby_enabled
-
-        if self.dedicated_master_enabled is not None:
-            if hasattr(self.dedicated_master_enabled, 'to_dict'):
-                props['DedicatedMasterEnabled'] = self.dedicated_master_enabled.to_dict()
-            elif isinstance(self.dedicated_master_enabled, list):
-                props['DedicatedMasterEnabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.dedicated_master_enabled
-                ]
-            else:
-                props['DedicatedMasterEnabled'] = self.dedicated_master_enabled
-
-        if self.zone_awareness_config is not None:
-            if hasattr(self.zone_awareness_config, 'to_dict'):
-                props['ZoneAwarenessConfig'] = self.zone_awareness_config.to_dict()
-            elif isinstance(self.zone_awareness_config, list):
-                props['ZoneAwarenessConfig'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.zone_awareness_config
-                ]
-            else:
-                props['ZoneAwarenessConfig'] = self.zone_awareness_config
-
-        if self.cold_storage_options is not None:
-            if hasattr(self.cold_storage_options, 'to_dict'):
-                props['ColdStorageOptions'] = self.cold_storage_options.to_dict()
-            elif isinstance(self.cold_storage_options, list):
-                props['ColdStorageOptions'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.cold_storage_options
-                ]
-            else:
-                props['ColdStorageOptions'] = self.cold_storage_options
-
-        if self.node_options is not None:
-            if hasattr(self.node_options, 'to_dict'):
-                props['NodeOptions'] = self.node_options.to_dict()
-            elif isinstance(self.node_options, list):
-                props['NodeOptions'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.node_options
-                ]
-            else:
-                props['NodeOptions'] = self.node_options
-
-        if self.warm_type is not None:
-            if hasattr(self.warm_type, 'to_dict'):
-                props['WarmType'] = self.warm_type.to_dict()
-            elif isinstance(self.warm_type, list):
-                props['WarmType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.warm_type
-                ]
-            else:
-                props['WarmType'] = self.warm_type
-
-        if self.instance_count is not None:
-            if hasattr(self.instance_count, 'to_dict'):
-                props['InstanceCount'] = self.instance_count.to_dict()
-            elif isinstance(self.instance_count, list):
-                props['InstanceCount'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.instance_count
-                ]
-            else:
-                props['InstanceCount'] = self.instance_count
-
-        if self.warm_enabled is not None:
-            if hasattr(self.warm_enabled, 'to_dict'):
-                props['WarmEnabled'] = self.warm_enabled.to_dict()
-            elif isinstance(self.warm_enabled, list):
-                props['WarmEnabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.warm_enabled
-                ]
-            else:
-                props['WarmEnabled'] = self.warm_enabled
-
-        if self.warm_count is not None:
-            if hasattr(self.warm_count, 'to_dict'):
-                props['WarmCount'] = self.warm_count.to_dict()
-            elif isinstance(self.warm_count, list):
-                props['WarmCount'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.warm_count
-                ]
-            else:
-                props['WarmCount'] = self.warm_count
-
-        if self.dedicated_master_count is not None:
-            if hasattr(self.dedicated_master_count, 'to_dict'):
-                props['DedicatedMasterCount'] = self.dedicated_master_count.to_dict()
-            elif isinstance(self.dedicated_master_count, list):
-                props['DedicatedMasterCount'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.dedicated_master_count
-                ]
-            else:
-                props['DedicatedMasterCount'] = self.dedicated_master_count
-
-        if self.instance_type is not None:
-            if hasattr(self.instance_type, 'to_dict'):
-                props['InstanceType'] = self.instance_type.to_dict()
-            elif isinstance(self.instance_type, list):
-                props['InstanceType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.instance_type
-                ]
-            else:
-                props['InstanceType'] = self.instance_type
-
-        if self.zone_awareness_enabled is not None:
-            if hasattr(self.zone_awareness_enabled, 'to_dict'):
-                props['ZoneAwarenessEnabled'] = self.zone_awareness_enabled.to_dict()
-            elif isinstance(self.zone_awareness_enabled, list):
-                props['ZoneAwarenessEnabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.zone_awareness_enabled
-                ]
-            else:
-                props['ZoneAwarenessEnabled'] = self.zone_awareness_enabled
-
-        if self.dedicated_master_type is not None:
-            if hasattr(self.dedicated_master_type, 'to_dict'):
-                props['DedicatedMasterType'] = self.dedicated_master_type.to_dict()
-            elif isinstance(self.dedicated_master_type, list):
-                props['DedicatedMasterType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.dedicated_master_type
-                ]
-            else:
-                props['DedicatedMasterType'] = self.dedicated_master_type
-
-        return props
-
 
 @dataclass
-class CognitoOptions:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class CognitoOptions(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "user_pool_id": "UserPoolId",
+        "enabled": "Enabled",
+        "identity_pool_id": "IdentityPoolId",
+        "role_arn": "RoleArn",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_pool_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     identity_pool_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.user_pool_id is not None:
-            if hasattr(self.user_pool_id, 'to_dict'):
-                props['UserPoolId'] = self.user_pool_id.to_dict()
-            elif isinstance(self.user_pool_id, list):
-                props['UserPoolId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.user_pool_id
-                ]
-            else:
-                props['UserPoolId'] = self.user_pool_id
-
-        if self.enabled is not None:
-            if hasattr(self.enabled, 'to_dict'):
-                props['Enabled'] = self.enabled.to_dict()
-            elif isinstance(self.enabled, list):
-                props['Enabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enabled
-                ]
-            else:
-                props['Enabled'] = self.enabled
-
-        if self.identity_pool_id is not None:
-            if hasattr(self.identity_pool_id, 'to_dict'):
-                props['IdentityPoolId'] = self.identity_pool_id.to_dict()
-            elif isinstance(self.identity_pool_id, list):
-                props['IdentityPoolId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.identity_pool_id
-                ]
-            else:
-                props['IdentityPoolId'] = self.identity_pool_id
-
-        if self.role_arn is not None:
-            if hasattr(self.role_arn, 'to_dict'):
-                props['RoleArn'] = self.role_arn.to_dict()
-            elif isinstance(self.role_arn, list):
-                props['RoleArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.role_arn
-                ]
-            else:
-                props['RoleArn'] = self.role_arn
-
-        return props
-
 
 @dataclass
-class ColdStorageOptions:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class ColdStorageOptions(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "enabled": "Enabled",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.enabled is not None:
-            if hasattr(self.enabled, 'to_dict'):
-                props['Enabled'] = self.enabled.to_dict()
-            elif isinstance(self.enabled, list):
-                props['Enabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enabled
-                ]
-            else:
-                props['Enabled'] = self.enabled
-
-        return props
-
 
 @dataclass
-class DomainEndpointOptions:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class DomainEndpointOptions(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "custom_endpoint_enabled": "CustomEndpointEnabled",
+        "enforce_https": "EnforceHTTPS",
+        "custom_endpoint_certificate_arn": "CustomEndpointCertificateArn",
+        "custom_endpoint": "CustomEndpoint",
+        "tls_security_policy": "TLSSecurityPolicy",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_endpoint_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enforce_https: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_endpoint_certificate_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tls_security_policy: Optional[Union[str, TLSSecurityPolicy, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.custom_endpoint_enabled is not None:
-            if hasattr(self.custom_endpoint_enabled, 'to_dict'):
-                props['CustomEndpointEnabled'] = self.custom_endpoint_enabled.to_dict()
-            elif isinstance(self.custom_endpoint_enabled, list):
-                props['CustomEndpointEnabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.custom_endpoint_enabled
-                ]
-            else:
-                props['CustomEndpointEnabled'] = self.custom_endpoint_enabled
-
-        if self.enforce_https is not None:
-            if hasattr(self.enforce_https, 'to_dict'):
-                props['EnforceHTTPS'] = self.enforce_https.to_dict()
-            elif isinstance(self.enforce_https, list):
-                props['EnforceHTTPS'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enforce_https
-                ]
-            else:
-                props['EnforceHTTPS'] = self.enforce_https
-
-        if self.custom_endpoint_certificate_arn is not None:
-            if hasattr(self.custom_endpoint_certificate_arn, 'to_dict'):
-                props['CustomEndpointCertificateArn'] = self.custom_endpoint_certificate_arn.to_dict()
-            elif isinstance(self.custom_endpoint_certificate_arn, list):
-                props['CustomEndpointCertificateArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.custom_endpoint_certificate_arn
-                ]
-            else:
-                props['CustomEndpointCertificateArn'] = self.custom_endpoint_certificate_arn
-
-        if self.custom_endpoint is not None:
-            if hasattr(self.custom_endpoint, 'to_dict'):
-                props['CustomEndpoint'] = self.custom_endpoint.to_dict()
-            elif isinstance(self.custom_endpoint, list):
-                props['CustomEndpoint'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.custom_endpoint
-                ]
-            else:
-                props['CustomEndpoint'] = self.custom_endpoint
-
-        if self.tls_security_policy is not None:
-            if hasattr(self.tls_security_policy, 'to_dict'):
-                props['TLSSecurityPolicy'] = self.tls_security_policy.to_dict()
-            elif isinstance(self.tls_security_policy, list):
-                props['TLSSecurityPolicy'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.tls_security_policy
-                ]
-            else:
-                props['TLSSecurityPolicy'] = self.tls_security_policy
-
-        return props
-
 
 @dataclass
-class EBSOptions:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class EBSOptions(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "ebs_enabled": "EBSEnabled",
+        "volume_type": "VolumeType",
+        "throughput": "Throughput",
+        "iops": "Iops",
+        "volume_size": "VolumeSize",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ebs_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volume_type: Optional[Union[str, VolumeType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     throughput: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     iops: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volume_size: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.ebs_enabled is not None:
-            if hasattr(self.ebs_enabled, 'to_dict'):
-                props['EBSEnabled'] = self.ebs_enabled.to_dict()
-            elif isinstance(self.ebs_enabled, list):
-                props['EBSEnabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.ebs_enabled
-                ]
-            else:
-                props['EBSEnabled'] = self.ebs_enabled
-
-        if self.volume_type is not None:
-            if hasattr(self.volume_type, 'to_dict'):
-                props['VolumeType'] = self.volume_type.to_dict()
-            elif isinstance(self.volume_type, list):
-                props['VolumeType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.volume_type
-                ]
-            else:
-                props['VolumeType'] = self.volume_type
-
-        if self.throughput is not None:
-            if hasattr(self.throughput, 'to_dict'):
-                props['Throughput'] = self.throughput.to_dict()
-            elif isinstance(self.throughput, list):
-                props['Throughput'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.throughput
-                ]
-            else:
-                props['Throughput'] = self.throughput
-
-        if self.iops is not None:
-            if hasattr(self.iops, 'to_dict'):
-                props['Iops'] = self.iops.to_dict()
-            elif isinstance(self.iops, list):
-                props['Iops'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.iops
-                ]
-            else:
-                props['Iops'] = self.iops
-
-        if self.volume_size is not None:
-            if hasattr(self.volume_size, 'to_dict'):
-                props['VolumeSize'] = self.volume_size.to_dict()
-            elif isinstance(self.volume_size, list):
-                props['VolumeSize'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.volume_size
-                ]
-            else:
-                props['VolumeSize'] = self.volume_size
-
-        return props
-
 
 @dataclass
-class EncryptionAtRestOptions:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class EncryptionAtRestOptions(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "kms_key_id": "KmsKeyId",
+        "enabled": "Enabled",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.kms_key_id is not None:
-            if hasattr(self.kms_key_id, 'to_dict'):
-                props['KmsKeyId'] = self.kms_key_id.to_dict()
-            elif isinstance(self.kms_key_id, list):
-                props['KmsKeyId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.kms_key_id
-                ]
-            else:
-                props['KmsKeyId'] = self.kms_key_id
-
-        if self.enabled is not None:
-            if hasattr(self.enabled, 'to_dict'):
-                props['Enabled'] = self.enabled.to_dict()
-            elif isinstance(self.enabled, list):
-                props['Enabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enabled
-                ]
-            else:
-                props['Enabled'] = self.enabled
-
-        return props
 
 
 @dataclass
-class IAMFederationOptions:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class IAMFederationOptions(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "subject_key": "SubjectKey",
+        "roles_key": "RolesKey",
+        "enabled": "Enabled",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subject_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     roles_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.subject_key is not None:
-            if hasattr(self.subject_key, 'to_dict'):
-                props['SubjectKey'] = self.subject_key.to_dict()
-            elif isinstance(self.subject_key, list):
-                props['SubjectKey'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.subject_key
-                ]
-            else:
-                props['SubjectKey'] = self.subject_key
-
-        if self.roles_key is not None:
-            if hasattr(self.roles_key, 'to_dict'):
-                props['RolesKey'] = self.roles_key.to_dict()
-            elif isinstance(self.roles_key, list):
-                props['RolesKey'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.roles_key
-                ]
-            else:
-                props['RolesKey'] = self.roles_key
-
-        if self.enabled is not None:
-            if hasattr(self.enabled, 'to_dict'):
-                props['Enabled'] = self.enabled.to_dict()
-            elif isinstance(self.enabled, list):
-                props['Enabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enabled
-                ]
-            else:
-                props['Enabled'] = self.enabled
-
-        return props
 
 
 @dataclass
-class IdentityCenterOptions:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class IdentityCenterOptions(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "identity_center_application_arn": "IdentityCenterApplicationARN",
+        "identity_center_instance_arn": "IdentityCenterInstanceARN",
+        "subject_key": "SubjectKey",
+        "enabled_api_access": "EnabledAPIAccess",
+        "roles_key": "RolesKey",
+        "identity_store_id": "IdentityStoreId",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     identity_center_application_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     identity_center_instance_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subject_key: Optional[Union[str, SubjectKeyIdCOption, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled_api_access: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     roles_key: Optional[Union[str, RolesKeyIdCOption, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     identity_store_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.identity_center_application_arn is not None:
-            if hasattr(self.identity_center_application_arn, 'to_dict'):
-                props['IdentityCenterApplicationARN'] = self.identity_center_application_arn.to_dict()
-            elif isinstance(self.identity_center_application_arn, list):
-                props['IdentityCenterApplicationARN'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.identity_center_application_arn
-                ]
-            else:
-                props['IdentityCenterApplicationARN'] = self.identity_center_application_arn
-
-        if self.identity_center_instance_arn is not None:
-            if hasattr(self.identity_center_instance_arn, 'to_dict'):
-                props['IdentityCenterInstanceARN'] = self.identity_center_instance_arn.to_dict()
-            elif isinstance(self.identity_center_instance_arn, list):
-                props['IdentityCenterInstanceARN'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.identity_center_instance_arn
-                ]
-            else:
-                props['IdentityCenterInstanceARN'] = self.identity_center_instance_arn
-
-        if self.subject_key is not None:
-            if hasattr(self.subject_key, 'to_dict'):
-                props['SubjectKey'] = self.subject_key.to_dict()
-            elif isinstance(self.subject_key, list):
-                props['SubjectKey'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.subject_key
-                ]
-            else:
-                props['SubjectKey'] = self.subject_key
-
-        if self.enabled_api_access is not None:
-            if hasattr(self.enabled_api_access, 'to_dict'):
-                props['EnabledAPIAccess'] = self.enabled_api_access.to_dict()
-            elif isinstance(self.enabled_api_access, list):
-                props['EnabledAPIAccess'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enabled_api_access
-                ]
-            else:
-                props['EnabledAPIAccess'] = self.enabled_api_access
-
-        if self.roles_key is not None:
-            if hasattr(self.roles_key, 'to_dict'):
-                props['RolesKey'] = self.roles_key.to_dict()
-            elif isinstance(self.roles_key, list):
-                props['RolesKey'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.roles_key
-                ]
-            else:
-                props['RolesKey'] = self.roles_key
-
-        if self.identity_store_id is not None:
-            if hasattr(self.identity_store_id, 'to_dict'):
-                props['IdentityStoreId'] = self.identity_store_id.to_dict()
-            elif isinstance(self.identity_store_id, list):
-                props['IdentityStoreId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.identity_store_id
-                ]
-            else:
-                props['IdentityStoreId'] = self.identity_store_id
-
-        return props
-
 
 @dataclass
-class Idp:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class Idp(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "entity_id": "EntityId",
+        "metadata_content": "MetadataContent",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     entity_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metadata_content: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.entity_id is not None:
-            if hasattr(self.entity_id, 'to_dict'):
-                props['EntityId'] = self.entity_id.to_dict()
-            elif isinstance(self.entity_id, list):
-                props['EntityId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.entity_id
-                ]
-            else:
-                props['EntityId'] = self.entity_id
-
-        if self.metadata_content is not None:
-            if hasattr(self.metadata_content, 'to_dict'):
-                props['MetadataContent'] = self.metadata_content.to_dict()
-            elif isinstance(self.metadata_content, list):
-                props['MetadataContent'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.metadata_content
-                ]
-            else:
-                props['MetadataContent'] = self.metadata_content
-
-        return props
-
 
 @dataclass
-class JWTOptions:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class JWTOptions(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "subject_key": "SubjectKey",
+        "public_key": "PublicKey",
+        "roles_key": "RolesKey",
+        "enabled": "Enabled",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subject_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     public_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     roles_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.subject_key is not None:
-            if hasattr(self.subject_key, 'to_dict'):
-                props['SubjectKey'] = self.subject_key.to_dict()
-            elif isinstance(self.subject_key, list):
-                props['SubjectKey'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.subject_key
-                ]
-            else:
-                props['SubjectKey'] = self.subject_key
-
-        if self.public_key is not None:
-            if hasattr(self.public_key, 'to_dict'):
-                props['PublicKey'] = self.public_key.to_dict()
-            elif isinstance(self.public_key, list):
-                props['PublicKey'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.public_key
-                ]
-            else:
-                props['PublicKey'] = self.public_key
-
-        if self.roles_key is not None:
-            if hasattr(self.roles_key, 'to_dict'):
-                props['RolesKey'] = self.roles_key.to_dict()
-            elif isinstance(self.roles_key, list):
-                props['RolesKey'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.roles_key
-                ]
-            else:
-                props['RolesKey'] = self.roles_key
-
-        if self.enabled is not None:
-            if hasattr(self.enabled, 'to_dict'):
-                props['Enabled'] = self.enabled.to_dict()
-            elif isinstance(self.enabled, list):
-                props['Enabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enabled
-                ]
-            else:
-                props['Enabled'] = self.enabled
-
-        return props
 
 
 @dataclass
-class LogPublishingOption:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class LogPublishingOption(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "cloud_watch_logs_log_group_arn": "CloudWatchLogsLogGroupArn",
+        "enabled": "Enabled",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch_logs_log_group_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.cloud_watch_logs_log_group_arn is not None:
-            if hasattr(self.cloud_watch_logs_log_group_arn, 'to_dict'):
-                props['CloudWatchLogsLogGroupArn'] = self.cloud_watch_logs_log_group_arn.to_dict()
-            elif isinstance(self.cloud_watch_logs_log_group_arn, list):
-                props['CloudWatchLogsLogGroupArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.cloud_watch_logs_log_group_arn
-                ]
-            else:
-                props['CloudWatchLogsLogGroupArn'] = self.cloud_watch_logs_log_group_arn
-
-        if self.enabled is not None:
-            if hasattr(self.enabled, 'to_dict'):
-                props['Enabled'] = self.enabled.to_dict()
-            elif isinstance(self.enabled, list):
-                props['Enabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enabled
-                ]
-            else:
-                props['Enabled'] = self.enabled
-
-        return props
 
 
 @dataclass
-class MasterUserOptions:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class MasterUserOptions(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "master_user_password": "MasterUserPassword",
+        "master_user_arn": "MasterUserARN",
+        "master_user_name": "MasterUserName",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     master_user_password: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     master_user_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     master_user_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.master_user_password is not None:
-            if hasattr(self.master_user_password, 'to_dict'):
-                props['MasterUserPassword'] = self.master_user_password.to_dict()
-            elif isinstance(self.master_user_password, list):
-                props['MasterUserPassword'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.master_user_password
-                ]
-            else:
-                props['MasterUserPassword'] = self.master_user_password
-
-        if self.master_user_arn is not None:
-            if hasattr(self.master_user_arn, 'to_dict'):
-                props['MasterUserARN'] = self.master_user_arn.to_dict()
-            elif isinstance(self.master_user_arn, list):
-                props['MasterUserARN'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.master_user_arn
-                ]
-            else:
-                props['MasterUserARN'] = self.master_user_arn
-
-        if self.master_user_name is not None:
-            if hasattr(self.master_user_name, 'to_dict'):
-                props['MasterUserName'] = self.master_user_name.to_dict()
-            elif isinstance(self.master_user_name, list):
-                props['MasterUserName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.master_user_name
-                ]
-            else:
-                props['MasterUserName'] = self.master_user_name
-
-        return props
-
 
 @dataclass
-class NodeConfig:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class NodeConfig(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "type_": "Type",
+        "enabled": "Enabled",
+        "count": "Count",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, OpenSearchPartitionInstanceType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     count: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.type_ is not None:
-            if hasattr(self.type_, 'to_dict'):
-                props['Type'] = self.type_.to_dict()
-            elif isinstance(self.type_, list):
-                props['Type'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.type_
-                ]
-            else:
-                props['Type'] = self.type_
-
-        if self.enabled is not None:
-            if hasattr(self.enabled, 'to_dict'):
-                props['Enabled'] = self.enabled.to_dict()
-            elif isinstance(self.enabled, list):
-                props['Enabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enabled
-                ]
-            else:
-                props['Enabled'] = self.enabled
-
-        if self.count is not None:
-            if hasattr(self.count, 'to_dict'):
-                props['Count'] = self.count.to_dict()
-            elif isinstance(self.count, list):
-                props['Count'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.count
-                ]
-            else:
-                props['Count'] = self.count
-
-        return props
-
 
 @dataclass
-class NodeOption:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class NodeOption(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "node_type": "NodeType",
+        "node_config": "NodeConfig",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     node_type: Optional[Union[str, NodeOptionsNodeType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     node_config: Optional[NodeConfig] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.node_type is not None:
-            if hasattr(self.node_type, 'to_dict'):
-                props['NodeType'] = self.node_type.to_dict()
-            elif isinstance(self.node_type, list):
-                props['NodeType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.node_type
-                ]
-            else:
-                props['NodeType'] = self.node_type
-
-        if self.node_config is not None:
-            if hasattr(self.node_config, 'to_dict'):
-                props['NodeConfig'] = self.node_config.to_dict()
-            elif isinstance(self.node_config, list):
-                props['NodeConfig'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.node_config
-                ]
-            else:
-                props['NodeConfig'] = self.node_config
-
-        return props
-
 
 @dataclass
-class NodeToNodeEncryptionOptions:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class NodeToNodeEncryptionOptions(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "enabled": "Enabled",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.enabled is not None:
-            if hasattr(self.enabled, 'to_dict'):
-                props['Enabled'] = self.enabled.to_dict()
-            elif isinstance(self.enabled, list):
-                props['Enabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enabled
-                ]
-            else:
-                props['Enabled'] = self.enabled
-
-        return props
-
 
 @dataclass
-class OffPeakWindow:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class OffPeakWindow(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "window_start_time": "WindowStartTime",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     window_start_time: Optional[WindowStartTime] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.window_start_time is not None:
-            if hasattr(self.window_start_time, 'to_dict'):
-                props['WindowStartTime'] = self.window_start_time.to_dict()
-            elif isinstance(self.window_start_time, list):
-                props['WindowStartTime'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.window_start_time
-                ]
-            else:
-                props['WindowStartTime'] = self.window_start_time
-
-        return props
-
 
 @dataclass
-class OffPeakWindowOptions:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class OffPeakWindowOptions(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "off_peak_window": "OffPeakWindow",
+        "enabled": "Enabled",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     off_peak_window: Optional[OffPeakWindow] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.off_peak_window is not None:
-            if hasattr(self.off_peak_window, 'to_dict'):
-                props['OffPeakWindow'] = self.off_peak_window.to_dict()
-            elif isinstance(self.off_peak_window, list):
-                props['OffPeakWindow'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.off_peak_window
-                ]
-            else:
-                props['OffPeakWindow'] = self.off_peak_window
-
-        if self.enabled is not None:
-            if hasattr(self.enabled, 'to_dict'):
-                props['Enabled'] = self.enabled.to_dict()
-            elif isinstance(self.enabled, list):
-                props['Enabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enabled
-                ]
-            else:
-                props['Enabled'] = self.enabled
-
-        return props
 
 
 @dataclass
-class S3VectorsEngine:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class S3VectorsEngine(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "enabled": "Enabled",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.enabled is not None:
-            if hasattr(self.enabled, 'to_dict'):
-                props['Enabled'] = self.enabled.to_dict()
-            elif isinstance(self.enabled, list):
-                props['Enabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enabled
-                ]
-            else:
-                props['Enabled'] = self.enabled
-
-        return props
 
 
 @dataclass
-class SAMLOptions:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class SAMLOptions(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "master_backend_role": "MasterBackendRole",
+        "subject_key": "SubjectKey",
+        "idp": "Idp",
+        "session_timeout_minutes": "SessionTimeoutMinutes",
+        "roles_key": "RolesKey",
+        "enabled": "Enabled",
+        "master_user_name": "MasterUserName",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     master_backend_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subject_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     idp: Optional[Idp] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     session_timeout_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     roles_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     master_user_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.master_backend_role is not None:
-            if hasattr(self.master_backend_role, 'to_dict'):
-                props['MasterBackendRole'] = self.master_backend_role.to_dict()
-            elif isinstance(self.master_backend_role, list):
-                props['MasterBackendRole'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.master_backend_role
-                ]
-            else:
-                props['MasterBackendRole'] = self.master_backend_role
-
-        if self.subject_key is not None:
-            if hasattr(self.subject_key, 'to_dict'):
-                props['SubjectKey'] = self.subject_key.to_dict()
-            elif isinstance(self.subject_key, list):
-                props['SubjectKey'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.subject_key
-                ]
-            else:
-                props['SubjectKey'] = self.subject_key
-
-        if self.idp is not None:
-            if hasattr(self.idp, 'to_dict'):
-                props['Idp'] = self.idp.to_dict()
-            elif isinstance(self.idp, list):
-                props['Idp'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.idp
-                ]
-            else:
-                props['Idp'] = self.idp
-
-        if self.session_timeout_minutes is not None:
-            if hasattr(self.session_timeout_minutes, 'to_dict'):
-                props['SessionTimeoutMinutes'] = self.session_timeout_minutes.to_dict()
-            elif isinstance(self.session_timeout_minutes, list):
-                props['SessionTimeoutMinutes'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.session_timeout_minutes
-                ]
-            else:
-                props['SessionTimeoutMinutes'] = self.session_timeout_minutes
-
-        if self.roles_key is not None:
-            if hasattr(self.roles_key, 'to_dict'):
-                props['RolesKey'] = self.roles_key.to_dict()
-            elif isinstance(self.roles_key, list):
-                props['RolesKey'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.roles_key
-                ]
-            else:
-                props['RolesKey'] = self.roles_key
-
-        if self.enabled is not None:
-            if hasattr(self.enabled, 'to_dict'):
-                props['Enabled'] = self.enabled.to_dict()
-            elif isinstance(self.enabled, list):
-                props['Enabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enabled
-                ]
-            else:
-                props['Enabled'] = self.enabled
-
-        if self.master_user_name is not None:
-            if hasattr(self.master_user_name, 'to_dict'):
-                props['MasterUserName'] = self.master_user_name.to_dict()
-            elif isinstance(self.master_user_name, list):
-                props['MasterUserName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.master_user_name
-                ]
-            else:
-                props['MasterUserName'] = self.master_user_name
-
-        return props
-
 
 @dataclass
-class ServiceSoftwareOptions:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class ServiceSoftwareOptions(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "new_version": "NewVersion",
+        "update_status": "UpdateStatus",
+        "description": "Description",
+        "cancellable": "Cancellable",
+        "current_version": "CurrentVersion",
+        "automated_update_date": "AutomatedUpdateDate",
+        "update_available": "UpdateAvailable",
+        "optional_deployment": "OptionalDeployment",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     new_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     update_status: Optional[Union[str, DeploymentStatus, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cancellable: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     current_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     automated_update_date: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     update_available: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     optional_deployment: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.new_version is not None:
-            if hasattr(self.new_version, 'to_dict'):
-                props['NewVersion'] = self.new_version.to_dict()
-            elif isinstance(self.new_version, list):
-                props['NewVersion'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.new_version
-                ]
-            else:
-                props['NewVersion'] = self.new_version
-
-        if self.update_status is not None:
-            if hasattr(self.update_status, 'to_dict'):
-                props['UpdateStatus'] = self.update_status.to_dict()
-            elif isinstance(self.update_status, list):
-                props['UpdateStatus'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.update_status
-                ]
-            else:
-                props['UpdateStatus'] = self.update_status
-
-        if self.description is not None:
-            if hasattr(self.description, 'to_dict'):
-                props['Description'] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props['Description'] = self.description
-
-        if self.cancellable is not None:
-            if hasattr(self.cancellable, 'to_dict'):
-                props['Cancellable'] = self.cancellable.to_dict()
-            elif isinstance(self.cancellable, list):
-                props['Cancellable'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.cancellable
-                ]
-            else:
-                props['Cancellable'] = self.cancellable
-
-        if self.current_version is not None:
-            if hasattr(self.current_version, 'to_dict'):
-                props['CurrentVersion'] = self.current_version.to_dict()
-            elif isinstance(self.current_version, list):
-                props['CurrentVersion'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.current_version
-                ]
-            else:
-                props['CurrentVersion'] = self.current_version
-
-        if self.automated_update_date is not None:
-            if hasattr(self.automated_update_date, 'to_dict'):
-                props['AutomatedUpdateDate'] = self.automated_update_date.to_dict()
-            elif isinstance(self.automated_update_date, list):
-                props['AutomatedUpdateDate'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.automated_update_date
-                ]
-            else:
-                props['AutomatedUpdateDate'] = self.automated_update_date
-
-        if self.update_available is not None:
-            if hasattr(self.update_available, 'to_dict'):
-                props['UpdateAvailable'] = self.update_available.to_dict()
-            elif isinstance(self.update_available, list):
-                props['UpdateAvailable'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.update_available
-                ]
-            else:
-                props['UpdateAvailable'] = self.update_available
-
-        if self.optional_deployment is not None:
-            if hasattr(self.optional_deployment, 'to_dict'):
-                props['OptionalDeployment'] = self.optional_deployment.to_dict()
-            elif isinstance(self.optional_deployment, list):
-                props['OptionalDeployment'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.optional_deployment
-                ]
-            else:
-                props['OptionalDeployment'] = self.optional_deployment
-
-        return props
-
 
 @dataclass
-class SnapshotOptions:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class SnapshotOptions(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "automated_snapshot_start_hour": "AutomatedSnapshotStartHour",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     automated_snapshot_start_hour: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.automated_snapshot_start_hour is not None:
-            if hasattr(self.automated_snapshot_start_hour, 'to_dict'):
-                props['AutomatedSnapshotStartHour'] = self.automated_snapshot_start_hour.to_dict()
-            elif isinstance(self.automated_snapshot_start_hour, list):
-                props['AutomatedSnapshotStartHour'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.automated_snapshot_start_hour
-                ]
-            else:
-                props['AutomatedSnapshotStartHour'] = self.automated_snapshot_start_hour
-
-        return props
-
 
 @dataclass
-class SoftwareUpdateOptions:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class SoftwareUpdateOptions(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "auto_software_update_enabled": "AutoSoftwareUpdateEnabled",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auto_software_update_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.auto_software_update_enabled is not None:
-            if hasattr(self.auto_software_update_enabled, 'to_dict'):
-                props['AutoSoftwareUpdateEnabled'] = self.auto_software_update_enabled.to_dict()
-            elif isinstance(self.auto_software_update_enabled, list):
-                props['AutoSoftwareUpdateEnabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.auto_software_update_enabled
-                ]
-            else:
-                props['AutoSoftwareUpdateEnabled'] = self.auto_software_update_enabled
-
-        return props
-
 
 @dataclass
-class VPCOptions:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class VPCOptions(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "security_group_ids": "SecurityGroupIds",
+        "subnet_ids": "SubnetIds",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_group_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnet_ids: Optional[Union[list[str], Ref]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.security_group_ids is not None:
-            if hasattr(self.security_group_ids, 'to_dict'):
-                props['SecurityGroupIds'] = self.security_group_ids.to_dict()
-            elif isinstance(self.security_group_ids, list):
-                props['SecurityGroupIds'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.security_group_ids
-                ]
-            else:
-                props['SecurityGroupIds'] = self.security_group_ids
-
-        if self.subnet_ids is not None:
-            if hasattr(self.subnet_ids, 'to_dict'):
-                props['SubnetIds'] = self.subnet_ids.to_dict()
-            elif isinstance(self.subnet_ids, list):
-                props['SubnetIds'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.subnet_ids
-                ]
-            else:
-                props['SubnetIds'] = self.subnet_ids
-
-        return props
-
 
 @dataclass
-class WindowStartTime:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class WindowStartTime(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "hours": "Hours",
+        "minutes": "Minutes",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hours: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.hours is not None:
-            if hasattr(self.hours, 'to_dict'):
-                props['Hours'] = self.hours.to_dict()
-            elif isinstance(self.hours, list):
-                props['Hours'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.hours
-                ]
-            else:
-                props['Hours'] = self.hours
-
-        if self.minutes is not None:
-            if hasattr(self.minutes, 'to_dict'):
-                props['Minutes'] = self.minutes.to_dict()
-            elif isinstance(self.minutes, list):
-                props['Minutes'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.minutes
-                ]
-            else:
-                props['Minutes'] = self.minutes
-
-        return props
-
 
 @dataclass
-class ZoneAwarenessConfig:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
+class ZoneAwarenessConfig(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "availability_zone_count": "AvailabilityZoneCount",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     availability_zone_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.availability_zone_count is not None:
-            if hasattr(self.availability_zone_count, 'to_dict'):
-                props['AvailabilityZoneCount'] = self.availability_zone_count.to_dict()
-            elif isinstance(self.availability_zone_count, list):
-                props['AvailabilityZoneCount'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.availability_zone_count
-                ]
-            else:
-                props['AvailabilityZoneCount'] = self.availability_zone_count
-
-        return props
 
 
 @dataclass
@@ -2721,323 +1416,51 @@ class Domain(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opens"""
 
     resource_type: ClassVar[str] = "AWS::OpenSearchService::Domain"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "skip_shard_migration_wait": "SkipShardMigrationWait",
+        "engine_version": "EngineVersion",
+        "software_update_options": "SoftwareUpdateOptions",
+        "domain_name": "DomainName",
+        "log_publishing_options": "LogPublishingOptions",
+        "aiml_options": "AIMLOptions",
+        "snapshot_options": "SnapshotOptions",
+        "vpc_options": "VPCOptions",
+        "node_to_node_encryption_options": "NodeToNodeEncryptionOptions",
+        "access_policies": "AccessPolicies",
+        "domain_endpoint_options": "DomainEndpointOptions",
+        "cognito_options": "CognitoOptions",
+        "advanced_options": "AdvancedOptions",
+        "advanced_security_options": "AdvancedSecurityOptions",
+        "ip_address_type": "IPAddressType",
+        "identity_center_options": "IdentityCenterOptions",
+        "ebs_options": "EBSOptions",
+        "encryption_at_rest_options": "EncryptionAtRestOptions",
+        "off_peak_window_options": "OffPeakWindowOptions",
+        "tags": "Tags",
+        "cluster_config": "ClusterConfig",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     skip_shard_migration_wait: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     engine_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     software_update_options: Optional[SoftwareUpdateOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     log_publishing_options: Optional[dict[str, Any]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     aiml_options: Optional[AIMLOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     snapshot_options: Optional[SnapshotOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_options: Optional[VPCOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     node_to_node_encryption_options: Optional[NodeToNodeEncryptionOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     access_policies: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_endpoint_options: Optional[DomainEndpointOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     cognito_options: Optional[CognitoOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     advanced_options: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     advanced_security_options: Optional[AdvancedSecurityOptionsInput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ip_address_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     identity_center_options: Optional[IdentityCenterOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ebs_options: Optional[EBSOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     encryption_at_rest_options: Optional[EncryptionAtRestOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     off_peak_window_options: Optional[OffPeakWindowOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     cluster_config: Optional[ClusterConfig] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.skip_shard_migration_wait is not None:
-            # Serialize skip_shard_migration_wait (handle intrinsic functions)
-            if hasattr(self.skip_shard_migration_wait, 'to_dict'):
-                props["SkipShardMigrationWait"] = self.skip_shard_migration_wait.to_dict()
-            elif isinstance(self.skip_shard_migration_wait, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SkipShardMigrationWait'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.skip_shard_migration_wait
-                ]
-            else:
-                props["SkipShardMigrationWait"] = self.skip_shard_migration_wait
-
-        if self.engine_version is not None:
-            # Serialize engine_version (handle intrinsic functions)
-            if hasattr(self.engine_version, 'to_dict'):
-                props["EngineVersion"] = self.engine_version.to_dict()
-            elif isinstance(self.engine_version, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['EngineVersion'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.engine_version
-                ]
-            else:
-                props["EngineVersion"] = self.engine_version
-
-        if self.software_update_options is not None:
-            # Serialize software_update_options (handle intrinsic functions)
-            if hasattr(self.software_update_options, 'to_dict'):
-                props["SoftwareUpdateOptions"] = self.software_update_options.to_dict()
-            elif isinstance(self.software_update_options, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SoftwareUpdateOptions'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.software_update_options
-                ]
-            else:
-                props["SoftwareUpdateOptions"] = self.software_update_options
-
-        if self.domain_name is not None:
-            # Serialize domain_name (handle intrinsic functions)
-            if hasattr(self.domain_name, 'to_dict'):
-                props["DomainName"] = self.domain_name.to_dict()
-            elif isinstance(self.domain_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DomainName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.domain_name
-                ]
-            else:
-                props["DomainName"] = self.domain_name
-
-        if self.log_publishing_options is not None:
-            # Serialize log_publishing_options (handle intrinsic functions)
-            if hasattr(self.log_publishing_options, 'to_dict'):
-                props["LogPublishingOptions"] = self.log_publishing_options.to_dict()
-            elif isinstance(self.log_publishing_options, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['LogPublishingOptions'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.log_publishing_options
-                ]
-            else:
-                props["LogPublishingOptions"] = self.log_publishing_options
-
-        if self.aiml_options is not None:
-            # Serialize aiml_options (handle intrinsic functions)
-            if hasattr(self.aiml_options, 'to_dict'):
-                props["AIMLOptions"] = self.aiml_options.to_dict()
-            elif isinstance(self.aiml_options, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AIMLOptions'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.aiml_options
-                ]
-            else:
-                props["AIMLOptions"] = self.aiml_options
-
-        if self.snapshot_options is not None:
-            # Serialize snapshot_options (handle intrinsic functions)
-            if hasattr(self.snapshot_options, 'to_dict'):
-                props["SnapshotOptions"] = self.snapshot_options.to_dict()
-            elif isinstance(self.snapshot_options, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SnapshotOptions'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.snapshot_options
-                ]
-            else:
-                props["SnapshotOptions"] = self.snapshot_options
-
-        if self.vpc_options is not None:
-            # Serialize vpc_options (handle intrinsic functions)
-            if hasattr(self.vpc_options, 'to_dict'):
-                props["VPCOptions"] = self.vpc_options.to_dict()
-            elif isinstance(self.vpc_options, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['VPCOptions'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.vpc_options
-                ]
-            else:
-                props["VPCOptions"] = self.vpc_options
-
-        if self.node_to_node_encryption_options is not None:
-            # Serialize node_to_node_encryption_options (handle intrinsic functions)
-            if hasattr(self.node_to_node_encryption_options, 'to_dict'):
-                props["NodeToNodeEncryptionOptions"] = self.node_to_node_encryption_options.to_dict()
-            elif isinstance(self.node_to_node_encryption_options, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['NodeToNodeEncryptionOptions'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.node_to_node_encryption_options
-                ]
-            else:
-                props["NodeToNodeEncryptionOptions"] = self.node_to_node_encryption_options
-
-        if self.access_policies is not None:
-            # Serialize access_policies (handle intrinsic functions)
-            if hasattr(self.access_policies, 'to_dict'):
-                props["AccessPolicies"] = self.access_policies.to_dict()
-            elif isinstance(self.access_policies, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AccessPolicies'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.access_policies
-                ]
-            else:
-                props["AccessPolicies"] = self.access_policies
-
-        if self.domain_endpoint_options is not None:
-            # Serialize domain_endpoint_options (handle intrinsic functions)
-            if hasattr(self.domain_endpoint_options, 'to_dict'):
-                props["DomainEndpointOptions"] = self.domain_endpoint_options.to_dict()
-            elif isinstance(self.domain_endpoint_options, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DomainEndpointOptions'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.domain_endpoint_options
-                ]
-            else:
-                props["DomainEndpointOptions"] = self.domain_endpoint_options
-
-        if self.cognito_options is not None:
-            # Serialize cognito_options (handle intrinsic functions)
-            if hasattr(self.cognito_options, 'to_dict'):
-                props["CognitoOptions"] = self.cognito_options.to_dict()
-            elif isinstance(self.cognito_options, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['CognitoOptions'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.cognito_options
-                ]
-            else:
-                props["CognitoOptions"] = self.cognito_options
-
-        if self.advanced_options is not None:
-            # Serialize advanced_options (handle intrinsic functions)
-            if hasattr(self.advanced_options, 'to_dict'):
-                props["AdvancedOptions"] = self.advanced_options.to_dict()
-            elif isinstance(self.advanced_options, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AdvancedOptions'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.advanced_options
-                ]
-            else:
-                props["AdvancedOptions"] = self.advanced_options
-
-        if self.advanced_security_options is not None:
-            # Serialize advanced_security_options (handle intrinsic functions)
-            if hasattr(self.advanced_security_options, 'to_dict'):
-                props["AdvancedSecurityOptions"] = self.advanced_security_options.to_dict()
-            elif isinstance(self.advanced_security_options, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AdvancedSecurityOptions'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.advanced_security_options
-                ]
-            else:
-                props["AdvancedSecurityOptions"] = self.advanced_security_options
-
-        if self.ip_address_type is not None:
-            # Serialize ip_address_type (handle intrinsic functions)
-            if hasattr(self.ip_address_type, 'to_dict'):
-                props["IPAddressType"] = self.ip_address_type.to_dict()
-            elif isinstance(self.ip_address_type, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['IPAddressType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.ip_address_type
-                ]
-            else:
-                props["IPAddressType"] = self.ip_address_type
-
-        if self.identity_center_options is not None:
-            # Serialize identity_center_options (handle intrinsic functions)
-            if hasattr(self.identity_center_options, 'to_dict'):
-                props["IdentityCenterOptions"] = self.identity_center_options.to_dict()
-            elif isinstance(self.identity_center_options, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['IdentityCenterOptions'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.identity_center_options
-                ]
-            else:
-                props["IdentityCenterOptions"] = self.identity_center_options
-
-        if self.ebs_options is not None:
-            # Serialize ebs_options (handle intrinsic functions)
-            if hasattr(self.ebs_options, 'to_dict'):
-                props["EBSOptions"] = self.ebs_options.to_dict()
-            elif isinstance(self.ebs_options, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['EBSOptions'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.ebs_options
-                ]
-            else:
-                props["EBSOptions"] = self.ebs_options
-
-        if self.encryption_at_rest_options is not None:
-            # Serialize encryption_at_rest_options (handle intrinsic functions)
-            if hasattr(self.encryption_at_rest_options, 'to_dict'):
-                props["EncryptionAtRestOptions"] = self.encryption_at_rest_options.to_dict()
-            elif isinstance(self.encryption_at_rest_options, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['EncryptionAtRestOptions'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.encryption_at_rest_options
-                ]
-            else:
-                props["EncryptionAtRestOptions"] = self.encryption_at_rest_options
-
-        if self.off_peak_window_options is not None:
-            # Serialize off_peak_window_options (handle intrinsic functions)
-            if hasattr(self.off_peak_window_options, 'to_dict'):
-                props["OffPeakWindowOptions"] = self.off_peak_window_options.to_dict()
-            elif isinstance(self.off_peak_window_options, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['OffPeakWindowOptions'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.off_peak_window_options
-                ]
-            else:
-                props["OffPeakWindowOptions"] = self.off_peak_window_options
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.cluster_config is not None:
-            # Serialize cluster_config (handle intrinsic functions)
-            if hasattr(self.cluster_config, 'to_dict'):
-                props["ClusterConfig"] = self.cluster_config.to_dict()
-            elif isinstance(self.cluster_config, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ClusterConfig'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.cluster_config
-                ]
-            else:
-                props["ClusterConfig"] = self.cluster_config
-
-        return props
 
     @property
     def attr_service_software_options__optional_deployment(self) -> GetAtt:

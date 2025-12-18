@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:37
+  Generated: 2025-12-17 21:57:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MemoryDB
@@ -21,7 +21,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, ClassVar, Optional, Union
 
-from cloudformation_dataclasses.core.base import CloudFormationResource
+from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
@@ -141,53 +141,15 @@ class ACL(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memor"""
 
     resource_type: ClassVar[str] = "AWS::MemoryDB::ACL"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "acl_name": "ACLName",
+        "user_names": "UserNames",
+        "tags": "Tags",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     acl_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     user_names: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.acl_name is not None:
-            # Serialize acl_name (handle intrinsic functions)
-            if hasattr(self.acl_name, 'to_dict'):
-                props["ACLName"] = self.acl_name.to_dict()
-            elif isinstance(self.acl_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ACLName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.acl_name
-                ]
-            else:
-                props["ACLName"] = self.acl_name
-
-        if self.user_names is not None:
-            # Serialize user_names (handle intrinsic functions)
-            if hasattr(self.user_names, 'to_dict'):
-                props["UserNames"] = self.user_names.to_dict()
-            elif isinstance(self.user_names, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['UserNames'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.user_names
-                ]
-            else:
-                props["UserNames"] = self.user_names
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_status(self) -> GetAtt:
@@ -203,41 +165,14 @@ class ACL(CloudFormationResource):
 
 
 @dataclass
-class Endpoint:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mem"""
+class Endpoint(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "address": "Address",
+        "port": "Port",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     address: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.address is not None:
-            if hasattr(self.address, 'to_dict'):
-                props['Address'] = self.address.to_dict()
-            elif isinstance(self.address, list):
-                props['Address'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.address
-                ]
-            else:
-                props['Address'] = self.address
-
-        if self.port is not None:
-            if hasattr(self.port, 'to_dict'):
-                props['Port'] = self.port.to_dict()
-            elif isinstance(self.port, list):
-                props['Port'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.port
-                ]
-            else:
-                props['Port'] = self.port
-
-        return props
 
 
 @dataclass
@@ -245,443 +180,67 @@ class Cluster(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memor"""
 
     resource_type: ClassVar[str] = "AWS::MemoryDB::Cluster"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "num_replicas_per_shard": "NumReplicasPerShard",
+        "description": "Description",
+        "final_snapshot_name": "FinalSnapshotName",
+        "parameter_group_name": "ParameterGroupName",
+        "snapshot_arns": "SnapshotArns",
+        "port": "Port",
+        "acl_name": "ACLName",
+        "snapshot_name": "SnapshotName",
+        "num_shards": "NumShards",
+        "tls_enabled": "TLSEnabled",
+        "network_type": "NetworkType",
+        "cluster_name": "ClusterName",
+        "sns_topic_arn": "SnsTopicArn",
+        "engine": "Engine",
+        "tags": "Tags",
+        "multi_region_cluster_name": "MultiRegionClusterName",
+        "engine_version": "EngineVersion",
+        "kms_key_id": "KmsKeyId",
+        "sns_topic_status": "SnsTopicStatus",
+        "subnet_group_name": "SubnetGroupName",
+        "auto_minor_version_upgrade": "AutoMinorVersionUpgrade",
+        "security_group_ids": "SecurityGroupIds",
+        "cluster_endpoint": "ClusterEndpoint",
+        "snapshot_window": "SnapshotWindow",
+        "snapshot_retention_limit": "SnapshotRetentionLimit",
+        "data_tiering": "DataTiering",
+        "node_type": "NodeType",
+        "ip_discovery": "IpDiscovery",
+        "maintenance_window": "MaintenanceWindow",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     num_replicas_per_shard: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     final_snapshot_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     parameter_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     snapshot_arns: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     acl_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     snapshot_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     num_shards: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tls_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     network_type: Optional[Union[str, NetworkType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     cluster_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     sns_topic_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     engine: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     multi_region_cluster_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     engine_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     sns_topic_status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     subnet_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auto_minor_version_upgrade: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     security_group_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     cluster_endpoint: Optional[Endpoint] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     snapshot_window: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     snapshot_retention_limit: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     data_tiering: Optional[Union[str, DataTieringStatus, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     node_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ip_discovery: Optional[Union[str, IpDiscovery, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     maintenance_window: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.num_replicas_per_shard is not None:
-            # Serialize num_replicas_per_shard (handle intrinsic functions)
-            if hasattr(self.num_replicas_per_shard, 'to_dict'):
-                props["NumReplicasPerShard"] = self.num_replicas_per_shard.to_dict()
-            elif isinstance(self.num_replicas_per_shard, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['NumReplicasPerShard'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.num_replicas_per_shard
-                ]
-            else:
-                props["NumReplicasPerShard"] = self.num_replicas_per_shard
-
-        if self.description is not None:
-            # Serialize description (handle intrinsic functions)
-            if hasattr(self.description, 'to_dict'):
-                props["Description"] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props["Description"] = self.description
-
-        if self.final_snapshot_name is not None:
-            # Serialize final_snapshot_name (handle intrinsic functions)
-            if hasattr(self.final_snapshot_name, 'to_dict'):
-                props["FinalSnapshotName"] = self.final_snapshot_name.to_dict()
-            elif isinstance(self.final_snapshot_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['FinalSnapshotName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.final_snapshot_name
-                ]
-            else:
-                props["FinalSnapshotName"] = self.final_snapshot_name
-
-        if self.parameter_group_name is not None:
-            # Serialize parameter_group_name (handle intrinsic functions)
-            if hasattr(self.parameter_group_name, 'to_dict'):
-                props["ParameterGroupName"] = self.parameter_group_name.to_dict()
-            elif isinstance(self.parameter_group_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ParameterGroupName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.parameter_group_name
-                ]
-            else:
-                props["ParameterGroupName"] = self.parameter_group_name
-
-        if self.snapshot_arns is not None:
-            # Serialize snapshot_arns (handle intrinsic functions)
-            if hasattr(self.snapshot_arns, 'to_dict'):
-                props["SnapshotArns"] = self.snapshot_arns.to_dict()
-            elif isinstance(self.snapshot_arns, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SnapshotArns'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.snapshot_arns
-                ]
-            else:
-                props["SnapshotArns"] = self.snapshot_arns
-
-        if self.port is not None:
-            # Serialize port (handle intrinsic functions)
-            if hasattr(self.port, 'to_dict'):
-                props["Port"] = self.port.to_dict()
-            elif isinstance(self.port, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Port'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.port
-                ]
-            else:
-                props["Port"] = self.port
-
-        if self.acl_name is not None:
-            # Serialize acl_name (handle intrinsic functions)
-            if hasattr(self.acl_name, 'to_dict'):
-                props["ACLName"] = self.acl_name.to_dict()
-            elif isinstance(self.acl_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ACLName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.acl_name
-                ]
-            else:
-                props["ACLName"] = self.acl_name
-
-        if self.snapshot_name is not None:
-            # Serialize snapshot_name (handle intrinsic functions)
-            if hasattr(self.snapshot_name, 'to_dict'):
-                props["SnapshotName"] = self.snapshot_name.to_dict()
-            elif isinstance(self.snapshot_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SnapshotName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.snapshot_name
-                ]
-            else:
-                props["SnapshotName"] = self.snapshot_name
-
-        if self.num_shards is not None:
-            # Serialize num_shards (handle intrinsic functions)
-            if hasattr(self.num_shards, 'to_dict'):
-                props["NumShards"] = self.num_shards.to_dict()
-            elif isinstance(self.num_shards, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['NumShards'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.num_shards
-                ]
-            else:
-                props["NumShards"] = self.num_shards
-
-        if self.tls_enabled is not None:
-            # Serialize tls_enabled (handle intrinsic functions)
-            if hasattr(self.tls_enabled, 'to_dict'):
-                props["TLSEnabled"] = self.tls_enabled.to_dict()
-            elif isinstance(self.tls_enabled, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['TLSEnabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.tls_enabled
-                ]
-            else:
-                props["TLSEnabled"] = self.tls_enabled
-
-        if self.network_type is not None:
-            # Serialize network_type (handle intrinsic functions)
-            if hasattr(self.network_type, 'to_dict'):
-                props["NetworkType"] = self.network_type.to_dict()
-            elif isinstance(self.network_type, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['NetworkType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.network_type
-                ]
-            else:
-                props["NetworkType"] = self.network_type
-
-        if self.cluster_name is not None:
-            # Serialize cluster_name (handle intrinsic functions)
-            if hasattr(self.cluster_name, 'to_dict'):
-                props["ClusterName"] = self.cluster_name.to_dict()
-            elif isinstance(self.cluster_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ClusterName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.cluster_name
-                ]
-            else:
-                props["ClusterName"] = self.cluster_name
-
-        if self.sns_topic_arn is not None:
-            # Serialize sns_topic_arn (handle intrinsic functions)
-            if hasattr(self.sns_topic_arn, 'to_dict'):
-                props["SnsTopicArn"] = self.sns_topic_arn.to_dict()
-            elif isinstance(self.sns_topic_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SnsTopicArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.sns_topic_arn
-                ]
-            else:
-                props["SnsTopicArn"] = self.sns_topic_arn
-
-        if self.engine is not None:
-            # Serialize engine (handle intrinsic functions)
-            if hasattr(self.engine, 'to_dict'):
-                props["Engine"] = self.engine.to_dict()
-            elif isinstance(self.engine, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Engine'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.engine
-                ]
-            else:
-                props["Engine"] = self.engine
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.multi_region_cluster_name is not None:
-            # Serialize multi_region_cluster_name (handle intrinsic functions)
-            if hasattr(self.multi_region_cluster_name, 'to_dict'):
-                props["MultiRegionClusterName"] = self.multi_region_cluster_name.to_dict()
-            elif isinstance(self.multi_region_cluster_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['MultiRegionClusterName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.multi_region_cluster_name
-                ]
-            else:
-                props["MultiRegionClusterName"] = self.multi_region_cluster_name
-
-        if self.engine_version is not None:
-            # Serialize engine_version (handle intrinsic functions)
-            if hasattr(self.engine_version, 'to_dict'):
-                props["EngineVersion"] = self.engine_version.to_dict()
-            elif isinstance(self.engine_version, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['EngineVersion'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.engine_version
-                ]
-            else:
-                props["EngineVersion"] = self.engine_version
-
-        if self.kms_key_id is not None:
-            # Serialize kms_key_id (handle intrinsic functions)
-            if hasattr(self.kms_key_id, 'to_dict'):
-                props["KmsKeyId"] = self.kms_key_id.to_dict()
-            elif isinstance(self.kms_key_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['KmsKeyId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.kms_key_id
-                ]
-            else:
-                props["KmsKeyId"] = self.kms_key_id
-
-        if self.sns_topic_status is not None:
-            # Serialize sns_topic_status (handle intrinsic functions)
-            if hasattr(self.sns_topic_status, 'to_dict'):
-                props["SnsTopicStatus"] = self.sns_topic_status.to_dict()
-            elif isinstance(self.sns_topic_status, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SnsTopicStatus'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.sns_topic_status
-                ]
-            else:
-                props["SnsTopicStatus"] = self.sns_topic_status
-
-        if self.subnet_group_name is not None:
-            # Serialize subnet_group_name (handle intrinsic functions)
-            if hasattr(self.subnet_group_name, 'to_dict'):
-                props["SubnetGroupName"] = self.subnet_group_name.to_dict()
-            elif isinstance(self.subnet_group_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SubnetGroupName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.subnet_group_name
-                ]
-            else:
-                props["SubnetGroupName"] = self.subnet_group_name
-
-        if self.auto_minor_version_upgrade is not None:
-            # Serialize auto_minor_version_upgrade (handle intrinsic functions)
-            if hasattr(self.auto_minor_version_upgrade, 'to_dict'):
-                props["AutoMinorVersionUpgrade"] = self.auto_minor_version_upgrade.to_dict()
-            elif isinstance(self.auto_minor_version_upgrade, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AutoMinorVersionUpgrade'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.auto_minor_version_upgrade
-                ]
-            else:
-                props["AutoMinorVersionUpgrade"] = self.auto_minor_version_upgrade
-
-        if self.security_group_ids is not None:
-            # Serialize security_group_ids (handle intrinsic functions)
-            if hasattr(self.security_group_ids, 'to_dict'):
-                props["SecurityGroupIds"] = self.security_group_ids.to_dict()
-            elif isinstance(self.security_group_ids, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SecurityGroupIds'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.security_group_ids
-                ]
-            else:
-                props["SecurityGroupIds"] = self.security_group_ids
-
-        if self.cluster_endpoint is not None:
-            # Serialize cluster_endpoint (handle intrinsic functions)
-            if hasattr(self.cluster_endpoint, 'to_dict'):
-                props["ClusterEndpoint"] = self.cluster_endpoint.to_dict()
-            elif isinstance(self.cluster_endpoint, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ClusterEndpoint'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.cluster_endpoint
-                ]
-            else:
-                props["ClusterEndpoint"] = self.cluster_endpoint
-
-        if self.snapshot_window is not None:
-            # Serialize snapshot_window (handle intrinsic functions)
-            if hasattr(self.snapshot_window, 'to_dict'):
-                props["SnapshotWindow"] = self.snapshot_window.to_dict()
-            elif isinstance(self.snapshot_window, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SnapshotWindow'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.snapshot_window
-                ]
-            else:
-                props["SnapshotWindow"] = self.snapshot_window
-
-        if self.snapshot_retention_limit is not None:
-            # Serialize snapshot_retention_limit (handle intrinsic functions)
-            if hasattr(self.snapshot_retention_limit, 'to_dict'):
-                props["SnapshotRetentionLimit"] = self.snapshot_retention_limit.to_dict()
-            elif isinstance(self.snapshot_retention_limit, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SnapshotRetentionLimit'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.snapshot_retention_limit
-                ]
-            else:
-                props["SnapshotRetentionLimit"] = self.snapshot_retention_limit
-
-        if self.data_tiering is not None:
-            # Serialize data_tiering (handle intrinsic functions)
-            if hasattr(self.data_tiering, 'to_dict'):
-                props["DataTiering"] = self.data_tiering.to_dict()
-            elif isinstance(self.data_tiering, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DataTiering'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.data_tiering
-                ]
-            else:
-                props["DataTiering"] = self.data_tiering
-
-        if self.node_type is not None:
-            # Serialize node_type (handle intrinsic functions)
-            if hasattr(self.node_type, 'to_dict'):
-                props["NodeType"] = self.node_type.to_dict()
-            elif isinstance(self.node_type, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['NodeType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.node_type
-                ]
-            else:
-                props["NodeType"] = self.node_type
-
-        if self.ip_discovery is not None:
-            # Serialize ip_discovery (handle intrinsic functions)
-            if hasattr(self.ip_discovery, 'to_dict'):
-                props["IpDiscovery"] = self.ip_discovery.to_dict()
-            elif isinstance(self.ip_discovery, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['IpDiscovery'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.ip_discovery
-                ]
-            else:
-                props["IpDiscovery"] = self.ip_discovery
-
-        if self.maintenance_window is not None:
-            # Serialize maintenance_window (handle intrinsic functions)
-            if hasattr(self.maintenance_window, 'to_dict'):
-                props["MaintenanceWindow"] = self.maintenance_window.to_dict()
-            elif isinstance(self.maintenance_window, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['MaintenanceWindow'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.maintenance_window
-                ]
-            else:
-                props["MaintenanceWindow"] = self.maintenance_window
-
-        return props
 
     @property
     def attr_status(self) -> GetAtt:
@@ -716,158 +275,29 @@ class MultiRegionCluster(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memor"""
 
     resource_type: ClassVar[str] = "AWS::MemoryDB::MultiRegionCluster"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "multi_region_parameter_group_name": "MultiRegionParameterGroupName",
+        "description": "Description",
+        "engine_version": "EngineVersion",
+        "multi_region_cluster_name_suffix": "MultiRegionClusterNameSuffix",
+        "tls_enabled": "TLSEnabled",
+        "node_type": "NodeType",
+        "update_strategy": "UpdateStrategy",
+        "engine": "Engine",
+        "tags": "Tags",
+        "num_shards": "NumShards",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     multi_region_parameter_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     engine_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     multi_region_cluster_name_suffix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tls_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     node_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     update_strategy: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     engine: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     num_shards: Optional[Union[int, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.multi_region_parameter_group_name is not None:
-            # Serialize multi_region_parameter_group_name (handle intrinsic functions)
-            if hasattr(self.multi_region_parameter_group_name, 'to_dict'):
-                props["MultiRegionParameterGroupName"] = self.multi_region_parameter_group_name.to_dict()
-            elif isinstance(self.multi_region_parameter_group_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['MultiRegionParameterGroupName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.multi_region_parameter_group_name
-                ]
-            else:
-                props["MultiRegionParameterGroupName"] = self.multi_region_parameter_group_name
-
-        if self.description is not None:
-            # Serialize description (handle intrinsic functions)
-            if hasattr(self.description, 'to_dict'):
-                props["Description"] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props["Description"] = self.description
-
-        if self.engine_version is not None:
-            # Serialize engine_version (handle intrinsic functions)
-            if hasattr(self.engine_version, 'to_dict'):
-                props["EngineVersion"] = self.engine_version.to_dict()
-            elif isinstance(self.engine_version, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['EngineVersion'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.engine_version
-                ]
-            else:
-                props["EngineVersion"] = self.engine_version
-
-        if self.multi_region_cluster_name_suffix is not None:
-            # Serialize multi_region_cluster_name_suffix (handle intrinsic functions)
-            if hasattr(self.multi_region_cluster_name_suffix, 'to_dict'):
-                props["MultiRegionClusterNameSuffix"] = self.multi_region_cluster_name_suffix.to_dict()
-            elif isinstance(self.multi_region_cluster_name_suffix, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['MultiRegionClusterNameSuffix'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.multi_region_cluster_name_suffix
-                ]
-            else:
-                props["MultiRegionClusterNameSuffix"] = self.multi_region_cluster_name_suffix
-
-        if self.tls_enabled is not None:
-            # Serialize tls_enabled (handle intrinsic functions)
-            if hasattr(self.tls_enabled, 'to_dict'):
-                props["TLSEnabled"] = self.tls_enabled.to_dict()
-            elif isinstance(self.tls_enabled, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['TLSEnabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.tls_enabled
-                ]
-            else:
-                props["TLSEnabled"] = self.tls_enabled
-
-        if self.node_type is not None:
-            # Serialize node_type (handle intrinsic functions)
-            if hasattr(self.node_type, 'to_dict'):
-                props["NodeType"] = self.node_type.to_dict()
-            elif isinstance(self.node_type, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['NodeType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.node_type
-                ]
-            else:
-                props["NodeType"] = self.node_type
-
-        if self.update_strategy is not None:
-            # Serialize update_strategy (handle intrinsic functions)
-            if hasattr(self.update_strategy, 'to_dict'):
-                props["UpdateStrategy"] = self.update_strategy.to_dict()
-            elif isinstance(self.update_strategy, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['UpdateStrategy'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.update_strategy
-                ]
-            else:
-                props["UpdateStrategy"] = self.update_strategy
-
-        if self.engine is not None:
-            # Serialize engine (handle intrinsic functions)
-            if hasattr(self.engine, 'to_dict'):
-                props["Engine"] = self.engine.to_dict()
-            elif isinstance(self.engine, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Engine'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.engine
-                ]
-            else:
-                props["Engine"] = self.engine
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.num_shards is not None:
-            # Serialize num_shards (handle intrinsic functions)
-            if hasattr(self.num_shards, 'to_dict'):
-                props["NumShards"] = self.num_shards.to_dict()
-            elif isinstance(self.num_shards, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['NumShards'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.num_shards
-                ]
-            else:
-                props["NumShards"] = self.num_shards
-
-        return props
 
     @property
     def attr_status(self) -> GetAtt:
@@ -892,83 +322,19 @@ class ParameterGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memor"""
 
     resource_type: ClassVar[str] = "AWS::MemoryDB::ParameterGroup"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "description": "Description",
+        "parameters": "Parameters",
+        "parameter_group_name": "ParameterGroupName",
+        "family": "Family",
+        "tags": "Tags",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     parameters: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     parameter_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     family: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.description is not None:
-            # Serialize description (handle intrinsic functions)
-            if hasattr(self.description, 'to_dict'):
-                props["Description"] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props["Description"] = self.description
-
-        if self.parameters is not None:
-            # Serialize parameters (handle intrinsic functions)
-            if hasattr(self.parameters, 'to_dict'):
-                props["Parameters"] = self.parameters.to_dict()
-            elif isinstance(self.parameters, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Parameters'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.parameters
-                ]
-            else:
-                props["Parameters"] = self.parameters
-
-        if self.parameter_group_name is not None:
-            # Serialize parameter_group_name (handle intrinsic functions)
-            if hasattr(self.parameter_group_name, 'to_dict'):
-                props["ParameterGroupName"] = self.parameter_group_name.to_dict()
-            elif isinstance(self.parameter_group_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ParameterGroupName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.parameter_group_name
-                ]
-            else:
-                props["ParameterGroupName"] = self.parameter_group_name
-
-        if self.family is not None:
-            # Serialize family (handle intrinsic functions)
-            if hasattr(self.family, 'to_dict'):
-                props["Family"] = self.family.to_dict()
-            elif isinstance(self.family, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Family'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.family
-                ]
-            else:
-                props["Family"] = self.family
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_arn(self) -> GetAtt:
@@ -983,68 +349,17 @@ class SubnetGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memor"""
 
     resource_type: ClassVar[str] = "AWS::MemoryDB::SubnetGroup"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "description": "Description",
+        "subnet_group_name": "SubnetGroupName",
+        "subnet_ids": "SubnetIds",
+        "tags": "Tags",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     subnet_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     subnet_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.description is not None:
-            # Serialize description (handle intrinsic functions)
-            if hasattr(self.description, 'to_dict'):
-                props["Description"] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props["Description"] = self.description
-
-        if self.subnet_group_name is not None:
-            # Serialize subnet_group_name (handle intrinsic functions)
-            if hasattr(self.subnet_group_name, 'to_dict'):
-                props["SubnetGroupName"] = self.subnet_group_name.to_dict()
-            elif isinstance(self.subnet_group_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SubnetGroupName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.subnet_group_name
-                ]
-            else:
-                props["SubnetGroupName"] = self.subnet_group_name
-
-        if self.subnet_ids is not None:
-            # Serialize subnet_ids (handle intrinsic functions)
-            if hasattr(self.subnet_ids, 'to_dict'):
-                props["SubnetIds"] = self.subnet_ids.to_dict()
-            elif isinstance(self.subnet_ids, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SubnetIds'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.subnet_ids
-                ]
-            else:
-                props["SubnetIds"] = self.subnet_ids
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_supported_network_types(self) -> GetAtt:
@@ -1060,41 +375,14 @@ class SubnetGroup(CloudFormationResource):
 
 
 @dataclass
-class AuthenticationMode:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mem"""
+class AuthenticationMode(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "type_": "Type",
+        "passwords": "Passwords",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, InputAuthenticationType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     passwords: Optional[Union[list[str], Ref]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.type_ is not None:
-            if hasattr(self.type_, 'to_dict'):
-                props['Type'] = self.type_.to_dict()
-            elif isinstance(self.type_, list):
-                props['Type'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.type_
-                ]
-            else:
-                props['Type'] = self.type_
-
-        if self.passwords is not None:
-            if hasattr(self.passwords, 'to_dict'):
-                props['Passwords'] = self.passwords.to_dict()
-            elif isinstance(self.passwords, list):
-                props['Passwords'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.passwords
-                ]
-            else:
-                props['Passwords'] = self.passwords
-
-        return props
 
 
 @dataclass
@@ -1102,68 +390,17 @@ class User(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memor"""
 
     resource_type: ClassVar[str] = "AWS::MemoryDB::User"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "authentication_mode": "AuthenticationMode",
+        "user_name": "UserName",
+        "access_string": "AccessString",
+        "tags": "Tags",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     authentication_mode: Optional[AuthenticationMode] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     user_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     access_string: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.authentication_mode is not None:
-            # Serialize authentication_mode (handle intrinsic functions)
-            if hasattr(self.authentication_mode, 'to_dict'):
-                props["AuthenticationMode"] = self.authentication_mode.to_dict()
-            elif isinstance(self.authentication_mode, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AuthenticationMode'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.authentication_mode
-                ]
-            else:
-                props["AuthenticationMode"] = self.authentication_mode
-
-        if self.user_name is not None:
-            # Serialize user_name (handle intrinsic functions)
-            if hasattr(self.user_name, 'to_dict'):
-                props["UserName"] = self.user_name.to_dict()
-            elif isinstance(self.user_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['UserName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.user_name
-                ]
-            else:
-                props["UserName"] = self.user_name
-
-        if self.access_string is not None:
-            # Serialize access_string (handle intrinsic functions)
-            if hasattr(self.access_string, 'to_dict'):
-                props["AccessString"] = self.access_string.to_dict()
-            elif isinstance(self.access_string, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AccessString'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.access_string
-                ]
-            else:
-                props["AccessString"] = self.access_string
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_status(self) -> GetAtt:

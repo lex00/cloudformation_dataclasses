@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:37
+  Generated: 2025-12-17 21:57:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IoTCoreDeviceAdvisor
@@ -21,123 +21,36 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, ClassVar, Optional, Union
 
-from cloudformation_dataclasses.core.base import CloudFormationResource
+from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
 @dataclass
-class DeviceUnderTest:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
+class DeviceUnderTest(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "thing_arn": "ThingArn",
+        "certificate_arn": "CertificateArn",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     thing_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     certificate_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.thing_arn is not None:
-            if hasattr(self.thing_arn, 'to_dict'):
-                props['ThingArn'] = self.thing_arn.to_dict()
-            elif isinstance(self.thing_arn, list):
-                props['ThingArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.thing_arn
-                ]
-            else:
-                props['ThingArn'] = self.thing_arn
-
-        if self.certificate_arn is not None:
-            if hasattr(self.certificate_arn, 'to_dict'):
-                props['CertificateArn'] = self.certificate_arn.to_dict()
-            elif isinstance(self.certificate_arn, list):
-                props['CertificateArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.certificate_arn
-                ]
-            else:
-                props['CertificateArn'] = self.certificate_arn
-
-        return props
 
 
 @dataclass
-class SuiteDefinitionConfiguration:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
+class SuiteDefinitionConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "device_permission_role_arn": "DevicePermissionRoleArn",
+        "suite_definition_name": "SuiteDefinitionName",
+        "intended_for_qualification": "IntendedForQualification",
+        "devices": "Devices",
+        "root_group": "RootGroup",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     device_permission_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     suite_definition_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     intended_for_qualification: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     devices: Optional[list[DeviceUnderTest]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     root_group: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.device_permission_role_arn is not None:
-            if hasattr(self.device_permission_role_arn, 'to_dict'):
-                props['DevicePermissionRoleArn'] = self.device_permission_role_arn.to_dict()
-            elif isinstance(self.device_permission_role_arn, list):
-                props['DevicePermissionRoleArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.device_permission_role_arn
-                ]
-            else:
-                props['DevicePermissionRoleArn'] = self.device_permission_role_arn
-
-        if self.suite_definition_name is not None:
-            if hasattr(self.suite_definition_name, 'to_dict'):
-                props['SuiteDefinitionName'] = self.suite_definition_name.to_dict()
-            elif isinstance(self.suite_definition_name, list):
-                props['SuiteDefinitionName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.suite_definition_name
-                ]
-            else:
-                props['SuiteDefinitionName'] = self.suite_definition_name
-
-        if self.intended_for_qualification is not None:
-            if hasattr(self.intended_for_qualification, 'to_dict'):
-                props['IntendedForQualification'] = self.intended_for_qualification.to_dict()
-            elif isinstance(self.intended_for_qualification, list):
-                props['IntendedForQualification'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.intended_for_qualification
-                ]
-            else:
-                props['IntendedForQualification'] = self.intended_for_qualification
-
-        if self.devices is not None:
-            if hasattr(self.devices, 'to_dict'):
-                props['Devices'] = self.devices.to_dict()
-            elif isinstance(self.devices, list):
-                props['Devices'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.devices
-                ]
-            else:
-                props['Devices'] = self.devices
-
-        if self.root_group is not None:
-            if hasattr(self.root_group, 'to_dict'):
-                props['RootGroup'] = self.root_group.to_dict()
-            elif isinstance(self.root_group, list):
-                props['RootGroup'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.root_group
-                ]
-            else:
-                props['RootGroup'] = self.root_group
-
-        return props
 
 
 @dataclass
@@ -145,38 +58,13 @@ class SuiteDefinition(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotco"""
 
     resource_type: ClassVar[str] = "AWS::IoTCoreDeviceAdvisor::SuiteDefinition"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "suite_definition_configuration": "SuiteDefinitionConfiguration",
+        "tags": "Tags",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     suite_definition_configuration: Optional[SuiteDefinitionConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.suite_definition_configuration is not None:
-            # Serialize suite_definition_configuration (handle intrinsic functions)
-            if hasattr(self.suite_definition_configuration, 'to_dict'):
-                props["SuiteDefinitionConfiguration"] = self.suite_definition_configuration.to_dict()
-            elif isinstance(self.suite_definition_configuration, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SuiteDefinitionConfiguration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.suite_definition_configuration
-                ]
-            else:
-                props["SuiteDefinitionConfiguration"] = self.suite_definition_configuration
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_suite_definition_arn(self) -> GetAtt:

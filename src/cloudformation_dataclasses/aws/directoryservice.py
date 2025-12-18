@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:36
+  Generated: 2025-12-17 21:57:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DirectoryService
@@ -21,7 +21,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, ClassVar, Optional, Union
 
-from cloudformation_dataclasses.core.base import CloudFormationResource
+from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
@@ -486,41 +486,14 @@ SIZE = UpdateType.SIZE
 
 
 @dataclass
-class VpcSettings:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dir"""
+class VpcSettings(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "subnet_ids": "SubnetIds",
+        "vpc_id": "VpcId",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnet_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.subnet_ids is not None:
-            if hasattr(self.subnet_ids, 'to_dict'):
-                props['SubnetIds'] = self.subnet_ids.to_dict()
-            elif isinstance(self.subnet_ids, list):
-                props['SubnetIds'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.subnet_ids
-                ]
-            else:
-                props['SubnetIds'] = self.subnet_ids
-
-        if self.vpc_id is not None:
-            if hasattr(self.vpc_id, 'to_dict'):
-                props['VpcId'] = self.vpc_id.to_dict()
-            elif isinstance(self.vpc_id, list):
-                props['VpcId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.vpc_id
-                ]
-            else:
-                props['VpcId'] = self.vpc_id
-
-        return props
 
 
 @dataclass
@@ -528,118 +501,23 @@ class MicrosoftAD(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-direc"""
 
     resource_type: ClassVar[str] = "AWS::DirectoryService::MicrosoftAD"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "create_alias": "CreateAlias",
+        "edition": "Edition",
+        "enable_sso": "EnableSso",
+        "name": "Name",
+        "password": "Password",
+        "short_name": "ShortName",
+        "vpc_settings": "VpcSettings",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     create_alias: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     edition: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     enable_sso: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     password: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     short_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_settings: Optional[VpcSettings] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.create_alias is not None:
-            # Serialize create_alias (handle intrinsic functions)
-            if hasattr(self.create_alias, 'to_dict'):
-                props["CreateAlias"] = self.create_alias.to_dict()
-            elif isinstance(self.create_alias, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['CreateAlias'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.create_alias
-                ]
-            else:
-                props["CreateAlias"] = self.create_alias
-
-        if self.edition is not None:
-            # Serialize edition (handle intrinsic functions)
-            if hasattr(self.edition, 'to_dict'):
-                props["Edition"] = self.edition.to_dict()
-            elif isinstance(self.edition, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Edition'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.edition
-                ]
-            else:
-                props["Edition"] = self.edition
-
-        if self.enable_sso is not None:
-            # Serialize enable_sso (handle intrinsic functions)
-            if hasattr(self.enable_sso, 'to_dict'):
-                props["EnableSso"] = self.enable_sso.to_dict()
-            elif isinstance(self.enable_sso, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['EnableSso'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enable_sso
-                ]
-            else:
-                props["EnableSso"] = self.enable_sso
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        if self.password is not None:
-            # Serialize password (handle intrinsic functions)
-            if hasattr(self.password, 'to_dict'):
-                props["Password"] = self.password.to_dict()
-            elif isinstance(self.password, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Password'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.password
-                ]
-            else:
-                props["Password"] = self.password
-
-        if self.short_name is not None:
-            # Serialize short_name (handle intrinsic functions)
-            if hasattr(self.short_name, 'to_dict'):
-                props["ShortName"] = self.short_name.to_dict()
-            elif isinstance(self.short_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ShortName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.short_name
-                ]
-            else:
-                props["ShortName"] = self.short_name
-
-        if self.vpc_settings is not None:
-            # Serialize vpc_settings (handle intrinsic functions)
-            if hasattr(self.vpc_settings, 'to_dict'):
-                props["VpcSettings"] = self.vpc_settings.to_dict()
-            elif isinstance(self.vpc_settings, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['VpcSettings'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.vpc_settings
-                ]
-            else:
-                props["VpcSettings"] = self.vpc_settings
-
-        return props
 
     @property
     def attr_alias(self) -> GetAtt:
@@ -655,41 +533,14 @@ class MicrosoftAD(CloudFormationResource):
 
 
 @dataclass
-class VpcSettings:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dir"""
+class VpcSettings(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "vpc_id": "VpcId",
+        "subnet_ids": "SubnetIds",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnet_ids: Optional[Union[list[str], Ref]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.vpc_id is not None:
-            if hasattr(self.vpc_id, 'to_dict'):
-                props['VpcId'] = self.vpc_id.to_dict()
-            elif isinstance(self.vpc_id, list):
-                props['VpcId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.vpc_id
-                ]
-            else:
-                props['VpcId'] = self.vpc_id
-
-        if self.subnet_ids is not None:
-            if hasattr(self.subnet_ids, 'to_dict'):
-                props['SubnetIds'] = self.subnet_ids.to_dict()
-            elif isinstance(self.subnet_ids, list):
-                props['SubnetIds'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.subnet_ids
-                ]
-            else:
-                props['SubnetIds'] = self.subnet_ids
-
-        return props
 
 
 @dataclass
@@ -697,133 +548,25 @@ class SimpleAD(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-direc"""
 
     resource_type: ClassVar[str] = "AWS::DirectoryService::SimpleAD"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "description": "Description",
+        "vpc_settings": "VpcSettings",
+        "size": "Size",
+        "create_alias": "CreateAlias",
+        "enable_sso": "EnableSso",
+        "short_name": "ShortName",
+        "name": "Name",
+        "password": "Password",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_settings: Optional[VpcSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     size: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     create_alias: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     enable_sso: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     short_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     password: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.description is not None:
-            # Serialize description (handle intrinsic functions)
-            if hasattr(self.description, 'to_dict'):
-                props["Description"] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props["Description"] = self.description
-
-        if self.vpc_settings is not None:
-            # Serialize vpc_settings (handle intrinsic functions)
-            if hasattr(self.vpc_settings, 'to_dict'):
-                props["VpcSettings"] = self.vpc_settings.to_dict()
-            elif isinstance(self.vpc_settings, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['VpcSettings'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.vpc_settings
-                ]
-            else:
-                props["VpcSettings"] = self.vpc_settings
-
-        if self.size is not None:
-            # Serialize size (handle intrinsic functions)
-            if hasattr(self.size, 'to_dict'):
-                props["Size"] = self.size.to_dict()
-            elif isinstance(self.size, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Size'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.size
-                ]
-            else:
-                props["Size"] = self.size
-
-        if self.create_alias is not None:
-            # Serialize create_alias (handle intrinsic functions)
-            if hasattr(self.create_alias, 'to_dict'):
-                props["CreateAlias"] = self.create_alias.to_dict()
-            elif isinstance(self.create_alias, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['CreateAlias'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.create_alias
-                ]
-            else:
-                props["CreateAlias"] = self.create_alias
-
-        if self.enable_sso is not None:
-            # Serialize enable_sso (handle intrinsic functions)
-            if hasattr(self.enable_sso, 'to_dict'):
-                props["EnableSso"] = self.enable_sso.to_dict()
-            elif isinstance(self.enable_sso, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['EnableSso'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enable_sso
-                ]
-            else:
-                props["EnableSso"] = self.enable_sso
-
-        if self.short_name is not None:
-            # Serialize short_name (handle intrinsic functions)
-            if hasattr(self.short_name, 'to_dict'):
-                props["ShortName"] = self.short_name.to_dict()
-            elif isinstance(self.short_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ShortName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.short_name
-                ]
-            else:
-                props["ShortName"] = self.short_name
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        if self.password is not None:
-            # Serialize password (handle intrinsic functions)
-            if hasattr(self.password, 'to_dict'):
-                props["Password"] = self.password.to_dict()
-            elif isinstance(self.password, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Password'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.password
-                ]
-            else:
-                props["Password"] = self.password
-
-        return props
 
     @property
     def attr_directory_id(self) -> GetAtt:

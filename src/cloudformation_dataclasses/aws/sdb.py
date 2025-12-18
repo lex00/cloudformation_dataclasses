@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:39
+  Generated: 2025-12-17 21:57:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SDB
@@ -21,7 +21,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, ClassVar, Optional, Union
 
-from cloudformation_dataclasses.core.base import CloudFormationResource
+from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
@@ -30,27 +30,10 @@ class Domain(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sim"""
 
     resource_type: ClassVar[str] = "AWS::SDB::Domain"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "description": "Description",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-prop
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.description is not None:
-            # Serialize description (handle intrinsic functions)
-            if hasattr(self.description, 'to_dict'):
-                props["Description"] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props["Description"] = self.description
-
-        return props
 
 

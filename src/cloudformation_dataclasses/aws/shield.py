@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:39
+  Generated: 2025-12-17 21:57:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Shield
@@ -21,7 +21,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, ClassVar, Optional, Union
 
-from cloudformation_dataclasses.core.base import CloudFormationResource
+from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
@@ -175,43 +175,13 @@ class DRTAccess(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-shiel"""
 
     resource_type: ClassVar[str] = "AWS::Shield::DRTAccess"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "log_bucket_list": "LogBucketList",
+        "role_arn": "RoleArn",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     log_bucket_list: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.log_bucket_list is not None:
-            # Serialize log_bucket_list (handle intrinsic functions)
-            if hasattr(self.log_bucket_list, 'to_dict'):
-                props["LogBucketList"] = self.log_bucket_list.to_dict()
-            elif isinstance(self.log_bucket_list, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['LogBucketList'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.log_bucket_list
-                ]
-            else:
-                props["LogBucketList"] = self.log_bucket_list
-
-        if self.role_arn is not None:
-            # Serialize role_arn (handle intrinsic functions)
-            if hasattr(self.role_arn, 'to_dict'):
-                props["RoleArn"] = self.role_arn.to_dict()
-            elif isinstance(self.role_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['RoleArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.role_arn
-                ]
-            else:
-                props["RoleArn"] = self.role_arn
-
-        return props
 
     @property
     def attr_account_id(self) -> GetAtt:
@@ -222,54 +192,16 @@ class DRTAccess(CloudFormationResource):
 
 
 @dataclass
-class EmergencyContact:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-shi"""
+class EmergencyContact(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "contact_notes": "ContactNotes",
+        "phone_number": "PhoneNumber",
+        "email_address": "EmailAddress",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     contact_notes: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     phone_number: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     email_address: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.contact_notes is not None:
-            if hasattr(self.contact_notes, 'to_dict'):
-                props['ContactNotes'] = self.contact_notes.to_dict()
-            elif isinstance(self.contact_notes, list):
-                props['ContactNotes'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.contact_notes
-                ]
-            else:
-                props['ContactNotes'] = self.contact_notes
-
-        if self.phone_number is not None:
-            if hasattr(self.phone_number, 'to_dict'):
-                props['PhoneNumber'] = self.phone_number.to_dict()
-            elif isinstance(self.phone_number, list):
-                props['PhoneNumber'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.phone_number
-                ]
-            else:
-                props['PhoneNumber'] = self.phone_number
-
-        if self.email_address is not None:
-            if hasattr(self.email_address, 'to_dict'):
-                props['EmailAddress'] = self.email_address.to_dict()
-            elif isinstance(self.email_address, list):
-                props['EmailAddress'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.email_address
-                ]
-            else:
-                props['EmailAddress'] = self.email_address
-
-        return props
 
 
 @dataclass
@@ -277,43 +209,13 @@ class ProactiveEngagement(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-shiel"""
 
     resource_type: ClassVar[str] = "AWS::Shield::ProactiveEngagement"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "proactive_engagement_status": "ProactiveEngagementStatus",
+        "emergency_contact_list": "EmergencyContactList",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     proactive_engagement_status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     emergency_contact_list: Optional[list[EmergencyContact]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.proactive_engagement_status is not None:
-            # Serialize proactive_engagement_status (handle intrinsic functions)
-            if hasattr(self.proactive_engagement_status, 'to_dict'):
-                props["ProactiveEngagementStatus"] = self.proactive_engagement_status.to_dict()
-            elif isinstance(self.proactive_engagement_status, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ProactiveEngagementStatus'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.proactive_engagement_status
-                ]
-            else:
-                props["ProactiveEngagementStatus"] = self.proactive_engagement_status
-
-        if self.emergency_contact_list is not None:
-            # Serialize emergency_contact_list (handle intrinsic functions)
-            if hasattr(self.emergency_contact_list, 'to_dict'):
-                props["EmergencyContactList"] = self.emergency_contact_list.to_dict()
-            elif isinstance(self.emergency_contact_list, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['EmergencyContactList'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.emergency_contact_list
-                ]
-            else:
-                props["EmergencyContactList"] = self.emergency_contact_list
-
-        return props
 
     @property
     def attr_account_id(self) -> GetAtt:
@@ -324,79 +226,25 @@ class ProactiveEngagement(CloudFormationResource):
 
 
 @dataclass
-class Action:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-shi"""
+class Action(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "block": "Block",
+        "count": "Count",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     block: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     count: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.block is not None:
-            if hasattr(self.block, 'to_dict'):
-                props['Block'] = self.block.to_dict()
-            elif isinstance(self.block, list):
-                props['Block'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.block
-                ]
-            else:
-                props['Block'] = self.block
-
-        if self.count is not None:
-            if hasattr(self.count, 'to_dict'):
-                props['Count'] = self.count.to_dict()
-            elif isinstance(self.count, list):
-                props['Count'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.count
-                ]
-            else:
-                props['Count'] = self.count
-
-        return props
 
 
 @dataclass
-class ApplicationLayerAutomaticResponseConfiguration:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-shi"""
+class ApplicationLayerAutomaticResponseConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "status": "Status",
+        "action": "Action",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     status: Optional[Union[str, ApplicationLayerAutomaticResponseStatus, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[Action] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.status is not None:
-            if hasattr(self.status, 'to_dict'):
-                props['Status'] = self.status.to_dict()
-            elif isinstance(self.status, list):
-                props['Status'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.status
-                ]
-            else:
-                props['Status'] = self.status
-
-        if self.action is not None:
-            if hasattr(self.action, 'to_dict'):
-                props['Action'] = self.action.to_dict()
-            elif isinstance(self.action, list):
-                props['Action'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.action
-                ]
-            else:
-                props['Action'] = self.action
-
-        return props
 
 
 @dataclass
@@ -404,83 +252,19 @@ class Protection(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-shiel"""
 
     resource_type: ClassVar[str] = "AWS::Shield::Protection"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "resource_arn": "ResourceArn",
+        "health_check_arns": "HealthCheckArns",
+        "application_layer_automatic_response_configuration": "ApplicationLayerAutomaticResponseConfiguration",
+        "tags": "Tags",
+        "name": "Name",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     health_check_arns: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     application_layer_automatic_response_configuration: Optional[ApplicationLayerAutomaticResponseConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.resource_arn is not None:
-            # Serialize resource_arn (handle intrinsic functions)
-            if hasattr(self.resource_arn, 'to_dict'):
-                props["ResourceArn"] = self.resource_arn.to_dict()
-            elif isinstance(self.resource_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ResourceArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.resource_arn
-                ]
-            else:
-                props["ResourceArn"] = self.resource_arn
-
-        if self.health_check_arns is not None:
-            # Serialize health_check_arns (handle intrinsic functions)
-            if hasattr(self.health_check_arns, 'to_dict'):
-                props["HealthCheckArns"] = self.health_check_arns.to_dict()
-            elif isinstance(self.health_check_arns, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['HealthCheckArns'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.health_check_arns
-                ]
-            else:
-                props["HealthCheckArns"] = self.health_check_arns
-
-        if self.application_layer_automatic_response_configuration is not None:
-            # Serialize application_layer_automatic_response_configuration (handle intrinsic functions)
-            if hasattr(self.application_layer_automatic_response_configuration, 'to_dict'):
-                props["ApplicationLayerAutomaticResponseConfiguration"] = self.application_layer_automatic_response_configuration.to_dict()
-            elif isinstance(self.application_layer_automatic_response_configuration, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ApplicationLayerAutomaticResponseConfiguration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.application_layer_automatic_response_configuration
-                ]
-            else:
-                props["ApplicationLayerAutomaticResponseConfiguration"] = self.application_layer_automatic_response_configuration
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        return props
 
     @property
     def attr_protection_arn(self) -> GetAtt:
@@ -500,98 +284,21 @@ class ProtectionGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-shiel"""
 
     resource_type: ClassVar[str] = "AWS::Shield::ProtectionGroup"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "aggregation": "Aggregation",
+        "pattern": "Pattern",
+        "protection_group_id": "ProtectionGroupId",
+        "resource_type": "ResourceType",
+        "members": "Members",
+        "tags": "Tags",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     aggregation: Optional[Union[str, ProtectionGroupAggregation, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     pattern: Optional[Union[str, ProtectionGroupPattern, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     protection_group_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_type: Optional[Union[str, ProtectedResourceType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     members: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.aggregation is not None:
-            # Serialize aggregation (handle intrinsic functions)
-            if hasattr(self.aggregation, 'to_dict'):
-                props["Aggregation"] = self.aggregation.to_dict()
-            elif isinstance(self.aggregation, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Aggregation'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.aggregation
-                ]
-            else:
-                props["Aggregation"] = self.aggregation
-
-        if self.pattern is not None:
-            # Serialize pattern (handle intrinsic functions)
-            if hasattr(self.pattern, 'to_dict'):
-                props["Pattern"] = self.pattern.to_dict()
-            elif isinstance(self.pattern, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Pattern'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.pattern
-                ]
-            else:
-                props["Pattern"] = self.pattern
-
-        if self.protection_group_id is not None:
-            # Serialize protection_group_id (handle intrinsic functions)
-            if hasattr(self.protection_group_id, 'to_dict'):
-                props["ProtectionGroupId"] = self.protection_group_id.to_dict()
-            elif isinstance(self.protection_group_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ProtectionGroupId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.protection_group_id
-                ]
-            else:
-                props["ProtectionGroupId"] = self.protection_group_id
-
-        if self.resource_type is not None:
-            # Serialize resource_type (handle intrinsic functions)
-            if hasattr(self.resource_type, 'to_dict'):
-                props["ResourceType"] = self.resource_type.to_dict()
-            elif isinstance(self.resource_type, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ResourceType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.resource_type
-                ]
-            else:
-                props["ResourceType"] = self.resource_type
-
-        if self.members is not None:
-            # Serialize members (handle intrinsic functions)
-            if hasattr(self.members, 'to_dict'):
-                props["Members"] = self.members.to_dict()
-            elif isinstance(self.members, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Members'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.members
-                ]
-            else:
-                props["Members"] = self.members
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_protection_group_arn(self) -> GetAtt:

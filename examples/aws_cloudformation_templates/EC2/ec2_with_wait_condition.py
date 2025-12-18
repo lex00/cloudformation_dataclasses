@@ -229,6 +229,15 @@ def user_data_script():
 
 
 @cloudformation_dataclass
+class WebInstanceNameTag:
+    """Name tag for the web instance."""
+
+    resource: Tag
+    key = "Name"
+    value = ref(InstanceName)
+
+
+@cloudformation_dataclass
 class WebInstance:
     """
     EC2 instance with WaitCondition signaling.
@@ -246,9 +255,7 @@ class WebInstance:
     key_name = ref(KeyName)
     monitoring = False
     user_data = user_data_script()
-    tags = [
-        Tag(key="Name", value=ref(InstanceName)),
-    ]
+    tags = [WebInstanceNameTag]
 
 
 # =============================================================================

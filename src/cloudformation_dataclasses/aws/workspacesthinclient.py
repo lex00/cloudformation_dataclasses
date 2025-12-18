@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:39
+  Generated: 2025-12-17 21:57:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service WorkSpacesThinClient
@@ -21,111 +21,29 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, ClassVar, Optional, Union
 
-from cloudformation_dataclasses.core.base import CloudFormationResource
+from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
 @dataclass
-class MaintenanceWindow:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
+class MaintenanceWindow(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "end_time_minute": "EndTimeMinute",
+        "type_": "Type",
+        "days_of_the_week": "DaysOfTheWeek",
+        "apply_time_of": "ApplyTimeOf",
+        "start_time_minute": "StartTimeMinute",
+        "start_time_hour": "StartTimeHour",
+        "end_time_hour": "EndTimeHour",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     end_time_minute: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     days_of_the_week: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     apply_time_of: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start_time_minute: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start_time_hour: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     end_time_hour: Optional[Union[int, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.end_time_minute is not None:
-            if hasattr(self.end_time_minute, 'to_dict'):
-                props['EndTimeMinute'] = self.end_time_minute.to_dict()
-            elif isinstance(self.end_time_minute, list):
-                props['EndTimeMinute'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.end_time_minute
-                ]
-            else:
-                props['EndTimeMinute'] = self.end_time_minute
-
-        if self.type_ is not None:
-            if hasattr(self.type_, 'to_dict'):
-                props['Type'] = self.type_.to_dict()
-            elif isinstance(self.type_, list):
-                props['Type'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.type_
-                ]
-            else:
-                props['Type'] = self.type_
-
-        if self.days_of_the_week is not None:
-            if hasattr(self.days_of_the_week, 'to_dict'):
-                props['DaysOfTheWeek'] = self.days_of_the_week.to_dict()
-            elif isinstance(self.days_of_the_week, list):
-                props['DaysOfTheWeek'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.days_of_the_week
-                ]
-            else:
-                props['DaysOfTheWeek'] = self.days_of_the_week
-
-        if self.apply_time_of is not None:
-            if hasattr(self.apply_time_of, 'to_dict'):
-                props['ApplyTimeOf'] = self.apply_time_of.to_dict()
-            elif isinstance(self.apply_time_of, list):
-                props['ApplyTimeOf'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.apply_time_of
-                ]
-            else:
-                props['ApplyTimeOf'] = self.apply_time_of
-
-        if self.start_time_minute is not None:
-            if hasattr(self.start_time_minute, 'to_dict'):
-                props['StartTimeMinute'] = self.start_time_minute.to_dict()
-            elif isinstance(self.start_time_minute, list):
-                props['StartTimeMinute'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.start_time_minute
-                ]
-            else:
-                props['StartTimeMinute'] = self.start_time_minute
-
-        if self.start_time_hour is not None:
-            if hasattr(self.start_time_hour, 'to_dict'):
-                props['StartTimeHour'] = self.start_time_hour.to_dict()
-            elif isinstance(self.start_time_hour, list):
-                props['StartTimeHour'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.start_time_hour
-                ]
-            else:
-                props['StartTimeHour'] = self.start_time_hour
-
-        if self.end_time_hour is not None:
-            if hasattr(self.end_time_hour, 'to_dict'):
-                props['EndTimeHour'] = self.end_time_hour.to_dict()
-            elif isinstance(self.end_time_hour, list):
-                props['EndTimeHour'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.end_time_hour
-                ]
-            else:
-                props['EndTimeHour'] = self.end_time_hour
-
-        return props
 
 
 @dataclass
@@ -133,158 +51,29 @@ class Environment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-works"""
 
     resource_type: ClassVar[str] = "AWS::WorkSpacesThinClient::Environment"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "desired_software_set_id": "DesiredSoftwareSetId",
+        "kms_key_arn": "KmsKeyArn",
+        "desktop_arn": "DesktopArn",
+        "device_creation_tags": "DeviceCreationTags",
+        "software_set_update_mode": "SoftwareSetUpdateMode",
+        "software_set_update_schedule": "SoftwareSetUpdateSchedule",
+        "maintenance_window": "MaintenanceWindow",
+        "desktop_endpoint": "DesktopEndpoint",
+        "tags": "Tags",
+        "name": "Name",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     desired_software_set_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kms_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     desktop_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     device_creation_tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     software_set_update_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     software_set_update_schedule: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     maintenance_window: Optional[MaintenanceWindow] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     desktop_endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.desired_software_set_id is not None:
-            # Serialize desired_software_set_id (handle intrinsic functions)
-            if hasattr(self.desired_software_set_id, 'to_dict'):
-                props["DesiredSoftwareSetId"] = self.desired_software_set_id.to_dict()
-            elif isinstance(self.desired_software_set_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DesiredSoftwareSetId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.desired_software_set_id
-                ]
-            else:
-                props["DesiredSoftwareSetId"] = self.desired_software_set_id
-
-        if self.kms_key_arn is not None:
-            # Serialize kms_key_arn (handle intrinsic functions)
-            if hasattr(self.kms_key_arn, 'to_dict'):
-                props["KmsKeyArn"] = self.kms_key_arn.to_dict()
-            elif isinstance(self.kms_key_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['KmsKeyArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.kms_key_arn
-                ]
-            else:
-                props["KmsKeyArn"] = self.kms_key_arn
-
-        if self.desktop_arn is not None:
-            # Serialize desktop_arn (handle intrinsic functions)
-            if hasattr(self.desktop_arn, 'to_dict'):
-                props["DesktopArn"] = self.desktop_arn.to_dict()
-            elif isinstance(self.desktop_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DesktopArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.desktop_arn
-                ]
-            else:
-                props["DesktopArn"] = self.desktop_arn
-
-        if self.device_creation_tags is not None:
-            # Serialize device_creation_tags (handle intrinsic functions)
-            if hasattr(self.device_creation_tags, 'to_dict'):
-                props["DeviceCreationTags"] = self.device_creation_tags.to_dict()
-            elif isinstance(self.device_creation_tags, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DeviceCreationTags'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.device_creation_tags
-                ]
-            else:
-                props["DeviceCreationTags"] = self.device_creation_tags
-
-        if self.software_set_update_mode is not None:
-            # Serialize software_set_update_mode (handle intrinsic functions)
-            if hasattr(self.software_set_update_mode, 'to_dict'):
-                props["SoftwareSetUpdateMode"] = self.software_set_update_mode.to_dict()
-            elif isinstance(self.software_set_update_mode, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SoftwareSetUpdateMode'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.software_set_update_mode
-                ]
-            else:
-                props["SoftwareSetUpdateMode"] = self.software_set_update_mode
-
-        if self.software_set_update_schedule is not None:
-            # Serialize software_set_update_schedule (handle intrinsic functions)
-            if hasattr(self.software_set_update_schedule, 'to_dict'):
-                props["SoftwareSetUpdateSchedule"] = self.software_set_update_schedule.to_dict()
-            elif isinstance(self.software_set_update_schedule, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SoftwareSetUpdateSchedule'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.software_set_update_schedule
-                ]
-            else:
-                props["SoftwareSetUpdateSchedule"] = self.software_set_update_schedule
-
-        if self.maintenance_window is not None:
-            # Serialize maintenance_window (handle intrinsic functions)
-            if hasattr(self.maintenance_window, 'to_dict'):
-                props["MaintenanceWindow"] = self.maintenance_window.to_dict()
-            elif isinstance(self.maintenance_window, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['MaintenanceWindow'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.maintenance_window
-                ]
-            else:
-                props["MaintenanceWindow"] = self.maintenance_window
-
-        if self.desktop_endpoint is not None:
-            # Serialize desktop_endpoint (handle intrinsic functions)
-            if hasattr(self.desktop_endpoint, 'to_dict'):
-                props["DesktopEndpoint"] = self.desktop_endpoint.to_dict()
-            elif isinstance(self.desktop_endpoint, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DesktopEndpoint'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.desktop_endpoint
-                ]
-            else:
-                props["DesktopEndpoint"] = self.desktop_endpoint
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        return props
 
     @property
     def attr_desktop_type(self) -> GetAtt:

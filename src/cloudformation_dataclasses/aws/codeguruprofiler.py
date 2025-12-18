@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:35
+  Generated: 2025-12-17 21:57:45
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CodeGuruProfiler
@@ -21,7 +21,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, ClassVar, Optional, Union
 
-from cloudformation_dataclasses.core.base import CloudFormationResource
+from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
@@ -130,66 +130,23 @@ TIMESTAMPASCENDING = OrderBy.TIMESTAMPASCENDING
 
 
 @dataclass
-class AgentPermissions:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
+class AgentPermissions(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "principals": "Principals",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     principals: Optional[Union[list[str], Ref]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.principals is not None:
-            if hasattr(self.principals, 'to_dict'):
-                props['Principals'] = self.principals.to_dict()
-            elif isinstance(self.principals, list):
-                props['Principals'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.principals
-                ]
-            else:
-                props['Principals'] = self.principals
-
-        return props
 
 
 @dataclass
-class Channel:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
+class Channel(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "channel_uri": "channelUri",
+        "channel_id": "channelId",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     channel_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     channel_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.channel_uri is not None:
-            if hasattr(self.channel_uri, 'to_dict'):
-                props['channelUri'] = self.channel_uri.to_dict()
-            elif isinstance(self.channel_uri, list):
-                props['channelUri'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.channel_uri
-                ]
-            else:
-                props['channelUri'] = self.channel_uri
-
-        if self.channel_id is not None:
-            if hasattr(self.channel_id, 'to_dict'):
-                props['channelId'] = self.channel_id.to_dict()
-            elif isinstance(self.channel_id, list):
-                props['channelId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.channel_id
-                ]
-            else:
-                props['channelId'] = self.channel_id
-
-        return props
 
 
 @dataclass
@@ -197,83 +154,19 @@ class ProfilingGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeg"""
 
     resource_type: ClassVar[str] = "AWS::CodeGuruProfiler::ProfilingGroup"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "anomaly_detection_notification_configuration": "AnomalyDetectionNotificationConfiguration",
+        "agent_permissions": "AgentPermissions",
+        "compute_platform": "ComputePlatform",
+        "profiling_group_name": "ProfilingGroupName",
+        "tags": "Tags",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     anomaly_detection_notification_configuration: Optional[list[Channel]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     agent_permissions: Optional[AgentPermissions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     compute_platform: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     profiling_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.anomaly_detection_notification_configuration is not None:
-            # Serialize anomaly_detection_notification_configuration (handle intrinsic functions)
-            if hasattr(self.anomaly_detection_notification_configuration, 'to_dict'):
-                props["AnomalyDetectionNotificationConfiguration"] = self.anomaly_detection_notification_configuration.to_dict()
-            elif isinstance(self.anomaly_detection_notification_configuration, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AnomalyDetectionNotificationConfiguration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.anomaly_detection_notification_configuration
-                ]
-            else:
-                props["AnomalyDetectionNotificationConfiguration"] = self.anomaly_detection_notification_configuration
-
-        if self.agent_permissions is not None:
-            # Serialize agent_permissions (handle intrinsic functions)
-            if hasattr(self.agent_permissions, 'to_dict'):
-                props["AgentPermissions"] = self.agent_permissions.to_dict()
-            elif isinstance(self.agent_permissions, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AgentPermissions'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.agent_permissions
-                ]
-            else:
-                props["AgentPermissions"] = self.agent_permissions
-
-        if self.compute_platform is not None:
-            # Serialize compute_platform (handle intrinsic functions)
-            if hasattr(self.compute_platform, 'to_dict'):
-                props["ComputePlatform"] = self.compute_platform.to_dict()
-            elif isinstance(self.compute_platform, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ComputePlatform'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.compute_platform
-                ]
-            else:
-                props["ComputePlatform"] = self.compute_platform
-
-        if self.profiling_group_name is not None:
-            # Serialize profiling_group_name (handle intrinsic functions)
-            if hasattr(self.profiling_group_name, 'to_dict'):
-                props["ProfilingGroupName"] = self.profiling_group_name.to_dict()
-            elif isinstance(self.profiling_group_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ProfilingGroupName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.profiling_group_name
-                ]
-            else:
-                props["ProfilingGroupName"] = self.profiling_group_name
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_arn(self) -> GetAtt:

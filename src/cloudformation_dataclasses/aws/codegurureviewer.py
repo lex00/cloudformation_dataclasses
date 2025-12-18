@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:35
+  Generated: 2025-12-17 21:57:45
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CodeGuruReviewer
@@ -21,7 +21,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, ClassVar, Optional, Union
 
-from cloudformation_dataclasses.core.base import CloudFormationResource
+from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
@@ -30,98 +30,21 @@ class RepositoryAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeg"""
 
     resource_type: ClassVar[str] = "AWS::CodeGuruReviewer::RepositoryAssociation"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "type_": "Type",
+        "owner": "Owner",
+        "bucket_name": "BucketName",
+        "connection_arn": "ConnectionArn",
+        "tags": "Tags",
+        "name": "Name",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     owner: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connection_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.type_ is not None:
-            # Serialize type_ (handle intrinsic functions)
-            if hasattr(self.type_, 'to_dict'):
-                props["Type"] = self.type_.to_dict()
-            elif isinstance(self.type_, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Type'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.type_
-                ]
-            else:
-                props["Type"] = self.type_
-
-        if self.owner is not None:
-            # Serialize owner (handle intrinsic functions)
-            if hasattr(self.owner, 'to_dict'):
-                props["Owner"] = self.owner.to_dict()
-            elif isinstance(self.owner, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Owner'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.owner
-                ]
-            else:
-                props["Owner"] = self.owner
-
-        if self.bucket_name is not None:
-            # Serialize bucket_name (handle intrinsic functions)
-            if hasattr(self.bucket_name, 'to_dict'):
-                props["BucketName"] = self.bucket_name.to_dict()
-            elif isinstance(self.bucket_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['BucketName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.bucket_name
-                ]
-            else:
-                props["BucketName"] = self.bucket_name
-
-        if self.connection_arn is not None:
-            # Serialize connection_arn (handle intrinsic functions)
-            if hasattr(self.connection_arn, 'to_dict'):
-                props["ConnectionArn"] = self.connection_arn.to_dict()
-            elif isinstance(self.connection_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ConnectionArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.connection_arn
-                ]
-            else:
-                props["ConnectionArn"] = self.connection_arn
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        return props
 
     @property
     def attr_association_arn(self) -> GetAtt:

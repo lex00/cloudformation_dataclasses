@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:34
+  Generated: 2025-12-17 21:57:44
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Amplify
@@ -21,7 +21,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, ClassVar, Optional, Union
 
-from cloudformation_dataclasses.core.base import CloudFormationResource
+from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
@@ -201,361 +201,89 @@ DISASSOCIATION_FAILED = WafStatus.DISASSOCIATION_FAILED
 
 
 @dataclass
-class AutoBranchCreationConfig:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
+class AutoBranchCreationConfig(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "environment_variables": "EnvironmentVariables",
+        "auto_branch_creation_patterns": "AutoBranchCreationPatterns",
+        "enable_auto_branch_creation": "EnableAutoBranchCreation",
+        "pull_request_environment_name": "PullRequestEnvironmentName",
+        "enable_pull_request_preview": "EnablePullRequestPreview",
+        "enable_auto_build": "EnableAutoBuild",
+        "enable_performance_mode": "EnablePerformanceMode",
+        "build_spec": "BuildSpec",
+        "stage": "Stage",
+        "basic_auth_config": "BasicAuthConfig",
+        "framework": "Framework",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     environment_variables: Optional[list[EnvironmentVariable]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auto_branch_creation_patterns: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_auto_branch_creation: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pull_request_environment_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_pull_request_preview: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_auto_build: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_performance_mode: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     build_spec: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stage: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     basic_auth_config: Optional[BasicAuthConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     framework: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.environment_variables is not None:
-            if hasattr(self.environment_variables, 'to_dict'):
-                props['EnvironmentVariables'] = self.environment_variables.to_dict()
-            elif isinstance(self.environment_variables, list):
-                props['EnvironmentVariables'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.environment_variables
-                ]
-            else:
-                props['EnvironmentVariables'] = self.environment_variables
-
-        if self.auto_branch_creation_patterns is not None:
-            if hasattr(self.auto_branch_creation_patterns, 'to_dict'):
-                props['AutoBranchCreationPatterns'] = self.auto_branch_creation_patterns.to_dict()
-            elif isinstance(self.auto_branch_creation_patterns, list):
-                props['AutoBranchCreationPatterns'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.auto_branch_creation_patterns
-                ]
-            else:
-                props['AutoBranchCreationPatterns'] = self.auto_branch_creation_patterns
-
-        if self.enable_auto_branch_creation is not None:
-            if hasattr(self.enable_auto_branch_creation, 'to_dict'):
-                props['EnableAutoBranchCreation'] = self.enable_auto_branch_creation.to_dict()
-            elif isinstance(self.enable_auto_branch_creation, list):
-                props['EnableAutoBranchCreation'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enable_auto_branch_creation
-                ]
-            else:
-                props['EnableAutoBranchCreation'] = self.enable_auto_branch_creation
-
-        if self.pull_request_environment_name is not None:
-            if hasattr(self.pull_request_environment_name, 'to_dict'):
-                props['PullRequestEnvironmentName'] = self.pull_request_environment_name.to_dict()
-            elif isinstance(self.pull_request_environment_name, list):
-                props['PullRequestEnvironmentName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.pull_request_environment_name
-                ]
-            else:
-                props['PullRequestEnvironmentName'] = self.pull_request_environment_name
-
-        if self.enable_pull_request_preview is not None:
-            if hasattr(self.enable_pull_request_preview, 'to_dict'):
-                props['EnablePullRequestPreview'] = self.enable_pull_request_preview.to_dict()
-            elif isinstance(self.enable_pull_request_preview, list):
-                props['EnablePullRequestPreview'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enable_pull_request_preview
-                ]
-            else:
-                props['EnablePullRequestPreview'] = self.enable_pull_request_preview
-
-        if self.enable_auto_build is not None:
-            if hasattr(self.enable_auto_build, 'to_dict'):
-                props['EnableAutoBuild'] = self.enable_auto_build.to_dict()
-            elif isinstance(self.enable_auto_build, list):
-                props['EnableAutoBuild'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enable_auto_build
-                ]
-            else:
-                props['EnableAutoBuild'] = self.enable_auto_build
-
-        if self.enable_performance_mode is not None:
-            if hasattr(self.enable_performance_mode, 'to_dict'):
-                props['EnablePerformanceMode'] = self.enable_performance_mode.to_dict()
-            elif isinstance(self.enable_performance_mode, list):
-                props['EnablePerformanceMode'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enable_performance_mode
-                ]
-            else:
-                props['EnablePerformanceMode'] = self.enable_performance_mode
-
-        if self.build_spec is not None:
-            if hasattr(self.build_spec, 'to_dict'):
-                props['BuildSpec'] = self.build_spec.to_dict()
-            elif isinstance(self.build_spec, list):
-                props['BuildSpec'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.build_spec
-                ]
-            else:
-                props['BuildSpec'] = self.build_spec
-
-        if self.stage is not None:
-            if hasattr(self.stage, 'to_dict'):
-                props['Stage'] = self.stage.to_dict()
-            elif isinstance(self.stage, list):
-                props['Stage'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.stage
-                ]
-            else:
-                props['Stage'] = self.stage
-
-        if self.basic_auth_config is not None:
-            if hasattr(self.basic_auth_config, 'to_dict'):
-                props['BasicAuthConfig'] = self.basic_auth_config.to_dict()
-            elif isinstance(self.basic_auth_config, list):
-                props['BasicAuthConfig'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.basic_auth_config
-                ]
-            else:
-                props['BasicAuthConfig'] = self.basic_auth_config
-
-        if self.framework is not None:
-            if hasattr(self.framework, 'to_dict'):
-                props['Framework'] = self.framework.to_dict()
-            elif isinstance(self.framework, list):
-                props['Framework'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.framework
-                ]
-            else:
-                props['Framework'] = self.framework
-
-        return props
-
 
 @dataclass
-class BasicAuthConfig:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
+class BasicAuthConfig(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "username": "Username",
+        "enable_basic_auth": "EnableBasicAuth",
+        "password": "Password",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     username: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_basic_auth: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     password: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.username is not None:
-            if hasattr(self.username, 'to_dict'):
-                props['Username'] = self.username.to_dict()
-            elif isinstance(self.username, list):
-                props['Username'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.username
-                ]
-            else:
-                props['Username'] = self.username
-
-        if self.enable_basic_auth is not None:
-            if hasattr(self.enable_basic_auth, 'to_dict'):
-                props['EnableBasicAuth'] = self.enable_basic_auth.to_dict()
-            elif isinstance(self.enable_basic_auth, list):
-                props['EnableBasicAuth'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enable_basic_auth
-                ]
-            else:
-                props['EnableBasicAuth'] = self.enable_basic_auth
-
-        if self.password is not None:
-            if hasattr(self.password, 'to_dict'):
-                props['Password'] = self.password.to_dict()
-            elif isinstance(self.password, list):
-                props['Password'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.password
-                ]
-            else:
-                props['Password'] = self.password
-
-        return props
-
 
 @dataclass
-class CacheConfig:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
+class CacheConfig(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "type_": "Type",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.type_ is not None:
-            if hasattr(self.type_, 'to_dict'):
-                props['Type'] = self.type_.to_dict()
-            elif isinstance(self.type_, list):
-                props['Type'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.type_
-                ]
-            else:
-                props['Type'] = self.type_
-
-        return props
-
 
 @dataclass
-class CustomRule:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
+class CustomRule(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "condition": "Condition",
+        "status": "Status",
+        "target": "Target",
+        "source": "Source",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     condition: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.condition is not None:
-            if hasattr(self.condition, 'to_dict'):
-                props['Condition'] = self.condition.to_dict()
-            elif isinstance(self.condition, list):
-                props['Condition'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.condition
-                ]
-            else:
-                props['Condition'] = self.condition
-
-        if self.status is not None:
-            if hasattr(self.status, 'to_dict'):
-                props['Status'] = self.status.to_dict()
-            elif isinstance(self.status, list):
-                props['Status'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.status
-                ]
-            else:
-                props['Status'] = self.status
-
-        if self.target is not None:
-            if hasattr(self.target, 'to_dict'):
-                props['Target'] = self.target.to_dict()
-            elif isinstance(self.target, list):
-                props['Target'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.target
-                ]
-            else:
-                props['Target'] = self.target
-
-        if self.source is not None:
-            if hasattr(self.source, 'to_dict'):
-                props['Source'] = self.source.to_dict()
-            elif isinstance(self.source, list):
-                props['Source'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.source
-                ]
-            else:
-                props['Source'] = self.source
-
-        return props
-
 
 @dataclass
-class EnvironmentVariable:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
+class EnvironmentVariable(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "value": "Value",
+        "name": "Name",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.value is not None:
-            if hasattr(self.value, 'to_dict'):
-                props['Value'] = self.value.to_dict()
-            elif isinstance(self.value, list):
-                props['Value'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.value
-                ]
-            else:
-                props['Value'] = self.value
-
-        if self.name is not None:
-            if hasattr(self.name, 'to_dict'):
-                props['Name'] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props['Name'] = self.name
-
-        return props
-
 
 @dataclass
-class JobConfig:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
+class JobConfig(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "build_compute_type": "BuildComputeType",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     build_compute_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.build_compute_type is not None:
-            if hasattr(self.build_compute_type, 'to_dict'):
-                props['BuildComputeType'] = self.build_compute_type.to_dict()
-            elif isinstance(self.build_compute_type, list):
-                props['BuildComputeType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.build_compute_type
-                ]
-            else:
-                props['BuildComputeType'] = self.build_compute_type
-
-        return props
 
 
 @dataclass
@@ -563,278 +291,45 @@ class App(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ampli"""
 
     resource_type: ClassVar[str] = "AWS::Amplify::App"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "auto_branch_creation_config": "AutoBranchCreationConfig",
+        "oauth_token": "OauthToken",
+        "description": "Description",
+        "platform": "Platform",
+        "enable_branch_auto_deletion": "EnableBranchAutoDeletion",
+        "job_config": "JobConfig",
+        "name": "Name",
+        "compute_role_arn": "ComputeRoleArn",
+        "repository": "Repository",
+        "environment_variables": "EnvironmentVariables",
+        "access_token": "AccessToken",
+        "build_spec": "BuildSpec",
+        "custom_rules": "CustomRules",
+        "basic_auth_config": "BasicAuthConfig",
+        "cache_config": "CacheConfig",
+        "custom_headers": "CustomHeaders",
+        "tags": "Tags",
+        "iam_service_role": "IAMServiceRole",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auto_branch_creation_config: Optional[AutoBranchCreationConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     oauth_token: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     platform: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     enable_branch_auto_deletion: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     job_config: Optional[JobConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     compute_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     repository: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     environment_variables: Optional[list[EnvironmentVariable]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     access_token: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     build_spec: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     custom_rules: Optional[list[CustomRule]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     basic_auth_config: Optional[BasicAuthConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     cache_config: Optional[CacheConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     custom_headers: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     iam_service_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.auto_branch_creation_config is not None:
-            # Serialize auto_branch_creation_config (handle intrinsic functions)
-            if hasattr(self.auto_branch_creation_config, 'to_dict'):
-                props["AutoBranchCreationConfig"] = self.auto_branch_creation_config.to_dict()
-            elif isinstance(self.auto_branch_creation_config, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AutoBranchCreationConfig'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.auto_branch_creation_config
-                ]
-            else:
-                props["AutoBranchCreationConfig"] = self.auto_branch_creation_config
-
-        if self.oauth_token is not None:
-            # Serialize oauth_token (handle intrinsic functions)
-            if hasattr(self.oauth_token, 'to_dict'):
-                props["OauthToken"] = self.oauth_token.to_dict()
-            elif isinstance(self.oauth_token, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['OauthToken'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.oauth_token
-                ]
-            else:
-                props["OauthToken"] = self.oauth_token
-
-        if self.description is not None:
-            # Serialize description (handle intrinsic functions)
-            if hasattr(self.description, 'to_dict'):
-                props["Description"] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props["Description"] = self.description
-
-        if self.platform is not None:
-            # Serialize platform (handle intrinsic functions)
-            if hasattr(self.platform, 'to_dict'):
-                props["Platform"] = self.platform.to_dict()
-            elif isinstance(self.platform, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Platform'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.platform
-                ]
-            else:
-                props["Platform"] = self.platform
-
-        if self.enable_branch_auto_deletion is not None:
-            # Serialize enable_branch_auto_deletion (handle intrinsic functions)
-            if hasattr(self.enable_branch_auto_deletion, 'to_dict'):
-                props["EnableBranchAutoDeletion"] = self.enable_branch_auto_deletion.to_dict()
-            elif isinstance(self.enable_branch_auto_deletion, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['EnableBranchAutoDeletion'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enable_branch_auto_deletion
-                ]
-            else:
-                props["EnableBranchAutoDeletion"] = self.enable_branch_auto_deletion
-
-        if self.job_config is not None:
-            # Serialize job_config (handle intrinsic functions)
-            if hasattr(self.job_config, 'to_dict'):
-                props["JobConfig"] = self.job_config.to_dict()
-            elif isinstance(self.job_config, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['JobConfig'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.job_config
-                ]
-            else:
-                props["JobConfig"] = self.job_config
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        if self.compute_role_arn is not None:
-            # Serialize compute_role_arn (handle intrinsic functions)
-            if hasattr(self.compute_role_arn, 'to_dict'):
-                props["ComputeRoleArn"] = self.compute_role_arn.to_dict()
-            elif isinstance(self.compute_role_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ComputeRoleArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.compute_role_arn
-                ]
-            else:
-                props["ComputeRoleArn"] = self.compute_role_arn
-
-        if self.repository is not None:
-            # Serialize repository (handle intrinsic functions)
-            if hasattr(self.repository, 'to_dict'):
-                props["Repository"] = self.repository.to_dict()
-            elif isinstance(self.repository, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Repository'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.repository
-                ]
-            else:
-                props["Repository"] = self.repository
-
-        if self.environment_variables is not None:
-            # Serialize environment_variables (handle intrinsic functions)
-            if hasattr(self.environment_variables, 'to_dict'):
-                props["EnvironmentVariables"] = self.environment_variables.to_dict()
-            elif isinstance(self.environment_variables, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['EnvironmentVariables'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.environment_variables
-                ]
-            else:
-                props["EnvironmentVariables"] = self.environment_variables
-
-        if self.access_token is not None:
-            # Serialize access_token (handle intrinsic functions)
-            if hasattr(self.access_token, 'to_dict'):
-                props["AccessToken"] = self.access_token.to_dict()
-            elif isinstance(self.access_token, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AccessToken'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.access_token
-                ]
-            else:
-                props["AccessToken"] = self.access_token
-
-        if self.build_spec is not None:
-            # Serialize build_spec (handle intrinsic functions)
-            if hasattr(self.build_spec, 'to_dict'):
-                props["BuildSpec"] = self.build_spec.to_dict()
-            elif isinstance(self.build_spec, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['BuildSpec'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.build_spec
-                ]
-            else:
-                props["BuildSpec"] = self.build_spec
-
-        if self.custom_rules is not None:
-            # Serialize custom_rules (handle intrinsic functions)
-            if hasattr(self.custom_rules, 'to_dict'):
-                props["CustomRules"] = self.custom_rules.to_dict()
-            elif isinstance(self.custom_rules, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['CustomRules'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.custom_rules
-                ]
-            else:
-                props["CustomRules"] = self.custom_rules
-
-        if self.basic_auth_config is not None:
-            # Serialize basic_auth_config (handle intrinsic functions)
-            if hasattr(self.basic_auth_config, 'to_dict'):
-                props["BasicAuthConfig"] = self.basic_auth_config.to_dict()
-            elif isinstance(self.basic_auth_config, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['BasicAuthConfig'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.basic_auth_config
-                ]
-            else:
-                props["BasicAuthConfig"] = self.basic_auth_config
-
-        if self.cache_config is not None:
-            # Serialize cache_config (handle intrinsic functions)
-            if hasattr(self.cache_config, 'to_dict'):
-                props["CacheConfig"] = self.cache_config.to_dict()
-            elif isinstance(self.cache_config, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['CacheConfig'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.cache_config
-                ]
-            else:
-                props["CacheConfig"] = self.cache_config
-
-        if self.custom_headers is not None:
-            # Serialize custom_headers (handle intrinsic functions)
-            if hasattr(self.custom_headers, 'to_dict'):
-                props["CustomHeaders"] = self.custom_headers.to_dict()
-            elif isinstance(self.custom_headers, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['CustomHeaders'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.custom_headers
-                ]
-            else:
-                props["CustomHeaders"] = self.custom_headers
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.iam_service_role is not None:
-            # Serialize iam_service_role (handle intrinsic functions)
-            if hasattr(self.iam_service_role, 'to_dict'):
-                props["IAMServiceRole"] = self.iam_service_role.to_dict()
-            elif isinstance(self.iam_service_role, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['IAMServiceRole'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.iam_service_role
-                ]
-            else:
-                props["IAMServiceRole"] = self.iam_service_role
-
-        return props
 
     @property
     def attr_app_id(self) -> GetAtt:
@@ -860,117 +355,36 @@ class App(CloudFormationResource):
 
 
 @dataclass
-class Backend:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
+class Backend(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "stack_arn": "StackArn",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stack_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.stack_arn is not None:
-            if hasattr(self.stack_arn, 'to_dict'):
-                props['StackArn'] = self.stack_arn.to_dict()
-            elif isinstance(self.stack_arn, list):
-                props['StackArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.stack_arn
-                ]
-            else:
-                props['StackArn'] = self.stack_arn
-
-        return props
-
 
 @dataclass
-class BasicAuthConfig:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
+class BasicAuthConfig(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "username": "Username",
+        "enable_basic_auth": "EnableBasicAuth",
+        "password": "Password",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     username: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_basic_auth: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     password: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.username is not None:
-            if hasattr(self.username, 'to_dict'):
-                props['Username'] = self.username.to_dict()
-            elif isinstance(self.username, list):
-                props['Username'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.username
-                ]
-            else:
-                props['Username'] = self.username
-
-        if self.enable_basic_auth is not None:
-            if hasattr(self.enable_basic_auth, 'to_dict'):
-                props['EnableBasicAuth'] = self.enable_basic_auth.to_dict()
-            elif isinstance(self.enable_basic_auth, list):
-                props['EnableBasicAuth'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enable_basic_auth
-                ]
-            else:
-                props['EnableBasicAuth'] = self.enable_basic_auth
-
-        if self.password is not None:
-            if hasattr(self.password, 'to_dict'):
-                props['Password'] = self.password.to_dict()
-            elif isinstance(self.password, list):
-                props['Password'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.password
-                ]
-            else:
-                props['Password'] = self.password
-
-        return props
-
 
 @dataclass
-class EnvironmentVariable:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
+class EnvironmentVariable(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "value": "Value",
+        "name": "Name",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.value is not None:
-            if hasattr(self.value, 'to_dict'):
-                props['Value'] = self.value.to_dict()
-            elif isinstance(self.value, list):
-                props['Value'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.value
-                ]
-            else:
-                props['Value'] = self.value
-
-        if self.name is not None:
-            if hasattr(self.name, 'to_dict'):
-                props['Name'] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props['Name'] = self.name
-
-        return props
 
 
 @dataclass
@@ -978,248 +392,41 @@ class Branch(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ampli"""
 
     resource_type: ClassVar[str] = "AWS::Amplify::Branch"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "description": "Description",
+        "enable_performance_mode": "EnablePerformanceMode",
+        "compute_role_arn": "ComputeRoleArn",
+        "backend": "Backend",
+        "environment_variables": "EnvironmentVariables",
+        "app_id": "AppId",
+        "pull_request_environment_name": "PullRequestEnvironmentName",
+        "enable_pull_request_preview": "EnablePullRequestPreview",
+        "enable_skew_protection": "EnableSkewProtection",
+        "enable_auto_build": "EnableAutoBuild",
+        "build_spec": "BuildSpec",
+        "stage": "Stage",
+        "branch_name": "BranchName",
+        "basic_auth_config": "BasicAuthConfig",
+        "framework": "Framework",
+        "tags": "Tags",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     enable_performance_mode: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     compute_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     backend: Optional[Backend] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     environment_variables: Optional[list[EnvironmentVariable]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     app_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     pull_request_environment_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     enable_pull_request_preview: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     enable_skew_protection: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     enable_auto_build: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     build_spec: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     stage: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     branch_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     basic_auth_config: Optional[BasicAuthConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     framework: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.description is not None:
-            # Serialize description (handle intrinsic functions)
-            if hasattr(self.description, 'to_dict'):
-                props["Description"] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props["Description"] = self.description
-
-        if self.enable_performance_mode is not None:
-            # Serialize enable_performance_mode (handle intrinsic functions)
-            if hasattr(self.enable_performance_mode, 'to_dict'):
-                props["EnablePerformanceMode"] = self.enable_performance_mode.to_dict()
-            elif isinstance(self.enable_performance_mode, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['EnablePerformanceMode'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enable_performance_mode
-                ]
-            else:
-                props["EnablePerformanceMode"] = self.enable_performance_mode
-
-        if self.compute_role_arn is not None:
-            # Serialize compute_role_arn (handle intrinsic functions)
-            if hasattr(self.compute_role_arn, 'to_dict'):
-                props["ComputeRoleArn"] = self.compute_role_arn.to_dict()
-            elif isinstance(self.compute_role_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ComputeRoleArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.compute_role_arn
-                ]
-            else:
-                props["ComputeRoleArn"] = self.compute_role_arn
-
-        if self.backend is not None:
-            # Serialize backend (handle intrinsic functions)
-            if hasattr(self.backend, 'to_dict'):
-                props["Backend"] = self.backend.to_dict()
-            elif isinstance(self.backend, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Backend'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.backend
-                ]
-            else:
-                props["Backend"] = self.backend
-
-        if self.environment_variables is not None:
-            # Serialize environment_variables (handle intrinsic functions)
-            if hasattr(self.environment_variables, 'to_dict'):
-                props["EnvironmentVariables"] = self.environment_variables.to_dict()
-            elif isinstance(self.environment_variables, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['EnvironmentVariables'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.environment_variables
-                ]
-            else:
-                props["EnvironmentVariables"] = self.environment_variables
-
-        if self.app_id is not None:
-            # Serialize app_id (handle intrinsic functions)
-            if hasattr(self.app_id, 'to_dict'):
-                props["AppId"] = self.app_id.to_dict()
-            elif isinstance(self.app_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AppId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.app_id
-                ]
-            else:
-                props["AppId"] = self.app_id
-
-        if self.pull_request_environment_name is not None:
-            # Serialize pull_request_environment_name (handle intrinsic functions)
-            if hasattr(self.pull_request_environment_name, 'to_dict'):
-                props["PullRequestEnvironmentName"] = self.pull_request_environment_name.to_dict()
-            elif isinstance(self.pull_request_environment_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['PullRequestEnvironmentName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.pull_request_environment_name
-                ]
-            else:
-                props["PullRequestEnvironmentName"] = self.pull_request_environment_name
-
-        if self.enable_pull_request_preview is not None:
-            # Serialize enable_pull_request_preview (handle intrinsic functions)
-            if hasattr(self.enable_pull_request_preview, 'to_dict'):
-                props["EnablePullRequestPreview"] = self.enable_pull_request_preview.to_dict()
-            elif isinstance(self.enable_pull_request_preview, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['EnablePullRequestPreview'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enable_pull_request_preview
-                ]
-            else:
-                props["EnablePullRequestPreview"] = self.enable_pull_request_preview
-
-        if self.enable_skew_protection is not None:
-            # Serialize enable_skew_protection (handle intrinsic functions)
-            if hasattr(self.enable_skew_protection, 'to_dict'):
-                props["EnableSkewProtection"] = self.enable_skew_protection.to_dict()
-            elif isinstance(self.enable_skew_protection, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['EnableSkewProtection'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enable_skew_protection
-                ]
-            else:
-                props["EnableSkewProtection"] = self.enable_skew_protection
-
-        if self.enable_auto_build is not None:
-            # Serialize enable_auto_build (handle intrinsic functions)
-            if hasattr(self.enable_auto_build, 'to_dict'):
-                props["EnableAutoBuild"] = self.enable_auto_build.to_dict()
-            elif isinstance(self.enable_auto_build, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['EnableAutoBuild'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enable_auto_build
-                ]
-            else:
-                props["EnableAutoBuild"] = self.enable_auto_build
-
-        if self.build_spec is not None:
-            # Serialize build_spec (handle intrinsic functions)
-            if hasattr(self.build_spec, 'to_dict'):
-                props["BuildSpec"] = self.build_spec.to_dict()
-            elif isinstance(self.build_spec, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['BuildSpec'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.build_spec
-                ]
-            else:
-                props["BuildSpec"] = self.build_spec
-
-        if self.stage is not None:
-            # Serialize stage (handle intrinsic functions)
-            if hasattr(self.stage, 'to_dict'):
-                props["Stage"] = self.stage.to_dict()
-            elif isinstance(self.stage, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Stage'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.stage
-                ]
-            else:
-                props["Stage"] = self.stage
-
-        if self.branch_name is not None:
-            # Serialize branch_name (handle intrinsic functions)
-            if hasattr(self.branch_name, 'to_dict'):
-                props["BranchName"] = self.branch_name.to_dict()
-            elif isinstance(self.branch_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['BranchName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.branch_name
-                ]
-            else:
-                props["BranchName"] = self.branch_name
-
-        if self.basic_auth_config is not None:
-            # Serialize basic_auth_config (handle intrinsic functions)
-            if hasattr(self.basic_auth_config, 'to_dict'):
-                props["BasicAuthConfig"] = self.basic_auth_config.to_dict()
-            elif isinstance(self.basic_auth_config, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['BasicAuthConfig'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.basic_auth_config
-                ]
-            else:
-                props["BasicAuthConfig"] = self.basic_auth_config
-
-        if self.framework is not None:
-            # Serialize framework (handle intrinsic functions)
-            if hasattr(self.framework, 'to_dict'):
-                props["Framework"] = self.framework.to_dict()
-            elif isinstance(self.framework, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Framework'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.framework
-                ]
-            else:
-                props["Framework"] = self.framework
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_branch_name(self) -> GetAtt:
@@ -1235,130 +442,38 @@ class Branch(CloudFormationResource):
 
 
 @dataclass
-class Certificate:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
+class Certificate(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "certificate_type": "CertificateType",
+        "certificate_verification_dns_record": "CertificateVerificationDNSRecord",
+        "certificate_arn": "CertificateArn",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     certificate_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     certificate_verification_dns_record: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     certificate_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.certificate_type is not None:
-            if hasattr(self.certificate_type, 'to_dict'):
-                props['CertificateType'] = self.certificate_type.to_dict()
-            elif isinstance(self.certificate_type, list):
-                props['CertificateType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.certificate_type
-                ]
-            else:
-                props['CertificateType'] = self.certificate_type
-
-        if self.certificate_verification_dns_record is not None:
-            if hasattr(self.certificate_verification_dns_record, 'to_dict'):
-                props['CertificateVerificationDNSRecord'] = self.certificate_verification_dns_record.to_dict()
-            elif isinstance(self.certificate_verification_dns_record, list):
-                props['CertificateVerificationDNSRecord'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.certificate_verification_dns_record
-                ]
-            else:
-                props['CertificateVerificationDNSRecord'] = self.certificate_verification_dns_record
-
-        if self.certificate_arn is not None:
-            if hasattr(self.certificate_arn, 'to_dict'):
-                props['CertificateArn'] = self.certificate_arn.to_dict()
-            elif isinstance(self.certificate_arn, list):
-                props['CertificateArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.certificate_arn
-                ]
-            else:
-                props['CertificateArn'] = self.certificate_arn
-
-        return props
-
 
 @dataclass
-class CertificateSettings:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
+class CertificateSettings(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "certificate_type": "CertificateType",
+        "custom_certificate_arn": "CustomCertificateArn",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     certificate_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_certificate_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.certificate_type is not None:
-            if hasattr(self.certificate_type, 'to_dict'):
-                props['CertificateType'] = self.certificate_type.to_dict()
-            elif isinstance(self.certificate_type, list):
-                props['CertificateType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.certificate_type
-                ]
-            else:
-                props['CertificateType'] = self.certificate_type
-
-        if self.custom_certificate_arn is not None:
-            if hasattr(self.custom_certificate_arn, 'to_dict'):
-                props['CustomCertificateArn'] = self.custom_certificate_arn.to_dict()
-            elif isinstance(self.custom_certificate_arn, list):
-                props['CustomCertificateArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.custom_certificate_arn
-                ]
-            else:
-                props['CustomCertificateArn'] = self.custom_certificate_arn
-
-        return props
-
 
 @dataclass
-class SubDomainSetting:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
+class SubDomainSetting(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "prefix": "Prefix",
+        "branch_name": "BranchName",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     branch_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.prefix is not None:
-            if hasattr(self.prefix, 'to_dict'):
-                props['Prefix'] = self.prefix.to_dict()
-            elif isinstance(self.prefix, list):
-                props['Prefix'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.prefix
-                ]
-            else:
-                props['Prefix'] = self.prefix
-
-        if self.branch_name is not None:
-            if hasattr(self.branch_name, 'to_dict'):
-                props['BranchName'] = self.branch_name.to_dict()
-            elif isinstance(self.branch_name, list):
-                props['BranchName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.branch_name
-                ]
-            else:
-                props['BranchName'] = self.branch_name
-
-        return props
 
 
 @dataclass
@@ -1366,118 +481,23 @@ class Domain(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ampli"""
 
     resource_type: ClassVar[str] = "AWS::Amplify::Domain"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "sub_domain_settings": "SubDomainSettings",
+        "app_id": "AppId",
+        "auto_sub_domain_iam_role": "AutoSubDomainIAMRole",
+        "domain_name": "DomainName",
+        "certificate_settings": "CertificateSettings",
+        "enable_auto_sub_domain": "EnableAutoSubDomain",
+        "auto_sub_domain_creation_patterns": "AutoSubDomainCreationPatterns",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     sub_domain_settings: Optional[list[SubDomainSetting]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     app_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auto_sub_domain_iam_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     certificate_settings: Optional[CertificateSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     enable_auto_sub_domain: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auto_sub_domain_creation_patterns: Optional[Union[list[str], Ref]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.sub_domain_settings is not None:
-            # Serialize sub_domain_settings (handle intrinsic functions)
-            if hasattr(self.sub_domain_settings, 'to_dict'):
-                props["SubDomainSettings"] = self.sub_domain_settings.to_dict()
-            elif isinstance(self.sub_domain_settings, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SubDomainSettings'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.sub_domain_settings
-                ]
-            else:
-                props["SubDomainSettings"] = self.sub_domain_settings
-
-        if self.app_id is not None:
-            # Serialize app_id (handle intrinsic functions)
-            if hasattr(self.app_id, 'to_dict'):
-                props["AppId"] = self.app_id.to_dict()
-            elif isinstance(self.app_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AppId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.app_id
-                ]
-            else:
-                props["AppId"] = self.app_id
-
-        if self.auto_sub_domain_iam_role is not None:
-            # Serialize auto_sub_domain_iam_role (handle intrinsic functions)
-            if hasattr(self.auto_sub_domain_iam_role, 'to_dict'):
-                props["AutoSubDomainIAMRole"] = self.auto_sub_domain_iam_role.to_dict()
-            elif isinstance(self.auto_sub_domain_iam_role, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AutoSubDomainIAMRole'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.auto_sub_domain_iam_role
-                ]
-            else:
-                props["AutoSubDomainIAMRole"] = self.auto_sub_domain_iam_role
-
-        if self.domain_name is not None:
-            # Serialize domain_name (handle intrinsic functions)
-            if hasattr(self.domain_name, 'to_dict'):
-                props["DomainName"] = self.domain_name.to_dict()
-            elif isinstance(self.domain_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DomainName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.domain_name
-                ]
-            else:
-                props["DomainName"] = self.domain_name
-
-        if self.certificate_settings is not None:
-            # Serialize certificate_settings (handle intrinsic functions)
-            if hasattr(self.certificate_settings, 'to_dict'):
-                props["CertificateSettings"] = self.certificate_settings.to_dict()
-            elif isinstance(self.certificate_settings, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['CertificateSettings'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.certificate_settings
-                ]
-            else:
-                props["CertificateSettings"] = self.certificate_settings
-
-        if self.enable_auto_sub_domain is not None:
-            # Serialize enable_auto_sub_domain (handle intrinsic functions)
-            if hasattr(self.enable_auto_sub_domain, 'to_dict'):
-                props["EnableAutoSubDomain"] = self.enable_auto_sub_domain.to_dict()
-            elif isinstance(self.enable_auto_sub_domain, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['EnableAutoSubDomain'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enable_auto_sub_domain
-                ]
-            else:
-                props["EnableAutoSubDomain"] = self.enable_auto_sub_domain
-
-        if self.auto_sub_domain_creation_patterns is not None:
-            # Serialize auto_sub_domain_creation_patterns (handle intrinsic functions)
-            if hasattr(self.auto_sub_domain_creation_patterns, 'to_dict'):
-                props["AutoSubDomainCreationPatterns"] = self.auto_sub_domain_creation_patterns.to_dict()
-            elif isinstance(self.auto_sub_domain_creation_patterns, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AutoSubDomainCreationPatterns'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.auto_sub_domain_creation_patterns
-                ]
-            else:
-                props["AutoSubDomainCreationPatterns"] = self.auto_sub_domain_creation_patterns
-
-        return props
 
     @property
     def attr_certificate__certificate_arn(self) -> GetAtt:

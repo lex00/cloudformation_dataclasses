@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:35
+  Generated: 2025-12-17 21:57:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DSQL
@@ -21,7 +21,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, ClassVar, Optional, Union
 
-from cloudformation_dataclasses.core.base import CloudFormationResource
+from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
@@ -95,92 +95,27 @@ OTHER = ValidationExceptionReason.OTHER
 
 
 @dataclass
-class EncryptionDetails:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dsq"""
+class EncryptionDetails(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "encryption_type": "EncryptionType",
+        "encryption_status": "EncryptionStatus",
+        "kms_key_arn": "KmsKeyArn",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.encryption_type is not None:
-            if hasattr(self.encryption_type, 'to_dict'):
-                props['EncryptionType'] = self.encryption_type.to_dict()
-            elif isinstance(self.encryption_type, list):
-                props['EncryptionType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.encryption_type
-                ]
-            else:
-                props['EncryptionType'] = self.encryption_type
-
-        if self.encryption_status is not None:
-            if hasattr(self.encryption_status, 'to_dict'):
-                props['EncryptionStatus'] = self.encryption_status.to_dict()
-            elif isinstance(self.encryption_status, list):
-                props['EncryptionStatus'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.encryption_status
-                ]
-            else:
-                props['EncryptionStatus'] = self.encryption_status
-
-        if self.kms_key_arn is not None:
-            if hasattr(self.kms_key_arn, 'to_dict'):
-                props['KmsKeyArn'] = self.kms_key_arn.to_dict()
-            elif isinstance(self.kms_key_arn, list):
-                props['KmsKeyArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.kms_key_arn
-                ]
-            else:
-                props['KmsKeyArn'] = self.kms_key_arn
-
-        return props
 
 
 @dataclass
-class MultiRegionProperties:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dsq"""
+class MultiRegionProperties(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "clusters": "Clusters",
+        "witness_region": "WitnessRegion",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     clusters: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     witness_region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.clusters is not None:
-            if hasattr(self.clusters, 'to_dict'):
-                props['Clusters'] = self.clusters.to_dict()
-            elif isinstance(self.clusters, list):
-                props['Clusters'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.clusters
-                ]
-            else:
-                props['Clusters'] = self.clusters
-
-        if self.witness_region is not None:
-            if hasattr(self.witness_region, 'to_dict'):
-                props['WitnessRegion'] = self.witness_region.to_dict()
-            elif isinstance(self.witness_region, list):
-                props['WitnessRegion'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.witness_region
-                ]
-            else:
-                props['WitnessRegion'] = self.witness_region
-
-        return props
 
 
 @dataclass
@@ -188,83 +123,19 @@ class Cluster(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dsql-"""
 
     resource_type: ClassVar[str] = "AWS::DSQL::Cluster"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "policy_document": "PolicyDocument",
+        "kms_encryption_key": "KmsEncryptionKey",
+        "deletion_protection_enabled": "DeletionProtectionEnabled",
+        "tags": "Tags",
+        "multi_region_properties": "MultiRegionProperties",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy_document: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kms_encryption_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     deletion_protection_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     multi_region_properties: Optional[MultiRegionProperties] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.policy_document is not None:
-            # Serialize policy_document (handle intrinsic functions)
-            if hasattr(self.policy_document, 'to_dict'):
-                props["PolicyDocument"] = self.policy_document.to_dict()
-            elif isinstance(self.policy_document, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['PolicyDocument'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.policy_document
-                ]
-            else:
-                props["PolicyDocument"] = self.policy_document
-
-        if self.kms_encryption_key is not None:
-            # Serialize kms_encryption_key (handle intrinsic functions)
-            if hasattr(self.kms_encryption_key, 'to_dict'):
-                props["KmsEncryptionKey"] = self.kms_encryption_key.to_dict()
-            elif isinstance(self.kms_encryption_key, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['KmsEncryptionKey'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.kms_encryption_key
-                ]
-            else:
-                props["KmsEncryptionKey"] = self.kms_encryption_key
-
-        if self.deletion_protection_enabled is not None:
-            # Serialize deletion_protection_enabled (handle intrinsic functions)
-            if hasattr(self.deletion_protection_enabled, 'to_dict'):
-                props["DeletionProtectionEnabled"] = self.deletion_protection_enabled.to_dict()
-            elif isinstance(self.deletion_protection_enabled, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DeletionProtectionEnabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.deletion_protection_enabled
-                ]
-            else:
-                props["DeletionProtectionEnabled"] = self.deletion_protection_enabled
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.multi_region_properties is not None:
-            # Serialize multi_region_properties (handle intrinsic functions)
-            if hasattr(self.multi_region_properties, 'to_dict'):
-                props["MultiRegionProperties"] = self.multi_region_properties.to_dict()
-            elif isinstance(self.multi_region_properties, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['MultiRegionProperties'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.multi_region_properties
-                ]
-            else:
-                props["MultiRegionProperties"] = self.multi_region_properties
-
-        return props
 
     @property
     def attr_status(self) -> GetAtt:

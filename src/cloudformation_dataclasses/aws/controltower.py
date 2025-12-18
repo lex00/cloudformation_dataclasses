@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:35
+  Generated: 2025-12-17 21:57:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ControlTower
@@ -21,7 +21,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, ClassVar, Optional, Union
 
-from cloudformation_dataclasses.core.base import CloudFormationResource
+from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
@@ -165,41 +165,14 @@ INHERITANCE_DRIFT = RemediationType.INHERITANCE_DRIFT
 
 
 @dataclass
-class Parameter:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
+class Parameter(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "value": "Value",
+        "key": "Key",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.value is not None:
-            if hasattr(self.value, 'to_dict'):
-                props['Value'] = self.value.to_dict()
-            elif isinstance(self.value, list):
-                props['Value'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.value
-                ]
-            else:
-                props['Value'] = self.value
-
-        if self.key is not None:
-            if hasattr(self.key, 'to_dict'):
-                props['Key'] = self.key.to_dict()
-            elif isinstance(self.key, list):
-                props['Key'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.key
-                ]
-            else:
-                props['Key'] = self.key
-
-        return props
 
 
 @dataclass
@@ -207,83 +180,19 @@ class EnabledBaseline(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-contr"""
 
     resource_type: ClassVar[str] = "AWS::ControlTower::EnabledBaseline"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "baseline_version": "BaselineVersion",
+        "parameters": "Parameters",
+        "baseline_identifier": "BaselineIdentifier",
+        "target_identifier": "TargetIdentifier",
+        "tags": "Tags",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     baseline_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     parameters: Optional[list[Parameter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     baseline_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     target_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.baseline_version is not None:
-            # Serialize baseline_version (handle intrinsic functions)
-            if hasattr(self.baseline_version, 'to_dict'):
-                props["BaselineVersion"] = self.baseline_version.to_dict()
-            elif isinstance(self.baseline_version, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['BaselineVersion'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.baseline_version
-                ]
-            else:
-                props["BaselineVersion"] = self.baseline_version
-
-        if self.parameters is not None:
-            # Serialize parameters (handle intrinsic functions)
-            if hasattr(self.parameters, 'to_dict'):
-                props["Parameters"] = self.parameters.to_dict()
-            elif isinstance(self.parameters, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Parameters'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.parameters
-                ]
-            else:
-                props["Parameters"] = self.parameters
-
-        if self.baseline_identifier is not None:
-            # Serialize baseline_identifier (handle intrinsic functions)
-            if hasattr(self.baseline_identifier, 'to_dict'):
-                props["BaselineIdentifier"] = self.baseline_identifier.to_dict()
-            elif isinstance(self.baseline_identifier, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['BaselineIdentifier'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.baseline_identifier
-                ]
-            else:
-                props["BaselineIdentifier"] = self.baseline_identifier
-
-        if self.target_identifier is not None:
-            # Serialize target_identifier (handle intrinsic functions)
-            if hasattr(self.target_identifier, 'to_dict'):
-                props["TargetIdentifier"] = self.target_identifier.to_dict()
-            elif isinstance(self.target_identifier, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['TargetIdentifier'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.target_identifier
-                ]
-            else:
-                props["TargetIdentifier"] = self.target_identifier
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_enabled_baseline_identifier(self) -> GetAtt:
@@ -294,41 +203,14 @@ class EnabledBaseline(CloudFormationResource):
 
 
 @dataclass
-class EnabledControlParameter:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
+class EnabledControlParameter(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "value": "Value",
+        "key": "Key",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.value is not None:
-            if hasattr(self.value, 'to_dict'):
-                props['Value'] = self.value.to_dict()
-            elif isinstance(self.value, list):
-                props['Value'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.value
-                ]
-            else:
-                props['Value'] = self.value
-
-        if self.key is not None:
-            if hasattr(self.key, 'to_dict'):
-                props['Key'] = self.key.to_dict()
-            elif isinstance(self.key, list):
-                props['Key'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.key
-                ]
-            else:
-                props['Key'] = self.key
-
-        return props
 
 
 @dataclass
@@ -336,68 +218,17 @@ class EnabledControl(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-contr"""
 
     resource_type: ClassVar[str] = "AWS::ControlTower::EnabledControl"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "parameters": "Parameters",
+        "control_identifier": "ControlIdentifier",
+        "target_identifier": "TargetIdentifier",
+        "tags": "Tags",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     parameters: Optional[list[EnabledControlParameter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     control_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     target_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.parameters is not None:
-            # Serialize parameters (handle intrinsic functions)
-            if hasattr(self.parameters, 'to_dict'):
-                props["Parameters"] = self.parameters.to_dict()
-            elif isinstance(self.parameters, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Parameters'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.parameters
-                ]
-            else:
-                props["Parameters"] = self.parameters
-
-        if self.control_identifier is not None:
-            # Serialize control_identifier (handle intrinsic functions)
-            if hasattr(self.control_identifier, 'to_dict'):
-                props["ControlIdentifier"] = self.control_identifier.to_dict()
-            elif isinstance(self.control_identifier, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ControlIdentifier'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.control_identifier
-                ]
-            else:
-                props["ControlIdentifier"] = self.control_identifier
-
-        if self.target_identifier is not None:
-            # Serialize target_identifier (handle intrinsic functions)
-            if hasattr(self.target_identifier, 'to_dict'):
-                props["TargetIdentifier"] = self.target_identifier.to_dict()
-            elif isinstance(self.target_identifier, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['TargetIdentifier'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.target_identifier
-                ]
-            else:
-                props["TargetIdentifier"] = self.target_identifier
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
 
 
@@ -406,68 +237,17 @@ class LandingZone(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-contr"""
 
     resource_type: ClassVar[str] = "AWS::ControlTower::LandingZone"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "version": "Version",
+        "remediation_types": "RemediationTypes",
+        "manifest": "Manifest",
+        "tags": "Tags",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     remediation_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     manifest: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.version is not None:
-            # Serialize version (handle intrinsic functions)
-            if hasattr(self.version, 'to_dict'):
-                props["Version"] = self.version.to_dict()
-            elif isinstance(self.version, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Version'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.version
-                ]
-            else:
-                props["Version"] = self.version
-
-        if self.remediation_types is not None:
-            # Serialize remediation_types (handle intrinsic functions)
-            if hasattr(self.remediation_types, 'to_dict'):
-                props["RemediationTypes"] = self.remediation_types.to_dict()
-            elif isinstance(self.remediation_types, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['RemediationTypes'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.remediation_types
-                ]
-            else:
-                props["RemediationTypes"] = self.remediation_types
-
-        if self.manifest is not None:
-            # Serialize manifest (handle intrinsic functions)
-            if hasattr(self.manifest, 'to_dict'):
-                props["Manifest"] = self.manifest.to_dict()
-            elif isinstance(self.manifest, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Manifest'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.manifest
-                ]
-            else:
-                props["Manifest"] = self.manifest
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_status(self) -> GetAtt:

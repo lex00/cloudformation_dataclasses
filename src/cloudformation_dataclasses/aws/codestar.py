@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:35
+  Generated: 2025-12-17 21:57:45
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CodeStar
@@ -21,84 +21,30 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, ClassVar, Optional, Union
 
-from cloudformation_dataclasses.core.base import CloudFormationResource
+from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
 @dataclass
-class Code:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
+class Code(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "s3": "S3",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3: Optional[S3] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.s3 is not None:
-            if hasattr(self.s3, 'to_dict'):
-                props['S3'] = self.s3.to_dict()
-            elif isinstance(self.s3, list):
-                props['S3'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.s3
-                ]
-            else:
-                props['S3'] = self.s3
-
-        return props
 
 
 @dataclass
-class S3:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
+class S3(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "object_version": "ObjectVersion",
+        "bucket": "Bucket",
+        "key": "Key",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.object_version is not None:
-            if hasattr(self.object_version, 'to_dict'):
-                props['ObjectVersion'] = self.object_version.to_dict()
-            elif isinstance(self.object_version, list):
-                props['ObjectVersion'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.object_version
-                ]
-            else:
-                props['ObjectVersion'] = self.object_version
-
-        if self.bucket is not None:
-            if hasattr(self.bucket, 'to_dict'):
-                props['Bucket'] = self.bucket.to_dict()
-            elif isinstance(self.bucket, list):
-                props['Bucket'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.bucket
-                ]
-            else:
-                props['Bucket'] = self.bucket
-
-        if self.key is not None:
-            if hasattr(self.key, 'to_dict'):
-                props['Key'] = self.key.to_dict()
-            elif isinstance(self.key, list):
-                props['Key'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.key
-                ]
-            else:
-                props['Key'] = self.key
-
-        return props
 
 
 @dataclass
@@ -106,132 +52,24 @@ class GitHubRepository(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codes"""
 
     resource_type: ClassVar[str] = "AWS::CodeStar::GitHubRepository"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "enable_issues": "EnableIssues",
+        "connection_arn": "ConnectionArn",
+        "repository_name": "RepositoryName",
+        "repository_access_token": "RepositoryAccessToken",
+        "repository_owner": "RepositoryOwner",
+        "is_private": "IsPrivate",
+        "code": "Code",
+        "repository_description": "RepositoryDescription",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     enable_issues: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connection_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     repository_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     repository_access_token: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     repository_owner: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     is_private: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     code: Optional[Code] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     repository_description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.enable_issues is not None:
-            # Serialize enable_issues (handle intrinsic functions)
-            if hasattr(self.enable_issues, 'to_dict'):
-                props["EnableIssues"] = self.enable_issues.to_dict()
-            elif isinstance(self.enable_issues, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['EnableIssues'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enable_issues
-                ]
-            else:
-                props["EnableIssues"] = self.enable_issues
-
-        if self.connection_arn is not None:
-            # Serialize connection_arn (handle intrinsic functions)
-            if hasattr(self.connection_arn, 'to_dict'):
-                props["ConnectionArn"] = self.connection_arn.to_dict()
-            elif isinstance(self.connection_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ConnectionArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.connection_arn
-                ]
-            else:
-                props["ConnectionArn"] = self.connection_arn
-
-        if self.repository_name is not None:
-            # Serialize repository_name (handle intrinsic functions)
-            if hasattr(self.repository_name, 'to_dict'):
-                props["RepositoryName"] = self.repository_name.to_dict()
-            elif isinstance(self.repository_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['RepositoryName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.repository_name
-                ]
-            else:
-                props["RepositoryName"] = self.repository_name
-
-        if self.repository_access_token is not None:
-            # Serialize repository_access_token (handle intrinsic functions)
-            if hasattr(self.repository_access_token, 'to_dict'):
-                props["RepositoryAccessToken"] = self.repository_access_token.to_dict()
-            elif isinstance(self.repository_access_token, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['RepositoryAccessToken'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.repository_access_token
-                ]
-            else:
-                props["RepositoryAccessToken"] = self.repository_access_token
-
-        if self.repository_owner is not None:
-            # Serialize repository_owner (handle intrinsic functions)
-            if hasattr(self.repository_owner, 'to_dict'):
-                props["RepositoryOwner"] = self.repository_owner.to_dict()
-            elif isinstance(self.repository_owner, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['RepositoryOwner'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.repository_owner
-                ]
-            else:
-                props["RepositoryOwner"] = self.repository_owner
-
-        if self.is_private is not None:
-            # Serialize is_private (handle intrinsic functions)
-            if hasattr(self.is_private, 'to_dict'):
-                props["IsPrivate"] = self.is_private.to_dict()
-            elif isinstance(self.is_private, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['IsPrivate'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.is_private
-                ]
-            else:
-                props["IsPrivate"] = self.is_private
-
-        if self.code is not None:
-            # Serialize code (handle intrinsic functions)
-            if hasattr(self.code, 'to_dict'):
-                props["Code"] = self.code.to_dict()
-            elif isinstance(self.code, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Code'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.code
-                ]
-            else:
-                props["Code"] = self.code
-
-        if self.repository_description is not None:
-            # Serialize repository_description (handle intrinsic functions)
-            if hasattr(self.repository_description, 'to_dict'):
-                props["RepositoryDescription"] = self.repository_description.to_dict()
-            elif isinstance(self.repository_description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['RepositoryDescription'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.repository_description
-                ]
-            else:
-                props["RepositoryDescription"] = self.repository_description
-
-        return props
 
 

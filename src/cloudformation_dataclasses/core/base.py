@@ -3,6 +3,7 @@ Core base classes for CloudFormation resources.
 
 This module provides the foundational classes that all CloudFormation resources inherit from:
 - CloudFormationResource: Abstract base class for all AWS resources
+- PropertyType: Base class for CloudFormation property types (nested structures)
 - Tag: CloudFormation resource tag
 - DeploymentContext: Environment configuration and naming context
 """
@@ -10,7 +11,7 @@ This module provides the foundational classes that all CloudFormation resources 
 from __future__ import annotations
 
 import warnings
-from abc import ABC, abstractmethod
+from abc import ABC
 from dataclasses import dataclass, field
 from typing import TYPE_CHECKING, Any, ClassVar, Optional
 
@@ -144,6 +145,37 @@ class PolicyDocument:
 
 
 @dataclass
+class PropertyType:
+    """
+    Base class for CloudFormation property types (nested structures).
+
+    Generated property type classes inherit from this to get data-driven serialization.
+    Each subclass defines _property_mappings to map field names to CF property names.
+    """
+
+    _property_mappings: ClassVar[dict[str, str]] = {}
+
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value, handling intrinsic functions and nested structures."""
+        if hasattr(value, "to_dict"):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {key: self._serialize_value(val) for key, val in value.items()}
+        return value
+
+    def to_dict(self) -> dict[str, Any]:
+        """Serialize to CloudFormation format using _property_mappings."""
+        props: dict[str, Any] = {}
+        for field_name, cf_name in self.__class__._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
+        return props
+
+
+@dataclass
 class DeploymentContext(ABC):
     """
     Base class for deployment context - provides environment defaults and resource naming.
@@ -262,10 +294,12 @@ class CloudFormationResource(ABC):
 
     Generated resource classes override:
     - resource_type: ClassVar[str] - The AWS CloudFormation resource type
+    - _property_mappings: ClassVar[dict[str, str]] - Maps field names to CF property names
     - Property fields with appropriate types and defaults
     """
 
     resource_type: ClassVar[str]
+    _property_mappings: ClassVar[dict[str, str]] = {}
 
     logical_id: Optional[str] = None
     depends_on: list[str] = field(default_factory=list)
@@ -382,18 +416,48 @@ class CloudFormationResource(ABC):
 
         return result
 
-    @abstractmethod
+    def _serialize_value(self, value: Any) -> Any:
+        """
+        Recursively serialize a value, handling intrinsic functions and nested structures.
+
+        Handles:
+        - Objects with to_dict() methods (intrinsic functions, property types)
+        - Lists containing intrinsic functions or property types
+        - Dicts with intrinsic function values
+        - Primitive values (str, int, bool, etc.)
+        """
+        if hasattr(value, "to_dict"):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {key: self._serialize_value(val) for key, val in value.items()}
+        return value
+
     def _get_properties(self) -> dict[str, Any]:
         """
         Get the Properties section of the CloudFormation resource.
 
-        This is implemented by generated resource classes to serialize
-        their specific properties.
+        Uses _property_mappings to serialize fields to CloudFormation format.
+        Handles intrinsic functions, nested property types, and lists automatically.
 
         Returns:
             Dictionary of CloudFormation properties
         """
-        ...
+        props: dict[str, Any] = {}
+        mappings = self.__class__._property_mappings
+
+        for field_name, cf_name in mappings.items():
+            # Special case: tags field uses all_tags to merge context tags
+            if field_name == "tags":
+                value = self.all_tags
+            else:
+                value = getattr(self, field_name, None)
+
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
+
+        return props
 
     def ref(self) -> Ref:
         """

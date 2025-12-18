@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:35
+  Generated: 2025-12-17 21:57:45
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CodeConnections
@@ -21,7 +21,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, ClassVar, Optional, Union
 
-from cloudformation_dataclasses.core.base import CloudFormationResource
+from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
@@ -143,68 +143,17 @@ class Connection(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codec"""
 
     resource_type: ClassVar[str] = "AWS::CodeConnections::Connection"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "connection_name": "ConnectionName",
+        "host_arn": "HostArn",
+        "provider_type": "ProviderType",
+        "tags": "Tags",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connection_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     host_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     provider_type: Optional[Union[str, ProviderType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.connection_name is not None:
-            # Serialize connection_name (handle intrinsic functions)
-            if hasattr(self.connection_name, 'to_dict'):
-                props["ConnectionName"] = self.connection_name.to_dict()
-            elif isinstance(self.connection_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ConnectionName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.connection_name
-                ]
-            else:
-                props["ConnectionName"] = self.connection_name
-
-        if self.host_arn is not None:
-            # Serialize host_arn (handle intrinsic functions)
-            if hasattr(self.host_arn, 'to_dict'):
-                props["HostArn"] = self.host_arn.to_dict()
-            elif isinstance(self.host_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['HostArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.host_arn
-                ]
-            else:
-                props["HostArn"] = self.host_arn
-
-        if self.provider_type is not None:
-            # Serialize provider_type (handle intrinsic functions)
-            if hasattr(self.provider_type, 'to_dict'):
-                props["ProviderType"] = self.provider_type.to_dict()
-            elif isinstance(self.provider_type, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ProviderType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.provider_type
-                ]
-            else:
-                props["ProviderType"] = self.provider_type
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_connection_arn(self) -> GetAtt:

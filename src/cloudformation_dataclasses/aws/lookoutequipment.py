@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:37
+  Generated: 2025-12-17 21:57:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service LookoutEquipment
@@ -21,7 +21,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, ClassVar, Optional, Union
 
-from cloudformation_dataclasses.core.base import CloudFormationResource
+from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
@@ -263,206 +263,60 @@ PT1H = TargetSamplingRate.PT1H
 
 
 @dataclass
-class DataInputConfiguration:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-loo"""
+class DataInputConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "inference_input_name_configuration": "InferenceInputNameConfiguration",
+        "s3_input_configuration": "S3InputConfiguration",
+        "input_time_zone_offset": "InputTimeZoneOffset",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     inference_input_name_configuration: Optional[InputNameConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_input_configuration: Optional[S3InputConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input_time_zone_offset: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.inference_input_name_configuration is not None:
-            if hasattr(self.inference_input_name_configuration, 'to_dict'):
-                props['InferenceInputNameConfiguration'] = self.inference_input_name_configuration.to_dict()
-            elif isinstance(self.inference_input_name_configuration, list):
-                props['InferenceInputNameConfiguration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.inference_input_name_configuration
-                ]
-            else:
-                props['InferenceInputNameConfiguration'] = self.inference_input_name_configuration
-
-        if self.s3_input_configuration is not None:
-            if hasattr(self.s3_input_configuration, 'to_dict'):
-                props['S3InputConfiguration'] = self.s3_input_configuration.to_dict()
-            elif isinstance(self.s3_input_configuration, list):
-                props['S3InputConfiguration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.s3_input_configuration
-                ]
-            else:
-                props['S3InputConfiguration'] = self.s3_input_configuration
-
-        if self.input_time_zone_offset is not None:
-            if hasattr(self.input_time_zone_offset, 'to_dict'):
-                props['InputTimeZoneOffset'] = self.input_time_zone_offset.to_dict()
-            elif isinstance(self.input_time_zone_offset, list):
-                props['InputTimeZoneOffset'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.input_time_zone_offset
-                ]
-            else:
-                props['InputTimeZoneOffset'] = self.input_time_zone_offset
-
-        return props
-
 
 @dataclass
-class DataOutputConfiguration:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-loo"""
+class DataOutputConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "kms_key_id": "KmsKeyId",
+        "s3_output_configuration": "S3OutputConfiguration",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_output_configuration: Optional[S3OutputConfiguration] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.kms_key_id is not None:
-            if hasattr(self.kms_key_id, 'to_dict'):
-                props['KmsKeyId'] = self.kms_key_id.to_dict()
-            elif isinstance(self.kms_key_id, list):
-                props['KmsKeyId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.kms_key_id
-                ]
-            else:
-                props['KmsKeyId'] = self.kms_key_id
-
-        if self.s3_output_configuration is not None:
-            if hasattr(self.s3_output_configuration, 'to_dict'):
-                props['S3OutputConfiguration'] = self.s3_output_configuration.to_dict()
-            elif isinstance(self.s3_output_configuration, list):
-                props['S3OutputConfiguration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.s3_output_configuration
-                ]
-            else:
-                props['S3OutputConfiguration'] = self.s3_output_configuration
-
-        return props
-
 
 @dataclass
-class InputNameConfiguration:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-loo"""
+class InputNameConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "component_timestamp_delimiter": "ComponentTimestampDelimiter",
+        "timestamp_format": "TimestampFormat",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     component_timestamp_delimiter: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timestamp_format: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
 
-        if self.component_timestamp_delimiter is not None:
-            if hasattr(self.component_timestamp_delimiter, 'to_dict'):
-                props['ComponentTimestampDelimiter'] = self.component_timestamp_delimiter.to_dict()
-            elif isinstance(self.component_timestamp_delimiter, list):
-                props['ComponentTimestampDelimiter'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.component_timestamp_delimiter
-                ]
-            else:
-                props['ComponentTimestampDelimiter'] = self.component_timestamp_delimiter
+@dataclass
+class S3InputConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "bucket": "Bucket",
+        "prefix": "Prefix",
+    }
 
-        if self.timestamp_format is not None:
-            if hasattr(self.timestamp_format, 'to_dict'):
-                props['TimestampFormat'] = self.timestamp_format.to_dict()
-            elif isinstance(self.timestamp_format, list):
-                props['TimestampFormat'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.timestamp_format
-                ]
-            else:
-                props['TimestampFormat'] = self.timestamp_format
-
-        return props
+    bucket: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
 @dataclass
-class S3InputConfiguration:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-loo"""
+class S3OutputConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "bucket": "Bucket",
+        "prefix": "Prefix",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.bucket is not None:
-            if hasattr(self.bucket, 'to_dict'):
-                props['Bucket'] = self.bucket.to_dict()
-            elif isinstance(self.bucket, list):
-                props['Bucket'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.bucket
-                ]
-            else:
-                props['Bucket'] = self.bucket
-
-        if self.prefix is not None:
-            if hasattr(self.prefix, 'to_dict'):
-                props['Prefix'] = self.prefix.to_dict()
-            elif isinstance(self.prefix, list):
-                props['Prefix'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.prefix
-                ]
-            else:
-                props['Prefix'] = self.prefix
-
-        return props
-
-
-@dataclass
-class S3OutputConfiguration:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-loo"""
-
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    bucket: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.bucket is not None:
-            if hasattr(self.bucket, 'to_dict'):
-                props['Bucket'] = self.bucket.to_dict()
-            elif isinstance(self.bucket, list):
-                props['Bucket'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.bucket
-                ]
-            else:
-                props['Bucket'] = self.bucket
-
-        if self.prefix is not None:
-            if hasattr(self.prefix, 'to_dict'):
-                props['Prefix'] = self.prefix.to_dict()
-            elif isinstance(self.prefix, list):
-                props['Prefix'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.prefix
-                ]
-            else:
-                props['Prefix'] = self.prefix
-
-        return props
 
 
 @dataclass
@@ -470,143 +324,27 @@ class InferenceScheduler(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-looko"""
 
     resource_type: ClassVar[str] = "AWS::LookoutEquipment::InferenceScheduler"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "inference_scheduler_name": "InferenceSchedulerName",
+        "data_upload_frequency": "DataUploadFrequency",
+        "model_name": "ModelName",
+        "data_input_configuration": "DataInputConfiguration",
+        "data_output_configuration": "DataOutputConfiguration",
+        "server_side_kms_key_id": "ServerSideKmsKeyId",
+        "data_delay_offset_in_minutes": "DataDelayOffsetInMinutes",
+        "role_arn": "RoleArn",
+        "tags": "Tags",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     inference_scheduler_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     data_upload_frequency: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     data_input_configuration: Optional[DataInputConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     data_output_configuration: Optional[DataOutputConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     server_side_kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     data_delay_offset_in_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.inference_scheduler_name is not None:
-            # Serialize inference_scheduler_name (handle intrinsic functions)
-            if hasattr(self.inference_scheduler_name, 'to_dict'):
-                props["InferenceSchedulerName"] = self.inference_scheduler_name.to_dict()
-            elif isinstance(self.inference_scheduler_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['InferenceSchedulerName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.inference_scheduler_name
-                ]
-            else:
-                props["InferenceSchedulerName"] = self.inference_scheduler_name
-
-        if self.data_upload_frequency is not None:
-            # Serialize data_upload_frequency (handle intrinsic functions)
-            if hasattr(self.data_upload_frequency, 'to_dict'):
-                props["DataUploadFrequency"] = self.data_upload_frequency.to_dict()
-            elif isinstance(self.data_upload_frequency, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DataUploadFrequency'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.data_upload_frequency
-                ]
-            else:
-                props["DataUploadFrequency"] = self.data_upload_frequency
-
-        if self.model_name is not None:
-            # Serialize model_name (handle intrinsic functions)
-            if hasattr(self.model_name, 'to_dict'):
-                props["ModelName"] = self.model_name.to_dict()
-            elif isinstance(self.model_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ModelName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.model_name
-                ]
-            else:
-                props["ModelName"] = self.model_name
-
-        if self.data_input_configuration is not None:
-            # Serialize data_input_configuration (handle intrinsic functions)
-            if hasattr(self.data_input_configuration, 'to_dict'):
-                props["DataInputConfiguration"] = self.data_input_configuration.to_dict()
-            elif isinstance(self.data_input_configuration, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DataInputConfiguration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.data_input_configuration
-                ]
-            else:
-                props["DataInputConfiguration"] = self.data_input_configuration
-
-        if self.data_output_configuration is not None:
-            # Serialize data_output_configuration (handle intrinsic functions)
-            if hasattr(self.data_output_configuration, 'to_dict'):
-                props["DataOutputConfiguration"] = self.data_output_configuration.to_dict()
-            elif isinstance(self.data_output_configuration, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DataOutputConfiguration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.data_output_configuration
-                ]
-            else:
-                props["DataOutputConfiguration"] = self.data_output_configuration
-
-        if self.server_side_kms_key_id is not None:
-            # Serialize server_side_kms_key_id (handle intrinsic functions)
-            if hasattr(self.server_side_kms_key_id, 'to_dict'):
-                props["ServerSideKmsKeyId"] = self.server_side_kms_key_id.to_dict()
-            elif isinstance(self.server_side_kms_key_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ServerSideKmsKeyId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.server_side_kms_key_id
-                ]
-            else:
-                props["ServerSideKmsKeyId"] = self.server_side_kms_key_id
-
-        if self.data_delay_offset_in_minutes is not None:
-            # Serialize data_delay_offset_in_minutes (handle intrinsic functions)
-            if hasattr(self.data_delay_offset_in_minutes, 'to_dict'):
-                props["DataDelayOffsetInMinutes"] = self.data_delay_offset_in_minutes.to_dict()
-            elif isinstance(self.data_delay_offset_in_minutes, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DataDelayOffsetInMinutes'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.data_delay_offset_in_minutes
-                ]
-            else:
-                props["DataDelayOffsetInMinutes"] = self.data_delay_offset_in_minutes
-
-        if self.role_arn is not None:
-            # Serialize role_arn (handle intrinsic functions)
-            if hasattr(self.role_arn, 'to_dict'):
-                props["RoleArn"] = self.role_arn.to_dict()
-            elif isinstance(self.role_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['RoleArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.role_arn
-                ]
-            else:
-                props["RoleArn"] = self.role_arn
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_inference_scheduler_arn(self) -> GetAtt:

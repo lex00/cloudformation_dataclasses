@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:35
+  Generated: 2025-12-17 21:57:45
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CodeArtifact
@@ -21,7 +21,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, ClassVar, Optional, Union
 
-from cloudformation_dataclasses.core.base import CloudFormationResource
+from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
@@ -238,68 +238,17 @@ class Domain(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codea"""
 
     resource_type: ClassVar[str] = "AWS::CodeArtifact::Domain"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "permissions_policy_document": "PermissionsPolicyDocument",
+        "domain_name": "DomainName",
+        "tags": "Tags",
+        "encryption_key": "EncryptionKey",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     permissions_policy_document: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     encryption_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.permissions_policy_document is not None:
-            # Serialize permissions_policy_document (handle intrinsic functions)
-            if hasattr(self.permissions_policy_document, 'to_dict'):
-                props["PermissionsPolicyDocument"] = self.permissions_policy_document.to_dict()
-            elif isinstance(self.permissions_policy_document, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['PermissionsPolicyDocument'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.permissions_policy_document
-                ]
-            else:
-                props["PermissionsPolicyDocument"] = self.permissions_policy_document
-
-        if self.domain_name is not None:
-            # Serialize domain_name (handle intrinsic functions)
-            if hasattr(self.domain_name, 'to_dict'):
-                props["DomainName"] = self.domain_name.to_dict()
-            elif isinstance(self.domain_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DomainName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.domain_name
-                ]
-            else:
-                props["DomainName"] = self.domain_name
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.encryption_key is not None:
-            # Serialize encryption_key (handle intrinsic functions)
-            if hasattr(self.encryption_key, 'to_dict'):
-                props["EncryptionKey"] = self.encryption_key.to_dict()
-            elif isinstance(self.encryption_key, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['EncryptionKey'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.encryption_key
-                ]
-            else:
-                props["EncryptionKey"] = self.encryption_key
-
-        return props
 
     @property
     def attr_owner(self) -> GetAtt:
@@ -325,117 +274,36 @@ class Domain(CloudFormationResource):
 
 
 @dataclass
-class OriginConfiguration:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
+class OriginConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "restrictions": "Restrictions",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     restrictions: Optional[Restrictions] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.restrictions is not None:
-            if hasattr(self.restrictions, 'to_dict'):
-                props['Restrictions'] = self.restrictions.to_dict()
-            elif isinstance(self.restrictions, list):
-                props['Restrictions'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.restrictions
-                ]
-            else:
-                props['Restrictions'] = self.restrictions
-
-        return props
-
 
 @dataclass
-class RestrictionType:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
+class RestrictionType(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "repositories": "Repositories",
+        "restriction_mode": "RestrictionMode",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     repositories: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     restriction_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.repositories is not None:
-            if hasattr(self.repositories, 'to_dict'):
-                props['Repositories'] = self.repositories.to_dict()
-            elif isinstance(self.repositories, list):
-                props['Repositories'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.repositories
-                ]
-            else:
-                props['Repositories'] = self.repositories
-
-        if self.restriction_mode is not None:
-            if hasattr(self.restriction_mode, 'to_dict'):
-                props['RestrictionMode'] = self.restriction_mode.to_dict()
-            elif isinstance(self.restriction_mode, list):
-                props['RestrictionMode'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.restriction_mode
-                ]
-            else:
-                props['RestrictionMode'] = self.restriction_mode
-
-        return props
-
 
 @dataclass
-class Restrictions:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
+class Restrictions(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "external_upstream": "ExternalUpstream",
+        "publish": "Publish",
+        "internal_upstream": "InternalUpstream",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     external_upstream: Optional[RestrictionType] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     publish: Optional[RestrictionType] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     internal_upstream: Optional[RestrictionType] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.external_upstream is not None:
-            if hasattr(self.external_upstream, 'to_dict'):
-                props['ExternalUpstream'] = self.external_upstream.to_dict()
-            elif isinstance(self.external_upstream, list):
-                props['ExternalUpstream'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.external_upstream
-                ]
-            else:
-                props['ExternalUpstream'] = self.external_upstream
-
-        if self.publish is not None:
-            if hasattr(self.publish, 'to_dict'):
-                props['Publish'] = self.publish.to_dict()
-            elif isinstance(self.publish, list):
-                props['Publish'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.publish
-                ]
-            else:
-                props['Publish'] = self.publish
-
-        if self.internal_upstream is not None:
-            if hasattr(self.internal_upstream, 'to_dict'):
-                props['InternalUpstream'] = self.internal_upstream.to_dict()
-            elif isinstance(self.internal_upstream, list):
-                props['InternalUpstream'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.internal_upstream
-                ]
-            else:
-                props['InternalUpstream'] = self.internal_upstream
-
-        return props
 
 
 @dataclass
@@ -443,113 +311,23 @@ class PackageGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codea"""
 
     resource_type: ClassVar[str] = "AWS::CodeArtifact::PackageGroup"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "pattern": "Pattern",
+        "description": "Description",
+        "domain_name": "DomainName",
+        "origin_configuration": "OriginConfiguration",
+        "contact_info": "ContactInfo",
+        "domain_owner": "DomainOwner",
+        "tags": "Tags",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     pattern: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     origin_configuration: Optional[OriginConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     contact_info: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_owner: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.pattern is not None:
-            # Serialize pattern (handle intrinsic functions)
-            if hasattr(self.pattern, 'to_dict'):
-                props["Pattern"] = self.pattern.to_dict()
-            elif isinstance(self.pattern, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Pattern'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.pattern
-                ]
-            else:
-                props["Pattern"] = self.pattern
-
-        if self.description is not None:
-            # Serialize description (handle intrinsic functions)
-            if hasattr(self.description, 'to_dict'):
-                props["Description"] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props["Description"] = self.description
-
-        if self.domain_name is not None:
-            # Serialize domain_name (handle intrinsic functions)
-            if hasattr(self.domain_name, 'to_dict'):
-                props["DomainName"] = self.domain_name.to_dict()
-            elif isinstance(self.domain_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DomainName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.domain_name
-                ]
-            else:
-                props["DomainName"] = self.domain_name
-
-        if self.origin_configuration is not None:
-            # Serialize origin_configuration (handle intrinsic functions)
-            if hasattr(self.origin_configuration, 'to_dict'):
-                props["OriginConfiguration"] = self.origin_configuration.to_dict()
-            elif isinstance(self.origin_configuration, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['OriginConfiguration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.origin_configuration
-                ]
-            else:
-                props["OriginConfiguration"] = self.origin_configuration
-
-        if self.contact_info is not None:
-            # Serialize contact_info (handle intrinsic functions)
-            if hasattr(self.contact_info, 'to_dict'):
-                props["ContactInfo"] = self.contact_info.to_dict()
-            elif isinstance(self.contact_info, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ContactInfo'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.contact_info
-                ]
-            else:
-                props["ContactInfo"] = self.contact_info
-
-        if self.domain_owner is not None:
-            # Serialize domain_owner (handle intrinsic functions)
-            if hasattr(self.domain_owner, 'to_dict'):
-                props["DomainOwner"] = self.domain_owner.to_dict()
-            elif isinstance(self.domain_owner, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DomainOwner'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.domain_owner
-                ]
-            else:
-                props["DomainOwner"] = self.domain_owner
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_arn(self) -> GetAtt:
@@ -564,128 +342,25 @@ class Repository(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codea"""
 
     resource_type: ClassVar[str] = "AWS::CodeArtifact::Repository"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "description": "Description",
+        "permissions_policy_document": "PermissionsPolicyDocument",
+        "domain_name": "DomainName",
+        "upstreams": "Upstreams",
+        "repository_name": "RepositoryName",
+        "external_connections": "ExternalConnections",
+        "tags": "Tags",
+        "domain_owner": "DomainOwner",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     permissions_policy_document: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     upstreams: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     repository_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     external_connections: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_owner: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.description is not None:
-            # Serialize description (handle intrinsic functions)
-            if hasattr(self.description, 'to_dict'):
-                props["Description"] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props["Description"] = self.description
-
-        if self.permissions_policy_document is not None:
-            # Serialize permissions_policy_document (handle intrinsic functions)
-            if hasattr(self.permissions_policy_document, 'to_dict'):
-                props["PermissionsPolicyDocument"] = self.permissions_policy_document.to_dict()
-            elif isinstance(self.permissions_policy_document, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['PermissionsPolicyDocument'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.permissions_policy_document
-                ]
-            else:
-                props["PermissionsPolicyDocument"] = self.permissions_policy_document
-
-        if self.domain_name is not None:
-            # Serialize domain_name (handle intrinsic functions)
-            if hasattr(self.domain_name, 'to_dict'):
-                props["DomainName"] = self.domain_name.to_dict()
-            elif isinstance(self.domain_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DomainName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.domain_name
-                ]
-            else:
-                props["DomainName"] = self.domain_name
-
-        if self.upstreams is not None:
-            # Serialize upstreams (handle intrinsic functions)
-            if hasattr(self.upstreams, 'to_dict'):
-                props["Upstreams"] = self.upstreams.to_dict()
-            elif isinstance(self.upstreams, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Upstreams'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.upstreams
-                ]
-            else:
-                props["Upstreams"] = self.upstreams
-
-        if self.repository_name is not None:
-            # Serialize repository_name (handle intrinsic functions)
-            if hasattr(self.repository_name, 'to_dict'):
-                props["RepositoryName"] = self.repository_name.to_dict()
-            elif isinstance(self.repository_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['RepositoryName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.repository_name
-                ]
-            else:
-                props["RepositoryName"] = self.repository_name
-
-        if self.external_connections is not None:
-            # Serialize external_connections (handle intrinsic functions)
-            if hasattr(self.external_connections, 'to_dict'):
-                props["ExternalConnections"] = self.external_connections.to_dict()
-            elif isinstance(self.external_connections, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ExternalConnections'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.external_connections
-                ]
-            else:
-                props["ExternalConnections"] = self.external_connections
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.domain_owner is not None:
-            # Serialize domain_owner (handle intrinsic functions)
-            if hasattr(self.domain_owner, 'to_dict'):
-                props["DomainOwner"] = self.domain_owner.to_dict()
-            elif isinstance(self.domain_owner, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DomainOwner'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.domain_owner
-                ]
-            else:
-                props["DomainOwner"] = self.domain_owner
-
-        return props
 
     @property
     def attr_domain_name(self) -> GetAtt:

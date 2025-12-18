@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:37
+  Generated: 2025-12-17 21:57:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Invoicing
@@ -21,7 +21,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, ClassVar, Optional, Union
 
-from cloudformation_dataclasses.core.base import CloudFormationResource
+from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
@@ -173,66 +173,23 @@ OTHER = ValidationExceptionReason.OTHER
 
 
 @dataclass
-class ResourceTag:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inv"""
+class ResourceTag(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "value": "Value",
+        "key": "Key",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.value is not None:
-            if hasattr(self.value, 'to_dict'):
-                props['Value'] = self.value.to_dict()
-            elif isinstance(self.value, list):
-                props['Value'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.value
-                ]
-            else:
-                props['Value'] = self.value
-
-        if self.key is not None:
-            if hasattr(self.key, 'to_dict'):
-                props['Key'] = self.key.to_dict()
-            elif isinstance(self.key, list):
-                props['Key'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.key
-                ]
-            else:
-                props['Key'] = self.key
-
-        return props
 
 
 @dataclass
-class Rule:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inv"""
+class Rule(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "linked_accounts": "LinkedAccounts",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     linked_accounts: Optional[Union[list[str], Ref]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.linked_accounts is not None:
-            if hasattr(self.linked_accounts, 'to_dict'):
-                props['LinkedAccounts'] = self.linked_accounts.to_dict()
-            elif isinstance(self.linked_accounts, list):
-                props['LinkedAccounts'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.linked_accounts
-                ]
-            else:
-                props['LinkedAccounts'] = self.linked_accounts
-
-        return props
 
 
 @dataclass
@@ -240,103 +197,21 @@ class InvoiceUnit(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-invoi"""
 
     resource_type: ClassVar[str] = "AWS::Invoicing::InvoiceUnit"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "description": "Description",
+        "tax_inheritance_disabled": "TaxInheritanceDisabled",
+        "resource_tags": "ResourceTags",
+        "rule": "Rule",
+        "invoice_receiver": "InvoiceReceiver",
+        "name": "Name",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tax_inheritance_disabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_tags: Optional[list[ResourceTag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     rule: Optional[Rule] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     invoice_receiver: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.description is not None:
-            # Serialize description (handle intrinsic functions)
-            if hasattr(self.description, 'to_dict'):
-                props["Description"] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props["Description"] = self.description
-
-        if self.tax_inheritance_disabled is not None:
-            # Serialize tax_inheritance_disabled (handle intrinsic functions)
-            if hasattr(self.tax_inheritance_disabled, 'to_dict'):
-                props["TaxInheritanceDisabled"] = self.tax_inheritance_disabled.to_dict()
-            elif isinstance(self.tax_inheritance_disabled, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['TaxInheritanceDisabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.tax_inheritance_disabled
-                ]
-            else:
-                props["TaxInheritanceDisabled"] = self.tax_inheritance_disabled
-
-        if self.resource_tags is not None:
-            # Serialize resource_tags (handle intrinsic functions)
-            if hasattr(self.resource_tags, 'to_dict'):
-                props["ResourceTags"] = self.resource_tags.to_dict()
-            elif isinstance(self.resource_tags, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ResourceTags'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.resource_tags
-                ]
-            else:
-                props["ResourceTags"] = self.resource_tags
-
-        if self.rule is not None:
-            # Serialize rule (handle intrinsic functions)
-            if hasattr(self.rule, 'to_dict'):
-                props["Rule"] = self.rule.to_dict()
-            elif isinstance(self.rule, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Rule'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.rule
-                ]
-            else:
-                props["Rule"] = self.rule
-
-        if self.invoice_receiver is not None:
-            # Serialize invoice_receiver (handle intrinsic functions)
-            if hasattr(self.invoice_receiver, 'to_dict'):
-                props["InvoiceReceiver"] = self.invoice_receiver.to_dict()
-            elif isinstance(self.invoice_receiver, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['InvoiceReceiver'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.invoice_receiver
-                ]
-            else:
-                props["InvoiceReceiver"] = self.invoice_receiver
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        return props
 
     @property
     def attr_last_modified(self) -> GetAtt:

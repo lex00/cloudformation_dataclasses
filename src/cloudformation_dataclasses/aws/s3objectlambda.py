@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:39
+  Generated: 2025-12-17 21:57:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service S3ObjectLambda
@@ -21,7 +21,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, ClassVar, Optional, Union
 
-from cloudformation_dataclasses.core.base import CloudFormationResource
+from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
@@ -903,270 +903,75 @@ GROUP = Type.GROUP
 
 
 @dataclass
-class Alias:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3o"""
+class Alias(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "status": "Status",
+        "value": "Value",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.status is not None:
-            if hasattr(self.status, 'to_dict'):
-                props['Status'] = self.status.to_dict()
-            elif isinstance(self.status, list):
-                props['Status'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.status
-                ]
-            else:
-                props['Status'] = self.status
-
-        if self.value is not None:
-            if hasattr(self.value, 'to_dict'):
-                props['Value'] = self.value.to_dict()
-            elif isinstance(self.value, list):
-                props['Value'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.value
-                ]
-            else:
-                props['Value'] = self.value
-
-        return props
-
 
 @dataclass
-class AwsLambda:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3o"""
+class AwsLambda(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "function_arn": "FunctionArn",
+        "function_payload": "FunctionPayload",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     function_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     function_payload: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.function_arn is not None:
-            if hasattr(self.function_arn, 'to_dict'):
-                props['FunctionArn'] = self.function_arn.to_dict()
-            elif isinstance(self.function_arn, list):
-                props['FunctionArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.function_arn
-                ]
-            else:
-                props['FunctionArn'] = self.function_arn
-
-        if self.function_payload is not None:
-            if hasattr(self.function_payload, 'to_dict'):
-                props['FunctionPayload'] = self.function_payload.to_dict()
-            elif isinstance(self.function_payload, list):
-                props['FunctionPayload'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.function_payload
-                ]
-            else:
-                props['FunctionPayload'] = self.function_payload
-
-        return props
-
 
 @dataclass
-class ContentTransformation:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3o"""
+class ContentTransformation(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "aws_lambda": "AwsLambda",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_lambda: Optional[AwsLambda] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.aws_lambda is not None:
-            if hasattr(self.aws_lambda, 'to_dict'):
-                props['AwsLambda'] = self.aws_lambda.to_dict()
-            elif isinstance(self.aws_lambda, list):
-                props['AwsLambda'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.aws_lambda
-                ]
-            else:
-                props['AwsLambda'] = self.aws_lambda
-
-        return props
-
 
 @dataclass
-class ObjectLambdaConfiguration:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3o"""
+class ObjectLambdaConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "supporting_access_point": "SupportingAccessPoint",
+        "transformation_configurations": "TransformationConfigurations",
+        "allowed_features": "AllowedFeatures",
+        "cloud_watch_metrics_enabled": "CloudWatchMetricsEnabled",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     supporting_access_point: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     transformation_configurations: Optional[list[TransformationConfiguration]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allowed_features: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch_metrics_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.supporting_access_point is not None:
-            if hasattr(self.supporting_access_point, 'to_dict'):
-                props['SupportingAccessPoint'] = self.supporting_access_point.to_dict()
-            elif isinstance(self.supporting_access_point, list):
-                props['SupportingAccessPoint'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.supporting_access_point
-                ]
-            else:
-                props['SupportingAccessPoint'] = self.supporting_access_point
-
-        if self.transformation_configurations is not None:
-            if hasattr(self.transformation_configurations, 'to_dict'):
-                props['TransformationConfigurations'] = self.transformation_configurations.to_dict()
-            elif isinstance(self.transformation_configurations, list):
-                props['TransformationConfigurations'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.transformation_configurations
-                ]
-            else:
-                props['TransformationConfigurations'] = self.transformation_configurations
-
-        if self.allowed_features is not None:
-            if hasattr(self.allowed_features, 'to_dict'):
-                props['AllowedFeatures'] = self.allowed_features.to_dict()
-            elif isinstance(self.allowed_features, list):
-                props['AllowedFeatures'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.allowed_features
-                ]
-            else:
-                props['AllowedFeatures'] = self.allowed_features
-
-        if self.cloud_watch_metrics_enabled is not None:
-            if hasattr(self.cloud_watch_metrics_enabled, 'to_dict'):
-                props['CloudWatchMetricsEnabled'] = self.cloud_watch_metrics_enabled.to_dict()
-            elif isinstance(self.cloud_watch_metrics_enabled, list):
-                props['CloudWatchMetricsEnabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.cloud_watch_metrics_enabled
-                ]
-            else:
-                props['CloudWatchMetricsEnabled'] = self.cloud_watch_metrics_enabled
-
-        return props
-
 
 @dataclass
-class PublicAccessBlockConfiguration:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3o"""
+class PublicAccessBlockConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "restrict_public_buckets": "RestrictPublicBuckets",
+        "block_public_policy": "BlockPublicPolicy",
+        "block_public_acls": "BlockPublicAcls",
+        "ignore_public_acls": "IgnorePublicAcls",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     restrict_public_buckets: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     block_public_policy: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     block_public_acls: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ignore_public_acls: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.restrict_public_buckets is not None:
-            if hasattr(self.restrict_public_buckets, 'to_dict'):
-                props['RestrictPublicBuckets'] = self.restrict_public_buckets.to_dict()
-            elif isinstance(self.restrict_public_buckets, list):
-                props['RestrictPublicBuckets'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.restrict_public_buckets
-                ]
-            else:
-                props['RestrictPublicBuckets'] = self.restrict_public_buckets
-
-        if self.block_public_policy is not None:
-            if hasattr(self.block_public_policy, 'to_dict'):
-                props['BlockPublicPolicy'] = self.block_public_policy.to_dict()
-            elif isinstance(self.block_public_policy, list):
-                props['BlockPublicPolicy'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.block_public_policy
-                ]
-            else:
-                props['BlockPublicPolicy'] = self.block_public_policy
-
-        if self.block_public_acls is not None:
-            if hasattr(self.block_public_acls, 'to_dict'):
-                props['BlockPublicAcls'] = self.block_public_acls.to_dict()
-            elif isinstance(self.block_public_acls, list):
-                props['BlockPublicAcls'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.block_public_acls
-                ]
-            else:
-                props['BlockPublicAcls'] = self.block_public_acls
-
-        if self.ignore_public_acls is not None:
-            if hasattr(self.ignore_public_acls, 'to_dict'):
-                props['IgnorePublicAcls'] = self.ignore_public_acls.to_dict()
-            elif isinstance(self.ignore_public_acls, list):
-                props['IgnorePublicAcls'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.ignore_public_acls
-                ]
-            else:
-                props['IgnorePublicAcls'] = self.ignore_public_acls
-
-        return props
-
 
 @dataclass
-class TransformationConfiguration:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3o"""
+class TransformationConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "actions": "Actions",
+        "content_transformation": "ContentTransformation",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     actions: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     content_transformation: Optional[ContentTransformation] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.actions is not None:
-            if hasattr(self.actions, 'to_dict'):
-                props['Actions'] = self.actions.to_dict()
-            elif isinstance(self.actions, list):
-                props['Actions'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.actions
-                ]
-            else:
-                props['Actions'] = self.actions
-
-        if self.content_transformation is not None:
-            if hasattr(self.content_transformation, 'to_dict'):
-                props['ContentTransformation'] = self.content_transformation.to_dict()
-            elif isinstance(self.content_transformation, list):
-                props['ContentTransformation'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.content_transformation
-                ]
-            else:
-                props['ContentTransformation'] = self.content_transformation
-
-        return props
 
 
 @dataclass
@@ -1174,43 +979,13 @@ class AccessPoint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3obj"""
 
     resource_type: ClassVar[str] = "AWS::S3ObjectLambda::AccessPoint"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "object_lambda_configuration": "ObjectLambdaConfiguration",
+        "name": "Name",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     object_lambda_configuration: Optional[ObjectLambdaConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.object_lambda_configuration is not None:
-            # Serialize object_lambda_configuration (handle intrinsic functions)
-            if hasattr(self.object_lambda_configuration, 'to_dict'):
-                props["ObjectLambdaConfiguration"] = self.object_lambda_configuration.to_dict()
-            elif isinstance(self.object_lambda_configuration, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ObjectLambdaConfiguration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.object_lambda_configuration
-                ]
-            else:
-                props["ObjectLambdaConfiguration"] = self.object_lambda_configuration
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        return props
 
     @property
     def attr_creation_date(self) -> GetAtt:
@@ -1270,42 +1045,12 @@ class AccessPointPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3obj"""
 
     resource_type: ClassVar[str] = "AWS::S3ObjectLambda::AccessPointPolicy"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "policy_document": "PolicyDocument",
+        "object_lambda_access_point": "ObjectLambdaAccessPoint",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy_document: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     object_lambda_access_point: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.policy_document is not None:
-            # Serialize policy_document (handle intrinsic functions)
-            if hasattr(self.policy_document, 'to_dict'):
-                props["PolicyDocument"] = self.policy_document.to_dict()
-            elif isinstance(self.policy_document, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['PolicyDocument'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.policy_document
-                ]
-            else:
-                props["PolicyDocument"] = self.policy_document
-
-        if self.object_lambda_access_point is not None:
-            # Serialize object_lambda_access_point (handle intrinsic functions)
-            if hasattr(self.object_lambda_access_point, 'to_dict'):
-                props["ObjectLambdaAccessPoint"] = self.object_lambda_access_point.to_dict()
-            elif isinstance(self.object_lambda_access_point, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ObjectLambdaAccessPoint'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.object_lambda_access_point
-                ]
-            else:
-                props["ObjectLambdaAccessPoint"] = self.object_lambda_access_point
-
-        return props
 
 

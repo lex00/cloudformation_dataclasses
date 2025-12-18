@@ -78,8 +78,49 @@ def resource_name(suffix: str):
 
 
 # =============================================================================
+# Reusable Tag Classes
+# =============================================================================
+
+
+@cloudformation_dataclass
+class ApplicationTag:
+    """Tag for Application name using stack name."""
+
+    resource: Tag
+    key = "Application"
+    value = AWS_STACK_NAME
+
+
+@cloudformation_dataclass
+class PublicNetworkTag:
+    """Tag indicating public network."""
+
+    resource: Tag
+    key = "Network"
+    value = "Public"
+
+
+@cloudformation_dataclass
+class PrivateNetworkTag:
+    """Tag indicating private network."""
+
+    resource: Tag
+    key = "Network"
+    value = "Private"
+
+
+# =============================================================================
 # VPC
 # =============================================================================
+
+
+@cloudformation_dataclass
+class MainVPCNameTag:
+    """Name tag for VPC."""
+
+    resource: Tag
+    key = "Name"
+    value = ref(VPCName)
 
 
 @cloudformation_dataclass
@@ -94,11 +135,7 @@ class MainVPC:
     enable_dns_support = True
     enable_dns_hostnames = True
     cidr_block = subnet_cidr("VPC")
-    tags = [
-        Tag(key="Application", value=AWS_STACK_NAME),
-        Tag(key="Network", value="Public"),
-        Tag(key="Name", value=ref(VPCName)),
-    ]
+    tags = [ApplicationTag, PublicNetworkTag, MainVPCNameTag]
 
 
 # =============================================================================
@@ -107,15 +144,20 @@ class MainVPC:
 
 
 @cloudformation_dataclass
+class IGWNameTag:
+    """Name tag for Internet Gateway."""
+
+    resource: Tag
+    key = "Name"
+    value = resource_name("-IGW")
+
+
+@cloudformation_dataclass
 class IGW:
     """Internet Gateway for public subnet internet access."""
 
     resource: InternetGateway
-    tags = [
-        Tag(key="Application", value=AWS_STACK_NAME),
-        Tag(key="Network", value="Public"),
-        Tag(key="Name", value=resource_name("-IGW")),
-    ]
+    tags = [ApplicationTag, PublicNetworkTag, IGWNameTag]
 
 
 @cloudformation_dataclass
@@ -133,6 +175,15 @@ class GatewayToInternet:
 
 
 @cloudformation_dataclass
+class PublicSubnet0NameTag:
+    """Name tag for public subnet 0."""
+
+    resource: Tag
+    key = "Name"
+    value = subnet_name("-public-", 0)
+
+
+@cloudformation_dataclass
 class PublicSubnet0:
     """Public subnet in first availability zone."""
 
@@ -141,11 +192,16 @@ class PublicSubnet0:
     availability_zone = az(0)
     cidr_block = subnet_cidr("Public0")
     map_public_ip_on_launch = True
-    tags = [
-        Tag(key="Application", value=AWS_STACK_NAME),
-        Tag(key="Network", value="Public"),
-        Tag(key="Name", value=subnet_name("-public-", 0)),
-    ]
+    tags = [ApplicationTag, PublicNetworkTag, PublicSubnet0NameTag]
+
+
+@cloudformation_dataclass
+class PublicSubnet1NameTag:
+    """Name tag for public subnet 1."""
+
+    resource: Tag
+    key = "Name"
+    value = subnet_name("-public-", 1)
 
 
 @cloudformation_dataclass
@@ -157,16 +213,21 @@ class PublicSubnet1:
     availability_zone = az(1)
     cidr_block = subnet_cidr("Public1")
     map_public_ip_on_launch = True
-    tags = [
-        Tag(key="Application", value=AWS_STACK_NAME),
-        Tag(key="Network", value="Public"),
-        Tag(key="Name", value=subnet_name("-public-", 1)),
-    ]
+    tags = [ApplicationTag, PublicNetworkTag, PublicSubnet1NameTag]
 
 
 # =============================================================================
 # Private Subnets
 # =============================================================================
+
+
+@cloudformation_dataclass
+class PrivateSubnet0NameTag:
+    """Name tag for private subnet 0."""
+
+    resource: Tag
+    key = "Name"
+    value = subnet_name("-private-", 0)
 
 
 @cloudformation_dataclass
@@ -177,11 +238,16 @@ class PrivateSubnet0:
     vpc_id = ref(MainVPC)
     availability_zone = az(0)
     cidr_block = subnet_cidr("Private0")
-    tags = [
-        Tag(key="Application", value=AWS_STACK_NAME),
-        Tag(key="Network", value="Private"),
-        Tag(key="Name", value=subnet_name("-private-", 0)),
-    ]
+    tags = [ApplicationTag, PrivateNetworkTag, PrivateSubnet0NameTag]
+
+
+@cloudformation_dataclass
+class PrivateSubnet1NameTag:
+    """Name tag for private subnet 1."""
+
+    resource: Tag
+    key = "Name"
+    value = subnet_name("-private-", 1)
 
 
 @cloudformation_dataclass
@@ -192,11 +258,7 @@ class PrivateSubnet1:
     vpc_id = ref(MainVPC)
     availability_zone = az(1)
     cidr_block = subnet_cidr("Private1")
-    tags = [
-        Tag(key="Application", value=AWS_STACK_NAME),
-        Tag(key="Network", value="Private"),
-        Tag(key="Name", value=subnet_name("-private-", 1)),
-    ]
+    tags = [ApplicationTag, PrivateNetworkTag, PrivateSubnet1NameTag]
 
 
 # =============================================================================
@@ -205,16 +267,21 @@ class PrivateSubnet1:
 
 
 @cloudformation_dataclass
+class PublicRouteTableNameTag:
+    """Name tag for public route table."""
+
+    resource: Tag
+    key = "Name"
+    value = resource_name("-public-route-table")
+
+
+@cloudformation_dataclass
 class PublicRouteTable:
     """Route table for public subnets."""
 
     resource: RouteTable
     vpc_id = ref(MainVPC)
-    tags = [
-        Tag(key="Application", value=AWS_STACK_NAME),
-        Tag(key="Network", value="Public"),
-        Tag(key="Name", value=resource_name("-public-route-table")),
-    ]
+    tags = [ApplicationTag, PublicNetworkTag, PublicRouteTableNameTag]
 
 
 @cloudformation_dataclass
@@ -252,16 +319,21 @@ class PublicSubnetRouteTableAssociation1:
 
 
 @cloudformation_dataclass
+class PublicNetworkAclNameTag:
+    """Name tag for public network ACL."""
+
+    resource: Tag
+    key = "Name"
+    value = resource_name("-public-nacl")
+
+
+@cloudformation_dataclass
 class PublicNetworkAcl:
     """Network ACL for public subnets."""
 
     resource: NetworkAcl
     vpc_id = ref(MainVPC)
-    tags = [
-        Tag(key="Application", value=AWS_STACK_NAME),
-        Tag(key="Network", value="Public"),
-        Tag(key="Name", value=resource_name("-public-nacl")),
-    ]
+    tags = [ApplicationTag, PublicNetworkTag, PublicNetworkAclNameTag]
 
 
 @cloudformation_dataclass
@@ -353,14 +425,30 @@ class NATGateway1:
 
 
 @cloudformation_dataclass
+class PrivateRouteTable0NameTag:
+    """Name tag for private route table 0."""
+
+    resource: Tag
+    key = "Name"
+    value = resource_name("-private-route-table-0")
+
+
+@cloudformation_dataclass
 class PrivateRouteTable0:
     """Route table for private subnet 0."""
 
     resource: RouteTable
     vpc_id = ref(MainVPC)
-    tags = [
-        Tag(key="Name", value=resource_name("-private-route-table-0")),
-    ]
+    tags = [PrivateRouteTable0NameTag]
+
+
+@cloudformation_dataclass
+class PrivateRouteTable1NameTag:
+    """Name tag for private route table 1."""
+
+    resource: Tag
+    key = "Name"
+    value = resource_name("-private-route-table-1")
 
 
 @cloudformation_dataclass
@@ -369,9 +457,7 @@ class PrivateRouteTable1:
 
     resource: RouteTable
     vpc_id = ref(MainVPC)
-    tags = [
-        Tag(key="Name", value=resource_name("-private-route-table-1")),
-    ]
+    tags = [PrivateRouteTable1NameTag]
 
 
 @cloudformation_dataclass

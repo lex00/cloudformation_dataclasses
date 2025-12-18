@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:34
+  Generated: 2025-12-17 21:57:44
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ARCZonalShift
@@ -21,7 +21,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, ClassVar, Optional, Union
 
-from cloudformation_dataclasses.core.base import CloudFormationResource
+from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
@@ -30,28 +30,11 @@ class AutoshiftObserverNotificationStatus(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-arczo"""
 
     resource_type: ClassVar[str] = "AWS::ARCZonalShift::AutoshiftObserverNotificationStatus"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "status": "Status",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.status is not None:
-            # Serialize status (handle intrinsic functions)
-            if hasattr(self.status, 'to_dict'):
-                props["Status"] = self.status.to_dict()
-            elif isinstance(self.status, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Status'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.status
-                ]
-            else:
-                props["Status"] = self.status
-
-        return props
 
     @property
     def attr_account_id(self) -> GetAtt:
@@ -67,105 +50,29 @@ class AutoshiftObserverNotificationStatus(CloudFormationResource):
 
 
 @dataclass
-class ControlCondition:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arc"""
+class ControlCondition(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "type_": "Type",
+        "alarm_identifier": "AlarmIdentifier",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     alarm_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.type_ is not None:
-            if hasattr(self.type_, 'to_dict'):
-                props['Type'] = self.type_.to_dict()
-            elif isinstance(self.type_, list):
-                props['Type'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.type_
-                ]
-            else:
-                props['Type'] = self.type_
-
-        if self.alarm_identifier is not None:
-            if hasattr(self.alarm_identifier, 'to_dict'):
-                props['AlarmIdentifier'] = self.alarm_identifier.to_dict()
-            elif isinstance(self.alarm_identifier, list):
-                props['AlarmIdentifier'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.alarm_identifier
-                ]
-            else:
-                props['AlarmIdentifier'] = self.alarm_identifier
-
-        return props
 
 
 @dataclass
-class PracticeRunConfiguration:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arc"""
+class PracticeRunConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "blocked_dates": "BlockedDates",
+        "outcome_alarms": "OutcomeAlarms",
+        "blocking_alarms": "BlockingAlarms",
+        "blocked_windows": "BlockedWindows",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     blocked_dates: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     outcome_alarms: Optional[list[ControlCondition]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     blocking_alarms: Optional[list[ControlCondition]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     blocked_windows: Optional[Union[list[str], Ref]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.blocked_dates is not None:
-            if hasattr(self.blocked_dates, 'to_dict'):
-                props['BlockedDates'] = self.blocked_dates.to_dict()
-            elif isinstance(self.blocked_dates, list):
-                props['BlockedDates'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.blocked_dates
-                ]
-            else:
-                props['BlockedDates'] = self.blocked_dates
-
-        if self.outcome_alarms is not None:
-            if hasattr(self.outcome_alarms, 'to_dict'):
-                props['OutcomeAlarms'] = self.outcome_alarms.to_dict()
-            elif isinstance(self.outcome_alarms, list):
-                props['OutcomeAlarms'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.outcome_alarms
-                ]
-            else:
-                props['OutcomeAlarms'] = self.outcome_alarms
-
-        if self.blocking_alarms is not None:
-            if hasattr(self.blocking_alarms, 'to_dict'):
-                props['BlockingAlarms'] = self.blocking_alarms.to_dict()
-            elif isinstance(self.blocking_alarms, list):
-                props['BlockingAlarms'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.blocking_alarms
-                ]
-            else:
-                props['BlockingAlarms'] = self.blocking_alarms
-
-        if self.blocked_windows is not None:
-            if hasattr(self.blocked_windows, 'to_dict'):
-                props['BlockedWindows'] = self.blocked_windows.to_dict()
-            elif isinstance(self.blocked_windows, list):
-                props['BlockedWindows'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.blocked_windows
-                ]
-            else:
-                props['BlockedWindows'] = self.blocked_windows
-
-        return props
 
 
 @dataclass
@@ -173,57 +80,14 @@ class ZonalAutoshiftConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-arczo"""
 
     resource_type: ClassVar[str] = "AWS::ARCZonalShift::ZonalAutoshiftConfiguration"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "resource_identifier": "ResourceIdentifier",
+        "zonal_autoshift_status": "ZonalAutoshiftStatus",
+        "practice_run_configuration": "PracticeRunConfiguration",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     zonal_autoshift_status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     practice_run_configuration: Optional[PracticeRunConfiguration] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.resource_identifier is not None:
-            # Serialize resource_identifier (handle intrinsic functions)
-            if hasattr(self.resource_identifier, 'to_dict'):
-                props["ResourceIdentifier"] = self.resource_identifier.to_dict()
-            elif isinstance(self.resource_identifier, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ResourceIdentifier'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.resource_identifier
-                ]
-            else:
-                props["ResourceIdentifier"] = self.resource_identifier
-
-        if self.zonal_autoshift_status is not None:
-            # Serialize zonal_autoshift_status (handle intrinsic functions)
-            if hasattr(self.zonal_autoshift_status, 'to_dict'):
-                props["ZonalAutoshiftStatus"] = self.zonal_autoshift_status.to_dict()
-            elif isinstance(self.zonal_autoshift_status, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ZonalAutoshiftStatus'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.zonal_autoshift_status
-                ]
-            else:
-                props["ZonalAutoshiftStatus"] = self.zonal_autoshift_status
-
-        if self.practice_run_configuration is not None:
-            # Serialize practice_run_configuration (handle intrinsic functions)
-            if hasattr(self.practice_run_configuration, 'to_dict'):
-                props["PracticeRunConfiguration"] = self.practice_run_configuration.to_dict()
-            elif isinstance(self.practice_run_configuration, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['PracticeRunConfiguration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.practice_run_configuration
-                ]
-            else:
-                props["PracticeRunConfiguration"] = self.practice_run_configuration
-
-        return props
 
 

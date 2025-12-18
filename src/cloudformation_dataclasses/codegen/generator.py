@@ -207,20 +207,22 @@ def generate_property_type_class(
     simple_name = prop_type.simple_name
     lines = []
 
-    # Class definition
+    # Class definition - inherit from PropertyType for data-driven serialization
     lines.append(f"{indent}@dataclass")
-    lines.append(f"{indent}class {simple_name}:")
-
-    # Docstring
-    if prop_type.documentation:
-        doc = prop_type.documentation.split("\n")[0][:80]  # First line, truncated
-        lines.append(f'{indent}    """{doc}"""')
-        lines.append("")
+    lines.append(f"{indent}class {simple_name}(PropertyType):")
 
     # Generate properties
     if not prop_type.properties:
         lines.append(f"{indent}    pass")
     else:
+        # Generate _property_mappings for data-driven serialization
+        lines.append(f"{indent}    _property_mappings: ClassVar[dict[str, str]] = {{")
+        for prop_name, prop in prop_type.properties.items():
+            snake_name = sanitize_python_name(to_snake_case(prop_name))
+            lines.append(f'{indent}        "{snake_name}": "{prop_name}",')
+        lines.append(f"{indent}    }}")
+        lines.append("")
+
         for prop_name, prop in prop_type.properties.items():
             snake_name = sanitize_python_name(to_snake_case(prop_name))
             python_type = map_property_type(
@@ -231,41 +233,10 @@ def generate_property_type_class(
                 enum_mappings=enum_mappings,
             )
 
-            # Add comment if documentation exists
-            if prop.documentation:
-                doc_line = prop.documentation.split("\n")[0][:60]
-                lines.append(f"{indent}    # {doc_line}")
-
             # Add field - make all optional for consistency
             lines.append(f"{indent}    {snake_name}: Optional[{python_type}] = None")
 
-    # Add to_dict() method for CloudFormation serialization
-    if prop_type.properties:
-        lines.append("")
-        lines.append(f"{indent}    def to_dict(self) -> dict[str, Any]:")
-        lines.append(f'{indent}        """Serialize to CloudFormation format."""')
-        lines.append(f"{indent}        props: dict[str, Any] = {{}}")
-        lines.append("")
-
-        for prop_name, prop in prop_type.properties.items():
-            snake_name = sanitize_python_name(to_snake_case(prop_name))
-            lines.append(f"{indent}        if self.{snake_name} is not None:")
-            lines.append(f"{indent}            if hasattr(self.{snake_name}, 'to_dict'):")
-            lines.append(
-                f"{indent}                props['{prop_name}'] = self.{snake_name}.to_dict()"
-            )
-            lines.append(f"{indent}            elif isinstance(self.{snake_name}, list):")
-            lines.append(f"{indent}                props['{prop_name}'] = [")
-            lines.append(
-                f"{indent}                    item.to_dict() if hasattr(item, 'to_dict') else item"
-            )
-            lines.append(f"{indent}                    for item in self.{snake_name}")
-            lines.append(f"{indent}                ]")
-            lines.append(f"{indent}            else:")
-            lines.append(f"{indent}                props['{prop_name}'] = self.{snake_name}")
-            lines.append("")
-
-        lines.append(f"{indent}        return props")
+    # Note: _serialize_value() and to_dict() are inherited from PropertyType base class
 
     return "\n".join(lines)
 
@@ -310,12 +281,20 @@ def generate_resource_class(
 
     # Resource type constant
     lines.append(f'    resource_type: ClassVar[str] = "{resource.resource_type}"')
-    lines.append("")
 
     # Generate properties
     if not resource.properties:
+        lines.append("")
         lines.append("    pass")
     else:
+        # Generate _property_mappings for data-driven serialization
+        lines.append("    _property_mappings: ClassVar[dict[str, str]] = {")
+        for prop_name, prop in resource.properties.items():
+            snake_name = sanitize_python_name(to_snake_case(prop_name))
+            lines.append(f'        "{snake_name}": "{prop_name}",')
+        lines.append("    }")
+        lines.append("")
+
         for prop_name, prop in resource.properties.items():
             snake_name = sanitize_python_name(to_snake_case(prop_name))
             python_type = map_property_type(
@@ -326,56 +305,9 @@ def generate_resource_class(
                 enum_mappings=enum_mappings,
             )
 
-            # Add comment
-            if prop.documentation:
-                doc_line = prop.documentation.split("\n")[0][:70]
-                lines.append(f"    # {doc_line}")
-
             # Add field - make all optional to avoid dataclass inheritance issues
             # Even "required" fields can be optional in wrapper dataclasses
             lines.append(f"    {snake_name}: Optional[{python_type}] = None")
-
-        lines.append("")
-
-        # Implement _get_properties
-        lines.append("    def _get_properties(self) -> dict[str, Any]:")
-        lines.append('        """Serialize resource properties to CloudFormation format."""')
-        lines.append("        props: dict[str, Any] = {}")
-        lines.append("")
-
-        for prop_name, prop in resource.properties.items():
-            snake_name = sanitize_python_name(to_snake_case(prop_name))
-
-            # Special case for Tags - use all_tags to include context tags
-            if snake_name == "tags":
-                lines.append("        # Serialize tags - use all_tags to include context tags")
-                lines.append("        merged_tags = self.all_tags")
-                lines.append("        if merged_tags:")
-                lines.append(f"            props['{prop_name}'] = [")
-                lines.append("                item.to_dict() if hasattr(item, 'to_dict') else item")
-                lines.append("                for item in merged_tags")
-                lines.append("            ]")
-                lines.append("")
-            else:
-                lines.append(f"        if self.{snake_name} is not None:")
-                lines.append(f"            # Serialize {snake_name} (handle intrinsic functions)")
-                lines.append(f"            if hasattr(self.{snake_name}, 'to_dict'):")
-                lines.append(f'                props["{prop_name}"] = self.{snake_name}.to_dict()')
-                lines.append(f"            elif isinstance(self.{snake_name}, list):")
-                lines.append(
-                    "                # Serialize list items (may contain intrinsic functions)"
-                )
-                lines.append(f"                props['{prop_name}'] = [")
-                lines.append(
-                    "                    item.to_dict() if hasattr(item, 'to_dict') else item"
-                )
-                lines.append(f"                    for item in self.{snake_name}")
-                lines.append("                ]")
-                lines.append("            else:")
-                lines.append(f'                props["{prop_name}"] = self.{snake_name}')
-                lines.append("")
-
-        lines.append("        return props")
 
     # Generate typed attribute accessors
     if resource.attributes:
@@ -459,7 +391,7 @@ def generate_service_module(
     lines.append("from dataclasses import dataclass")
     lines.append("from typing import Any, ClassVar, Optional, Union")
     lines.append("")
-    lines.append("from cloudformation_dataclasses.core.base import CloudFormationResource")
+    lines.append("from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag")
     lines.append("from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub")
 
     # Generate service-specific enum constants from botocore

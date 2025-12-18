@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:36
+  Generated: 2025-12-17 21:57:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service HealthImaging
@@ -21,7 +21,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, ClassVar, Optional, Union
 
-from cloudformation_dataclasses.core.base import CloudFormationResource
+from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
@@ -30,53 +30,15 @@ class Datastore(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healt"""
 
     resource_type: ClassVar[str] = "AWS::HealthImaging::Datastore"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "kms_key_arn": "KmsKeyArn",
+        "datastore_name": "DatastoreName",
+        "tags": "Tags",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kms_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     datastore_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.kms_key_arn is not None:
-            # Serialize kms_key_arn (handle intrinsic functions)
-            if hasattr(self.kms_key_arn, 'to_dict'):
-                props["KmsKeyArn"] = self.kms_key_arn.to_dict()
-            elif isinstance(self.kms_key_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['KmsKeyArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.kms_key_arn
-                ]
-            else:
-                props["KmsKeyArn"] = self.kms_key_arn
-
-        if self.datastore_name is not None:
-            # Serialize datastore_name (handle intrinsic functions)
-            if hasattr(self.datastore_name, 'to_dict'):
-                props["DatastoreName"] = self.datastore_name.to_dict()
-            elif isinstance(self.datastore_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DatastoreName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.datastore_name
-                ]
-            else:
-                props["DatastoreName"] = self.datastore_name
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_datastore_arn(self) -> GetAtt:

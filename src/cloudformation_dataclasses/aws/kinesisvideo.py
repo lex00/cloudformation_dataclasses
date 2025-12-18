@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:37
+  Generated: 2025-12-17 21:57:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service KinesisVideo
@@ -21,7 +21,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, ClassVar, Optional, Union
 
-from cloudformation_dataclasses.core.base import CloudFormationResource
+from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
@@ -227,68 +227,17 @@ class SignalingChannel(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kines"""
 
     resource_type: ClassVar[str] = "AWS::KinesisVideo::SignalingChannel"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "type_": "Type",
+        "message_ttl_seconds": "MessageTtlSeconds",
+        "tags": "Tags",
+        "name": "Name",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     message_ttl_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.type_ is not None:
-            # Serialize type_ (handle intrinsic functions)
-            if hasattr(self.type_, 'to_dict'):
-                props["Type"] = self.type_.to_dict()
-            elif isinstance(self.type_, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Type'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.type_
-                ]
-            else:
-                props["Type"] = self.type_
-
-        if self.message_ttl_seconds is not None:
-            # Serialize message_ttl_seconds (handle intrinsic functions)
-            if hasattr(self.message_ttl_seconds, 'to_dict'):
-                props["MessageTtlSeconds"] = self.message_ttl_seconds.to_dict()
-            elif isinstance(self.message_ttl_seconds, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['MessageTtlSeconds'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.message_ttl_seconds
-                ]
-            else:
-                props["MessageTtlSeconds"] = self.message_ttl_seconds
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        return props
 
     @property
     def attr_arn(self) -> GetAtt:
@@ -299,28 +248,12 @@ class SignalingChannel(CloudFormationResource):
 
 
 @dataclass
-class StreamStorageConfiguration:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
+class StreamStorageConfiguration(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "default_storage_tier": "DefaultStorageTier",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_storage_tier: Optional[Union[str, DefaultStorageTier, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.default_storage_tier is not None:
-            if hasattr(self.default_storage_tier, 'to_dict'):
-                props['DefaultStorageTier'] = self.default_storage_tier.to_dict()
-            elif isinstance(self.default_storage_tier, list):
-                props['DefaultStorageTier'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.default_storage_tier
-                ]
-            else:
-                props['DefaultStorageTier'] = self.default_storage_tier
-
-        return props
 
 
 @dataclass
@@ -328,113 +261,23 @@ class Stream(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kines"""
 
     resource_type: ClassVar[str] = "AWS::KinesisVideo::Stream"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "stream_storage_configuration": "StreamStorageConfiguration",
+        "kms_key_id": "KmsKeyId",
+        "media_type": "MediaType",
+        "data_retention_in_hours": "DataRetentionInHours",
+        "tags": "Tags",
+        "name": "Name",
+        "device_name": "DeviceName",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     stream_storage_configuration: Optional[StreamStorageConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     media_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     data_retention_in_hours: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     device_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.stream_storage_configuration is not None:
-            # Serialize stream_storage_configuration (handle intrinsic functions)
-            if hasattr(self.stream_storage_configuration, 'to_dict'):
-                props["StreamStorageConfiguration"] = self.stream_storage_configuration.to_dict()
-            elif isinstance(self.stream_storage_configuration, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['StreamStorageConfiguration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.stream_storage_configuration
-                ]
-            else:
-                props["StreamStorageConfiguration"] = self.stream_storage_configuration
-
-        if self.kms_key_id is not None:
-            # Serialize kms_key_id (handle intrinsic functions)
-            if hasattr(self.kms_key_id, 'to_dict'):
-                props["KmsKeyId"] = self.kms_key_id.to_dict()
-            elif isinstance(self.kms_key_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['KmsKeyId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.kms_key_id
-                ]
-            else:
-                props["KmsKeyId"] = self.kms_key_id
-
-        if self.media_type is not None:
-            # Serialize media_type (handle intrinsic functions)
-            if hasattr(self.media_type, 'to_dict'):
-                props["MediaType"] = self.media_type.to_dict()
-            elif isinstance(self.media_type, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['MediaType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.media_type
-                ]
-            else:
-                props["MediaType"] = self.media_type
-
-        if self.data_retention_in_hours is not None:
-            # Serialize data_retention_in_hours (handle intrinsic functions)
-            if hasattr(self.data_retention_in_hours, 'to_dict'):
-                props["DataRetentionInHours"] = self.data_retention_in_hours.to_dict()
-            elif isinstance(self.data_retention_in_hours, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DataRetentionInHours'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.data_retention_in_hours
-                ]
-            else:
-                props["DataRetentionInHours"] = self.data_retention_in_hours
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        if self.device_name is not None:
-            # Serialize device_name (handle intrinsic functions)
-            if hasattr(self.device_name, 'to_dict'):
-                props["DeviceName"] = self.device_name.to_dict()
-            elif isinstance(self.device_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DeviceName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.device_name
-                ]
-            else:
-                props["DeviceName"] = self.device_name
-
-        return props
 
     @property
     def attr_arn(self) -> GetAtt:

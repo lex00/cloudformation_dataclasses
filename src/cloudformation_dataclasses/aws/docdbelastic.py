@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:36
+  Generated: 2025-12-17 21:57:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DocDBElastic
@@ -21,7 +21,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, ClassVar, Optional, Union
 
-from cloudformation_dataclasses.core.base import CloudFormationResource
+from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
@@ -30,218 +30,37 @@ class Cluster(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb"""
 
     resource_type: ClassVar[str] = "AWS::DocDBElastic::Cluster"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "admin_user_name": "AdminUserName",
+        "kms_key_id": "KmsKeyId",
+        "admin_user_password": "AdminUserPassword",
+        "preferred_maintenance_window": "PreferredMaintenanceWindow",
+        "shard_instance_count": "ShardInstanceCount",
+        "subnet_ids": "SubnetIds",
+        "preferred_backup_window": "PreferredBackupWindow",
+        "shard_count": "ShardCount",
+        "shard_capacity": "ShardCapacity",
+        "vpc_security_group_ids": "VpcSecurityGroupIds",
+        "cluster_name": "ClusterName",
+        "backup_retention_period": "BackupRetentionPeriod",
+        "auth_type": "AuthType",
+        "tags": "Tags",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     admin_user_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     admin_user_password: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     preferred_maintenance_window: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     shard_instance_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     subnet_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     preferred_backup_window: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     shard_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     shard_capacity: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_security_group_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     cluster_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     backup_retention_period: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auth_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.admin_user_name is not None:
-            # Serialize admin_user_name (handle intrinsic functions)
-            if hasattr(self.admin_user_name, 'to_dict'):
-                props["AdminUserName"] = self.admin_user_name.to_dict()
-            elif isinstance(self.admin_user_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AdminUserName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.admin_user_name
-                ]
-            else:
-                props["AdminUserName"] = self.admin_user_name
-
-        if self.kms_key_id is not None:
-            # Serialize kms_key_id (handle intrinsic functions)
-            if hasattr(self.kms_key_id, 'to_dict'):
-                props["KmsKeyId"] = self.kms_key_id.to_dict()
-            elif isinstance(self.kms_key_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['KmsKeyId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.kms_key_id
-                ]
-            else:
-                props["KmsKeyId"] = self.kms_key_id
-
-        if self.admin_user_password is not None:
-            # Serialize admin_user_password (handle intrinsic functions)
-            if hasattr(self.admin_user_password, 'to_dict'):
-                props["AdminUserPassword"] = self.admin_user_password.to_dict()
-            elif isinstance(self.admin_user_password, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AdminUserPassword'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.admin_user_password
-                ]
-            else:
-                props["AdminUserPassword"] = self.admin_user_password
-
-        if self.preferred_maintenance_window is not None:
-            # Serialize preferred_maintenance_window (handle intrinsic functions)
-            if hasattr(self.preferred_maintenance_window, 'to_dict'):
-                props["PreferredMaintenanceWindow"] = self.preferred_maintenance_window.to_dict()
-            elif isinstance(self.preferred_maintenance_window, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['PreferredMaintenanceWindow'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.preferred_maintenance_window
-                ]
-            else:
-                props["PreferredMaintenanceWindow"] = self.preferred_maintenance_window
-
-        if self.shard_instance_count is not None:
-            # Serialize shard_instance_count (handle intrinsic functions)
-            if hasattr(self.shard_instance_count, 'to_dict'):
-                props["ShardInstanceCount"] = self.shard_instance_count.to_dict()
-            elif isinstance(self.shard_instance_count, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ShardInstanceCount'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.shard_instance_count
-                ]
-            else:
-                props["ShardInstanceCount"] = self.shard_instance_count
-
-        if self.subnet_ids is not None:
-            # Serialize subnet_ids (handle intrinsic functions)
-            if hasattr(self.subnet_ids, 'to_dict'):
-                props["SubnetIds"] = self.subnet_ids.to_dict()
-            elif isinstance(self.subnet_ids, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SubnetIds'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.subnet_ids
-                ]
-            else:
-                props["SubnetIds"] = self.subnet_ids
-
-        if self.preferred_backup_window is not None:
-            # Serialize preferred_backup_window (handle intrinsic functions)
-            if hasattr(self.preferred_backup_window, 'to_dict'):
-                props["PreferredBackupWindow"] = self.preferred_backup_window.to_dict()
-            elif isinstance(self.preferred_backup_window, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['PreferredBackupWindow'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.preferred_backup_window
-                ]
-            else:
-                props["PreferredBackupWindow"] = self.preferred_backup_window
-
-        if self.shard_count is not None:
-            # Serialize shard_count (handle intrinsic functions)
-            if hasattr(self.shard_count, 'to_dict'):
-                props["ShardCount"] = self.shard_count.to_dict()
-            elif isinstance(self.shard_count, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ShardCount'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.shard_count
-                ]
-            else:
-                props["ShardCount"] = self.shard_count
-
-        if self.shard_capacity is not None:
-            # Serialize shard_capacity (handle intrinsic functions)
-            if hasattr(self.shard_capacity, 'to_dict'):
-                props["ShardCapacity"] = self.shard_capacity.to_dict()
-            elif isinstance(self.shard_capacity, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ShardCapacity'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.shard_capacity
-                ]
-            else:
-                props["ShardCapacity"] = self.shard_capacity
-
-        if self.vpc_security_group_ids is not None:
-            # Serialize vpc_security_group_ids (handle intrinsic functions)
-            if hasattr(self.vpc_security_group_ids, 'to_dict'):
-                props["VpcSecurityGroupIds"] = self.vpc_security_group_ids.to_dict()
-            elif isinstance(self.vpc_security_group_ids, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['VpcSecurityGroupIds'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.vpc_security_group_ids
-                ]
-            else:
-                props["VpcSecurityGroupIds"] = self.vpc_security_group_ids
-
-        if self.cluster_name is not None:
-            # Serialize cluster_name (handle intrinsic functions)
-            if hasattr(self.cluster_name, 'to_dict'):
-                props["ClusterName"] = self.cluster_name.to_dict()
-            elif isinstance(self.cluster_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ClusterName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.cluster_name
-                ]
-            else:
-                props["ClusterName"] = self.cluster_name
-
-        if self.backup_retention_period is not None:
-            # Serialize backup_retention_period (handle intrinsic functions)
-            if hasattr(self.backup_retention_period, 'to_dict'):
-                props["BackupRetentionPeriod"] = self.backup_retention_period.to_dict()
-            elif isinstance(self.backup_retention_period, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['BackupRetentionPeriod'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.backup_retention_period
-                ]
-            else:
-                props["BackupRetentionPeriod"] = self.backup_retention_period
-
-        if self.auth_type is not None:
-            # Serialize auth_type (handle intrinsic functions)
-            if hasattr(self.auth_type, 'to_dict'):
-                props["AuthType"] = self.auth_type.to_dict()
-            elif isinstance(self.auth_type, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AuthType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.auth_type
-                ]
-            else:
-                props["AuthType"] = self.auth_type
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_cluster_arn(self) -> GetAtt:

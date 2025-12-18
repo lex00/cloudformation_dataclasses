@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:39
+  Generated: 2025-12-17 21:57:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ServiceCatalogAppRegistry
@@ -21,7 +21,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, ClassVar, Optional, Union
 
-from cloudformation_dataclasses.core.base import CloudFormationResource
+from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
@@ -30,53 +30,15 @@ class Application(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servi"""
 
     resource_type: ClassVar[str] = "AWS::ServiceCatalogAppRegistry::Application"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "description": "Description",
+        "tags": "Tags",
+        "name": "Name",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.description is not None:
-            # Serialize description (handle intrinsic functions)
-            if hasattr(self.description, 'to_dict'):
-                props["Description"] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props["Description"] = self.description
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        return props
 
     @property
     def attr_application_name(self) -> GetAtt:
@@ -111,68 +73,17 @@ class AttributeGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servi"""
 
     resource_type: ClassVar[str] = "AWS::ServiceCatalogAppRegistry::AttributeGroup"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "description": "Description",
+        "attributes": "Attributes",
+        "tags": "Tags",
+        "name": "Name",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     attributes: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.description is not None:
-            # Serialize description (handle intrinsic functions)
-            if hasattr(self.description, 'to_dict'):
-                props["Description"] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props["Description"] = self.description
-
-        if self.attributes is not None:
-            # Serialize attributes (handle intrinsic functions)
-            if hasattr(self.attributes, 'to_dict'):
-                props["Attributes"] = self.attributes.to_dict()
-            elif isinstance(self.attributes, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Attributes'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.attributes
-                ]
-            else:
-                props["Attributes"] = self.attributes
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        return props
 
     @property
     def attr_id(self) -> GetAtt:
@@ -192,43 +103,13 @@ class AttributeGroupAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servi"""
 
     resource_type: ClassVar[str] = "AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "attribute_group": "AttributeGroup",
+        "application": "Application",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     attribute_group: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     application: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.attribute_group is not None:
-            # Serialize attribute_group (handle intrinsic functions)
-            if hasattr(self.attribute_group, 'to_dict'):
-                props["AttributeGroup"] = self.attribute_group.to_dict()
-            elif isinstance(self.attribute_group, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AttributeGroup'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.attribute_group
-                ]
-            else:
-                props["AttributeGroup"] = self.attribute_group
-
-        if self.application is not None:
-            # Serialize application (handle intrinsic functions)
-            if hasattr(self.application, 'to_dict'):
-                props["Application"] = self.application.to_dict()
-            elif isinstance(self.application, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Application'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.application
-                ]
-            else:
-                props["Application"] = self.application
-
-        return props
 
     @property
     def attr_application_arn(self) -> GetAtt:
@@ -248,58 +129,15 @@ class ResourceAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servi"""
 
     resource_type: ClassVar[str] = "AWS::ServiceCatalogAppRegistry::ResourceAssociation"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "resource": "Resource",
+        "resource_type": "ResourceType",
+        "application": "Application",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     application: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.resource is not None:
-            # Serialize resource (handle intrinsic functions)
-            if hasattr(self.resource, 'to_dict'):
-                props["Resource"] = self.resource.to_dict()
-            elif isinstance(self.resource, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Resource'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.resource
-                ]
-            else:
-                props["Resource"] = self.resource
-
-        if self.resource_type is not None:
-            # Serialize resource_type (handle intrinsic functions)
-            if hasattr(self.resource_type, 'to_dict'):
-                props["ResourceType"] = self.resource_type.to_dict()
-            elif isinstance(self.resource_type, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ResourceType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.resource_type
-                ]
-            else:
-                props["ResourceType"] = self.resource_type
-
-        if self.application is not None:
-            # Serialize application (handle intrinsic functions)
-            if hasattr(self.application, 'to_dict'):
-                props["Application"] = self.application.to_dict()
-            elif isinstance(self.application, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Application'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.application
-                ]
-            else:
-                props["Application"] = self.application
-
-        return props
 
     @property
     def attr_resource_arn(self) -> GetAtt:

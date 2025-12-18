@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:37
+  Generated: 2025-12-17 21:57:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IoTThingsGraph
@@ -21,7 +21,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, ClassVar, Optional, Union
 
-from cloudformation_dataclasses.core.base import CloudFormationResource
+from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
@@ -214,41 +214,14 @@ FAILED = UploadStatus.FAILED
 
 
 @dataclass
-class DefinitionDocument:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
+class DefinitionDocument(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "language": "Language",
+        "text": "Text",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     language: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.language is not None:
-            if hasattr(self.language, 'to_dict'):
-                props['Language'] = self.language.to_dict()
-            elif isinstance(self.language, list):
-                props['Language'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.language
-                ]
-            else:
-                props['Language'] = self.language
-
-        if self.text is not None:
-            if hasattr(self.text, 'to_dict'):
-                props['Text'] = self.text.to_dict()
-            elif isinstance(self.text, list):
-                props['Text'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.text
-                ]
-            else:
-                props['Text'] = self.text
-
-        return props
 
 
 @dataclass
@@ -256,42 +229,12 @@ class FlowTemplate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotth"""
 
     resource_type: ClassVar[str] = "AWS::IoTThingsGraph::FlowTemplate"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "compatible_namespace_version": "CompatibleNamespaceVersion",
+        "definition": "Definition",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     compatible_namespace_version: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     definition: Optional[DefinitionDocument] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.compatible_namespace_version is not None:
-            # Serialize compatible_namespace_version (handle intrinsic functions)
-            if hasattr(self.compatible_namespace_version, 'to_dict'):
-                props["CompatibleNamespaceVersion"] = self.compatible_namespace_version.to_dict()
-            elif isinstance(self.compatible_namespace_version, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['CompatibleNamespaceVersion'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.compatible_namespace_version
-                ]
-            else:
-                props["CompatibleNamespaceVersion"] = self.compatible_namespace_version
-
-        if self.definition is not None:
-            # Serialize definition (handle intrinsic functions)
-            if hasattr(self.definition, 'to_dict'):
-                props["Definition"] = self.definition.to_dict()
-            elif isinstance(self.definition, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Definition'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.definition
-                ]
-            else:
-                props["Definition"] = self.definition
-
-        return props
 
 

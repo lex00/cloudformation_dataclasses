@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:38
+  Generated: 2025-12-17 21:57:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service RAM
@@ -21,7 +21,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, ClassVar, Optional, Union
 
-from cloudformation_dataclasses.core.base import CloudFormationResource
+from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
@@ -199,68 +199,17 @@ class Permission(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-p"""
 
     resource_type: ClassVar[str] = "AWS::RAM::Permission"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "resource_type": "ResourceType",
+        "policy_template": "PolicyTemplate",
+        "tags": "Tags",
+        "name": "Name",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy_template: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.resource_type is not None:
-            # Serialize resource_type (handle intrinsic functions)
-            if hasattr(self.resource_type, 'to_dict'):
-                props["ResourceType"] = self.resource_type.to_dict()
-            elif isinstance(self.resource_type, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ResourceType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.resource_type
-                ]
-            else:
-                props["ResourceType"] = self.resource_type
-
-        if self.policy_template is not None:
-            # Serialize policy_template (handle intrinsic functions)
-            if hasattr(self.policy_template, 'to_dict'):
-                props["PolicyTemplate"] = self.policy_template.to_dict()
-            elif isinstance(self.policy_template, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['PolicyTemplate'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.policy_template
-                ]
-            else:
-                props["PolicyTemplate"] = self.policy_template
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        return props
 
     @property
     def attr_version(self) -> GetAtt:
@@ -290,113 +239,23 @@ class ResourceShare(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-r"""
 
     resource_type: ClassVar[str] = "AWS::RAM::ResourceShare"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "permission_arns": "PermissionArns",
+        "principals": "Principals",
+        "allow_external_principals": "AllowExternalPrincipals",
+        "sources": "Sources",
+        "resource_arns": "ResourceArns",
+        "tags": "Tags",
+        "name": "Name",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     permission_arns: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     principals: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     allow_external_principals: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     sources: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_arns: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.permission_arns is not None:
-            # Serialize permission_arns (handle intrinsic functions)
-            if hasattr(self.permission_arns, 'to_dict'):
-                props["PermissionArns"] = self.permission_arns.to_dict()
-            elif isinstance(self.permission_arns, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['PermissionArns'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.permission_arns
-                ]
-            else:
-                props["PermissionArns"] = self.permission_arns
-
-        if self.principals is not None:
-            # Serialize principals (handle intrinsic functions)
-            if hasattr(self.principals, 'to_dict'):
-                props["Principals"] = self.principals.to_dict()
-            elif isinstance(self.principals, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Principals'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.principals
-                ]
-            else:
-                props["Principals"] = self.principals
-
-        if self.allow_external_principals is not None:
-            # Serialize allow_external_principals (handle intrinsic functions)
-            if hasattr(self.allow_external_principals, 'to_dict'):
-                props["AllowExternalPrincipals"] = self.allow_external_principals.to_dict()
-            elif isinstance(self.allow_external_principals, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AllowExternalPrincipals'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.allow_external_principals
-                ]
-            else:
-                props["AllowExternalPrincipals"] = self.allow_external_principals
-
-        if self.sources is not None:
-            # Serialize sources (handle intrinsic functions)
-            if hasattr(self.sources, 'to_dict'):
-                props["Sources"] = self.sources.to_dict()
-            elif isinstance(self.sources, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Sources'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.sources
-                ]
-            else:
-                props["Sources"] = self.sources
-
-        if self.resource_arns is not None:
-            # Serialize resource_arns (handle intrinsic functions)
-            if hasattr(self.resource_arns, 'to_dict'):
-                props["ResourceArns"] = self.resource_arns.to_dict()
-            elif isinstance(self.resource_arns, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ResourceArns'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.resource_arns
-                ]
-            else:
-                props["ResourceArns"] = self.resource_arns
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        return props
 
     @property
     def attr_status(self) -> GetAtt:

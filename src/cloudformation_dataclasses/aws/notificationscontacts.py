@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:38
+  Generated: 2025-12-17 21:57:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service NotificationsContacts
@@ -21,7 +21,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, ClassVar, Optional, Union
 
-from cloudformation_dataclasses.core.base import CloudFormationResource
+from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
@@ -51,93 +51,22 @@ OTHER = ValidationExceptionReason.OTHER
 
 
 @dataclass
-class EmailContact:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-not"""
+class EmailContact(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "status": "Status",
+        "address": "Address",
+        "creation_time": "CreationTime",
+        "update_time": "UpdateTime",
+        "arn": "Arn",
+        "name": "Name",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     address: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     creation_time: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     update_time: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.status is not None:
-            if hasattr(self.status, 'to_dict'):
-                props['Status'] = self.status.to_dict()
-            elif isinstance(self.status, list):
-                props['Status'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.status
-                ]
-            else:
-                props['Status'] = self.status
-
-        if self.address is not None:
-            if hasattr(self.address, 'to_dict'):
-                props['Address'] = self.address.to_dict()
-            elif isinstance(self.address, list):
-                props['Address'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.address
-                ]
-            else:
-                props['Address'] = self.address
-
-        if self.creation_time is not None:
-            if hasattr(self.creation_time, 'to_dict'):
-                props['CreationTime'] = self.creation_time.to_dict()
-            elif isinstance(self.creation_time, list):
-                props['CreationTime'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.creation_time
-                ]
-            else:
-                props['CreationTime'] = self.creation_time
-
-        if self.update_time is not None:
-            if hasattr(self.update_time, 'to_dict'):
-                props['UpdateTime'] = self.update_time.to_dict()
-            elif isinstance(self.update_time, list):
-                props['UpdateTime'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.update_time
-                ]
-            else:
-                props['UpdateTime'] = self.update_time
-
-        if self.arn is not None:
-            if hasattr(self.arn, 'to_dict'):
-                props['Arn'] = self.arn.to_dict()
-            elif isinstance(self.arn, list):
-                props['Arn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.arn
-                ]
-            else:
-                props['Arn'] = self.arn
-
-        if self.name is not None:
-            if hasattr(self.name, 'to_dict'):
-                props['Name'] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props['Name'] = self.name
-
-        return props
 
 
 @dataclass
@@ -145,53 +74,15 @@ class EmailContact(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notif"""
 
     resource_type: ClassVar[str] = "AWS::NotificationsContacts::EmailContact"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "email_address": "EmailAddress",
+        "tags": "Tags",
+        "name": "Name",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     email_address: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.email_address is not None:
-            # Serialize email_address (handle intrinsic functions)
-            if hasattr(self.email_address, 'to_dict'):
-                props["EmailAddress"] = self.email_address.to_dict()
-            elif isinstance(self.email_address, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['EmailAddress'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.email_address
-                ]
-            else:
-                props["EmailAddress"] = self.email_address
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        return props
 
     @property
     def attr_email_contact(self) -> GetAtt:

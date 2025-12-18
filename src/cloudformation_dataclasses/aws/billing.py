@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:35
+  Generated: 2025-12-17 21:57:45
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Billing
@@ -21,7 +21,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, ClassVar, Optional, Union
 
-from cloudformation_dataclasses.core.base import CloudFormationResource
+from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
@@ -109,117 +109,36 @@ OTHER = ValidationExceptionReason.OTHER
 
 
 @dataclass
-class DataFilterExpression:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bil"""
+class DataFilterExpression(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "dimensions": "Dimensions",
+        "tags": "Tags",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dimensions: Optional[Dimensions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tags: Optional[Tags] = None
 
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
 
-        if self.dimensions is not None:
-            if hasattr(self.dimensions, 'to_dict'):
-                props['Dimensions'] = self.dimensions.to_dict()
-            elif isinstance(self.dimensions, list):
-                props['Dimensions'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.dimensions
-                ]
-            else:
-                props['Dimensions'] = self.dimensions
+@dataclass
+class Dimensions(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "values": "Values",
+        "key": "Key",
+    }
 
-        if self.tags is not None:
-            if hasattr(self.tags, 'to_dict'):
-                props['Tags'] = self.tags.to_dict()
-            elif isinstance(self.tags, list):
-                props['Tags'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.tags
-                ]
-            else:
-                props['Tags'] = self.tags
-
-        return props
+    values: Optional[Union[list[str], Ref]] = None
+    key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
 @dataclass
-class Dimensions:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bil"""
+class Tags(PropertyType):
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "values": "Values",
+        "key": "Key",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     values: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.values is not None:
-            if hasattr(self.values, 'to_dict'):
-                props['Values'] = self.values.to_dict()
-            elif isinstance(self.values, list):
-                props['Values'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.values
-                ]
-            else:
-                props['Values'] = self.values
-
-        if self.key is not None:
-            if hasattr(self.key, 'to_dict'):
-                props['Key'] = self.key.to_dict()
-            elif isinstance(self.key, list):
-                props['Key'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.key
-                ]
-            else:
-                props['Key'] = self.key
-
-        return props
-
-
-@dataclass
-class Tags:
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bil"""
-
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    values: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.values is not None:
-            if hasattr(self.values, 'to_dict'):
-                props['Values'] = self.values.to_dict()
-            elif isinstance(self.values, list):
-                props['Values'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.values
-                ]
-            else:
-                props['Values'] = self.values
-
-        if self.key is not None:
-            if hasattr(self.key, 'to_dict'):
-                props['Key'] = self.key.to_dict()
-            elif isinstance(self.key, list):
-                props['Key'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.key
-                ]
-            else:
-                props['Key'] = self.key
-
-        return props
 
 
 @dataclass
@@ -227,83 +146,19 @@ class BillingView(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billi"""
 
     resource_type: ClassVar[str] = "AWS::Billing::BillingView"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "description": "Description",
+        "source_views": "SourceViews",
+        "data_filter_expression": "DataFilterExpression",
+        "tags": "Tags",
+        "name": "Name",
+    }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source_views: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     data_filter_expression: Optional[DataFilterExpression] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.description is not None:
-            # Serialize description (handle intrinsic functions)
-            if hasattr(self.description, 'to_dict'):
-                props["Description"] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props["Description"] = self.description
-
-        if self.source_views is not None:
-            # Serialize source_views (handle intrinsic functions)
-            if hasattr(self.source_views, 'to_dict'):
-                props["SourceViews"] = self.source_views.to_dict()
-            elif isinstance(self.source_views, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SourceViews'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.source_views
-                ]
-            else:
-                props["SourceViews"] = self.source_views
-
-        if self.data_filter_expression is not None:
-            # Serialize data_filter_expression (handle intrinsic functions)
-            if hasattr(self.data_filter_expression, 'to_dict'):
-                props["DataFilterExpression"] = self.data_filter_expression.to_dict()
-            elif isinstance(self.data_filter_expression, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DataFilterExpression'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.data_filter_expression
-                ]
-            else:
-                props["DataFilterExpression"] = self.data_filter_expression
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        return props
 
     @property
     def attr_created_at(self) -> GetAtt:
