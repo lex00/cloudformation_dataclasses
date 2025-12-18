@@ -391,7 +391,7 @@ def generate_service_module(
     lines.append("from dataclasses import dataclass")
     lines.append("from typing import Any, ClassVar, Optional, Union")
     lines.append("")
-    lines.append("from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType")
+    lines.append("from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType, Tag")
     lines.append("from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub")
 
     # Generate service-specific enum constants from botocore
