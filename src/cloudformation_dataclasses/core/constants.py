@@ -6,7 +6,6 @@ Service-specific constants (like DynamoDB KeyType, S3 storage classes, etc.) are
 auto-generated from botocore and available in the respective service modules.
 """
 
-
 # =============================================================================
 # Parameter Types
 # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html
@@ -37,9 +36,7 @@ class ParameterType:
     AWS_SSM_PARAMETER_NAME = "AWS::SSM::Parameter::Name"
     AWS_SSM_PARAMETER_VALUE_STRING = "AWS::SSM::Parameter::Value<String>"
     AWS_SSM_PARAMETER_VALUE_LIST_STRING = "AWS::SSM::Parameter::Value<List<String>>"
-    AWS_SSM_PARAMETER_VALUE_COMMA_DELIMITED_LIST = (
-        "AWS::SSM::Parameter::Value<CommaDelimitedList>"
-    )
+    AWS_SSM_PARAMETER_VALUE_COMMA_DELIMITED_LIST = "AWS::SSM::Parameter::Value<CommaDelimitedList>"
 
 
 # =============================================================================

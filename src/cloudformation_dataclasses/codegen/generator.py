@@ -10,7 +10,6 @@ from __future__ import annotations
 import re
 from datetime import datetime
 from pathlib import Path
-from typing import Any
 
 from cloudformation_dataclasses.codegen.config import (
     CLOUDFORMATION_SPEC_VERSION,
@@ -142,12 +141,7 @@ def map_property_type(
         base_type = map_primitive_type(prop.primitive_type)
 
         # Check if this property maps to an enum type
-        if (
-            prop.primitive_type == "String"
-            and enum_mappings
-            and struct_name
-            and prop_name
-        ):
+        if prop.primitive_type == "String" and enum_mappings and struct_name and prop_name:
             # Try direct lookup first
             enum_type = enum_mappings.get((struct_name, prop_name))
 
@@ -257,10 +251,14 @@ def generate_property_type_class(
             snake_name = sanitize_python_name(to_snake_case(prop_name))
             lines.append(f"{indent}        if self.{snake_name} is not None:")
             lines.append(f"{indent}            if hasattr(self.{snake_name}, 'to_dict'):")
-            lines.append(f"{indent}                props['{prop_name}'] = self.{snake_name}.to_dict()")
+            lines.append(
+                f"{indent}                props['{prop_name}'] = self.{snake_name}.to_dict()"
+            )
             lines.append(f"{indent}            elif isinstance(self.{snake_name}, list):")
             lines.append(f"{indent}                props['{prop_name}'] = [")
-            lines.append(f"{indent}                    item.to_dict() if hasattr(item, 'to_dict') else item")
+            lines.append(
+                f"{indent}                    item.to_dict() if hasattr(item, 'to_dict') else item"
+            )
             lines.append(f"{indent}                    for item in self.{snake_name}")
             lines.append(f"{indent}                ]")
             lines.append(f"{indent}            else:")
@@ -302,7 +300,11 @@ def generate_resource_class(
     lines.append(f"class {class_name}(CloudFormationResource):")
 
     # Docstring
-    doc = resource.documentation.split("\n")[0][:80] if resource.documentation else resource.resource_type
+    doc = (
+        resource.documentation.split("\n")[0][:80]
+        if resource.documentation
+        else resource.resource_type
+    )
     lines.append(f'    """{doc}"""')
     lines.append("")
 
@@ -346,13 +348,13 @@ def generate_resource_class(
 
             # Special case for Tags - use all_tags to include context tags
             if snake_name == "tags":
-                lines.append(f"        # Serialize tags - use all_tags to include context tags")
-                lines.append(f"        merged_tags = self.all_tags")
-                lines.append(f"        if merged_tags:")
+                lines.append("        # Serialize tags - use all_tags to include context tags")
+                lines.append("        merged_tags = self.all_tags")
+                lines.append("        if merged_tags:")
                 lines.append(f"            props['{prop_name}'] = [")
-                lines.append(f"                item.to_dict() if hasattr(item, 'to_dict') else item")
-                lines.append(f"                for item in merged_tags")
-                lines.append(f"            ]")
+                lines.append("                item.to_dict() if hasattr(item, 'to_dict') else item")
+                lines.append("                for item in merged_tags")
+                lines.append("            ]")
                 lines.append("")
             else:
                 lines.append(f"        if self.{snake_name} is not None:")
@@ -360,12 +362,16 @@ def generate_resource_class(
                 lines.append(f"            if hasattr(self.{snake_name}, 'to_dict'):")
                 lines.append(f'                props["{prop_name}"] = self.{snake_name}.to_dict()')
                 lines.append(f"            elif isinstance(self.{snake_name}, list):")
-                lines.append(f"                # Serialize list items (may contain intrinsic functions)")
+                lines.append(
+                    "                # Serialize list items (may contain intrinsic functions)"
+                )
                 lines.append(f"                props['{prop_name}'] = [")
-                lines.append(f"                    item.to_dict() if hasattr(item, 'to_dict') else item")
+                lines.append(
+                    "                    item.to_dict() if hasattr(item, 'to_dict') else item"
+                )
                 lines.append(f"                    for item in self.{snake_name}")
-                lines.append(f"                ]")
-                lines.append(f"            else:")
+                lines.append("                ]")
+                lines.append("            else:")
                 lines.append(f'                props["{prop_name}"] = self.{snake_name}')
                 lines.append("")
 
@@ -424,12 +430,14 @@ def generate_service_module(
     lines = []
 
     # Module header with version metadata
-    lines.append(f'"""')
+    lines.append('"""')
     lines.append(f"AWS CloudFormation {service} Resources")
     lines.append("")
     lines.append("⚠️  AUTO-GENERATED FILE - DO NOT EDIT MANUALLY ⚠️")
     lines.append("")
-    lines.append("This file is automatically generated from the AWS CloudFormation Resource Specification.")
+    lines.append(
+        "This file is automatically generated from the AWS CloudFormation Resource Specification."
+    )
     lines.append("Any manual changes will be overwritten when regenerated.")
     lines.append("")
     lines.append("Version Information:")
@@ -439,7 +447,9 @@ def generate_service_module(
     lines.append(f"  Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     lines.append("")
     lines.append("To regenerate this file:")
-    lines.append(f"    uv run python -m cloudformation_dataclasses.codegen.generator --service {service}")
+    lines.append(
+        f"    uv run python -m cloudformation_dataclasses.codegen.generator --service {service}"
+    )
     lines.append('"""')
     lines.append("")
 
@@ -520,7 +530,7 @@ if __name__ == "__main__":
             except Exception as e:
                 print(f"❌ Error generating {service}: {e}")
 
-        print(f"\n✅ Generation complete!")
+        print("\n✅ Generation complete!")
 
     else:
         print("CloudFormation Resource Generator")

@@ -17,10 +17,10 @@ declarations rather than at instantiation time.
 
 from __future__ import annotations
 
-from dataclasses import MISSING, Field, dataclass, field, fields, is_dataclass
-from typing import Any, ClassVar, Type, get_type_hints
+from dataclasses import MISSING, dataclass, fields, is_dataclass
+from typing import Any, Type, get_type_hints
 
-from cloudformation_dataclasses.core.base import CloudFormationResource, Tag
+from cloudformation_dataclasses.core.base import CloudFormationResource
 
 
 def ref(wrapper_class: Type[Any] | str) -> DeferredRef:
@@ -222,8 +222,8 @@ def cloudformation_dataclass(maybe_cls: Type[Any] | None = None):
 
             # Check if this is a mutable default (list, dict, or class instance)
             if isinstance(attr_value, (list, dict)) or (
-                hasattr(attr_value, "__class__") and
-                not isinstance(attr_value, (str, int, float, bool, type(None)))
+                hasattr(attr_value, "__class__")
+                and not isinstance(attr_value, (str, int, float, bool, type(None)))
             ):
                 # Convert to field(default_factory=...) to avoid mutable default error
                 # Use a function to create proper closure for each value
@@ -418,6 +418,7 @@ def create_wrapped_resource(wrapper_instance: Any) -> Any:
                 elif isinstance(item, dict) and field.name == "tags":
                     # Convert dict tags to Tag objects
                     from cloudformation_dataclasses.core.base import Tag
+
                     if "Key" in item and "Value" in item:
                         resolved_list.append(Tag(key=item["Key"], value=item["Value"]))
                     elif "key" in item and "value" in item:

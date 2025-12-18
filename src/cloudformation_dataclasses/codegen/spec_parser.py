@@ -450,43 +450,45 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.command == "check":
-        print(f"Checking for CloudFormation spec updates...")
+        print("Checking for CloudFormation spec updates...")
         print(f"Current spec date: {CLOUDFORMATION_SPEC_DATE}")
         try:
             has_update, current, remote = check_for_updates()
             print(f"Remote spec date:  {remote}")
             if has_update:
-                print(f"\n🔄 Update available!")
-                print(f"   Run: uv run python -m cloudformation_dataclasses.codegen.spec_parser update")
+                print("\n🔄 Update available!")
+                print(
+                    "   Run: uv run python -m cloudformation_dataclasses.codegen.spec_parser update"
+                )
             else:
-                print(f"\n✅ Spec is up to date")
+                print("\n✅ Spec is up to date")
         except Exception as e:
             print(f"\n❌ Error checking for updates: {e}")
 
     elif args.command == "update":
-        print(f"Updating CloudFormation spec...")
+        print("Updating CloudFormation spec...")
         print(f"Current spec date: {CLOUDFORMATION_SPEC_DATE}")
         try:
             new_date, aws_version = update_spec()
-            print(f"\n✅ Downloaded CloudFormation spec")
+            print("\n✅ Downloaded CloudFormation spec")
             print(f"   New date: {new_date}")
             if new_date != CLOUDFORMATION_SPEC_DATE:
-                print(f"\n⚠️  Don't forget to update config.py:")
+                print("\n⚠️  Don't forget to update config.py:")
                 print(f'   CLOUDFORMATION_SPEC_DATE = "{new_date}"')
-                print(f"\n   Then regenerate services and run tests.")
+                print("\n   Then regenerate services and run tests.")
         except Exception as e:
             print(f"\n❌ Error updating spec: {e}")
 
     elif args.command == "version":
         spec = get_spec()
-        print(f"CloudFormation Code Generator Version Information:")
-        print(f"\nSpec Version:")
+        print("CloudFormation Code Generator Version Information:")
+        print("\nSpec Version:")
         print(f"  Date (pinned): {CLOUDFORMATION_SPEC_DATE}")
         print(f"  File version:  {spec.spec_version}")
-        print(f"\nGenerator Version:")
+        print("\nGenerator Version:")
         print(f"  Current: {GENERATOR_VERSION}")
         print(f"\nCombined Version: {COMBINED_VERSION}")
-        print(f"\nSpec Contents:")
+        print("\nSpec Contents:")
         print(f"  Resource types: {len(spec.resource_types)}")
         print(f"  Property types: {len(spec.property_types)}")
         print(f"  Services: {len(spec.list_services())}")

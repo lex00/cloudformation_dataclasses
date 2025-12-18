@@ -392,9 +392,7 @@ class Template:
         elif isinstance(output, Output):
             self.outputs[name] = output
         else:
-            raise TypeError(
-                f"Expected Output or wrapper dataclass, got {type(output).__name__}"
-            )
+            raise TypeError(f"Expected Output or wrapper dataclass, got {type(output).__name__}")
 
     def add_condition(self, name: str, condition: Condition) -> None:
         """
@@ -447,17 +445,19 @@ class Template:
 
         # Serialize parameters
         if self.parameters:
-            result["Parameters"] = {name: param.to_dict() for name, param in self.parameters.items()}
+            result["Parameters"] = {
+                name: param.to_dict() for name, param in self.parameters.items()
+            }
 
         # Serialize conditions
         if self.conditions:
-            result["Conditions"] = {
-                name: cond.to_dict() for name, cond in self.conditions.items()
-            }
+            result["Conditions"] = {name: cond.to_dict() for name, cond in self.conditions.items()}
 
         # Serialize mappings
         if self.mappings:
-            result["Mappings"] = {name: mapping.to_dict() for name, mapping in self.mappings.items()}
+            result["Mappings"] = {
+                name: mapping.to_dict() for name, mapping in self.mappings.items()
+            }
 
         # Serialize resources
         if self.resources:

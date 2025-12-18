@@ -299,7 +299,9 @@ class Not:
 
     def to_dict(self) -> dict[str, list[Any]]:
         """Serialize to CloudFormation JSON format."""
-        cond_val = self.condition.to_dict() if hasattr(self.condition, "to_dict") else self.condition
+        cond_val = (
+            self.condition.to_dict() if hasattr(self.condition, "to_dict") else self.condition
+        )
         return {"Fn::Not": [cond_val]}
 
 

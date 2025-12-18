@@ -45,4 +45,6 @@ SPEC_DIR = Path(__file__).parent.parent.parent.parent / "specs"
 SPEC_FILE = SPEC_DIR / "CloudFormationResourceSpecification.json"
 
 # Spec URL - AWS provides "latest" which updates frequently
-SPEC_URL = "https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json"
+SPEC_URL = (
+    "https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json"
+)

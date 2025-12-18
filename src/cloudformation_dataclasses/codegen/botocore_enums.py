@@ -8,7 +8,6 @@ Python constant classes for use in CloudFormation resource definitions.
 from __future__ import annotations
 
 import re
-from typing import Any
 
 try:
     from botocore.loaders import Loader
