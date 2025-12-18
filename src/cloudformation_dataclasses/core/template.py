@@ -179,7 +179,15 @@ class Template:
     Aggregates all template components (resources, parameters, outputs, conditions, mappings)
     and provides serialization to CloudFormation JSON/YAML format.
 
-    Example:
+    Example (declarative style with lists - recommended):
+        template = Template(
+            description="My application infrastructure",
+            parameters=[EnvironmentParam, InstanceTypeParam],
+            resources=[MyVPC, MySubnet, MyInstance],
+            outputs=[VPCIdOutput, SubnetIdOutput],
+        )
+
+    Example (dict-based style):
         template = Template(
             description="My application infrastructure",
             resources=[my_vpc, my_subnet, my_instance],
@@ -196,13 +204,186 @@ class Template:
 
     description: Optional[str] = None
     resources: list[CloudFormationResource] = field(default_factory=list)
-    parameters: dict[str, Parameter] = field(default_factory=dict)
-    outputs: dict[str, Output] = field(default_factory=dict)
-    conditions: dict[str, Condition] = field(default_factory=dict)
-    mappings: dict[str, Mapping] = field(default_factory=dict)
+    parameters: dict[str, Parameter] | list[Any] = field(default_factory=dict)
+    outputs: dict[str, Output] | list[Any] = field(default_factory=dict)
+    conditions: dict[str, Condition] | list[Any] = field(default_factory=dict)
+    mappings: dict[str, Mapping] | list[Any] = field(default_factory=dict)
     metadata: Optional[dict[str, Any]] = None
     transform: Optional[str | list[str]] = None
     format_version: str = "2010-09-09"
+
+    def __post_init__(self) -> None:
+        """Process list-based initialization to dict-based storage."""
+        from cloudformation_dataclasses.core.wrapper import (
+            create_wrapped_resource,
+            is_wrapper_dataclass,
+        )
+
+        # Process parameters list to dict
+        # Note: When using the @cloudformation_dataclass wrapper, the wrapper's
+        # create_wrapped_resource already converts lists to dicts. This code handles
+        # direct Template() instantiation with lists.
+        if isinstance(self.parameters, list):
+            params_dict: dict[str, Parameter] = {}
+            for param in self.parameters:
+                if is_wrapper_dataclass(type(param)):
+                    name = type(param).__name__
+                    wrapped = create_wrapped_resource(param)
+                    if isinstance(wrapped, Parameter):
+                        params_dict[name] = wrapped
+                    else:
+                        raise TypeError(
+                            f"Wrapper {type(param).__name__} wraps "
+                            f"{type(wrapped).__name__}, expected Parameter"
+                        )
+                elif isinstance(param, type) and is_wrapper_dataclass(param):
+                    # Handle class reference (not instance)
+                    name = param.__name__
+                    instance = param()
+                    wrapped = create_wrapped_resource(instance)
+                    if isinstance(wrapped, Parameter):
+                        params_dict[name] = wrapped
+                    else:
+                        raise TypeError(
+                            f"Wrapper {param.__name__} wraps "
+                            f"{type(wrapped).__name__}, expected Parameter"
+                        )
+                else:
+                    raise TypeError(
+                        f"Expected Parameter wrapper class or instance, "
+                        f"got {type(param).__name__}"
+                    )
+            self.parameters = params_dict
+
+        # Process outputs list to dict
+        if isinstance(self.outputs, list):
+            outputs_dict: dict[str, Output] = {}
+            for out in self.outputs:
+                if is_wrapper_dataclass(type(out)):
+                    name = type(out).__name__
+                    wrapped = create_wrapped_resource(out)
+                    if isinstance(wrapped, Output):
+                        outputs_dict[name] = wrapped
+                    else:
+                        raise TypeError(
+                            f"Wrapper {type(out).__name__} wraps "
+                            f"{type(wrapped).__name__}, expected Output"
+                        )
+                elif isinstance(out, type) and is_wrapper_dataclass(out):
+                    # Handle class reference (not instance)
+                    name = out.__name__
+                    instance = out()
+                    wrapped = create_wrapped_resource(instance)
+                    if isinstance(wrapped, Output):
+                        outputs_dict[name] = wrapped
+                    else:
+                        raise TypeError(
+                            f"Wrapper {out.__name__} wraps "
+                            f"{type(wrapped).__name__}, expected Output"
+                        )
+                else:
+                    raise TypeError(
+                        f"Expected Output wrapper class or instance, "
+                        f"got {type(out).__name__}"
+                    )
+            self.outputs = outputs_dict
+
+        # Process conditions list to dict
+        if isinstance(self.conditions, list):
+            conditions_dict: dict[str, Condition] = {}
+            for cond in self.conditions:
+                if is_wrapper_dataclass(type(cond)):
+                    name = type(cond).__name__
+                    wrapped = create_wrapped_resource(cond)
+                    if isinstance(wrapped, Condition):
+                        conditions_dict[name] = wrapped
+                    else:
+                        raise TypeError(
+                            f"Wrapper {type(cond).__name__} wraps "
+                            f"{type(wrapped).__name__}, expected Condition"
+                        )
+                elif isinstance(cond, type) and is_wrapper_dataclass(cond):
+                    name = cond.__name__
+                    instance = cond()
+                    wrapped = create_wrapped_resource(instance)
+                    if isinstance(wrapped, Condition):
+                        conditions_dict[name] = wrapped
+                    else:
+                        raise TypeError(
+                            f"Wrapper {cond.__name__} wraps "
+                            f"{type(wrapped).__name__}, expected Condition"
+                        )
+                else:
+                    raise TypeError(
+                        f"Expected Condition wrapper class or instance, "
+                        f"got {type(cond).__name__}"
+                    )
+            self.conditions = conditions_dict
+
+        # Process mappings list to dict
+        if isinstance(self.mappings, list):
+            mappings_dict: dict[str, Mapping] = {}
+            for mapping in self.mappings:
+                if is_wrapper_dataclass(type(mapping)):
+                    name = type(mapping).__name__
+                    wrapped = create_wrapped_resource(mapping)
+                    if isinstance(wrapped, Mapping):
+                        mappings_dict[name] = wrapped
+                    else:
+                        raise TypeError(
+                            f"Wrapper {type(mapping).__name__} wraps "
+                            f"{type(wrapped).__name__}, expected Mapping"
+                        )
+                elif isinstance(mapping, type) and is_wrapper_dataclass(mapping):
+                    name = mapping.__name__
+                    instance = mapping()
+                    wrapped = create_wrapped_resource(instance)
+                    if isinstance(wrapped, Mapping):
+                        mappings_dict[name] = wrapped
+                    else:
+                        raise TypeError(
+                            f"Wrapper {mapping.__name__} wraps "
+                            f"{type(wrapped).__name__}, expected Mapping"
+                        )
+                else:
+                    raise TypeError(
+                        f"Expected Mapping wrapper class or instance, "
+                        f"got {type(mapping).__name__}"
+                    )
+            self.mappings = mappings_dict
+
+        # Process resources list (handle class references)
+        if isinstance(self.resources, list):
+            processed_resources: list[CloudFormationResource] = []
+            for resource in self.resources:
+                if isinstance(resource, CloudFormationResource):
+                    processed_resources.append(resource)
+                elif is_wrapper_dataclass(type(resource)):
+                    wrapped = create_wrapped_resource(resource)
+                    if isinstance(wrapped, CloudFormationResource):
+                        processed_resources.append(wrapped)
+                    else:
+                        raise TypeError(
+                            f"Wrapper {type(resource).__name__} wraps "
+                            f"{type(wrapped).__name__}, expected CloudFormationResource"
+                        )
+                elif isinstance(resource, type) and is_wrapper_dataclass(resource):
+                    # Handle class reference (not instance)
+                    instance = resource()
+                    wrapped = create_wrapped_resource(instance)
+                    if isinstance(wrapped, CloudFormationResource):
+                        processed_resources.append(wrapped)
+                    else:
+                        raise TypeError(
+                            f"Wrapper {resource.__name__} wraps "
+                            f"{type(wrapped).__name__}, expected CloudFormationResource"
+                        )
+                else:
+                    raise TypeError(
+                        f"Expected CloudFormationResource or wrapper class, "
+                        f"got {type(resource).__name__}"
+                    )
+            self.resources = processed_resources
 
     def add_resource(self, resource: CloudFormationResource | Any) -> None:
         """

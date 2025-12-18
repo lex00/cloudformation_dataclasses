@@ -3,6 +3,43 @@
 from . import *  # noqa: F403
 
 
+# =============================================================================
+# Tags
+# =============================================================================
+
+
+@cloudformation_dataclass
+class EnvironmentTag:
+    """Environment tag for production."""
+
+    resource: Tag
+    key = "Environment"
+    value = "Production"
+
+
+@cloudformation_dataclass
+class ProjectTag:
+    """Project tag."""
+
+    resource: Tag
+    key = "Project"
+    value = "MyApplication"
+
+
+@cloudformation_dataclass
+class ManagedByTag:
+    """ManagedBy tag."""
+
+    resource: Tag
+    key = "ManagedBy"
+    value = "cloudformation-dataclasses"
+
+
+# =============================================================================
+# Deployment Context
+# =============================================================================
+
+
 @cloudformation_dataclass
 class ProdDeploymentContext:
     """
@@ -18,19 +55,15 @@ class ProdDeploymentContext:
     """
 
     context: DeploymentContext
-    component: str = "DataPlatform"
-    stage: str = "prod"
-    deployment_name: str = "001"
-    deployment_group: str = "blue"  # For blue/green deployments
-    region: str = "us-east-1"
-    account_id: str = "123456789012"
-    project_name: str = "analytics"
+    component = "DataPlatform"
+    stage = "prod"
+    deployment_name = "001"
+    deployment_group = "blue"  # For blue/green deployments
+    region = "us-east-1"
+    account_id = "123456789012"
+    project_name = "analytics"
     # Tags will be automatically applied to all resources using this context
-    tags = [
-        {"Key": "Environment", "Value": "Production"},
-        {"Key": "Project", "Value": "MyApplication"},
-        {"Key": "ManagedBy", "Value": "cloudformation-dataclasses"},
-    ]
+    tags = [EnvironmentTag, ProjectTag, ManagedByTag]
 
 
 # Instantiate context once - reused across all production resources

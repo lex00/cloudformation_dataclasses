@@ -4,6 +4,25 @@ from . import *  # noqa: F403
 from .context import ctx
 
 
+# =============================================================================
+# Tags
+# =============================================================================
+
+
+@cloudformation_dataclass
+class DataClassificationTag:
+    """Data classification tag for sensitive data."""
+
+    resource: Tag
+    key = "DataClassification"
+    value = "sensitive"
+
+
+# =============================================================================
+# Encryption Configuration
+# =============================================================================
+
+
 @cloudformation_dataclass
 class MyServerSideEncryptionByDefault:
     """AES256 encryption configuration."""
@@ -28,6 +47,24 @@ class MyBucketEncryption:
     server_side_encryption_configuration = [MyServerSideEncryptionRule]
 
 
+# =============================================================================
+# Versioning Configuration
+# =============================================================================
+
+
+@cloudformation_dataclass
+class MyVersioningConfiguration:
+    """Enable versioning on the bucket."""
+
+    resource: VersioningConfiguration
+    status = BucketVersioningStatus.ENABLED
+
+
+# =============================================================================
+# Resources
+# =============================================================================
+
+
 @cloudformation_dataclass
 class MyData:
     """
@@ -46,6 +83,6 @@ class MyData:
 
     resource: Bucket
     context = ctx
-    tags = [{"Key": "DataClassification", "Value": "sensitive"}]
+    tags = [DataClassificationTag]
     bucket_encryption = MyBucketEncryption
-    versioning_configuration = {"Status": "Enabled"}
+    versioning_configuration = MyVersioningConfiguration
