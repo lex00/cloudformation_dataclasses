@@ -15,6 +15,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.3.4] - 2025-12-17
+
+### Changed
+- **Generated code size reduced by 62%**: 720K → 274K lines (31 MB → 10 MB)
+  - Phase 1: Data-driven resource serialization with `_property_mappings`
+  - Phase 2: `PropertyType` base class for nested structures
+  - Phase 3: Removed truncated documentation URL comments
+  - Removed property type class docstrings
+- Examples now use declarative Tag wrapper classes instead of inline `Tag()` calls:
+  - VPC `vpc_with_nat.py`: Reusable `ApplicationTag`, `PublicNetworkTag`, `PrivateNetworkTag` classes
+  - EC2 `ec2_with_wait_condition.py`: `WebInstanceNameTag` wrapper class
+
+### Added
+- `PropertyType` base class in `core/base.py` for CloudFormation property types
+- `Tag` export in generated AWS modules for use in wrapper classes
+
+---
+
 ## [0.3.3] - 2025-12-17
 
 ### Added
@@ -249,7 +267,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 This project uses three independent versions:
 
-1. **Package Version** (0.3.3) - Semantic versioning for the package
+1. **Package Version** (0.3.4) - Semantic versioning for the package
    - MAJOR: Breaking API changes
    - MINOR: New features, backward compatible
    - PATCH: Bug fixes, backward compatible
