@@ -126,7 +126,6 @@ def test_bucket_policy_statements():
     policy_doc = result["Resources"]["SharedBucketPolicy"]["Properties"]["PolicyDocument"]
 
     assert policy_doc["Version"] == "2012-10-17"
-    assert policy_doc["Id"] == "CrossAccessPolicy"
     assert len(policy_doc["Statement"]) == 3
 
     # Find statements by Sid

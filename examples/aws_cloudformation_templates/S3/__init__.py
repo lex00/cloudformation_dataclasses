@@ -18,9 +18,12 @@ from cloudformation_dataclasses.core import (
     # Parameter types
     STRING,
     # Core constructs
+    DenyStatement,
     DeploymentContext,
     Output,
     Parameter,
+    PolicyDocument,
+    PolicyStatement,
     Tag,
     Template,
     cloudformation_dataclass,
@@ -46,9 +49,12 @@ __all__ = [
     "BucketVersioningStatus",
     "ServerSideEncryption",
     # Core
+    "DenyStatement",
     "DeploymentContext",
     "Output",
     "Parameter",
+    "PolicyDocument",
+    "PolicyStatement",
     "STRING",
     "Tag",
     "Template",

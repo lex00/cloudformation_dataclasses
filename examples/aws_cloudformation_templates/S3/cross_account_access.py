@@ -154,22 +154,83 @@ class SharedBucket:
     public_access_block_configuration = BlockAllPublicAccess
 
 
-def _bucket_arn() -> dict:
+# =============================================================================
+# Policy ARN helpers
+# =============================================================================
+
+
+def bucket_arn():
     """Generate bucket ARN using Sub with AWS::Partition."""
-    return Sub("arn:${AWS::Partition}:s3:::${Bucket}", {"Bucket": ref(BucketName)}).to_dict()
+    return Sub("arn:${AWS::Partition}:s3:::${Bucket}", {"Bucket": ref(BucketName)})
 
 
-def _bucket_objects_arn() -> dict:
+def bucket_objects_arn():
     """Generate bucket objects ARN using Sub with AWS::Partition."""
-    return Sub("arn:${AWS::Partition}:s3:::${Bucket}/*", {"Bucket": ref(BucketName)}).to_dict()
+    return Sub("arn:${AWS::Partition}:s3:::${Bucket}/*", {"Bucket": ref(BucketName)})
 
 
-def _cross_account_principal() -> dict:
+def cross_account_principal():
     """Generate cross-account principal ARN using Sub with AWS::Partition."""
     return Sub(
         "arn:${AWS::Partition}:iam::${AccountId}:root",
         {"AccountId": ref(PublisherAccountID)}
-    ).to_dict()
+    )
+
+
+# =============================================================================
+# Policy Statements
+# =============================================================================
+
+
+@cloudformation_dataclass
+class CrossAccListBucketStatement:
+    """Allow cross-account ListBucket access."""
+
+    resource: PolicyStatement
+    sid = "CrossAccListBucket"
+    action = "s3:ListBucket"
+    resource_arn = bucket_arn()
+    principal = {"AWS": cross_account_principal()}
+
+
+@cloudformation_dataclass
+class CrossAccGetObjectStatement:
+    """Allow cross-account GetObject access."""
+
+    resource: PolicyStatement
+    sid = "CrossAccGetObject"
+    action = "s3:GetObject"
+    resource_arn = bucket_objects_arn()
+    principal = {"AWS": cross_account_principal()}
+
+
+@cloudformation_dataclass
+class DenyNonHttpsStatement:
+    """Deny all non-HTTPS requests."""
+
+    resource: DenyStatement
+    sid = "DenyNonHttps"
+    action = "s3:*"
+    resource_arn = [bucket_arn(), bucket_objects_arn()]
+    principal = "*"
+    condition = {"Bool": {"aws:SecureTransport": "false"}}
+
+
+# =============================================================================
+# Policy Document
+# =============================================================================
+
+
+@cloudformation_dataclass
+class CrossAccessPolicyDocument:
+    """Cross-account access policy document."""
+
+    resource: PolicyDocument
+    statement = [
+        CrossAccListBucketStatement,
+        CrossAccGetObjectStatement,
+        DenyNonHttpsStatement,
+    ]
 
 
 @cloudformation_dataclass
@@ -185,38 +246,7 @@ class SharedBucketPolicy:
 
     resource: BucketPolicy
     bucket = ref(SharedBucket)
-    policy_document = {
-        "Id": "CrossAccessPolicy",
-        "Version": "2012-10-17",
-        "Statement": [
-            {
-                "Sid": "CrossAccListBucket",
-                "Effect": "Allow",
-                "Action": "s3:ListBucket",
-                "Resource": _bucket_arn(),
-                "Principal": {"AWS": _cross_account_principal()},
-            },
-            {
-                "Sid": "CrossAccGetObject",
-                "Effect": "Allow",
-                "Action": "s3:GetObject",
-                "Resource": _bucket_objects_arn(),
-                "Principal": {"AWS": _cross_account_principal()},
-            },
-            {
-                "Sid": "DenyNonHttps",
-                "Effect": "Deny",
-                "Action": "s3:*",
-                "Resource": [_bucket_arn(), _bucket_objects_arn()],
-                "Principal": {"AWS": "*"},
-                "Condition": {
-                    "Bool": {
-                        "aws:SecureTransport": "false"
-                    }
-                },
-            },
-        ],
-    }
+    policy_document = CrossAccessPolicyDocument
 
 
 # =============================================================================

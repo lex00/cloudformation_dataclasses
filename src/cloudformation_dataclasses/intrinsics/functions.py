@@ -132,18 +132,27 @@ class Select:
 
     https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-select.html
 
-    Example:
+    Example with list:
         >>> select = Select(index=2, objects=["a", "b", "c", "d"])
         >>> select.to_dict()
         {"Fn::Select": [2, ["a", "b", "c", "d"]]}
+
+    Example with intrinsic function (e.g., GetAZs):
+        >>> select = Select(index=0, objects=GetAZs())
+        >>> select.to_dict()
+        {"Fn::Select": [0, {"Fn::GetAZs": ""}]}
     """
 
     index: int
-    objects: list[Any]
+    objects: list[Any] | Any  # Can be a list or an intrinsic function like GetAZs
 
     def to_dict(self) -> dict[str, list[Any]]:
         """Serialize to CloudFormation JSON format."""
-        # Serialize objects (may contain intrinsic functions)
+        # Handle intrinsic function as objects (e.g., GetAZs)
+        if hasattr(self.objects, "to_dict"):
+            return {"Fn::Select": [self.index, self.objects.to_dict()]}
+
+        # Handle list of objects
         serialized_objects = []
         for obj in self.objects:
             if hasattr(obj, "to_dict"):

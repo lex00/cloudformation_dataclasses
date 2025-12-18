@@ -97,7 +97,7 @@ class Output:
 
     value: Any  # Can be literal value or intrinsic function
     description: Optional[str] = None
-    export_name: Optional[str] = None
+    export_name: Any = None  # Can be str or intrinsic function
     condition: Optional[str] = None
 
     def to_dict(self) -> dict[str, Any]:
@@ -113,7 +113,10 @@ class Output:
         if self.description is not None:
             result["Description"] = self.description
         if self.export_name is not None:
-            result["Export"] = {"Name": self.export_name}
+            if hasattr(self.export_name, "to_dict"):
+                result["Export"] = {"Name": self.export_name.to_dict()}
+            else:
+                result["Export"] = {"Name": self.export_name}
         if self.condition is not None:
             result["Condition"] = self.condition
 

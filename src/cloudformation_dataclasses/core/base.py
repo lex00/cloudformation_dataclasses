@@ -29,6 +29,9 @@ class Tag:
         # Direct usage (simple)
         tag = Tag(key="Environment", value="Production")
 
+        # With intrinsic function
+        tag = Tag(key="Name", value=Ref("MyResource"))
+
         # Wrapper usage (declarative)
         @dataclass
         @wrapper
@@ -41,11 +44,12 @@ class Tag:
     """
 
     key: str
-    value: str
+    value: Any  # Can be str or intrinsic function
 
-    def to_dict(self) -> dict[str, str]:
+    def to_dict(self) -> dict[str, Any]:
         """Serialize tag to CloudFormation JSON format."""
-        return {"Key": self.key, "Value": self.value}
+        value = self.value.to_dict() if hasattr(self.value, "to_dict") else self.value
+        return {"Key": self.key, "Value": value}
 
 
 @dataclass
@@ -67,9 +71,28 @@ class PolicyStatement:
     condition: Optional[dict[str, Any]] = None
 
     def _serialize_value(self, value: Any) -> Any:
-        """Serialize a value, handling intrinsic functions."""
+        """
+        Recursively serialize a value, handling intrinsic functions and nested structures.
+
+        Handles:
+        - Objects with to_dict() methods (intrinsic functions)
+        - Lists containing intrinsic functions
+        - Dicts with intrinsic function values
+        - Primitive values (str, int, bool, etc.)
+        """
+        # Handle objects with to_dict() method (intrinsic functions, etc.)
         if hasattr(value, "to_dict"):
             return value.to_dict()
+
+        # Handle lists recursively
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+
+        # Handle dicts recursively
+        if isinstance(value, dict):
+            return {key: self._serialize_value(val) for key, val in value.items()}
+
+        # Return primitive values as-is
         return value
 
     def to_dict(self) -> dict[str, Any]:
