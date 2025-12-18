@@ -2,12 +2,7 @@
 
 import json
 
-from ..eip_with_association import (
-    build_template,
-    EC2Instance,
-    IPAddress,
-    IPAssoc,
-)
+from ..eip_with_association import build_template
 
 
 def test_template_structure():

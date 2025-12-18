@@ -2,11 +2,7 @@
 
 import json
 
-from ..ec2_instance_with_security_group import (
-    build_template,
-    EC2Instance,
-    InstanceSecurityGroup,
-)
+from ..ec2_instance_with_security_group import build_template
 
 
 def test_template_structure():

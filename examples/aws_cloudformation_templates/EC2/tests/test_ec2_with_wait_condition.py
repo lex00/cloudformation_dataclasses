@@ -2,13 +2,7 @@
 
 import json
 
-from ..ec2_with_wait_condition import (
-    build_template,
-    WebInstance,
-    InstanceWaitHandle,
-    InstanceWaitCondition,
-    InstanceSecurityGroup,
-)
+from ..ec2_with_wait_condition import build_template
 
 
 def test_template_structure():

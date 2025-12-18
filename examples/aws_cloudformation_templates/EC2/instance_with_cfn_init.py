@@ -27,11 +27,7 @@ def cfn_init_metadata():
     return {
         "AWS::CloudFormation::Init": {
             "config": {
-                "packages": {
-                    "yum": {
-                        "httpd": []
-                    }
-                },
+                "packages": {"yum": {"httpd": []}},
                 "files": {
                     "/var/www/html/index.html": {
                         "content": (
@@ -42,7 +38,7 @@ def cfn_init_metadata():
                         ),
                         "mode": "000644",
                         "owner": "root",
-                        "group": "root"
+                        "group": "root",
                     },
                     "/etc/cfn/cfn-hup.conf": {
                         "content": {
@@ -50,7 +46,7 @@ def cfn_init_metadata():
                         },
                         "mode": "000400",
                         "owner": "root",
-                        "group": "root"
+                        "group": "root",
                     },
                     "/etc/cfn/hooks.d/cfn-auto-reloader.conf": {
                         "content": {
@@ -63,24 +59,21 @@ def cfn_init_metadata():
                                 "runas=root"
                             )
                         }
-                    }
+                    },
                 },
                 "services": {
                     "sysvinit": {
-                        "httpd": {
-                            "enabled": True,
-                            "ensureRunning": True
-                        },
+                        "httpd": {"enabled": True, "ensureRunning": True},
                         "cfn-hup": {
                             "enabled": True,
                             "ensureRunning": True,
                             "files": [
                                 "/etc/cfn/cfn-hup.conf",
-                                "/etc/cfn/hooks.d/cfn-auto-reloader.conf"
-                            ]
-                        }
+                                "/etc/cfn/hooks.d/cfn-auto-reloader.conf",
+                            ],
+                        },
                     }
-                }
+                },
             }
         }
     }

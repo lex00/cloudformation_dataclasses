@@ -8,10 +8,50 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Planning
-- Extended examples (EC2, Lambda, DynamoDB, API Gateway, etc.)
+- Extended examples (Lambda, API Gateway, etc.)
 - API documentation site (auto-generated from docstrings)
 - Best practices guide and tutorials
 - Contributing guidelines and code of conduct
+
+---
+
+## [0.3.3] - 2025-12-17
+
+### Added
+- EC2 examples (4 templates with tests):
+  - `ec2_instance_with_security_group.py` - EC2 instance with SSH security group
+  - `eip_with_association.py` - Elastic IP with EIPAssociation
+  - `instance_with_cfn_init.py` - EC2 with cfn-init metadata
+  - `ec2_with_wait_condition.py` - EC2 with WaitCondition signaling
+- VPC examples (5 templates with tests):
+  - `vpc_single_instance_in_subnet.py` - VPC with single EC2 instance
+  - `vpc_with_public_and_private_subnets.py` - Multi-tier VPC
+  - `multi_az_vpc.py` - Multi-AZ VPC with NAT gateways
+  - `vpc_with_vpn_gateway.py` - VPC with VPN connectivity
+  - `four_subnets.py` - VPC with 4 subnets across 2 AZs
+- S3 examples:
+  - `cross_account_access.py` - S3 bucket with cross-account policy
+- List parameter types in `ParameterType` constants:
+  - `LIST_AWS_EC2_AVAILABILITY_ZONE_NAME`
+  - `LIST_AWS_EC2_IMAGE_ID`
+  - `LIST_AWS_EC2_INSTANCE_ID`
+  - `LIST_AWS_EC2_SECURITY_GROUP_GROUP_NAME`
+  - `LIST_AWS_EC2_SECURITY_GROUP_ID`
+  - `LIST_AWS_EC2_SUBNET_ID`
+  - `LIST_AWS_EC2_VOLUME_ID`
+  - `LIST_AWS_EC2_VPC_ID`
+  - `LIST_AWS_ROUTE53_HOSTED_ZONE_ID`
+- SSM parameter types:
+  - `AWS_SSM_PARAMETER_NAME`
+  - `AWS_SSM_PARAMETER_VALUE_STRING`
+  - `AWS_SSM_PARAMETER_VALUE_LIST_STRING`
+  - `AWS_SSM_PARAMETER_VALUE_COMMA_DELIMITED_LIST`
+
+### Fixed
+- `WaitConditionHandle` missing `_get_properties()` method
+- `PolicyStatement._serialize_value()` now recursively serializes nested dicts and lists
+- `Select` intrinsic now accepts intrinsic functions as the list argument
+- Ruff configuration to allow star imports in examples for brevity
 
 ---
 
@@ -209,7 +249,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 This project uses three independent versions:
 
-1. **Package Version** (0.3.2) - Semantic versioning for the package
+1. **Package Version** (0.3.3) - Semantic versioning for the package
    - MAJOR: Breaking API changes
    - MINOR: New features, backward compatible
    - PATCH: Bug fixes, backward compatible

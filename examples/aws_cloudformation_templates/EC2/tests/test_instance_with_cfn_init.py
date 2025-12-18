@@ -2,10 +2,7 @@
 
 import json
 
-from ..instance_with_cfn_init import (
-    build_template,
-    WebInstance,
-)
+from ..instance_with_cfn_init import build_template
 
 
 def test_template_structure():
