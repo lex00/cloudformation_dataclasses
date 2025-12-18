@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:37:55
+  Generated: 2025-12-17 21:43:54
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service OpenSearchService
@@ -21,7 +21,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, ClassVar, Optional, Union
 
-from cloudformation_dataclasses.core.base import CloudFormationResource
+from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
@@ -972,7 +972,7 @@ NOTAVAILABLE = ZoneStatus.NOTAVAILABLE
 
 
 @dataclass
-class AppConfig:
+class AppConfig(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -985,28 +985,9 @@ class AppConfig:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
-
 
 @dataclass
-class DataSource:
+class DataSource(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -1019,28 +1000,9 @@ class DataSource:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_source_description: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
-
 
 @dataclass
-class IamIdentityCenterOptions:
+class IamIdentityCenterOptions(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -1055,25 +1017,6 @@ class IamIdentityCenterOptions:
     iam_role_for_identity_center_application_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
 
 
 @dataclass
@@ -1117,7 +1060,7 @@ class Application(CloudFormationResource):
 
 
 @dataclass
-class AIMLOptions:
+class AIMLOptions(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -1127,28 +1070,9 @@ class AIMLOptions:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_vectors_engine: Optional[S3VectorsEngine] = None
 
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
-
 
 @dataclass
-class AdvancedSecurityOptionsInput:
+class AdvancedSecurityOptionsInput(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -1179,28 +1103,9 @@ class AdvancedSecurityOptionsInput:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     master_user_options: Optional[MasterUserOptions] = None
 
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
-
 
 @dataclass
-class ClusterConfig:
+class ClusterConfig(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -1246,28 +1151,9 @@ class ClusterConfig:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dedicated_master_type: Optional[Union[str, OpenSearchPartitionInstanceType, Ref, GetAtt, Sub]] = None
 
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
-
 
 @dataclass
-class CognitoOptions:
+class CognitoOptions(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -1286,28 +1172,9 @@ class CognitoOptions:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
-
 
 @dataclass
-class ColdStorageOptions:
+class ColdStorageOptions(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -1317,28 +1184,9 @@ class ColdStorageOptions:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
-
 
 @dataclass
-class DomainEndpointOptions:
+class DomainEndpointOptions(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -1360,28 +1208,9 @@ class DomainEndpointOptions:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tls_security_policy: Optional[Union[str, TLSSecurityPolicy, Ref, GetAtt, Sub]] = None
 
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
-
 
 @dataclass
-class EBSOptions:
+class EBSOptions(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -1403,28 +1232,9 @@ class EBSOptions:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volume_size: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
-
 
 @dataclass
-class EncryptionAtRestOptions:
+class EncryptionAtRestOptions(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -1437,28 +1247,9 @@ class EncryptionAtRestOptions:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
-
 
 @dataclass
-class IAMFederationOptions:
+class IAMFederationOptions(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -1474,28 +1265,9 @@ class IAMFederationOptions:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
-
 
 @dataclass
-class IdentityCenterOptions:
+class IdentityCenterOptions(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -1520,28 +1292,9 @@ class IdentityCenterOptions:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     identity_store_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
-
 
 @dataclass
-class Idp:
+class Idp(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -1554,28 +1307,9 @@ class Idp:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metadata_content: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
-
 
 @dataclass
-class JWTOptions:
+class JWTOptions(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -1594,28 +1328,9 @@ class JWTOptions:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
-
 
 @dataclass
-class LogPublishingOption:
+class LogPublishingOption(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -1628,28 +1343,9 @@ class LogPublishingOption:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
-
 
 @dataclass
-class MasterUserOptions:
+class MasterUserOptions(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -1665,28 +1361,9 @@ class MasterUserOptions:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     master_user_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
-
 
 @dataclass
-class NodeConfig:
+class NodeConfig(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -1702,28 +1379,9 @@ class NodeConfig:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     count: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
-
 
 @dataclass
-class NodeOption:
+class NodeOption(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -1736,28 +1394,9 @@ class NodeOption:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     node_config: Optional[NodeConfig] = None
 
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
-
 
 @dataclass
-class NodeToNodeEncryptionOptions:
+class NodeToNodeEncryptionOptions(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -1767,28 +1406,9 @@ class NodeToNodeEncryptionOptions:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
-
 
 @dataclass
-class OffPeakWindow:
+class OffPeakWindow(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -1798,28 +1418,9 @@ class OffPeakWindow:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     window_start_time: Optional[WindowStartTime] = None
 
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
-
 
 @dataclass
-class OffPeakWindowOptions:
+class OffPeakWindowOptions(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -1832,28 +1433,9 @@ class OffPeakWindowOptions:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
-
 
 @dataclass
-class S3VectorsEngine:
+class S3VectorsEngine(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -1863,28 +1445,9 @@ class S3VectorsEngine:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
-
 
 @dataclass
-class SAMLOptions:
+class SAMLOptions(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -1912,28 +1475,9 @@ class SAMLOptions:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     master_user_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
-
 
 @dataclass
-class ServiceSoftwareOptions:
+class ServiceSoftwareOptions(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -1964,28 +1508,9 @@ class ServiceSoftwareOptions:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     optional_deployment: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
-
 
 @dataclass
-class SnapshotOptions:
+class SnapshotOptions(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -1995,28 +1520,9 @@ class SnapshotOptions:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     automated_snapshot_start_hour: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
-
 
 @dataclass
-class SoftwareUpdateOptions:
+class SoftwareUpdateOptions(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -2026,28 +1532,9 @@ class SoftwareUpdateOptions:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auto_software_update_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
-
 
 @dataclass
-class VPCOptions:
+class VPCOptions(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -2060,28 +1547,9 @@ class VPCOptions:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnet_ids: Optional[Union[list[str], Ref]] = None
 
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
-
 
 @dataclass
-class WindowStartTime:
+class WindowStartTime(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -2094,28 +1562,9 @@ class WindowStartTime:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
-
 
 @dataclass
-class ZoneAwarenessConfig:
+class ZoneAwarenessConfig(PropertyType):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
 
     _property_mappings: ClassVar[dict[str, str]] = {
@@ -2124,25 +1573,6 @@ class ZoneAwarenessConfig:
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     availability_zone_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-
-    def _serialize_value(self, value: Any) -> Any:
-        """Recursively serialize a value."""
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        if isinstance(value, list):
-            return [self._serialize_value(item) for item in value]
-        if isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        return value
-
-    def to_dict(self) -> dict[str, Any]:
-        """Serialize to CloudFormation format."""
-        props: dict[str, Any] = {}
-        for field_name, cf_name in self._property_mappings.items():
-            value = getattr(self, field_name, None)
-            if value is not None:
-                props[cf_name] = self._serialize_value(value)
-        return props
 
 
 @dataclass

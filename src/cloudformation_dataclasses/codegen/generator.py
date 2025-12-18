@@ -207,9 +207,9 @@ def generate_property_type_class(
     simple_name = prop_type.simple_name
     lines = []
 
-    # Class definition
+    # Class definition - inherit from PropertyType for data-driven serialization
     lines.append(f"{indent}@dataclass")
-    lines.append(f"{indent}class {simple_name}:")
+    lines.append(f"{indent}class {simple_name}(PropertyType):")
 
     # Docstring
     if prop_type.documentation:
@@ -247,29 +247,7 @@ def generate_property_type_class(
             # Add field - make all optional for consistency
             lines.append(f"{indent}    {snake_name}: Optional[{python_type}] = None")
 
-    # Add to_dict() method for CloudFormation serialization using data-driven approach
-    if prop_type.properties:
-        lines.append("")
-        lines.append(f"{indent}    def _serialize_value(self, value: Any) -> Any:")
-        lines.append(f'{indent}        """Recursively serialize a value."""')
-        lines.append(f"{indent}        if hasattr(value, 'to_dict'):")
-        lines.append(f"{indent}            return value.to_dict()")
-        lines.append(f"{indent}        if isinstance(value, list):")
-        lines.append(f"{indent}            return [self._serialize_value(item) for item in value]")
-        lines.append(f"{indent}        if isinstance(value, dict):")
-        lines.append(
-            f"{indent}            return {{k: self._serialize_value(v) for k, v in value.items()}}"
-        )
-        lines.append(f"{indent}        return value")
-        lines.append("")
-        lines.append(f"{indent}    def to_dict(self) -> dict[str, Any]:")
-        lines.append(f'{indent}        """Serialize to CloudFormation format."""')
-        lines.append(f"{indent}        props: dict[str, Any] = {{}}")
-        lines.append(f"{indent}        for field_name, cf_name in self._property_mappings.items():")
-        lines.append(f"{indent}            value = getattr(self, field_name, None)")
-        lines.append(f"{indent}            if value is not None:")
-        lines.append(f"{indent}                props[cf_name] = self._serialize_value(value)")
-        lines.append(f"{indent}        return props")
+    # Note: _serialize_value() and to_dict() are inherited from PropertyType base class
 
     return "\n".join(lines)
 
@@ -429,7 +407,7 @@ def generate_service_module(
     lines.append("from dataclasses import dataclass")
     lines.append("from typing import Any, ClassVar, Optional, Union")
     lines.append("")
-    lines.append("from cloudformation_dataclasses.core.base import CloudFormationResource")
+    lines.append("from cloudformation_dataclasses.core.base import CloudFormationResource, PropertyType")
     lines.append("from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub")
 
     # Generate service-specific enum constants from botocore

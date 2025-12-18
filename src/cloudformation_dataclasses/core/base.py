@@ -3,6 +3,7 @@ Core base classes for CloudFormation resources.
 
 This module provides the foundational classes that all CloudFormation resources inherit from:
 - CloudFormationResource: Abstract base class for all AWS resources
+- PropertyType: Base class for CloudFormation property types (nested structures)
 - Tag: CloudFormation resource tag
 - DeploymentContext: Environment configuration and naming context
 """
@@ -141,6 +142,37 @@ class PolicyDocument:
             "Version": self.version,
             "Statement": [s.to_dict() if hasattr(s, "to_dict") else s for s in self.statement],
         }
+
+
+@dataclass
+class PropertyType:
+    """
+    Base class for CloudFormation property types (nested structures).
+
+    Generated property type classes inherit from this to get data-driven serialization.
+    Each subclass defines _property_mappings to map field names to CF property names.
+    """
+
+    _property_mappings: ClassVar[dict[str, str]] = {}
+
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value, handling intrinsic functions and nested structures."""
+        if hasattr(value, "to_dict"):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {key: self._serialize_value(val) for key, val in value.items()}
+        return value
+
+    def to_dict(self) -> dict[str, Any]:
+        """Serialize to CloudFormation format using _property_mappings."""
+        props: dict[str, Any] = {}
+        for field_name, cf_name in self.__class__._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
+        return props
 
 
 @dataclass
