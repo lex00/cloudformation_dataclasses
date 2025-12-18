@@ -69,27 +69,29 @@ cloudformation_dataclasses/
 ├── src/cloudformation_dataclasses/     # Source code
 │   ├── core/                           # Core base classes
 │   │   ├── base.py                     # CloudFormationResource, DeploymentContext, Tag
+│   │   ├── constants.py                # CloudFormation parameter type constants
 │   │   ├── template.py                 # Template, Parameter, Output, Condition
 │   │   └── wrapper.py                  # @cloudformation_dataclass decorator
 │   ├── intrinsics/                     # Intrinsic functions
 │   │   └── functions.py                # Ref, GetAtt, Sub, Join, etc.
-│   ├── codegen/                        # Code generation tools
+│   ├── codegen/                        # Code generation tools (dev-time only)
 │   │   ├── config.py                   # Version configuration
 │   │   ├── spec_parser.py              # CloudFormation spec parser
+│   │   ├── botocore_enums.py           # Botocore enum extraction
 │   │   └── generator.py                # AWS resource generator
-│   ├── aws/                            # Generated AWS resources
-│   │   └── s3.py                       # S3 resources (generated)
+│   ├── aws/                            # Generated AWS resources (262 services)
+│   │   ├── s3.py                       # S3 resources
+│   │   ├── dynamodb.py                 # DynamoDB resources
+│   │   ├── lambda_.py                  # Lambda resources
+│   │   └── ...                         # All other AWS services
 │   ├── __init__.py                     # Package entry point
 │   └── __version__.py                  # Version information
+├── specs/                              # CloudFormation spec (committed)
+│   └── CloudFormationResourceSpecification.json
 ├── tests/                              # Framework validation tests
-│   └── test_s3_resources.py            # S3 resource tests (14 tests)
 ├── examples/                           # Usage examples
-│   └── s3_bucket/                      # S3 bucket example
-│       ├── bucket.py                   # Bucket resource definition
-│       ├── bucket_policy.py            # Bucket policy definition
-│       ├── context.py                  # Deployment context
-│       ├── main.py                     # Example runner
-│       └── tests/test.py               # Example tests (5 tests)
+│   ├── s3_bucket/                      # S3 bucket example
+│   └── aws_cloudformation_templates/   # DynamoDB examples
 ├── scripts/                            # Automation scripts
 │   ├── build.sh                        # Build automation
 │   ├── test.sh                         # Test automation
@@ -101,10 +103,10 @@ cloudformation_dataclasses/
 │   ├── ISSUE_TEMPLATE/                 # Issue templates
 │   └── PULL_REQUEST_TEMPLATE.md        # PR template
 ├── pyproject.toml                      # Package configuration
-├── MANIFEST.in                         # Package distribution files
 ├── README.md                           # User documentation
-├── CHECKLIST.md                        # Project progress tracker
-└── DEVELOPERS.md                       # This file
+├── GENERATOR.md                        # Code generator architecture docs
+├── DEVELOPERS.md                       # This file
+└── CHANGELOG.md                        # Version history
 ```
 
 ---
@@ -205,20 +207,28 @@ uv run ptw tests/ examples/
 
 ### Test Structure
 
-- **tests/** - Framework validation (14 tests)
+- **tests/** - Framework validation (129 tests)
   - Core functionality tests
   - Resource creation and serialization
   - Template generation
+  - Intrinsic functions
   - Tag merging and context-driven naming
 
-- **examples/*/tests/** - Example tests (5 tests)
+- **examples/*/tests/** - Example tests (24 tests)
   - User-focused demonstrations
   - Real-world usage patterns
-  - Example verification
+  - DynamoDB examples with secondary indexes
 
 ---
 
 ## Code Generation
+
+The generator combines two data sources to produce type-safe Python modules:
+
+1. **CloudFormation Resource Specification** - Defines resource types, properties, and structure
+2. **Botocore Service Models** - Provides enum values and property-to-enum mappings
+
+For detailed architecture documentation, see [GENERATOR.md](GENERATOR.md).
 
 ### CloudFormation Spec Version
 
@@ -226,9 +236,8 @@ The project uses **pinned versions** for reproducible builds:
 
 ```python
 # src/cloudformation_dataclasses/codegen/config.py
-CLOUDFORMATION_SPEC_DATE = "2025.12.11"      # Date from AWS Last-Modified header
-CLOUDFORMATION_SPEC_AWS_VERSION = "227.0.0"  # AWS's internal version (for reference)
-GENERATOR_VERSION = "1.0.0"                  # Our generator version
+CLOUDFORMATION_SPEC_DATE = "2025.12.11"  # Date from AWS Last-Modified header
+GENERATOR_VERSION = "1.0.0"              # Our generator version
 COMBINED_VERSION = "spec-2025.12.11_gen-1.0.0"
 ```
 
@@ -301,7 +310,7 @@ The project uses **three independent versions**:
 1. **Package Version** (`pyproject.toml`)
    ```toml
    [project]
-   version = "0.2.1"
+   version = "0.3.2"
    ```
 
 2. **CloudFormation Spec Date** (`config.py`)
@@ -544,12 +553,17 @@ uv run mypy src/cloudformation_dataclasses/  # Type checking
 - **Type Hints**: Required for all public APIs
 - **Docstrings**: Google style for public functions/classes
 
+**Note**: The generated `aws/` directory is excluded from linting/formatting since it's auto-generated.
+
 ```bash
-# Format code
+# Format code (excludes generated aws/ directory)
 uv run black src/ tests/ examples/
 
-# Check linting
+# Check linting (excludes generated aws/ directory)
 uv run ruff check src/ tests/ examples/
+
+# Auto-fix linting issues
+uv run ruff check src/ --fix
 
 # Type check
 uv run mypy src/cloudformation_dataclasses/
@@ -657,11 +671,11 @@ uv run python -m cloudformation_dataclasses.codegen.spec_parser version
 ## Additional Resources
 
 - **User Guide**: [README.md](README.md) - End-user documentation
+- **Generator Docs**: [GENERATOR.md](GENERATOR.md) - Code generator architecture
 - **Changelog**: [CHANGELOG.md](CHANGELOG.md) - Version history and release notes
-- **Project Checklist**: [CHECKLIST.md](CHECKLIST.md) - Progress tracker
 - **CloudFormation Docs**: https://docs.aws.amazon.com/AWSCloudFormation/
 
 ---
 
-**Last Updated**: 2025-12-16
-**For**: v0.2.1 (spec-2025.12.11_gen-1.0.0)
+**Last Updated**: 2025-12-17
+**For**: v0.3.2 (spec-2025.12.11_gen-1.0.0)

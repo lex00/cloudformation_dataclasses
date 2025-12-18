@@ -1,6 +1,6 @@
 # CloudFormation Dataclasses - Project Checklist
 
-**Status as of 2025-12-14**
+**Status as of 2025-12-17**
 
 This checklist tracks implementation progress.
 
@@ -99,33 +99,33 @@ This checklist tracks implementation progress.
 - [x] Documentation updated with version info
 
 ### Testing Infrastructure
-- [x] Framework validation tests (14 tests in tests/)
-- [x] Example-focused tests (5 tests in examples/)
+- [x] Framework validation tests (129 tests in tests/)
+- [x] Example-focused tests (24 tests in examples/)
 - [x] Test structure documentation
-- [x] All 19 tests passing
+- [x] All 153 tests passing
 - [x] Coverage reporting configured
 
-**Version**: v0.1.0 (spec-227.0.0_gen-1.0.0)
-**S3 Resources**: 10 resources generated and tested
+**Version**: v0.3.2 (spec-2025.12.11_gen-1.0.0)
+**Resources**: All 262 AWS services (1,502 resource types) generated and tested
 
 ---
 
-## 🚧 Phase 2.5: Service Expansion (DEFERRED)
+## ✅ Phase 2.5: Service Expansion (COMPLETED)
 
 ### Generate Additional AWS Services
-- [x] S3 (10 resources) - **COMPLETED**
-- [ ] EC2 (100+ resources) - Deferred to future release
-- [ ] Lambda (10+ resources) - Deferred to future release
-- [ ] IAM (15+ resources) - Deferred to future release
-- [ ] DynamoDB (5+ resources) - Deferred to future release
-- [ ] Other services - Deferred to future release
+- [x] S3 (10 resources)
+- [x] EC2 (100+ resources)
+- [x] Lambda (10+ resources)
+- [x] IAM (15+ resources)
+- [x] DynamoDB (5+ resources)
+- [x] All other services (262 total)
 
-**Total Progress**: 10/1,502 resources (0.7%)
-**Status**: v0.1.0 intentionally limited to S3 only
+**Total Progress**: 1,502/1,502 resources (100%)
+**Status**: All services generated with type-safe enum support from botocore
 
 ### Additional Examples
 - [x] S3 bucket example with encryption and policies
-- [ ] Additional service examples - Deferred to future release
+- [x] DynamoDB examples with secondary indexes
 
 ---
 
@@ -284,26 +284,26 @@ This checklist tracks implementation progress.
 
 ## 🎯 Milestone Targets
 
-### v0.1.0 - Alpha Release (Current Target)
+### v0.1.0 - Alpha Release ✅
 - [x] Core foundation complete
 - [x] S3 service complete
-- [ ] EC2, Lambda, IAM, DynamoDB generated
-- [ ] 5+ working examples
-- [ ] Basic test suite
-- [ ] README with usage guide
 
-### v0.2.0 - Beta Release
-- [ ] Top 20 AWS services generated
-- [ ] Comprehensive examples
-- [ ] 80%+ test coverage
-- [ ] API documentation
-- [ ] Published to PyPI
+### v0.2.0 - Beta Release ✅
+- [x] All 262 AWS services generated
+- [x] DynamoDB examples with secondary indexes
+- [x] 153 tests passing
+- [x] README with usage guide
+
+### v0.3.0 - Type-Safe Enums ✅
+- [x] Botocore enum extraction
+- [x] Type-safe enum support in generated code
+- [x] Property-to-enum mappings from botocore shapes
 
 ### v1.0.0 - Production Release
-- [ ] All AWS services generated
+- [x] All AWS services generated
 - [ ] Complete documentation
 - [ ] 90%+ test coverage
-- [ ] CI/CD pipeline
+- [x] CI/CD pipeline
 - [ ] Stable API
 - [ ] Production-ready
 
@@ -312,19 +312,17 @@ This checklist tracks implementation progress.
 ## 📝 Notes
 
 ### Recent Accomplishments
-- Fixed tag merging bug in code generator (now uses all_tags)
-- Updated S3 example to use mixed approach
-- Added comprehensive tests for deployment context
-- Updated documentation to reflect current implementation
+- Generated all 262 AWS services (1,502 resource types)
+- Added type-safe enum support from botocore
+- Property-to-enum mappings for IDE autocomplete
+- DynamoDB examples with secondary indexes
+- 153 tests passing
 
 ### Known Issues
 - None currently
 
 ### Technical Debt
-- Need to add tests for core base classes
-- Need to add tests for intrinsic functions
-- Need to add tests for template system
-- Need to add tests for code generator
+- Need to add more tests for code generator edge cases
 
 ### Future Considerations
 - Lazy loading for large services (to reduce import time)

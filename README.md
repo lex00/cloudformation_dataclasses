@@ -51,7 +51,7 @@ pip install -e .
 ```python
 from cloudformation_dataclasses import __version__, print_version_info
 
-print(__version__)  # Package version: 0.1.0
+print(__version__)  # Package version: 0.3.2
 print_version_info()  # Detailed version information
 ```
 
