@@ -25,6 +25,16 @@ from cloudformation_dataclasses.intrinsics.functions import (
     Split,
     Sub,
 )
+from cloudformation_dataclasses.intrinsics.pseudo import (
+    AWS_ACCOUNT_ID,
+    AWS_NO_VALUE,
+    AWS_NOTIFICATION_ARNS,
+    AWS_PARTITION,
+    AWS_REGION,
+    AWS_STACK_ID,
+    AWS_STACK_NAME,
+    AWS_URL_SUFFIX,
+)
 
 
 class TestRef:
@@ -523,3 +533,111 @@ class TestComplexIntrinsicCombinations:
         join_values = url_var["Fn::Join"][1]
         assert join_values[1] == {"Fn::GetAtt": ["LoadBalancer", "DNSName"]}
         assert join_values[3] == {"Ref": "APIVersion"}
+
+
+class TestPseudoParameters:
+    """Tests for AWS pseudo-parameter constants."""
+
+    def test_aws_account_id(self):
+        """Test AWS::AccountId pseudo-parameter."""
+        assert AWS_ACCOUNT_ID.to_dict() == {"Ref": "AWS::AccountId"}
+
+    def test_aws_notification_arns(self):
+        """Test AWS::NotificationARNs pseudo-parameter."""
+        assert AWS_NOTIFICATION_ARNS.to_dict() == {"Ref": "AWS::NotificationARNs"}
+
+    def test_aws_no_value(self):
+        """Test AWS::NoValue pseudo-parameter."""
+        assert AWS_NO_VALUE.to_dict() == {"Ref": "AWS::NoValue"}
+
+    def test_aws_partition(self):
+        """Test AWS::Partition pseudo-parameter."""
+        assert AWS_PARTITION.to_dict() == {"Ref": "AWS::Partition"}
+
+    def test_aws_region(self):
+        """Test AWS::Region pseudo-parameter."""
+        assert AWS_REGION.to_dict() == {"Ref": "AWS::Region"}
+
+    def test_aws_stack_id(self):
+        """Test AWS::StackId pseudo-parameter."""
+        assert AWS_STACK_ID.to_dict() == {"Ref": "AWS::StackId"}
+
+    def test_aws_stack_name(self):
+        """Test AWS::StackName pseudo-parameter."""
+        assert AWS_STACK_NAME.to_dict() == {"Ref": "AWS::StackName"}
+
+    def test_aws_url_suffix(self):
+        """Test AWS::URLSuffix pseudo-parameter."""
+        assert AWS_URL_SUFFIX.to_dict() == {"Ref": "AWS::URLSuffix"}
+
+    def test_pseudo_param_in_join(self):
+        """Test using pseudo-parameter in Join intrinsic."""
+        join = Join(
+            delimiter="",
+            values=["https://s3.", AWS_REGION, ".", AWS_URL_SUFFIX]
+        )
+        result = join.to_dict()
+        assert result == {
+            "Fn::Join": [
+                "",
+                [
+                    "https://s3.",
+                    {"Ref": "AWS::Region"},
+                    ".",
+                    {"Ref": "AWS::URLSuffix"}
+                ]
+            ]
+        }
+
+    def test_pseudo_param_in_find_in_map(self):
+        """Test using AWS_REGION with FindInMap for region-based lookups."""
+        find = FindInMap(
+            map_name="RegionAMI",
+            top_level_key=AWS_REGION,
+            second_level_key="HVM64"
+        )
+        result = find.to_dict()
+        assert result == {
+            "Fn::FindInMap": ["RegionAMI", {"Ref": "AWS::Region"}, "HVM64"]
+        }
+
+    def test_pseudo_param_in_if_with_no_value(self):
+        """Test using AWS_NO_VALUE with If to conditionally omit property."""
+        if_func = If(
+            condition_name="HasBucketName",
+            value_if_true=Ref("BucketName"),
+            value_if_false=AWS_NO_VALUE
+        )
+        result = if_func.to_dict()
+        assert result == {
+            "Fn::If": [
+                "HasBucketName",
+                {"Ref": "BucketName"},
+                {"Ref": "AWS::NoValue"}
+            ]
+        }
+
+    def test_pseudo_param_arn_construction(self):
+        """Test building ARN with pseudo-parameters."""
+        # arn:aws:s3:::bucket-{account}-{region}
+        join = Join(
+            delimiter="",
+            values=[
+                "arn:",
+                AWS_PARTITION,
+                ":s3:::my-bucket-",
+                AWS_ACCOUNT_ID,
+                "-",
+                AWS_REGION
+            ]
+        )
+        result = join.to_dict()
+        expected_values = [
+            "arn:",
+            {"Ref": "AWS::Partition"},
+            ":s3:::my-bucket-",
+            {"Ref": "AWS::AccountId"},
+            "-",
+            {"Ref": "AWS::Region"}
+        ]
+        assert result["Fn::Join"][1] == expected_values
