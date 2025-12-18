@@ -47,8 +47,8 @@ def print_version_info() -> None:
     print(f"  CloudFormation spec date: {__cf_spec_date__}")
     print(f"  Generator version: {__generator_version__}")
     print(f"  Combined: {__combined_version__}")
-    print(f"\nGenerated resources:")
-    print(f"  - All 262 AWS services (1,502 resource types)")
+    print("\nGenerated resources:")
+    print("  - All 262 AWS services (1,502 resource types)")
 
 
 if __name__ == "__main__":

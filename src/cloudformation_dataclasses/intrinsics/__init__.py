@@ -1,4 +1,4 @@
-"""CloudFormation intrinsic functions."""
+"""CloudFormation intrinsic functions and pseudo-parameters."""
 
 from cloudformation_dataclasses.intrinsics.functions import (
     And,
@@ -19,8 +19,19 @@ from cloudformation_dataclasses.intrinsics.functions import (
     Split,
     Sub,
 )
+from cloudformation_dataclasses.intrinsics.pseudo import (
+    AWS_ACCOUNT_ID,
+    AWS_NO_VALUE,
+    AWS_NOTIFICATION_ARNS,
+    AWS_PARTITION,
+    AWS_REGION,
+    AWS_STACK_ID,
+    AWS_STACK_NAME,
+    AWS_URL_SUFFIX,
+)
 
 __all__ = [
+    # Intrinsic functions
     "And",
     "Base64",
     "Cidr",
@@ -38,4 +49,13 @@ __all__ = [
     "Select",
     "Split",
     "Sub",
+    # Pseudo-parameters
+    "AWS_ACCOUNT_ID",
+    "AWS_NO_VALUE",
+    "AWS_NOTIFICATION_ARNS",
+    "AWS_PARTITION",
+    "AWS_REGION",
+    "AWS_STACK_ID",
+    "AWS_STACK_NAME",
+    "AWS_URL_SUFFIX",
 ]

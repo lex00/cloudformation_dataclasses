@@ -15,6 +15,29 @@ from . import *  # noqa: F403
 
 
 # =============================================================================
+# Tags
+# =============================================================================
+
+
+@cloudformation_dataclass
+class EnvironmentTag:
+    """Environment tag for production."""
+
+    resource: Tag
+    key = "Environment"
+    value = "Production"
+
+
+@cloudformation_dataclass
+class ManagedByTag:
+    """ManagedBy tag."""
+
+    resource: Tag
+    key = "ManagedBy"
+    value = "cloudformation-dataclasses"
+
+
+# =============================================================================
 # Deployment Context
 # =============================================================================
 
@@ -33,10 +56,7 @@ class DynamoDBContext:
     component = "catalog"
     stage = "prod"
     region = "us-east-1"
-    tags = [
-        {"Key": "Environment", "Value": "Production"},
-        {"Key": "ManagedBy", "Value": "cloudformation-dataclasses"},
-    ]
+    tags = [EnvironmentTag, ManagedByTag]
     naming_pattern = "{project_name}-{component}-{resource_name}-{stage}"
 
 
@@ -259,29 +279,33 @@ class TableName:
 # =============================================================================
 
 
+@cloudformation_dataclass
+class SecondaryIndexesTemplate:
+    """
+    DynamoDB table with secondary indexes template.
+
+    Demonstrates fully declarative template definition with:
+    - Parameters as class references
+    - Resources as class references (including LSI and GSI)
+    - Outputs as class references
+    """
+
+    resource: Template
+    description = (
+        "AWS CloudFormation Sample Template DynamoDB_Secondary_Indexes: "
+        "Create a DynamoDB table with local and global secondary indexes. "
+        "**WARNING** This template creates an Amazon DynamoDB table. "
+        "You will be billed for the AWS resources used if you create a "
+        "stack from this template."
+    )
+    parameters = [ReadCapacityUnits, WriteCapacityUnits]
+    resources = [TableOfBooks]
+    outputs = [TableName]
+
+
 def build_template() -> Template:
     """Build the DynamoDB table with secondary indexes template."""
-    template = Template(
-        description=(
-            "AWS CloudFormation Sample Template DynamoDB_Secondary_Indexes: "
-            "Create a DynamoDB table with local and global secondary indexes. "
-            "**WARNING** This template creates an Amazon DynamoDB table. "
-            "You will be billed for the AWS resources used if you create a "
-            "stack from this template."
-        ),
-    )
-
-    # Add parameters
-    template.add_parameter(ReadCapacityUnits())
-    template.add_parameter(WriteCapacityUnits())
-
-    # Add resources
-    template.add_resource(TableOfBooks())
-
-    # Add outputs
-    template.add_output(TableName())
-
-    return template
+    return SecondaryIndexesTemplate().resource
 
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 [project]
 name = "cloudformation_dataclasses"
-version = "0.3.2"  # Package version (independent of spec/generator versions)
+version = "0.3.3"  # Package version (independent of spec/generator versions)
 description = "Python dataclasses for AWS CloudFormation template synthesis"
 readme = "README.md"
 authors = [
@@ -33,6 +33,7 @@ dev = [
     "ruff>=0.1",
     "black>=23.12",
     "requests>=2.31",  # For downloading CloudFormation specs during codegen
+    "botocore>=1.35.0",  # For extracting AWS enum values during codegen
 ]
 
 [project.urls]
@@ -78,10 +79,21 @@ dev = [
 line-length = 100
 target-version = ['py313']
 include = '\.pyi?$'
+extend-exclude = '''
+(
+    src/cloudformation_dataclasses/aws/
+)
+'''
 
 [tool.ruff]
 line-length = 100
 target-version = "py313"
+extend-exclude = [
+    "src/cloudformation_dataclasses/aws/",  # Generated code - skip linting
+]
+
+[tool.ruff.lint.per-file-ignores]
+"examples/aws_cloudformation_templates/*/*.py" = ["F403", "F405"]  # Star imports for brevity
 
 [tool.mypy]
 python_version = "3.13"

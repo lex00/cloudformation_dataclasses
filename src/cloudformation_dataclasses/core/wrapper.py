@@ -17,10 +17,10 @@ declarations rather than at instantiation time.
 
 from __future__ import annotations
 
-from dataclasses import MISSING, Field, dataclass, field, fields, is_dataclass
-from typing import Any, ClassVar, Type, get_type_hints
+from dataclasses import MISSING, dataclass, fields, is_dataclass
+from typing import Any, Type, get_type_hints
 
-from cloudformation_dataclasses.core.base import CloudFormationResource, Tag
+from cloudformation_dataclasses.core.base import CloudFormationResource
 
 
 def ref(wrapper_class: Type[Any] | str) -> DeferredRef:
@@ -222,8 +222,8 @@ def cloudformation_dataclass(maybe_cls: Type[Any] | None = None):
 
             # Check if this is a mutable default (list, dict, or class instance)
             if isinstance(attr_value, (list, dict)) or (
-                hasattr(attr_value, "__class__") and
-                not isinstance(attr_value, (str, int, float, bool, type(None)))
+                hasattr(attr_value, "__class__")
+                and not isinstance(attr_value, (str, int, float, bool, type(None)))
             ):
                 # Convert to field(default_factory=...) to avoid mutable default error
                 # Use a function to create proper closure for each value
@@ -402,31 +402,67 @@ def create_wrapped_resource(wrapper_instance: Any) -> Any:
             kwargs[field.name] = create_wrapped_resource(nested_wrapper)
         elif isinstance(value, list):
             # Handle list of wrappers/deferred refs/tags
-            resolved_list = []
-            for item in value:
-                if isinstance(item, DeferredRef):
-                    resolved_list.append(item)  # Keep as DeferredRef
-                elif isinstance(item, DeferredGetAtt):
-                    resolved_list.append(item)  # Keep as DeferredGetAtt
-                elif isinstance(item, type) and is_wrapper_dataclass(item):
-                    # Item is a wrapper CLASS - instantiate it first, then unwrap
-                    nested_wrapper = item()
-                    resolved_list.append(create_wrapped_resource(nested_wrapper))
-                elif is_wrapper_dataclass(type(item)):
-                    # Item is a wrapper INSTANCE - unwrap it
-                    resolved_list.append(create_wrapped_resource(item))
-                elif isinstance(item, dict) and field.name == "tags":
-                    # Convert dict tags to Tag objects
-                    from cloudformation_dataclasses.core.base import Tag
-                    if "Key" in item and "Value" in item:
-                        resolved_list.append(Tag(key=item["Key"], value=item["Value"]))
-                    elif "key" in item and "value" in item:
-                        resolved_list.append(Tag(key=item["key"], value=item["value"]))
+            # Special handling for Template dict fields - convert to dict with names
+            from cloudformation_dataclasses.core.template import (
+                Condition,
+                Mapping,
+                Output,
+                Parameter,
+                Template,
+            )
+
+            is_template_dict_field = (
+                wrapped_type is Template
+                and field.name in ("parameters", "outputs", "conditions", "mappings")
+            )
+
+            if is_template_dict_field:
+                # Convert list to dict, using wrapper class names as keys
+                result_dict: dict[str, Any] = {}
+                for item in value:
+                    if isinstance(item, type) and is_wrapper_dataclass(item):
+                        # Item is a wrapper CLASS - instantiate and unwrap
+                        name = item.__name__
+                        nested_wrapper = item()
+                        result_dict[name] = create_wrapped_resource(nested_wrapper)
+                    elif is_wrapper_dataclass(type(item)):
+                        # Item is a wrapper INSTANCE - get name from class and unwrap
+                        name = type(item).__name__
+                        result_dict[name] = create_wrapped_resource(item)
+                    elif isinstance(item, (Parameter, Output, Condition, Mapping)):
+                        # Already a concrete object - skip (can't infer name)
+                        continue
+                    else:
+                        # Unknown type - skip
+                        continue
+                kwargs[field.name] = result_dict
+            else:
+                resolved_list = []
+                for item in value:
+                    if isinstance(item, DeferredRef):
+                        resolved_list.append(item)  # Keep as DeferredRef
+                    elif isinstance(item, DeferredGetAtt):
+                        resolved_list.append(item)  # Keep as DeferredGetAtt
+                    elif isinstance(item, type) and is_wrapper_dataclass(item):
+                        # Item is a wrapper CLASS - instantiate it first, then unwrap
+                        nested_wrapper = item()
+                        resolved_list.append(create_wrapped_resource(nested_wrapper))
+                    elif is_wrapper_dataclass(type(item)):
+                        # Item is a wrapper INSTANCE - unwrap it
+                        resolved_list.append(create_wrapped_resource(item))
+                    elif isinstance(item, dict) and field.name == "tags":
+                        # Convert dict tags to Tag objects
+                        from cloudformation_dataclasses.core.base import Tag
+
+                        if "Key" in item and "Value" in item:
+                            resolved_list.append(Tag(key=item["Key"], value=item["Value"]))
+                        elif "key" in item and "value" in item:
+                            resolved_list.append(Tag(key=item["key"], value=item["value"]))
+                        else:
+                            resolved_list.append(item)
                     else:
                         resolved_list.append(item)
-                else:
-                    resolved_list.append(item)
-            kwargs[field.name] = resolved_list
+                kwargs[field.name] = resolved_list
         elif is_wrapper_dataclass(type(value)):
             # Handle single wrapper
             kwargs[field.name] = create_wrapped_resource(value)

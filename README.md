@@ -1,4 +1,4 @@
-# cloudformation_dataclasses
+# CloudFormation Dataclasses
 
 **Python dataclasses for AWS CloudFormation template synthesis**
 
@@ -51,7 +51,7 @@ pip install -e .
 ```python
 from cloudformation_dataclasses import __version__, print_version_info
 
-print(__version__)  # Package version: 0.1.0
+print(__version__)  # Package version: 0.3.2
 print_version_info()  # Detailed version information
 ```
 
@@ -272,19 +272,21 @@ class MySpecial:
 
 ### CloudFormation Spec Version
 
-**Pinned Spec Version:** 227.0.0 (December 2024)
+**Pinned Spec Date:** 2025.12.11 (from AWS Last-Modified header)
 **Generator Version:** 1.0.0
 
 All generated code is based on these exact versions for reproducible builds:
-- **CloudFormation Spec**: AWS's resource specification version
+- **CloudFormation Spec Date**: Date from AWS's Last-Modified header (YYYY.MM.DD)
 - **Generator**: Our code generator version (independent of AWS spec)
+
+The CloudFormation spec file is committed to the repository in `specs/CloudFormationResourceSpecification.json` for reproducibility.
 
 ```bash
 # Check current spec version
 uv run python -m cloudformation_dataclasses.codegen.spec_parser version
 
-# Download CloudFormation spec (validates version matches pinned)
-uv run python -m cloudformation_dataclasses.codegen.spec_parser download
+# Check for spec updates from AWS
+uv run python -m cloudformation_dataclasses.codegen.spec_parser check
 
 # List all available AWS services
 uv run python -m cloudformation_dataclasses.codegen.spec_parser list-services
@@ -297,17 +299,20 @@ uv run python -m cloudformation_dataclasses.codegen.spec_parser list-services
 Generate Python classes from CloudFormation specifications:
 
 ```bash
-# Generate specific service
-uv run python -m cloudformation_dataclasses.codegen.generator --service S3
-uv run python -m cloudformation_dataclasses.codegen.generator --service EC2
+# Regenerate all services
+./scripts/regenerate.sh --all
+
+# Regenerate specific service
+./scripts/regenerate.sh S3
+./scripts/regenerate.sh EC2
 ```
 
 ### Version Management
 
 **Two independent versions:**
 
-1. **CloudFormation Spec Version** (`CLOUDFORMATION_SPEC_VERSION`)
-   - AWS's specification version (e.g., `227.0.0`)
+1. **CloudFormation Spec Date** (`CLOUDFORMATION_SPEC_DATE`)
+   - Date from AWS's Last-Modified header (e.g., `2025.12.11`)
    - Updated when AWS releases new resources or changes existing ones
    - Triggers regeneration of all services
 
@@ -319,21 +324,20 @@ uv run python -m cloudformation_dataclasses.codegen.generator --service EC2
 
 **Updating CloudFormation Spec (AWS releases new version):**
 ```bash
-# 1. Update both versions in src/cloudformation_dataclasses/codegen/config.py
-#    CLOUDFORMATION_SPEC_VERSION = "228.0.0"  # New AWS version
-#    GENERATOR_VERSION = "1.1.0"              # Bump minor for spec upgrade
+# 1. Check for updates
+uv run python -m cloudformation_dataclasses.codegen.spec_parser check
 
-# 2. Download new spec
+# 2. Download new spec (updates config.py automatically)
 uv run python -m cloudformation_dataclasses.codegen.spec_parser download
 
-# 3. Regenerate services
-uv run python -m cloudformation_dataclasses.codegen.generator --service S3
+# 3. Regenerate all services
+./scripts/regenerate.sh --all
 
 # 4. Run tests
 uv run pytest tests/ -v
 
 # 5. Commit
-git commit -m "Update to CloudFormation spec v228.0.0 (generator v1.1.0)"
+git commit -m "Update to CloudFormation spec 2025.12.15 (generator v1.0.0)"
 ```
 
 **Patching Generator (fixing bugs, no spec change):**
@@ -342,17 +346,17 @@ git commit -m "Update to CloudFormation spec v228.0.0 (generator v1.1.0)"
 vim src/cloudformation_dataclasses/codegen/generator.py
 
 # 2. Update only generator version in config.py
-#    CLOUDFORMATION_SPEC_VERSION = "227.0.0"  # Unchanged
-#    GENERATOR_VERSION = "1.0.1"              # Patch bump for bug fix
+#    CLOUDFORMATION_SPEC_DATE = "2025.12.11"  # Unchanged
+#    GENERATOR_VERSION = "1.0.1"               # Patch bump for bug fix
 
 # 3. Regenerate affected service
-uv run python -m cloudformation_dataclasses.codegen.generator --service S3
+./scripts/regenerate.sh S3
 
 # 4. Run tests
 uv run pytest tests/ -v
 
 # 5. Commit
-git commit -m "Fix S3 property serialization (generator v1.0.1, spec v227.0.0)"
+git commit -m "Fix S3 property serialization (generator v1.0.1, spec 2025.12.11)"
 ```
 
 ## Development

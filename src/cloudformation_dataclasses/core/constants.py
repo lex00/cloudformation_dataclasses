@@ -1,9 +1,10 @@
 """
 CloudFormation constants for type-safe template definitions.
 
-These constants replace magic strings in CloudFormation templates.
+These are CloudFormation-specific constants that are not derived from AWS service APIs.
+Service-specific constants (like DynamoDB KeyType, S3 storage classes, etc.) are
+auto-generated from botocore and available in the respective service modules.
 """
-
 
 # =============================================================================
 # Parameter Types
@@ -31,70 +32,28 @@ class ParameterType:
     AWS_EC2_VPC_ID = "AWS::EC2::VPC::Id"
     AWS_ROUTE53_HOSTED_ZONE_ID = "AWS::Route53::HostedZone::Id"
 
+    # List types
+    LIST_AWS_EC2_AVAILABILITY_ZONE_NAME = "List<AWS::EC2::AvailabilityZone::Name>"
+    LIST_AWS_EC2_IMAGE_ID = "List<AWS::EC2::Image::Id>"
+    LIST_AWS_EC2_INSTANCE_ID = "List<AWS::EC2::Instance::Id>"
+    LIST_AWS_EC2_SECURITY_GROUP_GROUP_NAME = "List<AWS::EC2::SecurityGroup::GroupName>"
+    LIST_AWS_EC2_SECURITY_GROUP_ID = "List<AWS::EC2::SecurityGroup::Id>"
+    LIST_AWS_EC2_SUBNET_ID = "List<AWS::EC2::Subnet::Id>"
+    LIST_AWS_EC2_VOLUME_ID = "List<AWS::EC2::Volume::Id>"
+    LIST_AWS_EC2_VPC_ID = "List<AWS::EC2::VPC::Id>"
+    LIST_AWS_ROUTE53_HOSTED_ZONE_ID = "List<AWS::Route53::HostedZone::Id>"
+
     # SSM parameter types
     AWS_SSM_PARAMETER_NAME = "AWS::SSM::Parameter::Name"
     AWS_SSM_PARAMETER_VALUE_STRING = "AWS::SSM::Parameter::Value<String>"
     AWS_SSM_PARAMETER_VALUE_LIST_STRING = "AWS::SSM::Parameter::Value<List<String>>"
-    AWS_SSM_PARAMETER_VALUE_COMMA_DELIMITED_LIST = (
-        "AWS::SSM::Parameter::Value<CommaDelimitedList>"
-    )
+    AWS_SSM_PARAMETER_VALUE_COMMA_DELIMITED_LIST = "AWS::SSM::Parameter::Value<CommaDelimitedList>"
 
 
 # =============================================================================
-# DynamoDB Key Types
-# https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_KeySchemaElement.html
+# Convenient Aliases
 # =============================================================================
 
-
-class KeyType:
-    """DynamoDB key types for KeySchema."""
-
-    HASH = "HASH"
-    RANGE = "RANGE"
-
-
-# =============================================================================
-# DynamoDB Attribute Types
-# https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeDefinition.html
-# =============================================================================
-
-
-class AttributeType:
-    """DynamoDB attribute types for AttributeDefinition."""
-
-    STRING = "S"
-    NUMBER = "N"
-    BINARY = "B"
-
-
-# =============================================================================
-# DynamoDB Projection Types
-# https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Projection.html
-# =============================================================================
-
-
-class ProjectionType:
-    """DynamoDB projection types for secondary indexes."""
-
-    KEYS_ONLY = "KEYS_ONLY"
-    INCLUDE = "INCLUDE"
-    ALL = "ALL"
-
-
-# Convenient aliases - Parameter types
+# Parameter types
 STRING = ParameterType.STRING
 NUMBER = ParameterType.NUMBER
-
-# Convenient aliases - DynamoDB key types
-HASH = KeyType.HASH
-RANGE = KeyType.RANGE
-
-# Convenient aliases - DynamoDB attribute types
-S = AttributeType.STRING
-N = AttributeType.NUMBER
-B = AttributeType.BINARY
-
-# Convenient aliases - DynamoDB projection types
-KEYS_ONLY = ProjectionType.KEYS_ONLY
-INCLUDE = ProjectionType.INCLUDE
-ALL = ProjectionType.ALL

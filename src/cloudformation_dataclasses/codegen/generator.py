@@ -10,12 +10,18 @@ from __future__ import annotations
 import re
 from datetime import datetime
 from pathlib import Path
-from typing import Any
 
 from cloudformation_dataclasses.codegen.config import (
     CLOUDFORMATION_SPEC_VERSION,
     GENERATOR_VERSION,
     COMBINED_VERSION,
+)
+
+from cloudformation_dataclasses.codegen.botocore_enums import (
+    generate_service_enums,
+    get_property_enum_mappings,
+    CLASS_ALIASES,
+    CF_TO_BOTOCORE_STRUCT,
 )
 from cloudformation_dataclasses.codegen.spec_parser import (
     CloudFormationSpec,
@@ -110,13 +116,22 @@ def map_primitive_type(primitive_type: str) -> str:
     return type_mapping.get(primitive_type, "Any")
 
 
-def map_property_type(prop: PropertySpec, resource_type: str) -> str:
+def map_property_type(
+    prop: PropertySpec,
+    resource_type: str,
+    prop_name: str | None = None,
+    struct_name: str | None = None,
+    enum_mappings: dict[tuple[str, str], str] | None = None,
+) -> str:
     """
     Map a CloudFormation property to a Python type annotation.
 
     Args:
         prop: Property specification
         resource_type: The resource type this property belongs to
+        prop_name: Original CloudFormation property name (for enum lookup)
+        struct_name: Structure name (for enum lookup, e.g., "KeySchema")
+        enum_mappings: Dict mapping (struct_name, prop_name) to enum type
 
     Returns:
         Python type annotation string with intrinsic function support
@@ -124,6 +139,23 @@ def map_property_type(prop: PropertySpec, resource_type: str) -> str:
     # Handle primitive types
     if prop.primitive_type:
         base_type = map_primitive_type(prop.primitive_type)
+
+        # Check if this property maps to an enum type
+        if prop.primitive_type == "String" and enum_mappings and struct_name and prop_name:
+            # Try direct lookup first
+            enum_type = enum_mappings.get((struct_name, prop_name))
+
+            # If not found, try mapping CF struct name to botocore struct name
+            if not enum_type:
+                botocore_struct = CF_TO_BOTOCORE_STRUCT.get(struct_name)
+                if botocore_struct:
+                    enum_type = enum_mappings.get((botocore_struct, prop_name))
+
+            if enum_type:
+                # Apply class alias if defined (e.g., ScalarAttributeType -> AttributeType)
+                display_type = CLASS_ALIASES.get(enum_type, enum_type)
+                return f"Union[str, {display_type}, Ref, GetAtt, Sub]"
+
         # Add intrinsic function support
         return f"Union[{base_type}, Ref, GetAtt, Sub]"
 
@@ -157,7 +189,9 @@ def map_property_type(prop: PropertySpec, resource_type: str) -> str:
 
 
 def generate_property_type_class(
-    prop_type: PropertyTypeSpec, indent: str = ""
+    prop_type: PropertyTypeSpec,
+    indent: str = "",
+    enum_mappings: dict[tuple[str, str], str] | None = None,
 ) -> str:
     """
     Generate a dataclass for a CloudFormation property type.
@@ -165,6 +199,7 @@ def generate_property_type_class(
     Args:
         prop_type: Property type specification
         indent: Indentation string for nested classes
+        enum_mappings: Dict mapping (struct_name, prop_name) to enum type
 
     Returns:
         Generated Python dataclass code
@@ -188,7 +223,13 @@ def generate_property_type_class(
     else:
         for prop_name, prop in prop_type.properties.items():
             snake_name = sanitize_python_name(to_snake_case(prop_name))
-            python_type = map_property_type(prop, prop_type.type_name)
+            python_type = map_property_type(
+                prop,
+                prop_type.type_name,
+                prop_name=prop_name,
+                struct_name=simple_name,
+                enum_mappings=enum_mappings,
+            )
 
             # Add comment if documentation exists
             if prop.documentation:
@@ -210,10 +251,14 @@ def generate_property_type_class(
             snake_name = sanitize_python_name(to_snake_case(prop_name))
             lines.append(f"{indent}        if self.{snake_name} is not None:")
             lines.append(f"{indent}            if hasattr(self.{snake_name}, 'to_dict'):")
-            lines.append(f"{indent}                props['{prop_name}'] = self.{snake_name}.to_dict()")
+            lines.append(
+                f"{indent}                props['{prop_name}'] = self.{snake_name}.to_dict()"
+            )
             lines.append(f"{indent}            elif isinstance(self.{snake_name}, list):")
             lines.append(f"{indent}                props['{prop_name}'] = [")
-            lines.append(f"{indent}                    item.to_dict() if hasattr(item, 'to_dict') else item")
+            lines.append(
+                f"{indent}                    item.to_dict() if hasattr(item, 'to_dict') else item"
+            )
             lines.append(f"{indent}                    for item in self.{snake_name}")
             lines.append(f"{indent}                ]")
             lines.append(f"{indent}            else:")
@@ -225,13 +270,18 @@ def generate_property_type_class(
     return "\n".join(lines)
 
 
-def generate_resource_class(resource: ResourceSpec, spec: CloudFormationSpec) -> str:
+def generate_resource_class(
+    resource: ResourceSpec,
+    spec: CloudFormationSpec,
+    enum_mappings: dict[tuple[str, str], str] | None = None,
+) -> str:
     """
     Generate a dataclass for a CloudFormation resource.
 
     Args:
         resource: Resource specification
         spec: Full CloudFormation spec (for looking up property types)
+        enum_mappings: Dict mapping (struct_name, prop_name) to enum type
 
     Returns:
         Generated Python dataclass code
@@ -242,7 +292,7 @@ def generate_resource_class(resource: ResourceSpec, spec: CloudFormationSpec) ->
     # Generate property type classes first
     prop_types = spec.get_property_types_for_resource(resource.resource_type)
     for prop_type in prop_types.values():
-        lines.append(generate_property_type_class(prop_type))
+        lines.append(generate_property_type_class(prop_type, enum_mappings=enum_mappings))
         lines.append("\n")
 
     # Resource class definition
@@ -250,7 +300,11 @@ def generate_resource_class(resource: ResourceSpec, spec: CloudFormationSpec) ->
     lines.append(f"class {class_name}(CloudFormationResource):")
 
     # Docstring
-    doc = resource.documentation.split("\n")[0][:80] if resource.documentation else resource.resource_type
+    doc = (
+        resource.documentation.split("\n")[0][:80]
+        if resource.documentation
+        else resource.resource_type
+    )
     lines.append(f'    """{doc}"""')
     lines.append("")
 
@@ -264,7 +318,13 @@ def generate_resource_class(resource: ResourceSpec, spec: CloudFormationSpec) ->
     else:
         for prop_name, prop in resource.properties.items():
             snake_name = sanitize_python_name(to_snake_case(prop_name))
-            python_type = map_property_type(prop, resource.resource_type)
+            python_type = map_property_type(
+                prop,
+                resource.resource_type,
+                prop_name=prop_name,
+                struct_name=class_name,
+                enum_mappings=enum_mappings,
+            )
 
             # Add comment
             if prop.documentation:
@@ -288,13 +348,13 @@ def generate_resource_class(resource: ResourceSpec, spec: CloudFormationSpec) ->
 
             # Special case for Tags - use all_tags to include context tags
             if snake_name == "tags":
-                lines.append(f"        # Serialize tags - use all_tags to include context tags")
-                lines.append(f"        merged_tags = self.all_tags")
-                lines.append(f"        if merged_tags:")
+                lines.append("        # Serialize tags - use all_tags to include context tags")
+                lines.append("        merged_tags = self.all_tags")
+                lines.append("        if merged_tags:")
                 lines.append(f"            props['{prop_name}'] = [")
-                lines.append(f"                item.to_dict() if hasattr(item, 'to_dict') else item")
-                lines.append(f"                for item in merged_tags")
-                lines.append(f"            ]")
+                lines.append("                item.to_dict() if hasattr(item, 'to_dict') else item")
+                lines.append("                for item in merged_tags")
+                lines.append("            ]")
                 lines.append("")
             else:
                 lines.append(f"        if self.{snake_name} is not None:")
@@ -302,12 +362,16 @@ def generate_resource_class(resource: ResourceSpec, spec: CloudFormationSpec) ->
                 lines.append(f"            if hasattr(self.{snake_name}, 'to_dict'):")
                 lines.append(f'                props["{prop_name}"] = self.{snake_name}.to_dict()')
                 lines.append(f"            elif isinstance(self.{snake_name}, list):")
-                lines.append(f"                # Serialize list items (may contain intrinsic functions)")
+                lines.append(
+                    "                # Serialize list items (may contain intrinsic functions)"
+                )
                 lines.append(f"                props['{prop_name}'] = [")
-                lines.append(f"                    item.to_dict() if hasattr(item, 'to_dict') else item")
+                lines.append(
+                    "                    item.to_dict() if hasattr(item, 'to_dict') else item"
+                )
                 lines.append(f"                    for item in self.{snake_name}")
-                lines.append(f"                ]")
-                lines.append(f"            else:")
+                lines.append("                ]")
+                lines.append("            else:")
                 lines.append(f'                props["{prop_name}"] = self.{snake_name}')
                 lines.append("")
 
@@ -366,22 +430,26 @@ def generate_service_module(
     lines = []
 
     # Module header with version metadata
-    lines.append(f'"""')
+    lines.append('"""')
     lines.append(f"AWS CloudFormation {service} Resources")
     lines.append("")
     lines.append("⚠️  AUTO-GENERATED FILE - DO NOT EDIT MANUALLY ⚠️")
     lines.append("")
-    lines.append("This file is automatically generated from the AWS CloudFormation Resource Specification.")
+    lines.append(
+        "This file is automatically generated from the AWS CloudFormation Resource Specification."
+    )
     lines.append("Any manual changes will be overwritten when regenerated.")
     lines.append("")
     lines.append("Version Information:")
-    lines.append(f"  CloudFormation Spec: {spec.spec_version}")
+    lines.append(f"  CloudFormation Spec: {CLOUDFORMATION_SPEC_VERSION}")
     lines.append(f"  Generator Version: {GENERATOR_VERSION}")
     lines.append(f"  Combined: {COMBINED_VERSION}")
     lines.append(f"  Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     lines.append("")
     lines.append("To regenerate this file:")
-    lines.append(f"    uv run python -m cloudformation_dataclasses.codegen.generator --service {service}")
+    lines.append(
+        f"    uv run python -m cloudformation_dataclasses.codegen.generator --service {service}"
+    )
     lines.append('"""')
     lines.append("")
 
@@ -393,12 +461,30 @@ def generate_service_module(
     lines.append("")
     lines.append("from cloudformation_dataclasses.core.base import CloudFormationResource")
     lines.append("from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub")
+
+    # Generate service-specific enum constants from botocore
+    enum_classes, enum_aliases = generate_service_enums(service)
+    enum_mappings = get_property_enum_mappings(service)
+
+    if enum_classes:
+        lines.append("")
+        lines.append("")
+        lines.append("# " + "=" * 77)
+        lines.append("# Service Constants (auto-generated from botocore)")
+        lines.append("# " + "=" * 77)
+        lines.append("")
+        lines.append(enum_classes)
+        lines.append("")
+        lines.append("")
+        lines.append("# Convenient aliases for enum values")
+        lines.append(enum_aliases)
+
     lines.append("")
     lines.append("")
 
     # Generate all resource classes
     for resource_type, resource_spec in resources.items():
-        lines.append(generate_resource_class(resource_spec, spec))
+        lines.append(generate_resource_class(resource_spec, spec, enum_mappings=enum_mappings))
         lines.append("\n\n")
 
     # Write to file
@@ -444,7 +530,7 @@ if __name__ == "__main__":
             except Exception as e:
                 print(f"❌ Error generating {service}: {e}")
 
-        print(f"\n✅ Generation complete!")
+        print("\n✅ Generation complete!")
 
     else:
         print("CloudFormation Resource Generator")

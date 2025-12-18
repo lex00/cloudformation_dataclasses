@@ -29,6 +29,9 @@ class Tag:
         # Direct usage (simple)
         tag = Tag(key="Environment", value="Production")
 
+        # With intrinsic function
+        tag = Tag(key="Name", value=Ref("MyResource"))
+
         # Wrapper usage (declarative)
         @dataclass
         @wrapper
@@ -41,11 +44,12 @@ class Tag:
     """
 
     key: str
-    value: str
+    value: Any  # Can be str or intrinsic function
 
-    def to_dict(self) -> dict[str, str]:
+    def to_dict(self) -> dict[str, Any]:
         """Serialize tag to CloudFormation JSON format."""
-        return {"Key": self.key, "Value": self.value}
+        value = self.value.to_dict() if hasattr(self.value, "to_dict") else self.value
+        return {"Key": self.key, "Value": value}
 
 
 @dataclass
@@ -67,9 +71,28 @@ class PolicyStatement:
     condition: Optional[dict[str, Any]] = None
 
     def _serialize_value(self, value: Any) -> Any:
-        """Serialize a value, handling intrinsic functions."""
+        """
+        Recursively serialize a value, handling intrinsic functions and nested structures.
+
+        Handles:
+        - Objects with to_dict() methods (intrinsic functions)
+        - Lists containing intrinsic functions
+        - Dicts with intrinsic function values
+        - Primitive values (str, int, bool, etc.)
+        """
+        # Handle objects with to_dict() method (intrinsic functions, etc.)
         if hasattr(value, "to_dict"):
             return value.to_dict()
+
+        # Handle lists recursively
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+
+        # Handle dicts recursively
+        if isinstance(value, dict):
+            return {key: self._serialize_value(val) for key, val in value.items()}
+
+        # Return primitive values as-is
         return value
 
     def to_dict(self) -> dict[str, Any]:
@@ -116,10 +139,7 @@ class PolicyDocument:
         """Serialize policy document to IAM format."""
         return {
             "Version": self.version,
-            "Statement": [
-                s.to_dict() if hasattr(s, "to_dict") else s
-                for s in self.statement
-            ]
+            "Statement": [s.to_dict() if hasattr(s, "to_dict") else s for s in self.statement],
         }
 
 
@@ -171,14 +191,12 @@ class DeploymentContext(ABC):
     region: Optional[str] = None
     account_id: Optional[str] = None
     project_name: Optional[str] = None
-    naming_pattern: str = "{project_name}-{component}-{resource_name}-{stage}-{deployment_name}-{deployment_group}-{region}"
+    naming_pattern: str = (
+        "{project_name}-{component}-{resource_name}-{stage}-{deployment_name}-{deployment_group}-{region}"
+    )
     tags: list[Tag] = field(default_factory=list)
 
-    def resource_name(
-        self,
-        resource_class_name: str,
-        pattern: Optional[str] = None
-    ) -> str:
+    def resource_name(self, resource_class_name: str, pattern: Optional[str] = None) -> str:
         """
         Generate AWS resource name from context and class name.
 
@@ -291,10 +309,7 @@ class CloudFormationResource(ABC):
             # Use logical_id if set (contains wrapper class name like "MyData")
             # Otherwise use resource class name (like "Bucket")
             class_name = self.logical_id if self.logical_id else self.__class__.__name__
-            return self.context.resource_name(
-                class_name,
-                pattern=self.naming_pattern
-            )
+            return self.context.resource_name(class_name, pattern=self.naming_pattern)
         return self.logical_id if self.logical_id else self.__class__.__name__
 
     @property

@@ -15,6 +15,29 @@ from . import *  # noqa: F403
 
 
 # =============================================================================
+# Tags
+# =============================================================================
+
+
+@cloudformation_dataclass
+class EnvironmentTag:
+    """Environment tag for production."""
+
+    resource: Tag
+    key = "Environment"
+    value = "Production"
+
+
+@cloudformation_dataclass
+class ManagedByTag:
+    """ManagedBy tag."""
+
+    resource: Tag
+    key = "ManagedBy"
+    value = "cloudformation-dataclasses"
+
+
+# =============================================================================
 # Deployment Context
 # =============================================================================
 
@@ -33,10 +56,7 @@ class DynamoDBContext:
     component = "database"
     stage = "prod"
     region = "us-east-1"
-    tags = [
-        {"Key": "Environment", "Value": "Production"},
-        {"Key": "ManagedBy", "Value": "cloudformation-dataclasses"},
-    ]
+    tags = [EnvironmentTag, ManagedByTag]
     naming_pattern = "{project_name}-{component}-{resource_name}-{stage}"
 
 
@@ -175,28 +195,30 @@ class TableName:
 # =============================================================================
 
 
+@cloudformation_dataclass
+class SimpleDynamoDBTemplate:
+    """
+    Simple DynamoDB table template.
+
+    Demonstrates fully declarative template definition with:
+    - Parameters as class references
+    - Resources as class references
+    - Outputs as class references
+    """
+
+    resource: Template
+    description = (
+        "AWS CloudFormation Sample Template DynamoDB_Table: "
+        "This template demonstrates the creation of a DynamoDB table."
+    )
+    parameters = [HashKeyName, HashKeyType, ReadCapacity, WriteCapacity]
+    resources = [MyTable]
+    outputs = [TableName]
+
+
 def build_template() -> Template:
     """Build the simple DynamoDB table template."""
-    template = Template(
-        description=(
-            "AWS CloudFormation Sample Template DynamoDB_Table: "
-            "This template demonstrates the creation of a DynamoDB table."
-        ),
-    )
-
-    # Add parameters
-    template.add_parameter(HashKeyName())
-    template.add_parameter(HashKeyType())
-    template.add_parameter(ReadCapacity())
-    template.add_parameter(WriteCapacity())
-
-    # Add resources
-    template.add_resource(MyTable())
-
-    # Add outputs
-    template.add_output(TableName())
-
-    return template
+    return SimpleDynamoDBTemplate().resource
 
 
 if __name__ == "__main__":
