@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:24
+  Generated: 2025-12-17 16:59:36
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IAM
@@ -25,6 +25,392 @@ from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class AccessAdvisorUsageGranularityType:
+    """AccessAdvisorUsageGranularityType enum values."""
+
+    SERVICE_LEVEL = "SERVICE_LEVEL"
+    ACTION_LEVEL = "ACTION_LEVEL"
+
+
+class ContextKeyTypeEnum:
+    """ContextKeyTypeEnum enum values."""
+
+    STRING = "string"
+    STRINGLIST = "stringList"
+    NUMERIC = "numeric"
+    NUMERICLIST = "numericList"
+    BOOLEAN = "boolean"
+    BOOLEANLIST = "booleanList"
+    IP = "ip"
+    IPLIST = "ipList"
+    BINARY = "binary"
+    BINARYLIST = "binaryList"
+    DATE = "date"
+    DATELIST = "dateList"
+
+
+class DeletionTaskStatusType:
+    """DeletionTaskStatusType enum values."""
+
+    SUCCEEDED = "SUCCEEDED"
+    IN_PROGRESS = "IN_PROGRESS"
+    FAILED = "FAILED"
+    NOT_STARTED = "NOT_STARTED"
+
+
+class EntityType:
+    """EntityType enum values."""
+
+    USER = "User"
+    ROLE = "Role"
+    GROUP = "Group"
+    LOCALMANAGEDPOLICY = "LocalManagedPolicy"
+    AWSMANAGEDPOLICY = "AWSManagedPolicy"
+
+
+class FeatureType:
+    """FeatureType enum values."""
+
+    ROOTCREDENTIALSMANAGEMENT = "RootCredentialsManagement"
+    ROOTSESSIONS = "RootSessions"
+
+
+class PermissionsBoundaryAttachmentType:
+    """PermissionsBoundaryAttachmentType enum values."""
+
+    PERMISSIONSBOUNDARYPOLICY = "PermissionsBoundaryPolicy"
+
+
+class PolicyEvaluationDecisionType:
+    """PolicyEvaluationDecisionType enum values."""
+
+    ALLOWED = "allowed"
+    EXPLICITDENY = "explicitDeny"
+    IMPLICITDENY = "implicitDeny"
+
+
+class PolicyParameterTypeEnum:
+    """PolicyParameterTypeEnum enum values."""
+
+    STRING = "string"
+    STRINGLIST = "stringList"
+
+
+class PolicySourceType:
+    """PolicySourceType enum values."""
+
+    USER = "user"
+    GROUP = "group"
+    ROLE = "role"
+    AWS_MANAGED = "aws-managed"
+    USER_MANAGED = "user-managed"
+    RESOURCE = "resource"
+    NONE = "none"
+
+
+class PolicyUsageType:
+    """PolicyUsageType enum values."""
+
+    PERMISSIONSPOLICY = "PermissionsPolicy"
+    PERMISSIONSBOUNDARY = "PermissionsBoundary"
+
+
+class ReportFormatType:
+    """ReportFormatType enum values."""
+
+    TEXT_CSV = "text/csv"
+
+
+class ReportStateType:
+    """ReportStateType enum values."""
+
+    STARTED = "STARTED"
+    INPROGRESS = "INPROGRESS"
+    COMPLETE = "COMPLETE"
+
+
+class assertionEncryptionModeType:
+    """assertionEncryptionModeType enum values."""
+
+    REQUIRED = "Required"
+    ALLOWED = "Allowed"
+
+
+class assignmentStatusType:
+    """assignmentStatusType enum values."""
+
+    ASSIGNED = "Assigned"
+    UNASSIGNED = "Unassigned"
+    ANY = "Any"
+
+
+class encodingType:
+    """encodingType enum values."""
+
+    SSH = "SSH"
+    PEM = "PEM"
+
+
+class globalEndpointTokenVersion:
+    """globalEndpointTokenVersion enum values."""
+
+    V1TOKEN = "v1Token"
+    V2TOKEN = "v2Token"
+
+
+class jobStatusType:
+    """jobStatusType enum values."""
+
+    IN_PROGRESS = "IN_PROGRESS"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
+
+
+class permissionCheckResultType:
+    """permissionCheckResultType enum values."""
+
+    ALLOWED = "ALLOWED"
+    DENIED = "DENIED"
+    UNSURE = "UNSURE"
+
+
+class permissionCheckStatusType:
+    """permissionCheckStatusType enum values."""
+
+    COMPLETE = "COMPLETE"
+    IN_PROGRESS = "IN_PROGRESS"
+    FAILED = "FAILED"
+
+
+class policyOwnerEntityType:
+    """policyOwnerEntityType enum values."""
+
+    USER = "USER"
+    ROLE = "ROLE"
+    GROUP = "GROUP"
+
+
+class policyScopeType:
+    """policyScopeType enum values."""
+
+    ALL = "All"
+    AWS = "AWS"
+    LOCAL = "Local"
+
+
+class policyType:
+    """policyType enum values."""
+
+    INLINE = "INLINE"
+    MANAGED = "MANAGED"
+
+
+class sortKeyType:
+    """sortKeyType enum values."""
+
+    SERVICE_NAMESPACE_ASCENDING = "SERVICE_NAMESPACE_ASCENDING"
+    SERVICE_NAMESPACE_DESCENDING = "SERVICE_NAMESPACE_DESCENDING"
+    LAST_AUTHENTICATED_TIME_ASCENDING = "LAST_AUTHENTICATED_TIME_ASCENDING"
+    LAST_AUTHENTICATED_TIME_DESCENDING = "LAST_AUTHENTICATED_TIME_DESCENDING"
+
+
+class stateType:
+    """stateType enum values."""
+
+    UNASSIGNED = "UNASSIGNED"
+    ASSIGNED = "ASSIGNED"
+    PENDING_APPROVAL = "PENDING_APPROVAL"
+    FINALIZED = "FINALIZED"
+    ACCEPTED = "ACCEPTED"
+    REJECTED = "REJECTED"
+    EXPIRED = "EXPIRED"
+
+
+class statusType:
+    """statusType enum values."""
+
+    ACTIVE = "Active"
+    INACTIVE = "Inactive"
+    EXPIRED = "Expired"
+
+
+class summaryKeyType:
+    """summaryKeyType enum values."""
+
+    USERS = "Users"
+    USERSQUOTA = "UsersQuota"
+    GROUPS = "Groups"
+    GROUPSQUOTA = "GroupsQuota"
+    SERVERCERTIFICATES = "ServerCertificates"
+    SERVERCERTIFICATESQUOTA = "ServerCertificatesQuota"
+    USERPOLICYSIZEQUOTA = "UserPolicySizeQuota"
+    GROUPPOLICYSIZEQUOTA = "GroupPolicySizeQuota"
+    GROUPSPERUSERQUOTA = "GroupsPerUserQuota"
+    SIGNINGCERTIFICATESPERUSERQUOTA = "SigningCertificatesPerUserQuota"
+    ACCESSKEYSPERUSERQUOTA = "AccessKeysPerUserQuota"
+    MFADEVICES = "MFADevices"
+    MFADEVICESINUSE = "MFADevicesInUse"
+    ACCOUNTMFAENABLED = "AccountMFAEnabled"
+    ACCOUNTACCESSKEYSPRESENT = "AccountAccessKeysPresent"
+    ACCOUNTPASSWORDPRESENT = "AccountPasswordPresent"
+    ACCOUNTSIGNINGCERTIFICATESPRESENT = "AccountSigningCertificatesPresent"
+    ATTACHEDPOLICIESPERGROUPQUOTA = "AttachedPoliciesPerGroupQuota"
+    ATTACHEDPOLICIESPERROLEQUOTA = "AttachedPoliciesPerRoleQuota"
+    ATTACHEDPOLICIESPERUSERQUOTA = "AttachedPoliciesPerUserQuota"
+    POLICIES = "Policies"
+    POLICIESQUOTA = "PoliciesQuota"
+    POLICYSIZEQUOTA = "PolicySizeQuota"
+    POLICYVERSIONSINUSE = "PolicyVersionsInUse"
+    POLICYVERSIONSINUSEQUOTA = "PolicyVersionsInUseQuota"
+    VERSIONSPERPOLICYQUOTA = "VersionsPerPolicyQuota"
+    GLOBALENDPOINTTOKENVERSION = "GlobalEndpointTokenVersion"
+    ASSUMEROLEPOLICYSIZEQUOTA = "AssumeRolePolicySizeQuota"
+    INSTANCEPROFILES = "InstanceProfiles"
+    INSTANCEPROFILESQUOTA = "InstanceProfilesQuota"
+    PROVIDERS = "Providers"
+    ROLEPOLICYSIZEQUOTA = "RolePolicySizeQuota"
+    ROLES = "Roles"
+    ROLESQUOTA = "RolesQuota"
+
+
+class summaryStateType:
+    """summaryStateType enum values."""
+
+    AVAILABLE = "AVAILABLE"
+    NOT_AVAILABLE = "NOT_AVAILABLE"
+    NOT_SUPPORTED = "NOT_SUPPORTED"
+    FAILED = "FAILED"
+
+
+# Convenient aliases for enum values
+SERVICE_LEVEL = AccessAdvisorUsageGranularityType.SERVICE_LEVEL
+ACTION_LEVEL = AccessAdvisorUsageGranularityType.ACTION_LEVEL
+STRING = ContextKeyTypeEnum.STRING
+STRINGLIST = ContextKeyTypeEnum.STRINGLIST
+NUMERIC = ContextKeyTypeEnum.NUMERIC
+NUMERICLIST = ContextKeyTypeEnum.NUMERICLIST
+BOOLEAN = ContextKeyTypeEnum.BOOLEAN
+BOOLEANLIST = ContextKeyTypeEnum.BOOLEANLIST
+IP = ContextKeyTypeEnum.IP
+IPLIST = ContextKeyTypeEnum.IPLIST
+BINARY = ContextKeyTypeEnum.BINARY
+BINARYLIST = ContextKeyTypeEnum.BINARYLIST
+DATE = ContextKeyTypeEnum.DATE
+DATELIST = ContextKeyTypeEnum.DATELIST
+SUCCEEDED = DeletionTaskStatusType.SUCCEEDED
+IN_PROGRESS = DeletionTaskStatusType.IN_PROGRESS
+FAILED = DeletionTaskStatusType.FAILED
+NOT_STARTED = DeletionTaskStatusType.NOT_STARTED
+USER = EntityType.USER
+ROLE = EntityType.ROLE
+GROUP = EntityType.GROUP
+LOCALMANAGEDPOLICY = EntityType.LOCALMANAGEDPOLICY
+AWSMANAGEDPOLICY = EntityType.AWSMANAGEDPOLICY
+ROOTCREDENTIALSMANAGEMENT = FeatureType.ROOTCREDENTIALSMANAGEMENT
+ROOTSESSIONS = FeatureType.ROOTSESSIONS
+PERMISSIONSBOUNDARYPOLICY = PermissionsBoundaryAttachmentType.PERMISSIONSBOUNDARYPOLICY
+ALLOWED = PolicyEvaluationDecisionType.ALLOWED
+EXPLICITDENY = PolicyEvaluationDecisionType.EXPLICITDENY
+IMPLICITDENY = PolicyEvaluationDecisionType.IMPLICITDENY
+STRING = PolicyParameterTypeEnum.STRING
+STRINGLIST = PolicyParameterTypeEnum.STRINGLIST
+USER = PolicySourceType.USER
+GROUP = PolicySourceType.GROUP
+ROLE = PolicySourceType.ROLE
+AWS_MANAGED = PolicySourceType.AWS_MANAGED
+USER_MANAGED = PolicySourceType.USER_MANAGED
+RESOURCE = PolicySourceType.RESOURCE
+NONE = PolicySourceType.NONE
+PERMISSIONSPOLICY = PolicyUsageType.PERMISSIONSPOLICY
+PERMISSIONSBOUNDARY = PolicyUsageType.PERMISSIONSBOUNDARY
+TEXT_CSV = ReportFormatType.TEXT_CSV
+STARTED = ReportStateType.STARTED
+INPROGRESS = ReportStateType.INPROGRESS
+COMPLETE = ReportStateType.COMPLETE
+REQUIRED = assertionEncryptionModeType.REQUIRED
+ALLOWED = assertionEncryptionModeType.ALLOWED
+ASSIGNED = assignmentStatusType.ASSIGNED
+UNASSIGNED = assignmentStatusType.UNASSIGNED
+ANY = assignmentStatusType.ANY
+SSH = encodingType.SSH
+PEM = encodingType.PEM
+V1TOKEN = globalEndpointTokenVersion.V1TOKEN
+V2TOKEN = globalEndpointTokenVersion.V2TOKEN
+IN_PROGRESS = jobStatusType.IN_PROGRESS
+COMPLETED = jobStatusType.COMPLETED
+FAILED = jobStatusType.FAILED
+ALLOWED = permissionCheckResultType.ALLOWED
+DENIED = permissionCheckResultType.DENIED
+UNSURE = permissionCheckResultType.UNSURE
+COMPLETE = permissionCheckStatusType.COMPLETE
+IN_PROGRESS = permissionCheckStatusType.IN_PROGRESS
+FAILED = permissionCheckStatusType.FAILED
+USER = policyOwnerEntityType.USER
+ROLE = policyOwnerEntityType.ROLE
+GROUP = policyOwnerEntityType.GROUP
+ALL = policyScopeType.ALL
+AWS = policyScopeType.AWS
+LOCAL = policyScopeType.LOCAL
+INLINE = policyType.INLINE
+MANAGED = policyType.MANAGED
+SERVICE_NAMESPACE_ASCENDING = sortKeyType.SERVICE_NAMESPACE_ASCENDING
+SERVICE_NAMESPACE_DESCENDING = sortKeyType.SERVICE_NAMESPACE_DESCENDING
+LAST_AUTHENTICATED_TIME_ASCENDING = sortKeyType.LAST_AUTHENTICATED_TIME_ASCENDING
+LAST_AUTHENTICATED_TIME_DESCENDING = sortKeyType.LAST_AUTHENTICATED_TIME_DESCENDING
+UNASSIGNED = stateType.UNASSIGNED
+ASSIGNED = stateType.ASSIGNED
+PENDING_APPROVAL = stateType.PENDING_APPROVAL
+FINALIZED = stateType.FINALIZED
+ACCEPTED = stateType.ACCEPTED
+REJECTED = stateType.REJECTED
+EXPIRED = stateType.EXPIRED
+ACTIVE = statusType.ACTIVE
+INACTIVE = statusType.INACTIVE
+EXPIRED = statusType.EXPIRED
+USERS = summaryKeyType.USERS
+USERSQUOTA = summaryKeyType.USERSQUOTA
+GROUPS = summaryKeyType.GROUPS
+GROUPSQUOTA = summaryKeyType.GROUPSQUOTA
+SERVERCERTIFICATES = summaryKeyType.SERVERCERTIFICATES
+SERVERCERTIFICATESQUOTA = summaryKeyType.SERVERCERTIFICATESQUOTA
+USERPOLICYSIZEQUOTA = summaryKeyType.USERPOLICYSIZEQUOTA
+GROUPPOLICYSIZEQUOTA = summaryKeyType.GROUPPOLICYSIZEQUOTA
+GROUPSPERUSERQUOTA = summaryKeyType.GROUPSPERUSERQUOTA
+SIGNINGCERTIFICATESPERUSERQUOTA = summaryKeyType.SIGNINGCERTIFICATESPERUSERQUOTA
+ACCESSKEYSPERUSERQUOTA = summaryKeyType.ACCESSKEYSPERUSERQUOTA
+MFADEVICES = summaryKeyType.MFADEVICES
+MFADEVICESINUSE = summaryKeyType.MFADEVICESINUSE
+ACCOUNTMFAENABLED = summaryKeyType.ACCOUNTMFAENABLED
+ACCOUNTACCESSKEYSPRESENT = summaryKeyType.ACCOUNTACCESSKEYSPRESENT
+ACCOUNTPASSWORDPRESENT = summaryKeyType.ACCOUNTPASSWORDPRESENT
+ACCOUNTSIGNINGCERTIFICATESPRESENT = summaryKeyType.ACCOUNTSIGNINGCERTIFICATESPRESENT
+ATTACHEDPOLICIESPERGROUPQUOTA = summaryKeyType.ATTACHEDPOLICIESPERGROUPQUOTA
+ATTACHEDPOLICIESPERROLEQUOTA = summaryKeyType.ATTACHEDPOLICIESPERROLEQUOTA
+ATTACHEDPOLICIESPERUSERQUOTA = summaryKeyType.ATTACHEDPOLICIESPERUSERQUOTA
+POLICIES = summaryKeyType.POLICIES
+POLICIESQUOTA = summaryKeyType.POLICIESQUOTA
+POLICYSIZEQUOTA = summaryKeyType.POLICYSIZEQUOTA
+POLICYVERSIONSINUSE = summaryKeyType.POLICYVERSIONSINUSE
+POLICYVERSIONSINUSEQUOTA = summaryKeyType.POLICYVERSIONSINUSEQUOTA
+VERSIONSPERPOLICYQUOTA = summaryKeyType.VERSIONSPERPOLICYQUOTA
+GLOBALENDPOINTTOKENVERSION = summaryKeyType.GLOBALENDPOINTTOKENVERSION
+ASSUMEROLEPOLICYSIZEQUOTA = summaryKeyType.ASSUMEROLEPOLICYSIZEQUOTA
+INSTANCEPROFILES = summaryKeyType.INSTANCEPROFILES
+INSTANCEPROFILESQUOTA = summaryKeyType.INSTANCEPROFILESQUOTA
+PROVIDERS = summaryKeyType.PROVIDERS
+ROLEPOLICYSIZEQUOTA = summaryKeyType.ROLEPOLICYSIZEQUOTA
+ROLES = summaryKeyType.ROLES
+ROLESQUOTA = summaryKeyType.ROLESQUOTA
+AVAILABLE = summaryStateType.AVAILABLE
+NOT_AVAILABLE = summaryStateType.NOT_AVAILABLE
+NOT_SUPPORTED = summaryStateType.NOT_SUPPORTED
+FAILED = summaryStateType.FAILED
+
+
 @dataclass
 class AccessKey(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam"""
@@ -34,7 +420,7 @@ class AccessKey(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-prop
     serial: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-prop
-    status: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    status: Optional[Union[str, statusType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-prop
     user_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 

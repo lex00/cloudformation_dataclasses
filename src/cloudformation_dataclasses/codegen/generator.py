@@ -17,6 +17,13 @@ from cloudformation_dataclasses.codegen.config import (
     GENERATOR_VERSION,
     COMBINED_VERSION,
 )
+
+from cloudformation_dataclasses.codegen.botocore_enums import (
+    generate_service_enums,
+    get_property_enum_mappings,
+    CLASS_ALIASES,
+    CF_TO_BOTOCORE_STRUCT,
+)
 from cloudformation_dataclasses.codegen.spec_parser import (
     CloudFormationSpec,
     PropertySpec,
@@ -110,13 +117,22 @@ def map_primitive_type(primitive_type: str) -> str:
     return type_mapping.get(primitive_type, "Any")
 
 
-def map_property_type(prop: PropertySpec, resource_type: str) -> str:
+def map_property_type(
+    prop: PropertySpec,
+    resource_type: str,
+    prop_name: str | None = None,
+    struct_name: str | None = None,
+    enum_mappings: dict[tuple[str, str], str] | None = None,
+) -> str:
     """
     Map a CloudFormation property to a Python type annotation.
 
     Args:
         prop: Property specification
         resource_type: The resource type this property belongs to
+        prop_name: Original CloudFormation property name (for enum lookup)
+        struct_name: Structure name (for enum lookup, e.g., "KeySchema")
+        enum_mappings: Dict mapping (struct_name, prop_name) to enum type
 
     Returns:
         Python type annotation string with intrinsic function support
@@ -124,6 +140,28 @@ def map_property_type(prop: PropertySpec, resource_type: str) -> str:
     # Handle primitive types
     if prop.primitive_type:
         base_type = map_primitive_type(prop.primitive_type)
+
+        # Check if this property maps to an enum type
+        if (
+            prop.primitive_type == "String"
+            and enum_mappings
+            and struct_name
+            and prop_name
+        ):
+            # Try direct lookup first
+            enum_type = enum_mappings.get((struct_name, prop_name))
+
+            # If not found, try mapping CF struct name to botocore struct name
+            if not enum_type:
+                botocore_struct = CF_TO_BOTOCORE_STRUCT.get(struct_name)
+                if botocore_struct:
+                    enum_type = enum_mappings.get((botocore_struct, prop_name))
+
+            if enum_type:
+                # Apply class alias if defined (e.g., ScalarAttributeType -> AttributeType)
+                display_type = CLASS_ALIASES.get(enum_type, enum_type)
+                return f"Union[str, {display_type}, Ref, GetAtt, Sub]"
+
         # Add intrinsic function support
         return f"Union[{base_type}, Ref, GetAtt, Sub]"
 
@@ -157,7 +195,9 @@ def map_property_type(prop: PropertySpec, resource_type: str) -> str:
 
 
 def generate_property_type_class(
-    prop_type: PropertyTypeSpec, indent: str = ""
+    prop_type: PropertyTypeSpec,
+    indent: str = "",
+    enum_mappings: dict[tuple[str, str], str] | None = None,
 ) -> str:
     """
     Generate a dataclass for a CloudFormation property type.
@@ -165,6 +205,7 @@ def generate_property_type_class(
     Args:
         prop_type: Property type specification
         indent: Indentation string for nested classes
+        enum_mappings: Dict mapping (struct_name, prop_name) to enum type
 
     Returns:
         Generated Python dataclass code
@@ -188,7 +229,13 @@ def generate_property_type_class(
     else:
         for prop_name, prop in prop_type.properties.items():
             snake_name = sanitize_python_name(to_snake_case(prop_name))
-            python_type = map_property_type(prop, prop_type.type_name)
+            python_type = map_property_type(
+                prop,
+                prop_type.type_name,
+                prop_name=prop_name,
+                struct_name=simple_name,
+                enum_mappings=enum_mappings,
+            )
 
             # Add comment if documentation exists
             if prop.documentation:
@@ -225,13 +272,18 @@ def generate_property_type_class(
     return "\n".join(lines)
 
 
-def generate_resource_class(resource: ResourceSpec, spec: CloudFormationSpec) -> str:
+def generate_resource_class(
+    resource: ResourceSpec,
+    spec: CloudFormationSpec,
+    enum_mappings: dict[tuple[str, str], str] | None = None,
+) -> str:
     """
     Generate a dataclass for a CloudFormation resource.
 
     Args:
         resource: Resource specification
         spec: Full CloudFormation spec (for looking up property types)
+        enum_mappings: Dict mapping (struct_name, prop_name) to enum type
 
     Returns:
         Generated Python dataclass code
@@ -242,7 +294,7 @@ def generate_resource_class(resource: ResourceSpec, spec: CloudFormationSpec) ->
     # Generate property type classes first
     prop_types = spec.get_property_types_for_resource(resource.resource_type)
     for prop_type in prop_types.values():
-        lines.append(generate_property_type_class(prop_type))
+        lines.append(generate_property_type_class(prop_type, enum_mappings=enum_mappings))
         lines.append("\n")
 
     # Resource class definition
@@ -264,7 +316,13 @@ def generate_resource_class(resource: ResourceSpec, spec: CloudFormationSpec) ->
     else:
         for prop_name, prop in resource.properties.items():
             snake_name = sanitize_python_name(to_snake_case(prop_name))
-            python_type = map_property_type(prop, resource.resource_type)
+            python_type = map_property_type(
+                prop,
+                resource.resource_type,
+                prop_name=prop_name,
+                struct_name=class_name,
+                enum_mappings=enum_mappings,
+            )
 
             # Add comment
             if prop.documentation:
@@ -393,12 +451,30 @@ def generate_service_module(
     lines.append("")
     lines.append("from cloudformation_dataclasses.core.base import CloudFormationResource")
     lines.append("from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub")
+
+    # Generate service-specific enum constants from botocore
+    enum_classes, enum_aliases = generate_service_enums(service)
+    enum_mappings = get_property_enum_mappings(service)
+
+    if enum_classes:
+        lines.append("")
+        lines.append("")
+        lines.append("# " + "=" * 77)
+        lines.append("# Service Constants (auto-generated from botocore)")
+        lines.append("# " + "=" * 77)
+        lines.append("")
+        lines.append(enum_classes)
+        lines.append("")
+        lines.append("")
+        lines.append("# Convenient aliases for enum values")
+        lines.append(enum_aliases)
+
     lines.append("")
     lines.append("")
 
     # Generate all resource classes
     for resource_type, resource_spec in resources.items():
-        lines.append(generate_resource_class(resource_spec, spec))
+        lines.append(generate_resource_class(resource_spec, spec, enum_mappings=enum_mappings))
         lines.append("\n\n")
 
     # Write to file

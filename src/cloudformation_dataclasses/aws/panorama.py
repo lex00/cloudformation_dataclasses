@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:33
+  Generated: 2025-12-17 16:59:38
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Panorama
@@ -23,6 +23,374 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class ApplicationInstanceHealthStatus:
+    """ApplicationInstanceHealthStatus enum values."""
+
+    RUNNING = "RUNNING"
+    ERROR = "ERROR"
+    NOT_AVAILABLE = "NOT_AVAILABLE"
+
+
+class ApplicationInstanceStatus:
+    """ApplicationInstanceStatus enum values."""
+
+    DEPLOYMENT_PENDING = "DEPLOYMENT_PENDING"
+    DEPLOYMENT_REQUESTED = "DEPLOYMENT_REQUESTED"
+    DEPLOYMENT_IN_PROGRESS = "DEPLOYMENT_IN_PROGRESS"
+    DEPLOYMENT_ERROR = "DEPLOYMENT_ERROR"
+    DEPLOYMENT_SUCCEEDED = "DEPLOYMENT_SUCCEEDED"
+    REMOVAL_PENDING = "REMOVAL_PENDING"
+    REMOVAL_REQUESTED = "REMOVAL_REQUESTED"
+    REMOVAL_IN_PROGRESS = "REMOVAL_IN_PROGRESS"
+    REMOVAL_FAILED = "REMOVAL_FAILED"
+    REMOVAL_SUCCEEDED = "REMOVAL_SUCCEEDED"
+    DEPLOYMENT_FAILED = "DEPLOYMENT_FAILED"
+
+
+class ConnectionType:
+    """ConnectionType enum values."""
+
+    STATIC_IP = "STATIC_IP"
+    DHCP = "DHCP"
+
+
+class DesiredState:
+    """DesiredState enum values."""
+
+    RUNNING = "RUNNING"
+    STOPPED = "STOPPED"
+    REMOVED = "REMOVED"
+
+
+class DeviceAggregatedStatus:
+    """DeviceAggregatedStatus enum values."""
+
+    ERROR = "ERROR"
+    AWAITING_PROVISIONING = "AWAITING_PROVISIONING"
+    PENDING = "PENDING"
+    FAILED = "FAILED"
+    DELETING = "DELETING"
+    ONLINE = "ONLINE"
+    OFFLINE = "OFFLINE"
+    LEASE_EXPIRED = "LEASE_EXPIRED"
+    UPDATE_NEEDED = "UPDATE_NEEDED"
+    REBOOTING = "REBOOTING"
+
+
+class DeviceBrand:
+    """DeviceBrand enum values."""
+
+    AWS_PANORAMA = "AWS_PANORAMA"
+    LENOVO = "LENOVO"
+
+
+class DeviceConnectionStatus:
+    """DeviceConnectionStatus enum values."""
+
+    ONLINE = "ONLINE"
+    OFFLINE = "OFFLINE"
+    AWAITING_CREDENTIALS = "AWAITING_CREDENTIALS"
+    NOT_AVAILABLE = "NOT_AVAILABLE"
+    ERROR = "ERROR"
+
+
+class DeviceReportedStatus:
+    """DeviceReportedStatus enum values."""
+
+    STOPPING = "STOPPING"
+    STOPPED = "STOPPED"
+    STOP_ERROR = "STOP_ERROR"
+    REMOVAL_FAILED = "REMOVAL_FAILED"
+    REMOVAL_IN_PROGRESS = "REMOVAL_IN_PROGRESS"
+    STARTING = "STARTING"
+    RUNNING = "RUNNING"
+    INSTALL_ERROR = "INSTALL_ERROR"
+    LAUNCHED = "LAUNCHED"
+    LAUNCH_ERROR = "LAUNCH_ERROR"
+    INSTALL_IN_PROGRESS = "INSTALL_IN_PROGRESS"
+
+
+class DeviceStatus:
+    """DeviceStatus enum values."""
+
+    AWAITING_PROVISIONING = "AWAITING_PROVISIONING"
+    PENDING = "PENDING"
+    SUCCEEDED = "SUCCEEDED"
+    FAILED = "FAILED"
+    ERROR = "ERROR"
+    DELETING = "DELETING"
+
+
+class DeviceType:
+    """DeviceType enum values."""
+
+    PANORAMA_APPLIANCE_DEVELOPER_KIT = "PANORAMA_APPLIANCE_DEVELOPER_KIT"
+    PANORAMA_APPLIANCE = "PANORAMA_APPLIANCE"
+
+
+class JobResourceType:
+    """JobResourceType enum values."""
+
+    PACKAGE = "PACKAGE"
+
+
+class JobType:
+    """JobType enum values."""
+
+    OTA = "OTA"
+    REBOOT = "REBOOT"
+
+
+class ListDevicesSortBy:
+    """ListDevicesSortBy enum values."""
+
+    DEVICE_ID = "DEVICE_ID"
+    CREATED_TIME = "CREATED_TIME"
+    NAME = "NAME"
+    DEVICE_AGGREGATED_STATUS = "DEVICE_AGGREGATED_STATUS"
+
+
+class NetworkConnectionStatus:
+    """NetworkConnectionStatus enum values."""
+
+    CONNECTED = "CONNECTED"
+    NOT_CONNECTED = "NOT_CONNECTED"
+    CONNECTING = "CONNECTING"
+
+
+class NodeCategory:
+    """NodeCategory enum values."""
+
+    BUSINESS_LOGIC = "BUSINESS_LOGIC"
+    ML_MODEL = "ML_MODEL"
+    MEDIA_SOURCE = "MEDIA_SOURCE"
+    MEDIA_SINK = "MEDIA_SINK"
+
+
+class NodeFromTemplateJobStatus:
+    """NodeFromTemplateJobStatus enum values."""
+
+    PENDING = "PENDING"
+    SUCCEEDED = "SUCCEEDED"
+    FAILED = "FAILED"
+
+
+class NodeInstanceStatus:
+    """NodeInstanceStatus enum values."""
+
+    RUNNING = "RUNNING"
+    ERROR = "ERROR"
+    NOT_AVAILABLE = "NOT_AVAILABLE"
+    PAUSED = "PAUSED"
+
+
+class NodeSignalValue:
+    """NodeSignalValue enum values."""
+
+    PAUSE = "PAUSE"
+    RESUME = "RESUME"
+
+
+class PackageImportJobStatus:
+    """PackageImportJobStatus enum values."""
+
+    PENDING = "PENDING"
+    SUCCEEDED = "SUCCEEDED"
+    FAILED = "FAILED"
+
+
+class PackageImportJobType:
+    """PackageImportJobType enum values."""
+
+    NODE_PACKAGE_VERSION = "NODE_PACKAGE_VERSION"
+    MARKETPLACE_NODE_PACKAGE_VERSION = "MARKETPLACE_NODE_PACKAGE_VERSION"
+
+
+class PackageVersionStatus:
+    """PackageVersionStatus enum values."""
+
+    REGISTER_PENDING = "REGISTER_PENDING"
+    REGISTER_COMPLETED = "REGISTER_COMPLETED"
+    FAILED = "FAILED"
+    DELETING = "DELETING"
+
+
+class PortType:
+    """PortType enum values."""
+
+    BOOLEAN = "BOOLEAN"
+    STRING = "STRING"
+    INT32 = "INT32"
+    FLOAT32 = "FLOAT32"
+    MEDIA = "MEDIA"
+
+
+class SortOrder:
+    """SortOrder enum values."""
+
+    ASCENDING = "ASCENDING"
+    DESCENDING = "DESCENDING"
+
+
+class StatusFilter:
+    """StatusFilter enum values."""
+
+    DEPLOYMENT_SUCCEEDED = "DEPLOYMENT_SUCCEEDED"
+    DEPLOYMENT_ERROR = "DEPLOYMENT_ERROR"
+    REMOVAL_SUCCEEDED = "REMOVAL_SUCCEEDED"
+    REMOVAL_FAILED = "REMOVAL_FAILED"
+    PROCESSING_DEPLOYMENT = "PROCESSING_DEPLOYMENT"
+    PROCESSING_REMOVAL = "PROCESSING_REMOVAL"
+    DEPLOYMENT_FAILED = "DEPLOYMENT_FAILED"
+
+
+class TemplateType:
+    """TemplateType enum values."""
+
+    RTSP_CAMERA_STREAM = "RTSP_CAMERA_STREAM"
+
+
+class UpdateProgress:
+    """UpdateProgress enum values."""
+
+    PENDING = "PENDING"
+    IN_PROGRESS = "IN_PROGRESS"
+    VERIFYING = "VERIFYING"
+    REBOOTING = "REBOOTING"
+    DOWNLOADING = "DOWNLOADING"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
+
+
+class ValidationExceptionReason:
+    """ValidationExceptionReason enum values."""
+
+    UNKNOWN_OPERATION = "UNKNOWN_OPERATION"
+    CANNOT_PARSE = "CANNOT_PARSE"
+    FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED"
+    OTHER = "OTHER"
+
+
+# Convenient aliases for enum values
+RUNNING = ApplicationInstanceHealthStatus.RUNNING
+ERROR = ApplicationInstanceHealthStatus.ERROR
+NOT_AVAILABLE = ApplicationInstanceHealthStatus.NOT_AVAILABLE
+DEPLOYMENT_PENDING = ApplicationInstanceStatus.DEPLOYMENT_PENDING
+DEPLOYMENT_REQUESTED = ApplicationInstanceStatus.DEPLOYMENT_REQUESTED
+DEPLOYMENT_IN_PROGRESS = ApplicationInstanceStatus.DEPLOYMENT_IN_PROGRESS
+DEPLOYMENT_ERROR = ApplicationInstanceStatus.DEPLOYMENT_ERROR
+DEPLOYMENT_SUCCEEDED = ApplicationInstanceStatus.DEPLOYMENT_SUCCEEDED
+REMOVAL_PENDING = ApplicationInstanceStatus.REMOVAL_PENDING
+REMOVAL_REQUESTED = ApplicationInstanceStatus.REMOVAL_REQUESTED
+REMOVAL_IN_PROGRESS = ApplicationInstanceStatus.REMOVAL_IN_PROGRESS
+REMOVAL_FAILED = ApplicationInstanceStatus.REMOVAL_FAILED
+REMOVAL_SUCCEEDED = ApplicationInstanceStatus.REMOVAL_SUCCEEDED
+DEPLOYMENT_FAILED = ApplicationInstanceStatus.DEPLOYMENT_FAILED
+STATIC_IP = ConnectionType.STATIC_IP
+DHCP = ConnectionType.DHCP
+RUNNING = DesiredState.RUNNING
+STOPPED = DesiredState.STOPPED
+REMOVED = DesiredState.REMOVED
+ERROR = DeviceAggregatedStatus.ERROR
+AWAITING_PROVISIONING = DeviceAggregatedStatus.AWAITING_PROVISIONING
+PENDING = DeviceAggregatedStatus.PENDING
+FAILED = DeviceAggregatedStatus.FAILED
+DELETING = DeviceAggregatedStatus.DELETING
+ONLINE = DeviceAggregatedStatus.ONLINE
+OFFLINE = DeviceAggregatedStatus.OFFLINE
+LEASE_EXPIRED = DeviceAggregatedStatus.LEASE_EXPIRED
+UPDATE_NEEDED = DeviceAggregatedStatus.UPDATE_NEEDED
+REBOOTING = DeviceAggregatedStatus.REBOOTING
+AWS_PANORAMA = DeviceBrand.AWS_PANORAMA
+LENOVO = DeviceBrand.LENOVO
+ONLINE = DeviceConnectionStatus.ONLINE
+OFFLINE = DeviceConnectionStatus.OFFLINE
+AWAITING_CREDENTIALS = DeviceConnectionStatus.AWAITING_CREDENTIALS
+NOT_AVAILABLE = DeviceConnectionStatus.NOT_AVAILABLE
+ERROR = DeviceConnectionStatus.ERROR
+STOPPING = DeviceReportedStatus.STOPPING
+STOPPED = DeviceReportedStatus.STOPPED
+STOP_ERROR = DeviceReportedStatus.STOP_ERROR
+REMOVAL_FAILED = DeviceReportedStatus.REMOVAL_FAILED
+REMOVAL_IN_PROGRESS = DeviceReportedStatus.REMOVAL_IN_PROGRESS
+STARTING = DeviceReportedStatus.STARTING
+RUNNING = DeviceReportedStatus.RUNNING
+INSTALL_ERROR = DeviceReportedStatus.INSTALL_ERROR
+LAUNCHED = DeviceReportedStatus.LAUNCHED
+LAUNCH_ERROR = DeviceReportedStatus.LAUNCH_ERROR
+INSTALL_IN_PROGRESS = DeviceReportedStatus.INSTALL_IN_PROGRESS
+AWAITING_PROVISIONING = DeviceStatus.AWAITING_PROVISIONING
+PENDING = DeviceStatus.PENDING
+SUCCEEDED = DeviceStatus.SUCCEEDED
+FAILED = DeviceStatus.FAILED
+ERROR = DeviceStatus.ERROR
+DELETING = DeviceStatus.DELETING
+PANORAMA_APPLIANCE_DEVELOPER_KIT = DeviceType.PANORAMA_APPLIANCE_DEVELOPER_KIT
+PANORAMA_APPLIANCE = DeviceType.PANORAMA_APPLIANCE
+PACKAGE = JobResourceType.PACKAGE
+OTA = JobType.OTA
+REBOOT = JobType.REBOOT
+DEVICE_ID = ListDevicesSortBy.DEVICE_ID
+CREATED_TIME = ListDevicesSortBy.CREATED_TIME
+NAME = ListDevicesSortBy.NAME
+DEVICE_AGGREGATED_STATUS = ListDevicesSortBy.DEVICE_AGGREGATED_STATUS
+CONNECTED = NetworkConnectionStatus.CONNECTED
+NOT_CONNECTED = NetworkConnectionStatus.NOT_CONNECTED
+CONNECTING = NetworkConnectionStatus.CONNECTING
+BUSINESS_LOGIC = NodeCategory.BUSINESS_LOGIC
+ML_MODEL = NodeCategory.ML_MODEL
+MEDIA_SOURCE = NodeCategory.MEDIA_SOURCE
+MEDIA_SINK = NodeCategory.MEDIA_SINK
+PENDING = NodeFromTemplateJobStatus.PENDING
+SUCCEEDED = NodeFromTemplateJobStatus.SUCCEEDED
+FAILED = NodeFromTemplateJobStatus.FAILED
+RUNNING = NodeInstanceStatus.RUNNING
+ERROR = NodeInstanceStatus.ERROR
+NOT_AVAILABLE = NodeInstanceStatus.NOT_AVAILABLE
+PAUSED = NodeInstanceStatus.PAUSED
+PAUSE = NodeSignalValue.PAUSE
+RESUME = NodeSignalValue.RESUME
+PENDING = PackageImportJobStatus.PENDING
+SUCCEEDED = PackageImportJobStatus.SUCCEEDED
+FAILED = PackageImportJobStatus.FAILED
+NODE_PACKAGE_VERSION = PackageImportJobType.NODE_PACKAGE_VERSION
+MARKETPLACE_NODE_PACKAGE_VERSION = PackageImportJobType.MARKETPLACE_NODE_PACKAGE_VERSION
+REGISTER_PENDING = PackageVersionStatus.REGISTER_PENDING
+REGISTER_COMPLETED = PackageVersionStatus.REGISTER_COMPLETED
+FAILED = PackageVersionStatus.FAILED
+DELETING = PackageVersionStatus.DELETING
+BOOLEAN = PortType.BOOLEAN
+STRING = PortType.STRING
+INT32 = PortType.INT32
+FLOAT32 = PortType.FLOAT32
+MEDIA = PortType.MEDIA
+ASCENDING = SortOrder.ASCENDING
+DESCENDING = SortOrder.DESCENDING
+DEPLOYMENT_SUCCEEDED = StatusFilter.DEPLOYMENT_SUCCEEDED
+DEPLOYMENT_ERROR = StatusFilter.DEPLOYMENT_ERROR
+REMOVAL_SUCCEEDED = StatusFilter.REMOVAL_SUCCEEDED
+REMOVAL_FAILED = StatusFilter.REMOVAL_FAILED
+PROCESSING_DEPLOYMENT = StatusFilter.PROCESSING_DEPLOYMENT
+PROCESSING_REMOVAL = StatusFilter.PROCESSING_REMOVAL
+DEPLOYMENT_FAILED = StatusFilter.DEPLOYMENT_FAILED
+RTSP_CAMERA_STREAM = TemplateType.RTSP_CAMERA_STREAM
+PENDING = UpdateProgress.PENDING
+IN_PROGRESS = UpdateProgress.IN_PROGRESS
+VERIFYING = UpdateProgress.VERIFYING
+REBOOTING = UpdateProgress.REBOOTING
+DOWNLOADING = UpdateProgress.DOWNLOADING
+COMPLETED = UpdateProgress.COMPLETED
+FAILED = UpdateProgress.FAILED
+UNKNOWN_OPERATION = ValidationExceptionReason.UNKNOWN_OPERATION
+CANNOT_PARSE = ValidationExceptionReason.CANNOT_PARSE
+FIELD_VALIDATION_FAILED = ValidationExceptionReason.FIELD_VALIDATION_FAILED
+OTHER = ValidationExceptionReason.OTHER
 
 
 @dataclass

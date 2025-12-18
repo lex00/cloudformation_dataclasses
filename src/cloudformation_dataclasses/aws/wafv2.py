@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:41
+  Generated: 2025-12-17 16:59:39
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service WAFv2
@@ -23,6 +23,1063 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class ActionValue:
+    """ActionValue enum values."""
+
+    ALLOW = "ALLOW"
+    BLOCK = "BLOCK"
+    COUNT = "COUNT"
+    CAPTCHA = "CAPTCHA"
+    CHALLENGE = "CHALLENGE"
+    EXCLUDED_AS_COUNT = "EXCLUDED_AS_COUNT"
+
+
+class AssociatedResourceType:
+    """AssociatedResourceType enum values."""
+
+    CLOUDFRONT = "CLOUDFRONT"
+    API_GATEWAY = "API_GATEWAY"
+    COGNITO_USER_POOL = "COGNITO_USER_POOL"
+    APP_RUNNER_SERVICE = "APP_RUNNER_SERVICE"
+    VERIFIED_ACCESS_INSTANCE = "VERIFIED_ACCESS_INSTANCE"
+
+
+class BodyParsingFallbackBehavior:
+    """BodyParsingFallbackBehavior enum values."""
+
+    MATCH = "MATCH"
+    NO_MATCH = "NO_MATCH"
+    EVALUATE_AS_STRING = "EVALUATE_AS_STRING"
+
+
+class ComparisonOperator:
+    """ComparisonOperator enum values."""
+
+    EQ = "EQ"
+    NE = "NE"
+    LE = "LE"
+    LT = "LT"
+    GE = "GE"
+    GT = "GT"
+
+
+class CountryCode:
+    """CountryCode enum values."""
+
+    AF = "AF"
+    AX = "AX"
+    AL = "AL"
+    DZ = "DZ"
+    AS = "AS"
+    AD = "AD"
+    AO = "AO"
+    AI = "AI"
+    AQ = "AQ"
+    AG = "AG"
+    AR = "AR"
+    AM = "AM"
+    AW = "AW"
+    AU = "AU"
+    AT = "AT"
+    AZ = "AZ"
+    BS = "BS"
+    BH = "BH"
+    BD = "BD"
+    BB = "BB"
+    BY = "BY"
+    BE = "BE"
+    BZ = "BZ"
+    BJ = "BJ"
+    BM = "BM"
+    BT = "BT"
+    BO = "BO"
+    BQ = "BQ"
+    BA = "BA"
+    BW = "BW"
+    BV = "BV"
+    BR = "BR"
+    IO = "IO"
+    BN = "BN"
+    BG = "BG"
+    BF = "BF"
+    BI = "BI"
+    KH = "KH"
+    CM = "CM"
+    CA = "CA"
+    CV = "CV"
+    KY = "KY"
+    CF = "CF"
+    TD = "TD"
+    CL = "CL"
+    CN = "CN"
+    CX = "CX"
+    CC = "CC"
+    CO = "CO"
+    KM = "KM"
+    CG = "CG"
+    CD = "CD"
+    CK = "CK"
+    CR = "CR"
+    CI = "CI"
+    HR = "HR"
+    CU = "CU"
+    CW = "CW"
+    CY = "CY"
+    CZ = "CZ"
+    DK = "DK"
+    DJ = "DJ"
+    DM = "DM"
+    DO = "DO"
+    EC = "EC"
+    EG = "EG"
+    SV = "SV"
+    GQ = "GQ"
+    ER = "ER"
+    EE = "EE"
+    ET = "ET"
+    FK = "FK"
+    FO = "FO"
+    FJ = "FJ"
+    FI = "FI"
+    FR = "FR"
+    GF = "GF"
+    PF = "PF"
+    TF = "TF"
+    GA = "GA"
+    GM = "GM"
+    GE = "GE"
+    DE = "DE"
+    GH = "GH"
+    GI = "GI"
+    GR = "GR"
+    GL = "GL"
+    GD = "GD"
+    GP = "GP"
+    GU = "GU"
+    GT = "GT"
+    GG = "GG"
+    GN = "GN"
+    GW = "GW"
+    GY = "GY"
+    HT = "HT"
+    HM = "HM"
+    VA = "VA"
+    HN = "HN"
+    HK = "HK"
+    HU = "HU"
+    IS = "IS"
+    IN = "IN"
+    ID = "ID"
+    IR = "IR"
+    IQ = "IQ"
+    IE = "IE"
+    IM = "IM"
+    IL = "IL"
+    IT = "IT"
+    JM = "JM"
+    JP = "JP"
+    JE = "JE"
+    JO = "JO"
+    KZ = "KZ"
+    KE = "KE"
+    KI = "KI"
+    KP = "KP"
+    KR = "KR"
+    KW = "KW"
+    KG = "KG"
+    LA = "LA"
+    LV = "LV"
+    LB = "LB"
+    LS = "LS"
+    LR = "LR"
+    LY = "LY"
+    LI = "LI"
+    LT = "LT"
+    LU = "LU"
+    MO = "MO"
+    MK = "MK"
+    MG = "MG"
+    MW = "MW"
+    MY = "MY"
+    MV = "MV"
+    ML = "ML"
+    MT = "MT"
+    MH = "MH"
+    MQ = "MQ"
+    MR = "MR"
+    MU = "MU"
+    YT = "YT"
+    MX = "MX"
+    FM = "FM"
+    MD = "MD"
+    MC = "MC"
+    MN = "MN"
+    ME = "ME"
+    MS = "MS"
+    MA = "MA"
+    MZ = "MZ"
+    MM = "MM"
+    NA = "NA"
+    NR = "NR"
+    NP = "NP"
+    NL = "NL"
+    NC = "NC"
+    NZ = "NZ"
+    NI = "NI"
+    NE = "NE"
+    NG = "NG"
+    NU = "NU"
+    NF = "NF"
+    MP = "MP"
+    NO = "NO"
+    OM = "OM"
+    PK = "PK"
+    PW = "PW"
+    PS = "PS"
+    PA = "PA"
+    PG = "PG"
+    PY = "PY"
+    PE = "PE"
+    PH = "PH"
+    PN = "PN"
+    PL = "PL"
+    PT = "PT"
+    PR = "PR"
+    QA = "QA"
+    RE = "RE"
+    RO = "RO"
+    RU = "RU"
+    RW = "RW"
+    BL = "BL"
+    SH = "SH"
+    KN = "KN"
+    LC = "LC"
+    MF = "MF"
+    PM = "PM"
+    VC = "VC"
+    WS = "WS"
+    SM = "SM"
+    ST = "ST"
+    SA = "SA"
+    SN = "SN"
+    RS = "RS"
+    SC = "SC"
+    SL = "SL"
+    SG = "SG"
+    SX = "SX"
+    SK = "SK"
+    SI = "SI"
+    SB = "SB"
+    SO = "SO"
+    ZA = "ZA"
+    GS = "GS"
+    SS = "SS"
+    ES = "ES"
+    LK = "LK"
+    SD = "SD"
+    SR = "SR"
+    SJ = "SJ"
+    SZ = "SZ"
+    SE = "SE"
+    CH = "CH"
+    SY = "SY"
+    TW = "TW"
+    TJ = "TJ"
+    TZ = "TZ"
+    TH = "TH"
+    TL = "TL"
+    TG = "TG"
+    TK = "TK"
+    TO = "TO"
+    TT = "TT"
+    TN = "TN"
+    TR = "TR"
+    TM = "TM"
+    TC = "TC"
+    TV = "TV"
+    UG = "UG"
+    UA = "UA"
+    AE = "AE"
+    GB = "GB"
+    US = "US"
+    UM = "UM"
+    UY = "UY"
+    UZ = "UZ"
+    VU = "VU"
+    VE = "VE"
+    VN = "VN"
+    VG = "VG"
+    VI = "VI"
+    WF = "WF"
+    EH = "EH"
+    YE = "YE"
+    ZM = "ZM"
+    ZW = "ZW"
+    XK = "XK"
+
+
+class DataProtectionAction:
+    """DataProtectionAction enum values."""
+
+    SUBSTITUTION = "SUBSTITUTION"
+    HASH = "HASH"
+
+
+class FailureReason:
+    """FailureReason enum values."""
+
+    TOKEN_MISSING = "TOKEN_MISSING"
+    TOKEN_EXPIRED = "TOKEN_EXPIRED"
+    TOKEN_INVALID = "TOKEN_INVALID"
+    TOKEN_DOMAIN_MISMATCH = "TOKEN_DOMAIN_MISMATCH"
+
+
+class FallbackBehavior:
+    """FallbackBehavior enum values."""
+
+    MATCH = "MATCH"
+    NO_MATCH = "NO_MATCH"
+
+
+class FieldToProtectType:
+    """FieldToProtectType enum values."""
+
+    SINGLE_HEADER = "SINGLE_HEADER"
+    SINGLE_COOKIE = "SINGLE_COOKIE"
+    SINGLE_QUERY_ARGUMENT = "SINGLE_QUERY_ARGUMENT"
+    QUERY_STRING = "QUERY_STRING"
+    BODY = "BODY"
+
+
+class FilterBehavior:
+    """FilterBehavior enum values."""
+
+    KEEP = "KEEP"
+    DROP = "DROP"
+
+
+class FilterRequirement:
+    """FilterRequirement enum values."""
+
+    MEETS_ALL = "MEETS_ALL"
+    MEETS_ANY = "MEETS_ANY"
+
+
+class ForwardedIPPosition:
+    """ForwardedIPPosition enum values."""
+
+    FIRST = "FIRST"
+    LAST = "LAST"
+    ANY = "ANY"
+
+
+class IPAddressVersion:
+    """IPAddressVersion enum values."""
+
+    IPV4 = "IPV4"
+    IPV6 = "IPV6"
+
+
+class InspectionLevel:
+    """InspectionLevel enum values."""
+
+    COMMON = "COMMON"
+    TARGETED = "TARGETED"
+
+
+class JsonMatchScope:
+    """JsonMatchScope enum values."""
+
+    ALL = "ALL"
+    KEY = "KEY"
+    VALUE = "VALUE"
+
+
+class LabelMatchScope:
+    """LabelMatchScope enum values."""
+
+    LABEL = "LABEL"
+    NAMESPACE = "NAMESPACE"
+
+
+class LogScope:
+    """LogScope enum values."""
+
+    CUSTOMER = "CUSTOMER"
+    SECURITY_LAKE = "SECURITY_LAKE"
+    CLOUDWATCH_TELEMETRY_RULE_MANAGED = "CLOUDWATCH_TELEMETRY_RULE_MANAGED"
+
+
+class LogType:
+    """LogType enum values."""
+
+    WAF_LOGS = "WAF_LOGS"
+
+
+class LowReputationMode:
+    """LowReputationMode enum values."""
+
+    ACTIVE_UNDER_DDOS = "ACTIVE_UNDER_DDOS"
+    ALWAYS_ON = "ALWAYS_ON"
+
+
+class MapMatchScope:
+    """MapMatchScope enum values."""
+
+    ALL = "ALL"
+    KEY = "KEY"
+    VALUE = "VALUE"
+
+
+class OversizeHandling:
+    """OversizeHandling enum values."""
+
+    CONTINUE = "CONTINUE"
+    MATCH = "MATCH"
+    NO_MATCH = "NO_MATCH"
+
+
+class ParameterExceptionField:
+    """ParameterExceptionField enum values."""
+
+    WEB_ACL = "WEB_ACL"
+    RULE_GROUP = "RULE_GROUP"
+    REGEX_PATTERN_SET = "REGEX_PATTERN_SET"
+    IP_SET = "IP_SET"
+    MANAGED_RULE_SET = "MANAGED_RULE_SET"
+    RULE = "RULE"
+    EXCLUDED_RULE = "EXCLUDED_RULE"
+    STATEMENT = "STATEMENT"
+    BYTE_MATCH_STATEMENT = "BYTE_MATCH_STATEMENT"
+    SQLI_MATCH_STATEMENT = "SQLI_MATCH_STATEMENT"
+    XSS_MATCH_STATEMENT = "XSS_MATCH_STATEMENT"
+    SIZE_CONSTRAINT_STATEMENT = "SIZE_CONSTRAINT_STATEMENT"
+    GEO_MATCH_STATEMENT = "GEO_MATCH_STATEMENT"
+    RATE_BASED_STATEMENT = "RATE_BASED_STATEMENT"
+    RULE_GROUP_REFERENCE_STATEMENT = "RULE_GROUP_REFERENCE_STATEMENT"
+    REGEX_PATTERN_REFERENCE_STATEMENT = "REGEX_PATTERN_REFERENCE_STATEMENT"
+    IP_SET_REFERENCE_STATEMENT = "IP_SET_REFERENCE_STATEMENT"
+    MANAGED_RULE_SET_STATEMENT = "MANAGED_RULE_SET_STATEMENT"
+    LABEL_MATCH_STATEMENT = "LABEL_MATCH_STATEMENT"
+    AND_STATEMENT = "AND_STATEMENT"
+    OR_STATEMENT = "OR_STATEMENT"
+    NOT_STATEMENT = "NOT_STATEMENT"
+    IP_ADDRESS = "IP_ADDRESS"
+    IP_ADDRESS_VERSION = "IP_ADDRESS_VERSION"
+    FIELD_TO_MATCH = "FIELD_TO_MATCH"
+    TEXT_TRANSFORMATION = "TEXT_TRANSFORMATION"
+    SINGLE_QUERY_ARGUMENT = "SINGLE_QUERY_ARGUMENT"
+    SINGLE_HEADER = "SINGLE_HEADER"
+    DEFAULT_ACTION = "DEFAULT_ACTION"
+    RULE_ACTION = "RULE_ACTION"
+    ENTITY_LIMIT = "ENTITY_LIMIT"
+    OVERRIDE_ACTION = "OVERRIDE_ACTION"
+    SCOPE_VALUE = "SCOPE_VALUE"
+    RESOURCE_ARN = "RESOURCE_ARN"
+    RESOURCE_TYPE = "RESOURCE_TYPE"
+    TAGS = "TAGS"
+    TAG_KEYS = "TAG_KEYS"
+    METRIC_NAME = "METRIC_NAME"
+    FIREWALL_MANAGER_STATEMENT = "FIREWALL_MANAGER_STATEMENT"
+    FALLBACK_BEHAVIOR = "FALLBACK_BEHAVIOR"
+    POSITION = "POSITION"
+    FORWARDED_IP_CONFIG = "FORWARDED_IP_CONFIG"
+    IP_SET_FORWARDED_IP_CONFIG = "IP_SET_FORWARDED_IP_CONFIG"
+    HEADER_NAME = "HEADER_NAME"
+    CUSTOM_REQUEST_HANDLING = "CUSTOM_REQUEST_HANDLING"
+    RESPONSE_CONTENT_TYPE = "RESPONSE_CONTENT_TYPE"
+    CUSTOM_RESPONSE = "CUSTOM_RESPONSE"
+    CUSTOM_RESPONSE_BODY = "CUSTOM_RESPONSE_BODY"
+    JSON_MATCH_PATTERN = "JSON_MATCH_PATTERN"
+    JSON_MATCH_SCOPE = "JSON_MATCH_SCOPE"
+    BODY_PARSING_FALLBACK_BEHAVIOR = "BODY_PARSING_FALLBACK_BEHAVIOR"
+    LOGGING_FILTER = "LOGGING_FILTER"
+    FILTER_CONDITION = "FILTER_CONDITION"
+    EXPIRE_TIMESTAMP = "EXPIRE_TIMESTAMP"
+    CHANGE_PROPAGATION_STATUS = "CHANGE_PROPAGATION_STATUS"
+    ASSOCIABLE_RESOURCE = "ASSOCIABLE_RESOURCE"
+    LOG_DESTINATION = "LOG_DESTINATION"
+    MANAGED_RULE_GROUP_CONFIG = "MANAGED_RULE_GROUP_CONFIG"
+    PAYLOAD_TYPE = "PAYLOAD_TYPE"
+    HEADER_MATCH_PATTERN = "HEADER_MATCH_PATTERN"
+    COOKIE_MATCH_PATTERN = "COOKIE_MATCH_PATTERN"
+    MAP_MATCH_SCOPE = "MAP_MATCH_SCOPE"
+    OVERSIZE_HANDLING = "OVERSIZE_HANDLING"
+    CHALLENGE_CONFIG = "CHALLENGE_CONFIG"
+    TOKEN_DOMAIN = "TOKEN_DOMAIN"
+    ATP_RULE_SET_RESPONSE_INSPECTION = "ATP_RULE_SET_RESPONSE_INSPECTION"
+    ASSOCIATED_RESOURCE_TYPE = "ASSOCIATED_RESOURCE_TYPE"
+    SCOPE_DOWN = "SCOPE_DOWN"
+    CUSTOM_KEYS = "CUSTOM_KEYS"
+    ACP_RULE_SET_RESPONSE_INSPECTION = "ACP_RULE_SET_RESPONSE_INSPECTION"
+    DATA_PROTECTION_CONFIG = "DATA_PROTECTION_CONFIG"
+    LOW_REPUTATION_MODE = "LOW_REPUTATION_MODE"
+
+
+class PayloadType:
+    """PayloadType enum values."""
+
+    JSON = "JSON"
+    FORM_ENCODED = "FORM_ENCODED"
+
+
+class Platform:
+    """Platform enum values."""
+
+    IOS = "IOS"
+    ANDROID = "ANDROID"
+
+
+class PositionalConstraint:
+    """PositionalConstraint enum values."""
+
+    EXACTLY = "EXACTLY"
+    STARTS_WITH = "STARTS_WITH"
+    ENDS_WITH = "ENDS_WITH"
+    CONTAINS = "CONTAINS"
+    CONTAINS_WORD = "CONTAINS_WORD"
+
+
+class RateBasedStatementAggregateKeyType:
+    """RateBasedStatementAggregateKeyType enum values."""
+
+    IP = "IP"
+    FORWARDED_IP = "FORWARDED_IP"
+    CUSTOM_KEYS = "CUSTOM_KEYS"
+    CONSTANT = "CONSTANT"
+
+
+class ResourceType:
+    """ResourceType enum values."""
+
+    APPLICATION_LOAD_BALANCER = "APPLICATION_LOAD_BALANCER"
+    API_GATEWAY = "API_GATEWAY"
+    APPSYNC = "APPSYNC"
+    COGNITO_USER_POOL = "COGNITO_USER_POOL"
+    APP_RUNNER_SERVICE = "APP_RUNNER_SERVICE"
+    VERIFIED_ACCESS_INSTANCE = "VERIFIED_ACCESS_INSTANCE"
+    AMPLIFY = "AMPLIFY"
+
+
+class ResponseContentType:
+    """ResponseContentType enum values."""
+
+    TEXT_PLAIN = "TEXT_PLAIN"
+    TEXT_HTML = "TEXT_HTML"
+    APPLICATION_JSON = "APPLICATION_JSON"
+
+
+class Scope:
+    """Scope enum values."""
+
+    CLOUDFRONT = "CLOUDFRONT"
+    REGIONAL = "REGIONAL"
+
+
+class SensitivityLevel:
+    """SensitivityLevel enum values."""
+
+    LOW = "LOW"
+    HIGH = "HIGH"
+
+
+class SensitivityToAct:
+    """SensitivityToAct enum values."""
+
+    LOW = "LOW"
+    MEDIUM = "MEDIUM"
+    HIGH = "HIGH"
+
+
+class SizeInspectionLimit:
+    """SizeInspectionLimit enum values."""
+
+    KB_16 = "KB_16"
+    KB_32 = "KB_32"
+    KB_48 = "KB_48"
+    KB_64 = "KB_64"
+
+
+class TextTransformationType:
+    """TextTransformationType enum values."""
+
+    NONE = "NONE"
+    COMPRESS_WHITE_SPACE = "COMPRESS_WHITE_SPACE"
+    HTML_ENTITY_DECODE = "HTML_ENTITY_DECODE"
+    LOWERCASE = "LOWERCASE"
+    CMD_LINE = "CMD_LINE"
+    URL_DECODE = "URL_DECODE"
+    BASE64_DECODE = "BASE64_DECODE"
+    HEX_DECODE = "HEX_DECODE"
+    MD5 = "MD5"
+    REPLACE_COMMENTS = "REPLACE_COMMENTS"
+    ESCAPE_SEQ_DECODE = "ESCAPE_SEQ_DECODE"
+    SQL_HEX_DECODE = "SQL_HEX_DECODE"
+    CSS_DECODE = "CSS_DECODE"
+    JS_DECODE = "JS_DECODE"
+    NORMALIZE_PATH = "NORMALIZE_PATH"
+    NORMALIZE_PATH_WIN = "NORMALIZE_PATH_WIN"
+    REMOVE_NULLS = "REMOVE_NULLS"
+    REPLACE_NULLS = "REPLACE_NULLS"
+    BASE64_DECODE_EXT = "BASE64_DECODE_EXT"
+    URL_DECODE_UNI = "URL_DECODE_UNI"
+    UTF8_TO_UNICODE = "UTF8_TO_UNICODE"
+
+
+class UsageOfAction:
+    """UsageOfAction enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+# Convenient aliases for enum values
+ALLOW = ActionValue.ALLOW
+BLOCK = ActionValue.BLOCK
+COUNT = ActionValue.COUNT
+CAPTCHA = ActionValue.CAPTCHA
+CHALLENGE = ActionValue.CHALLENGE
+EXCLUDED_AS_COUNT = ActionValue.EXCLUDED_AS_COUNT
+CLOUDFRONT = AssociatedResourceType.CLOUDFRONT
+API_GATEWAY = AssociatedResourceType.API_GATEWAY
+COGNITO_USER_POOL = AssociatedResourceType.COGNITO_USER_POOL
+APP_RUNNER_SERVICE = AssociatedResourceType.APP_RUNNER_SERVICE
+VERIFIED_ACCESS_INSTANCE = AssociatedResourceType.VERIFIED_ACCESS_INSTANCE
+MATCH = BodyParsingFallbackBehavior.MATCH
+NO_MATCH = BodyParsingFallbackBehavior.NO_MATCH
+EVALUATE_AS_STRING = BodyParsingFallbackBehavior.EVALUATE_AS_STRING
+EQ = ComparisonOperator.EQ
+NE = ComparisonOperator.NE
+LE = ComparisonOperator.LE
+LT = ComparisonOperator.LT
+GE = ComparisonOperator.GE
+GT = ComparisonOperator.GT
+AF = CountryCode.AF
+AX = CountryCode.AX
+AL = CountryCode.AL
+DZ = CountryCode.DZ
+AS = CountryCode.AS
+AD = CountryCode.AD
+AO = CountryCode.AO
+AI = CountryCode.AI
+AQ = CountryCode.AQ
+AG = CountryCode.AG
+AR = CountryCode.AR
+AM = CountryCode.AM
+AW = CountryCode.AW
+AU = CountryCode.AU
+AT = CountryCode.AT
+AZ = CountryCode.AZ
+BS = CountryCode.BS
+BH = CountryCode.BH
+BD = CountryCode.BD
+BB = CountryCode.BB
+BY = CountryCode.BY
+BE = CountryCode.BE
+BZ = CountryCode.BZ
+BJ = CountryCode.BJ
+BM = CountryCode.BM
+BT = CountryCode.BT
+BO = CountryCode.BO
+BQ = CountryCode.BQ
+BA = CountryCode.BA
+BW = CountryCode.BW
+BV = CountryCode.BV
+BR = CountryCode.BR
+IO = CountryCode.IO
+BN = CountryCode.BN
+BG = CountryCode.BG
+BF = CountryCode.BF
+BI = CountryCode.BI
+KH = CountryCode.KH
+CM = CountryCode.CM
+CA = CountryCode.CA
+CV = CountryCode.CV
+KY = CountryCode.KY
+CF = CountryCode.CF
+TD = CountryCode.TD
+CL = CountryCode.CL
+CN = CountryCode.CN
+CX = CountryCode.CX
+CC = CountryCode.CC
+CO = CountryCode.CO
+KM = CountryCode.KM
+CG = CountryCode.CG
+CD = CountryCode.CD
+CK = CountryCode.CK
+CR = CountryCode.CR
+CI = CountryCode.CI
+HR = CountryCode.HR
+CU = CountryCode.CU
+CW = CountryCode.CW
+CY = CountryCode.CY
+CZ = CountryCode.CZ
+DK = CountryCode.DK
+DJ = CountryCode.DJ
+DM = CountryCode.DM
+DO = CountryCode.DO
+EC = CountryCode.EC
+EG = CountryCode.EG
+SV = CountryCode.SV
+GQ = CountryCode.GQ
+ER = CountryCode.ER
+EE = CountryCode.EE
+ET = CountryCode.ET
+FK = CountryCode.FK
+FO = CountryCode.FO
+FJ = CountryCode.FJ
+FI = CountryCode.FI
+FR = CountryCode.FR
+GF = CountryCode.GF
+PF = CountryCode.PF
+TF = CountryCode.TF
+GA = CountryCode.GA
+GM = CountryCode.GM
+GE = CountryCode.GE
+DE = CountryCode.DE
+GH = CountryCode.GH
+GI = CountryCode.GI
+GR = CountryCode.GR
+GL = CountryCode.GL
+GD = CountryCode.GD
+GP = CountryCode.GP
+GU = CountryCode.GU
+GT = CountryCode.GT
+GG = CountryCode.GG
+GN = CountryCode.GN
+GW = CountryCode.GW
+GY = CountryCode.GY
+HT = CountryCode.HT
+HM = CountryCode.HM
+VA = CountryCode.VA
+HN = CountryCode.HN
+HK = CountryCode.HK
+HU = CountryCode.HU
+IS = CountryCode.IS
+IN = CountryCode.IN
+ID = CountryCode.ID
+IR = CountryCode.IR
+IQ = CountryCode.IQ
+IE = CountryCode.IE
+IM = CountryCode.IM
+IL = CountryCode.IL
+IT = CountryCode.IT
+JM = CountryCode.JM
+JP = CountryCode.JP
+JE = CountryCode.JE
+JO = CountryCode.JO
+KZ = CountryCode.KZ
+KE = CountryCode.KE
+KI = CountryCode.KI
+KP = CountryCode.KP
+KR = CountryCode.KR
+KW = CountryCode.KW
+KG = CountryCode.KG
+LA = CountryCode.LA
+LV = CountryCode.LV
+LB = CountryCode.LB
+LS = CountryCode.LS
+LR = CountryCode.LR
+LY = CountryCode.LY
+LI = CountryCode.LI
+LT = CountryCode.LT
+LU = CountryCode.LU
+MO = CountryCode.MO
+MK = CountryCode.MK
+MG = CountryCode.MG
+MW = CountryCode.MW
+MY = CountryCode.MY
+MV = CountryCode.MV
+ML = CountryCode.ML
+MT = CountryCode.MT
+MH = CountryCode.MH
+MQ = CountryCode.MQ
+MR = CountryCode.MR
+MU = CountryCode.MU
+YT = CountryCode.YT
+MX = CountryCode.MX
+FM = CountryCode.FM
+MD = CountryCode.MD
+MC = CountryCode.MC
+MN = CountryCode.MN
+ME = CountryCode.ME
+MS = CountryCode.MS
+MA = CountryCode.MA
+MZ = CountryCode.MZ
+MM = CountryCode.MM
+NA = CountryCode.NA
+NR = CountryCode.NR
+NP = CountryCode.NP
+NL = CountryCode.NL
+NC = CountryCode.NC
+NZ = CountryCode.NZ
+NI = CountryCode.NI
+NE = CountryCode.NE
+NG = CountryCode.NG
+NU = CountryCode.NU
+NF = CountryCode.NF
+MP = CountryCode.MP
+NO = CountryCode.NO
+OM = CountryCode.OM
+PK = CountryCode.PK
+PW = CountryCode.PW
+PS = CountryCode.PS
+PA = CountryCode.PA
+PG = CountryCode.PG
+PY = CountryCode.PY
+PE = CountryCode.PE
+PH = CountryCode.PH
+PN = CountryCode.PN
+PL = CountryCode.PL
+PT = CountryCode.PT
+PR = CountryCode.PR
+QA = CountryCode.QA
+RE = CountryCode.RE
+RO = CountryCode.RO
+RU = CountryCode.RU
+RW = CountryCode.RW
+BL = CountryCode.BL
+SH = CountryCode.SH
+KN = CountryCode.KN
+LC = CountryCode.LC
+MF = CountryCode.MF
+PM = CountryCode.PM
+VC = CountryCode.VC
+WS = CountryCode.WS
+SM = CountryCode.SM
+ST = CountryCode.ST
+SA = CountryCode.SA
+SN = CountryCode.SN
+RS = CountryCode.RS
+SC = CountryCode.SC
+SL = CountryCode.SL
+SG = CountryCode.SG
+SX = CountryCode.SX
+SK = CountryCode.SK
+SI = CountryCode.SI
+SB = CountryCode.SB
+SO = CountryCode.SO
+ZA = CountryCode.ZA
+GS = CountryCode.GS
+SS = CountryCode.SS
+ES = CountryCode.ES
+LK = CountryCode.LK
+SD = CountryCode.SD
+SR = CountryCode.SR
+SJ = CountryCode.SJ
+SZ = CountryCode.SZ
+SE = CountryCode.SE
+CH = CountryCode.CH
+SY = CountryCode.SY
+TW = CountryCode.TW
+TJ = CountryCode.TJ
+TZ = CountryCode.TZ
+TH = CountryCode.TH
+TL = CountryCode.TL
+TG = CountryCode.TG
+TK = CountryCode.TK
+TO = CountryCode.TO
+TT = CountryCode.TT
+TN = CountryCode.TN
+TR = CountryCode.TR
+TM = CountryCode.TM
+TC = CountryCode.TC
+TV = CountryCode.TV
+UG = CountryCode.UG
+UA = CountryCode.UA
+AE = CountryCode.AE
+GB = CountryCode.GB
+US = CountryCode.US
+UM = CountryCode.UM
+UY = CountryCode.UY
+UZ = CountryCode.UZ
+VU = CountryCode.VU
+VE = CountryCode.VE
+VN = CountryCode.VN
+VG = CountryCode.VG
+VI = CountryCode.VI
+WF = CountryCode.WF
+EH = CountryCode.EH
+YE = CountryCode.YE
+ZM = CountryCode.ZM
+ZW = CountryCode.ZW
+XK = CountryCode.XK
+SUBSTITUTION = DataProtectionAction.SUBSTITUTION
+HASH = DataProtectionAction.HASH
+TOKEN_MISSING = FailureReason.TOKEN_MISSING
+TOKEN_EXPIRED = FailureReason.TOKEN_EXPIRED
+TOKEN_INVALID = FailureReason.TOKEN_INVALID
+TOKEN_DOMAIN_MISMATCH = FailureReason.TOKEN_DOMAIN_MISMATCH
+MATCH = FallbackBehavior.MATCH
+NO_MATCH = FallbackBehavior.NO_MATCH
+SINGLE_HEADER = FieldToProtectType.SINGLE_HEADER
+SINGLE_COOKIE = FieldToProtectType.SINGLE_COOKIE
+SINGLE_QUERY_ARGUMENT = FieldToProtectType.SINGLE_QUERY_ARGUMENT
+QUERY_STRING = FieldToProtectType.QUERY_STRING
+BODY = FieldToProtectType.BODY
+KEEP = FilterBehavior.KEEP
+DROP = FilterBehavior.DROP
+MEETS_ALL = FilterRequirement.MEETS_ALL
+MEETS_ANY = FilterRequirement.MEETS_ANY
+FIRST = ForwardedIPPosition.FIRST
+LAST = ForwardedIPPosition.LAST
+ANY = ForwardedIPPosition.ANY
+IPV4 = IPAddressVersion.IPV4
+IPV6 = IPAddressVersion.IPV6
+COMMON = InspectionLevel.COMMON
+TARGETED = InspectionLevel.TARGETED
+ALL = JsonMatchScope.ALL
+KEY = JsonMatchScope.KEY
+VALUE = JsonMatchScope.VALUE
+LABEL = LabelMatchScope.LABEL
+NAMESPACE = LabelMatchScope.NAMESPACE
+CUSTOMER = LogScope.CUSTOMER
+SECURITY_LAKE = LogScope.SECURITY_LAKE
+CLOUDWATCH_TELEMETRY_RULE_MANAGED = LogScope.CLOUDWATCH_TELEMETRY_RULE_MANAGED
+WAF_LOGS = LogType.WAF_LOGS
+ACTIVE_UNDER_DDOS = LowReputationMode.ACTIVE_UNDER_DDOS
+ALWAYS_ON = LowReputationMode.ALWAYS_ON
+ALL = MapMatchScope.ALL
+KEY = MapMatchScope.KEY
+VALUE = MapMatchScope.VALUE
+CONTINUE = OversizeHandling.CONTINUE
+MATCH = OversizeHandling.MATCH
+NO_MATCH = OversizeHandling.NO_MATCH
+WEB_ACL = ParameterExceptionField.WEB_ACL
+RULE_GROUP = ParameterExceptionField.RULE_GROUP
+REGEX_PATTERN_SET = ParameterExceptionField.REGEX_PATTERN_SET
+IP_SET = ParameterExceptionField.IP_SET
+MANAGED_RULE_SET = ParameterExceptionField.MANAGED_RULE_SET
+RULE = ParameterExceptionField.RULE
+EXCLUDED_RULE = ParameterExceptionField.EXCLUDED_RULE
+STATEMENT = ParameterExceptionField.STATEMENT
+BYTE_MATCH_STATEMENT = ParameterExceptionField.BYTE_MATCH_STATEMENT
+SQLI_MATCH_STATEMENT = ParameterExceptionField.SQLI_MATCH_STATEMENT
+XSS_MATCH_STATEMENT = ParameterExceptionField.XSS_MATCH_STATEMENT
+SIZE_CONSTRAINT_STATEMENT = ParameterExceptionField.SIZE_CONSTRAINT_STATEMENT
+GEO_MATCH_STATEMENT = ParameterExceptionField.GEO_MATCH_STATEMENT
+RATE_BASED_STATEMENT = ParameterExceptionField.RATE_BASED_STATEMENT
+RULE_GROUP_REFERENCE_STATEMENT = ParameterExceptionField.RULE_GROUP_REFERENCE_STATEMENT
+REGEX_PATTERN_REFERENCE_STATEMENT = ParameterExceptionField.REGEX_PATTERN_REFERENCE_STATEMENT
+IP_SET_REFERENCE_STATEMENT = ParameterExceptionField.IP_SET_REFERENCE_STATEMENT
+MANAGED_RULE_SET_STATEMENT = ParameterExceptionField.MANAGED_RULE_SET_STATEMENT
+LABEL_MATCH_STATEMENT = ParameterExceptionField.LABEL_MATCH_STATEMENT
+AND_STATEMENT = ParameterExceptionField.AND_STATEMENT
+OR_STATEMENT = ParameterExceptionField.OR_STATEMENT
+NOT_STATEMENT = ParameterExceptionField.NOT_STATEMENT
+IP_ADDRESS = ParameterExceptionField.IP_ADDRESS
+IP_ADDRESS_VERSION = ParameterExceptionField.IP_ADDRESS_VERSION
+FIELD_TO_MATCH = ParameterExceptionField.FIELD_TO_MATCH
+TEXT_TRANSFORMATION = ParameterExceptionField.TEXT_TRANSFORMATION
+SINGLE_QUERY_ARGUMENT = ParameterExceptionField.SINGLE_QUERY_ARGUMENT
+SINGLE_HEADER = ParameterExceptionField.SINGLE_HEADER
+DEFAULT_ACTION = ParameterExceptionField.DEFAULT_ACTION
+RULE_ACTION = ParameterExceptionField.RULE_ACTION
+ENTITY_LIMIT = ParameterExceptionField.ENTITY_LIMIT
+OVERRIDE_ACTION = ParameterExceptionField.OVERRIDE_ACTION
+SCOPE_VALUE = ParameterExceptionField.SCOPE_VALUE
+RESOURCE_ARN = ParameterExceptionField.RESOURCE_ARN
+RESOURCE_TYPE = ParameterExceptionField.RESOURCE_TYPE
+TAGS = ParameterExceptionField.TAGS
+TAG_KEYS = ParameterExceptionField.TAG_KEYS
+METRIC_NAME = ParameterExceptionField.METRIC_NAME
+FIREWALL_MANAGER_STATEMENT = ParameterExceptionField.FIREWALL_MANAGER_STATEMENT
+FALLBACK_BEHAVIOR = ParameterExceptionField.FALLBACK_BEHAVIOR
+POSITION = ParameterExceptionField.POSITION
+FORWARDED_IP_CONFIG = ParameterExceptionField.FORWARDED_IP_CONFIG
+IP_SET_FORWARDED_IP_CONFIG = ParameterExceptionField.IP_SET_FORWARDED_IP_CONFIG
+HEADER_NAME = ParameterExceptionField.HEADER_NAME
+CUSTOM_REQUEST_HANDLING = ParameterExceptionField.CUSTOM_REQUEST_HANDLING
+RESPONSE_CONTENT_TYPE = ParameterExceptionField.RESPONSE_CONTENT_TYPE
+CUSTOM_RESPONSE = ParameterExceptionField.CUSTOM_RESPONSE
+CUSTOM_RESPONSE_BODY = ParameterExceptionField.CUSTOM_RESPONSE_BODY
+JSON_MATCH_PATTERN = ParameterExceptionField.JSON_MATCH_PATTERN
+JSON_MATCH_SCOPE = ParameterExceptionField.JSON_MATCH_SCOPE
+BODY_PARSING_FALLBACK_BEHAVIOR = ParameterExceptionField.BODY_PARSING_FALLBACK_BEHAVIOR
+LOGGING_FILTER = ParameterExceptionField.LOGGING_FILTER
+FILTER_CONDITION = ParameterExceptionField.FILTER_CONDITION
+EXPIRE_TIMESTAMP = ParameterExceptionField.EXPIRE_TIMESTAMP
+CHANGE_PROPAGATION_STATUS = ParameterExceptionField.CHANGE_PROPAGATION_STATUS
+ASSOCIABLE_RESOURCE = ParameterExceptionField.ASSOCIABLE_RESOURCE
+LOG_DESTINATION = ParameterExceptionField.LOG_DESTINATION
+MANAGED_RULE_GROUP_CONFIG = ParameterExceptionField.MANAGED_RULE_GROUP_CONFIG
+PAYLOAD_TYPE = ParameterExceptionField.PAYLOAD_TYPE
+HEADER_MATCH_PATTERN = ParameterExceptionField.HEADER_MATCH_PATTERN
+COOKIE_MATCH_PATTERN = ParameterExceptionField.COOKIE_MATCH_PATTERN
+MAP_MATCH_SCOPE = ParameterExceptionField.MAP_MATCH_SCOPE
+OVERSIZE_HANDLING = ParameterExceptionField.OVERSIZE_HANDLING
+CHALLENGE_CONFIG = ParameterExceptionField.CHALLENGE_CONFIG
+TOKEN_DOMAIN = ParameterExceptionField.TOKEN_DOMAIN
+ATP_RULE_SET_RESPONSE_INSPECTION = ParameterExceptionField.ATP_RULE_SET_RESPONSE_INSPECTION
+ASSOCIATED_RESOURCE_TYPE = ParameterExceptionField.ASSOCIATED_RESOURCE_TYPE
+SCOPE_DOWN = ParameterExceptionField.SCOPE_DOWN
+CUSTOM_KEYS = ParameterExceptionField.CUSTOM_KEYS
+ACP_RULE_SET_RESPONSE_INSPECTION = ParameterExceptionField.ACP_RULE_SET_RESPONSE_INSPECTION
+DATA_PROTECTION_CONFIG = ParameterExceptionField.DATA_PROTECTION_CONFIG
+LOW_REPUTATION_MODE = ParameterExceptionField.LOW_REPUTATION_MODE
+JSON = PayloadType.JSON
+FORM_ENCODED = PayloadType.FORM_ENCODED
+IOS = Platform.IOS
+ANDROID = Platform.ANDROID
+EXACTLY = PositionalConstraint.EXACTLY
+STARTS_WITH = PositionalConstraint.STARTS_WITH
+ENDS_WITH = PositionalConstraint.ENDS_WITH
+CONTAINS = PositionalConstraint.CONTAINS
+CONTAINS_WORD = PositionalConstraint.CONTAINS_WORD
+IP = RateBasedStatementAggregateKeyType.IP
+FORWARDED_IP = RateBasedStatementAggregateKeyType.FORWARDED_IP
+CUSTOM_KEYS = RateBasedStatementAggregateKeyType.CUSTOM_KEYS
+CONSTANT = RateBasedStatementAggregateKeyType.CONSTANT
+APPLICATION_LOAD_BALANCER = ResourceType.APPLICATION_LOAD_BALANCER
+API_GATEWAY = ResourceType.API_GATEWAY
+APPSYNC = ResourceType.APPSYNC
+COGNITO_USER_POOL = ResourceType.COGNITO_USER_POOL
+APP_RUNNER_SERVICE = ResourceType.APP_RUNNER_SERVICE
+VERIFIED_ACCESS_INSTANCE = ResourceType.VERIFIED_ACCESS_INSTANCE
+AMPLIFY = ResourceType.AMPLIFY
+TEXT_PLAIN = ResponseContentType.TEXT_PLAIN
+TEXT_HTML = ResponseContentType.TEXT_HTML
+APPLICATION_JSON = ResponseContentType.APPLICATION_JSON
+CLOUDFRONT = Scope.CLOUDFRONT
+REGIONAL = Scope.REGIONAL
+LOW = SensitivityLevel.LOW
+HIGH = SensitivityLevel.HIGH
+LOW = SensitivityToAct.LOW
+MEDIUM = SensitivityToAct.MEDIUM
+HIGH = SensitivityToAct.HIGH
+KB_16 = SizeInspectionLimit.KB_16
+KB_32 = SizeInspectionLimit.KB_32
+KB_48 = SizeInspectionLimit.KB_48
+KB_64 = SizeInspectionLimit.KB_64
+NONE = TextTransformationType.NONE
+COMPRESS_WHITE_SPACE = TextTransformationType.COMPRESS_WHITE_SPACE
+HTML_ENTITY_DECODE = TextTransformationType.HTML_ENTITY_DECODE
+LOWERCASE = TextTransformationType.LOWERCASE
+CMD_LINE = TextTransformationType.CMD_LINE
+URL_DECODE = TextTransformationType.URL_DECODE
+BASE64_DECODE = TextTransformationType.BASE64_DECODE
+HEX_DECODE = TextTransformationType.HEX_DECODE
+MD5 = TextTransformationType.MD5
+REPLACE_COMMENTS = TextTransformationType.REPLACE_COMMENTS
+ESCAPE_SEQ_DECODE = TextTransformationType.ESCAPE_SEQ_DECODE
+SQL_HEX_DECODE = TextTransformationType.SQL_HEX_DECODE
+CSS_DECODE = TextTransformationType.CSS_DECODE
+JS_DECODE = TextTransformationType.JS_DECODE
+NORMALIZE_PATH = TextTransformationType.NORMALIZE_PATH
+NORMALIZE_PATH_WIN = TextTransformationType.NORMALIZE_PATH_WIN
+REMOVE_NULLS = TextTransformationType.REMOVE_NULLS
+REPLACE_NULLS = TextTransformationType.REPLACE_NULLS
+BASE64_DECODE_EXT = TextTransformationType.BASE64_DECODE_EXT
+URL_DECODE_UNI = TextTransformationType.URL_DECODE_UNI
+UTF8_TO_UNICODE = TextTransformationType.UTF8_TO_UNICODE
+ENABLED = UsageOfAction.ENABLED
+DISABLED = UsageOfAction.DISABLED
 
 
 @dataclass
@@ -38,7 +1095,7 @@ class IPSet(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     scope: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    ip_address_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    ip_address_version: Optional[Union[str, IPAddressVersion, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
@@ -141,7 +1198,7 @@ class ActionCondition:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    action: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    action: Optional[Union[str, ActionValue, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -268,9 +1325,9 @@ class Filter:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    requirement: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    requirement: Optional[Union[str, FilterRequirement, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    behavior: Optional[Union[str, FilterBehavior, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     conditions: Optional[list[Condition]] = None
 
@@ -346,7 +1403,7 @@ class LoggingFilter:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filters: Optional[list[Filter]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    default_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    default_behavior: Optional[Union[str, FilterBehavior, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -697,7 +1754,7 @@ class Body:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    oversize_handling: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    oversize_handling: Optional[Union[str, OversizeHandling, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -726,7 +1783,7 @@ class ByteMatchStatement:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformations: Optional[list[TextTransformation]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    positional_constraint: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    positional_constraint: Optional[Union[str, PositionalConstraint, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     search_string: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -950,11 +2007,11 @@ class Cookies:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    match_scope: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    match_scope: Optional[Union[str, MapMatchScope, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match_pattern: Optional[CookieMatchPattern] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    oversize_handling: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    oversize_handling: Optional[Union[str, OversizeHandling, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1140,7 +2197,7 @@ class CustomResponseBody:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    content_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    content_type: Optional[Union[str, ResponseContentType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     content: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -1486,11 +2543,11 @@ class Headers:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    match_scope: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    match_scope: Optional[Union[str, MapMatchScope, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match_pattern: Optional[HeaderMatchPattern] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    oversize_handling: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    oversize_handling: Optional[Union[str, OversizeHandling, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1651,7 +2708,7 @@ class JA3Fingerprint:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    fallback_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    fallback_behavior: Optional[Union[str, FallbackBehavior, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1676,7 +2733,7 @@ class JA4Fingerprint:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    fallback_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    fallback_behavior: Optional[Union[str, FallbackBehavior, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1701,13 +2758,13 @@ class JsonBody:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    match_scope: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    match_scope: Optional[Union[str, JsonMatchScope, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match_pattern: Optional[JsonMatchPattern] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    invalid_fallback_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    invalid_fallback_behavior: Optional[Union[str, BodyParsingFallbackBehavior, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    oversize_handling: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    oversize_handling: Optional[Union[str, OversizeHandling, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1828,7 +2885,7 @@ class LabelMatchStatement:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    scope: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    scope: Optional[Union[str, LabelMatchScope, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -1941,7 +2998,7 @@ class RateBasedStatement:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    aggregate_key_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    aggregate_key_type: Optional[Union[str, RateBasedStatementAggregateKeyType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_keys: Optional[list[RateBasedStatementCustomKey]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -2275,7 +3332,7 @@ class RateLimitJA3Fingerprint:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    fallback_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    fallback_behavior: Optional[Union[str, FallbackBehavior, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -2300,7 +3357,7 @@ class RateLimitJA4Fingerprint:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    fallback_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    fallback_behavior: Optional[Union[str, FallbackBehavior, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -2783,7 +3840,7 @@ class SizeConstraintStatement:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    comparison_operator: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    comparison_operator: Optional[Union[str, ComparisonOperator, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformations: Optional[list[TextTransformation]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -2847,7 +3904,7 @@ class SqliMatchStatement:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    sensitivity_level: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    sensitivity_level: Optional[Union[str, SensitivityLevel, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformations: Optional[list[TextTransformation]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -3092,7 +4149,7 @@ class TextTransformation:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    type_: Optional[Union[str, TextTransformationType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     priority: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
@@ -3130,7 +4187,7 @@ class UriFragment:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    fallback_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    fallback_behavior: Optional[Union[str, FallbackBehavior, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -3563,7 +4620,7 @@ class AWSManagedRulesAntiDDoSRuleSet:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_side_action_config: Optional[ClientSideActionConfig] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    sensitivity_to_block: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    sensitivity_to_block: Optional[Union[str, SensitivityToAct, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -3599,7 +4656,7 @@ class AWSManagedRulesBotControlRuleSet:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    inspection_level: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    inspection_level: Optional[Union[str, InspectionLevel, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_machine_learning: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
@@ -3838,7 +4895,7 @@ class Body:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    oversize_handling: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    oversize_handling: Optional[Union[str, OversizeHandling, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -3867,7 +4924,7 @@ class ByteMatchStatement:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformations: Optional[list[TextTransformation]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    positional_constraint: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    positional_constraint: Optional[Union[str, PositionalConstraint, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     search_string: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -4040,9 +5097,9 @@ class ClientSideAction:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    usage_of_action: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    usage_of_action: Optional[Union[str, UsageOfAction, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    sensitivity: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    sensitivity: Optional[Union[str, SensitivityToAct, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exempt_uri_regular_expressions: Optional[list[Regex]] = None
 
@@ -4167,11 +5224,11 @@ class Cookies:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    match_scope: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    match_scope: Optional[Union[str, MapMatchScope, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match_pattern: Optional[CookieMatchPattern] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    oversize_handling: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    oversize_handling: Optional[Union[str, OversizeHandling, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -4357,7 +5414,7 @@ class CustomResponseBody:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    content_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    content_type: Optional[Union[str, ResponseContentType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     content: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -4755,7 +5812,7 @@ class FieldToProtect:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_keys: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    field_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    field_type: Optional[Union[str, FieldToProtectType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -4918,11 +5975,11 @@ class Headers:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    match_scope: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    match_scope: Optional[Union[str, MapMatchScope, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match_pattern: Optional[HeaderMatchPattern] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    oversize_handling: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    oversize_handling: Optional[Union[str, OversizeHandling, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -5083,7 +6140,7 @@ class JA3Fingerprint:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    fallback_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    fallback_behavior: Optional[Union[str, FallbackBehavior, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -5108,7 +6165,7 @@ class JA4Fingerprint:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    fallback_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    fallback_behavior: Optional[Union[str, FallbackBehavior, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -5133,13 +6190,13 @@ class JsonBody:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    match_scope: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    match_scope: Optional[Union[str, JsonMatchScope, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match_pattern: Optional[JsonMatchPattern] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    invalid_fallback_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    invalid_fallback_behavior: Optional[Union[str, BodyParsingFallbackBehavior, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    oversize_handling: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    oversize_handling: Optional[Union[str, OversizeHandling, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -5260,7 +6317,7 @@ class LabelMatchStatement:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    scope: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    scope: Optional[Union[str, LabelMatchScope, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -5312,7 +6369,7 @@ class ManagedRuleGroupConfig:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_managed_rules_acfp_rule_set: Optional[AWSManagedRulesACFPRuleSet] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    payload_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    payload_type: Optional[Union[str, PayloadType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -5542,7 +6599,7 @@ class OnSourceDDoSProtectionConfig:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    alb_low_reputation_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    alb_low_reputation_mode: Optional[Union[str, LowReputationMode, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -5630,7 +6687,7 @@ class RateBasedStatement:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    aggregate_key_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    aggregate_key_type: Optional[Union[str, RateBasedStatementAggregateKeyType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_keys: Optional[list[RateBasedStatementCustomKey]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -5964,7 +7021,7 @@ class RateLimitJA3Fingerprint:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    fallback_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    fallback_behavior: Optional[Union[str, FallbackBehavior, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -5989,7 +7046,7 @@ class RateLimitJA4Fingerprint:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    fallback_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    fallback_behavior: Optional[Union[str, FallbackBehavior, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -6254,7 +7311,7 @@ class RequestBodyAssociatedResourceTypeConfig:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    default_size_inspection_limit: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    default_size_inspection_limit: Optional[Union[str, SizeInspectionLimit, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -6283,7 +7340,7 @@ class RequestInspection:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     password_field: Optional[FieldIdentifier] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    payload_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    payload_type: Optional[Union[str, PayloadType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -6338,7 +7395,7 @@ class RequestInspectionACFP:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     address_fields: Optional[list[FieldIdentifier]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    payload_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    payload_type: Optional[Union[str, PayloadType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     phone_number_fields: Optional[list[FieldIdentifier]] = None
 
@@ -7007,7 +8064,7 @@ class SizeConstraintStatement:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    comparison_operator: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    comparison_operator: Optional[Union[str, ComparisonOperator, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformations: Optional[list[TextTransformation]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -7071,7 +8128,7 @@ class SqliMatchStatement:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    sensitivity_level: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    sensitivity_level: Optional[Union[str, SensitivityLevel, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformations: Optional[list[TextTransformation]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -7342,7 +8399,7 @@ class TextTransformation:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    type_: Optional[Union[str, TextTransformationType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     priority: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
@@ -7380,7 +8437,7 @@ class UriFragment:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    fallback_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    fallback_behavior: Optional[Union[str, FallbackBehavior, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""

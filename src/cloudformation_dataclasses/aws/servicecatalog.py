@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:39
+  Generated: 2025-12-17 16:59:39
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ServiceCatalog
@@ -23,6 +23,424 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class AccessLevelFilterKey:
+    """AccessLevelFilterKey enum values."""
+
+    ACCOUNT = "Account"
+    ROLE = "Role"
+    USER = "User"
+
+
+class AccessStatus:
+    """AccessStatus enum values."""
+
+    ENABLED = "ENABLED"
+    UNDER_CHANGE = "UNDER_CHANGE"
+    DISABLED = "DISABLED"
+
+
+class ChangeAction:
+    """ChangeAction enum values."""
+
+    ADD = "ADD"
+    MODIFY = "MODIFY"
+    REMOVE = "REMOVE"
+
+
+class CopyOption:
+    """CopyOption enum values."""
+
+    COPYTAGS = "CopyTags"
+
+
+class CopyProductStatus:
+    """CopyProductStatus enum values."""
+
+    SUCCEEDED = "SUCCEEDED"
+    IN_PROGRESS = "IN_PROGRESS"
+    FAILED = "FAILED"
+
+
+class DescribePortfolioShareType:
+    """DescribePortfolioShareType enum values."""
+
+    ACCOUNT = "ACCOUNT"
+    ORGANIZATION = "ORGANIZATION"
+    ORGANIZATIONAL_UNIT = "ORGANIZATIONAL_UNIT"
+    ORGANIZATION_MEMBER_ACCOUNT = "ORGANIZATION_MEMBER_ACCOUNT"
+
+
+class EngineWorkflowStatus:
+    """EngineWorkflowStatus enum values."""
+
+    SUCCEEDED = "SUCCEEDED"
+    FAILED = "FAILED"
+
+
+class EvaluationType:
+    """EvaluationType enum values."""
+
+    STATIC = "STATIC"
+    DYNAMIC = "DYNAMIC"
+
+
+class LastSyncStatus:
+    """LastSyncStatus enum values."""
+
+    SUCCEEDED = "SUCCEEDED"
+    FAILED = "FAILED"
+
+
+class OrganizationNodeType:
+    """OrganizationNodeType enum values."""
+
+    ORGANIZATION = "ORGANIZATION"
+    ORGANIZATIONAL_UNIT = "ORGANIZATIONAL_UNIT"
+    ACCOUNT = "ACCOUNT"
+
+
+class PortfolioShareType:
+    """PortfolioShareType enum values."""
+
+    IMPORTED = "IMPORTED"
+    AWS_SERVICECATALOG = "AWS_SERVICECATALOG"
+    AWS_ORGANIZATIONS = "AWS_ORGANIZATIONS"
+
+
+class PrincipalType:
+    """PrincipalType enum values."""
+
+    IAM = "IAM"
+    IAM_PATTERN = "IAM_PATTERN"
+
+
+class ProductSource:
+    """ProductSource enum values."""
+
+    ACCOUNT = "ACCOUNT"
+
+
+class ProductType:
+    """ProductType enum values."""
+
+    CLOUD_FORMATION_TEMPLATE = "CLOUD_FORMATION_TEMPLATE"
+    MARKETPLACE = "MARKETPLACE"
+    TERRAFORM_OPEN_SOURCE = "TERRAFORM_OPEN_SOURCE"
+    TERRAFORM_CLOUD = "TERRAFORM_CLOUD"
+    EXTERNAL = "EXTERNAL"
+
+
+class ProductViewFilterBy:
+    """ProductViewFilterBy enum values."""
+
+    FULLTEXTSEARCH = "FullTextSearch"
+    OWNER = "Owner"
+    PRODUCTTYPE = "ProductType"
+    SOURCEPRODUCTID = "SourceProductId"
+
+
+class ProductViewSortBy:
+    """ProductViewSortBy enum values."""
+
+    TITLE = "Title"
+    VERSIONCOUNT = "VersionCount"
+    CREATIONDATE = "CreationDate"
+
+
+class PropertyKey:
+    """PropertyKey enum values."""
+
+    OWNER = "OWNER"
+    LAUNCH_ROLE = "LAUNCH_ROLE"
+
+
+class ProvisionedProductPlanStatus:
+    """ProvisionedProductPlanStatus enum values."""
+
+    CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS"
+    CREATE_SUCCESS = "CREATE_SUCCESS"
+    CREATE_FAILED = "CREATE_FAILED"
+    EXECUTE_IN_PROGRESS = "EXECUTE_IN_PROGRESS"
+    EXECUTE_SUCCESS = "EXECUTE_SUCCESS"
+    EXECUTE_FAILED = "EXECUTE_FAILED"
+
+
+class ProvisionedProductPlanType:
+    """ProvisionedProductPlanType enum values."""
+
+    CLOUDFORMATION = "CLOUDFORMATION"
+
+
+class ProvisionedProductStatus:
+    """ProvisionedProductStatus enum values."""
+
+    AVAILABLE = "AVAILABLE"
+    UNDER_CHANGE = "UNDER_CHANGE"
+    TAINTED = "TAINTED"
+    ERROR = "ERROR"
+    PLAN_IN_PROGRESS = "PLAN_IN_PROGRESS"
+
+
+class ProvisionedProductViewFilterBy:
+    """ProvisionedProductViewFilterBy enum values."""
+
+    SEARCHQUERY = "SearchQuery"
+
+
+class ProvisioningArtifactGuidance:
+    """ProvisioningArtifactGuidance enum values."""
+
+    DEFAULT = "DEFAULT"
+    DEPRECATED = "DEPRECATED"
+
+
+class ProvisioningArtifactPropertyName:
+    """ProvisioningArtifactPropertyName enum values."""
+
+    ID = "Id"
+
+
+class ProvisioningArtifactType:
+    """ProvisioningArtifactType enum values."""
+
+    CLOUD_FORMATION_TEMPLATE = "CLOUD_FORMATION_TEMPLATE"
+    MARKETPLACE_AMI = "MARKETPLACE_AMI"
+    MARKETPLACE_CAR = "MARKETPLACE_CAR"
+    TERRAFORM_OPEN_SOURCE = "TERRAFORM_OPEN_SOURCE"
+    TERRAFORM_CLOUD = "TERRAFORM_CLOUD"
+    EXTERNAL = "EXTERNAL"
+
+
+class RecordStatus:
+    """RecordStatus enum values."""
+
+    CREATED = "CREATED"
+    IN_PROGRESS = "IN_PROGRESS"
+    IN_PROGRESS_IN_ERROR = "IN_PROGRESS_IN_ERROR"
+    SUCCEEDED = "SUCCEEDED"
+    FAILED = "FAILED"
+
+
+class Replacement:
+    """Replacement enum values."""
+
+    TRUE = "TRUE"
+    FALSE = "FALSE"
+    CONDITIONAL = "CONDITIONAL"
+
+
+class RequiresRecreation:
+    """RequiresRecreation enum values."""
+
+    NEVER = "NEVER"
+    CONDITIONALLY = "CONDITIONALLY"
+    ALWAYS = "ALWAYS"
+
+
+class ResourceAttribute:
+    """ResourceAttribute enum values."""
+
+    PROPERTIES = "PROPERTIES"
+    METADATA = "METADATA"
+    CREATIONPOLICY = "CREATIONPOLICY"
+    UPDATEPOLICY = "UPDATEPOLICY"
+    DELETIONPOLICY = "DELETIONPOLICY"
+    TAGS = "TAGS"
+
+
+class ServiceActionAssociationErrorCode:
+    """ServiceActionAssociationErrorCode enum values."""
+
+    DUPLICATE_RESOURCE = "DUPLICATE_RESOURCE"
+    INTERNAL_FAILURE = "INTERNAL_FAILURE"
+    LIMIT_EXCEEDED = "LIMIT_EXCEEDED"
+    RESOURCE_NOT_FOUND = "RESOURCE_NOT_FOUND"
+    THROTTLING = "THROTTLING"
+    INVALID_PARAMETER = "INVALID_PARAMETER"
+
+
+class ServiceActionDefinitionKey:
+    """ServiceActionDefinitionKey enum values."""
+
+    NAME = "Name"
+    VERSION = "Version"
+    ASSUMEROLE = "AssumeRole"
+    PARAMETERS = "Parameters"
+
+
+class ServiceActionDefinitionType:
+    """ServiceActionDefinitionType enum values."""
+
+    SSM_AUTOMATION = "SSM_AUTOMATION"
+
+
+class ShareStatus:
+    """ShareStatus enum values."""
+
+    NOT_STARTED = "NOT_STARTED"
+    IN_PROGRESS = "IN_PROGRESS"
+    COMPLETED = "COMPLETED"
+    COMPLETED_WITH_ERRORS = "COMPLETED_WITH_ERRORS"
+    ERROR = "ERROR"
+
+
+class SortOrder:
+    """SortOrder enum values."""
+
+    ASCENDING = "ASCENDING"
+    DESCENDING = "DESCENDING"
+
+
+class SourceType:
+    """SourceType enum values."""
+
+    CODESTAR = "CODESTAR"
+
+
+class StackInstanceStatus:
+    """StackInstanceStatus enum values."""
+
+    CURRENT = "CURRENT"
+    OUTDATED = "OUTDATED"
+    INOPERABLE = "INOPERABLE"
+
+
+class StackSetOperationType:
+    """StackSetOperationType enum values."""
+
+    CREATE = "CREATE"
+    UPDATE = "UPDATE"
+    DELETE = "DELETE"
+
+
+class Status:
+    """Status enum values."""
+
+    AVAILABLE = "AVAILABLE"
+    CREATING = "CREATING"
+    FAILED = "FAILED"
+
+
+# Convenient aliases for enum values
+ACCOUNT = AccessLevelFilterKey.ACCOUNT
+ROLE = AccessLevelFilterKey.ROLE
+USER = AccessLevelFilterKey.USER
+ENABLED = AccessStatus.ENABLED
+UNDER_CHANGE = AccessStatus.UNDER_CHANGE
+DISABLED = AccessStatus.DISABLED
+ADD = ChangeAction.ADD
+MODIFY = ChangeAction.MODIFY
+REMOVE = ChangeAction.REMOVE
+COPYTAGS = CopyOption.COPYTAGS
+SUCCEEDED = CopyProductStatus.SUCCEEDED
+IN_PROGRESS = CopyProductStatus.IN_PROGRESS
+FAILED = CopyProductStatus.FAILED
+ACCOUNT = DescribePortfolioShareType.ACCOUNT
+ORGANIZATION = DescribePortfolioShareType.ORGANIZATION
+ORGANIZATIONAL_UNIT = DescribePortfolioShareType.ORGANIZATIONAL_UNIT
+ORGANIZATION_MEMBER_ACCOUNT = DescribePortfolioShareType.ORGANIZATION_MEMBER_ACCOUNT
+SUCCEEDED = EngineWorkflowStatus.SUCCEEDED
+FAILED = EngineWorkflowStatus.FAILED
+STATIC = EvaluationType.STATIC
+DYNAMIC = EvaluationType.DYNAMIC
+SUCCEEDED = LastSyncStatus.SUCCEEDED
+FAILED = LastSyncStatus.FAILED
+ORGANIZATION = OrganizationNodeType.ORGANIZATION
+ORGANIZATIONAL_UNIT = OrganizationNodeType.ORGANIZATIONAL_UNIT
+ACCOUNT = OrganizationNodeType.ACCOUNT
+IMPORTED = PortfolioShareType.IMPORTED
+AWS_SERVICECATALOG = PortfolioShareType.AWS_SERVICECATALOG
+AWS_ORGANIZATIONS = PortfolioShareType.AWS_ORGANIZATIONS
+IAM = PrincipalType.IAM
+IAM_PATTERN = PrincipalType.IAM_PATTERN
+ACCOUNT = ProductSource.ACCOUNT
+CLOUD_FORMATION_TEMPLATE = ProductType.CLOUD_FORMATION_TEMPLATE
+MARKETPLACE = ProductType.MARKETPLACE
+TERRAFORM_OPEN_SOURCE = ProductType.TERRAFORM_OPEN_SOURCE
+TERRAFORM_CLOUD = ProductType.TERRAFORM_CLOUD
+EXTERNAL = ProductType.EXTERNAL
+FULLTEXTSEARCH = ProductViewFilterBy.FULLTEXTSEARCH
+OWNER = ProductViewFilterBy.OWNER
+PRODUCTTYPE = ProductViewFilterBy.PRODUCTTYPE
+SOURCEPRODUCTID = ProductViewFilterBy.SOURCEPRODUCTID
+TITLE = ProductViewSortBy.TITLE
+VERSIONCOUNT = ProductViewSortBy.VERSIONCOUNT
+CREATIONDATE = ProductViewSortBy.CREATIONDATE
+OWNER = PropertyKey.OWNER
+LAUNCH_ROLE = PropertyKey.LAUNCH_ROLE
+CREATE_IN_PROGRESS = ProvisionedProductPlanStatus.CREATE_IN_PROGRESS
+CREATE_SUCCESS = ProvisionedProductPlanStatus.CREATE_SUCCESS
+CREATE_FAILED = ProvisionedProductPlanStatus.CREATE_FAILED
+EXECUTE_IN_PROGRESS = ProvisionedProductPlanStatus.EXECUTE_IN_PROGRESS
+EXECUTE_SUCCESS = ProvisionedProductPlanStatus.EXECUTE_SUCCESS
+EXECUTE_FAILED = ProvisionedProductPlanStatus.EXECUTE_FAILED
+CLOUDFORMATION = ProvisionedProductPlanType.CLOUDFORMATION
+AVAILABLE = ProvisionedProductStatus.AVAILABLE
+UNDER_CHANGE = ProvisionedProductStatus.UNDER_CHANGE
+TAINTED = ProvisionedProductStatus.TAINTED
+ERROR = ProvisionedProductStatus.ERROR
+PLAN_IN_PROGRESS = ProvisionedProductStatus.PLAN_IN_PROGRESS
+SEARCHQUERY = ProvisionedProductViewFilterBy.SEARCHQUERY
+DEFAULT = ProvisioningArtifactGuidance.DEFAULT
+DEPRECATED = ProvisioningArtifactGuidance.DEPRECATED
+ID = ProvisioningArtifactPropertyName.ID
+CLOUD_FORMATION_TEMPLATE = ProvisioningArtifactType.CLOUD_FORMATION_TEMPLATE
+MARKETPLACE_AMI = ProvisioningArtifactType.MARKETPLACE_AMI
+MARKETPLACE_CAR = ProvisioningArtifactType.MARKETPLACE_CAR
+TERRAFORM_OPEN_SOURCE = ProvisioningArtifactType.TERRAFORM_OPEN_SOURCE
+TERRAFORM_CLOUD = ProvisioningArtifactType.TERRAFORM_CLOUD
+EXTERNAL = ProvisioningArtifactType.EXTERNAL
+CREATED = RecordStatus.CREATED
+IN_PROGRESS = RecordStatus.IN_PROGRESS
+IN_PROGRESS_IN_ERROR = RecordStatus.IN_PROGRESS_IN_ERROR
+SUCCEEDED = RecordStatus.SUCCEEDED
+FAILED = RecordStatus.FAILED
+TRUE = Replacement.TRUE
+FALSE = Replacement.FALSE
+CONDITIONAL = Replacement.CONDITIONAL
+NEVER = RequiresRecreation.NEVER
+CONDITIONALLY = RequiresRecreation.CONDITIONALLY
+ALWAYS = RequiresRecreation.ALWAYS
+PROPERTIES = ResourceAttribute.PROPERTIES
+METADATA = ResourceAttribute.METADATA
+CREATIONPOLICY = ResourceAttribute.CREATIONPOLICY
+UPDATEPOLICY = ResourceAttribute.UPDATEPOLICY
+DELETIONPOLICY = ResourceAttribute.DELETIONPOLICY
+TAGS = ResourceAttribute.TAGS
+DUPLICATE_RESOURCE = ServiceActionAssociationErrorCode.DUPLICATE_RESOURCE
+INTERNAL_FAILURE = ServiceActionAssociationErrorCode.INTERNAL_FAILURE
+LIMIT_EXCEEDED = ServiceActionAssociationErrorCode.LIMIT_EXCEEDED
+RESOURCE_NOT_FOUND = ServiceActionAssociationErrorCode.RESOURCE_NOT_FOUND
+THROTTLING = ServiceActionAssociationErrorCode.THROTTLING
+INVALID_PARAMETER = ServiceActionAssociationErrorCode.INVALID_PARAMETER
+NAME = ServiceActionDefinitionKey.NAME
+VERSION = ServiceActionDefinitionKey.VERSION
+ASSUMEROLE = ServiceActionDefinitionKey.ASSUMEROLE
+PARAMETERS = ServiceActionDefinitionKey.PARAMETERS
+SSM_AUTOMATION = ServiceActionDefinitionType.SSM_AUTOMATION
+NOT_STARTED = ShareStatus.NOT_STARTED
+IN_PROGRESS = ShareStatus.IN_PROGRESS
+COMPLETED = ShareStatus.COMPLETED
+COMPLETED_WITH_ERRORS = ShareStatus.COMPLETED_WITH_ERRORS
+ERROR = ShareStatus.ERROR
+ASCENDING = SortOrder.ASCENDING
+DESCENDING = SortOrder.DESCENDING
+CODESTAR = SourceType.CODESTAR
+CURRENT = StackInstanceStatus.CURRENT
+OUTDATED = StackInstanceStatus.OUTDATED
+INOPERABLE = StackInstanceStatus.INOPERABLE
+CREATE = StackSetOperationType.CREATE
+UPDATE = StackSetOperationType.UPDATE
+DELETE = StackSetOperationType.DELETE
+AVAILABLE = Status.AVAILABLE
+CREATING = Status.CREATING
+FAILED = Status.FAILED
 
 
 @dataclass
@@ -164,7 +582,7 @@ class ProvisioningArtifactProperties:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ser"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    type_: Optional[Union[str, ProvisioningArtifactType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -241,7 +659,7 @@ class SourceConnection:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ser"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    type_: Optional[Union[str, SourceType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connection_parameters: Optional[ConnectionParameters] = None
 

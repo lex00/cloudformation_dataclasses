@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:29
+  Generated: 2025-12-17 16:59:37
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MSK
@@ -23,6 +23,221 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class BrokerAZDistribution:
+    """BrokerAZDistribution enum values."""
+
+    DEFAULT = "DEFAULT"
+
+
+class ClientBroker:
+    """ClientBroker enum values."""
+
+    TLS = "TLS"
+    TLS_PLAINTEXT = "TLS_PLAINTEXT"
+    PLAINTEXT = "PLAINTEXT"
+
+
+class ClusterState:
+    """ClusterState enum values."""
+
+    ACTIVE = "ACTIVE"
+    CREATING = "CREATING"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
+    HEALING = "HEALING"
+    MAINTENANCE = "MAINTENANCE"
+    REBOOTING_BROKER = "REBOOTING_BROKER"
+    UPDATING = "UPDATING"
+
+
+class ClusterType:
+    """ClusterType enum values."""
+
+    PROVISIONED = "PROVISIONED"
+    SERVERLESS = "SERVERLESS"
+
+
+class ConfigurationState:
+    """ConfigurationState enum values."""
+
+    ACTIVE = "ACTIVE"
+    DELETING = "DELETING"
+    DELETE_FAILED = "DELETE_FAILED"
+
+
+class CustomerActionStatus:
+    """CustomerActionStatus enum values."""
+
+    CRITICAL_ACTION_REQUIRED = "CRITICAL_ACTION_REQUIRED"
+    ACTION_RECOMMENDED = "ACTION_RECOMMENDED"
+    NONE = "NONE"
+
+
+class EnhancedMonitoring:
+    """EnhancedMonitoring enum values."""
+
+    DEFAULT = "DEFAULT"
+    PER_BROKER = "PER_BROKER"
+    PER_TOPIC_PER_BROKER = "PER_TOPIC_PER_BROKER"
+    PER_TOPIC_PER_PARTITION = "PER_TOPIC_PER_PARTITION"
+
+
+class KafkaVersionStatus:
+    """KafkaVersionStatus enum values."""
+
+    ACTIVE = "ACTIVE"
+    DEPRECATED = "DEPRECATED"
+
+
+class NodeType:
+    """NodeType enum values."""
+
+    BROKER = "BROKER"
+
+
+class RebalancingStatus:
+    """RebalancingStatus enum values."""
+
+    PAUSED = "PAUSED"
+    ACTIVE = "ACTIVE"
+
+
+class ReplicationStartingPositionType:
+    """ReplicationStartingPositionType enum values."""
+
+    LATEST = "LATEST"
+    EARLIEST = "EARLIEST"
+
+
+class ReplicationTopicNameConfigurationType:
+    """ReplicationTopicNameConfigurationType enum values."""
+
+    PREFIXED_WITH_SOURCE_CLUSTER_ALIAS = "PREFIXED_WITH_SOURCE_CLUSTER_ALIAS"
+    IDENTICAL = "IDENTICAL"
+
+
+class ReplicatorState:
+    """ReplicatorState enum values."""
+
+    RUNNING = "RUNNING"
+    CREATING = "CREATING"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
+
+
+class StorageMode:
+    """StorageMode enum values."""
+
+    LOCAL = "LOCAL"
+    TIERED = "TIERED"
+
+
+class TargetCompressionType:
+    """TargetCompressionType enum values."""
+
+    NONE = "NONE"
+    GZIP = "GZIP"
+    SNAPPY = "SNAPPY"
+    LZ4 = "LZ4"
+    ZSTD = "ZSTD"
+
+
+class TopicState:
+    """TopicState enum values."""
+
+    CREATING = "CREATING"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    ACTIVE = "ACTIVE"
+
+
+class UserIdentityType:
+    """UserIdentityType enum values."""
+
+    AWSACCOUNT = "AWSACCOUNT"
+    AWSSERVICE = "AWSSERVICE"
+
+
+class VpcConnectionState:
+    """VpcConnectionState enum values."""
+
+    CREATING = "CREATING"
+    AVAILABLE = "AVAILABLE"
+    INACTIVE = "INACTIVE"
+    DEACTIVATING = "DEACTIVATING"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
+    REJECTED = "REJECTED"
+    REJECTING = "REJECTING"
+
+
+# Convenient aliases for enum values
+DEFAULT = BrokerAZDistribution.DEFAULT
+TLS = ClientBroker.TLS
+TLS_PLAINTEXT = ClientBroker.TLS_PLAINTEXT
+PLAINTEXT = ClientBroker.PLAINTEXT
+ACTIVE = ClusterState.ACTIVE
+CREATING = ClusterState.CREATING
+DELETING = ClusterState.DELETING
+FAILED = ClusterState.FAILED
+HEALING = ClusterState.HEALING
+MAINTENANCE = ClusterState.MAINTENANCE
+REBOOTING_BROKER = ClusterState.REBOOTING_BROKER
+UPDATING = ClusterState.UPDATING
+PROVISIONED = ClusterType.PROVISIONED
+SERVERLESS = ClusterType.SERVERLESS
+ACTIVE = ConfigurationState.ACTIVE
+DELETING = ConfigurationState.DELETING
+DELETE_FAILED = ConfigurationState.DELETE_FAILED
+CRITICAL_ACTION_REQUIRED = CustomerActionStatus.CRITICAL_ACTION_REQUIRED
+ACTION_RECOMMENDED = CustomerActionStatus.ACTION_RECOMMENDED
+NONE = CustomerActionStatus.NONE
+DEFAULT = EnhancedMonitoring.DEFAULT
+PER_BROKER = EnhancedMonitoring.PER_BROKER
+PER_TOPIC_PER_BROKER = EnhancedMonitoring.PER_TOPIC_PER_BROKER
+PER_TOPIC_PER_PARTITION = EnhancedMonitoring.PER_TOPIC_PER_PARTITION
+ACTIVE = KafkaVersionStatus.ACTIVE
+DEPRECATED = KafkaVersionStatus.DEPRECATED
+BROKER = NodeType.BROKER
+PAUSED = RebalancingStatus.PAUSED
+ACTIVE = RebalancingStatus.ACTIVE
+LATEST = ReplicationStartingPositionType.LATEST
+EARLIEST = ReplicationStartingPositionType.EARLIEST
+PREFIXED_WITH_SOURCE_CLUSTER_ALIAS = ReplicationTopicNameConfigurationType.PREFIXED_WITH_SOURCE_CLUSTER_ALIAS
+IDENTICAL = ReplicationTopicNameConfigurationType.IDENTICAL
+RUNNING = ReplicatorState.RUNNING
+CREATING = ReplicatorState.CREATING
+UPDATING = ReplicatorState.UPDATING
+DELETING = ReplicatorState.DELETING
+FAILED = ReplicatorState.FAILED
+LOCAL = StorageMode.LOCAL
+TIERED = StorageMode.TIERED
+NONE = TargetCompressionType.NONE
+GZIP = TargetCompressionType.GZIP
+SNAPPY = TargetCompressionType.SNAPPY
+LZ4 = TargetCompressionType.LZ4
+ZSTD = TargetCompressionType.ZSTD
+CREATING = TopicState.CREATING
+UPDATING = TopicState.UPDATING
+DELETING = TopicState.DELETING
+ACTIVE = TopicState.ACTIVE
+AWSACCOUNT = UserIdentityType.AWSACCOUNT
+AWSSERVICE = UserIdentityType.AWSSERVICE
+CREATING = VpcConnectionState.CREATING
+AVAILABLE = VpcConnectionState.AVAILABLE
+INACTIVE = VpcConnectionState.INACTIVE
+DEACTIVATING = VpcConnectionState.DEACTIVATING
+DELETING = VpcConnectionState.DELETING
+FAILED = VpcConnectionState.FAILED
+REJECTED = VpcConnectionState.REJECTED
+REJECTING = VpcConnectionState.REJECTING
 
 
 @dataclass
@@ -134,7 +349,7 @@ class BrokerNodeGroupInfo:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     storage_info: Optional[StorageInfo] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    broker_az_distribution: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    broker_az_distribution: Optional[Union[str, BrokerAZDistribution, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -457,7 +672,7 @@ class EncryptionInTransit:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    client_broker: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    client_broker: Optional[Union[str, ClientBroker, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     in_cluster: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
@@ -797,7 +1012,7 @@ class Rebalancing:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    status: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    status: Optional[Union[str, RebalancingStatus, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1794,7 +2009,7 @@ class ReplicationInfo:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    target_compression_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    target_compression_type: Optional[Union[str, TargetCompressionType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     topic_replication: Optional[TopicReplication] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1871,7 +2086,7 @@ class ReplicationStartingPosition:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    type_: Optional[Union[str, ReplicationStartingPositionType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1896,7 +2111,7 @@ class ReplicationTopicNameConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    type_: Optional[Union[str, ReplicationTopicNameConfigurationType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""

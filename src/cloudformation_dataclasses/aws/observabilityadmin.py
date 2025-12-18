@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:32
+  Generated: 2025-12-17 16:59:38
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ObservabilityAdmin
@@ -23,6 +23,271 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class Action:
+    """Action enum values."""
+
+    ALLOW = "ALLOW"
+    BLOCK = "BLOCK"
+    COUNT = "COUNT"
+    CAPTCHA = "CAPTCHA"
+    CHALLENGE = "CHALLENGE"
+    EXCLUDED_AS_COUNT = "EXCLUDED_AS_COUNT"
+
+
+class CentralizationFailureReason:
+    """CentralizationFailureReason enum values."""
+
+    TRUSTED_ACCESS_NOT_ENABLED = "TRUSTED_ACCESS_NOT_ENABLED"
+    DESTINATION_ACCOUNT_NOT_IN_ORGANIZATION = "DESTINATION_ACCOUNT_NOT_IN_ORGANIZATION"
+    INTERNAL_SERVER_ERROR = "INTERNAL_SERVER_ERROR"
+
+
+class DestinationType:
+    """DestinationType enum values."""
+
+    CLOUD_WATCH_LOGS = "cloud-watch-logs"
+
+
+class EncryptedLogGroupStrategy:
+    """EncryptedLogGroupStrategy enum values."""
+
+    ALLOW = "ALLOW"
+    SKIP = "SKIP"
+
+
+class EncryptionConflictResolutionStrategy:
+    """EncryptionConflictResolutionStrategy enum values."""
+
+    ALLOW = "ALLOW"
+    SKIP = "SKIP"
+
+
+class EncryptionStrategy:
+    """EncryptionStrategy enum values."""
+
+    CUSTOMER_MANAGED = "CUSTOMER_MANAGED"
+    AWS_OWNED = "AWS_OWNED"
+
+
+class FilterBehavior:
+    """FilterBehavior enum values."""
+
+    KEEP = "KEEP"
+    DROP = "DROP"
+
+
+class FilterRequirement:
+    """FilterRequirement enum values."""
+
+    MEETS_ALL = "MEETS_ALL"
+    MEETS_ANY = "MEETS_ANY"
+
+
+class IntegrationStatus:
+    """IntegrationStatus enum values."""
+
+    ACTIVE = "ACTIVE"
+    DELETING = "DELETING"
+
+
+class LogType:
+    """LogType enum values."""
+
+    APPLICATION_LOGS = "APPLICATION_LOGS"
+    USAGE_LOGS = "USAGE_LOGS"
+
+
+class OutputFormat:
+    """OutputFormat enum values."""
+
+    PLAIN = "plain"
+    JSON = "json"
+
+
+class RecordFormat:
+    """RecordFormat enum values."""
+
+    STRING = "STRING"
+    JSON = "JSON"
+
+
+class ResourceType:
+    """ResourceType enum values."""
+
+    AWS_EC2_INSTANCE = "AWS::EC2::Instance"
+    AWS_EC2_VPC = "AWS::EC2::VPC"
+    AWS_LAMBDA_FUNCTION = "AWS::Lambda::Function"
+    AWS_CLOUDTRAIL = "AWS::CloudTrail"
+    AWS_EKS_CLUSTER = "AWS::EKS::Cluster"
+    AWS_WAFV2_WEBACL = "AWS::WAFv2::WebACL"
+    AWS_ELASTICLOADBALANCINGV2_LOADBALANCER = "AWS::ElasticLoadBalancingV2::LoadBalancer"
+    AWS_ROUTE53RESOLVER_RESOLVERENDPOINT = "AWS::Route53Resolver::ResolverEndpoint"
+    AWS_BEDROCKAGENTCORE_RUNTIME = "AWS::BedrockAgentCore::Runtime"
+    AWS_BEDROCKAGENTCORE_BROWSER = "AWS::BedrockAgentCore::Browser"
+    AWS_BEDROCKAGENTCORE_CODEINTERPRETER = "AWS::BedrockAgentCore::CodeInterpreter"
+
+
+class RuleHealth:
+    """RuleHealth enum values."""
+
+    HEALTHY = "Healthy"
+    UNHEALTHY = "Unhealthy"
+    PROVISIONING = "Provisioning"
+
+
+class SSEAlgorithm:
+    """SSEAlgorithm enum values."""
+
+    AWS_KMS = "aws:kms"
+    AES256 = "AES256"
+
+
+class Status:
+    """Status enum values."""
+
+    NOT_STARTED = "NOT_STARTED"
+    STARTING = "STARTING"
+    FAILED_START = "FAILED_START"
+    RUNNING = "RUNNING"
+    STOPPING = "STOPPING"
+    FAILED_STOP = "FAILED_STOP"
+    STOPPED = "STOPPED"
+
+
+class TelemetryEnrichmentStatus:
+    """TelemetryEnrichmentStatus enum values."""
+
+    RUNNING = "Running"
+    STOPPED = "Stopped"
+    IMPAIRED = "Impaired"
+
+
+class TelemetryPipelineStatus:
+    """TelemetryPipelineStatus enum values."""
+
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    CREATE_FAILED = "CREATE_FAILED"
+    UPDATE_FAILED = "UPDATE_FAILED"
+
+
+class TelemetrySourceType:
+    """TelemetrySourceType enum values."""
+
+    VPC_FLOW_LOGS = "VPC_FLOW_LOGS"
+    ROUTE53_RESOLVER_QUERY_LOGS = "ROUTE53_RESOLVER_QUERY_LOGS"
+    EKS_AUDIT_LOGS = "EKS_AUDIT_LOGS"
+    EKS_AUTHENTICATOR_LOGS = "EKS_AUTHENTICATOR_LOGS"
+    EKS_CONTROLLER_MANAGER_LOGS = "EKS_CONTROLLER_MANAGER_LOGS"
+    EKS_SCHEDULER_LOGS = "EKS_SCHEDULER_LOGS"
+    EKS_API_LOGS = "EKS_API_LOGS"
+
+
+class TelemetryState:
+    """TelemetryState enum values."""
+
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+    NOTAPPLICABLE = "NotApplicable"
+
+
+class TelemetryType:
+    """TelemetryType enum values."""
+
+    LOGS = "Logs"
+    METRICS = "Metrics"
+    TRACES = "Traces"
+
+
+class WAFLogType:
+    """WAFLogType enum values."""
+
+    WAF_LOGS = "WAF_LOGS"
+
+
+# Convenient aliases for enum values
+ALLOW = Action.ALLOW
+BLOCK = Action.BLOCK
+COUNT = Action.COUNT
+CAPTCHA = Action.CAPTCHA
+CHALLENGE = Action.CHALLENGE
+EXCLUDED_AS_COUNT = Action.EXCLUDED_AS_COUNT
+TRUSTED_ACCESS_NOT_ENABLED = CentralizationFailureReason.TRUSTED_ACCESS_NOT_ENABLED
+DESTINATION_ACCOUNT_NOT_IN_ORGANIZATION = CentralizationFailureReason.DESTINATION_ACCOUNT_NOT_IN_ORGANIZATION
+INTERNAL_SERVER_ERROR = CentralizationFailureReason.INTERNAL_SERVER_ERROR
+CLOUD_WATCH_LOGS = DestinationType.CLOUD_WATCH_LOGS
+ALLOW = EncryptedLogGroupStrategy.ALLOW
+SKIP = EncryptedLogGroupStrategy.SKIP
+ALLOW = EncryptionConflictResolutionStrategy.ALLOW
+SKIP = EncryptionConflictResolutionStrategy.SKIP
+CUSTOMER_MANAGED = EncryptionStrategy.CUSTOMER_MANAGED
+AWS_OWNED = EncryptionStrategy.AWS_OWNED
+KEEP = FilterBehavior.KEEP
+DROP = FilterBehavior.DROP
+MEETS_ALL = FilterRequirement.MEETS_ALL
+MEETS_ANY = FilterRequirement.MEETS_ANY
+ACTIVE = IntegrationStatus.ACTIVE
+DELETING = IntegrationStatus.DELETING
+APPLICATION_LOGS = LogType.APPLICATION_LOGS
+USAGE_LOGS = LogType.USAGE_LOGS
+PLAIN = OutputFormat.PLAIN
+JSON = OutputFormat.JSON
+STRING = RecordFormat.STRING
+JSON = RecordFormat.JSON
+AWS_EC2_INSTANCE = ResourceType.AWS_EC2_INSTANCE
+AWS_EC2_VPC = ResourceType.AWS_EC2_VPC
+AWS_LAMBDA_FUNCTION = ResourceType.AWS_LAMBDA_FUNCTION
+AWS_CLOUDTRAIL = ResourceType.AWS_CLOUDTRAIL
+AWS_EKS_CLUSTER = ResourceType.AWS_EKS_CLUSTER
+AWS_WAFV2_WEBACL = ResourceType.AWS_WAFV2_WEBACL
+AWS_ELASTICLOADBALANCINGV2_LOADBALANCER = ResourceType.AWS_ELASTICLOADBALANCINGV2_LOADBALANCER
+AWS_ROUTE53RESOLVER_RESOLVERENDPOINT = ResourceType.AWS_ROUTE53RESOLVER_RESOLVERENDPOINT
+AWS_BEDROCKAGENTCORE_RUNTIME = ResourceType.AWS_BEDROCKAGENTCORE_RUNTIME
+AWS_BEDROCKAGENTCORE_BROWSER = ResourceType.AWS_BEDROCKAGENTCORE_BROWSER
+AWS_BEDROCKAGENTCORE_CODEINTERPRETER = ResourceType.AWS_BEDROCKAGENTCORE_CODEINTERPRETER
+HEALTHY = RuleHealth.HEALTHY
+UNHEALTHY = RuleHealth.UNHEALTHY
+PROVISIONING = RuleHealth.PROVISIONING
+AWS_KMS = SSEAlgorithm.AWS_KMS
+AES256 = SSEAlgorithm.AES256
+NOT_STARTED = Status.NOT_STARTED
+STARTING = Status.STARTING
+FAILED_START = Status.FAILED_START
+RUNNING = Status.RUNNING
+STOPPING = Status.STOPPING
+FAILED_STOP = Status.FAILED_STOP
+STOPPED = Status.STOPPED
+RUNNING = TelemetryEnrichmentStatus.RUNNING
+STOPPED = TelemetryEnrichmentStatus.STOPPED
+IMPAIRED = TelemetryEnrichmentStatus.IMPAIRED
+CREATING = TelemetryPipelineStatus.CREATING
+ACTIVE = TelemetryPipelineStatus.ACTIVE
+UPDATING = TelemetryPipelineStatus.UPDATING
+DELETING = TelemetryPipelineStatus.DELETING
+CREATE_FAILED = TelemetryPipelineStatus.CREATE_FAILED
+UPDATE_FAILED = TelemetryPipelineStatus.UPDATE_FAILED
+VPC_FLOW_LOGS = TelemetrySourceType.VPC_FLOW_LOGS
+ROUTE53_RESOLVER_QUERY_LOGS = TelemetrySourceType.ROUTE53_RESOLVER_QUERY_LOGS
+EKS_AUDIT_LOGS = TelemetrySourceType.EKS_AUDIT_LOGS
+EKS_AUTHENTICATOR_LOGS = TelemetrySourceType.EKS_AUTHENTICATOR_LOGS
+EKS_CONTROLLER_MANAGER_LOGS = TelemetrySourceType.EKS_CONTROLLER_MANAGER_LOGS
+EKS_SCHEDULER_LOGS = TelemetrySourceType.EKS_SCHEDULER_LOGS
+EKS_API_LOGS = TelemetrySourceType.EKS_API_LOGS
+ENABLED = TelemetryState.ENABLED
+DISABLED = TelemetryState.DISABLED
+NOTAPPLICABLE = TelemetryState.NOTAPPLICABLE
+LOGS = TelemetryType.LOGS
+METRICS = TelemetryType.METRICS
+TRACES = TelemetryType.TRACES
+WAF_LOGS = WAFLogType.WAF_LOGS
 
 
 @dataclass
@@ -248,9 +513,9 @@ class LogsEncryptionConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    encryption_strategy: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    encryption_strategy: Optional[Union[str, EncryptionStrategy, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    encryption_conflict_resolution_strategy: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    encryption_conflict_resolution_strategy: Optional[Union[str, EncryptionConflictResolutionStrategy, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -297,7 +562,7 @@ class SourceLogsConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    encrypted_log_group_strategy: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    encrypted_log_group_strategy: Optional[Union[str, EncryptedLogGroupStrategy, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_group_selection_criteria: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -396,7 +661,7 @@ class ActionCondition:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    action: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    action: Optional[Union[str, Action, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -627,7 +892,7 @@ class ELBLoadBalancerLoggingParameters:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_delimiter: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    output_format: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    output_format: Optional[Union[str, OutputFormat, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -727,9 +992,9 @@ class Filter:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    requirement: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    requirement: Optional[Union[str, FilterRequirement, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    behavior: Optional[Union[str, FilterBehavior, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     conditions: Optional[list[Condition]] = None
 
@@ -805,7 +1070,7 @@ class LoggingFilter:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filters: Optional[list[Filter]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    default_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    default_behavior: Optional[Union[str, FilterBehavior, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -878,7 +1143,7 @@ class TelemetryDestinationConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     waf_logging_parameters: Optional[WAFLoggingParameters] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    destination_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    destination_type: Optional[Union[str, DestinationType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -977,9 +1242,9 @@ class TelemetryRule:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     selection_criteria: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    resource_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    resource_type: Optional[Union[str, ResourceType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    telemetry_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    telemetry_type: Optional[Union[str, TelemetryType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1114,7 +1379,7 @@ class WAFLoggingParameters:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     logging_filter: Optional[LoggingFilter] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    log_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    log_type: Optional[Union[str, WAFLogType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1387,7 +1652,7 @@ class TelemetryPipeline:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    status: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    status: Optional[Union[str, TelemetryPipelineStatus, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     last_update_time_stamp: Optional[Union[float, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1689,7 +1954,7 @@ class ActionCondition:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    action: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    action: Optional[Union[str, Action, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1920,7 +2185,7 @@ class ELBLoadBalancerLoggingParameters:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_delimiter: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    output_format: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    output_format: Optional[Union[str, OutputFormat, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -2020,9 +2285,9 @@ class Filter:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    requirement: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    requirement: Optional[Union[str, FilterRequirement, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    behavior: Optional[Union[str, FilterBehavior, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     conditions: Optional[list[Condition]] = None
 
@@ -2123,7 +2388,7 @@ class LoggingFilter:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filters: Optional[list[Filter]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    default_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    default_behavior: Optional[Union[str, FilterBehavior, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -2198,7 +2463,7 @@ class TelemetryDestinationConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_delivery_parameters: Optional[LogDeliveryParameters] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    destination_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    destination_type: Optional[Union[str, DestinationType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -2306,9 +2571,9 @@ class TelemetryRule:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     selection_criteria: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    resource_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    resource_type: Optional[Union[str, ResourceType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    telemetry_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    telemetry_type: Optional[Union[str, TelemetryType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -2432,7 +2697,7 @@ class WAFLoggingParameters:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     logging_filter: Optional[LoggingFilter] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    log_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    log_type: Optional[Union[str, WAFLogType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""

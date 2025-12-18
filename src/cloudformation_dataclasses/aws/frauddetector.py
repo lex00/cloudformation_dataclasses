@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:23
+  Generated: 2025-12-17 16:59:36
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service FraudDetector
@@ -23,6 +23,181 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class AsyncJobStatus:
+    """AsyncJobStatus enum values."""
+
+    IN_PROGRESS_INITIALIZING = "IN_PROGRESS_INITIALIZING"
+    IN_PROGRESS = "IN_PROGRESS"
+    CANCEL_IN_PROGRESS = "CANCEL_IN_PROGRESS"
+    CANCELED = "CANCELED"
+    COMPLETE = "COMPLETE"
+    FAILED = "FAILED"
+
+
+class DataSource:
+    """DataSource enum values."""
+
+    EVENT = "EVENT"
+    MODEL_SCORE = "MODEL_SCORE"
+    EXTERNAL_MODEL_SCORE = "EXTERNAL_MODEL_SCORE"
+
+
+class DataType:
+    """DataType enum values."""
+
+    STRING = "STRING"
+    INTEGER = "INTEGER"
+    FLOAT = "FLOAT"
+    BOOLEAN = "BOOLEAN"
+    DATETIME = "DATETIME"
+
+
+class DetectorVersionStatus:
+    """DetectorVersionStatus enum values."""
+
+    DRAFT = "DRAFT"
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
+
+
+class EventIngestion:
+    """EventIngestion enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class Language:
+    """Language enum values."""
+
+    DETECTORPL = "DETECTORPL"
+
+
+class ListUpdateMode:
+    """ListUpdateMode enum values."""
+
+    REPLACE = "REPLACE"
+    APPEND = "APPEND"
+    REMOVE = "REMOVE"
+
+
+class ModelEndpointStatus:
+    """ModelEndpointStatus enum values."""
+
+    ASSOCIATED = "ASSOCIATED"
+    DISSOCIATED = "DISSOCIATED"
+
+
+class ModelInputDataFormat:
+    """ModelInputDataFormat enum values."""
+
+    TEXT_CSV = "TEXT_CSV"
+    APPLICATION_JSON = "APPLICATION_JSON"
+
+
+class ModelOutputDataFormat:
+    """ModelOutputDataFormat enum values."""
+
+    TEXT_CSV = "TEXT_CSV"
+    APPLICATION_JSONLINES = "APPLICATION_JSONLINES"
+
+
+class ModelSource:
+    """ModelSource enum values."""
+
+    SAGEMAKER = "SAGEMAKER"
+
+
+class ModelTypeEnum:
+    """ModelTypeEnum enum values."""
+
+    ONLINE_FRAUD_INSIGHTS = "ONLINE_FRAUD_INSIGHTS"
+    TRANSACTION_FRAUD_INSIGHTS = "TRANSACTION_FRAUD_INSIGHTS"
+    ACCOUNT_TAKEOVER_INSIGHTS = "ACCOUNT_TAKEOVER_INSIGHTS"
+
+
+class ModelVersionStatus:
+    """ModelVersionStatus enum values."""
+
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
+    TRAINING_CANCELLED = "TRAINING_CANCELLED"
+
+
+class RuleExecutionMode:
+    """RuleExecutionMode enum values."""
+
+    ALL_MATCHED = "ALL_MATCHED"
+    FIRST_MATCHED = "FIRST_MATCHED"
+
+
+class TrainingDataSourceEnum:
+    """TrainingDataSourceEnum enum values."""
+
+    EXTERNAL_EVENTS = "EXTERNAL_EVENTS"
+    INGESTED_EVENTS = "INGESTED_EVENTS"
+
+
+class UnlabeledEventsTreatment:
+    """UnlabeledEventsTreatment enum values."""
+
+    IGNORE = "IGNORE"
+    FRAUD = "FRAUD"
+    LEGIT = "LEGIT"
+    AUTO = "AUTO"
+
+
+# Convenient aliases for enum values
+IN_PROGRESS_INITIALIZING = AsyncJobStatus.IN_PROGRESS_INITIALIZING
+IN_PROGRESS = AsyncJobStatus.IN_PROGRESS
+CANCEL_IN_PROGRESS = AsyncJobStatus.CANCEL_IN_PROGRESS
+CANCELED = AsyncJobStatus.CANCELED
+COMPLETE = AsyncJobStatus.COMPLETE
+FAILED = AsyncJobStatus.FAILED
+EVENT = DataSource.EVENT
+MODEL_SCORE = DataSource.MODEL_SCORE
+EXTERNAL_MODEL_SCORE = DataSource.EXTERNAL_MODEL_SCORE
+STRING = DataType.STRING
+INTEGER = DataType.INTEGER
+FLOAT = DataType.FLOAT
+BOOLEAN = DataType.BOOLEAN
+DATETIME = DataType.DATETIME
+DRAFT = DetectorVersionStatus.DRAFT
+ACTIVE = DetectorVersionStatus.ACTIVE
+INACTIVE = DetectorVersionStatus.INACTIVE
+ENABLED = EventIngestion.ENABLED
+DISABLED = EventIngestion.DISABLED
+DETECTORPL = Language.DETECTORPL
+REPLACE = ListUpdateMode.REPLACE
+APPEND = ListUpdateMode.APPEND
+REMOVE = ListUpdateMode.REMOVE
+ASSOCIATED = ModelEndpointStatus.ASSOCIATED
+DISSOCIATED = ModelEndpointStatus.DISSOCIATED
+TEXT_CSV = ModelInputDataFormat.TEXT_CSV
+APPLICATION_JSON = ModelInputDataFormat.APPLICATION_JSON
+TEXT_CSV = ModelOutputDataFormat.TEXT_CSV
+APPLICATION_JSONLINES = ModelOutputDataFormat.APPLICATION_JSONLINES
+SAGEMAKER = ModelSource.SAGEMAKER
+ONLINE_FRAUD_INSIGHTS = ModelTypeEnum.ONLINE_FRAUD_INSIGHTS
+TRANSACTION_FRAUD_INSIGHTS = ModelTypeEnum.TRANSACTION_FRAUD_INSIGHTS
+ACCOUNT_TAKEOVER_INSIGHTS = ModelTypeEnum.ACCOUNT_TAKEOVER_INSIGHTS
+ACTIVE = ModelVersionStatus.ACTIVE
+INACTIVE = ModelVersionStatus.INACTIVE
+TRAINING_CANCELLED = ModelVersionStatus.TRAINING_CANCELLED
+ALL_MATCHED = RuleExecutionMode.ALL_MATCHED
+FIRST_MATCHED = RuleExecutionMode.FIRST_MATCHED
+EXTERNAL_EVENTS = TrainingDataSourceEnum.EXTERNAL_EVENTS
+INGESTED_EVENTS = TrainingDataSourceEnum.INGESTED_EVENTS
+IGNORE = UnlabeledEventsTreatment.IGNORE
+FRAUD = UnlabeledEventsTreatment.FRAUD
+LEGIT = UnlabeledEventsTreatment.LEGIT
+AUTO = UnlabeledEventsTreatment.AUTO
 
 
 @dataclass

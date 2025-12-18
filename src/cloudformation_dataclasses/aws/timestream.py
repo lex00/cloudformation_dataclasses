@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:40
+  Generated: 2025-12-17 16:59:39
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Timestream
@@ -23,6 +23,127 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class BatchLoadDataFormat:
+    """BatchLoadDataFormat enum values."""
+
+    CSV = "CSV"
+
+
+class BatchLoadStatus:
+    """BatchLoadStatus enum values."""
+
+    CREATED = "CREATED"
+    IN_PROGRESS = "IN_PROGRESS"
+    FAILED = "FAILED"
+    SUCCEEDED = "SUCCEEDED"
+    PROGRESS_STOPPED = "PROGRESS_STOPPED"
+    PENDING_RESUME = "PENDING_RESUME"
+
+
+class DimensionValueType:
+    """DimensionValueType enum values."""
+
+    VARCHAR = "VARCHAR"
+
+
+class MeasureValueType:
+    """MeasureValueType enum values."""
+
+    DOUBLE = "DOUBLE"
+    BIGINT = "BIGINT"
+    VARCHAR = "VARCHAR"
+    BOOLEAN = "BOOLEAN"
+    TIMESTAMP = "TIMESTAMP"
+    MULTI = "MULTI"
+
+
+class PartitionKeyEnforcementLevel:
+    """PartitionKeyEnforcementLevel enum values."""
+
+    REQUIRED = "REQUIRED"
+    OPTIONAL = "OPTIONAL"
+
+
+class PartitionKeyType:
+    """PartitionKeyType enum values."""
+
+    DIMENSION = "DIMENSION"
+    MEASURE = "MEASURE"
+
+
+class S3EncryptionOption:
+    """S3EncryptionOption enum values."""
+
+    SSE_S3 = "SSE_S3"
+    SSE_KMS = "SSE_KMS"
+
+
+class ScalarMeasureValueType:
+    """ScalarMeasureValueType enum values."""
+
+    DOUBLE = "DOUBLE"
+    BIGINT = "BIGINT"
+    BOOLEAN = "BOOLEAN"
+    VARCHAR = "VARCHAR"
+    TIMESTAMP = "TIMESTAMP"
+
+
+class TableStatus:
+    """TableStatus enum values."""
+
+    ACTIVE = "ACTIVE"
+    DELETING = "DELETING"
+    RESTORING = "RESTORING"
+
+
+class TimeUnit:
+    """TimeUnit enum values."""
+
+    MILLISECONDS = "MILLISECONDS"
+    SECONDS = "SECONDS"
+    MICROSECONDS = "MICROSECONDS"
+    NANOSECONDS = "NANOSECONDS"
+
+
+# Convenient aliases for enum values
+CSV = BatchLoadDataFormat.CSV
+CREATED = BatchLoadStatus.CREATED
+IN_PROGRESS = BatchLoadStatus.IN_PROGRESS
+FAILED = BatchLoadStatus.FAILED
+SUCCEEDED = BatchLoadStatus.SUCCEEDED
+PROGRESS_STOPPED = BatchLoadStatus.PROGRESS_STOPPED
+PENDING_RESUME = BatchLoadStatus.PENDING_RESUME
+VARCHAR = DimensionValueType.VARCHAR
+DOUBLE = MeasureValueType.DOUBLE
+BIGINT = MeasureValueType.BIGINT
+VARCHAR = MeasureValueType.VARCHAR
+BOOLEAN = MeasureValueType.BOOLEAN
+TIMESTAMP = MeasureValueType.TIMESTAMP
+MULTI = MeasureValueType.MULTI
+REQUIRED = PartitionKeyEnforcementLevel.REQUIRED
+OPTIONAL = PartitionKeyEnforcementLevel.OPTIONAL
+DIMENSION = PartitionKeyType.DIMENSION
+MEASURE = PartitionKeyType.MEASURE
+SSE_S3 = S3EncryptionOption.SSE_S3
+SSE_KMS = S3EncryptionOption.SSE_KMS
+DOUBLE = ScalarMeasureValueType.DOUBLE
+BIGINT = ScalarMeasureValueType.BIGINT
+BOOLEAN = ScalarMeasureValueType.BOOLEAN
+VARCHAR = ScalarMeasureValueType.VARCHAR
+TIMESTAMP = ScalarMeasureValueType.TIMESTAMP
+ACTIVE = TableStatus.ACTIVE
+DELETING = TableStatus.DELETING
+RESTORING = TableStatus.RESTORING
+MILLISECONDS = TimeUnit.MILLISECONDS
+SECONDS = TimeUnit.SECONDS
+MICROSECONDS = TimeUnit.MICROSECONDS
+NANOSECONDS = TimeUnit.NANOSECONDS
 
 
 @dataclass
@@ -524,7 +645,7 @@ class MixedMeasureMapping:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_measure_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    measure_value_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    measure_value_type: Optional[Union[str, MeasureValueType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     multi_measure_attribute_mappings: Optional[list[MultiMeasureAttributeMapping]] = None
 
@@ -599,7 +720,7 @@ class MultiMeasureAttributeMapping:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_multi_measure_attribute_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    measure_value_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    measure_value_type: Optional[Union[str, ScalarMeasureValueType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -713,7 +834,7 @@ class S3Configuration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object_key_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    encryption_option: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    encryption_option: Optional[Union[str, S3EncryptionOption, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1207,9 +1328,9 @@ class PartitionKey:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    type_: Optional[Union[str, PartitionKeyType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    enforcement_in_record: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    enforcement_in_record: Optional[Union[str, PartitionKeyEnforcementLevel, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -1302,7 +1423,7 @@ class S3Configuration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object_key_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    encryption_option: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    encryption_option: Optional[Union[str, S3EncryptionOption, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:27
+  Generated: 2025-12-17 16:59:37
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service KafkaConnect
@@ -23,6 +23,152 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class ConnectorOperationState:
+    """ConnectorOperationState enum values."""
+
+    PENDING = "PENDING"
+    UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS"
+    UPDATE_COMPLETE = "UPDATE_COMPLETE"
+    UPDATE_FAILED = "UPDATE_FAILED"
+    ROLLBACK_IN_PROGRESS = "ROLLBACK_IN_PROGRESS"
+    ROLLBACK_FAILED = "ROLLBACK_FAILED"
+    ROLLBACK_COMPLETE = "ROLLBACK_COMPLETE"
+
+
+class ConnectorOperationStepState:
+    """ConnectorOperationStepState enum values."""
+
+    PENDING = "PENDING"
+    IN_PROGRESS = "IN_PROGRESS"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
+    CANCELLED = "CANCELLED"
+
+
+class ConnectorOperationStepType:
+    """ConnectorOperationStepType enum values."""
+
+    INITIALIZE_UPDATE = "INITIALIZE_UPDATE"
+    FINALIZE_UPDATE = "FINALIZE_UPDATE"
+    UPDATE_WORKER_SETTING = "UPDATE_WORKER_SETTING"
+    UPDATE_CONNECTOR_CONFIGURATION = "UPDATE_CONNECTOR_CONFIGURATION"
+    VALIDATE_UPDATE = "VALIDATE_UPDATE"
+
+
+class ConnectorOperationType:
+    """ConnectorOperationType enum values."""
+
+    UPDATE_WORKER_SETTING = "UPDATE_WORKER_SETTING"
+    UPDATE_CONNECTOR_CONFIGURATION = "UPDATE_CONNECTOR_CONFIGURATION"
+    ISOLATE_CONNECTOR = "ISOLATE_CONNECTOR"
+    RESTORE_CONNECTOR = "RESTORE_CONNECTOR"
+
+
+class ConnectorState:
+    """ConnectorState enum values."""
+
+    RUNNING = "RUNNING"
+    CREATING = "CREATING"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
+
+
+class CustomPluginContentType:
+    """CustomPluginContentType enum values."""
+
+    JAR = "JAR"
+    ZIP = "ZIP"
+
+
+class CustomPluginState:
+    """CustomPluginState enum values."""
+
+    CREATING = "CREATING"
+    CREATE_FAILED = "CREATE_FAILED"
+    ACTIVE = "ACTIVE"
+    UPDATING = "UPDATING"
+    UPDATE_FAILED = "UPDATE_FAILED"
+    DELETING = "DELETING"
+
+
+class KafkaClusterClientAuthenticationType:
+    """KafkaClusterClientAuthenticationType enum values."""
+
+    NONE = "NONE"
+    IAM = "IAM"
+
+
+class KafkaClusterEncryptionInTransitType:
+    """KafkaClusterEncryptionInTransitType enum values."""
+
+    PLAINTEXT = "PLAINTEXT"
+    TLS = "TLS"
+
+
+class NetworkType:
+    """NetworkType enum values."""
+
+    IPV4 = "IPV4"
+    DUAL = "DUAL"
+
+
+class WorkerConfigurationState:
+    """WorkerConfigurationState enum values."""
+
+    ACTIVE = "ACTIVE"
+    DELETING = "DELETING"
+
+
+# Convenient aliases for enum values
+PENDING = ConnectorOperationState.PENDING
+UPDATE_IN_PROGRESS = ConnectorOperationState.UPDATE_IN_PROGRESS
+UPDATE_COMPLETE = ConnectorOperationState.UPDATE_COMPLETE
+UPDATE_FAILED = ConnectorOperationState.UPDATE_FAILED
+ROLLBACK_IN_PROGRESS = ConnectorOperationState.ROLLBACK_IN_PROGRESS
+ROLLBACK_FAILED = ConnectorOperationState.ROLLBACK_FAILED
+ROLLBACK_COMPLETE = ConnectorOperationState.ROLLBACK_COMPLETE
+PENDING = ConnectorOperationStepState.PENDING
+IN_PROGRESS = ConnectorOperationStepState.IN_PROGRESS
+COMPLETED = ConnectorOperationStepState.COMPLETED
+FAILED = ConnectorOperationStepState.FAILED
+CANCELLED = ConnectorOperationStepState.CANCELLED
+INITIALIZE_UPDATE = ConnectorOperationStepType.INITIALIZE_UPDATE
+FINALIZE_UPDATE = ConnectorOperationStepType.FINALIZE_UPDATE
+UPDATE_WORKER_SETTING = ConnectorOperationStepType.UPDATE_WORKER_SETTING
+UPDATE_CONNECTOR_CONFIGURATION = ConnectorOperationStepType.UPDATE_CONNECTOR_CONFIGURATION
+VALIDATE_UPDATE = ConnectorOperationStepType.VALIDATE_UPDATE
+UPDATE_WORKER_SETTING = ConnectorOperationType.UPDATE_WORKER_SETTING
+UPDATE_CONNECTOR_CONFIGURATION = ConnectorOperationType.UPDATE_CONNECTOR_CONFIGURATION
+ISOLATE_CONNECTOR = ConnectorOperationType.ISOLATE_CONNECTOR
+RESTORE_CONNECTOR = ConnectorOperationType.RESTORE_CONNECTOR
+RUNNING = ConnectorState.RUNNING
+CREATING = ConnectorState.CREATING
+UPDATING = ConnectorState.UPDATING
+DELETING = ConnectorState.DELETING
+FAILED = ConnectorState.FAILED
+JAR = CustomPluginContentType.JAR
+ZIP = CustomPluginContentType.ZIP
+CREATING = CustomPluginState.CREATING
+CREATE_FAILED = CustomPluginState.CREATE_FAILED
+ACTIVE = CustomPluginState.ACTIVE
+UPDATING = CustomPluginState.UPDATING
+UPDATE_FAILED = CustomPluginState.UPDATE_FAILED
+DELETING = CustomPluginState.DELETING
+NONE = KafkaClusterClientAuthenticationType.NONE
+IAM = KafkaClusterClientAuthenticationType.IAM
+PLAINTEXT = KafkaClusterEncryptionInTransitType.PLAINTEXT
+TLS = KafkaClusterEncryptionInTransitType.TLS
+IPV4 = NetworkType.IPV4
+DUAL = NetworkType.DUAL
+ACTIVE = WorkerConfigurationState.ACTIVE
+DELETING = WorkerConfigurationState.DELETING
 
 
 @dataclass

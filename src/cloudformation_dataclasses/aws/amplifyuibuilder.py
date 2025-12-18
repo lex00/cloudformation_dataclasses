@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:11
+  Generated: 2025-12-17 16:59:34
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AmplifyUIBuilder
@@ -23,6 +23,184 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class CodegenGenericDataFieldDataType:
+    """CodegenGenericDataFieldDataType enum values."""
+
+    ID = "ID"
+    STRING = "String"
+    INT = "Int"
+    FLOAT = "Float"
+    AWSDATE = "AWSDate"
+    AWSTIME = "AWSTime"
+    AWSDATETIME = "AWSDateTime"
+    AWSTIMESTAMP = "AWSTimestamp"
+    AWSEMAIL = "AWSEmail"
+    AWSURL = "AWSURL"
+    AWSIPADDRESS = "AWSIPAddress"
+    BOOLEAN = "Boolean"
+    AWSJSON = "AWSJSON"
+    AWSPHONE = "AWSPhone"
+    ENUM = "Enum"
+    MODEL = "Model"
+    NONMODEL = "NonModel"
+
+
+class CodegenJobGenericDataSourceType:
+    """CodegenJobGenericDataSourceType enum values."""
+
+    DATASTORE = "DataStore"
+
+
+class CodegenJobStatus:
+    """CodegenJobStatus enum values."""
+
+    IN_PROGRESS = "in_progress"
+    FAILED = "failed"
+    SUCCEEDED = "succeeded"
+
+
+class FixedPosition:
+    """FixedPosition enum values."""
+
+    FIRST = "first"
+
+
+class FormActionType:
+    """FormActionType enum values."""
+
+    CREATE = "create"
+    UPDATE = "update"
+
+
+class FormButtonsPosition:
+    """FormButtonsPosition enum values."""
+
+    TOP = "top"
+    BOTTOM = "bottom"
+    TOP_AND_BOTTOM = "top_and_bottom"
+
+
+class FormDataSourceType:
+    """FormDataSourceType enum values."""
+
+    DATASTORE = "DataStore"
+    CUSTOM = "Custom"
+
+
+class GenericDataRelationshipType:
+    """GenericDataRelationshipType enum values."""
+
+    HAS_MANY = "HAS_MANY"
+    HAS_ONE = "HAS_ONE"
+    BELONGS_TO = "BELONGS_TO"
+
+
+class JSModule:
+    """JSModule enum values."""
+
+    ES2020 = "es2020"
+    ESNEXT = "esnext"
+
+
+class JSScript:
+    """JSScript enum values."""
+
+    JSX = "jsx"
+    TSX = "tsx"
+    JS = "js"
+
+
+class JSTarget:
+    """JSTarget enum values."""
+
+    ES2015 = "es2015"
+    ES2020 = "es2020"
+
+
+class LabelDecorator:
+    """LabelDecorator enum values."""
+
+    REQUIRED = "required"
+    OPTIONAL = "optional"
+    NONE = "none"
+
+
+class SortDirection:
+    """SortDirection enum values."""
+
+    ASC = "ASC"
+    DESC = "DESC"
+
+
+class StorageAccessLevel:
+    """StorageAccessLevel enum values."""
+
+    PUBLIC = "public"
+    PROTECTED = "protected"
+    PRIVATE = "private"
+
+
+class TokenProviders:
+    """TokenProviders enum values."""
+
+    FIGMA = "figma"
+
+
+# Convenient aliases for enum values
+ID = CodegenGenericDataFieldDataType.ID
+STRING = CodegenGenericDataFieldDataType.STRING
+INT = CodegenGenericDataFieldDataType.INT
+FLOAT = CodegenGenericDataFieldDataType.FLOAT
+AWSDATE = CodegenGenericDataFieldDataType.AWSDATE
+AWSTIME = CodegenGenericDataFieldDataType.AWSTIME
+AWSDATETIME = CodegenGenericDataFieldDataType.AWSDATETIME
+AWSTIMESTAMP = CodegenGenericDataFieldDataType.AWSTIMESTAMP
+AWSEMAIL = CodegenGenericDataFieldDataType.AWSEMAIL
+AWSURL = CodegenGenericDataFieldDataType.AWSURL
+AWSIPADDRESS = CodegenGenericDataFieldDataType.AWSIPADDRESS
+BOOLEAN = CodegenGenericDataFieldDataType.BOOLEAN
+AWSJSON = CodegenGenericDataFieldDataType.AWSJSON
+AWSPHONE = CodegenGenericDataFieldDataType.AWSPHONE
+ENUM = CodegenGenericDataFieldDataType.ENUM
+MODEL = CodegenGenericDataFieldDataType.MODEL
+NONMODEL = CodegenGenericDataFieldDataType.NONMODEL
+DATASTORE = CodegenJobGenericDataSourceType.DATASTORE
+IN_PROGRESS = CodegenJobStatus.IN_PROGRESS
+FAILED = CodegenJobStatus.FAILED
+SUCCEEDED = CodegenJobStatus.SUCCEEDED
+FIRST = FixedPosition.FIRST
+CREATE = FormActionType.CREATE
+UPDATE = FormActionType.UPDATE
+TOP = FormButtonsPosition.TOP
+BOTTOM = FormButtonsPosition.BOTTOM
+TOP_AND_BOTTOM = FormButtonsPosition.TOP_AND_BOTTOM
+DATASTORE = FormDataSourceType.DATASTORE
+CUSTOM = FormDataSourceType.CUSTOM
+HAS_MANY = GenericDataRelationshipType.HAS_MANY
+HAS_ONE = GenericDataRelationshipType.HAS_ONE
+BELONGS_TO = GenericDataRelationshipType.BELONGS_TO
+ES2020 = JSModule.ES2020
+ESNEXT = JSModule.ESNEXT
+JSX = JSScript.JSX
+TSX = JSScript.TSX
+JS = JSScript.JS
+ES2015 = JSTarget.ES2015
+ES2020 = JSTarget.ES2020
+REQUIRED = LabelDecorator.REQUIRED
+OPTIONAL = LabelDecorator.OPTIONAL
+NONE = LabelDecorator.NONE
+ASC = SortDirection.ASC
+DESC = SortDirection.DESC
+PUBLIC = StorageAccessLevel.PUBLIC
+PROTECTED = StorageAccessLevel.PROTECTED
+PRIVATE = StorageAccessLevel.PRIVATE
+FIGMA = TokenProviders.FIGMA
 
 
 @dataclass

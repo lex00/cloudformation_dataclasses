@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:37
+  Generated: 2025-12-17 16:59:39
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SNS
@@ -23,6 +23,75 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class LanguageCodeString:
+    """LanguageCodeString enum values."""
+
+    EN_US = "en-US"
+    EN_GB = "en-GB"
+    ES_419 = "es-419"
+    ES_ES = "es-ES"
+    DE_DE = "de-DE"
+    FR_CA = "fr-CA"
+    FR_FR = "fr-FR"
+    IT_IT = "it-IT"
+    JA_JP = "ja-JP"
+    PT_BR = "pt-BR"
+    KR_KR = "kr-KR"
+    ZH_CN = "zh-CN"
+    ZH_TW = "zh-TW"
+
+
+class NumberCapability:
+    """NumberCapability enum values."""
+
+    SMS = "SMS"
+    MMS = "MMS"
+    VOICE = "VOICE"
+
+
+class RouteType:
+    """RouteType enum values."""
+
+    TRANSACTIONAL = "Transactional"
+    PROMOTIONAL = "Promotional"
+    PREMIUM = "Premium"
+
+
+class SMSSandboxPhoneNumberVerificationStatus:
+    """SMSSandboxPhoneNumberVerificationStatus enum values."""
+
+    PENDING = "Pending"
+    VERIFIED = "Verified"
+
+
+# Convenient aliases for enum values
+EN_US = LanguageCodeString.EN_US
+EN_GB = LanguageCodeString.EN_GB
+ES_419 = LanguageCodeString.ES_419
+ES_ES = LanguageCodeString.ES_ES
+DE_DE = LanguageCodeString.DE_DE
+FR_CA = LanguageCodeString.FR_CA
+FR_FR = LanguageCodeString.FR_FR
+IT_IT = LanguageCodeString.IT_IT
+JA_JP = LanguageCodeString.JA_JP
+PT_BR = LanguageCodeString.PT_BR
+KR_KR = LanguageCodeString.KR_KR
+ZH_CN = LanguageCodeString.ZH_CN
+ZH_TW = LanguageCodeString.ZH_TW
+SMS = NumberCapability.SMS
+MMS = NumberCapability.MMS
+VOICE = NumberCapability.VOICE
+TRANSACTIONAL = RouteType.TRANSACTIONAL
+PROMOTIONAL = RouteType.PROMOTIONAL
+PREMIUM = RouteType.PREMIUM
+PENDING = SMSSandboxPhoneNumberVerificationStatus.PENDING
+VERIFIED = SMSSandboxPhoneNumberVerificationStatus.VERIFIED
 
 
 @dataclass

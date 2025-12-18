@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:10
+  Generated: 2025-12-17 16:59:34
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ACMPCA
@@ -23,6 +23,257 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class AccessMethodType:
+    """AccessMethodType enum values."""
+
+    CA_REPOSITORY = "CA_REPOSITORY"
+    RESOURCE_PKI_MANIFEST = "RESOURCE_PKI_MANIFEST"
+    RESOURCE_PKI_NOTIFY = "RESOURCE_PKI_NOTIFY"
+
+
+class ActionType:
+    """ActionType enum values."""
+
+    ISSUECERTIFICATE = "IssueCertificate"
+    GETCERTIFICATE = "GetCertificate"
+    LISTPERMISSIONS = "ListPermissions"
+
+
+class AuditReportResponseFormat:
+    """AuditReportResponseFormat enum values."""
+
+    JSON = "JSON"
+    CSV = "CSV"
+
+
+class AuditReportStatus:
+    """AuditReportStatus enum values."""
+
+    CREATING = "CREATING"
+    SUCCESS = "SUCCESS"
+    FAILED = "FAILED"
+
+
+class CertificateAuthorityStatus:
+    """CertificateAuthorityStatus enum values."""
+
+    CREATING = "CREATING"
+    PENDING_CERTIFICATE = "PENDING_CERTIFICATE"
+    ACTIVE = "ACTIVE"
+    DELETED = "DELETED"
+    DISABLED = "DISABLED"
+    EXPIRED = "EXPIRED"
+    FAILED = "FAILED"
+
+
+class CertificateAuthorityType:
+    """CertificateAuthorityType enum values."""
+
+    ROOT = "ROOT"
+    SUBORDINATE = "SUBORDINATE"
+
+
+class CertificateAuthorityUsageMode:
+    """CertificateAuthorityUsageMode enum values."""
+
+    GENERAL_PURPOSE = "GENERAL_PURPOSE"
+    SHORT_LIVED_CERTIFICATE = "SHORT_LIVED_CERTIFICATE"
+
+
+class CrlType:
+    """CrlType enum values."""
+
+    COMPLETE = "COMPLETE"
+    PARTITIONED = "PARTITIONED"
+
+
+class ExtendedKeyUsageType:
+    """ExtendedKeyUsageType enum values."""
+
+    SERVER_AUTH = "SERVER_AUTH"
+    CLIENT_AUTH = "CLIENT_AUTH"
+    CODE_SIGNING = "CODE_SIGNING"
+    EMAIL_PROTECTION = "EMAIL_PROTECTION"
+    TIME_STAMPING = "TIME_STAMPING"
+    OCSP_SIGNING = "OCSP_SIGNING"
+    SMART_CARD_LOGIN = "SMART_CARD_LOGIN"
+    DOCUMENT_SIGNING = "DOCUMENT_SIGNING"
+    CERTIFICATE_TRANSPARENCY = "CERTIFICATE_TRANSPARENCY"
+
+
+class FailureReason:
+    """FailureReason enum values."""
+
+    REQUEST_TIMED_OUT = "REQUEST_TIMED_OUT"
+    UNSUPPORTED_ALGORITHM = "UNSUPPORTED_ALGORITHM"
+    OTHER = "OTHER"
+
+
+class KeyAlgorithm:
+    """KeyAlgorithm enum values."""
+
+    RSA_2048 = "RSA_2048"
+    RSA_3072 = "RSA_3072"
+    RSA_4096 = "RSA_4096"
+    EC_PRIME256V1 = "EC_prime256v1"
+    EC_SECP384R1 = "EC_secp384r1"
+    EC_SECP521R1 = "EC_secp521r1"
+    ML_DSA_44 = "ML_DSA_44"
+    ML_DSA_65 = "ML_DSA_65"
+    ML_DSA_87 = "ML_DSA_87"
+    SM2 = "SM2"
+
+
+class KeyStorageSecurityStandard:
+    """KeyStorageSecurityStandard enum values."""
+
+    FIPS_140_2_LEVEL_2_OR_HIGHER = "FIPS_140_2_LEVEL_2_OR_HIGHER"
+    FIPS_140_2_LEVEL_3_OR_HIGHER = "FIPS_140_2_LEVEL_3_OR_HIGHER"
+    CCPC_LEVEL_1_OR_HIGHER = "CCPC_LEVEL_1_OR_HIGHER"
+
+
+class PolicyQualifierId:
+    """PolicyQualifierId enum values."""
+
+    CPS = "CPS"
+
+
+class ResourceOwner:
+    """ResourceOwner enum values."""
+
+    SELF = "SELF"
+    OTHER_ACCOUNTS = "OTHER_ACCOUNTS"
+
+
+class RevocationReason:
+    """RevocationReason enum values."""
+
+    UNSPECIFIED = "UNSPECIFIED"
+    KEY_COMPROMISE = "KEY_COMPROMISE"
+    CERTIFICATE_AUTHORITY_COMPROMISE = "CERTIFICATE_AUTHORITY_COMPROMISE"
+    AFFILIATION_CHANGED = "AFFILIATION_CHANGED"
+    SUPERSEDED = "SUPERSEDED"
+    CESSATION_OF_OPERATION = "CESSATION_OF_OPERATION"
+    PRIVILEGE_WITHDRAWN = "PRIVILEGE_WITHDRAWN"
+    A_A_COMPROMISE = "A_A_COMPROMISE"
+
+
+class S3ObjectAcl:
+    """S3ObjectAcl enum values."""
+
+    PUBLIC_READ = "PUBLIC_READ"
+    BUCKET_OWNER_FULL_CONTROL = "BUCKET_OWNER_FULL_CONTROL"
+
+
+class SigningAlgorithm:
+    """SigningAlgorithm enum values."""
+
+    SHA256WITHECDSA = "SHA256WITHECDSA"
+    SHA384WITHECDSA = "SHA384WITHECDSA"
+    SHA512WITHECDSA = "SHA512WITHECDSA"
+    SHA256WITHRSA = "SHA256WITHRSA"
+    SHA384WITHRSA = "SHA384WITHRSA"
+    SHA512WITHRSA = "SHA512WITHRSA"
+    SM3WITHSM2 = "SM3WITHSM2"
+    ML_DSA_44 = "ML_DSA_44"
+    ML_DSA_65 = "ML_DSA_65"
+    ML_DSA_87 = "ML_DSA_87"
+
+
+class ValidityPeriodType:
+    """ValidityPeriodType enum values."""
+
+    END_DATE = "END_DATE"
+    ABSOLUTE = "ABSOLUTE"
+    DAYS = "DAYS"
+    MONTHS = "MONTHS"
+    YEARS = "YEARS"
+
+
+# Convenient aliases for enum values
+CA_REPOSITORY = AccessMethodType.CA_REPOSITORY
+RESOURCE_PKI_MANIFEST = AccessMethodType.RESOURCE_PKI_MANIFEST
+RESOURCE_PKI_NOTIFY = AccessMethodType.RESOURCE_PKI_NOTIFY
+ISSUECERTIFICATE = ActionType.ISSUECERTIFICATE
+GETCERTIFICATE = ActionType.GETCERTIFICATE
+LISTPERMISSIONS = ActionType.LISTPERMISSIONS
+JSON = AuditReportResponseFormat.JSON
+CSV = AuditReportResponseFormat.CSV
+CREATING = AuditReportStatus.CREATING
+SUCCESS = AuditReportStatus.SUCCESS
+FAILED = AuditReportStatus.FAILED
+CREATING = CertificateAuthorityStatus.CREATING
+PENDING_CERTIFICATE = CertificateAuthorityStatus.PENDING_CERTIFICATE
+ACTIVE = CertificateAuthorityStatus.ACTIVE
+DELETED = CertificateAuthorityStatus.DELETED
+DISABLED = CertificateAuthorityStatus.DISABLED
+EXPIRED = CertificateAuthorityStatus.EXPIRED
+FAILED = CertificateAuthorityStatus.FAILED
+ROOT = CertificateAuthorityType.ROOT
+SUBORDINATE = CertificateAuthorityType.SUBORDINATE
+GENERAL_PURPOSE = CertificateAuthorityUsageMode.GENERAL_PURPOSE
+SHORT_LIVED_CERTIFICATE = CertificateAuthorityUsageMode.SHORT_LIVED_CERTIFICATE
+COMPLETE = CrlType.COMPLETE
+PARTITIONED = CrlType.PARTITIONED
+SERVER_AUTH = ExtendedKeyUsageType.SERVER_AUTH
+CLIENT_AUTH = ExtendedKeyUsageType.CLIENT_AUTH
+CODE_SIGNING = ExtendedKeyUsageType.CODE_SIGNING
+EMAIL_PROTECTION = ExtendedKeyUsageType.EMAIL_PROTECTION
+TIME_STAMPING = ExtendedKeyUsageType.TIME_STAMPING
+OCSP_SIGNING = ExtendedKeyUsageType.OCSP_SIGNING
+SMART_CARD_LOGIN = ExtendedKeyUsageType.SMART_CARD_LOGIN
+DOCUMENT_SIGNING = ExtendedKeyUsageType.DOCUMENT_SIGNING
+CERTIFICATE_TRANSPARENCY = ExtendedKeyUsageType.CERTIFICATE_TRANSPARENCY
+REQUEST_TIMED_OUT = FailureReason.REQUEST_TIMED_OUT
+UNSUPPORTED_ALGORITHM = FailureReason.UNSUPPORTED_ALGORITHM
+OTHER = FailureReason.OTHER
+RSA_2048 = KeyAlgorithm.RSA_2048
+RSA_3072 = KeyAlgorithm.RSA_3072
+RSA_4096 = KeyAlgorithm.RSA_4096
+EC_PRIME256V1 = KeyAlgorithm.EC_PRIME256V1
+EC_SECP384R1 = KeyAlgorithm.EC_SECP384R1
+EC_SECP521R1 = KeyAlgorithm.EC_SECP521R1
+ML_DSA_44 = KeyAlgorithm.ML_DSA_44
+ML_DSA_65 = KeyAlgorithm.ML_DSA_65
+ML_DSA_87 = KeyAlgorithm.ML_DSA_87
+SM2 = KeyAlgorithm.SM2
+FIPS_140_2_LEVEL_2_OR_HIGHER = KeyStorageSecurityStandard.FIPS_140_2_LEVEL_2_OR_HIGHER
+FIPS_140_2_LEVEL_3_OR_HIGHER = KeyStorageSecurityStandard.FIPS_140_2_LEVEL_3_OR_HIGHER
+CCPC_LEVEL_1_OR_HIGHER = KeyStorageSecurityStandard.CCPC_LEVEL_1_OR_HIGHER
+CPS = PolicyQualifierId.CPS
+SELF = ResourceOwner.SELF
+OTHER_ACCOUNTS = ResourceOwner.OTHER_ACCOUNTS
+UNSPECIFIED = RevocationReason.UNSPECIFIED
+KEY_COMPROMISE = RevocationReason.KEY_COMPROMISE
+CERTIFICATE_AUTHORITY_COMPROMISE = RevocationReason.CERTIFICATE_AUTHORITY_COMPROMISE
+AFFILIATION_CHANGED = RevocationReason.AFFILIATION_CHANGED
+SUPERSEDED = RevocationReason.SUPERSEDED
+CESSATION_OF_OPERATION = RevocationReason.CESSATION_OF_OPERATION
+PRIVILEGE_WITHDRAWN = RevocationReason.PRIVILEGE_WITHDRAWN
+A_A_COMPROMISE = RevocationReason.A_A_COMPROMISE
+PUBLIC_READ = S3ObjectAcl.PUBLIC_READ
+BUCKET_OWNER_FULL_CONTROL = S3ObjectAcl.BUCKET_OWNER_FULL_CONTROL
+SHA256WITHECDSA = SigningAlgorithm.SHA256WITHECDSA
+SHA384WITHECDSA = SigningAlgorithm.SHA384WITHECDSA
+SHA512WITHECDSA = SigningAlgorithm.SHA512WITHECDSA
+SHA256WITHRSA = SigningAlgorithm.SHA256WITHRSA
+SHA384WITHRSA = SigningAlgorithm.SHA384WITHRSA
+SHA512WITHRSA = SigningAlgorithm.SHA512WITHRSA
+SM3WITHSM2 = SigningAlgorithm.SM3WITHSM2
+ML_DSA_44 = SigningAlgorithm.ML_DSA_44
+ML_DSA_65 = SigningAlgorithm.ML_DSA_65
+ML_DSA_87 = SigningAlgorithm.ML_DSA_87
+END_DATE = ValidityPeriodType.END_DATE
+ABSOLUTE = ValidityPeriodType.ABSOLUTE
+DAYS = ValidityPeriodType.DAYS
+MONTHS = ValidityPeriodType.MONTHS
+YEARS = ValidityPeriodType.YEARS
 
 
 @dataclass
@@ -195,7 +446,7 @@ class ExtendedKeyUsage:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acm"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    extended_key_usage_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    extended_key_usage_type: Optional[Union[str, ExtendedKeyUsageType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     extended_key_usage_object_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -633,7 +884,7 @@ class PolicyQualifierInfo:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     qualifier: Optional[Qualifier] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    policy_qualifier_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    policy_qualifier_id: Optional[Union[str, PolicyQualifierId, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -901,7 +1152,7 @@ class Validity:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acm"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    type_: Optional[Union[str, ValidityPeriodType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
@@ -1110,7 +1361,7 @@ class AccessMethod:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_object_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    access_method_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    access_method_type: Optional[Union[str, AccessMethodType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1150,9 +1401,9 @@ class CrlConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_cname: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    s3_object_acl: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    s3_object_acl: Optional[Union[str, S3ObjectAcl, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    crl_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    crl_type: Optional[Union[str, CrlType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     expiration_in_days: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1971,15 +2222,15 @@ class CertificateAuthority(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     csr_extensions: Optional[CsrExtensions] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    type_: Optional[Union[str, CertificateAuthorityType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     revocation_configuration: Optional[RevocationConfiguration] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    usage_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    usage_mode: Optional[Union[str, CertificateAuthorityUsageMode, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     signing_algorithm: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    key_storage_security_standard: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    key_storage_security_standard: Optional[Union[str, KeyStorageSecurityStandard, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     subject: Optional[Subject] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso

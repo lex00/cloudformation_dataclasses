@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:37
+  Generated: 2025-12-17 16:59:39
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service S3Tables
@@ -23,6 +23,151 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class IcebergCompactionStrategy:
+    """IcebergCompactionStrategy enum values."""
+
+    AUTO = "auto"
+    BINPACK = "binpack"
+    SORT = "sort"
+    Z_ORDER = "z-order"
+
+
+class JobStatus:
+    """JobStatus enum values."""
+
+    NOT_YET_RUN = "Not_Yet_Run"
+    SUCCESSFUL = "Successful"
+    FAILED = "Failed"
+    DISABLED = "Disabled"
+
+
+class MaintenanceStatus:
+    """MaintenanceStatus enum values."""
+
+    ENABLED = "enabled"
+    DISABLED = "disabled"
+
+
+class OpenTableFormat:
+    """OpenTableFormat enum values."""
+
+    ICEBERG = "ICEBERG"
+
+
+class ReplicationStatus:
+    """ReplicationStatus enum values."""
+
+    PENDING = "pending"
+    COMPLETED = "completed"
+    FAILED = "failed"
+
+
+class SSEAlgorithm:
+    """SSEAlgorithm enum values."""
+
+    AES256 = "AES256"
+    AWS_KMS = "aws:kms"
+
+
+class StorageClass:
+    """StorageClass enum values."""
+
+    STANDARD = "STANDARD"
+    INTELLIGENT_TIERING = "INTELLIGENT_TIERING"
+
+
+class TableBucketMaintenanceType:
+    """TableBucketMaintenanceType enum values."""
+
+    ICEBERGUNREFERENCEDFILEREMOVAL = "icebergUnreferencedFileRemoval"
+
+
+class TableBucketType:
+    """TableBucketType enum values."""
+
+    CUSTOMER = "customer"
+    AWS = "aws"
+
+
+class TableMaintenanceJobType:
+    """TableMaintenanceJobType enum values."""
+
+    ICEBERGCOMPACTION = "icebergCompaction"
+    ICEBERGSNAPSHOTMANAGEMENT = "icebergSnapshotManagement"
+    ICEBERGUNREFERENCEDFILEREMOVAL = "icebergUnreferencedFileRemoval"
+
+
+class TableMaintenanceType:
+    """TableMaintenanceType enum values."""
+
+    ICEBERGCOMPACTION = "icebergCompaction"
+    ICEBERGSNAPSHOTMANAGEMENT = "icebergSnapshotManagement"
+
+
+class TableRecordExpirationJobStatus:
+    """TableRecordExpirationJobStatus enum values."""
+
+    NOTYETRUN = "NotYetRun"
+    SUCCESSFUL = "Successful"
+    FAILED = "Failed"
+    DISABLED = "Disabled"
+
+
+class TableRecordExpirationStatus:
+    """TableRecordExpirationStatus enum values."""
+
+    ENABLED = "enabled"
+    DISABLED = "disabled"
+
+
+class TableType:
+    """TableType enum values."""
+
+    CUSTOMER = "customer"
+    AWS = "aws"
+
+
+# Convenient aliases for enum values
+AUTO = IcebergCompactionStrategy.AUTO
+BINPACK = IcebergCompactionStrategy.BINPACK
+SORT = IcebergCompactionStrategy.SORT
+Z_ORDER = IcebergCompactionStrategy.Z_ORDER
+NOT_YET_RUN = JobStatus.NOT_YET_RUN
+SUCCESSFUL = JobStatus.SUCCESSFUL
+FAILED = JobStatus.FAILED
+DISABLED = JobStatus.DISABLED
+ENABLED = MaintenanceStatus.ENABLED
+DISABLED = MaintenanceStatus.DISABLED
+ICEBERG = OpenTableFormat.ICEBERG
+PENDING = ReplicationStatus.PENDING
+COMPLETED = ReplicationStatus.COMPLETED
+FAILED = ReplicationStatus.FAILED
+AES256 = SSEAlgorithm.AES256
+AWS_KMS = SSEAlgorithm.AWS_KMS
+STANDARD = StorageClass.STANDARD
+INTELLIGENT_TIERING = StorageClass.INTELLIGENT_TIERING
+ICEBERGUNREFERENCEDFILEREMOVAL = TableBucketMaintenanceType.ICEBERGUNREFERENCEDFILEREMOVAL
+CUSTOMER = TableBucketType.CUSTOMER
+AWS = TableBucketType.AWS
+ICEBERGCOMPACTION = TableMaintenanceJobType.ICEBERGCOMPACTION
+ICEBERGSNAPSHOTMANAGEMENT = TableMaintenanceJobType.ICEBERGSNAPSHOTMANAGEMENT
+ICEBERGUNREFERENCEDFILEREMOVAL = TableMaintenanceJobType.ICEBERGUNREFERENCEDFILEREMOVAL
+ICEBERGCOMPACTION = TableMaintenanceType.ICEBERGCOMPACTION
+ICEBERGSNAPSHOTMANAGEMENT = TableMaintenanceType.ICEBERGSNAPSHOTMANAGEMENT
+NOTYETRUN = TableRecordExpirationJobStatus.NOTYETRUN
+SUCCESSFUL = TableRecordExpirationJobStatus.SUCCESSFUL
+FAILED = TableRecordExpirationJobStatus.FAILED
+DISABLED = TableRecordExpirationJobStatus.DISABLED
+ENABLED = TableRecordExpirationStatus.ENABLED
+DISABLED = TableRecordExpirationStatus.DISABLED
+CUSTOMER = TableType.CUSTOMER
+AWS = TableType.AWS
 
 
 @dataclass

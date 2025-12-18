@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:20
+  Generated: 2025-12-17 16:59:36
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service EFS
@@ -23,6 +23,182 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class DeletionMode:
+    """DeletionMode enum values."""
+
+    ALL_CONFIGURATIONS = "ALL_CONFIGURATIONS"
+    LOCAL_CONFIGURATION_ONLY = "LOCAL_CONFIGURATION_ONLY"
+
+
+class IpAddressType:
+    """IpAddressType enum values."""
+
+    IPV4_ONLY = "IPV4_ONLY"
+    IPV6_ONLY = "IPV6_ONLY"
+    DUAL_STACK = "DUAL_STACK"
+
+
+class LifeCycleState:
+    """LifeCycleState enum values."""
+
+    CREATING = "creating"
+    AVAILABLE = "available"
+    UPDATING = "updating"
+    DELETING = "deleting"
+    DELETED = "deleted"
+    ERROR = "error"
+
+
+class PerformanceMode:
+    """PerformanceMode enum values."""
+
+    GENERALPURPOSE = "generalPurpose"
+    MAXIO = "maxIO"
+
+
+class ReplicationOverwriteProtection:
+    """ReplicationOverwriteProtection enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+    REPLICATING = "REPLICATING"
+
+
+class ReplicationStatus:
+    """ReplicationStatus enum values."""
+
+    ENABLED = "ENABLED"
+    ENABLING = "ENABLING"
+    DELETING = "DELETING"
+    ERROR = "ERROR"
+    PAUSED = "PAUSED"
+    PAUSING = "PAUSING"
+
+
+class Resource:
+    """Resource enum values."""
+
+    FILE_SYSTEM = "FILE_SYSTEM"
+    MOUNT_TARGET = "MOUNT_TARGET"
+
+
+class ResourceIdType:
+    """ResourceIdType enum values."""
+
+    LONG_ID = "LONG_ID"
+    SHORT_ID = "SHORT_ID"
+
+
+class Status:
+    """Status enum values."""
+
+    ENABLED = "ENABLED"
+    ENABLING = "ENABLING"
+    DISABLED = "DISABLED"
+    DISABLING = "DISABLING"
+
+
+class ThroughputMode:
+    """ThroughputMode enum values."""
+
+    BURSTING = "bursting"
+    PROVISIONED = "provisioned"
+    ELASTIC = "elastic"
+
+
+class TransitionToArchiveRules:
+    """TransitionToArchiveRules enum values."""
+
+    AFTER_1_DAY = "AFTER_1_DAY"
+    AFTER_7_DAYS = "AFTER_7_DAYS"
+    AFTER_14_DAYS = "AFTER_14_DAYS"
+    AFTER_30_DAYS = "AFTER_30_DAYS"
+    AFTER_60_DAYS = "AFTER_60_DAYS"
+    AFTER_90_DAYS = "AFTER_90_DAYS"
+    AFTER_180_DAYS = "AFTER_180_DAYS"
+    AFTER_270_DAYS = "AFTER_270_DAYS"
+    AFTER_365_DAYS = "AFTER_365_DAYS"
+
+
+class TransitionToIARules:
+    """TransitionToIARules enum values."""
+
+    AFTER_7_DAYS = "AFTER_7_DAYS"
+    AFTER_14_DAYS = "AFTER_14_DAYS"
+    AFTER_30_DAYS = "AFTER_30_DAYS"
+    AFTER_60_DAYS = "AFTER_60_DAYS"
+    AFTER_90_DAYS = "AFTER_90_DAYS"
+    AFTER_1_DAY = "AFTER_1_DAY"
+    AFTER_180_DAYS = "AFTER_180_DAYS"
+    AFTER_270_DAYS = "AFTER_270_DAYS"
+    AFTER_365_DAYS = "AFTER_365_DAYS"
+
+
+class TransitionToPrimaryStorageClassRules:
+    """TransitionToPrimaryStorageClassRules enum values."""
+
+    AFTER_1_ACCESS = "AFTER_1_ACCESS"
+
+
+# Convenient aliases for enum values
+ALL_CONFIGURATIONS = DeletionMode.ALL_CONFIGURATIONS
+LOCAL_CONFIGURATION_ONLY = DeletionMode.LOCAL_CONFIGURATION_ONLY
+IPV4_ONLY = IpAddressType.IPV4_ONLY
+IPV6_ONLY = IpAddressType.IPV6_ONLY
+DUAL_STACK = IpAddressType.DUAL_STACK
+CREATING = LifeCycleState.CREATING
+AVAILABLE = LifeCycleState.AVAILABLE
+UPDATING = LifeCycleState.UPDATING
+DELETING = LifeCycleState.DELETING
+DELETED = LifeCycleState.DELETED
+ERROR = LifeCycleState.ERROR
+GENERALPURPOSE = PerformanceMode.GENERALPURPOSE
+MAXIO = PerformanceMode.MAXIO
+ENABLED = ReplicationOverwriteProtection.ENABLED
+DISABLED = ReplicationOverwriteProtection.DISABLED
+REPLICATING = ReplicationOverwriteProtection.REPLICATING
+ENABLED = ReplicationStatus.ENABLED
+ENABLING = ReplicationStatus.ENABLING
+DELETING = ReplicationStatus.DELETING
+ERROR = ReplicationStatus.ERROR
+PAUSED = ReplicationStatus.PAUSED
+PAUSING = ReplicationStatus.PAUSING
+FILE_SYSTEM = Resource.FILE_SYSTEM
+MOUNT_TARGET = Resource.MOUNT_TARGET
+LONG_ID = ResourceIdType.LONG_ID
+SHORT_ID = ResourceIdType.SHORT_ID
+ENABLED = Status.ENABLED
+ENABLING = Status.ENABLING
+DISABLED = Status.DISABLED
+DISABLING = Status.DISABLING
+BURSTING = ThroughputMode.BURSTING
+PROVISIONED = ThroughputMode.PROVISIONED
+ELASTIC = ThroughputMode.ELASTIC
+AFTER_1_DAY = TransitionToArchiveRules.AFTER_1_DAY
+AFTER_7_DAYS = TransitionToArchiveRules.AFTER_7_DAYS
+AFTER_14_DAYS = TransitionToArchiveRules.AFTER_14_DAYS
+AFTER_30_DAYS = TransitionToArchiveRules.AFTER_30_DAYS
+AFTER_60_DAYS = TransitionToArchiveRules.AFTER_60_DAYS
+AFTER_90_DAYS = TransitionToArchiveRules.AFTER_90_DAYS
+AFTER_180_DAYS = TransitionToArchiveRules.AFTER_180_DAYS
+AFTER_270_DAYS = TransitionToArchiveRules.AFTER_270_DAYS
+AFTER_365_DAYS = TransitionToArchiveRules.AFTER_365_DAYS
+AFTER_7_DAYS = TransitionToIARules.AFTER_7_DAYS
+AFTER_14_DAYS = TransitionToIARules.AFTER_14_DAYS
+AFTER_30_DAYS = TransitionToIARules.AFTER_30_DAYS
+AFTER_60_DAYS = TransitionToIARules.AFTER_60_DAYS
+AFTER_90_DAYS = TransitionToIARules.AFTER_90_DAYS
+AFTER_1_DAY = TransitionToIARules.AFTER_1_DAY
+AFTER_180_DAYS = TransitionToIARules.AFTER_180_DAYS
+AFTER_270_DAYS = TransitionToIARules.AFTER_270_DAYS
+AFTER_365_DAYS = TransitionToIARules.AFTER_365_DAYS
+AFTER_1_ACCESS = TransitionToPrimaryStorageClassRules.AFTER_1_ACCESS
 
 
 @dataclass
@@ -309,7 +485,7 @@ class BackupPolicy:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    status: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    status: Optional[Union[str, Status, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -397,11 +573,11 @@ class LifecyclePolicy:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    transition_to_ia: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    transition_to_ia: Optional[Union[str, TransitionToIARules, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    transition_to_primary_storage_class: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    transition_to_primary_storage_class: Optional[Union[str, TransitionToPrimaryStorageClassRules, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    transition_to_archive: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    transition_to_archive: Optional[Union[str, TransitionToArchiveRules, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""

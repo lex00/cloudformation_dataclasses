@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:15
+  Generated: 2025-12-17 16:59:35
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CleanRooms
@@ -23,6 +23,828 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class AccessBudgetType:
+    """AccessBudgetType enum values."""
+
+    CALENDAR_DAY = "CALENDAR_DAY"
+    CALENDAR_MONTH = "CALENDAR_MONTH"
+    CALENDAR_WEEK = "CALENDAR_WEEK"
+    LIFETIME = "LIFETIME"
+
+
+class AccessDeniedExceptionReason:
+    """AccessDeniedExceptionReason enum values."""
+
+    INSUFFICIENT_PERMISSIONS = "INSUFFICIENT_PERMISSIONS"
+
+
+class AdditionalAnalyses:
+    """AdditionalAnalyses enum values."""
+
+    ALLOWED = "ALLOWED"
+    REQUIRED = "REQUIRED"
+    NOT_ALLOWED = "NOT_ALLOWED"
+
+
+class AggregateFunctionName:
+    """AggregateFunctionName enum values."""
+
+    SUM = "SUM"
+    SUM_DISTINCT = "SUM_DISTINCT"
+    COUNT = "COUNT"
+    COUNT_DISTINCT = "COUNT_DISTINCT"
+    AVG = "AVG"
+
+
+class AggregationType:
+    """AggregationType enum values."""
+
+    COUNT_DISTINCT = "COUNT_DISTINCT"
+
+
+class AnalysisFormat:
+    """AnalysisFormat enum values."""
+
+    SQL = "SQL"
+    PYSPARK_1_0 = "PYSPARK_1_0"
+
+
+class AnalysisMethod:
+    """AnalysisMethod enum values."""
+
+    DIRECT_QUERY = "DIRECT_QUERY"
+    DIRECT_JOB = "DIRECT_JOB"
+    MULTIPLE = "MULTIPLE"
+
+
+class AnalysisRuleType:
+    """AnalysisRuleType enum values."""
+
+    AGGREGATION = "AGGREGATION"
+    LIST = "LIST"
+    CUSTOM = "CUSTOM"
+    ID_MAPPING_TABLE = "ID_MAPPING_TABLE"
+
+
+class AnalysisTemplateValidationStatus:
+    """AnalysisTemplateValidationStatus enum values."""
+
+    VALID = "VALID"
+    INVALID = "INVALID"
+    UNABLE_TO_VALIDATE = "UNABLE_TO_VALIDATE"
+
+
+class AnalysisTemplateValidationType:
+    """AnalysisTemplateValidationType enum values."""
+
+    DIFFERENTIAL_PRIVACY = "DIFFERENTIAL_PRIVACY"
+
+
+class AnalysisType:
+    """AnalysisType enum values."""
+
+    DIRECT_ANALYSIS = "DIRECT_ANALYSIS"
+    ADDITIONAL_ANALYSIS = "ADDITIONAL_ANALYSIS"
+
+
+class AnalyticsEngine:
+    """AnalyticsEngine enum values."""
+
+    SPARK = "SPARK"
+    CLEAN_ROOMS_SQL = "CLEAN_ROOMS_SQL"
+
+
+class AutoApprovedChangeType:
+    """AutoApprovedChangeType enum values."""
+
+    ADD_MEMBER = "ADD_MEMBER"
+
+
+class AutoRefreshMode:
+    """AutoRefreshMode enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class ChangeRequestStatus:
+    """ChangeRequestStatus enum values."""
+
+    PENDING = "PENDING"
+    APPROVED = "APPROVED"
+    CANCELLED = "CANCELLED"
+    DENIED = "DENIED"
+    COMMITTED = "COMMITTED"
+
+
+class ChangeSpecificationType:
+    """ChangeSpecificationType enum values."""
+
+    MEMBER = "MEMBER"
+
+
+class ChangeType:
+    """ChangeType enum values."""
+
+    ADD_MEMBER = "ADD_MEMBER"
+
+
+class CollaborationJobLogStatus:
+    """CollaborationJobLogStatus enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class CollaborationQueryLogStatus:
+    """CollaborationQueryLogStatus enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class CommercialRegion:
+    """CommercialRegion enum values."""
+
+    US_WEST_1 = "us-west-1"
+    US_WEST_2 = "us-west-2"
+    US_EAST_1 = "us-east-1"
+    US_EAST_2 = "us-east-2"
+    AF_SOUTH_1 = "af-south-1"
+    AP_EAST_1 = "ap-east-1"
+    AP_SOUTH_2 = "ap-south-2"
+    AP_SOUTHEAST_1 = "ap-southeast-1"
+    AP_SOUTHEAST_2 = "ap-southeast-2"
+    AP_SOUTHEAST_3 = "ap-southeast-3"
+    AP_SOUTHEAST_5 = "ap-southeast-5"
+    AP_SOUTHEAST_4 = "ap-southeast-4"
+    AP_SOUTHEAST_7 = "ap-southeast-7"
+    AP_SOUTH_1 = "ap-south-1"
+    AP_NORTHEAST_3 = "ap-northeast-3"
+    AP_NORTHEAST_1 = "ap-northeast-1"
+    AP_NORTHEAST_2 = "ap-northeast-2"
+    CA_CENTRAL_1 = "ca-central-1"
+    CA_WEST_1 = "ca-west-1"
+    EU_SOUTH_1 = "eu-south-1"
+    EU_WEST_3 = "eu-west-3"
+    EU_SOUTH_2 = "eu-south-2"
+    EU_CENTRAL_2 = "eu-central-2"
+    EU_CENTRAL_1 = "eu-central-1"
+    EU_NORTH_1 = "eu-north-1"
+    EU_WEST_1 = "eu-west-1"
+    EU_WEST_2 = "eu-west-2"
+    ME_SOUTH_1 = "me-south-1"
+    ME_CENTRAL_1 = "me-central-1"
+    IL_CENTRAL_1 = "il-central-1"
+    SA_EAST_1 = "sa-east-1"
+    MX_CENTRAL_1 = "mx-central-1"
+    AP_EAST_2 = "ap-east-2"
+
+
+class ConfiguredTableAnalysisRuleType:
+    """ConfiguredTableAnalysisRuleType enum values."""
+
+    AGGREGATION = "AGGREGATION"
+    LIST = "LIST"
+    CUSTOM = "CUSTOM"
+
+
+class ConfiguredTableAssociationAnalysisRuleType:
+    """ConfiguredTableAssociationAnalysisRuleType enum values."""
+
+    AGGREGATION = "AGGREGATION"
+    LIST = "LIST"
+    CUSTOM = "CUSTOM"
+
+
+class ConflictExceptionReason:
+    """ConflictExceptionReason enum values."""
+
+    ALREADY_EXISTS = "ALREADY_EXISTS"
+    SUBRESOURCES_EXIST = "SUBRESOURCES_EXIST"
+    INVALID_STATE = "INVALID_STATE"
+
+
+class CustomMLMemberAbility:
+    """CustomMLMemberAbility enum values."""
+
+    CAN_RECEIVE_MODEL_OUTPUT = "CAN_RECEIVE_MODEL_OUTPUT"
+    CAN_RECEIVE_INFERENCE_OUTPUT = "CAN_RECEIVE_INFERENCE_OUTPUT"
+
+
+class DifferentialPrivacyAggregationType:
+    """DifferentialPrivacyAggregationType enum values."""
+
+    AVG = "AVG"
+    COUNT = "COUNT"
+    COUNT_DISTINCT = "COUNT_DISTINCT"
+    SUM = "SUM"
+    STDDEV = "STDDEV"
+
+
+class ErrorMessageType:
+    """ErrorMessageType enum values."""
+
+    DETAILED = "DETAILED"
+
+
+class FilterableMemberStatus:
+    """FilterableMemberStatus enum values."""
+
+    INVITED = "INVITED"
+    ACTIVE = "ACTIVE"
+
+
+class IdNamespaceType:
+    """IdNamespaceType enum values."""
+
+    SOURCE = "SOURCE"
+    TARGET = "TARGET"
+
+
+class JobType:
+    """JobType enum values."""
+
+    BATCH = "BATCH"
+    INCREMENTAL = "INCREMENTAL"
+    DELETE_ONLY = "DELETE_ONLY"
+
+
+class JoinOperator:
+    """JoinOperator enum values."""
+
+    OR = "OR"
+    AND = "AND"
+
+
+class JoinRequiredOption:
+    """JoinRequiredOption enum values."""
+
+    QUERY_RUNNER = "QUERY_RUNNER"
+
+
+class MemberAbility:
+    """MemberAbility enum values."""
+
+    CAN_QUERY = "CAN_QUERY"
+    CAN_RECEIVE_RESULTS = "CAN_RECEIVE_RESULTS"
+    CAN_RUN_JOB = "CAN_RUN_JOB"
+
+
+class MemberStatus:
+    """MemberStatus enum values."""
+
+    INVITED = "INVITED"
+    ACTIVE = "ACTIVE"
+    LEFT = "LEFT"
+    REMOVED = "REMOVED"
+
+
+class MembershipJobLogStatus:
+    """MembershipJobLogStatus enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class MembershipQueryLogStatus:
+    """MembershipQueryLogStatus enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class MembershipStatus:
+    """MembershipStatus enum values."""
+
+    ACTIVE = "ACTIVE"
+    REMOVED = "REMOVED"
+    COLLABORATION_DELETED = "COLLABORATION_DELETED"
+
+
+class ParameterType:
+    """ParameterType enum values."""
+
+    SMALLINT = "SMALLINT"
+    INTEGER = "INTEGER"
+    BIGINT = "BIGINT"
+    DECIMAL = "DECIMAL"
+    REAL = "REAL"
+    DOUBLE_PRECISION = "DOUBLE_PRECISION"
+    BOOLEAN = "BOOLEAN"
+    CHAR = "CHAR"
+    VARCHAR = "VARCHAR"
+    DATE = "DATE"
+    TIMESTAMP = "TIMESTAMP"
+    TIMESTAMPTZ = "TIMESTAMPTZ"
+    TIME = "TIME"
+    TIMETZ = "TIMETZ"
+    VARBYTE = "VARBYTE"
+    BINARY = "BINARY"
+    BYTE = "BYTE"
+    CHARACTER = "CHARACTER"
+    DOUBLE = "DOUBLE"
+    FLOAT = "FLOAT"
+    INT = "INT"
+    LONG = "LONG"
+    NUMERIC = "NUMERIC"
+    SHORT = "SHORT"
+    STRING = "STRING"
+    TIMESTAMP_LTZ = "TIMESTAMP_LTZ"
+    TIMESTAMP_NTZ = "TIMESTAMP_NTZ"
+    TINYINT = "TINYINT"
+
+
+class PrivacyBudgetTemplateAutoRefresh:
+    """PrivacyBudgetTemplateAutoRefresh enum values."""
+
+    CALENDAR_MONTH = "CALENDAR_MONTH"
+    NONE = "NONE"
+
+
+class PrivacyBudgetType:
+    """PrivacyBudgetType enum values."""
+
+    DIFFERENTIAL_PRIVACY = "DIFFERENTIAL_PRIVACY"
+    ACCESS_BUDGET = "ACCESS_BUDGET"
+
+
+class ProtectedJobAnalysisType:
+    """ProtectedJobAnalysisType enum values."""
+
+    DIRECT_ANALYSIS = "DIRECT_ANALYSIS"
+
+
+class ProtectedJobStatus:
+    """ProtectedJobStatus enum values."""
+
+    SUBMITTED = "SUBMITTED"
+    STARTED = "STARTED"
+    CANCELLED = "CANCELLED"
+    CANCELLING = "CANCELLING"
+    FAILED = "FAILED"
+    SUCCESS = "SUCCESS"
+
+
+class ProtectedJobType:
+    """ProtectedJobType enum values."""
+
+    PYSPARK = "PYSPARK"
+
+
+class ProtectedJobWorkerComputeType:
+    """ProtectedJobWorkerComputeType enum values."""
+
+    CR_1X = "CR.1X"
+    CR_4X = "CR.4X"
+
+
+class ProtectedQueryStatus:
+    """ProtectedQueryStatus enum values."""
+
+    SUBMITTED = "SUBMITTED"
+    STARTED = "STARTED"
+    CANCELLED = "CANCELLED"
+    CANCELLING = "CANCELLING"
+    FAILED = "FAILED"
+    SUCCESS = "SUCCESS"
+    TIMED_OUT = "TIMED_OUT"
+
+
+class ProtectedQueryType:
+    """ProtectedQueryType enum values."""
+
+    SQL = "SQL"
+
+
+class ResourceType:
+    """ResourceType enum values."""
+
+    CONFIGURED_TABLE = "CONFIGURED_TABLE"
+    COLLABORATION = "COLLABORATION"
+    MEMBERSHIP = "MEMBERSHIP"
+    CONFIGURED_TABLE_ASSOCIATION = "CONFIGURED_TABLE_ASSOCIATION"
+
+
+class ResultFormat:
+    """ResultFormat enum values."""
+
+    CSV = "CSV"
+    PARQUET = "PARQUET"
+
+
+class ScalarFunctions:
+    """ScalarFunctions enum values."""
+
+    ABS = "ABS"
+    CAST = "CAST"
+    CEILING = "CEILING"
+    COALESCE = "COALESCE"
+    CONVERT = "CONVERT"
+    CURRENT_DATE = "CURRENT_DATE"
+    DATEADD = "DATEADD"
+    EXTRACT = "EXTRACT"
+    FLOOR = "FLOOR"
+    GETDATE = "GETDATE"
+    LN = "LN"
+    LOG = "LOG"
+    LOWER = "LOWER"
+    ROUND = "ROUND"
+    RTRIM = "RTRIM"
+    SQRT = "SQRT"
+    SUBSTRING = "SUBSTRING"
+    TO_CHAR = "TO_CHAR"
+    TO_DATE = "TO_DATE"
+    TO_NUMBER = "TO_NUMBER"
+    TO_TIMESTAMP = "TO_TIMESTAMP"
+    TRIM = "TRIM"
+    TRUNC = "TRUNC"
+    UPPER = "UPPER"
+
+
+class SchemaConfiguration:
+    """SchemaConfiguration enum values."""
+
+    DIFFERENTIAL_PRIVACY = "DIFFERENTIAL_PRIVACY"
+
+
+class SchemaStatus:
+    """SchemaStatus enum values."""
+
+    READY = "READY"
+    NOT_READY = "NOT_READY"
+
+
+class SchemaStatusReasonCode:
+    """SchemaStatusReasonCode enum values."""
+
+    ANALYSIS_RULE_MISSING = "ANALYSIS_RULE_MISSING"
+    ANALYSIS_TEMPLATES_NOT_CONFIGURED = "ANALYSIS_TEMPLATES_NOT_CONFIGURED"
+    ANALYSIS_PROVIDERS_NOT_CONFIGURED = "ANALYSIS_PROVIDERS_NOT_CONFIGURED"
+    DIFFERENTIAL_PRIVACY_POLICY_NOT_CONFIGURED = "DIFFERENTIAL_PRIVACY_POLICY_NOT_CONFIGURED"
+    ID_MAPPING_TABLE_NOT_POPULATED = "ID_MAPPING_TABLE_NOT_POPULATED"
+    COLLABORATION_ANALYSIS_RULE_NOT_CONFIGURED = "COLLABORATION_ANALYSIS_RULE_NOT_CONFIGURED"
+    ADDITIONAL_ANALYSES_NOT_CONFIGURED = "ADDITIONAL_ANALYSES_NOT_CONFIGURED"
+    RESULT_RECEIVERS_NOT_CONFIGURED = "RESULT_RECEIVERS_NOT_CONFIGURED"
+    ADDITIONAL_ANALYSES_NOT_ALLOWED = "ADDITIONAL_ANALYSES_NOT_ALLOWED"
+    RESULT_RECEIVERS_NOT_ALLOWED = "RESULT_RECEIVERS_NOT_ALLOWED"
+    ANALYSIS_RULE_TYPES_NOT_COMPATIBLE = "ANALYSIS_RULE_TYPES_NOT_COMPATIBLE"
+
+
+class SchemaType:
+    """SchemaType enum values."""
+
+    TABLE = "TABLE"
+    ID_MAPPING_TABLE = "ID_MAPPING_TABLE"
+
+
+class SelectedAnalysisMethod:
+    """SelectedAnalysisMethod enum values."""
+
+    DIRECT_QUERY = "DIRECT_QUERY"
+    DIRECT_JOB = "DIRECT_JOB"
+
+
+class SupportedS3Region:
+    """SupportedS3Region enum values."""
+
+    US_WEST_1 = "us-west-1"
+    US_WEST_2 = "us-west-2"
+    US_EAST_1 = "us-east-1"
+    US_EAST_2 = "us-east-2"
+    AF_SOUTH_1 = "af-south-1"
+    AP_EAST_1 = "ap-east-1"
+    AP_EAST_2 = "ap-east-2"
+    AP_SOUTH_2 = "ap-south-2"
+    AP_SOUTHEAST_1 = "ap-southeast-1"
+    AP_SOUTHEAST_2 = "ap-southeast-2"
+    AP_SOUTHEAST_3 = "ap-southeast-3"
+    AP_SOUTHEAST_5 = "ap-southeast-5"
+    AP_SOUTHEAST_4 = "ap-southeast-4"
+    AP_SOUTHEAST_7 = "ap-southeast-7"
+    AP_SOUTH_1 = "ap-south-1"
+    AP_NORTHEAST_3 = "ap-northeast-3"
+    AP_NORTHEAST_1 = "ap-northeast-1"
+    AP_NORTHEAST_2 = "ap-northeast-2"
+    CA_CENTRAL_1 = "ca-central-1"
+    CA_WEST_1 = "ca-west-1"
+    EU_SOUTH_1 = "eu-south-1"
+    EU_WEST_3 = "eu-west-3"
+    EU_SOUTH_2 = "eu-south-2"
+    EU_CENTRAL_2 = "eu-central-2"
+    EU_CENTRAL_1 = "eu-central-1"
+    EU_NORTH_1 = "eu-north-1"
+    EU_WEST_1 = "eu-west-1"
+    EU_WEST_2 = "eu-west-2"
+    ME_SOUTH_1 = "me-south-1"
+    ME_CENTRAL_1 = "me-central-1"
+    IL_CENTRAL_1 = "il-central-1"
+    SA_EAST_1 = "sa-east-1"
+    MX_CENTRAL_1 = "mx-central-1"
+
+
+class SyntheticDataColumnType:
+    """SyntheticDataColumnType enum values."""
+
+    CATEGORICAL = "CATEGORICAL"
+    NUMERICAL = "NUMERICAL"
+
+
+class TargetProtectedJobStatus:
+    """TargetProtectedJobStatus enum values."""
+
+    CANCELLED = "CANCELLED"
+
+
+class TargetProtectedQueryStatus:
+    """TargetProtectedQueryStatus enum values."""
+
+    CANCELLED = "CANCELLED"
+
+
+class ValidationExceptionReason:
+    """ValidationExceptionReason enum values."""
+
+    FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED"
+    INVALID_CONFIGURATION = "INVALID_CONFIGURATION"
+    INVALID_QUERY = "INVALID_QUERY"
+    IAM_SYNCHRONIZATION_DELAY = "IAM_SYNCHRONIZATION_DELAY"
+
+
+class WorkerComputeType:
+    """WorkerComputeType enum values."""
+
+    CR_1X = "CR.1X"
+    CR_4X = "CR.4X"
+
+
+# Convenient aliases for enum values
+CALENDAR_DAY = AccessBudgetType.CALENDAR_DAY
+CALENDAR_MONTH = AccessBudgetType.CALENDAR_MONTH
+CALENDAR_WEEK = AccessBudgetType.CALENDAR_WEEK
+LIFETIME = AccessBudgetType.LIFETIME
+INSUFFICIENT_PERMISSIONS = AccessDeniedExceptionReason.INSUFFICIENT_PERMISSIONS
+ALLOWED = AdditionalAnalyses.ALLOWED
+REQUIRED = AdditionalAnalyses.REQUIRED
+NOT_ALLOWED = AdditionalAnalyses.NOT_ALLOWED
+SUM = AggregateFunctionName.SUM
+SUM_DISTINCT = AggregateFunctionName.SUM_DISTINCT
+COUNT = AggregateFunctionName.COUNT
+COUNT_DISTINCT = AggregateFunctionName.COUNT_DISTINCT
+AVG = AggregateFunctionName.AVG
+COUNT_DISTINCT = AggregationType.COUNT_DISTINCT
+SQL = AnalysisFormat.SQL
+PYSPARK_1_0 = AnalysisFormat.PYSPARK_1_0
+DIRECT_QUERY = AnalysisMethod.DIRECT_QUERY
+DIRECT_JOB = AnalysisMethod.DIRECT_JOB
+MULTIPLE = AnalysisMethod.MULTIPLE
+AGGREGATION = AnalysisRuleType.AGGREGATION
+LIST = AnalysisRuleType.LIST
+CUSTOM = AnalysisRuleType.CUSTOM
+ID_MAPPING_TABLE = AnalysisRuleType.ID_MAPPING_TABLE
+VALID = AnalysisTemplateValidationStatus.VALID
+INVALID = AnalysisTemplateValidationStatus.INVALID
+UNABLE_TO_VALIDATE = AnalysisTemplateValidationStatus.UNABLE_TO_VALIDATE
+DIFFERENTIAL_PRIVACY = AnalysisTemplateValidationType.DIFFERENTIAL_PRIVACY
+DIRECT_ANALYSIS = AnalysisType.DIRECT_ANALYSIS
+ADDITIONAL_ANALYSIS = AnalysisType.ADDITIONAL_ANALYSIS
+SPARK = AnalyticsEngine.SPARK
+CLEAN_ROOMS_SQL = AnalyticsEngine.CLEAN_ROOMS_SQL
+ADD_MEMBER = AutoApprovedChangeType.ADD_MEMBER
+ENABLED = AutoRefreshMode.ENABLED
+DISABLED = AutoRefreshMode.DISABLED
+PENDING = ChangeRequestStatus.PENDING
+APPROVED = ChangeRequestStatus.APPROVED
+CANCELLED = ChangeRequestStatus.CANCELLED
+DENIED = ChangeRequestStatus.DENIED
+COMMITTED = ChangeRequestStatus.COMMITTED
+MEMBER = ChangeSpecificationType.MEMBER
+ADD_MEMBER = ChangeType.ADD_MEMBER
+ENABLED = CollaborationJobLogStatus.ENABLED
+DISABLED = CollaborationJobLogStatus.DISABLED
+ENABLED = CollaborationQueryLogStatus.ENABLED
+DISABLED = CollaborationQueryLogStatus.DISABLED
+US_WEST_1 = CommercialRegion.US_WEST_1
+US_WEST_2 = CommercialRegion.US_WEST_2
+US_EAST_1 = CommercialRegion.US_EAST_1
+US_EAST_2 = CommercialRegion.US_EAST_2
+AF_SOUTH_1 = CommercialRegion.AF_SOUTH_1
+AP_EAST_1 = CommercialRegion.AP_EAST_1
+AP_SOUTH_2 = CommercialRegion.AP_SOUTH_2
+AP_SOUTHEAST_1 = CommercialRegion.AP_SOUTHEAST_1
+AP_SOUTHEAST_2 = CommercialRegion.AP_SOUTHEAST_2
+AP_SOUTHEAST_3 = CommercialRegion.AP_SOUTHEAST_3
+AP_SOUTHEAST_5 = CommercialRegion.AP_SOUTHEAST_5
+AP_SOUTHEAST_4 = CommercialRegion.AP_SOUTHEAST_4
+AP_SOUTHEAST_7 = CommercialRegion.AP_SOUTHEAST_7
+AP_SOUTH_1 = CommercialRegion.AP_SOUTH_1
+AP_NORTHEAST_3 = CommercialRegion.AP_NORTHEAST_3
+AP_NORTHEAST_1 = CommercialRegion.AP_NORTHEAST_1
+AP_NORTHEAST_2 = CommercialRegion.AP_NORTHEAST_2
+CA_CENTRAL_1 = CommercialRegion.CA_CENTRAL_1
+CA_WEST_1 = CommercialRegion.CA_WEST_1
+EU_SOUTH_1 = CommercialRegion.EU_SOUTH_1
+EU_WEST_3 = CommercialRegion.EU_WEST_3
+EU_SOUTH_2 = CommercialRegion.EU_SOUTH_2
+EU_CENTRAL_2 = CommercialRegion.EU_CENTRAL_2
+EU_CENTRAL_1 = CommercialRegion.EU_CENTRAL_1
+EU_NORTH_1 = CommercialRegion.EU_NORTH_1
+EU_WEST_1 = CommercialRegion.EU_WEST_1
+EU_WEST_2 = CommercialRegion.EU_WEST_2
+ME_SOUTH_1 = CommercialRegion.ME_SOUTH_1
+ME_CENTRAL_1 = CommercialRegion.ME_CENTRAL_1
+IL_CENTRAL_1 = CommercialRegion.IL_CENTRAL_1
+SA_EAST_1 = CommercialRegion.SA_EAST_1
+MX_CENTRAL_1 = CommercialRegion.MX_CENTRAL_1
+AP_EAST_2 = CommercialRegion.AP_EAST_2
+AGGREGATION = ConfiguredTableAnalysisRuleType.AGGREGATION
+LIST = ConfiguredTableAnalysisRuleType.LIST
+CUSTOM = ConfiguredTableAnalysisRuleType.CUSTOM
+AGGREGATION = ConfiguredTableAssociationAnalysisRuleType.AGGREGATION
+LIST = ConfiguredTableAssociationAnalysisRuleType.LIST
+CUSTOM = ConfiguredTableAssociationAnalysisRuleType.CUSTOM
+ALREADY_EXISTS = ConflictExceptionReason.ALREADY_EXISTS
+SUBRESOURCES_EXIST = ConflictExceptionReason.SUBRESOURCES_EXIST
+INVALID_STATE = ConflictExceptionReason.INVALID_STATE
+CAN_RECEIVE_MODEL_OUTPUT = CustomMLMemberAbility.CAN_RECEIVE_MODEL_OUTPUT
+CAN_RECEIVE_INFERENCE_OUTPUT = CustomMLMemberAbility.CAN_RECEIVE_INFERENCE_OUTPUT
+AVG = DifferentialPrivacyAggregationType.AVG
+COUNT = DifferentialPrivacyAggregationType.COUNT
+COUNT_DISTINCT = DifferentialPrivacyAggregationType.COUNT_DISTINCT
+SUM = DifferentialPrivacyAggregationType.SUM
+STDDEV = DifferentialPrivacyAggregationType.STDDEV
+DETAILED = ErrorMessageType.DETAILED
+INVITED = FilterableMemberStatus.INVITED
+ACTIVE = FilterableMemberStatus.ACTIVE
+SOURCE = IdNamespaceType.SOURCE
+TARGET = IdNamespaceType.TARGET
+BATCH = JobType.BATCH
+INCREMENTAL = JobType.INCREMENTAL
+DELETE_ONLY = JobType.DELETE_ONLY
+OR = JoinOperator.OR
+AND = JoinOperator.AND
+QUERY_RUNNER = JoinRequiredOption.QUERY_RUNNER
+CAN_QUERY = MemberAbility.CAN_QUERY
+CAN_RECEIVE_RESULTS = MemberAbility.CAN_RECEIVE_RESULTS
+CAN_RUN_JOB = MemberAbility.CAN_RUN_JOB
+INVITED = MemberStatus.INVITED
+ACTIVE = MemberStatus.ACTIVE
+LEFT = MemberStatus.LEFT
+REMOVED = MemberStatus.REMOVED
+ENABLED = MembershipJobLogStatus.ENABLED
+DISABLED = MembershipJobLogStatus.DISABLED
+ENABLED = MembershipQueryLogStatus.ENABLED
+DISABLED = MembershipQueryLogStatus.DISABLED
+ACTIVE = MembershipStatus.ACTIVE
+REMOVED = MembershipStatus.REMOVED
+COLLABORATION_DELETED = MembershipStatus.COLLABORATION_DELETED
+SMALLINT = ParameterType.SMALLINT
+INTEGER = ParameterType.INTEGER
+BIGINT = ParameterType.BIGINT
+DECIMAL = ParameterType.DECIMAL
+REAL = ParameterType.REAL
+DOUBLE_PRECISION = ParameterType.DOUBLE_PRECISION
+BOOLEAN = ParameterType.BOOLEAN
+CHAR = ParameterType.CHAR
+VARCHAR = ParameterType.VARCHAR
+DATE = ParameterType.DATE
+TIMESTAMP = ParameterType.TIMESTAMP
+TIMESTAMPTZ = ParameterType.TIMESTAMPTZ
+TIME = ParameterType.TIME
+TIMETZ = ParameterType.TIMETZ
+VARBYTE = ParameterType.VARBYTE
+BINARY = ParameterType.BINARY
+BYTE = ParameterType.BYTE
+CHARACTER = ParameterType.CHARACTER
+DOUBLE = ParameterType.DOUBLE
+FLOAT = ParameterType.FLOAT
+INT = ParameterType.INT
+LONG = ParameterType.LONG
+NUMERIC = ParameterType.NUMERIC
+SHORT = ParameterType.SHORT
+STRING = ParameterType.STRING
+TIMESTAMP_LTZ = ParameterType.TIMESTAMP_LTZ
+TIMESTAMP_NTZ = ParameterType.TIMESTAMP_NTZ
+TINYINT = ParameterType.TINYINT
+CALENDAR_MONTH = PrivacyBudgetTemplateAutoRefresh.CALENDAR_MONTH
+NONE = PrivacyBudgetTemplateAutoRefresh.NONE
+DIFFERENTIAL_PRIVACY = PrivacyBudgetType.DIFFERENTIAL_PRIVACY
+ACCESS_BUDGET = PrivacyBudgetType.ACCESS_BUDGET
+DIRECT_ANALYSIS = ProtectedJobAnalysisType.DIRECT_ANALYSIS
+SUBMITTED = ProtectedJobStatus.SUBMITTED
+STARTED = ProtectedJobStatus.STARTED
+CANCELLED = ProtectedJobStatus.CANCELLED
+CANCELLING = ProtectedJobStatus.CANCELLING
+FAILED = ProtectedJobStatus.FAILED
+SUCCESS = ProtectedJobStatus.SUCCESS
+PYSPARK = ProtectedJobType.PYSPARK
+CR_1X = ProtectedJobWorkerComputeType.CR_1X
+CR_4X = ProtectedJobWorkerComputeType.CR_4X
+SUBMITTED = ProtectedQueryStatus.SUBMITTED
+STARTED = ProtectedQueryStatus.STARTED
+CANCELLED = ProtectedQueryStatus.CANCELLED
+CANCELLING = ProtectedQueryStatus.CANCELLING
+FAILED = ProtectedQueryStatus.FAILED
+SUCCESS = ProtectedQueryStatus.SUCCESS
+TIMED_OUT = ProtectedQueryStatus.TIMED_OUT
+SQL = ProtectedQueryType.SQL
+CONFIGURED_TABLE = ResourceType.CONFIGURED_TABLE
+COLLABORATION = ResourceType.COLLABORATION
+MEMBERSHIP = ResourceType.MEMBERSHIP
+CONFIGURED_TABLE_ASSOCIATION = ResourceType.CONFIGURED_TABLE_ASSOCIATION
+CSV = ResultFormat.CSV
+PARQUET = ResultFormat.PARQUET
+ABS = ScalarFunctions.ABS
+CAST = ScalarFunctions.CAST
+CEILING = ScalarFunctions.CEILING
+COALESCE = ScalarFunctions.COALESCE
+CONVERT = ScalarFunctions.CONVERT
+CURRENT_DATE = ScalarFunctions.CURRENT_DATE
+DATEADD = ScalarFunctions.DATEADD
+EXTRACT = ScalarFunctions.EXTRACT
+FLOOR = ScalarFunctions.FLOOR
+GETDATE = ScalarFunctions.GETDATE
+LN = ScalarFunctions.LN
+LOG = ScalarFunctions.LOG
+LOWER = ScalarFunctions.LOWER
+ROUND = ScalarFunctions.ROUND
+RTRIM = ScalarFunctions.RTRIM
+SQRT = ScalarFunctions.SQRT
+SUBSTRING = ScalarFunctions.SUBSTRING
+TO_CHAR = ScalarFunctions.TO_CHAR
+TO_DATE = ScalarFunctions.TO_DATE
+TO_NUMBER = ScalarFunctions.TO_NUMBER
+TO_TIMESTAMP = ScalarFunctions.TO_TIMESTAMP
+TRIM = ScalarFunctions.TRIM
+TRUNC = ScalarFunctions.TRUNC
+UPPER = ScalarFunctions.UPPER
+DIFFERENTIAL_PRIVACY = SchemaConfiguration.DIFFERENTIAL_PRIVACY
+READY = SchemaStatus.READY
+NOT_READY = SchemaStatus.NOT_READY
+ANALYSIS_RULE_MISSING = SchemaStatusReasonCode.ANALYSIS_RULE_MISSING
+ANALYSIS_TEMPLATES_NOT_CONFIGURED = SchemaStatusReasonCode.ANALYSIS_TEMPLATES_NOT_CONFIGURED
+ANALYSIS_PROVIDERS_NOT_CONFIGURED = SchemaStatusReasonCode.ANALYSIS_PROVIDERS_NOT_CONFIGURED
+DIFFERENTIAL_PRIVACY_POLICY_NOT_CONFIGURED = SchemaStatusReasonCode.DIFFERENTIAL_PRIVACY_POLICY_NOT_CONFIGURED
+ID_MAPPING_TABLE_NOT_POPULATED = SchemaStatusReasonCode.ID_MAPPING_TABLE_NOT_POPULATED
+COLLABORATION_ANALYSIS_RULE_NOT_CONFIGURED = SchemaStatusReasonCode.COLLABORATION_ANALYSIS_RULE_NOT_CONFIGURED
+ADDITIONAL_ANALYSES_NOT_CONFIGURED = SchemaStatusReasonCode.ADDITIONAL_ANALYSES_NOT_CONFIGURED
+RESULT_RECEIVERS_NOT_CONFIGURED = SchemaStatusReasonCode.RESULT_RECEIVERS_NOT_CONFIGURED
+ADDITIONAL_ANALYSES_NOT_ALLOWED = SchemaStatusReasonCode.ADDITIONAL_ANALYSES_NOT_ALLOWED
+RESULT_RECEIVERS_NOT_ALLOWED = SchemaStatusReasonCode.RESULT_RECEIVERS_NOT_ALLOWED
+ANALYSIS_RULE_TYPES_NOT_COMPATIBLE = SchemaStatusReasonCode.ANALYSIS_RULE_TYPES_NOT_COMPATIBLE
+TABLE = SchemaType.TABLE
+ID_MAPPING_TABLE = SchemaType.ID_MAPPING_TABLE
+DIRECT_QUERY = SelectedAnalysisMethod.DIRECT_QUERY
+DIRECT_JOB = SelectedAnalysisMethod.DIRECT_JOB
+US_WEST_1 = SupportedS3Region.US_WEST_1
+US_WEST_2 = SupportedS3Region.US_WEST_2
+US_EAST_1 = SupportedS3Region.US_EAST_1
+US_EAST_2 = SupportedS3Region.US_EAST_2
+AF_SOUTH_1 = SupportedS3Region.AF_SOUTH_1
+AP_EAST_1 = SupportedS3Region.AP_EAST_1
+AP_EAST_2 = SupportedS3Region.AP_EAST_2
+AP_SOUTH_2 = SupportedS3Region.AP_SOUTH_2
+AP_SOUTHEAST_1 = SupportedS3Region.AP_SOUTHEAST_1
+AP_SOUTHEAST_2 = SupportedS3Region.AP_SOUTHEAST_2
+AP_SOUTHEAST_3 = SupportedS3Region.AP_SOUTHEAST_3
+AP_SOUTHEAST_5 = SupportedS3Region.AP_SOUTHEAST_5
+AP_SOUTHEAST_4 = SupportedS3Region.AP_SOUTHEAST_4
+AP_SOUTHEAST_7 = SupportedS3Region.AP_SOUTHEAST_7
+AP_SOUTH_1 = SupportedS3Region.AP_SOUTH_1
+AP_NORTHEAST_3 = SupportedS3Region.AP_NORTHEAST_3
+AP_NORTHEAST_1 = SupportedS3Region.AP_NORTHEAST_1
+AP_NORTHEAST_2 = SupportedS3Region.AP_NORTHEAST_2
+CA_CENTRAL_1 = SupportedS3Region.CA_CENTRAL_1
+CA_WEST_1 = SupportedS3Region.CA_WEST_1
+EU_SOUTH_1 = SupportedS3Region.EU_SOUTH_1
+EU_WEST_3 = SupportedS3Region.EU_WEST_3
+EU_SOUTH_2 = SupportedS3Region.EU_SOUTH_2
+EU_CENTRAL_2 = SupportedS3Region.EU_CENTRAL_2
+EU_CENTRAL_1 = SupportedS3Region.EU_CENTRAL_1
+EU_NORTH_1 = SupportedS3Region.EU_NORTH_1
+EU_WEST_1 = SupportedS3Region.EU_WEST_1
+EU_WEST_2 = SupportedS3Region.EU_WEST_2
+ME_SOUTH_1 = SupportedS3Region.ME_SOUTH_1
+ME_CENTRAL_1 = SupportedS3Region.ME_CENTRAL_1
+IL_CENTRAL_1 = SupportedS3Region.IL_CENTRAL_1
+SA_EAST_1 = SupportedS3Region.SA_EAST_1
+MX_CENTRAL_1 = SupportedS3Region.MX_CENTRAL_1
+CATEGORICAL = SyntheticDataColumnType.CATEGORICAL
+NUMERICAL = SyntheticDataColumnType.NUMERICAL
+CANCELLED = TargetProtectedJobStatus.CANCELLED
+CANCELLED = TargetProtectedQueryStatus.CANCELLED
+FIELD_VALIDATION_FAILED = ValidationExceptionReason.FIELD_VALIDATION_FAILED
+INVALID_CONFIGURATION = ValidationExceptionReason.INVALID_CONFIGURATION
+INVALID_QUERY = ValidationExceptionReason.INVALID_QUERY
+IAM_SYNCHRONIZATION_DELAY = ValidationExceptionReason.IAM_SYNCHRONIZATION_DELAY
+CR_1X = WorkerComputeType.CR_1X
+CR_4X = WorkerComputeType.CR_4X
 
 
 @dataclass

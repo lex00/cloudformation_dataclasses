@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:18
+  Generated: 2025-12-17 16:59:35
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DSQL
@@ -23,6 +23,75 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class ClusterStatus:
+    """ClusterStatus enum values."""
+
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    IDLE = "IDLE"
+    INACTIVE = "INACTIVE"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    DELETED = "DELETED"
+    FAILED = "FAILED"
+    PENDING_SETUP = "PENDING_SETUP"
+    PENDING_DELETE = "PENDING_DELETE"
+
+
+class EncryptionStatus:
+    """EncryptionStatus enum values."""
+
+    ENABLED = "ENABLED"
+    UPDATING = "UPDATING"
+    KMS_KEY_INACCESSIBLE = "KMS_KEY_INACCESSIBLE"
+    ENABLING = "ENABLING"
+
+
+class EncryptionType:
+    """EncryptionType enum values."""
+
+    AWS_OWNED_KMS_KEY = "AWS_OWNED_KMS_KEY"
+    CUSTOMER_MANAGED_KMS_KEY = "CUSTOMER_MANAGED_KMS_KEY"
+
+
+class ValidationExceptionReason:
+    """ValidationExceptionReason enum values."""
+
+    UNKNOWNOPERATION = "unknownOperation"
+    CANNOTPARSE = "cannotParse"
+    FIELDVALIDATIONFAILED = "fieldValidationFailed"
+    DELETIONPROTECTIONENABLED = "deletionProtectionEnabled"
+    OTHER = "other"
+
+
+# Convenient aliases for enum values
+CREATING = ClusterStatus.CREATING
+ACTIVE = ClusterStatus.ACTIVE
+IDLE = ClusterStatus.IDLE
+INACTIVE = ClusterStatus.INACTIVE
+UPDATING = ClusterStatus.UPDATING
+DELETING = ClusterStatus.DELETING
+DELETED = ClusterStatus.DELETED
+FAILED = ClusterStatus.FAILED
+PENDING_SETUP = ClusterStatus.PENDING_SETUP
+PENDING_DELETE = ClusterStatus.PENDING_DELETE
+ENABLED = EncryptionStatus.ENABLED
+UPDATING = EncryptionStatus.UPDATING
+KMS_KEY_INACCESSIBLE = EncryptionStatus.KMS_KEY_INACCESSIBLE
+ENABLING = EncryptionStatus.ENABLING
+AWS_OWNED_KMS_KEY = EncryptionType.AWS_OWNED_KMS_KEY
+CUSTOMER_MANAGED_KMS_KEY = EncryptionType.CUSTOMER_MANAGED_KMS_KEY
+UNKNOWNOPERATION = ValidationExceptionReason.UNKNOWNOPERATION
+CANNOTPARSE = ValidationExceptionReason.CANNOTPARSE
+FIELDVALIDATIONFAILED = ValidationExceptionReason.FIELDVALIDATIONFAILED
+DELETIONPROTECTIONENABLED = ValidationExceptionReason.DELETIONPROTECTIONENABLED
+OTHER = ValidationExceptionReason.OTHER
 
 
 @dataclass

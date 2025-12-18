@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:39
+  Generated: 2025-12-17 16:59:39
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Signer
@@ -23,6 +23,82 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class Category:
+    """Category enum values."""
+
+    AWSIOT = "AWSIoT"
+
+
+class EncryptionAlgorithm:
+    """EncryptionAlgorithm enum values."""
+
+    RSA = "RSA"
+    ECDSA = "ECDSA"
+
+
+class HashAlgorithm:
+    """HashAlgorithm enum values."""
+
+    SHA1 = "SHA1"
+    SHA256 = "SHA256"
+
+
+class ImageFormat:
+    """ImageFormat enum values."""
+
+    JSON = "JSON"
+    JSONEMBEDDED = "JSONEmbedded"
+    JSONDETACHED = "JSONDetached"
+
+
+class SigningProfileStatus:
+    """SigningProfileStatus enum values."""
+
+    ACTIVE = "Active"
+    CANCELED = "Canceled"
+    REVOKED = "Revoked"
+
+
+class SigningStatus:
+    """SigningStatus enum values."""
+
+    INPROGRESS = "InProgress"
+    FAILED = "Failed"
+    SUCCEEDED = "Succeeded"
+
+
+class ValidityType:
+    """ValidityType enum values."""
+
+    DAYS = "DAYS"
+    MONTHS = "MONTHS"
+    YEARS = "YEARS"
+
+
+# Convenient aliases for enum values
+AWSIOT = Category.AWSIOT
+RSA = EncryptionAlgorithm.RSA
+ECDSA = EncryptionAlgorithm.ECDSA
+SHA1 = HashAlgorithm.SHA1
+SHA256 = HashAlgorithm.SHA256
+JSON = ImageFormat.JSON
+JSONEMBEDDED = ImageFormat.JSONEMBEDDED
+JSONDETACHED = ImageFormat.JSONDETACHED
+ACTIVE = SigningProfileStatus.ACTIVE
+CANCELED = SigningProfileStatus.CANCELED
+REVOKED = SigningProfileStatus.REVOKED
+INPROGRESS = SigningStatus.INPROGRESS
+FAILED = SigningStatus.FAILED
+SUCCEEDED = SigningStatus.SUCCEEDED
+DAYS = ValidityType.DAYS
+MONTHS = ValidityType.MONTHS
+YEARS = ValidityType.YEARS
 
 
 @dataclass

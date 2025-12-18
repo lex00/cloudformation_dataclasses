@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:30
+  Generated: 2025-12-17 16:59:37
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MediaPackage
@@ -23,6 +23,215 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class AdMarkers:
+    """AdMarkers enum values."""
+
+    NONE = "NONE"
+    SCTE35_ENHANCED = "SCTE35_ENHANCED"
+    PASSTHROUGH = "PASSTHROUGH"
+    DATERANGE = "DATERANGE"
+
+
+class AdsOnDeliveryRestrictions:
+    """AdsOnDeliveryRestrictions enum values."""
+
+    NONE = "NONE"
+    RESTRICTED = "RESTRICTED"
+    UNRESTRICTED = "UNRESTRICTED"
+    BOTH = "BOTH"
+
+
+class CmafEncryptionMethod:
+    """CmafEncryptionMethod enum values."""
+
+    SAMPLE_AES = "SAMPLE_AES"
+    AES_CTR = "AES_CTR"
+
+
+class EncryptionMethod:
+    """EncryptionMethod enum values."""
+
+    AES_128 = "AES_128"
+    SAMPLE_AES = "SAMPLE_AES"
+
+
+class ManifestLayout:
+    """ManifestLayout enum values."""
+
+    FULL = "FULL"
+    COMPACT = "COMPACT"
+    DRM_TOP_LEVEL_COMPACT = "DRM_TOP_LEVEL_COMPACT"
+
+
+class Origination:
+    """Origination enum values."""
+
+    ALLOW = "ALLOW"
+    DENY = "DENY"
+
+
+class PlaylistType:
+    """PlaylistType enum values."""
+
+    NONE = "NONE"
+    EVENT = "EVENT"
+    VOD = "VOD"
+
+
+class PresetSpeke20Audio:
+    """PresetSpeke20Audio enum values."""
+
+    PRESET_AUDIO_1 = "PRESET-AUDIO-1"
+    PRESET_AUDIO_2 = "PRESET-AUDIO-2"
+    PRESET_AUDIO_3 = "PRESET-AUDIO-3"
+    SHARED = "SHARED"
+    UNENCRYPTED = "UNENCRYPTED"
+
+
+class PresetSpeke20Video:
+    """PresetSpeke20Video enum values."""
+
+    PRESET_VIDEO_1 = "PRESET-VIDEO-1"
+    PRESET_VIDEO_2 = "PRESET-VIDEO-2"
+    PRESET_VIDEO_3 = "PRESET-VIDEO-3"
+    PRESET_VIDEO_4 = "PRESET-VIDEO-4"
+    PRESET_VIDEO_5 = "PRESET-VIDEO-5"
+    PRESET_VIDEO_6 = "PRESET-VIDEO-6"
+    PRESET_VIDEO_7 = "PRESET-VIDEO-7"
+    PRESET_VIDEO_8 = "PRESET-VIDEO-8"
+    SHARED = "SHARED"
+    UNENCRYPTED = "UNENCRYPTED"
+
+
+class Profile:
+    """Profile enum values."""
+
+    NONE = "NONE"
+    HBBTV_1_5 = "HBBTV_1_5"
+    HYBRIDCAST = "HYBRIDCAST"
+    DVB_DASH_2014 = "DVB_DASH_2014"
+
+
+class SegmentTemplateFormat:
+    """SegmentTemplateFormat enum values."""
+
+    NUMBER_WITH_TIMELINE = "NUMBER_WITH_TIMELINE"
+    TIME_WITH_TIMELINE = "TIME_WITH_TIMELINE"
+    NUMBER_WITH_DURATION = "NUMBER_WITH_DURATION"
+
+
+class Status:
+    """Status enum values."""
+
+    IN_PROGRESS = "IN_PROGRESS"
+    SUCCEEDED = "SUCCEEDED"
+    FAILED = "FAILED"
+
+
+class StreamOrder:
+    """StreamOrder enum values."""
+
+    ORIGINAL = "ORIGINAL"
+    VIDEO_BITRATE_ASCENDING = "VIDEO_BITRATE_ASCENDING"
+    VIDEO_BITRATE_DESCENDING = "VIDEO_BITRATE_DESCENDING"
+
+
+class UtcTiming:
+    """UtcTiming enum values."""
+
+    NONE = "NONE"
+    HTTP_HEAD = "HTTP-HEAD"
+    HTTP_ISO = "HTTP-ISO"
+    HTTP_XSDATE = "HTTP-XSDATE"
+
+
+class __AdTriggersElement:
+    """__AdTriggersElement enum values."""
+
+    SPLICE_INSERT = "SPLICE_INSERT"
+    BREAK = "BREAK"
+    PROVIDER_ADVERTISEMENT = "PROVIDER_ADVERTISEMENT"
+    DISTRIBUTOR_ADVERTISEMENT = "DISTRIBUTOR_ADVERTISEMENT"
+    PROVIDER_PLACEMENT_OPPORTUNITY = "PROVIDER_PLACEMENT_OPPORTUNITY"
+    DISTRIBUTOR_PLACEMENT_OPPORTUNITY = "DISTRIBUTOR_PLACEMENT_OPPORTUNITY"
+    PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY = "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY"
+    DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY = "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY"
+
+
+class __PeriodTriggersElement:
+    """__PeriodTriggersElement enum values."""
+
+    ADS = "ADS"
+
+
+# Convenient aliases for enum values
+NONE = AdMarkers.NONE
+SCTE35_ENHANCED = AdMarkers.SCTE35_ENHANCED
+PASSTHROUGH = AdMarkers.PASSTHROUGH
+DATERANGE = AdMarkers.DATERANGE
+NONE = AdsOnDeliveryRestrictions.NONE
+RESTRICTED = AdsOnDeliveryRestrictions.RESTRICTED
+UNRESTRICTED = AdsOnDeliveryRestrictions.UNRESTRICTED
+BOTH = AdsOnDeliveryRestrictions.BOTH
+SAMPLE_AES = CmafEncryptionMethod.SAMPLE_AES
+AES_CTR = CmafEncryptionMethod.AES_CTR
+AES_128 = EncryptionMethod.AES_128
+SAMPLE_AES = EncryptionMethod.SAMPLE_AES
+FULL = ManifestLayout.FULL
+COMPACT = ManifestLayout.COMPACT
+DRM_TOP_LEVEL_COMPACT = ManifestLayout.DRM_TOP_LEVEL_COMPACT
+ALLOW = Origination.ALLOW
+DENY = Origination.DENY
+NONE = PlaylistType.NONE
+EVENT = PlaylistType.EVENT
+VOD = PlaylistType.VOD
+PRESET_AUDIO_1 = PresetSpeke20Audio.PRESET_AUDIO_1
+PRESET_AUDIO_2 = PresetSpeke20Audio.PRESET_AUDIO_2
+PRESET_AUDIO_3 = PresetSpeke20Audio.PRESET_AUDIO_3
+SHARED = PresetSpeke20Audio.SHARED
+UNENCRYPTED = PresetSpeke20Audio.UNENCRYPTED
+PRESET_VIDEO_1 = PresetSpeke20Video.PRESET_VIDEO_1
+PRESET_VIDEO_2 = PresetSpeke20Video.PRESET_VIDEO_2
+PRESET_VIDEO_3 = PresetSpeke20Video.PRESET_VIDEO_3
+PRESET_VIDEO_4 = PresetSpeke20Video.PRESET_VIDEO_4
+PRESET_VIDEO_5 = PresetSpeke20Video.PRESET_VIDEO_5
+PRESET_VIDEO_6 = PresetSpeke20Video.PRESET_VIDEO_6
+PRESET_VIDEO_7 = PresetSpeke20Video.PRESET_VIDEO_7
+PRESET_VIDEO_8 = PresetSpeke20Video.PRESET_VIDEO_8
+SHARED = PresetSpeke20Video.SHARED
+UNENCRYPTED = PresetSpeke20Video.UNENCRYPTED
+NONE = Profile.NONE
+HBBTV_1_5 = Profile.HBBTV_1_5
+HYBRIDCAST = Profile.HYBRIDCAST
+DVB_DASH_2014 = Profile.DVB_DASH_2014
+NUMBER_WITH_TIMELINE = SegmentTemplateFormat.NUMBER_WITH_TIMELINE
+TIME_WITH_TIMELINE = SegmentTemplateFormat.TIME_WITH_TIMELINE
+NUMBER_WITH_DURATION = SegmentTemplateFormat.NUMBER_WITH_DURATION
+IN_PROGRESS = Status.IN_PROGRESS
+SUCCEEDED = Status.SUCCEEDED
+FAILED = Status.FAILED
+ORIGINAL = StreamOrder.ORIGINAL
+VIDEO_BITRATE_ASCENDING = StreamOrder.VIDEO_BITRATE_ASCENDING
+VIDEO_BITRATE_DESCENDING = StreamOrder.VIDEO_BITRATE_DESCENDING
+NONE = UtcTiming.NONE
+HTTP_HEAD = UtcTiming.HTTP_HEAD
+HTTP_ISO = UtcTiming.HTTP_ISO
+HTTP_XSDATE = UtcTiming.HTTP_XSDATE
+SPLICE_INSERT = __AdTriggersElement.SPLICE_INSERT
+BREAK = __AdTriggersElement.BREAK
+PROVIDER_ADVERTISEMENT = __AdTriggersElement.PROVIDER_ADVERTISEMENT
+DISTRIBUTOR_ADVERTISEMENT = __AdTriggersElement.DISTRIBUTOR_ADVERTISEMENT
+PROVIDER_PLACEMENT_OPPORTUNITY = __AdTriggersElement.PROVIDER_PLACEMENT_OPPORTUNITY
+DISTRIBUTOR_PLACEMENT_OPPORTUNITY = __AdTriggersElement.DISTRIBUTOR_PLACEMENT_OPPORTUNITY
+PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY = __AdTriggersElement.PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY
+DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY = __AdTriggersElement.DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY
+ADS = __PeriodTriggersElement.ADS
 
 
 @dataclass
@@ -458,7 +667,7 @@ class CmafEncryption:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     constant_initialization_vector: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    encryption_method: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    encryption_method: Optional[Union[str, CmafEncryptionMethod, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -633,27 +842,27 @@ class DashPackage:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manifest_window_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    ads_on_delivery_restrictions: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    ads_on_delivery_restrictions: Optional[Union[str, AdsOnDeliveryRestrictions, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    manifest_layout: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    manifest_layout: Optional[Union[str, ManifestLayout, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stream_selection: Optional[StreamSelection] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_iframe_only_stream: Optional[Union[bool, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    segment_template_format: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    segment_template_format: Optional[Union[str, SegmentTemplateFormat, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption: Optional[DashEncryption] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ad_triggers: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    profile: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    profile: Optional[Union[str, Profile, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     period_triggers: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     suggested_presentation_delay_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    utc_timing: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    utc_timing: Optional[Union[str, UtcTiming, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min_buffer_time_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -866,7 +1075,7 @@ class HlsEncryption:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     speke_key_provider: Optional[SpekeKeyProvider] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    encryption_method: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    encryption_method: Optional[Union[str, EncryptionMethod, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -935,11 +1144,11 @@ class HlsManifest:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    ads_on_delivery_restrictions: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    ads_on_delivery_restrictions: Optional[Union[str, AdsOnDeliveryRestrictions, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manifest_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    ad_markers: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    ad_markers: Optional[Union[str, AdMarkers, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     program_date_time_interval_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -949,7 +1158,7 @@ class HlsManifest:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     id: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    playlist_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    playlist_type: Optional[Union[str, PlaylistType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ad_triggers: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1077,9 +1286,9 @@ class HlsPackage:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    ads_on_delivery_restrictions: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    ads_on_delivery_restrictions: Optional[Union[str, AdsOnDeliveryRestrictions, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    ad_markers: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    ad_markers: Optional[Union[str, AdMarkers, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     program_date_time_interval_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1095,7 +1304,7 @@ class HlsPackage:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption: Optional[HlsEncryption] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    playlist_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    playlist_type: Optional[Union[str, PlaylistType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ad_triggers: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1426,7 +1635,7 @@ class StreamSelection:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min_video_bits_per_second: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    stream_order: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    stream_order: Optional[Union[str, StreamOrder, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_video_bits_per_second: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
@@ -1485,7 +1694,7 @@ class OriginEndpoint(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     time_delay_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    origination: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    origination: Optional[Union[str, Origination, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     authorization: Optional[Authorization] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
@@ -1918,7 +2127,7 @@ class DashPackage:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption: Optional[DashEncryption] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    segment_template_format: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    segment_template_format: Optional[Union[str, SegmentTemplateFormat, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_encoder_configuration_in_segments: Optional[Union[bool, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -2013,9 +2222,9 @@ class EncryptionContractConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    preset_speke20_audio: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    preset_speke20_audio: Optional[Union[str, PresetSpeke20Audio, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    preset_speke20_video: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    preset_speke20_video: Optional[Union[str, PresetSpeke20Video, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -2055,7 +2264,7 @@ class HlsEncryption:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     speke_key_provider: Optional[SpekeKeyProvider] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    encryption_method: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    encryption_method: Optional[Union[str, EncryptionMethod, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -2102,7 +2311,7 @@ class HlsManifest:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    ad_markers: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    ad_markers: Optional[Union[str, AdMarkers, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manifest_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -2449,7 +2658,7 @@ class StreamSelection:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min_video_bits_per_second: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    stream_order: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    stream_order: Optional[Union[str, StreamOrder, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_video_bits_per_second: Optional[Union[int, Ref, GetAtt, Sub]] = None
 

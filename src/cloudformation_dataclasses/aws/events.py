@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:22
+  Generated: 2025-12-17 16:59:36
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Events
@@ -23,6 +23,239 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class ApiDestinationHttpMethod:
+    """ApiDestinationHttpMethod enum values."""
+
+    POST = "POST"
+    GET = "GET"
+    HEAD = "HEAD"
+    OPTIONS = "OPTIONS"
+    PUT = "PUT"
+    PATCH = "PATCH"
+    DELETE = "DELETE"
+
+
+class ApiDestinationState:
+    """ApiDestinationState enum values."""
+
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
+
+
+class ArchiveState:
+    """ArchiveState enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+    CREATING = "CREATING"
+    UPDATING = "UPDATING"
+    CREATE_FAILED = "CREATE_FAILED"
+    UPDATE_FAILED = "UPDATE_FAILED"
+
+
+class AssignPublicIp:
+    """AssignPublicIp enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class ConnectionAuthorizationType:
+    """ConnectionAuthorizationType enum values."""
+
+    BASIC = "BASIC"
+    OAUTH_CLIENT_CREDENTIALS = "OAUTH_CLIENT_CREDENTIALS"
+    API_KEY = "API_KEY"
+
+
+class ConnectionOAuthHttpMethod:
+    """ConnectionOAuthHttpMethod enum values."""
+
+    GET = "GET"
+    POST = "POST"
+    PUT = "PUT"
+
+
+class ConnectionState:
+    """ConnectionState enum values."""
+
+    CREATING = "CREATING"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    AUTHORIZED = "AUTHORIZED"
+    DEAUTHORIZED = "DEAUTHORIZED"
+    AUTHORIZING = "AUTHORIZING"
+    DEAUTHORIZING = "DEAUTHORIZING"
+    ACTIVE = "ACTIVE"
+    FAILED_CONNECTIVITY = "FAILED_CONNECTIVITY"
+
+
+class EndpointState:
+    """EndpointState enum values."""
+
+    ACTIVE = "ACTIVE"
+    CREATING = "CREATING"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    CREATE_FAILED = "CREATE_FAILED"
+    UPDATE_FAILED = "UPDATE_FAILED"
+    DELETE_FAILED = "DELETE_FAILED"
+
+
+class EventSourceState:
+    """EventSourceState enum values."""
+
+    PENDING = "PENDING"
+    ACTIVE = "ACTIVE"
+    DELETED = "DELETED"
+
+
+class IncludeDetail:
+    """IncludeDetail enum values."""
+
+    NONE = "NONE"
+    FULL = "FULL"
+
+
+class LaunchType:
+    """LaunchType enum values."""
+
+    EC2 = "EC2"
+    FARGATE = "FARGATE"
+    EXTERNAL = "EXTERNAL"
+
+
+class Level:
+    """Level enum values."""
+
+    OFF = "OFF"
+    ERROR = "ERROR"
+    INFO = "INFO"
+    TRACE = "TRACE"
+
+
+class PlacementConstraintType:
+    """PlacementConstraintType enum values."""
+
+    DISTINCTINSTANCE = "distinctInstance"
+    MEMBEROF = "memberOf"
+
+
+class PlacementStrategyType:
+    """PlacementStrategyType enum values."""
+
+    RANDOM = "random"
+    SPREAD = "spread"
+    BINPACK = "binpack"
+
+
+class PropagateTags:
+    """PropagateTags enum values."""
+
+    TASK_DEFINITION = "TASK_DEFINITION"
+
+
+class ReplayState:
+    """ReplayState enum values."""
+
+    STARTING = "STARTING"
+    RUNNING = "RUNNING"
+    CANCELLING = "CANCELLING"
+    COMPLETED = "COMPLETED"
+    CANCELLED = "CANCELLED"
+    FAILED = "FAILED"
+
+
+class ReplicationState:
+    """ReplicationState enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class RuleState:
+    """RuleState enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+    ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS = "ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS"
+
+
+# Convenient aliases for enum values
+POST = ApiDestinationHttpMethod.POST
+GET = ApiDestinationHttpMethod.GET
+HEAD = ApiDestinationHttpMethod.HEAD
+OPTIONS = ApiDestinationHttpMethod.OPTIONS
+PUT = ApiDestinationHttpMethod.PUT
+PATCH = ApiDestinationHttpMethod.PATCH
+DELETE = ApiDestinationHttpMethod.DELETE
+ACTIVE = ApiDestinationState.ACTIVE
+INACTIVE = ApiDestinationState.INACTIVE
+ENABLED = ArchiveState.ENABLED
+DISABLED = ArchiveState.DISABLED
+CREATING = ArchiveState.CREATING
+UPDATING = ArchiveState.UPDATING
+CREATE_FAILED = ArchiveState.CREATE_FAILED
+UPDATE_FAILED = ArchiveState.UPDATE_FAILED
+ENABLED = AssignPublicIp.ENABLED
+DISABLED = AssignPublicIp.DISABLED
+BASIC = ConnectionAuthorizationType.BASIC
+OAUTH_CLIENT_CREDENTIALS = ConnectionAuthorizationType.OAUTH_CLIENT_CREDENTIALS
+API_KEY = ConnectionAuthorizationType.API_KEY
+GET = ConnectionOAuthHttpMethod.GET
+POST = ConnectionOAuthHttpMethod.POST
+PUT = ConnectionOAuthHttpMethod.PUT
+CREATING = ConnectionState.CREATING
+UPDATING = ConnectionState.UPDATING
+DELETING = ConnectionState.DELETING
+AUTHORIZED = ConnectionState.AUTHORIZED
+DEAUTHORIZED = ConnectionState.DEAUTHORIZED
+AUTHORIZING = ConnectionState.AUTHORIZING
+DEAUTHORIZING = ConnectionState.DEAUTHORIZING
+ACTIVE = ConnectionState.ACTIVE
+FAILED_CONNECTIVITY = ConnectionState.FAILED_CONNECTIVITY
+ACTIVE = EndpointState.ACTIVE
+CREATING = EndpointState.CREATING
+UPDATING = EndpointState.UPDATING
+DELETING = EndpointState.DELETING
+CREATE_FAILED = EndpointState.CREATE_FAILED
+UPDATE_FAILED = EndpointState.UPDATE_FAILED
+DELETE_FAILED = EndpointState.DELETE_FAILED
+PENDING = EventSourceState.PENDING
+ACTIVE = EventSourceState.ACTIVE
+DELETED = EventSourceState.DELETED
+NONE = IncludeDetail.NONE
+FULL = IncludeDetail.FULL
+EC2 = LaunchType.EC2
+FARGATE = LaunchType.FARGATE
+EXTERNAL = LaunchType.EXTERNAL
+OFF = Level.OFF
+ERROR = Level.ERROR
+INFO = Level.INFO
+TRACE = Level.TRACE
+DISTINCTINSTANCE = PlacementConstraintType.DISTINCTINSTANCE
+MEMBEROF = PlacementConstraintType.MEMBEROF
+RANDOM = PlacementStrategyType.RANDOM
+SPREAD = PlacementStrategyType.SPREAD
+BINPACK = PlacementStrategyType.BINPACK
+TASK_DEFINITION = PropagateTags.TASK_DEFINITION
+STARTING = ReplayState.STARTING
+RUNNING = ReplayState.RUNNING
+CANCELLING = ReplayState.CANCELLING
+COMPLETED = ReplayState.COMPLETED
+CANCELLED = ReplayState.CANCELLED
+FAILED = ReplayState.FAILED
+ENABLED = ReplicationState.ENABLED
+DISABLED = ReplicationState.DISABLED
+ENABLED = RuleState.ENABLED
+DISABLED = RuleState.DISABLED
+ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS = RuleState.ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS
 
 
 @dataclass
@@ -38,7 +271,7 @@ class ApiDestination(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     invocation_endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    http_method: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    http_method: Optional[Union[str, ApiDestinationHttpMethod, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
@@ -712,7 +945,7 @@ class Connection(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     invocation_connectivity_parameters: Optional[InvocationConnectivityParameters] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    authorization_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    authorization_type: Optional[Union[str, ConnectionAuthorizationType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -921,7 +1154,7 @@ class ReplicationConfig:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    state: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    state: Optional[Union[str, ReplicationState, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1152,9 +1385,9 @@ class LogConfig:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    include_detail: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    include_detail: Optional[Union[str, IncludeDetail, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    level: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    level: Optional[Union[str, Level, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1420,7 +1653,7 @@ class AwsVpcConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnets: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    assign_public_ip: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    assign_public_ip: Optional[Union[str, AssignPublicIp, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1667,7 +1900,7 @@ class EcsParameters:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     placement_constraints: Optional[list[PlacementConstraint]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    propagate_tags: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    propagate_tags: Optional[Union[str, PropagateTags, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     task_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1675,7 +1908,7 @@ class EcsParameters:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity_provider_strategy: Optional[list[CapacityProviderStrategyItem]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    launch_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    launch_type: Optional[Union[str, LaunchType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     reference_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -2601,7 +2834,7 @@ class Rule(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    state: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    state: Optional[Union[str, RuleState, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     targets: Optional[list[Target]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso

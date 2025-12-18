@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:16
+  Generated: 2025-12-17 16:59:35
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CodeBuild
@@ -23,6 +23,710 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class ArtifactNamespace:
+    """ArtifactNamespace enum values."""
+
+    NONE = "NONE"
+    BUILD_ID = "BUILD_ID"
+
+
+class ArtifactPackaging:
+    """ArtifactPackaging enum values."""
+
+    NONE = "NONE"
+    ZIP = "ZIP"
+
+
+class ArtifactsType:
+    """ArtifactsType enum values."""
+
+    CODEPIPELINE = "CODEPIPELINE"
+    S3 = "S3"
+    NO_ARTIFACTS = "NO_ARTIFACTS"
+
+
+class AuthType:
+    """AuthType enum values."""
+
+    OAUTH = "OAUTH"
+    BASIC_AUTH = "BASIC_AUTH"
+    PERSONAL_ACCESS_TOKEN = "PERSONAL_ACCESS_TOKEN"
+    CODECONNECTIONS = "CODECONNECTIONS"
+    SECRETS_MANAGER = "SECRETS_MANAGER"
+
+
+class BatchReportModeType:
+    """BatchReportModeType enum values."""
+
+    REPORT_INDIVIDUAL_BUILDS = "REPORT_INDIVIDUAL_BUILDS"
+    REPORT_AGGREGATED_BATCH = "REPORT_AGGREGATED_BATCH"
+
+
+class BucketOwnerAccess:
+    """BucketOwnerAccess enum values."""
+
+    NONE = "NONE"
+    READ_ONLY = "READ_ONLY"
+    FULL = "FULL"
+
+
+class BuildBatchPhaseType:
+    """BuildBatchPhaseType enum values."""
+
+    SUBMITTED = "SUBMITTED"
+    DOWNLOAD_BATCHSPEC = "DOWNLOAD_BATCHSPEC"
+    IN_PROGRESS = "IN_PROGRESS"
+    COMBINE_ARTIFACTS = "COMBINE_ARTIFACTS"
+    SUCCEEDED = "SUCCEEDED"
+    FAILED = "FAILED"
+    STOPPED = "STOPPED"
+
+
+class BuildPhaseType:
+    """BuildPhaseType enum values."""
+
+    SUBMITTED = "SUBMITTED"
+    QUEUED = "QUEUED"
+    PROVISIONING = "PROVISIONING"
+    DOWNLOAD_SOURCE = "DOWNLOAD_SOURCE"
+    INSTALL = "INSTALL"
+    PRE_BUILD = "PRE_BUILD"
+    BUILD = "BUILD"
+    POST_BUILD = "POST_BUILD"
+    UPLOAD_ARTIFACTS = "UPLOAD_ARTIFACTS"
+    FINALIZING = "FINALIZING"
+    COMPLETED = "COMPLETED"
+
+
+class CacheMode:
+    """CacheMode enum values."""
+
+    LOCAL_DOCKER_LAYER_CACHE = "LOCAL_DOCKER_LAYER_CACHE"
+    LOCAL_SOURCE_CACHE = "LOCAL_SOURCE_CACHE"
+    LOCAL_CUSTOM_CACHE = "LOCAL_CUSTOM_CACHE"
+
+
+class CacheType:
+    """CacheType enum values."""
+
+    NO_CACHE = "NO_CACHE"
+    S3 = "S3"
+    LOCAL = "LOCAL"
+
+
+class CommandType:
+    """CommandType enum values."""
+
+    SHELL = "SHELL"
+
+
+class ComputeType:
+    """ComputeType enum values."""
+
+    BUILD_GENERAL1_SMALL = "BUILD_GENERAL1_SMALL"
+    BUILD_GENERAL1_MEDIUM = "BUILD_GENERAL1_MEDIUM"
+    BUILD_GENERAL1_LARGE = "BUILD_GENERAL1_LARGE"
+    BUILD_GENERAL1_XLARGE = "BUILD_GENERAL1_XLARGE"
+    BUILD_GENERAL1_2XLARGE = "BUILD_GENERAL1_2XLARGE"
+    BUILD_LAMBDA_1GB = "BUILD_LAMBDA_1GB"
+    BUILD_LAMBDA_2GB = "BUILD_LAMBDA_2GB"
+    BUILD_LAMBDA_4GB = "BUILD_LAMBDA_4GB"
+    BUILD_LAMBDA_8GB = "BUILD_LAMBDA_8GB"
+    BUILD_LAMBDA_10GB = "BUILD_LAMBDA_10GB"
+    ATTRIBUTE_BASED_COMPUTE = "ATTRIBUTE_BASED_COMPUTE"
+    CUSTOM_INSTANCE_TYPE = "CUSTOM_INSTANCE_TYPE"
+
+
+class CredentialProviderType:
+    """CredentialProviderType enum values."""
+
+    SECRETS_MANAGER = "SECRETS_MANAGER"
+
+
+class EnvironmentType:
+    """EnvironmentType enum values."""
+
+    WINDOWS_CONTAINER = "WINDOWS_CONTAINER"
+    LINUX_CONTAINER = "LINUX_CONTAINER"
+    LINUX_GPU_CONTAINER = "LINUX_GPU_CONTAINER"
+    ARM_CONTAINER = "ARM_CONTAINER"
+    WINDOWS_SERVER_2019_CONTAINER = "WINDOWS_SERVER_2019_CONTAINER"
+    WINDOWS_SERVER_2022_CONTAINER = "WINDOWS_SERVER_2022_CONTAINER"
+    LINUX_LAMBDA_CONTAINER = "LINUX_LAMBDA_CONTAINER"
+    ARM_LAMBDA_CONTAINER = "ARM_LAMBDA_CONTAINER"
+    LINUX_EC2 = "LINUX_EC2"
+    ARM_EC2 = "ARM_EC2"
+    WINDOWS_EC2 = "WINDOWS_EC2"
+    MAC_ARM = "MAC_ARM"
+
+
+class EnvironmentVariableType:
+    """EnvironmentVariableType enum values."""
+
+    PLAINTEXT = "PLAINTEXT"
+    PARAMETER_STORE = "PARAMETER_STORE"
+    SECRETS_MANAGER = "SECRETS_MANAGER"
+
+
+class FileSystemType:
+    """FileSystemType enum values."""
+
+    EFS = "EFS"
+
+
+class FleetContextCode:
+    """FleetContextCode enum values."""
+
+    CREATE_FAILED = "CREATE_FAILED"
+    UPDATE_FAILED = "UPDATE_FAILED"
+    ACTION_REQUIRED = "ACTION_REQUIRED"
+    PENDING_DELETION = "PENDING_DELETION"
+    INSUFFICIENT_CAPACITY = "INSUFFICIENT_CAPACITY"
+
+
+class FleetOverflowBehavior:
+    """FleetOverflowBehavior enum values."""
+
+    QUEUE = "QUEUE"
+    ON_DEMAND = "ON_DEMAND"
+
+
+class FleetProxyRuleBehavior:
+    """FleetProxyRuleBehavior enum values."""
+
+    ALLOW_ALL = "ALLOW_ALL"
+    DENY_ALL = "DENY_ALL"
+
+
+class FleetProxyRuleEffectType:
+    """FleetProxyRuleEffectType enum values."""
+
+    ALLOW = "ALLOW"
+    DENY = "DENY"
+
+
+class FleetProxyRuleType:
+    """FleetProxyRuleType enum values."""
+
+    DOMAIN = "DOMAIN"
+    IP = "IP"
+
+
+class FleetScalingMetricType:
+    """FleetScalingMetricType enum values."""
+
+    FLEET_UTILIZATION_RATE = "FLEET_UTILIZATION_RATE"
+
+
+class FleetScalingType:
+    """FleetScalingType enum values."""
+
+    TARGET_TRACKING_SCALING = "TARGET_TRACKING_SCALING"
+
+
+class FleetSortByType:
+    """FleetSortByType enum values."""
+
+    NAME = "NAME"
+    CREATED_TIME = "CREATED_TIME"
+    LAST_MODIFIED_TIME = "LAST_MODIFIED_TIME"
+
+
+class FleetStatusCode:
+    """FleetStatusCode enum values."""
+
+    CREATING = "CREATING"
+    UPDATING = "UPDATING"
+    ROTATING = "ROTATING"
+    PENDING_DELETION = "PENDING_DELETION"
+    DELETING = "DELETING"
+    CREATE_FAILED = "CREATE_FAILED"
+    UPDATE_ROLLBACK_FAILED = "UPDATE_ROLLBACK_FAILED"
+    ACTIVE = "ACTIVE"
+
+
+class ImagePullCredentialsType:
+    """ImagePullCredentialsType enum values."""
+
+    CODEBUILD = "CODEBUILD"
+    SERVICE_ROLE = "SERVICE_ROLE"
+
+
+class LanguageType:
+    """LanguageType enum values."""
+
+    JAVA = "JAVA"
+    PYTHON = "PYTHON"
+    NODE_JS = "NODE_JS"
+    RUBY = "RUBY"
+    GOLANG = "GOLANG"
+    DOCKER = "DOCKER"
+    ANDROID = "ANDROID"
+    DOTNET = "DOTNET"
+    BASE = "BASE"
+    PHP = "PHP"
+
+
+class LogsConfigStatusType:
+    """LogsConfigStatusType enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class MachineType:
+    """MachineType enum values."""
+
+    GENERAL = "GENERAL"
+    NVME = "NVME"
+
+
+class PlatformType:
+    """PlatformType enum values."""
+
+    DEBIAN = "DEBIAN"
+    AMAZON_LINUX = "AMAZON_LINUX"
+    UBUNTU = "UBUNTU"
+    WINDOWS_SERVER = "WINDOWS_SERVER"
+
+
+class ProjectSortByType:
+    """ProjectSortByType enum values."""
+
+    NAME = "NAME"
+    CREATED_TIME = "CREATED_TIME"
+    LAST_MODIFIED_TIME = "LAST_MODIFIED_TIME"
+
+
+class ProjectVisibilityType:
+    """ProjectVisibilityType enum values."""
+
+    PUBLIC_READ = "PUBLIC_READ"
+    PRIVATE = "PRIVATE"
+
+
+class PullRequestBuildApproverRole:
+    """PullRequestBuildApproverRole enum values."""
+
+    GITHUB_READ = "GITHUB_READ"
+    GITHUB_TRIAGE = "GITHUB_TRIAGE"
+    GITHUB_WRITE = "GITHUB_WRITE"
+    GITHUB_MAINTAIN = "GITHUB_MAINTAIN"
+    GITHUB_ADMIN = "GITHUB_ADMIN"
+    GITLAB_GUEST = "GITLAB_GUEST"
+    GITLAB_PLANNER = "GITLAB_PLANNER"
+    GITLAB_REPORTER = "GITLAB_REPORTER"
+    GITLAB_DEVELOPER = "GITLAB_DEVELOPER"
+    GITLAB_MAINTAINER = "GITLAB_MAINTAINER"
+    GITLAB_OWNER = "GITLAB_OWNER"
+    BITBUCKET_READ = "BITBUCKET_READ"
+    BITBUCKET_WRITE = "BITBUCKET_WRITE"
+    BITBUCKET_ADMIN = "BITBUCKET_ADMIN"
+
+
+class PullRequestBuildCommentApproval:
+    """PullRequestBuildCommentApproval enum values."""
+
+    DISABLED = "DISABLED"
+    ALL_PULL_REQUESTS = "ALL_PULL_REQUESTS"
+    FORK_PULL_REQUESTS = "FORK_PULL_REQUESTS"
+
+
+class ReportCodeCoverageSortByType:
+    """ReportCodeCoverageSortByType enum values."""
+
+    LINE_COVERAGE_PERCENTAGE = "LINE_COVERAGE_PERCENTAGE"
+    FILE_PATH = "FILE_PATH"
+
+
+class ReportExportConfigType:
+    """ReportExportConfigType enum values."""
+
+    S3 = "S3"
+    NO_EXPORT = "NO_EXPORT"
+
+
+class ReportGroupSortByType:
+    """ReportGroupSortByType enum values."""
+
+    NAME = "NAME"
+    CREATED_TIME = "CREATED_TIME"
+    LAST_MODIFIED_TIME = "LAST_MODIFIED_TIME"
+
+
+class ReportGroupStatusType:
+    """ReportGroupStatusType enum values."""
+
+    ACTIVE = "ACTIVE"
+    DELETING = "DELETING"
+
+
+class ReportGroupTrendFieldType:
+    """ReportGroupTrendFieldType enum values."""
+
+    PASS_RATE = "PASS_RATE"
+    DURATION = "DURATION"
+    TOTAL = "TOTAL"
+    LINE_COVERAGE = "LINE_COVERAGE"
+    LINES_COVERED = "LINES_COVERED"
+    LINES_MISSED = "LINES_MISSED"
+    BRANCH_COVERAGE = "BRANCH_COVERAGE"
+    BRANCHES_COVERED = "BRANCHES_COVERED"
+    BRANCHES_MISSED = "BRANCHES_MISSED"
+
+
+class ReportPackagingType:
+    """ReportPackagingType enum values."""
+
+    ZIP = "ZIP"
+    NONE = "NONE"
+
+
+class ReportStatusType:
+    """ReportStatusType enum values."""
+
+    GENERATING = "GENERATING"
+    SUCCEEDED = "SUCCEEDED"
+    FAILED = "FAILED"
+    INCOMPLETE = "INCOMPLETE"
+    DELETING = "DELETING"
+
+
+class ReportType:
+    """ReportType enum values."""
+
+    TEST = "TEST"
+    CODE_COVERAGE = "CODE_COVERAGE"
+
+
+class RetryBuildBatchType:
+    """RetryBuildBatchType enum values."""
+
+    RETRY_ALL_BUILDS = "RETRY_ALL_BUILDS"
+    RETRY_FAILED_BUILDS = "RETRY_FAILED_BUILDS"
+
+
+class ServerType:
+    """ServerType enum values."""
+
+    GITHUB = "GITHUB"
+    BITBUCKET = "BITBUCKET"
+    GITHUB_ENTERPRISE = "GITHUB_ENTERPRISE"
+    GITLAB = "GITLAB"
+    GITLAB_SELF_MANAGED = "GITLAB_SELF_MANAGED"
+
+
+class SharedResourceSortByType:
+    """SharedResourceSortByType enum values."""
+
+    ARN = "ARN"
+    MODIFIED_TIME = "MODIFIED_TIME"
+
+
+class SortOrderType:
+    """SortOrderType enum values."""
+
+    ASCENDING = "ASCENDING"
+    DESCENDING = "DESCENDING"
+
+
+class SourceAuthType:
+    """SourceAuthType enum values."""
+
+    OAUTH = "OAUTH"
+    CODECONNECTIONS = "CODECONNECTIONS"
+    SECRETS_MANAGER = "SECRETS_MANAGER"
+
+
+class SourceType:
+    """SourceType enum values."""
+
+    CODECOMMIT = "CODECOMMIT"
+    CODEPIPELINE = "CODEPIPELINE"
+    GITHUB = "GITHUB"
+    GITLAB = "GITLAB"
+    GITLAB_SELF_MANAGED = "GITLAB_SELF_MANAGED"
+    S3 = "S3"
+    BITBUCKET = "BITBUCKET"
+    GITHUB_ENTERPRISE = "GITHUB_ENTERPRISE"
+    NO_SOURCE = "NO_SOURCE"
+
+
+class StatusType:
+    """StatusType enum values."""
+
+    SUCCEEDED = "SUCCEEDED"
+    FAILED = "FAILED"
+    FAULT = "FAULT"
+    TIMED_OUT = "TIMED_OUT"
+    IN_PROGRESS = "IN_PROGRESS"
+    STOPPED = "STOPPED"
+
+
+class WebhookBuildType:
+    """WebhookBuildType enum values."""
+
+    BUILD = "BUILD"
+    BUILD_BATCH = "BUILD_BATCH"
+    RUNNER_BUILDKITE_BUILD = "RUNNER_BUILDKITE_BUILD"
+
+
+class WebhookFilterType:
+    """WebhookFilterType enum values."""
+
+    EVENT = "EVENT"
+    BASE_REF = "BASE_REF"
+    HEAD_REF = "HEAD_REF"
+    ACTOR_ACCOUNT_ID = "ACTOR_ACCOUNT_ID"
+    FILE_PATH = "FILE_PATH"
+    COMMIT_MESSAGE = "COMMIT_MESSAGE"
+    WORKFLOW_NAME = "WORKFLOW_NAME"
+    TAG_NAME = "TAG_NAME"
+    RELEASE_NAME = "RELEASE_NAME"
+    REPOSITORY_NAME = "REPOSITORY_NAME"
+    ORGANIZATION_NAME = "ORGANIZATION_NAME"
+
+
+class WebhookScopeType:
+    """WebhookScopeType enum values."""
+
+    GITHUB_ORGANIZATION = "GITHUB_ORGANIZATION"
+    GITHUB_GLOBAL = "GITHUB_GLOBAL"
+    GITLAB_GROUP = "GITLAB_GROUP"
+
+
+class WebhookStatus:
+    """WebhookStatus enum values."""
+
+    CREATING = "CREATING"
+    CREATE_FAILED = "CREATE_FAILED"
+    ACTIVE = "ACTIVE"
+    DELETING = "DELETING"
+
+
+# Convenient aliases for enum values
+NONE = ArtifactNamespace.NONE
+BUILD_ID = ArtifactNamespace.BUILD_ID
+NONE = ArtifactPackaging.NONE
+ZIP = ArtifactPackaging.ZIP
+CODEPIPELINE = ArtifactsType.CODEPIPELINE
+S3 = ArtifactsType.S3
+NO_ARTIFACTS = ArtifactsType.NO_ARTIFACTS
+OAUTH = AuthType.OAUTH
+BASIC_AUTH = AuthType.BASIC_AUTH
+PERSONAL_ACCESS_TOKEN = AuthType.PERSONAL_ACCESS_TOKEN
+CODECONNECTIONS = AuthType.CODECONNECTIONS
+SECRETS_MANAGER = AuthType.SECRETS_MANAGER
+REPORT_INDIVIDUAL_BUILDS = BatchReportModeType.REPORT_INDIVIDUAL_BUILDS
+REPORT_AGGREGATED_BATCH = BatchReportModeType.REPORT_AGGREGATED_BATCH
+NONE = BucketOwnerAccess.NONE
+READ_ONLY = BucketOwnerAccess.READ_ONLY
+FULL = BucketOwnerAccess.FULL
+SUBMITTED = BuildBatchPhaseType.SUBMITTED
+DOWNLOAD_BATCHSPEC = BuildBatchPhaseType.DOWNLOAD_BATCHSPEC
+IN_PROGRESS = BuildBatchPhaseType.IN_PROGRESS
+COMBINE_ARTIFACTS = BuildBatchPhaseType.COMBINE_ARTIFACTS
+SUCCEEDED = BuildBatchPhaseType.SUCCEEDED
+FAILED = BuildBatchPhaseType.FAILED
+STOPPED = BuildBatchPhaseType.STOPPED
+SUBMITTED = BuildPhaseType.SUBMITTED
+QUEUED = BuildPhaseType.QUEUED
+PROVISIONING = BuildPhaseType.PROVISIONING
+DOWNLOAD_SOURCE = BuildPhaseType.DOWNLOAD_SOURCE
+INSTALL = BuildPhaseType.INSTALL
+PRE_BUILD = BuildPhaseType.PRE_BUILD
+BUILD = BuildPhaseType.BUILD
+POST_BUILD = BuildPhaseType.POST_BUILD
+UPLOAD_ARTIFACTS = BuildPhaseType.UPLOAD_ARTIFACTS
+FINALIZING = BuildPhaseType.FINALIZING
+COMPLETED = BuildPhaseType.COMPLETED
+LOCAL_DOCKER_LAYER_CACHE = CacheMode.LOCAL_DOCKER_LAYER_CACHE
+LOCAL_SOURCE_CACHE = CacheMode.LOCAL_SOURCE_CACHE
+LOCAL_CUSTOM_CACHE = CacheMode.LOCAL_CUSTOM_CACHE
+NO_CACHE = CacheType.NO_CACHE
+S3 = CacheType.S3
+LOCAL = CacheType.LOCAL
+SHELL = CommandType.SHELL
+BUILD_GENERAL1_SMALL = ComputeType.BUILD_GENERAL1_SMALL
+BUILD_GENERAL1_MEDIUM = ComputeType.BUILD_GENERAL1_MEDIUM
+BUILD_GENERAL1_LARGE = ComputeType.BUILD_GENERAL1_LARGE
+BUILD_GENERAL1_XLARGE = ComputeType.BUILD_GENERAL1_XLARGE
+BUILD_GENERAL1_2XLARGE = ComputeType.BUILD_GENERAL1_2XLARGE
+BUILD_LAMBDA_1GB = ComputeType.BUILD_LAMBDA_1GB
+BUILD_LAMBDA_2GB = ComputeType.BUILD_LAMBDA_2GB
+BUILD_LAMBDA_4GB = ComputeType.BUILD_LAMBDA_4GB
+BUILD_LAMBDA_8GB = ComputeType.BUILD_LAMBDA_8GB
+BUILD_LAMBDA_10GB = ComputeType.BUILD_LAMBDA_10GB
+ATTRIBUTE_BASED_COMPUTE = ComputeType.ATTRIBUTE_BASED_COMPUTE
+CUSTOM_INSTANCE_TYPE = ComputeType.CUSTOM_INSTANCE_TYPE
+SECRETS_MANAGER = CredentialProviderType.SECRETS_MANAGER
+WINDOWS_CONTAINER = EnvironmentType.WINDOWS_CONTAINER
+LINUX_CONTAINER = EnvironmentType.LINUX_CONTAINER
+LINUX_GPU_CONTAINER = EnvironmentType.LINUX_GPU_CONTAINER
+ARM_CONTAINER = EnvironmentType.ARM_CONTAINER
+WINDOWS_SERVER_2019_CONTAINER = EnvironmentType.WINDOWS_SERVER_2019_CONTAINER
+WINDOWS_SERVER_2022_CONTAINER = EnvironmentType.WINDOWS_SERVER_2022_CONTAINER
+LINUX_LAMBDA_CONTAINER = EnvironmentType.LINUX_LAMBDA_CONTAINER
+ARM_LAMBDA_CONTAINER = EnvironmentType.ARM_LAMBDA_CONTAINER
+LINUX_EC2 = EnvironmentType.LINUX_EC2
+ARM_EC2 = EnvironmentType.ARM_EC2
+WINDOWS_EC2 = EnvironmentType.WINDOWS_EC2
+MAC_ARM = EnvironmentType.MAC_ARM
+PLAINTEXT = EnvironmentVariableType.PLAINTEXT
+PARAMETER_STORE = EnvironmentVariableType.PARAMETER_STORE
+SECRETS_MANAGER = EnvironmentVariableType.SECRETS_MANAGER
+EFS = FileSystemType.EFS
+CREATE_FAILED = FleetContextCode.CREATE_FAILED
+UPDATE_FAILED = FleetContextCode.UPDATE_FAILED
+ACTION_REQUIRED = FleetContextCode.ACTION_REQUIRED
+PENDING_DELETION = FleetContextCode.PENDING_DELETION
+INSUFFICIENT_CAPACITY = FleetContextCode.INSUFFICIENT_CAPACITY
+QUEUE = FleetOverflowBehavior.QUEUE
+ON_DEMAND = FleetOverflowBehavior.ON_DEMAND
+ALLOW_ALL = FleetProxyRuleBehavior.ALLOW_ALL
+DENY_ALL = FleetProxyRuleBehavior.DENY_ALL
+ALLOW = FleetProxyRuleEffectType.ALLOW
+DENY = FleetProxyRuleEffectType.DENY
+DOMAIN = FleetProxyRuleType.DOMAIN
+IP = FleetProxyRuleType.IP
+FLEET_UTILIZATION_RATE = FleetScalingMetricType.FLEET_UTILIZATION_RATE
+TARGET_TRACKING_SCALING = FleetScalingType.TARGET_TRACKING_SCALING
+NAME = FleetSortByType.NAME
+CREATED_TIME = FleetSortByType.CREATED_TIME
+LAST_MODIFIED_TIME = FleetSortByType.LAST_MODIFIED_TIME
+CREATING = FleetStatusCode.CREATING
+UPDATING = FleetStatusCode.UPDATING
+ROTATING = FleetStatusCode.ROTATING
+PENDING_DELETION = FleetStatusCode.PENDING_DELETION
+DELETING = FleetStatusCode.DELETING
+CREATE_FAILED = FleetStatusCode.CREATE_FAILED
+UPDATE_ROLLBACK_FAILED = FleetStatusCode.UPDATE_ROLLBACK_FAILED
+ACTIVE = FleetStatusCode.ACTIVE
+CODEBUILD = ImagePullCredentialsType.CODEBUILD
+SERVICE_ROLE = ImagePullCredentialsType.SERVICE_ROLE
+JAVA = LanguageType.JAVA
+PYTHON = LanguageType.PYTHON
+NODE_JS = LanguageType.NODE_JS
+RUBY = LanguageType.RUBY
+GOLANG = LanguageType.GOLANG
+DOCKER = LanguageType.DOCKER
+ANDROID = LanguageType.ANDROID
+DOTNET = LanguageType.DOTNET
+BASE = LanguageType.BASE
+PHP = LanguageType.PHP
+ENABLED = LogsConfigStatusType.ENABLED
+DISABLED = LogsConfigStatusType.DISABLED
+GENERAL = MachineType.GENERAL
+NVME = MachineType.NVME
+DEBIAN = PlatformType.DEBIAN
+AMAZON_LINUX = PlatformType.AMAZON_LINUX
+UBUNTU = PlatformType.UBUNTU
+WINDOWS_SERVER = PlatformType.WINDOWS_SERVER
+NAME = ProjectSortByType.NAME
+CREATED_TIME = ProjectSortByType.CREATED_TIME
+LAST_MODIFIED_TIME = ProjectSortByType.LAST_MODIFIED_TIME
+PUBLIC_READ = ProjectVisibilityType.PUBLIC_READ
+PRIVATE = ProjectVisibilityType.PRIVATE
+GITHUB_READ = PullRequestBuildApproverRole.GITHUB_READ
+GITHUB_TRIAGE = PullRequestBuildApproverRole.GITHUB_TRIAGE
+GITHUB_WRITE = PullRequestBuildApproverRole.GITHUB_WRITE
+GITHUB_MAINTAIN = PullRequestBuildApproverRole.GITHUB_MAINTAIN
+GITHUB_ADMIN = PullRequestBuildApproverRole.GITHUB_ADMIN
+GITLAB_GUEST = PullRequestBuildApproverRole.GITLAB_GUEST
+GITLAB_PLANNER = PullRequestBuildApproverRole.GITLAB_PLANNER
+GITLAB_REPORTER = PullRequestBuildApproverRole.GITLAB_REPORTER
+GITLAB_DEVELOPER = PullRequestBuildApproverRole.GITLAB_DEVELOPER
+GITLAB_MAINTAINER = PullRequestBuildApproverRole.GITLAB_MAINTAINER
+GITLAB_OWNER = PullRequestBuildApproverRole.GITLAB_OWNER
+BITBUCKET_READ = PullRequestBuildApproverRole.BITBUCKET_READ
+BITBUCKET_WRITE = PullRequestBuildApproverRole.BITBUCKET_WRITE
+BITBUCKET_ADMIN = PullRequestBuildApproverRole.BITBUCKET_ADMIN
+DISABLED = PullRequestBuildCommentApproval.DISABLED
+ALL_PULL_REQUESTS = PullRequestBuildCommentApproval.ALL_PULL_REQUESTS
+FORK_PULL_REQUESTS = PullRequestBuildCommentApproval.FORK_PULL_REQUESTS
+LINE_COVERAGE_PERCENTAGE = ReportCodeCoverageSortByType.LINE_COVERAGE_PERCENTAGE
+FILE_PATH = ReportCodeCoverageSortByType.FILE_PATH
+S3 = ReportExportConfigType.S3
+NO_EXPORT = ReportExportConfigType.NO_EXPORT
+NAME = ReportGroupSortByType.NAME
+CREATED_TIME = ReportGroupSortByType.CREATED_TIME
+LAST_MODIFIED_TIME = ReportGroupSortByType.LAST_MODIFIED_TIME
+ACTIVE = ReportGroupStatusType.ACTIVE
+DELETING = ReportGroupStatusType.DELETING
+PASS_RATE = ReportGroupTrendFieldType.PASS_RATE
+DURATION = ReportGroupTrendFieldType.DURATION
+TOTAL = ReportGroupTrendFieldType.TOTAL
+LINE_COVERAGE = ReportGroupTrendFieldType.LINE_COVERAGE
+LINES_COVERED = ReportGroupTrendFieldType.LINES_COVERED
+LINES_MISSED = ReportGroupTrendFieldType.LINES_MISSED
+BRANCH_COVERAGE = ReportGroupTrendFieldType.BRANCH_COVERAGE
+BRANCHES_COVERED = ReportGroupTrendFieldType.BRANCHES_COVERED
+BRANCHES_MISSED = ReportGroupTrendFieldType.BRANCHES_MISSED
+ZIP = ReportPackagingType.ZIP
+NONE = ReportPackagingType.NONE
+GENERATING = ReportStatusType.GENERATING
+SUCCEEDED = ReportStatusType.SUCCEEDED
+FAILED = ReportStatusType.FAILED
+INCOMPLETE = ReportStatusType.INCOMPLETE
+DELETING = ReportStatusType.DELETING
+TEST = ReportType.TEST
+CODE_COVERAGE = ReportType.CODE_COVERAGE
+RETRY_ALL_BUILDS = RetryBuildBatchType.RETRY_ALL_BUILDS
+RETRY_FAILED_BUILDS = RetryBuildBatchType.RETRY_FAILED_BUILDS
+GITHUB = ServerType.GITHUB
+BITBUCKET = ServerType.BITBUCKET
+GITHUB_ENTERPRISE = ServerType.GITHUB_ENTERPRISE
+GITLAB = ServerType.GITLAB
+GITLAB_SELF_MANAGED = ServerType.GITLAB_SELF_MANAGED
+ARN = SharedResourceSortByType.ARN
+MODIFIED_TIME = SharedResourceSortByType.MODIFIED_TIME
+ASCENDING = SortOrderType.ASCENDING
+DESCENDING = SortOrderType.DESCENDING
+OAUTH = SourceAuthType.OAUTH
+CODECONNECTIONS = SourceAuthType.CODECONNECTIONS
+SECRETS_MANAGER = SourceAuthType.SECRETS_MANAGER
+CODECOMMIT = SourceType.CODECOMMIT
+CODEPIPELINE = SourceType.CODEPIPELINE
+GITHUB = SourceType.GITHUB
+GITLAB = SourceType.GITLAB
+GITLAB_SELF_MANAGED = SourceType.GITLAB_SELF_MANAGED
+S3 = SourceType.S3
+BITBUCKET = SourceType.BITBUCKET
+GITHUB_ENTERPRISE = SourceType.GITHUB_ENTERPRISE
+NO_SOURCE = SourceType.NO_SOURCE
+SUCCEEDED = StatusType.SUCCEEDED
+FAILED = StatusType.FAILED
+FAULT = StatusType.FAULT
+TIMED_OUT = StatusType.TIMED_OUT
+IN_PROGRESS = StatusType.IN_PROGRESS
+STOPPED = StatusType.STOPPED
+BUILD = WebhookBuildType.BUILD
+BUILD_BATCH = WebhookBuildType.BUILD_BATCH
+RUNNER_BUILDKITE_BUILD = WebhookBuildType.RUNNER_BUILDKITE_BUILD
+EVENT = WebhookFilterType.EVENT
+BASE_REF = WebhookFilterType.BASE_REF
+HEAD_REF = WebhookFilterType.HEAD_REF
+ACTOR_ACCOUNT_ID = WebhookFilterType.ACTOR_ACCOUNT_ID
+FILE_PATH = WebhookFilterType.FILE_PATH
+COMMIT_MESSAGE = WebhookFilterType.COMMIT_MESSAGE
+WORKFLOW_NAME = WebhookFilterType.WORKFLOW_NAME
+TAG_NAME = WebhookFilterType.TAG_NAME
+RELEASE_NAME = WebhookFilterType.RELEASE_NAME
+REPOSITORY_NAME = WebhookFilterType.REPOSITORY_NAME
+ORGANIZATION_NAME = WebhookFilterType.ORGANIZATION_NAME
+GITHUB_ORGANIZATION = WebhookScopeType.GITHUB_ORGANIZATION
+GITHUB_GLOBAL = WebhookScopeType.GITHUB_GLOBAL
+GITLAB_GROUP = WebhookScopeType.GITLAB_GROUP
+CREATING = WebhookStatus.CREATING
+CREATE_FAILED = WebhookStatus.CREATE_FAILED
+ACTIVE = WebhookStatus.ACTIVE
+DELETING = WebhookStatus.DELETING
 
 
 @dataclass
@@ -38,7 +742,7 @@ class ComputeConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    machine_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    machine_type: Optional[Union[str, MachineType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""

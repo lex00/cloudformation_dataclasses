@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:22
+  Generated: 2025-12-17 16:59:36
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service FIS
@@ -23,6 +23,119 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class AccountTargeting:
+    """AccountTargeting enum values."""
+
+    SINGLE_ACCOUNT = "single-account"
+    MULTI_ACCOUNT = "multi-account"
+
+
+class ActionsMode:
+    """ActionsMode enum values."""
+
+    SKIP_ALL = "skip-all"
+    RUN_ALL = "run-all"
+
+
+class EmptyTargetResolutionMode:
+    """EmptyTargetResolutionMode enum values."""
+
+    FAIL = "fail"
+    SKIP = "skip"
+
+
+class ExperimentActionStatus:
+    """ExperimentActionStatus enum values."""
+
+    PENDING = "pending"
+    INITIATING = "initiating"
+    RUNNING = "running"
+    COMPLETED = "completed"
+    CANCELLED = "cancelled"
+    STOPPING = "stopping"
+    STOPPED = "stopped"
+    FAILED = "failed"
+    SKIPPED = "skipped"
+
+
+class ExperimentReportStatus:
+    """ExperimentReportStatus enum values."""
+
+    PENDING = "pending"
+    RUNNING = "running"
+    COMPLETED = "completed"
+    CANCELLED = "cancelled"
+    FAILED = "failed"
+
+
+class ExperimentStatus:
+    """ExperimentStatus enum values."""
+
+    PENDING = "pending"
+    INITIATING = "initiating"
+    RUNNING = "running"
+    COMPLETED = "completed"
+    STOPPING = "stopping"
+    STOPPED = "stopped"
+    FAILED = "failed"
+    CANCELLED = "cancelled"
+
+
+class SafetyLeverStatus:
+    """SafetyLeverStatus enum values."""
+
+    DISENGAGED = "disengaged"
+    ENGAGED = "engaged"
+    ENGAGING = "engaging"
+
+
+class SafetyLeverStatusInput:
+    """SafetyLeverStatusInput enum values."""
+
+    DISENGAGED = "disengaged"
+    ENGAGED = "engaged"
+
+
+# Convenient aliases for enum values
+SINGLE_ACCOUNT = AccountTargeting.SINGLE_ACCOUNT
+MULTI_ACCOUNT = AccountTargeting.MULTI_ACCOUNT
+SKIP_ALL = ActionsMode.SKIP_ALL
+RUN_ALL = ActionsMode.RUN_ALL
+FAIL = EmptyTargetResolutionMode.FAIL
+SKIP = EmptyTargetResolutionMode.SKIP
+PENDING = ExperimentActionStatus.PENDING
+INITIATING = ExperimentActionStatus.INITIATING
+RUNNING = ExperimentActionStatus.RUNNING
+COMPLETED = ExperimentActionStatus.COMPLETED
+CANCELLED = ExperimentActionStatus.CANCELLED
+STOPPING = ExperimentActionStatus.STOPPING
+STOPPED = ExperimentActionStatus.STOPPED
+FAILED = ExperimentActionStatus.FAILED
+SKIPPED = ExperimentActionStatus.SKIPPED
+PENDING = ExperimentReportStatus.PENDING
+RUNNING = ExperimentReportStatus.RUNNING
+COMPLETED = ExperimentReportStatus.COMPLETED
+CANCELLED = ExperimentReportStatus.CANCELLED
+FAILED = ExperimentReportStatus.FAILED
+PENDING = ExperimentStatus.PENDING
+INITIATING = ExperimentStatus.INITIATING
+RUNNING = ExperimentStatus.RUNNING
+COMPLETED = ExperimentStatus.COMPLETED
+STOPPING = ExperimentStatus.STOPPING
+STOPPED = ExperimentStatus.STOPPED
+FAILED = ExperimentStatus.FAILED
+CANCELLED = ExperimentStatus.CANCELLED
+DISENGAGED = SafetyLeverStatus.DISENGAGED
+ENGAGED = SafetyLeverStatus.ENGAGED
+ENGAGING = SafetyLeverStatus.ENGAGING
+DISENGAGED = SafetyLeverStatusInput.DISENGAGED
+ENGAGED = SafetyLeverStatusInput.ENGAGED
 
 
 @dataclass

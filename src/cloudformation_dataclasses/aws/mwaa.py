@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:29
+  Generated: 2025-12-17 16:59:37
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MWAA
@@ -23,6 +23,169 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class EndpointManagement:
+    """EndpointManagement enum values."""
+
+    CUSTOMER = "CUSTOMER"
+    SERVICE = "SERVICE"
+
+
+class EnvironmentStatus:
+    """EnvironmentStatus enum values."""
+
+    CREATING = "CREATING"
+    CREATE_FAILED = "CREATE_FAILED"
+    AVAILABLE = "AVAILABLE"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    DELETED = "DELETED"
+    UNAVAILABLE = "UNAVAILABLE"
+    UPDATE_FAILED = "UPDATE_FAILED"
+    ROLLING_BACK = "ROLLING_BACK"
+    CREATING_SNAPSHOT = "CREATING_SNAPSHOT"
+    PENDING = "PENDING"
+    MAINTENANCE = "MAINTENANCE"
+
+
+class LoggingLevel:
+    """LoggingLevel enum values."""
+
+    CRITICAL = "CRITICAL"
+    ERROR = "ERROR"
+    WARNING = "WARNING"
+    INFO = "INFO"
+    DEBUG = "DEBUG"
+
+
+class RestApiMethod:
+    """RestApiMethod enum values."""
+
+    GET = "GET"
+    PUT = "PUT"
+    POST = "POST"
+    PATCH = "PATCH"
+    DELETE = "DELETE"
+
+
+class Unit:
+    """Unit enum values."""
+
+    SECONDS = "Seconds"
+    MICROSECONDS = "Microseconds"
+    MILLISECONDS = "Milliseconds"
+    BYTES = "Bytes"
+    KILOBYTES = "Kilobytes"
+    MEGABYTES = "Megabytes"
+    GIGABYTES = "Gigabytes"
+    TERABYTES = "Terabytes"
+    BITS = "Bits"
+    KILOBITS = "Kilobits"
+    MEGABITS = "Megabits"
+    GIGABITS = "Gigabits"
+    TERABITS = "Terabits"
+    PERCENT = "Percent"
+    COUNT = "Count"
+    BYTES_SECOND = "Bytes/Second"
+    KILOBYTES_SECOND = "Kilobytes/Second"
+    MEGABYTES_SECOND = "Megabytes/Second"
+    GIGABYTES_SECOND = "Gigabytes/Second"
+    TERABYTES_SECOND = "Terabytes/Second"
+    BITS_SECOND = "Bits/Second"
+    KILOBITS_SECOND = "Kilobits/Second"
+    MEGABITS_SECOND = "Megabits/Second"
+    GIGABITS_SECOND = "Gigabits/Second"
+    TERABITS_SECOND = "Terabits/Second"
+    COUNT_SECOND = "Count/Second"
+    NONE = "None"
+
+
+class UpdateStatus:
+    """UpdateStatus enum values."""
+
+    SUCCESS = "SUCCESS"
+    PENDING = "PENDING"
+    FAILED = "FAILED"
+
+
+class WebserverAccessMode:
+    """WebserverAccessMode enum values."""
+
+    PRIVATE_ONLY = "PRIVATE_ONLY"
+    PUBLIC_ONLY = "PUBLIC_ONLY"
+
+
+class WorkerReplacementStrategy:
+    """WorkerReplacementStrategy enum values."""
+
+    FORCED = "FORCED"
+    GRACEFUL = "GRACEFUL"
+
+
+# Convenient aliases for enum values
+CUSTOMER = EndpointManagement.CUSTOMER
+SERVICE = EndpointManagement.SERVICE
+CREATING = EnvironmentStatus.CREATING
+CREATE_FAILED = EnvironmentStatus.CREATE_FAILED
+AVAILABLE = EnvironmentStatus.AVAILABLE
+UPDATING = EnvironmentStatus.UPDATING
+DELETING = EnvironmentStatus.DELETING
+DELETED = EnvironmentStatus.DELETED
+UNAVAILABLE = EnvironmentStatus.UNAVAILABLE
+UPDATE_FAILED = EnvironmentStatus.UPDATE_FAILED
+ROLLING_BACK = EnvironmentStatus.ROLLING_BACK
+CREATING_SNAPSHOT = EnvironmentStatus.CREATING_SNAPSHOT
+PENDING = EnvironmentStatus.PENDING
+MAINTENANCE = EnvironmentStatus.MAINTENANCE
+CRITICAL = LoggingLevel.CRITICAL
+ERROR = LoggingLevel.ERROR
+WARNING = LoggingLevel.WARNING
+INFO = LoggingLevel.INFO
+DEBUG = LoggingLevel.DEBUG
+GET = RestApiMethod.GET
+PUT = RestApiMethod.PUT
+POST = RestApiMethod.POST
+PATCH = RestApiMethod.PATCH
+DELETE = RestApiMethod.DELETE
+SECONDS = Unit.SECONDS
+MICROSECONDS = Unit.MICROSECONDS
+MILLISECONDS = Unit.MILLISECONDS
+BYTES = Unit.BYTES
+KILOBYTES = Unit.KILOBYTES
+MEGABYTES = Unit.MEGABYTES
+GIGABYTES = Unit.GIGABYTES
+TERABYTES = Unit.TERABYTES
+BITS = Unit.BITS
+KILOBITS = Unit.KILOBITS
+MEGABITS = Unit.MEGABITS
+GIGABITS = Unit.GIGABITS
+TERABITS = Unit.TERABITS
+PERCENT = Unit.PERCENT
+COUNT = Unit.COUNT
+BYTES_SECOND = Unit.BYTES_SECOND
+KILOBYTES_SECOND = Unit.KILOBYTES_SECOND
+MEGABYTES_SECOND = Unit.MEGABYTES_SECOND
+GIGABYTES_SECOND = Unit.GIGABYTES_SECOND
+TERABYTES_SECOND = Unit.TERABYTES_SECOND
+BITS_SECOND = Unit.BITS_SECOND
+KILOBITS_SECOND = Unit.KILOBITS_SECOND
+MEGABITS_SECOND = Unit.MEGABITS_SECOND
+GIGABITS_SECOND = Unit.GIGABITS_SECOND
+TERABITS_SECOND = Unit.TERABITS_SECOND
+COUNT_SECOND = Unit.COUNT_SECOND
+NONE = Unit.NONE
+SUCCESS = UpdateStatus.SUCCESS
+PENDING = UpdateStatus.PENDING
+FAILED = UpdateStatus.FAILED
+PRIVATE_ONLY = WebserverAccessMode.PRIVATE_ONLY
+PUBLIC_ONLY = WebserverAccessMode.PUBLIC_ONLY
+FORCED = WorkerReplacementStrategy.FORCED
+GRACEFUL = WorkerReplacementStrategy.GRACEFUL
 
 
 @dataclass
@@ -111,7 +274,7 @@ class ModuleLoggingConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    log_level: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    log_level: Optional[Union[str, LoggingLevel, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -216,7 +379,7 @@ class Environment(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     logging_configuration: Optional[LoggingConfiguration] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    webserver_access_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    webserver_access_mode: Optional[Union[str, WebserverAccessMode, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     network_configuration: Optional[NetworkConfiguration] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
@@ -244,7 +407,7 @@ class Environment(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     plugins_s3_object_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    endpoint_management: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    endpoint_management: Optional[Union[str, EndpointManagement, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     max_webservers: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso

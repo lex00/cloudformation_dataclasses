@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:27
+  Generated: 2025-12-17 16:59:37
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service KinesisFirehose
@@ -23,6 +23,408 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class AmazonOpenSearchServerlessS3BackupMode:
+    """AmazonOpenSearchServerlessS3BackupMode enum values."""
+
+    FAILEDDOCUMENTSONLY = "FailedDocumentsOnly"
+    ALLDOCUMENTS = "AllDocuments"
+
+
+class AmazonopensearchserviceIndexRotationPeriod:
+    """AmazonopensearchserviceIndexRotationPeriod enum values."""
+
+    NOROTATION = "NoRotation"
+    ONEHOUR = "OneHour"
+    ONEDAY = "OneDay"
+    ONEWEEK = "OneWeek"
+    ONEMONTH = "OneMonth"
+
+
+class AmazonopensearchserviceS3BackupMode:
+    """AmazonopensearchserviceS3BackupMode enum values."""
+
+    FAILEDDOCUMENTSONLY = "FailedDocumentsOnly"
+    ALLDOCUMENTS = "AllDocuments"
+
+
+class CompressionFormat:
+    """CompressionFormat enum values."""
+
+    UNCOMPRESSED = "UNCOMPRESSED"
+    GZIP = "GZIP"
+    ZIP = "ZIP"
+    SNAPPY = "Snappy"
+    HADOOP_SNAPPY = "HADOOP_SNAPPY"
+
+
+class Connectivity:
+    """Connectivity enum values."""
+
+    PUBLIC = "PUBLIC"
+    PRIVATE = "PRIVATE"
+
+
+class ContentEncoding:
+    """ContentEncoding enum values."""
+
+    NONE = "NONE"
+    GZIP = "GZIP"
+
+
+class DatabaseType:
+    """DatabaseType enum values."""
+
+    MYSQL = "MySQL"
+    POSTGRESQL = "PostgreSQL"
+
+
+class DefaultDocumentIdFormat:
+    """DefaultDocumentIdFormat enum values."""
+
+    FIREHOSE_DEFAULT = "FIREHOSE_DEFAULT"
+    NO_DOCUMENT_ID = "NO_DOCUMENT_ID"
+
+
+class DeliveryStreamEncryptionStatus:
+    """DeliveryStreamEncryptionStatus enum values."""
+
+    ENABLED = "ENABLED"
+    ENABLING = "ENABLING"
+    ENABLING_FAILED = "ENABLING_FAILED"
+    DISABLED = "DISABLED"
+    DISABLING = "DISABLING"
+    DISABLING_FAILED = "DISABLING_FAILED"
+
+
+class DeliveryStreamFailureType:
+    """DeliveryStreamFailureType enum values."""
+
+    VPC_ENDPOINT_SERVICE_NAME_NOT_FOUND = "VPC_ENDPOINT_SERVICE_NAME_NOT_FOUND"
+    VPC_INTERFACE_ENDPOINT_SERVICE_ACCESS_DENIED = "VPC_INTERFACE_ENDPOINT_SERVICE_ACCESS_DENIED"
+    RETIRE_KMS_GRANT_FAILED = "RETIRE_KMS_GRANT_FAILED"
+    CREATE_KMS_GRANT_FAILED = "CREATE_KMS_GRANT_FAILED"
+    KMS_ACCESS_DENIED = "KMS_ACCESS_DENIED"
+    DISABLED_KMS_KEY = "DISABLED_KMS_KEY"
+    INVALID_KMS_KEY = "INVALID_KMS_KEY"
+    KMS_KEY_NOT_FOUND = "KMS_KEY_NOT_FOUND"
+    KMS_OPT_IN_REQUIRED = "KMS_OPT_IN_REQUIRED"
+    CREATE_ENI_FAILED = "CREATE_ENI_FAILED"
+    DELETE_ENI_FAILED = "DELETE_ENI_FAILED"
+    SUBNET_NOT_FOUND = "SUBNET_NOT_FOUND"
+    SECURITY_GROUP_NOT_FOUND = "SECURITY_GROUP_NOT_FOUND"
+    ENI_ACCESS_DENIED = "ENI_ACCESS_DENIED"
+    SUBNET_ACCESS_DENIED = "SUBNET_ACCESS_DENIED"
+    SECURITY_GROUP_ACCESS_DENIED = "SECURITY_GROUP_ACCESS_DENIED"
+    UNKNOWN_ERROR = "UNKNOWN_ERROR"
+
+
+class DeliveryStreamStatus:
+    """DeliveryStreamStatus enum values."""
+
+    CREATING = "CREATING"
+    CREATING_FAILED = "CREATING_FAILED"
+    DELETING = "DELETING"
+    DELETING_FAILED = "DELETING_FAILED"
+    ACTIVE = "ACTIVE"
+
+
+class DeliveryStreamType:
+    """DeliveryStreamType enum values."""
+
+    DIRECTPUT = "DirectPut"
+    KINESISSTREAMASSOURCE = "KinesisStreamAsSource"
+    MSKASSOURCE = "MSKAsSource"
+    DATABASEASSOURCE = "DatabaseAsSource"
+
+
+class ElasticsearchIndexRotationPeriod:
+    """ElasticsearchIndexRotationPeriod enum values."""
+
+    NOROTATION = "NoRotation"
+    ONEHOUR = "OneHour"
+    ONEDAY = "OneDay"
+    ONEWEEK = "OneWeek"
+    ONEMONTH = "OneMonth"
+
+
+class ElasticsearchS3BackupMode:
+    """ElasticsearchS3BackupMode enum values."""
+
+    FAILEDDOCUMENTSONLY = "FailedDocumentsOnly"
+    ALLDOCUMENTS = "AllDocuments"
+
+
+class HECEndpointType:
+    """HECEndpointType enum values."""
+
+    RAW = "Raw"
+    EVENT = "Event"
+
+
+class HttpEndpointS3BackupMode:
+    """HttpEndpointS3BackupMode enum values."""
+
+    FAILEDDATAONLY = "FailedDataOnly"
+    ALLDATA = "AllData"
+
+
+class IcebergS3BackupMode:
+    """IcebergS3BackupMode enum values."""
+
+    FAILEDDATAONLY = "FailedDataOnly"
+    ALLDATA = "AllData"
+
+
+class KeyType:
+    """KeyType enum values."""
+
+    AWS_OWNED_CMK = "AWS_OWNED_CMK"
+    CUSTOMER_MANAGED_CMK = "CUSTOMER_MANAGED_CMK"
+
+
+class NoEncryptionConfig:
+    """NoEncryptionConfig enum values."""
+
+    NOENCRYPTION = "NoEncryption"
+
+
+class OrcCompression:
+    """OrcCompression enum values."""
+
+    NONE = "NONE"
+    ZLIB = "ZLIB"
+    SNAPPY = "SNAPPY"
+
+
+class OrcFormatVersion:
+    """OrcFormatVersion enum values."""
+
+    V0_11 = "V0_11"
+    V0_12 = "V0_12"
+
+
+class ParquetCompression:
+    """ParquetCompression enum values."""
+
+    UNCOMPRESSED = "UNCOMPRESSED"
+    GZIP = "GZIP"
+    SNAPPY = "SNAPPY"
+
+
+class ParquetWriterVersion:
+    """ParquetWriterVersion enum values."""
+
+    V1 = "V1"
+    V2 = "V2"
+
+
+class ProcessorParameterName:
+    """ProcessorParameterName enum values."""
+
+    LAMBDAARN = "LambdaArn"
+    NUMBEROFRETRIES = "NumberOfRetries"
+    METADATAEXTRACTIONQUERY = "MetadataExtractionQuery"
+    JSONPARSINGENGINE = "JsonParsingEngine"
+    ROLEARN = "RoleArn"
+    BUFFERSIZEINMBS = "BufferSizeInMBs"
+    BUFFERINTERVALINSECONDS = "BufferIntervalInSeconds"
+    SUBRECORDTYPE = "SubRecordType"
+    DELIMITER = "Delimiter"
+    COMPRESSIONFORMAT = "CompressionFormat"
+    DATAMESSAGEEXTRACTION = "DataMessageExtraction"
+
+
+class ProcessorType:
+    """ProcessorType enum values."""
+
+    RECORDDEAGGREGATION = "RecordDeAggregation"
+    DECOMPRESSION = "Decompression"
+    CLOUDWATCHLOGPROCESSING = "CloudWatchLogProcessing"
+    LAMBDA = "Lambda"
+    METADATAEXTRACTION = "MetadataExtraction"
+    APPENDDELIMITERTORECORD = "AppendDelimiterToRecord"
+
+
+class RedshiftS3BackupMode:
+    """RedshiftS3BackupMode enum values."""
+
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
+
+
+class S3BackupMode:
+    """S3BackupMode enum values."""
+
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
+
+
+class SSLMode:
+    """SSLMode enum values."""
+
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
+
+
+class SnapshotRequestedBy:
+    """SnapshotRequestedBy enum values."""
+
+    USER = "USER"
+    FIREHOSE = "FIREHOSE"
+
+
+class SnapshotStatus:
+    """SnapshotStatus enum values."""
+
+    IN_PROGRESS = "IN_PROGRESS"
+    COMPLETE = "COMPLETE"
+    SUSPENDED = "SUSPENDED"
+
+
+class SnowflakeDataLoadingOption:
+    """SnowflakeDataLoadingOption enum values."""
+
+    JSON_MAPPING = "JSON_MAPPING"
+    VARIANT_CONTENT_MAPPING = "VARIANT_CONTENT_MAPPING"
+    VARIANT_CONTENT_AND_METADATA_MAPPING = "VARIANT_CONTENT_AND_METADATA_MAPPING"
+
+
+class SnowflakeS3BackupMode:
+    """SnowflakeS3BackupMode enum values."""
+
+    FAILEDDATAONLY = "FailedDataOnly"
+    ALLDATA = "AllData"
+
+
+class SplunkS3BackupMode:
+    """SplunkS3BackupMode enum values."""
+
+    FAILEDEVENTSONLY = "FailedEventsOnly"
+    ALLEVENTS = "AllEvents"
+
+
+# Convenient aliases for enum values
+FAILEDDOCUMENTSONLY = AmazonOpenSearchServerlessS3BackupMode.FAILEDDOCUMENTSONLY
+ALLDOCUMENTS = AmazonOpenSearchServerlessS3BackupMode.ALLDOCUMENTS
+NOROTATION = AmazonopensearchserviceIndexRotationPeriod.NOROTATION
+ONEHOUR = AmazonopensearchserviceIndexRotationPeriod.ONEHOUR
+ONEDAY = AmazonopensearchserviceIndexRotationPeriod.ONEDAY
+ONEWEEK = AmazonopensearchserviceIndexRotationPeriod.ONEWEEK
+ONEMONTH = AmazonopensearchserviceIndexRotationPeriod.ONEMONTH
+FAILEDDOCUMENTSONLY = AmazonopensearchserviceS3BackupMode.FAILEDDOCUMENTSONLY
+ALLDOCUMENTS = AmazonopensearchserviceS3BackupMode.ALLDOCUMENTS
+UNCOMPRESSED = CompressionFormat.UNCOMPRESSED
+GZIP = CompressionFormat.GZIP
+ZIP = CompressionFormat.ZIP
+SNAPPY = CompressionFormat.SNAPPY
+HADOOP_SNAPPY = CompressionFormat.HADOOP_SNAPPY
+PUBLIC = Connectivity.PUBLIC
+PRIVATE = Connectivity.PRIVATE
+NONE = ContentEncoding.NONE
+GZIP = ContentEncoding.GZIP
+MYSQL = DatabaseType.MYSQL
+POSTGRESQL = DatabaseType.POSTGRESQL
+FIREHOSE_DEFAULT = DefaultDocumentIdFormat.FIREHOSE_DEFAULT
+NO_DOCUMENT_ID = DefaultDocumentIdFormat.NO_DOCUMENT_ID
+ENABLED = DeliveryStreamEncryptionStatus.ENABLED
+ENABLING = DeliveryStreamEncryptionStatus.ENABLING
+ENABLING_FAILED = DeliveryStreamEncryptionStatus.ENABLING_FAILED
+DISABLED = DeliveryStreamEncryptionStatus.DISABLED
+DISABLING = DeliveryStreamEncryptionStatus.DISABLING
+DISABLING_FAILED = DeliveryStreamEncryptionStatus.DISABLING_FAILED
+VPC_ENDPOINT_SERVICE_NAME_NOT_FOUND = DeliveryStreamFailureType.VPC_ENDPOINT_SERVICE_NAME_NOT_FOUND
+VPC_INTERFACE_ENDPOINT_SERVICE_ACCESS_DENIED = DeliveryStreamFailureType.VPC_INTERFACE_ENDPOINT_SERVICE_ACCESS_DENIED
+RETIRE_KMS_GRANT_FAILED = DeliveryStreamFailureType.RETIRE_KMS_GRANT_FAILED
+CREATE_KMS_GRANT_FAILED = DeliveryStreamFailureType.CREATE_KMS_GRANT_FAILED
+KMS_ACCESS_DENIED = DeliveryStreamFailureType.KMS_ACCESS_DENIED
+DISABLED_KMS_KEY = DeliveryStreamFailureType.DISABLED_KMS_KEY
+INVALID_KMS_KEY = DeliveryStreamFailureType.INVALID_KMS_KEY
+KMS_KEY_NOT_FOUND = DeliveryStreamFailureType.KMS_KEY_NOT_FOUND
+KMS_OPT_IN_REQUIRED = DeliveryStreamFailureType.KMS_OPT_IN_REQUIRED
+CREATE_ENI_FAILED = DeliveryStreamFailureType.CREATE_ENI_FAILED
+DELETE_ENI_FAILED = DeliveryStreamFailureType.DELETE_ENI_FAILED
+SUBNET_NOT_FOUND = DeliveryStreamFailureType.SUBNET_NOT_FOUND
+SECURITY_GROUP_NOT_FOUND = DeliveryStreamFailureType.SECURITY_GROUP_NOT_FOUND
+ENI_ACCESS_DENIED = DeliveryStreamFailureType.ENI_ACCESS_DENIED
+SUBNET_ACCESS_DENIED = DeliveryStreamFailureType.SUBNET_ACCESS_DENIED
+SECURITY_GROUP_ACCESS_DENIED = DeliveryStreamFailureType.SECURITY_GROUP_ACCESS_DENIED
+UNKNOWN_ERROR = DeliveryStreamFailureType.UNKNOWN_ERROR
+CREATING = DeliveryStreamStatus.CREATING
+CREATING_FAILED = DeliveryStreamStatus.CREATING_FAILED
+DELETING = DeliveryStreamStatus.DELETING
+DELETING_FAILED = DeliveryStreamStatus.DELETING_FAILED
+ACTIVE = DeliveryStreamStatus.ACTIVE
+DIRECTPUT = DeliveryStreamType.DIRECTPUT
+KINESISSTREAMASSOURCE = DeliveryStreamType.KINESISSTREAMASSOURCE
+MSKASSOURCE = DeliveryStreamType.MSKASSOURCE
+DATABASEASSOURCE = DeliveryStreamType.DATABASEASSOURCE
+NOROTATION = ElasticsearchIndexRotationPeriod.NOROTATION
+ONEHOUR = ElasticsearchIndexRotationPeriod.ONEHOUR
+ONEDAY = ElasticsearchIndexRotationPeriod.ONEDAY
+ONEWEEK = ElasticsearchIndexRotationPeriod.ONEWEEK
+ONEMONTH = ElasticsearchIndexRotationPeriod.ONEMONTH
+FAILEDDOCUMENTSONLY = ElasticsearchS3BackupMode.FAILEDDOCUMENTSONLY
+ALLDOCUMENTS = ElasticsearchS3BackupMode.ALLDOCUMENTS
+RAW = HECEndpointType.RAW
+EVENT = HECEndpointType.EVENT
+FAILEDDATAONLY = HttpEndpointS3BackupMode.FAILEDDATAONLY
+ALLDATA = HttpEndpointS3BackupMode.ALLDATA
+FAILEDDATAONLY = IcebergS3BackupMode.FAILEDDATAONLY
+ALLDATA = IcebergS3BackupMode.ALLDATA
+AWS_OWNED_CMK = KeyType.AWS_OWNED_CMK
+CUSTOMER_MANAGED_CMK = KeyType.CUSTOMER_MANAGED_CMK
+NOENCRYPTION = NoEncryptionConfig.NOENCRYPTION
+NONE = OrcCompression.NONE
+ZLIB = OrcCompression.ZLIB
+SNAPPY = OrcCompression.SNAPPY
+V0_11 = OrcFormatVersion.V0_11
+V0_12 = OrcFormatVersion.V0_12
+UNCOMPRESSED = ParquetCompression.UNCOMPRESSED
+GZIP = ParquetCompression.GZIP
+SNAPPY = ParquetCompression.SNAPPY
+V1 = ParquetWriterVersion.V1
+V2 = ParquetWriterVersion.V2
+LAMBDAARN = ProcessorParameterName.LAMBDAARN
+NUMBEROFRETRIES = ProcessorParameterName.NUMBEROFRETRIES
+METADATAEXTRACTIONQUERY = ProcessorParameterName.METADATAEXTRACTIONQUERY
+JSONPARSINGENGINE = ProcessorParameterName.JSONPARSINGENGINE
+ROLEARN = ProcessorParameterName.ROLEARN
+BUFFERSIZEINMBS = ProcessorParameterName.BUFFERSIZEINMBS
+BUFFERINTERVALINSECONDS = ProcessorParameterName.BUFFERINTERVALINSECONDS
+SUBRECORDTYPE = ProcessorParameterName.SUBRECORDTYPE
+DELIMITER = ProcessorParameterName.DELIMITER
+COMPRESSIONFORMAT = ProcessorParameterName.COMPRESSIONFORMAT
+DATAMESSAGEEXTRACTION = ProcessorParameterName.DATAMESSAGEEXTRACTION
+RECORDDEAGGREGATION = ProcessorType.RECORDDEAGGREGATION
+DECOMPRESSION = ProcessorType.DECOMPRESSION
+CLOUDWATCHLOGPROCESSING = ProcessorType.CLOUDWATCHLOGPROCESSING
+LAMBDA = ProcessorType.LAMBDA
+METADATAEXTRACTION = ProcessorType.METADATAEXTRACTION
+APPENDDELIMITERTORECORD = ProcessorType.APPENDDELIMITERTORECORD
+DISABLED = RedshiftS3BackupMode.DISABLED
+ENABLED = RedshiftS3BackupMode.ENABLED
+DISABLED = S3BackupMode.DISABLED
+ENABLED = S3BackupMode.ENABLED
+DISABLED = SSLMode.DISABLED
+ENABLED = SSLMode.ENABLED
+USER = SnapshotRequestedBy.USER
+FIREHOSE = SnapshotRequestedBy.FIREHOSE
+IN_PROGRESS = SnapshotStatus.IN_PROGRESS
+COMPLETE = SnapshotStatus.COMPLETE
+SUSPENDED = SnapshotStatus.SUSPENDED
+JSON_MAPPING = SnowflakeDataLoadingOption.JSON_MAPPING
+VARIANT_CONTENT_MAPPING = SnowflakeDataLoadingOption.VARIANT_CONTENT_MAPPING
+VARIANT_CONTENT_AND_METADATA_MAPPING = SnowflakeDataLoadingOption.VARIANT_CONTENT_AND_METADATA_MAPPING
+FAILEDDATAONLY = SnowflakeS3BackupMode.FAILEDDATAONLY
+ALLDATA = SnowflakeS3BackupMode.ALLDATA
+FAILEDEVENTSONLY = SplunkS3BackupMode.FAILEDEVENTSONLY
+ALLEVENTS = SplunkS3BackupMode.ALLEVENTS
 
 
 @dataclass
@@ -86,7 +488,7 @@ class AmazonOpenSearchServerlessDestinationConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    s3_backup_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    s3_backup_mode: Optional[Union[str, AmazonOpenSearchServerlessS3BackupMode, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -275,7 +677,7 @@ class AmazonopensearchserviceDestinationConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    index_rotation_period: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    index_rotation_period: Optional[Union[str, AmazonopensearchserviceIndexRotationPeriod, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     processing_configuration: Optional[ProcessingConfiguration] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -285,7 +687,7 @@ class AmazonopensearchserviceDestinationConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    s3_backup_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    s3_backup_mode: Optional[Union[str, AmazonopensearchserviceS3BackupMode, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     index_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -492,7 +894,7 @@ class AuthenticationConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    connectivity: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    connectivity: Optional[Union[str, Connectivity, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -843,7 +1245,7 @@ class DatabaseSourceConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     columns: Optional[DatabaseColumns] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    type_: Optional[Union[str, DatabaseType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     surrogate_keys: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -851,7 +1253,7 @@ class DatabaseSourceConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    ssl_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    ssl_mode: Optional[Union[str, SSLMode, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     snapshot_watermark_table: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1117,7 +1519,7 @@ class DeliveryStreamEncryptionConfigurationInput:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    key_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    key_type: Optional[Union[str, KeyType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -1295,7 +1697,7 @@ class DocumentIdOptions:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    default_document_id_format: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    default_document_id_format: Optional[Union[str, DefaultDocumentIdFormat, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1398,7 +1800,7 @@ class ElasticsearchDestinationConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    index_rotation_period: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    index_rotation_period: Optional[Union[str, ElasticsearchIndexRotationPeriod, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     processing_configuration: Optional[ProcessingConfiguration] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1408,7 +1810,7 @@ class ElasticsearchDestinationConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    s3_backup_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    s3_backup_mode: Optional[Union[str, ElasticsearchS3BackupMode, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     index_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1617,7 +2019,7 @@ class EncryptionConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_encryption_config: Optional[KMSEncryptionConfig] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    no_encryption_config: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    no_encryption_config: Optional[Union[str, NoEncryptionConfig, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1659,7 +2061,7 @@ class ExtendedS3DestinationConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    compression_format: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    compression_format: Optional[Union[str, CompressionFormat, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_format_conversion_configuration: Optional[DataFormatConversionConfiguration] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1675,7 +2077,7 @@ class ExtendedS3DestinationConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    s3_backup_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    s3_backup_mode: Optional[Union[str, S3BackupMode, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     buffering_hints: Optional[BufferingHints] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1992,7 +2394,7 @@ class HttpEndpointDestinationConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch_logging_options: Optional[CloudWatchLoggingOptions] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    s3_backup_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    s3_backup_mode: Optional[Union[str, HttpEndpointS3BackupMode, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -2118,7 +2520,7 @@ class HttpEndpointRequestConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     common_attributes: Optional[list[HttpEndpointCommonAttribute]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    content_encoding: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    content_encoding: Optional[Union[str, ContentEncoding, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -2527,7 +2929,7 @@ class OrcSerDe:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     padding_tolerance: Optional[Union[float, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    compression: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    compression: Optional[Union[str, OrcCompression, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stripe_size_bytes: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -2537,7 +2939,7 @@ class OrcSerDe:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_padding: Optional[Union[bool, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    format_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    format_version: Optional[Union[str, OrcFormatVersion, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     row_index_stride: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -2692,7 +3094,7 @@ class ParquetSerDe:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    compression: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    compression: Optional[Union[str, ParquetCompression, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     block_size_bytes: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -2702,7 +3104,7 @@ class ParquetSerDe:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_padding_bytes: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    writer_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    writer_version: Optional[Union[str, ParquetWriterVersion, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -2870,7 +3272,7 @@ class Processor:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    type_: Optional[Union[str, ProcessorType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parameters: Optional[list[ProcessorParameter]] = None
 
@@ -2910,7 +3312,7 @@ class ProcessorParameter:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parameter_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    parameter_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    parameter_name: Optional[Union[str, ProcessorParameterName, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -2968,7 +3370,7 @@ class RedshiftDestinationConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     password: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    s3_backup_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    s3_backup_mode: Optional[Union[str, RedshiftS3BackupMode, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -3170,7 +3572,7 @@ class S3DestinationConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     buffering_hints: Optional[BufferingHints] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    compression_format: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    compression_format: Optional[Union[str, CompressionFormat, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_configuration: Optional[EncryptionConfiguration] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -3530,7 +3932,7 @@ class SnowflakeDestinationConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     snowflake_vpc_configuration: Optional[SnowflakeVpcConfiguration] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    data_loading_option: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    data_loading_option: Optional[Union[str, SnowflakeDataLoadingOption, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     schema: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -3546,7 +3948,7 @@ class SnowflakeDestinationConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    s3_backup_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    s3_backup_mode: Optional[Union[str, SnowflakeS3BackupMode, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_configuration: Optional[S3DestinationConfiguration] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -3930,7 +4332,7 @@ class SplunkDestinationConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retry_options: Optional[SplunkRetryOptions] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    hec_endpoint_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    hec_endpoint_type: Optional[Union[str, HECEndpointType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secrets_manager_configuration: Optional[SecretsManagerConfiguration] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -3940,7 +4342,7 @@ class SplunkDestinationConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch_logging_options: Optional[CloudWatchLoggingOptions] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    s3_backup_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    s3_backup_mode: Optional[Union[str, SplunkS3BackupMode, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""

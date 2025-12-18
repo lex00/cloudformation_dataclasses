@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:21
+  Generated: 2025-12-17 16:59:36
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ElasticBeanstalk
@@ -23,6 +23,286 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class ActionHistoryStatus:
+    """ActionHistoryStatus enum values."""
+
+    COMPLETED = "Completed"
+    FAILED = "Failed"
+    UNKNOWN = "Unknown"
+
+
+class ActionStatus:
+    """ActionStatus enum values."""
+
+    SCHEDULED = "Scheduled"
+    PENDING = "Pending"
+    RUNNING = "Running"
+    UNKNOWN = "Unknown"
+
+
+class ActionType:
+    """ActionType enum values."""
+
+    INSTANCEREFRESH = "InstanceRefresh"
+    PLATFORMUPDATE = "PlatformUpdate"
+    UNKNOWN = "Unknown"
+
+
+class ApplicationVersionStatus:
+    """ApplicationVersionStatus enum values."""
+
+    PROCESSED = "Processed"
+    UNPROCESSED = "Unprocessed"
+    FAILED = "Failed"
+    PROCESSING = "Processing"
+    BUILDING = "Building"
+
+
+class ComputeType:
+    """ComputeType enum values."""
+
+    BUILD_GENERAL1_SMALL = "BUILD_GENERAL1_SMALL"
+    BUILD_GENERAL1_MEDIUM = "BUILD_GENERAL1_MEDIUM"
+    BUILD_GENERAL1_LARGE = "BUILD_GENERAL1_LARGE"
+
+
+class ConfigurationDeploymentStatus:
+    """ConfigurationDeploymentStatus enum values."""
+
+    DEPLOYED = "deployed"
+    PENDING = "pending"
+    FAILED = "failed"
+
+
+class ConfigurationOptionValueType:
+    """ConfigurationOptionValueType enum values."""
+
+    SCALAR = "Scalar"
+    LIST = "List"
+
+
+class EnvironmentHealth:
+    """EnvironmentHealth enum values."""
+
+    GREEN = "Green"
+    YELLOW = "Yellow"
+    RED = "Red"
+    GREY = "Grey"
+
+
+class EnvironmentHealthAttribute:
+    """EnvironmentHealthAttribute enum values."""
+
+    STATUS = "Status"
+    COLOR = "Color"
+    CAUSES = "Causes"
+    APPLICATIONMETRICS = "ApplicationMetrics"
+    INSTANCESHEALTH = "InstancesHealth"
+    ALL = "All"
+    HEALTHSTATUS = "HealthStatus"
+    REFRESHEDAT = "RefreshedAt"
+
+
+class EnvironmentHealthStatus:
+    """EnvironmentHealthStatus enum values."""
+
+    NODATA = "NoData"
+    UNKNOWN = "Unknown"
+    PENDING = "Pending"
+    OK = "Ok"
+    INFO = "Info"
+    WARNING = "Warning"
+    DEGRADED = "Degraded"
+    SEVERE = "Severe"
+    SUSPENDED = "Suspended"
+
+
+class EnvironmentInfoType:
+    """EnvironmentInfoType enum values."""
+
+    TAIL = "tail"
+    BUNDLE = "bundle"
+
+
+class EnvironmentStatus:
+    """EnvironmentStatus enum values."""
+
+    ABORTING = "Aborting"
+    LAUNCHING = "Launching"
+    UPDATING = "Updating"
+    LINKINGFROM = "LinkingFrom"
+    LINKINGTO = "LinkingTo"
+    READY = "Ready"
+    TERMINATING = "Terminating"
+    TERMINATED = "Terminated"
+
+
+class EventSeverity:
+    """EventSeverity enum values."""
+
+    TRACE = "TRACE"
+    DEBUG = "DEBUG"
+    INFO = "INFO"
+    WARN = "WARN"
+    ERROR = "ERROR"
+    FATAL = "FATAL"
+
+
+class FailureType:
+    """FailureType enum values."""
+
+    UPDATECANCELLED = "UpdateCancelled"
+    CANCELLATIONFAILED = "CancellationFailed"
+    ROLLBACKFAILED = "RollbackFailed"
+    ROLLBACKSUCCESSFUL = "RollbackSuccessful"
+    INTERNALFAILURE = "InternalFailure"
+    INVALIDENVIRONMENTSTATE = "InvalidEnvironmentState"
+    PERMISSIONSERROR = "PermissionsError"
+
+
+class InstancesHealthAttribute:
+    """InstancesHealthAttribute enum values."""
+
+    HEALTHSTATUS = "HealthStatus"
+    COLOR = "Color"
+    CAUSES = "Causes"
+    APPLICATIONMETRICS = "ApplicationMetrics"
+    REFRESHEDAT = "RefreshedAt"
+    LAUNCHEDAT = "LaunchedAt"
+    SYSTEM = "System"
+    DEPLOYMENT = "Deployment"
+    AVAILABILITYZONE = "AvailabilityZone"
+    INSTANCETYPE = "InstanceType"
+    ALL = "All"
+
+
+class PlatformStatus:
+    """PlatformStatus enum values."""
+
+    CREATING = "Creating"
+    FAILED = "Failed"
+    READY = "Ready"
+    DELETING = "Deleting"
+    DELETED = "Deleted"
+
+
+class SourceRepository:
+    """SourceRepository enum values."""
+
+    CODECOMMIT = "CodeCommit"
+    S3 = "S3"
+
+
+class SourceType:
+    """SourceType enum values."""
+
+    GIT = "Git"
+    ZIP = "Zip"
+
+
+class ValidationSeverity:
+    """ValidationSeverity enum values."""
+
+    ERROR = "error"
+    WARNING = "warning"
+
+
+# Convenient aliases for enum values
+COMPLETED = ActionHistoryStatus.COMPLETED
+FAILED = ActionHistoryStatus.FAILED
+UNKNOWN = ActionHistoryStatus.UNKNOWN
+SCHEDULED = ActionStatus.SCHEDULED
+PENDING = ActionStatus.PENDING
+RUNNING = ActionStatus.RUNNING
+UNKNOWN = ActionStatus.UNKNOWN
+INSTANCEREFRESH = ActionType.INSTANCEREFRESH
+PLATFORMUPDATE = ActionType.PLATFORMUPDATE
+UNKNOWN = ActionType.UNKNOWN
+PROCESSED = ApplicationVersionStatus.PROCESSED
+UNPROCESSED = ApplicationVersionStatus.UNPROCESSED
+FAILED = ApplicationVersionStatus.FAILED
+PROCESSING = ApplicationVersionStatus.PROCESSING
+BUILDING = ApplicationVersionStatus.BUILDING
+BUILD_GENERAL1_SMALL = ComputeType.BUILD_GENERAL1_SMALL
+BUILD_GENERAL1_MEDIUM = ComputeType.BUILD_GENERAL1_MEDIUM
+BUILD_GENERAL1_LARGE = ComputeType.BUILD_GENERAL1_LARGE
+DEPLOYED = ConfigurationDeploymentStatus.DEPLOYED
+PENDING = ConfigurationDeploymentStatus.PENDING
+FAILED = ConfigurationDeploymentStatus.FAILED
+SCALAR = ConfigurationOptionValueType.SCALAR
+LIST = ConfigurationOptionValueType.LIST
+GREEN = EnvironmentHealth.GREEN
+YELLOW = EnvironmentHealth.YELLOW
+RED = EnvironmentHealth.RED
+GREY = EnvironmentHealth.GREY
+STATUS = EnvironmentHealthAttribute.STATUS
+COLOR = EnvironmentHealthAttribute.COLOR
+CAUSES = EnvironmentHealthAttribute.CAUSES
+APPLICATIONMETRICS = EnvironmentHealthAttribute.APPLICATIONMETRICS
+INSTANCESHEALTH = EnvironmentHealthAttribute.INSTANCESHEALTH
+ALL = EnvironmentHealthAttribute.ALL
+HEALTHSTATUS = EnvironmentHealthAttribute.HEALTHSTATUS
+REFRESHEDAT = EnvironmentHealthAttribute.REFRESHEDAT
+NODATA = EnvironmentHealthStatus.NODATA
+UNKNOWN = EnvironmentHealthStatus.UNKNOWN
+PENDING = EnvironmentHealthStatus.PENDING
+OK = EnvironmentHealthStatus.OK
+INFO = EnvironmentHealthStatus.INFO
+WARNING = EnvironmentHealthStatus.WARNING
+DEGRADED = EnvironmentHealthStatus.DEGRADED
+SEVERE = EnvironmentHealthStatus.SEVERE
+SUSPENDED = EnvironmentHealthStatus.SUSPENDED
+TAIL = EnvironmentInfoType.TAIL
+BUNDLE = EnvironmentInfoType.BUNDLE
+ABORTING = EnvironmentStatus.ABORTING
+LAUNCHING = EnvironmentStatus.LAUNCHING
+UPDATING = EnvironmentStatus.UPDATING
+LINKINGFROM = EnvironmentStatus.LINKINGFROM
+LINKINGTO = EnvironmentStatus.LINKINGTO
+READY = EnvironmentStatus.READY
+TERMINATING = EnvironmentStatus.TERMINATING
+TERMINATED = EnvironmentStatus.TERMINATED
+TRACE = EventSeverity.TRACE
+DEBUG = EventSeverity.DEBUG
+INFO = EventSeverity.INFO
+WARN = EventSeverity.WARN
+ERROR = EventSeverity.ERROR
+FATAL = EventSeverity.FATAL
+UPDATECANCELLED = FailureType.UPDATECANCELLED
+CANCELLATIONFAILED = FailureType.CANCELLATIONFAILED
+ROLLBACKFAILED = FailureType.ROLLBACKFAILED
+ROLLBACKSUCCESSFUL = FailureType.ROLLBACKSUCCESSFUL
+INTERNALFAILURE = FailureType.INTERNALFAILURE
+INVALIDENVIRONMENTSTATE = FailureType.INVALIDENVIRONMENTSTATE
+PERMISSIONSERROR = FailureType.PERMISSIONSERROR
+HEALTHSTATUS = InstancesHealthAttribute.HEALTHSTATUS
+COLOR = InstancesHealthAttribute.COLOR
+CAUSES = InstancesHealthAttribute.CAUSES
+APPLICATIONMETRICS = InstancesHealthAttribute.APPLICATIONMETRICS
+REFRESHEDAT = InstancesHealthAttribute.REFRESHEDAT
+LAUNCHEDAT = InstancesHealthAttribute.LAUNCHEDAT
+SYSTEM = InstancesHealthAttribute.SYSTEM
+DEPLOYMENT = InstancesHealthAttribute.DEPLOYMENT
+AVAILABILITYZONE = InstancesHealthAttribute.AVAILABILITYZONE
+INSTANCETYPE = InstancesHealthAttribute.INSTANCETYPE
+ALL = InstancesHealthAttribute.ALL
+CREATING = PlatformStatus.CREATING
+FAILED = PlatformStatus.FAILED
+READY = PlatformStatus.READY
+DELETING = PlatformStatus.DELETING
+DELETED = PlatformStatus.DELETED
+CODECOMMIT = SourceRepository.CODECOMMIT
+S3 = SourceRepository.S3
+GIT = SourceType.GIT
+ZIP = SourceType.ZIP
+ERROR = ValidationSeverity.ERROR
+WARNING = ValidationSeverity.WARNING
 
 
 @dataclass

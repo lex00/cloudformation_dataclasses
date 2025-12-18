@@ -1,7 +1,9 @@
 """
 CloudFormation constants for type-safe template definitions.
 
-These constants replace magic strings in CloudFormation templates.
+These are CloudFormation-specific constants that are not derived from AWS service APIs.
+Service-specific constants (like DynamoDB KeyType, S3 storage classes, etc.) are
+auto-generated from botocore and available in the respective service modules.
 """
 
 
@@ -41,60 +43,9 @@ class ParameterType:
 
 
 # =============================================================================
-# DynamoDB Key Types
-# https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_KeySchemaElement.html
+# Convenient Aliases
 # =============================================================================
 
-
-class KeyType:
-    """DynamoDB key types for KeySchema."""
-
-    HASH = "HASH"
-    RANGE = "RANGE"
-
-
-# =============================================================================
-# DynamoDB Attribute Types
-# https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeDefinition.html
-# =============================================================================
-
-
-class AttributeType:
-    """DynamoDB attribute types for AttributeDefinition."""
-
-    STRING = "S"
-    NUMBER = "N"
-    BINARY = "B"
-
-
-# =============================================================================
-# DynamoDB Projection Types
-# https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Projection.html
-# =============================================================================
-
-
-class ProjectionType:
-    """DynamoDB projection types for secondary indexes."""
-
-    KEYS_ONLY = "KEYS_ONLY"
-    INCLUDE = "INCLUDE"
-    ALL = "ALL"
-
-
-# Convenient aliases - Parameter types
+# Parameter types
 STRING = ParameterType.STRING
 NUMBER = ParameterType.NUMBER
-
-# Convenient aliases - DynamoDB key types
-HASH = KeyType.HASH
-RANGE = KeyType.RANGE
-
-# Convenient aliases - DynamoDB attribute types
-S = AttributeType.STRING
-N = AttributeType.NUMBER
-B = AttributeType.BINARY
-
-# Convenient aliases - DynamoDB projection types
-KEYS_ONLY = ProjectionType.KEYS_ONLY
-INCLUDE = ProjectionType.INCLUDE
-ALL = ProjectionType.ALL

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:37
+  Generated: 2025-12-17 16:59:39
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SES
@@ -23,6 +23,223 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class BehaviorOnMXFailure:
+    """BehaviorOnMXFailure enum values."""
+
+    USEDEFAULTVALUE = "UseDefaultValue"
+    REJECTMESSAGE = "RejectMessage"
+
+
+class BounceType:
+    """BounceType enum values."""
+
+    DOESNOTEXIST = "DoesNotExist"
+    MESSAGETOOLARGE = "MessageTooLarge"
+    EXCEEDEDQUOTA = "ExceededQuota"
+    CONTENTREJECTED = "ContentRejected"
+    UNDEFINED = "Undefined"
+    TEMPORARYFAILURE = "TemporaryFailure"
+
+
+class BulkEmailStatus:
+    """BulkEmailStatus enum values."""
+
+    SUCCESS = "Success"
+    MESSAGEREJECTED = "MessageRejected"
+    MAILFROMDOMAINNOTVERIFIED = "MailFromDomainNotVerified"
+    CONFIGURATIONSETDOESNOTEXIST = "ConfigurationSetDoesNotExist"
+    TEMPLATEDOESNOTEXIST = "TemplateDoesNotExist"
+    ACCOUNTSUSPENDED = "AccountSuspended"
+    ACCOUNTTHROTTLED = "AccountThrottled"
+    ACCOUNTDAILYQUOTAEXCEEDED = "AccountDailyQuotaExceeded"
+    INVALIDSENDINGPOOLNAME = "InvalidSendingPoolName"
+    ACCOUNTSENDINGPAUSED = "AccountSendingPaused"
+    CONFIGURATIONSETSENDINGPAUSED = "ConfigurationSetSendingPaused"
+    INVALIDPARAMETERVALUE = "InvalidParameterValue"
+    TRANSIENTFAILURE = "TransientFailure"
+    FAILED = "Failed"
+
+
+class ConfigurationSetAttribute:
+    """ConfigurationSetAttribute enum values."""
+
+    EVENTDESTINATIONS = "eventDestinations"
+    TRACKINGOPTIONS = "trackingOptions"
+    DELIVERYOPTIONS = "deliveryOptions"
+    REPUTATIONOPTIONS = "reputationOptions"
+
+
+class CustomMailFromStatus:
+    """CustomMailFromStatus enum values."""
+
+    PENDING = "Pending"
+    SUCCESS = "Success"
+    FAILED = "Failed"
+    TEMPORARYFAILURE = "TemporaryFailure"
+
+
+class DimensionValueSource:
+    """DimensionValueSource enum values."""
+
+    MESSAGETAG = "messageTag"
+    EMAILHEADER = "emailHeader"
+    LINKTAG = "linkTag"
+
+
+class DsnAction:
+    """DsnAction enum values."""
+
+    FAILED = "failed"
+    DELAYED = "delayed"
+    DELIVERED = "delivered"
+    RELAYED = "relayed"
+    EXPANDED = "expanded"
+
+
+class EventType:
+    """EventType enum values."""
+
+    SEND = "send"
+    REJECT = "reject"
+    BOUNCE = "bounce"
+    COMPLAINT = "complaint"
+    DELIVERY = "delivery"
+    OPEN = "open"
+    CLICK = "click"
+    RENDERINGFAILURE = "renderingFailure"
+
+
+class IdentityType:
+    """IdentityType enum values."""
+
+    EMAILADDRESS = "EmailAddress"
+    DOMAIN = "Domain"
+
+
+class InvocationType:
+    """InvocationType enum values."""
+
+    EVENT = "Event"
+    REQUESTRESPONSE = "RequestResponse"
+
+
+class NotificationType:
+    """NotificationType enum values."""
+
+    BOUNCE = "Bounce"
+    COMPLAINT = "Complaint"
+    DELIVERY = "Delivery"
+
+
+class ReceiptFilterPolicy:
+    """ReceiptFilterPolicy enum values."""
+
+    BLOCK = "Block"
+    ALLOW = "Allow"
+
+
+class SNSActionEncoding:
+    """SNSActionEncoding enum values."""
+
+    UTF_8 = "UTF-8"
+    BASE64 = "Base64"
+
+
+class StopScope:
+    """StopScope enum values."""
+
+    RULESET = "RuleSet"
+
+
+class TlsPolicy:
+    """TlsPolicy enum values."""
+
+    REQUIRE = "Require"
+    OPTIONAL = "Optional"
+
+
+class VerificationStatus:
+    """VerificationStatus enum values."""
+
+    PENDING = "Pending"
+    SUCCESS = "Success"
+    FAILED = "Failed"
+    TEMPORARYFAILURE = "TemporaryFailure"
+    NOTSTARTED = "NotStarted"
+
+
+# Convenient aliases for enum values
+USEDEFAULTVALUE = BehaviorOnMXFailure.USEDEFAULTVALUE
+REJECTMESSAGE = BehaviorOnMXFailure.REJECTMESSAGE
+DOESNOTEXIST = BounceType.DOESNOTEXIST
+MESSAGETOOLARGE = BounceType.MESSAGETOOLARGE
+EXCEEDEDQUOTA = BounceType.EXCEEDEDQUOTA
+CONTENTREJECTED = BounceType.CONTENTREJECTED
+UNDEFINED = BounceType.UNDEFINED
+TEMPORARYFAILURE = BounceType.TEMPORARYFAILURE
+SUCCESS = BulkEmailStatus.SUCCESS
+MESSAGEREJECTED = BulkEmailStatus.MESSAGEREJECTED
+MAILFROMDOMAINNOTVERIFIED = BulkEmailStatus.MAILFROMDOMAINNOTVERIFIED
+CONFIGURATIONSETDOESNOTEXIST = BulkEmailStatus.CONFIGURATIONSETDOESNOTEXIST
+TEMPLATEDOESNOTEXIST = BulkEmailStatus.TEMPLATEDOESNOTEXIST
+ACCOUNTSUSPENDED = BulkEmailStatus.ACCOUNTSUSPENDED
+ACCOUNTTHROTTLED = BulkEmailStatus.ACCOUNTTHROTTLED
+ACCOUNTDAILYQUOTAEXCEEDED = BulkEmailStatus.ACCOUNTDAILYQUOTAEXCEEDED
+INVALIDSENDINGPOOLNAME = BulkEmailStatus.INVALIDSENDINGPOOLNAME
+ACCOUNTSENDINGPAUSED = BulkEmailStatus.ACCOUNTSENDINGPAUSED
+CONFIGURATIONSETSENDINGPAUSED = BulkEmailStatus.CONFIGURATIONSETSENDINGPAUSED
+INVALIDPARAMETERVALUE = BulkEmailStatus.INVALIDPARAMETERVALUE
+TRANSIENTFAILURE = BulkEmailStatus.TRANSIENTFAILURE
+FAILED = BulkEmailStatus.FAILED
+EVENTDESTINATIONS = ConfigurationSetAttribute.EVENTDESTINATIONS
+TRACKINGOPTIONS = ConfigurationSetAttribute.TRACKINGOPTIONS
+DELIVERYOPTIONS = ConfigurationSetAttribute.DELIVERYOPTIONS
+REPUTATIONOPTIONS = ConfigurationSetAttribute.REPUTATIONOPTIONS
+PENDING = CustomMailFromStatus.PENDING
+SUCCESS = CustomMailFromStatus.SUCCESS
+FAILED = CustomMailFromStatus.FAILED
+TEMPORARYFAILURE = CustomMailFromStatus.TEMPORARYFAILURE
+MESSAGETAG = DimensionValueSource.MESSAGETAG
+EMAILHEADER = DimensionValueSource.EMAILHEADER
+LINKTAG = DimensionValueSource.LINKTAG
+FAILED = DsnAction.FAILED
+DELAYED = DsnAction.DELAYED
+DELIVERED = DsnAction.DELIVERED
+RELAYED = DsnAction.RELAYED
+EXPANDED = DsnAction.EXPANDED
+SEND = EventType.SEND
+REJECT = EventType.REJECT
+BOUNCE = EventType.BOUNCE
+COMPLAINT = EventType.COMPLAINT
+DELIVERY = EventType.DELIVERY
+OPEN = EventType.OPEN
+CLICK = EventType.CLICK
+RENDERINGFAILURE = EventType.RENDERINGFAILURE
+EMAILADDRESS = IdentityType.EMAILADDRESS
+DOMAIN = IdentityType.DOMAIN
+EVENT = InvocationType.EVENT
+REQUESTRESPONSE = InvocationType.REQUESTRESPONSE
+BOUNCE = NotificationType.BOUNCE
+COMPLAINT = NotificationType.COMPLAINT
+DELIVERY = NotificationType.DELIVERY
+BLOCK = ReceiptFilterPolicy.BLOCK
+ALLOW = ReceiptFilterPolicy.ALLOW
+UTF_8 = SNSActionEncoding.UTF_8
+BASE64 = SNSActionEncoding.BASE64
+RULESET = StopScope.RULESET
+REQUIRE = TlsPolicy.REQUIRE
+OPTIONAL = TlsPolicy.OPTIONAL
+PENDING = VerificationStatus.PENDING
+SUCCESS = VerificationStatus.SUCCESS
+FAILED = VerificationStatus.FAILED
+TEMPORARYFAILURE = VerificationStatus.TEMPORARYFAILURE
+NOTSTARTED = VerificationStatus.NOTSTARTED
 
 
 @dataclass
@@ -59,7 +276,7 @@ class DeliveryOptions:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sending_pool_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    tls_policy: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    tls_policy: Optional[Union[str, TlsPolicy, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -4440,7 +4657,7 @@ class LambdaAction:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     topic_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    invocation_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    invocation_type: Optional[Union[str, InvocationType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -4656,7 +4873,7 @@ class SNSAction:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     topic_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    encoding: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    encoding: Optional[Union[str, SNSActionEncoding, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -4692,7 +4909,7 @@ class StopAction:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    scope: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    scope: Optional[Union[str, StopScope, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     topic_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 

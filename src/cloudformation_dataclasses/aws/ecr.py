@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:20
+  Generated: 2025-12-17 16:59:36
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ECR
@@ -23,6 +23,339 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class ArtifactStatus:
+    """ArtifactStatus enum values."""
+
+    ACTIVE = "ACTIVE"
+    ARCHIVED = "ARCHIVED"
+    ACTIVATING = "ACTIVATING"
+
+
+class ArtifactStatusFilter:
+    """ArtifactStatusFilter enum values."""
+
+    ACTIVE = "ACTIVE"
+    ARCHIVED = "ARCHIVED"
+    ACTIVATING = "ACTIVATING"
+    ANY = "ANY"
+
+
+class EncryptionType:
+    """EncryptionType enum values."""
+
+    AES256 = "AES256"
+    KMS = "KMS"
+    KMS_DSSE = "KMS_DSSE"
+
+
+class FindingSeverity:
+    """FindingSeverity enum values."""
+
+    INFORMATIONAL = "INFORMATIONAL"
+    LOW = "LOW"
+    MEDIUM = "MEDIUM"
+    HIGH = "HIGH"
+    CRITICAL = "CRITICAL"
+    UNDEFINED = "UNDEFINED"
+
+
+class ImageActionType:
+    """ImageActionType enum values."""
+
+    EXPIRE = "EXPIRE"
+    TRANSITION = "TRANSITION"
+
+
+class ImageFailureCode:
+    """ImageFailureCode enum values."""
+
+    INVALIDIMAGEDIGEST = "InvalidImageDigest"
+    INVALIDIMAGETAG = "InvalidImageTag"
+    IMAGETAGDOESNOTMATCHDIGEST = "ImageTagDoesNotMatchDigest"
+    IMAGENOTFOUND = "ImageNotFound"
+    MISSINGDIGESTANDTAG = "MissingDigestAndTag"
+    IMAGEREFERENCEDBYMANIFESTLIST = "ImageReferencedByManifestList"
+    KMSERROR = "KmsError"
+    UPSTREAMACCESSDENIED = "UpstreamAccessDenied"
+    UPSTREAMTOOMANYREQUESTS = "UpstreamTooManyRequests"
+    UPSTREAMUNAVAILABLE = "UpstreamUnavailable"
+    IMAGEINACCESSIBLE = "ImageInaccessible"
+
+
+class ImageStatus:
+    """ImageStatus enum values."""
+
+    ACTIVE = "ACTIVE"
+    ARCHIVED = "ARCHIVED"
+    ACTIVATING = "ACTIVATING"
+
+
+class ImageStatusFilter:
+    """ImageStatusFilter enum values."""
+
+    ACTIVE = "ACTIVE"
+    ARCHIVED = "ARCHIVED"
+    ACTIVATING = "ACTIVATING"
+    ANY = "ANY"
+
+
+class ImageTagMutability:
+    """ImageTagMutability enum values."""
+
+    MUTABLE = "MUTABLE"
+    IMMUTABLE = "IMMUTABLE"
+    IMMUTABLE_WITH_EXCLUSION = "IMMUTABLE_WITH_EXCLUSION"
+    MUTABLE_WITH_EXCLUSION = "MUTABLE_WITH_EXCLUSION"
+
+
+class ImageTagMutabilityExclusionFilterType:
+    """ImageTagMutabilityExclusionFilterType enum values."""
+
+    WILDCARD = "WILDCARD"
+
+
+class LayerAvailability:
+    """LayerAvailability enum values."""
+
+    AVAILABLE = "AVAILABLE"
+    UNAVAILABLE = "UNAVAILABLE"
+    ARCHIVED = "ARCHIVED"
+
+
+class LayerFailureCode:
+    """LayerFailureCode enum values."""
+
+    INVALIDLAYERDIGEST = "InvalidLayerDigest"
+    MISSINGLAYERDIGEST = "MissingLayerDigest"
+
+
+class LifecyclePolicyPreviewStatus:
+    """LifecyclePolicyPreviewStatus enum values."""
+
+    IN_PROGRESS = "IN_PROGRESS"
+    COMPLETE = "COMPLETE"
+    EXPIRED = "EXPIRED"
+    FAILED = "FAILED"
+
+
+class LifecyclePolicyStorageClass:
+    """LifecyclePolicyStorageClass enum values."""
+
+    ARCHIVE = "ARCHIVE"
+    STANDARD = "STANDARD"
+
+
+class LifecyclePolicyTargetStorageClass:
+    """LifecyclePolicyTargetStorageClass enum values."""
+
+    ARCHIVE = "ARCHIVE"
+
+
+class RCTAppliedFor:
+    """RCTAppliedFor enum values."""
+
+    REPLICATION = "REPLICATION"
+    PULL_THROUGH_CACHE = "PULL_THROUGH_CACHE"
+
+
+class ReplicationStatus:
+    """ReplicationStatus enum values."""
+
+    IN_PROGRESS = "IN_PROGRESS"
+    COMPLETE = "COMPLETE"
+    FAILED = "FAILED"
+
+
+class RepositoryFilterType:
+    """RepositoryFilterType enum values."""
+
+    PREFIX_MATCH = "PREFIX_MATCH"
+
+
+class ScanFrequency:
+    """ScanFrequency enum values."""
+
+    SCAN_ON_PUSH = "SCAN_ON_PUSH"
+    CONTINUOUS_SCAN = "CONTINUOUS_SCAN"
+    MANUAL = "MANUAL"
+
+
+class ScanStatus:
+    """ScanStatus enum values."""
+
+    IN_PROGRESS = "IN_PROGRESS"
+    COMPLETE = "COMPLETE"
+    FAILED = "FAILED"
+    UNSUPPORTED_IMAGE = "UNSUPPORTED_IMAGE"
+    ACTIVE = "ACTIVE"
+    PENDING = "PENDING"
+    SCAN_ELIGIBILITY_EXPIRED = "SCAN_ELIGIBILITY_EXPIRED"
+    FINDINGS_UNAVAILABLE = "FINDINGS_UNAVAILABLE"
+    LIMIT_EXCEEDED = "LIMIT_EXCEEDED"
+    IMAGE_ARCHIVED = "IMAGE_ARCHIVED"
+
+
+class ScanType:
+    """ScanType enum values."""
+
+    BASIC = "BASIC"
+    ENHANCED = "ENHANCED"
+
+
+class ScanningConfigurationFailureCode:
+    """ScanningConfigurationFailureCode enum values."""
+
+    REPOSITORY_NOT_FOUND = "REPOSITORY_NOT_FOUND"
+
+
+class ScanningRepositoryFilterType:
+    """ScanningRepositoryFilterType enum values."""
+
+    WILDCARD = "WILDCARD"
+
+
+class SigningRepositoryFilterType:
+    """SigningRepositoryFilterType enum values."""
+
+    WILDCARD_MATCH = "WILDCARD_MATCH"
+
+
+class SigningStatus:
+    """SigningStatus enum values."""
+
+    IN_PROGRESS = "IN_PROGRESS"
+    COMPLETE = "COMPLETE"
+    FAILED = "FAILED"
+
+
+class TagStatus:
+    """TagStatus enum values."""
+
+    TAGGED = "TAGGED"
+    UNTAGGED = "UNTAGGED"
+    ANY = "ANY"
+
+
+class TargetStorageClass:
+    """TargetStorageClass enum values."""
+
+    STANDARD = "STANDARD"
+    ARCHIVE = "ARCHIVE"
+
+
+class UpstreamRegistry:
+    """UpstreamRegistry enum values."""
+
+    ECR = "ecr"
+    ECR_PUBLIC = "ecr-public"
+    QUAY = "quay"
+    K8S = "k8s"
+    DOCKER_HUB = "docker-hub"
+    GITHUB_CONTAINER_REGISTRY = "github-container-registry"
+    AZURE_CONTAINER_REGISTRY = "azure-container-registry"
+    GITLAB_CONTAINER_REGISTRY = "gitlab-container-registry"
+
+
+# Convenient aliases for enum values
+ACTIVE = ArtifactStatus.ACTIVE
+ARCHIVED = ArtifactStatus.ARCHIVED
+ACTIVATING = ArtifactStatus.ACTIVATING
+ACTIVE = ArtifactStatusFilter.ACTIVE
+ARCHIVED = ArtifactStatusFilter.ARCHIVED
+ACTIVATING = ArtifactStatusFilter.ACTIVATING
+ANY = ArtifactStatusFilter.ANY
+AES256 = EncryptionType.AES256
+KMS = EncryptionType.KMS
+KMS_DSSE = EncryptionType.KMS_DSSE
+INFORMATIONAL = FindingSeverity.INFORMATIONAL
+LOW = FindingSeverity.LOW
+MEDIUM = FindingSeverity.MEDIUM
+HIGH = FindingSeverity.HIGH
+CRITICAL = FindingSeverity.CRITICAL
+UNDEFINED = FindingSeverity.UNDEFINED
+EXPIRE = ImageActionType.EXPIRE
+TRANSITION = ImageActionType.TRANSITION
+INVALIDIMAGEDIGEST = ImageFailureCode.INVALIDIMAGEDIGEST
+INVALIDIMAGETAG = ImageFailureCode.INVALIDIMAGETAG
+IMAGETAGDOESNOTMATCHDIGEST = ImageFailureCode.IMAGETAGDOESNOTMATCHDIGEST
+IMAGENOTFOUND = ImageFailureCode.IMAGENOTFOUND
+MISSINGDIGESTANDTAG = ImageFailureCode.MISSINGDIGESTANDTAG
+IMAGEREFERENCEDBYMANIFESTLIST = ImageFailureCode.IMAGEREFERENCEDBYMANIFESTLIST
+KMSERROR = ImageFailureCode.KMSERROR
+UPSTREAMACCESSDENIED = ImageFailureCode.UPSTREAMACCESSDENIED
+UPSTREAMTOOMANYREQUESTS = ImageFailureCode.UPSTREAMTOOMANYREQUESTS
+UPSTREAMUNAVAILABLE = ImageFailureCode.UPSTREAMUNAVAILABLE
+IMAGEINACCESSIBLE = ImageFailureCode.IMAGEINACCESSIBLE
+ACTIVE = ImageStatus.ACTIVE
+ARCHIVED = ImageStatus.ARCHIVED
+ACTIVATING = ImageStatus.ACTIVATING
+ACTIVE = ImageStatusFilter.ACTIVE
+ARCHIVED = ImageStatusFilter.ARCHIVED
+ACTIVATING = ImageStatusFilter.ACTIVATING
+ANY = ImageStatusFilter.ANY
+MUTABLE = ImageTagMutability.MUTABLE
+IMMUTABLE = ImageTagMutability.IMMUTABLE
+IMMUTABLE_WITH_EXCLUSION = ImageTagMutability.IMMUTABLE_WITH_EXCLUSION
+MUTABLE_WITH_EXCLUSION = ImageTagMutability.MUTABLE_WITH_EXCLUSION
+WILDCARD = ImageTagMutabilityExclusionFilterType.WILDCARD
+AVAILABLE = LayerAvailability.AVAILABLE
+UNAVAILABLE = LayerAvailability.UNAVAILABLE
+ARCHIVED = LayerAvailability.ARCHIVED
+INVALIDLAYERDIGEST = LayerFailureCode.INVALIDLAYERDIGEST
+MISSINGLAYERDIGEST = LayerFailureCode.MISSINGLAYERDIGEST
+IN_PROGRESS = LifecyclePolicyPreviewStatus.IN_PROGRESS
+COMPLETE = LifecyclePolicyPreviewStatus.COMPLETE
+EXPIRED = LifecyclePolicyPreviewStatus.EXPIRED
+FAILED = LifecyclePolicyPreviewStatus.FAILED
+ARCHIVE = LifecyclePolicyStorageClass.ARCHIVE
+STANDARD = LifecyclePolicyStorageClass.STANDARD
+ARCHIVE = LifecyclePolicyTargetStorageClass.ARCHIVE
+REPLICATION = RCTAppliedFor.REPLICATION
+PULL_THROUGH_CACHE = RCTAppliedFor.PULL_THROUGH_CACHE
+IN_PROGRESS = ReplicationStatus.IN_PROGRESS
+COMPLETE = ReplicationStatus.COMPLETE
+FAILED = ReplicationStatus.FAILED
+PREFIX_MATCH = RepositoryFilterType.PREFIX_MATCH
+SCAN_ON_PUSH = ScanFrequency.SCAN_ON_PUSH
+CONTINUOUS_SCAN = ScanFrequency.CONTINUOUS_SCAN
+MANUAL = ScanFrequency.MANUAL
+IN_PROGRESS = ScanStatus.IN_PROGRESS
+COMPLETE = ScanStatus.COMPLETE
+FAILED = ScanStatus.FAILED
+UNSUPPORTED_IMAGE = ScanStatus.UNSUPPORTED_IMAGE
+ACTIVE = ScanStatus.ACTIVE
+PENDING = ScanStatus.PENDING
+SCAN_ELIGIBILITY_EXPIRED = ScanStatus.SCAN_ELIGIBILITY_EXPIRED
+FINDINGS_UNAVAILABLE = ScanStatus.FINDINGS_UNAVAILABLE
+LIMIT_EXCEEDED = ScanStatus.LIMIT_EXCEEDED
+IMAGE_ARCHIVED = ScanStatus.IMAGE_ARCHIVED
+BASIC = ScanType.BASIC
+ENHANCED = ScanType.ENHANCED
+REPOSITORY_NOT_FOUND = ScanningConfigurationFailureCode.REPOSITORY_NOT_FOUND
+WILDCARD = ScanningRepositoryFilterType.WILDCARD
+WILDCARD_MATCH = SigningRepositoryFilterType.WILDCARD_MATCH
+IN_PROGRESS = SigningStatus.IN_PROGRESS
+COMPLETE = SigningStatus.COMPLETE
+FAILED = SigningStatus.FAILED
+TAGGED = TagStatus.TAGGED
+UNTAGGED = TagStatus.UNTAGGED
+ANY = TagStatus.ANY
+STANDARD = TargetStorageClass.STANDARD
+ARCHIVE = TargetStorageClass.ARCHIVE
+ECR = UpstreamRegistry.ECR
+ECR_PUBLIC = UpstreamRegistry.ECR_PUBLIC
+QUAY = UpstreamRegistry.QUAY
+K8S = UpstreamRegistry.K8S
+DOCKER_HUB = UpstreamRegistry.DOCKER_HUB
+GITHUB_CONTAINER_REGISTRY = UpstreamRegistry.GITHUB_CONTAINER_REGISTRY
+AZURE_CONTAINER_REGISTRY = UpstreamRegistry.AZURE_CONTAINER_REGISTRY
+GITLAB_CONTAINER_REGISTRY = UpstreamRegistry.GITLAB_CONTAINER_REGISTRY
 
 
 @dataclass

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:13
+  Generated: 2025-12-17 16:59:34
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Backup
@@ -23,6 +23,476 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class AggregationPeriod:
+    """AggregationPeriod enum values."""
+
+    ONE_DAY = "ONE_DAY"
+    SEVEN_DAYS = "SEVEN_DAYS"
+    FOURTEEN_DAYS = "FOURTEEN_DAYS"
+
+
+class BackupJobState:
+    """BackupJobState enum values."""
+
+    CREATED = "CREATED"
+    PENDING = "PENDING"
+    RUNNING = "RUNNING"
+    ABORTING = "ABORTING"
+    ABORTED = "ABORTED"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
+    EXPIRED = "EXPIRED"
+    PARTIAL = "PARTIAL"
+
+
+class BackupJobStatus:
+    """BackupJobStatus enum values."""
+
+    CREATED = "CREATED"
+    PENDING = "PENDING"
+    RUNNING = "RUNNING"
+    ABORTING = "ABORTING"
+    ABORTED = "ABORTED"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
+    EXPIRED = "EXPIRED"
+    PARTIAL = "PARTIAL"
+    AGGREGATE_ALL = "AGGREGATE_ALL"
+    ANY = "ANY"
+
+
+class BackupVaultEvent:
+    """BackupVaultEvent enum values."""
+
+    BACKUP_JOB_STARTED = "BACKUP_JOB_STARTED"
+    BACKUP_JOB_COMPLETED = "BACKUP_JOB_COMPLETED"
+    BACKUP_JOB_SUCCESSFUL = "BACKUP_JOB_SUCCESSFUL"
+    BACKUP_JOB_FAILED = "BACKUP_JOB_FAILED"
+    BACKUP_JOB_EXPIRED = "BACKUP_JOB_EXPIRED"
+    RESTORE_JOB_STARTED = "RESTORE_JOB_STARTED"
+    RESTORE_JOB_COMPLETED = "RESTORE_JOB_COMPLETED"
+    RESTORE_JOB_SUCCESSFUL = "RESTORE_JOB_SUCCESSFUL"
+    RESTORE_JOB_FAILED = "RESTORE_JOB_FAILED"
+    COPY_JOB_STARTED = "COPY_JOB_STARTED"
+    COPY_JOB_SUCCESSFUL = "COPY_JOB_SUCCESSFUL"
+    COPY_JOB_FAILED = "COPY_JOB_FAILED"
+    RECOVERY_POINT_MODIFIED = "RECOVERY_POINT_MODIFIED"
+    BACKUP_PLAN_CREATED = "BACKUP_PLAN_CREATED"
+    BACKUP_PLAN_MODIFIED = "BACKUP_PLAN_MODIFIED"
+    S3_BACKUP_OBJECT_FAILED = "S3_BACKUP_OBJECT_FAILED"
+    S3_RESTORE_OBJECT_FAILED = "S3_RESTORE_OBJECT_FAILED"
+    CONTINUOUS_BACKUP_INTERRUPTED = "CONTINUOUS_BACKUP_INTERRUPTED"
+    RECOVERY_POINT_INDEX_COMPLETED = "RECOVERY_POINT_INDEX_COMPLETED"
+    RECOVERY_POINT_INDEX_DELETED = "RECOVERY_POINT_INDEX_DELETED"
+    RECOVERY_POINT_INDEXING_FAILED = "RECOVERY_POINT_INDEXING_FAILED"
+
+
+class ConditionType:
+    """ConditionType enum values."""
+
+    STRINGEQUALS = "STRINGEQUALS"
+
+
+class CopyJobState:
+    """CopyJobState enum values."""
+
+    CREATED = "CREATED"
+    RUNNING = "RUNNING"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
+    PARTIAL = "PARTIAL"
+
+
+class CopyJobStatus:
+    """CopyJobStatus enum values."""
+
+    CREATED = "CREATED"
+    RUNNING = "RUNNING"
+    ABORTING = "ABORTING"
+    ABORTED = "ABORTED"
+    COMPLETING = "COMPLETING"
+    COMPLETED = "COMPLETED"
+    FAILING = "FAILING"
+    FAILED = "FAILED"
+    PARTIAL = "PARTIAL"
+    AGGREGATE_ALL = "AGGREGATE_ALL"
+    ANY = "ANY"
+
+
+class EncryptionKeyType:
+    """EncryptionKeyType enum values."""
+
+    AWS_OWNED_KMS_KEY = "AWS_OWNED_KMS_KEY"
+    CUSTOMER_MANAGED_KMS_KEY = "CUSTOMER_MANAGED_KMS_KEY"
+
+
+class Index:
+    """Index enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class IndexStatus:
+    """IndexStatus enum values."""
+
+    PENDING = "PENDING"
+    ACTIVE = "ACTIVE"
+    FAILED = "FAILED"
+    DELETING = "DELETING"
+
+
+class LegalHoldStatus:
+    """LegalHoldStatus enum values."""
+
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    CANCELING = "CANCELING"
+    CANCELED = "CANCELED"
+
+
+class LifecycleDeleteAfterEvent:
+    """LifecycleDeleteAfterEvent enum values."""
+
+    DELETE_AFTER_COPY = "DELETE_AFTER_COPY"
+
+
+class MalwareScanner:
+    """MalwareScanner enum values."""
+
+    GUARDDUTY = "GUARDDUTY"
+
+
+class MpaRevokeSessionStatus:
+    """MpaRevokeSessionStatus enum values."""
+
+    PENDING = "PENDING"
+    FAILED = "FAILED"
+
+
+class MpaSessionStatus:
+    """MpaSessionStatus enum values."""
+
+    PENDING = "PENDING"
+    APPROVED = "APPROVED"
+    FAILED = "FAILED"
+
+
+class RecoveryPointStatus:
+    """RecoveryPointStatus enum values."""
+
+    COMPLETED = "COMPLETED"
+    PARTIAL = "PARTIAL"
+    DELETING = "DELETING"
+    EXPIRED = "EXPIRED"
+    AVAILABLE = "AVAILABLE"
+    STOPPED = "STOPPED"
+    CREATING = "CREATING"
+
+
+class RestoreDeletionStatus:
+    """RestoreDeletionStatus enum values."""
+
+    DELETING = "DELETING"
+    FAILED = "FAILED"
+    SUCCESSFUL = "SUCCESSFUL"
+
+
+class RestoreJobState:
+    """RestoreJobState enum values."""
+
+    CREATED = "CREATED"
+    PENDING = "PENDING"
+    RUNNING = "RUNNING"
+    ABORTED = "ABORTED"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
+    AGGREGATE_ALL = "AGGREGATE_ALL"
+    ANY = "ANY"
+
+
+class RestoreJobStatus:
+    """RestoreJobStatus enum values."""
+
+    PENDING = "PENDING"
+    RUNNING = "RUNNING"
+    COMPLETED = "COMPLETED"
+    ABORTED = "ABORTED"
+    FAILED = "FAILED"
+
+
+class RestoreTestingRecoveryPointSelectionAlgorithm:
+    """RestoreTestingRecoveryPointSelectionAlgorithm enum values."""
+
+    LATEST_WITHIN_WINDOW = "LATEST_WITHIN_WINDOW"
+    RANDOM_WITHIN_WINDOW = "RANDOM_WITHIN_WINDOW"
+
+
+class RestoreTestingRecoveryPointType:
+    """RestoreTestingRecoveryPointType enum values."""
+
+    CONTINUOUS = "CONTINUOUS"
+    SNAPSHOT = "SNAPSHOT"
+
+
+class RestoreValidationStatus:
+    """RestoreValidationStatus enum values."""
+
+    FAILED = "FAILED"
+    SUCCESSFUL = "SUCCESSFUL"
+    TIMED_OUT = "TIMED_OUT"
+    VALIDATING = "VALIDATING"
+
+
+class RuleExecutionType:
+    """RuleExecutionType enum values."""
+
+    CONTINUOUS = "CONTINUOUS"
+    SNAPSHOTS = "SNAPSHOTS"
+    CONTINUOUS_AND_SNAPSHOTS = "CONTINUOUS_AND_SNAPSHOTS"
+
+
+class ScanFinding:
+    """ScanFinding enum values."""
+
+    MALWARE = "MALWARE"
+
+
+class ScanJobState:
+    """ScanJobState enum values."""
+
+    COMPLETED = "COMPLETED"
+    COMPLETED_WITH_ISSUES = "COMPLETED_WITH_ISSUES"
+    FAILED = "FAILED"
+    CANCELED = "CANCELED"
+
+
+class ScanJobStatus:
+    """ScanJobStatus enum values."""
+
+    CREATED = "CREATED"
+    COMPLETED = "COMPLETED"
+    COMPLETED_WITH_ISSUES = "COMPLETED_WITH_ISSUES"
+    RUNNING = "RUNNING"
+    FAILED = "FAILED"
+    CANCELED = "CANCELED"
+    AGGREGATE_ALL = "AGGREGATE_ALL"
+    ANY = "ANY"
+
+
+class ScanMode:
+    """ScanMode enum values."""
+
+    FULL_SCAN = "FULL_SCAN"
+    INCREMENTAL_SCAN = "INCREMENTAL_SCAN"
+
+
+class ScanResourceType:
+    """ScanResourceType enum values."""
+
+    EBS = "EBS"
+    EC2 = "EC2"
+    S3 = "S3"
+
+
+class ScanResultStatus:
+    """ScanResultStatus enum values."""
+
+    NO_THREATS_FOUND = "NO_THREATS_FOUND"
+    THREATS_FOUND = "THREATS_FOUND"
+
+
+class ScanState:
+    """ScanState enum values."""
+
+    CANCELED = "CANCELED"
+    COMPLETED = "COMPLETED"
+    COMPLETED_WITH_ISSUES = "COMPLETED_WITH_ISSUES"
+    CREATED = "CREATED"
+    FAILED = "FAILED"
+    RUNNING = "RUNNING"
+
+
+class StorageClass:
+    """StorageClass enum values."""
+
+    WARM = "WARM"
+    COLD = "COLD"
+    DELETED = "DELETED"
+
+
+class VaultState:
+    """VaultState enum values."""
+
+    CREATING = "CREATING"
+    AVAILABLE = "AVAILABLE"
+    FAILED = "FAILED"
+
+
+class VaultType:
+    """VaultType enum values."""
+
+    BACKUP_VAULT = "BACKUP_VAULT"
+    LOGICALLY_AIR_GAPPED_BACKUP_VAULT = "LOGICALLY_AIR_GAPPED_BACKUP_VAULT"
+    RESTORE_ACCESS_BACKUP_VAULT = "RESTORE_ACCESS_BACKUP_VAULT"
+
+
+# Convenient aliases for enum values
+ONE_DAY = AggregationPeriod.ONE_DAY
+SEVEN_DAYS = AggregationPeriod.SEVEN_DAYS
+FOURTEEN_DAYS = AggregationPeriod.FOURTEEN_DAYS
+CREATED = BackupJobState.CREATED
+PENDING = BackupJobState.PENDING
+RUNNING = BackupJobState.RUNNING
+ABORTING = BackupJobState.ABORTING
+ABORTED = BackupJobState.ABORTED
+COMPLETED = BackupJobState.COMPLETED
+FAILED = BackupJobState.FAILED
+EXPIRED = BackupJobState.EXPIRED
+PARTIAL = BackupJobState.PARTIAL
+CREATED = BackupJobStatus.CREATED
+PENDING = BackupJobStatus.PENDING
+RUNNING = BackupJobStatus.RUNNING
+ABORTING = BackupJobStatus.ABORTING
+ABORTED = BackupJobStatus.ABORTED
+COMPLETED = BackupJobStatus.COMPLETED
+FAILED = BackupJobStatus.FAILED
+EXPIRED = BackupJobStatus.EXPIRED
+PARTIAL = BackupJobStatus.PARTIAL
+AGGREGATE_ALL = BackupJobStatus.AGGREGATE_ALL
+ANY = BackupJobStatus.ANY
+BACKUP_JOB_STARTED = BackupVaultEvent.BACKUP_JOB_STARTED
+BACKUP_JOB_COMPLETED = BackupVaultEvent.BACKUP_JOB_COMPLETED
+BACKUP_JOB_SUCCESSFUL = BackupVaultEvent.BACKUP_JOB_SUCCESSFUL
+BACKUP_JOB_FAILED = BackupVaultEvent.BACKUP_JOB_FAILED
+BACKUP_JOB_EXPIRED = BackupVaultEvent.BACKUP_JOB_EXPIRED
+RESTORE_JOB_STARTED = BackupVaultEvent.RESTORE_JOB_STARTED
+RESTORE_JOB_COMPLETED = BackupVaultEvent.RESTORE_JOB_COMPLETED
+RESTORE_JOB_SUCCESSFUL = BackupVaultEvent.RESTORE_JOB_SUCCESSFUL
+RESTORE_JOB_FAILED = BackupVaultEvent.RESTORE_JOB_FAILED
+COPY_JOB_STARTED = BackupVaultEvent.COPY_JOB_STARTED
+COPY_JOB_SUCCESSFUL = BackupVaultEvent.COPY_JOB_SUCCESSFUL
+COPY_JOB_FAILED = BackupVaultEvent.COPY_JOB_FAILED
+RECOVERY_POINT_MODIFIED = BackupVaultEvent.RECOVERY_POINT_MODIFIED
+BACKUP_PLAN_CREATED = BackupVaultEvent.BACKUP_PLAN_CREATED
+BACKUP_PLAN_MODIFIED = BackupVaultEvent.BACKUP_PLAN_MODIFIED
+S3_BACKUP_OBJECT_FAILED = BackupVaultEvent.S3_BACKUP_OBJECT_FAILED
+S3_RESTORE_OBJECT_FAILED = BackupVaultEvent.S3_RESTORE_OBJECT_FAILED
+CONTINUOUS_BACKUP_INTERRUPTED = BackupVaultEvent.CONTINUOUS_BACKUP_INTERRUPTED
+RECOVERY_POINT_INDEX_COMPLETED = BackupVaultEvent.RECOVERY_POINT_INDEX_COMPLETED
+RECOVERY_POINT_INDEX_DELETED = BackupVaultEvent.RECOVERY_POINT_INDEX_DELETED
+RECOVERY_POINT_INDEXING_FAILED = BackupVaultEvent.RECOVERY_POINT_INDEXING_FAILED
+STRINGEQUALS = ConditionType.STRINGEQUALS
+CREATED = CopyJobState.CREATED
+RUNNING = CopyJobState.RUNNING
+COMPLETED = CopyJobState.COMPLETED
+FAILED = CopyJobState.FAILED
+PARTIAL = CopyJobState.PARTIAL
+CREATED = CopyJobStatus.CREATED
+RUNNING = CopyJobStatus.RUNNING
+ABORTING = CopyJobStatus.ABORTING
+ABORTED = CopyJobStatus.ABORTED
+COMPLETING = CopyJobStatus.COMPLETING
+COMPLETED = CopyJobStatus.COMPLETED
+FAILING = CopyJobStatus.FAILING
+FAILED = CopyJobStatus.FAILED
+PARTIAL = CopyJobStatus.PARTIAL
+AGGREGATE_ALL = CopyJobStatus.AGGREGATE_ALL
+ANY = CopyJobStatus.ANY
+AWS_OWNED_KMS_KEY = EncryptionKeyType.AWS_OWNED_KMS_KEY
+CUSTOMER_MANAGED_KMS_KEY = EncryptionKeyType.CUSTOMER_MANAGED_KMS_KEY
+ENABLED = Index.ENABLED
+DISABLED = Index.DISABLED
+PENDING = IndexStatus.PENDING
+ACTIVE = IndexStatus.ACTIVE
+FAILED = IndexStatus.FAILED
+DELETING = IndexStatus.DELETING
+CREATING = LegalHoldStatus.CREATING
+ACTIVE = LegalHoldStatus.ACTIVE
+CANCELING = LegalHoldStatus.CANCELING
+CANCELED = LegalHoldStatus.CANCELED
+DELETE_AFTER_COPY = LifecycleDeleteAfterEvent.DELETE_AFTER_COPY
+GUARDDUTY = MalwareScanner.GUARDDUTY
+PENDING = MpaRevokeSessionStatus.PENDING
+FAILED = MpaRevokeSessionStatus.FAILED
+PENDING = MpaSessionStatus.PENDING
+APPROVED = MpaSessionStatus.APPROVED
+FAILED = MpaSessionStatus.FAILED
+COMPLETED = RecoveryPointStatus.COMPLETED
+PARTIAL = RecoveryPointStatus.PARTIAL
+DELETING = RecoveryPointStatus.DELETING
+EXPIRED = RecoveryPointStatus.EXPIRED
+AVAILABLE = RecoveryPointStatus.AVAILABLE
+STOPPED = RecoveryPointStatus.STOPPED
+CREATING = RecoveryPointStatus.CREATING
+DELETING = RestoreDeletionStatus.DELETING
+FAILED = RestoreDeletionStatus.FAILED
+SUCCESSFUL = RestoreDeletionStatus.SUCCESSFUL
+CREATED = RestoreJobState.CREATED
+PENDING = RestoreJobState.PENDING
+RUNNING = RestoreJobState.RUNNING
+ABORTED = RestoreJobState.ABORTED
+COMPLETED = RestoreJobState.COMPLETED
+FAILED = RestoreJobState.FAILED
+AGGREGATE_ALL = RestoreJobState.AGGREGATE_ALL
+ANY = RestoreJobState.ANY
+PENDING = RestoreJobStatus.PENDING
+RUNNING = RestoreJobStatus.RUNNING
+COMPLETED = RestoreJobStatus.COMPLETED
+ABORTED = RestoreJobStatus.ABORTED
+FAILED = RestoreJobStatus.FAILED
+LATEST_WITHIN_WINDOW = RestoreTestingRecoveryPointSelectionAlgorithm.LATEST_WITHIN_WINDOW
+RANDOM_WITHIN_WINDOW = RestoreTestingRecoveryPointSelectionAlgorithm.RANDOM_WITHIN_WINDOW
+CONTINUOUS = RestoreTestingRecoveryPointType.CONTINUOUS
+SNAPSHOT = RestoreTestingRecoveryPointType.SNAPSHOT
+FAILED = RestoreValidationStatus.FAILED
+SUCCESSFUL = RestoreValidationStatus.SUCCESSFUL
+TIMED_OUT = RestoreValidationStatus.TIMED_OUT
+VALIDATING = RestoreValidationStatus.VALIDATING
+CONTINUOUS = RuleExecutionType.CONTINUOUS
+SNAPSHOTS = RuleExecutionType.SNAPSHOTS
+CONTINUOUS_AND_SNAPSHOTS = RuleExecutionType.CONTINUOUS_AND_SNAPSHOTS
+MALWARE = ScanFinding.MALWARE
+COMPLETED = ScanJobState.COMPLETED
+COMPLETED_WITH_ISSUES = ScanJobState.COMPLETED_WITH_ISSUES
+FAILED = ScanJobState.FAILED
+CANCELED = ScanJobState.CANCELED
+CREATED = ScanJobStatus.CREATED
+COMPLETED = ScanJobStatus.COMPLETED
+COMPLETED_WITH_ISSUES = ScanJobStatus.COMPLETED_WITH_ISSUES
+RUNNING = ScanJobStatus.RUNNING
+FAILED = ScanJobStatus.FAILED
+CANCELED = ScanJobStatus.CANCELED
+AGGREGATE_ALL = ScanJobStatus.AGGREGATE_ALL
+ANY = ScanJobStatus.ANY
+FULL_SCAN = ScanMode.FULL_SCAN
+INCREMENTAL_SCAN = ScanMode.INCREMENTAL_SCAN
+EBS = ScanResourceType.EBS
+EC2 = ScanResourceType.EC2
+S3 = ScanResourceType.S3
+NO_THREATS_FOUND = ScanResultStatus.NO_THREATS_FOUND
+THREATS_FOUND = ScanResultStatus.THREATS_FOUND
+CANCELED = ScanState.CANCELED
+COMPLETED = ScanState.COMPLETED
+COMPLETED_WITH_ISSUES = ScanState.COMPLETED_WITH_ISSUES
+CREATED = ScanState.CREATED
+FAILED = ScanState.FAILED
+RUNNING = ScanState.RUNNING
+WARM = StorageClass.WARM
+COLD = StorageClass.COLD
+DELETED = StorageClass.DELETED
+CREATING = VaultState.CREATING
+AVAILABLE = VaultState.AVAILABLE
+FAILED = VaultState.FAILED
+BACKUP_VAULT = VaultType.BACKUP_VAULT
+LOGICALLY_AIR_GAPPED_BACKUP_VAULT = VaultType.LOGICALLY_AIR_GAPPED_BACKUP_VAULT
+RESTORE_ACCESS_BACKUP_VAULT = VaultType.RESTORE_ACCESS_BACKUP_VAULT
 
 
 @dataclass
@@ -1628,7 +2098,7 @@ class RestoreTestingRecoveryPointSelection:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exclude_vaults: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    algorithm: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    algorithm: Optional[Union[str, RestoreTestingRecoveryPointSelectionAlgorithm, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""

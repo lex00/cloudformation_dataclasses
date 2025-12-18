@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:42
+  Generated: 2025-12-17 16:59:39
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service XRay
@@ -23,6 +23,111 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class EncryptionStatus:
+    """EncryptionStatus enum values."""
+
+    UPDATING = "UPDATING"
+    ACTIVE = "ACTIVE"
+
+
+class EncryptionType:
+    """EncryptionType enum values."""
+
+    NONE = "NONE"
+    KMS = "KMS"
+
+
+class InsightCategory:
+    """InsightCategory enum values."""
+
+    FAULT = "FAULT"
+
+
+class InsightState:
+    """InsightState enum values."""
+
+    ACTIVE = "ACTIVE"
+    CLOSED = "CLOSED"
+
+
+class RetrievalStatus:
+    """RetrievalStatus enum values."""
+
+    SCHEDULED = "SCHEDULED"
+    RUNNING = "RUNNING"
+    COMPLETE = "COMPLETE"
+    FAILED = "FAILED"
+    CANCELLED = "CANCELLED"
+    TIMEOUT = "TIMEOUT"
+
+
+class SamplingStrategyName:
+    """SamplingStrategyName enum values."""
+
+    PARTIALSCAN = "PartialScan"
+    FIXEDRATE = "FixedRate"
+
+
+class TimeRangeType:
+    """TimeRangeType enum values."""
+
+    TRACEID = "TraceId"
+    EVENT = "Event"
+    SERVICE = "Service"
+
+
+class TraceFormatType:
+    """TraceFormatType enum values."""
+
+    XRAY = "XRAY"
+    OTEL = "OTEL"
+
+
+class TraceSegmentDestination:
+    """TraceSegmentDestination enum values."""
+
+    XRAY = "XRay"
+    CLOUDWATCHLOGS = "CloudWatchLogs"
+
+
+class TraceSegmentDestinationStatus:
+    """TraceSegmentDestinationStatus enum values."""
+
+    PENDING = "PENDING"
+    ACTIVE = "ACTIVE"
+
+
+# Convenient aliases for enum values
+UPDATING = EncryptionStatus.UPDATING
+ACTIVE = EncryptionStatus.ACTIVE
+NONE = EncryptionType.NONE
+KMS = EncryptionType.KMS
+FAULT = InsightCategory.FAULT
+ACTIVE = InsightState.ACTIVE
+CLOSED = InsightState.CLOSED
+SCHEDULED = RetrievalStatus.SCHEDULED
+RUNNING = RetrievalStatus.RUNNING
+COMPLETE = RetrievalStatus.COMPLETE
+FAILED = RetrievalStatus.FAILED
+CANCELLED = RetrievalStatus.CANCELLED
+TIMEOUT = RetrievalStatus.TIMEOUT
+PARTIALSCAN = SamplingStrategyName.PARTIALSCAN
+FIXEDRATE = SamplingStrategyName.FIXEDRATE
+TRACEID = TimeRangeType.TRACEID
+EVENT = TimeRangeType.EVENT
+SERVICE = TimeRangeType.SERVICE
+XRAY = TraceFormatType.XRAY
+OTEL = TraceFormatType.OTEL
+XRAY = TraceSegmentDestination.XRAY
+CLOUDWATCHLOGS = TraceSegmentDestination.CLOUDWATCHLOGS
+PENDING = TraceSegmentDestinationStatus.PENDING
+ACTIVE = TraceSegmentDestinationStatus.ACTIVE
 
 
 @dataclass

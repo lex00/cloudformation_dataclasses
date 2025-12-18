@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:22
+  Generated: 2025-12-17 16:59:36
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service EventSchemas
@@ -23,6 +23,42 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class CodeGenerationStatus:
+    """CodeGenerationStatus enum values."""
+
+    CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS"
+    CREATE_COMPLETE = "CREATE_COMPLETE"
+    CREATE_FAILED = "CREATE_FAILED"
+
+
+class DiscovererState:
+    """DiscovererState enum values."""
+
+    STARTED = "STARTED"
+    STOPPED = "STOPPED"
+
+
+class Type:
+    """Type enum values."""
+
+    OPENAPI3 = "OpenApi3"
+    JSONSCHEMADRAFT4 = "JSONSchemaDraft4"
+
+
+# Convenient aliases for enum values
+CREATE_IN_PROGRESS = CodeGenerationStatus.CREATE_IN_PROGRESS
+CREATE_COMPLETE = CodeGenerationStatus.CREATE_COMPLETE
+CREATE_FAILED = CodeGenerationStatus.CREATE_FAILED
+STARTED = DiscovererState.STARTED
+STOPPED = DiscovererState.STOPPED
+OPENAPI3 = Type.OPENAPI3
+JSONSCHEMADRAFT4 = Type.JSONSCHEMADRAFT4
 
 
 @dataclass

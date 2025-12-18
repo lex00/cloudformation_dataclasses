@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:31
+  Generated: 2025-12-17 16:59:38
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service NetworkFirewall
@@ -23,6 +23,452 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class AttachmentStatus:
+    """AttachmentStatus enum values."""
+
+    CREATING = "CREATING"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
+    ERROR = "ERROR"
+    SCALING = "SCALING"
+    READY = "READY"
+
+
+class ConfigurationSyncState:
+    """ConfigurationSyncState enum values."""
+
+    PENDING = "PENDING"
+    IN_SYNC = "IN_SYNC"
+    CAPACITY_CONSTRAINED = "CAPACITY_CONSTRAINED"
+
+
+class EnabledAnalysisType:
+    """EnabledAnalysisType enum values."""
+
+    TLS_SNI = "TLS_SNI"
+    HTTP_HOST = "HTTP_HOST"
+
+
+class EncryptionType:
+    """EncryptionType enum values."""
+
+    CUSTOMER_KMS = "CUSTOMER_KMS"
+    AWS_OWNED_KMS_KEY = "AWS_OWNED_KMS_KEY"
+
+
+class FirewallStatusValue:
+    """FirewallStatusValue enum values."""
+
+    PROVISIONING = "PROVISIONING"
+    DELETING = "DELETING"
+    READY = "READY"
+
+
+class FlowOperationStatus:
+    """FlowOperationStatus enum values."""
+
+    COMPLETED = "COMPLETED"
+    IN_PROGRESS = "IN_PROGRESS"
+    FAILED = "FAILED"
+    COMPLETED_WITH_ERRORS = "COMPLETED_WITH_ERRORS"
+
+
+class FlowOperationType:
+    """FlowOperationType enum values."""
+
+    FLOW_FLUSH = "FLOW_FLUSH"
+    FLOW_CAPTURE = "FLOW_CAPTURE"
+
+
+class GeneratedRulesType:
+    """GeneratedRulesType enum values."""
+
+    ALLOWLIST = "ALLOWLIST"
+    DENYLIST = "DENYLIST"
+    REJECTLIST = "REJECTLIST"
+    ALERTLIST = "ALERTLIST"
+
+
+class IPAddressType:
+    """IPAddressType enum values."""
+
+    DUALSTACK = "DUALSTACK"
+    IPV4 = "IPV4"
+    IPV6 = "IPV6"
+
+
+class IdentifiedType:
+    """IdentifiedType enum values."""
+
+    STATELESS_RULE_FORWARDING_ASYMMETRICALLY = "STATELESS_RULE_FORWARDING_ASYMMETRICALLY"
+    STATELESS_RULE_CONTAINS_TCP_FLAGS = "STATELESS_RULE_CONTAINS_TCP_FLAGS"
+
+
+class ListenerPropertyType:
+    """ListenerPropertyType enum values."""
+
+    HTTP = "HTTP"
+    HTTPS = "HTTPS"
+
+
+class LogDestinationType:
+    """LogDestinationType enum values."""
+
+    S3 = "S3"
+    CLOUDWATCHLOGS = "CloudWatchLogs"
+    KINESISDATAFIREHOSE = "KinesisDataFirehose"
+
+
+class LogType:
+    """LogType enum values."""
+
+    ALERT = "ALERT"
+    FLOW = "FLOW"
+    TLS = "TLS"
+
+
+class OverrideAction:
+    """OverrideAction enum values."""
+
+    DROP_TO_ALERT = "DROP_TO_ALERT"
+
+
+class PerObjectSyncStatus:
+    """PerObjectSyncStatus enum values."""
+
+    PENDING = "PENDING"
+    IN_SYNC = "IN_SYNC"
+    CAPACITY_CONSTRAINED = "CAPACITY_CONSTRAINED"
+    NOT_SUBSCRIBED = "NOT_SUBSCRIBED"
+    DEPRECATED = "DEPRECATED"
+
+
+class ProxyModifyState:
+    """ProxyModifyState enum values."""
+
+    MODIFYING = "MODIFYING"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
+
+
+class ProxyRulePhaseAction:
+    """ProxyRulePhaseAction enum values."""
+
+    ALLOW = "ALLOW"
+    DENY = "DENY"
+    ALERT = "ALERT"
+
+
+class ProxyState:
+    """ProxyState enum values."""
+
+    ATTACHING = "ATTACHING"
+    ATTACHED = "ATTACHED"
+    DETACHING = "DETACHING"
+    DETACHED = "DETACHED"
+    ATTACH_FAILED = "ATTACH_FAILED"
+    DETACH_FAILED = "DETACH_FAILED"
+
+
+class ResourceManagedStatus:
+    """ResourceManagedStatus enum values."""
+
+    MANAGED = "MANAGED"
+    ACCOUNT = "ACCOUNT"
+
+
+class ResourceManagedType:
+    """ResourceManagedType enum values."""
+
+    AWS_MANAGED_THREAT_SIGNATURES = "AWS_MANAGED_THREAT_SIGNATURES"
+    AWS_MANAGED_DOMAIN_LISTS = "AWS_MANAGED_DOMAIN_LISTS"
+    ACTIVE_THREAT_DEFENSE = "ACTIVE_THREAT_DEFENSE"
+    PARTNER_MANAGED = "PARTNER_MANAGED"
+
+
+class ResourceStatus:
+    """ResourceStatus enum values."""
+
+    ACTIVE = "ACTIVE"
+    DELETING = "DELETING"
+    ERROR = "ERROR"
+
+
+class RevocationCheckAction:
+    """RevocationCheckAction enum values."""
+
+    PASS = "PASS"
+    DROP = "DROP"
+    REJECT = "REJECT"
+
+
+class RuleGroupRequestPhase:
+    """RuleGroupRequestPhase enum values."""
+
+    PRE_DNS = "PRE_DNS"
+    PRE_REQ = "PRE_REQ"
+    POST_RES = "POST_RES"
+
+
+class RuleGroupType:
+    """RuleGroupType enum values."""
+
+    STATELESS = "STATELESS"
+    STATEFUL = "STATEFUL"
+
+
+class RuleOrder:
+    """RuleOrder enum values."""
+
+    DEFAULT_ACTION_ORDER = "DEFAULT_ACTION_ORDER"
+    STRICT_ORDER = "STRICT_ORDER"
+
+
+class StatefulAction:
+    """StatefulAction enum values."""
+
+    PASS = "PASS"
+    DROP = "DROP"
+    ALERT = "ALERT"
+    REJECT = "REJECT"
+
+
+class StatefulRuleDirection:
+    """StatefulRuleDirection enum values."""
+
+    FORWARD = "FORWARD"
+    ANY = "ANY"
+
+
+class StatefulRuleProtocol:
+    """StatefulRuleProtocol enum values."""
+
+    IP = "IP"
+    TCP = "TCP"
+    UDP = "UDP"
+    ICMP = "ICMP"
+    HTTP = "HTTP"
+    FTP = "FTP"
+    TLS = "TLS"
+    SMB = "SMB"
+    DNS = "DNS"
+    DCERPC = "DCERPC"
+    SSH = "SSH"
+    SMTP = "SMTP"
+    IMAP = "IMAP"
+    MSN = "MSN"
+    KRB5 = "KRB5"
+    IKEV2 = "IKEV2"
+    TFTP = "TFTP"
+    NTP = "NTP"
+    DHCP = "DHCP"
+    HTTP2 = "HTTP2"
+    QUIC = "QUIC"
+
+
+class StreamExceptionPolicy:
+    """StreamExceptionPolicy enum values."""
+
+    DROP = "DROP"
+    CONTINUE = "CONTINUE"
+    REJECT = "REJECT"
+
+
+class SubscriptionStatus:
+    """SubscriptionStatus enum values."""
+
+    NOT_SUBSCRIBED = "NOT_SUBSCRIBED"
+    SUBSCRIBED = "SUBSCRIBED"
+
+
+class SummaryRuleOption:
+    """SummaryRuleOption enum values."""
+
+    SID = "SID"
+    MSG = "MSG"
+    METADATA = "METADATA"
+
+
+class TCPFlag:
+    """TCPFlag enum values."""
+
+    FIN = "FIN"
+    SYN = "SYN"
+    RST = "RST"
+    PSH = "PSH"
+    ACK = "ACK"
+    URG = "URG"
+    ECE = "ECE"
+    CWR = "CWR"
+
+
+class TargetType:
+    """TargetType enum values."""
+
+    TLS_SNI = "TLS_SNI"
+    HTTP_HOST = "HTTP_HOST"
+
+
+class TlsInterceptMode:
+    """TlsInterceptMode enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class TransitGatewayAttachmentStatus:
+    """TransitGatewayAttachmentStatus enum values."""
+
+    CREATING = "CREATING"
+    DELETING = "DELETING"
+    DELETED = "DELETED"
+    FAILED = "FAILED"
+    ERROR = "ERROR"
+    READY = "READY"
+    PENDING_ACCEPTANCE = "PENDING_ACCEPTANCE"
+    REJECTING = "REJECTING"
+    REJECTED = "REJECTED"
+
+
+# Convenient aliases for enum values
+CREATING = AttachmentStatus.CREATING
+DELETING = AttachmentStatus.DELETING
+FAILED = AttachmentStatus.FAILED
+ERROR = AttachmentStatus.ERROR
+SCALING = AttachmentStatus.SCALING
+READY = AttachmentStatus.READY
+PENDING = ConfigurationSyncState.PENDING
+IN_SYNC = ConfigurationSyncState.IN_SYNC
+CAPACITY_CONSTRAINED = ConfigurationSyncState.CAPACITY_CONSTRAINED
+TLS_SNI = EnabledAnalysisType.TLS_SNI
+HTTP_HOST = EnabledAnalysisType.HTTP_HOST
+CUSTOMER_KMS = EncryptionType.CUSTOMER_KMS
+AWS_OWNED_KMS_KEY = EncryptionType.AWS_OWNED_KMS_KEY
+PROVISIONING = FirewallStatusValue.PROVISIONING
+DELETING = FirewallStatusValue.DELETING
+READY = FirewallStatusValue.READY
+COMPLETED = FlowOperationStatus.COMPLETED
+IN_PROGRESS = FlowOperationStatus.IN_PROGRESS
+FAILED = FlowOperationStatus.FAILED
+COMPLETED_WITH_ERRORS = FlowOperationStatus.COMPLETED_WITH_ERRORS
+FLOW_FLUSH = FlowOperationType.FLOW_FLUSH
+FLOW_CAPTURE = FlowOperationType.FLOW_CAPTURE
+ALLOWLIST = GeneratedRulesType.ALLOWLIST
+DENYLIST = GeneratedRulesType.DENYLIST
+REJECTLIST = GeneratedRulesType.REJECTLIST
+ALERTLIST = GeneratedRulesType.ALERTLIST
+DUALSTACK = IPAddressType.DUALSTACK
+IPV4 = IPAddressType.IPV4
+IPV6 = IPAddressType.IPV6
+STATELESS_RULE_FORWARDING_ASYMMETRICALLY = IdentifiedType.STATELESS_RULE_FORWARDING_ASYMMETRICALLY
+STATELESS_RULE_CONTAINS_TCP_FLAGS = IdentifiedType.STATELESS_RULE_CONTAINS_TCP_FLAGS
+HTTP = ListenerPropertyType.HTTP
+HTTPS = ListenerPropertyType.HTTPS
+S3 = LogDestinationType.S3
+CLOUDWATCHLOGS = LogDestinationType.CLOUDWATCHLOGS
+KINESISDATAFIREHOSE = LogDestinationType.KINESISDATAFIREHOSE
+ALERT = LogType.ALERT
+FLOW = LogType.FLOW
+TLS = LogType.TLS
+DROP_TO_ALERT = OverrideAction.DROP_TO_ALERT
+PENDING = PerObjectSyncStatus.PENDING
+IN_SYNC = PerObjectSyncStatus.IN_SYNC
+CAPACITY_CONSTRAINED = PerObjectSyncStatus.CAPACITY_CONSTRAINED
+NOT_SUBSCRIBED = PerObjectSyncStatus.NOT_SUBSCRIBED
+DEPRECATED = PerObjectSyncStatus.DEPRECATED
+MODIFYING = ProxyModifyState.MODIFYING
+COMPLETED = ProxyModifyState.COMPLETED
+FAILED = ProxyModifyState.FAILED
+ALLOW = ProxyRulePhaseAction.ALLOW
+DENY = ProxyRulePhaseAction.DENY
+ALERT = ProxyRulePhaseAction.ALERT
+ATTACHING = ProxyState.ATTACHING
+ATTACHED = ProxyState.ATTACHED
+DETACHING = ProxyState.DETACHING
+DETACHED = ProxyState.DETACHED
+ATTACH_FAILED = ProxyState.ATTACH_FAILED
+DETACH_FAILED = ProxyState.DETACH_FAILED
+MANAGED = ResourceManagedStatus.MANAGED
+ACCOUNT = ResourceManagedStatus.ACCOUNT
+AWS_MANAGED_THREAT_SIGNATURES = ResourceManagedType.AWS_MANAGED_THREAT_SIGNATURES
+AWS_MANAGED_DOMAIN_LISTS = ResourceManagedType.AWS_MANAGED_DOMAIN_LISTS
+ACTIVE_THREAT_DEFENSE = ResourceManagedType.ACTIVE_THREAT_DEFENSE
+PARTNER_MANAGED = ResourceManagedType.PARTNER_MANAGED
+ACTIVE = ResourceStatus.ACTIVE
+DELETING = ResourceStatus.DELETING
+ERROR = ResourceStatus.ERROR
+PASS = RevocationCheckAction.PASS
+DROP = RevocationCheckAction.DROP
+REJECT = RevocationCheckAction.REJECT
+PRE_DNS = RuleGroupRequestPhase.PRE_DNS
+PRE_REQ = RuleGroupRequestPhase.PRE_REQ
+POST_RES = RuleGroupRequestPhase.POST_RES
+STATELESS = RuleGroupType.STATELESS
+STATEFUL = RuleGroupType.STATEFUL
+DEFAULT_ACTION_ORDER = RuleOrder.DEFAULT_ACTION_ORDER
+STRICT_ORDER = RuleOrder.STRICT_ORDER
+PASS = StatefulAction.PASS
+DROP = StatefulAction.DROP
+ALERT = StatefulAction.ALERT
+REJECT = StatefulAction.REJECT
+FORWARD = StatefulRuleDirection.FORWARD
+ANY = StatefulRuleDirection.ANY
+IP = StatefulRuleProtocol.IP
+TCP = StatefulRuleProtocol.TCP
+UDP = StatefulRuleProtocol.UDP
+ICMP = StatefulRuleProtocol.ICMP
+HTTP = StatefulRuleProtocol.HTTP
+FTP = StatefulRuleProtocol.FTP
+TLS = StatefulRuleProtocol.TLS
+SMB = StatefulRuleProtocol.SMB
+DNS = StatefulRuleProtocol.DNS
+DCERPC = StatefulRuleProtocol.DCERPC
+SSH = StatefulRuleProtocol.SSH
+SMTP = StatefulRuleProtocol.SMTP
+IMAP = StatefulRuleProtocol.IMAP
+MSN = StatefulRuleProtocol.MSN
+KRB5 = StatefulRuleProtocol.KRB5
+IKEV2 = StatefulRuleProtocol.IKEV2
+TFTP = StatefulRuleProtocol.TFTP
+NTP = StatefulRuleProtocol.NTP
+DHCP = StatefulRuleProtocol.DHCP
+HTTP2 = StatefulRuleProtocol.HTTP2
+QUIC = StatefulRuleProtocol.QUIC
+DROP = StreamExceptionPolicy.DROP
+CONTINUE = StreamExceptionPolicy.CONTINUE
+REJECT = StreamExceptionPolicy.REJECT
+NOT_SUBSCRIBED = SubscriptionStatus.NOT_SUBSCRIBED
+SUBSCRIBED = SubscriptionStatus.SUBSCRIBED
+SID = SummaryRuleOption.SID
+MSG = SummaryRuleOption.MSG
+METADATA = SummaryRuleOption.METADATA
+FIN = TCPFlag.FIN
+SYN = TCPFlag.SYN
+RST = TCPFlag.RST
+PSH = TCPFlag.PSH
+ACK = TCPFlag.ACK
+URG = TCPFlag.URG
+ECE = TCPFlag.ECE
+CWR = TCPFlag.CWR
+TLS_SNI = TargetType.TLS_SNI
+HTTP_HOST = TargetType.HTTP_HOST
+ENABLED = TlsInterceptMode.ENABLED
+DISABLED = TlsInterceptMode.DISABLED
+CREATING = TransitGatewayAttachmentStatus.CREATING
+DELETING = TransitGatewayAttachmentStatus.DELETING
+DELETED = TransitGatewayAttachmentStatus.DELETED
+FAILED = TransitGatewayAttachmentStatus.FAILED
+ERROR = TransitGatewayAttachmentStatus.ERROR
+READY = TransitGatewayAttachmentStatus.READY
+PENDING_ACCEPTANCE = TransitGatewayAttachmentStatus.PENDING_ACCEPTANCE
+REJECTING = TransitGatewayAttachmentStatus.REJECTING
+REJECTED = TransitGatewayAttachmentStatus.REJECTED
 
 
 @dataclass
@@ -55,7 +501,7 @@ class SubnetMapping:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    ip_address_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    ip_address_type: Optional[Union[str, IPAddressType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnet_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -649,11 +1095,11 @@ class StatefulEngineOptions:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    stream_exception_policy: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    stream_exception_policy: Optional[Union[str, StreamExceptionPolicy, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     flow_timeouts: Optional[FlowTimeouts] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    rule_order: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    rule_order: Optional[Union[str, RuleOrder, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -700,7 +1146,7 @@ class StatefulRuleGroupOverride:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    action: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    action: Optional[Union[str, OverrideAction, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -908,11 +1354,11 @@ class LogDestinationConfig:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    log_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    log_type: Optional[Union[str, LogType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_destination: Optional[dict[str, str]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    log_destination_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    log_destination_type: Optional[Union[str, LogDestinationType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1174,11 +1620,11 @@ class Header:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    protocol: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    protocol: Optional[Union[str, StatefulRuleProtocol, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_port: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    direction: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    direction: Optional[Union[str, StatefulRuleDirection, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_port: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1757,7 +2203,7 @@ class RulesSourceList:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    generated_rules_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    generated_rules_type: Optional[Union[str, GeneratedRulesType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_types: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1808,7 +2254,7 @@ class StatefulRule:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    action: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    action: Optional[Union[str, StatefulAction, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header: Optional[Header] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1859,7 +2305,7 @@ class StatefulRuleOptions:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    rule_order: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    rule_order: Optional[Union[str, RuleOrder, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -2522,7 +2968,7 @@ class SubnetMapping:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    ip_address_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    ip_address_type: Optional[Union[str, IPAddressType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnet_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 

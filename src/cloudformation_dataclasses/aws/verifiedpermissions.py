@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:40
+  Generated: 2025-12-17 16:59:39
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service VerifiedPermissions
@@ -23,6 +23,98 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class BatchGetPolicyErrorCode:
+    """BatchGetPolicyErrorCode enum values."""
+
+    POLICY_STORE_NOT_FOUND = "POLICY_STORE_NOT_FOUND"
+    POLICY_NOT_FOUND = "POLICY_NOT_FOUND"
+
+
+class CedarVersion:
+    """CedarVersion enum values."""
+
+    CEDAR_2 = "CEDAR_2"
+    CEDAR_4 = "CEDAR_4"
+
+
+class Decision:
+    """Decision enum values."""
+
+    ALLOW = "ALLOW"
+    DENY = "DENY"
+
+
+class DeletionProtection:
+    """DeletionProtection enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class OpenIdIssuer:
+    """OpenIdIssuer enum values."""
+
+    COGNITO = "COGNITO"
+
+
+class PolicyEffect:
+    """PolicyEffect enum values."""
+
+    PERMIT = "Permit"
+    FORBID = "Forbid"
+
+
+class PolicyType:
+    """PolicyType enum values."""
+
+    STATIC = "STATIC"
+    TEMPLATE_LINKED = "TEMPLATE_LINKED"
+
+
+class ResourceType:
+    """ResourceType enum values."""
+
+    IDENTITY_SOURCE = "IDENTITY_SOURCE"
+    POLICY_STORE = "POLICY_STORE"
+    POLICY = "POLICY"
+    POLICY_TEMPLATE = "POLICY_TEMPLATE"
+    SCHEMA = "SCHEMA"
+
+
+class ValidationMode:
+    """ValidationMode enum values."""
+
+    OFF = "OFF"
+    STRICT = "STRICT"
+
+
+# Convenient aliases for enum values
+POLICY_STORE_NOT_FOUND = BatchGetPolicyErrorCode.POLICY_STORE_NOT_FOUND
+POLICY_NOT_FOUND = BatchGetPolicyErrorCode.POLICY_NOT_FOUND
+CEDAR_2 = CedarVersion.CEDAR_2
+CEDAR_4 = CedarVersion.CEDAR_4
+ALLOW = Decision.ALLOW
+DENY = Decision.DENY
+ENABLED = DeletionProtection.ENABLED
+DISABLED = DeletionProtection.DISABLED
+COGNITO = OpenIdIssuer.COGNITO
+PERMIT = PolicyEffect.PERMIT
+FORBID = PolicyEffect.FORBID
+STATIC = PolicyType.STATIC
+TEMPLATE_LINKED = PolicyType.TEMPLATE_LINKED
+IDENTITY_SOURCE = ResourceType.IDENTITY_SOURCE
+POLICY_STORE = ResourceType.POLICY_STORE
+POLICY = ResourceType.POLICY
+POLICY_TEMPLATE = ResourceType.POLICY_TEMPLATE
+SCHEMA = ResourceType.SCHEMA
+OFF = ValidationMode.OFF
+STRICT = ValidationMode.STRICT
 
 
 @dataclass

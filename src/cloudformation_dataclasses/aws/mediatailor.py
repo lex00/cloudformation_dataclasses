@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:30
+  Generated: 2025-12-17 16:59:37
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MediaTailor
@@ -23,6 +23,389 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class AccessType:
+    """AccessType enum values."""
+
+    S3_SIGV4 = "S3_SIGV4"
+    SECRETS_MANAGER_ACCESS_TOKEN = "SECRETS_MANAGER_ACCESS_TOKEN"
+    AUTODETECT_SIGV4 = "AUTODETECT_SIGV4"
+
+
+class AdMarkupType:
+    """AdMarkupType enum values."""
+
+    DATERANGE = "DATERANGE"
+    SCTE35_ENHANCED = "SCTE35_ENHANCED"
+
+
+class AdsInteractionExcludeEventType:
+    """AdsInteractionExcludeEventType enum values."""
+
+    AD_MARKER_FOUND = "AD_MARKER_FOUND"
+    NON_AD_MARKER_FOUND = "NON_AD_MARKER_FOUND"
+    MAKING_ADS_REQUEST = "MAKING_ADS_REQUEST"
+    MODIFIED_TARGET_URL = "MODIFIED_TARGET_URL"
+    VAST_REDIRECT = "VAST_REDIRECT"
+    EMPTY_VAST_RESPONSE = "EMPTY_VAST_RESPONSE"
+    EMPTY_VMAP_RESPONSE = "EMPTY_VMAP_RESPONSE"
+    VAST_RESPONSE = "VAST_RESPONSE"
+    REDIRECTED_VAST_RESPONSE = "REDIRECTED_VAST_RESPONSE"
+    FILLED_AVAIL = "FILLED_AVAIL"
+    FILLED_OVERLAY_AVAIL = "FILLED_OVERLAY_AVAIL"
+    BEACON_FIRED = "BEACON_FIRED"
+    WARNING_NO_ADVERTISEMENTS = "WARNING_NO_ADVERTISEMENTS"
+    WARNING_VPAID_AD_DROPPED = "WARNING_VPAID_AD_DROPPED"
+    WARNING_URL_VARIABLE_SUBSTITUTION_FAILED = "WARNING_URL_VARIABLE_SUBSTITUTION_FAILED"
+    ERROR_UNKNOWN = "ERROR_UNKNOWN"
+    ERROR_UNKNOWN_HOST = "ERROR_UNKNOWN_HOST"
+    ERROR_DISALLOWED_HOST = "ERROR_DISALLOWED_HOST"
+    ERROR_ADS_IO = "ERROR_ADS_IO"
+    ERROR_ADS_TIMEOUT = "ERROR_ADS_TIMEOUT"
+    ERROR_ADS_RESPONSE_PARSE = "ERROR_ADS_RESPONSE_PARSE"
+    ERROR_ADS_RESPONSE_UNKNOWN_ROOT_ELEMENT = "ERROR_ADS_RESPONSE_UNKNOWN_ROOT_ELEMENT"
+    ERROR_ADS_INVALID_RESPONSE = "ERROR_ADS_INVALID_RESPONSE"
+    ERROR_VAST_REDIRECT_EMPTY_RESPONSE = "ERROR_VAST_REDIRECT_EMPTY_RESPONSE"
+    ERROR_VAST_REDIRECT_MULTIPLE_VAST = "ERROR_VAST_REDIRECT_MULTIPLE_VAST"
+    ERROR_VAST_REDIRECT_FAILED = "ERROR_VAST_REDIRECT_FAILED"
+    ERROR_VAST_MISSING_MEDIAFILES = "ERROR_VAST_MISSING_MEDIAFILES"
+    ERROR_VAST_MISSING_CREATIVES = "ERROR_VAST_MISSING_CREATIVES"
+    ERROR_VAST_MISSING_OVERLAYS = "ERROR_VAST_MISSING_OVERLAYS"
+    ERROR_VAST_MISSING_IMPRESSION = "ERROR_VAST_MISSING_IMPRESSION"
+    ERROR_VAST_INVALID_VAST_AD_TAG_URI = "ERROR_VAST_INVALID_VAST_AD_TAG_URI"
+    ERROR_VAST_MULTIPLE_TRACKING_EVENTS = "ERROR_VAST_MULTIPLE_TRACKING_EVENTS"
+    ERROR_VAST_MULTIPLE_LINEAR = "ERROR_VAST_MULTIPLE_LINEAR"
+    ERROR_VAST_INVALID_MEDIA_FILE = "ERROR_VAST_INVALID_MEDIA_FILE"
+    ERROR_FIRING_BEACON_FAILED = "ERROR_FIRING_BEACON_FAILED"
+    ERROR_PERSONALIZATION_DISABLED = "ERROR_PERSONALIZATION_DISABLED"
+    VOD_TIME_BASED_AVAIL_PLAN_VAST_RESPONSE_FOR_OFFSET = "VOD_TIME_BASED_AVAIL_PLAN_VAST_RESPONSE_FOR_OFFSET"
+    VOD_TIME_BASED_AVAIL_PLAN_SUCCESS = "VOD_TIME_BASED_AVAIL_PLAN_SUCCESS"
+    VOD_TIME_BASED_AVAIL_PLAN_WARNING_NO_ADVERTISEMENTS = "VOD_TIME_BASED_AVAIL_PLAN_WARNING_NO_ADVERTISEMENTS"
+    INTERSTITIAL_VOD_SUCCESS = "INTERSTITIAL_VOD_SUCCESS"
+    INTERSTITIAL_VOD_FAILURE = "INTERSTITIAL_VOD_FAILURE"
+
+
+class AdsInteractionPublishOptInEventType:
+    """AdsInteractionPublishOptInEventType enum values."""
+
+    RAW_ADS_RESPONSE = "RAW_ADS_RESPONSE"
+
+
+class AlertCategory:
+    """AlertCategory enum values."""
+
+    SCHEDULING_ERROR = "SCHEDULING_ERROR"
+    PLAYBACK_WARNING = "PLAYBACK_WARNING"
+    INFO = "INFO"
+
+
+class ChannelState:
+    """ChannelState enum values."""
+
+    RUNNING = "RUNNING"
+    STOPPED = "STOPPED"
+
+
+class CompressionMethod:
+    """CompressionMethod enum values."""
+
+    NONE = "NONE"
+    GZIP = "GZIP"
+
+
+class FillPolicy:
+    """FillPolicy enum values."""
+
+    FULL_AVAIL_ONLY = "FULL_AVAIL_ONLY"
+    PARTIAL_AVAIL = "PARTIAL_AVAIL"
+
+
+class InsertionMode:
+    """InsertionMode enum values."""
+
+    STITCHED_ONLY = "STITCHED_ONLY"
+    PLAYER_SELECT = "PLAYER_SELECT"
+
+
+class ListPrefetchScheduleType:
+    """ListPrefetchScheduleType enum values."""
+
+    SINGLE = "SINGLE"
+    RECURRING = "RECURRING"
+    ALL = "ALL"
+
+
+class LogType:
+    """LogType enum values."""
+
+    AS_RUN = "AS_RUN"
+
+
+class LoggingStrategy:
+    """LoggingStrategy enum values."""
+
+    VENDED_LOGS = "VENDED_LOGS"
+    LEGACY_CLOUDWATCH = "LEGACY_CLOUDWATCH"
+
+
+class ManifestServiceExcludeEventType:
+    """ManifestServiceExcludeEventType enum values."""
+
+    GENERATED_MANIFEST = "GENERATED_MANIFEST"
+    ORIGIN_MANIFEST = "ORIGIN_MANIFEST"
+    SESSION_INITIALIZED = "SESSION_INITIALIZED"
+    TRACKING_RESPONSE = "TRACKING_RESPONSE"
+    CONFIG_SYNTAX_ERROR = "CONFIG_SYNTAX_ERROR"
+    CONFIG_SECURITY_ERROR = "CONFIG_SECURITY_ERROR"
+    UNKNOWN_HOST = "UNKNOWN_HOST"
+    TIMEOUT_ERROR = "TIMEOUT_ERROR"
+    CONNECTION_ERROR = "CONNECTION_ERROR"
+    IO_ERROR = "IO_ERROR"
+    UNKNOWN_ERROR = "UNKNOWN_ERROR"
+    HOST_DISALLOWED = "HOST_DISALLOWED"
+    PARSING_ERROR = "PARSING_ERROR"
+    MANIFEST_ERROR = "MANIFEST_ERROR"
+    NO_MASTER_OR_MEDIA_PLAYLIST = "NO_MASTER_OR_MEDIA_PLAYLIST"
+    NO_MASTER_PLAYLIST = "NO_MASTER_PLAYLIST"
+    NO_MEDIA_PLAYLIST = "NO_MEDIA_PLAYLIST"
+    INCOMPATIBLE_HLS_VERSION = "INCOMPATIBLE_HLS_VERSION"
+    SCTE35_PARSING_ERROR = "SCTE35_PARSING_ERROR"
+    INVALID_SINGLE_PERIOD_DASH_MANIFEST = "INVALID_SINGLE_PERIOD_DASH_MANIFEST"
+    UNSUPPORTED_SINGLE_PERIOD_DASH_MANIFEST = "UNSUPPORTED_SINGLE_PERIOD_DASH_MANIFEST"
+    LAST_PERIOD_MISSING_AUDIO = "LAST_PERIOD_MISSING_AUDIO"
+    LAST_PERIOD_MISSING_AUDIO_WARNING = "LAST_PERIOD_MISSING_AUDIO_WARNING"
+    ERROR_ORIGIN_PREFIX_INTERPOLATION = "ERROR_ORIGIN_PREFIX_INTERPOLATION"
+    ERROR_ADS_INTERPOLATION = "ERROR_ADS_INTERPOLATION"
+    ERROR_LIVE_PRE_ROLL_ADS_INTERPOLATION = "ERROR_LIVE_PRE_ROLL_ADS_INTERPOLATION"
+    ERROR_CDN_AD_SEGMENT_INTERPOLATION = "ERROR_CDN_AD_SEGMENT_INTERPOLATION"
+    ERROR_CDN_CONTENT_SEGMENT_INTERPOLATION = "ERROR_CDN_CONTENT_SEGMENT_INTERPOLATION"
+    ERROR_SLATE_AD_URL_INTERPOLATION = "ERROR_SLATE_AD_URL_INTERPOLATION"
+    ERROR_PROFILE_NAME_INTERPOLATION = "ERROR_PROFILE_NAME_INTERPOLATION"
+    ERROR_BUMPER_START_INTERPOLATION = "ERROR_BUMPER_START_INTERPOLATION"
+    ERROR_BUMPER_END_INTERPOLATION = "ERROR_BUMPER_END_INTERPOLATION"
+
+
+class MessageType:
+    """MessageType enum values."""
+
+    SPLICE_INSERT = "SPLICE_INSERT"
+    TIME_SIGNAL = "TIME_SIGNAL"
+
+
+class Method:
+    """Method enum values."""
+
+    GET = "GET"
+    POST = "POST"
+
+
+class Mode:
+    """Mode enum values."""
+
+    OFF = "OFF"
+    BEHIND_LIVE_EDGE = "BEHIND_LIVE_EDGE"
+    AFTER_LIVE_EDGE = "AFTER_LIVE_EDGE"
+
+
+class Operator:
+    """Operator enum values."""
+
+    EQUALS = "EQUALS"
+
+
+class OriginManifestType:
+    """OriginManifestType enum values."""
+
+    SINGLE_PERIOD = "SINGLE_PERIOD"
+    MULTI_PERIOD = "MULTI_PERIOD"
+
+
+class PlaybackMode:
+    """PlaybackMode enum values."""
+
+    LOOP = "LOOP"
+    LINEAR = "LINEAR"
+
+
+class PrefetchScheduleType:
+    """PrefetchScheduleType enum values."""
+
+    SINGLE = "SINGLE"
+    RECURRING = "RECURRING"
+
+
+class RelativePosition:
+    """RelativePosition enum values."""
+
+    BEFORE_PROGRAM = "BEFORE_PROGRAM"
+    AFTER_PROGRAM = "AFTER_PROGRAM"
+
+
+class ScheduleEntryType:
+    """ScheduleEntryType enum values."""
+
+    PROGRAM = "PROGRAM"
+    FILLER_SLATE = "FILLER_SLATE"
+    ALTERNATE_MEDIA = "ALTERNATE_MEDIA"
+
+
+class StreamingMediaFileConditioning:
+    """StreamingMediaFileConditioning enum values."""
+
+    TRANSCODE = "TRANSCODE"
+    NONE = "NONE"
+
+
+class Tier:
+    """Tier enum values."""
+
+    BASIC = "BASIC"
+    STANDARD = "STANDARD"
+
+
+class TrafficShapingType:
+    """TrafficShapingType enum values."""
+
+    RETRIEVAL_WINDOW = "RETRIEVAL_WINDOW"
+    TPS = "TPS"
+
+
+class Type:
+    """Type enum values."""
+
+    DASH = "DASH"
+    HLS = "HLS"
+
+
+# Convenient aliases for enum values
+S3_SIGV4 = AccessType.S3_SIGV4
+SECRETS_MANAGER_ACCESS_TOKEN = AccessType.SECRETS_MANAGER_ACCESS_TOKEN
+AUTODETECT_SIGV4 = AccessType.AUTODETECT_SIGV4
+DATERANGE = AdMarkupType.DATERANGE
+SCTE35_ENHANCED = AdMarkupType.SCTE35_ENHANCED
+AD_MARKER_FOUND = AdsInteractionExcludeEventType.AD_MARKER_FOUND
+NON_AD_MARKER_FOUND = AdsInteractionExcludeEventType.NON_AD_MARKER_FOUND
+MAKING_ADS_REQUEST = AdsInteractionExcludeEventType.MAKING_ADS_REQUEST
+MODIFIED_TARGET_URL = AdsInteractionExcludeEventType.MODIFIED_TARGET_URL
+VAST_REDIRECT = AdsInteractionExcludeEventType.VAST_REDIRECT
+EMPTY_VAST_RESPONSE = AdsInteractionExcludeEventType.EMPTY_VAST_RESPONSE
+EMPTY_VMAP_RESPONSE = AdsInteractionExcludeEventType.EMPTY_VMAP_RESPONSE
+VAST_RESPONSE = AdsInteractionExcludeEventType.VAST_RESPONSE
+REDIRECTED_VAST_RESPONSE = AdsInteractionExcludeEventType.REDIRECTED_VAST_RESPONSE
+FILLED_AVAIL = AdsInteractionExcludeEventType.FILLED_AVAIL
+FILLED_OVERLAY_AVAIL = AdsInteractionExcludeEventType.FILLED_OVERLAY_AVAIL
+BEACON_FIRED = AdsInteractionExcludeEventType.BEACON_FIRED
+WARNING_NO_ADVERTISEMENTS = AdsInteractionExcludeEventType.WARNING_NO_ADVERTISEMENTS
+WARNING_VPAID_AD_DROPPED = AdsInteractionExcludeEventType.WARNING_VPAID_AD_DROPPED
+WARNING_URL_VARIABLE_SUBSTITUTION_FAILED = AdsInteractionExcludeEventType.WARNING_URL_VARIABLE_SUBSTITUTION_FAILED
+ERROR_UNKNOWN = AdsInteractionExcludeEventType.ERROR_UNKNOWN
+ERROR_UNKNOWN_HOST = AdsInteractionExcludeEventType.ERROR_UNKNOWN_HOST
+ERROR_DISALLOWED_HOST = AdsInteractionExcludeEventType.ERROR_DISALLOWED_HOST
+ERROR_ADS_IO = AdsInteractionExcludeEventType.ERROR_ADS_IO
+ERROR_ADS_TIMEOUT = AdsInteractionExcludeEventType.ERROR_ADS_TIMEOUT
+ERROR_ADS_RESPONSE_PARSE = AdsInteractionExcludeEventType.ERROR_ADS_RESPONSE_PARSE
+ERROR_ADS_RESPONSE_UNKNOWN_ROOT_ELEMENT = AdsInteractionExcludeEventType.ERROR_ADS_RESPONSE_UNKNOWN_ROOT_ELEMENT
+ERROR_ADS_INVALID_RESPONSE = AdsInteractionExcludeEventType.ERROR_ADS_INVALID_RESPONSE
+ERROR_VAST_REDIRECT_EMPTY_RESPONSE = AdsInteractionExcludeEventType.ERROR_VAST_REDIRECT_EMPTY_RESPONSE
+ERROR_VAST_REDIRECT_MULTIPLE_VAST = AdsInteractionExcludeEventType.ERROR_VAST_REDIRECT_MULTIPLE_VAST
+ERROR_VAST_REDIRECT_FAILED = AdsInteractionExcludeEventType.ERROR_VAST_REDIRECT_FAILED
+ERROR_VAST_MISSING_MEDIAFILES = AdsInteractionExcludeEventType.ERROR_VAST_MISSING_MEDIAFILES
+ERROR_VAST_MISSING_CREATIVES = AdsInteractionExcludeEventType.ERROR_VAST_MISSING_CREATIVES
+ERROR_VAST_MISSING_OVERLAYS = AdsInteractionExcludeEventType.ERROR_VAST_MISSING_OVERLAYS
+ERROR_VAST_MISSING_IMPRESSION = AdsInteractionExcludeEventType.ERROR_VAST_MISSING_IMPRESSION
+ERROR_VAST_INVALID_VAST_AD_TAG_URI = AdsInteractionExcludeEventType.ERROR_VAST_INVALID_VAST_AD_TAG_URI
+ERROR_VAST_MULTIPLE_TRACKING_EVENTS = AdsInteractionExcludeEventType.ERROR_VAST_MULTIPLE_TRACKING_EVENTS
+ERROR_VAST_MULTIPLE_LINEAR = AdsInteractionExcludeEventType.ERROR_VAST_MULTIPLE_LINEAR
+ERROR_VAST_INVALID_MEDIA_FILE = AdsInteractionExcludeEventType.ERROR_VAST_INVALID_MEDIA_FILE
+ERROR_FIRING_BEACON_FAILED = AdsInteractionExcludeEventType.ERROR_FIRING_BEACON_FAILED
+ERROR_PERSONALIZATION_DISABLED = AdsInteractionExcludeEventType.ERROR_PERSONALIZATION_DISABLED
+VOD_TIME_BASED_AVAIL_PLAN_VAST_RESPONSE_FOR_OFFSET = AdsInteractionExcludeEventType.VOD_TIME_BASED_AVAIL_PLAN_VAST_RESPONSE_FOR_OFFSET
+VOD_TIME_BASED_AVAIL_PLAN_SUCCESS = AdsInteractionExcludeEventType.VOD_TIME_BASED_AVAIL_PLAN_SUCCESS
+VOD_TIME_BASED_AVAIL_PLAN_WARNING_NO_ADVERTISEMENTS = AdsInteractionExcludeEventType.VOD_TIME_BASED_AVAIL_PLAN_WARNING_NO_ADVERTISEMENTS
+INTERSTITIAL_VOD_SUCCESS = AdsInteractionExcludeEventType.INTERSTITIAL_VOD_SUCCESS
+INTERSTITIAL_VOD_FAILURE = AdsInteractionExcludeEventType.INTERSTITIAL_VOD_FAILURE
+RAW_ADS_RESPONSE = AdsInteractionPublishOptInEventType.RAW_ADS_RESPONSE
+SCHEDULING_ERROR = AlertCategory.SCHEDULING_ERROR
+PLAYBACK_WARNING = AlertCategory.PLAYBACK_WARNING
+INFO = AlertCategory.INFO
+RUNNING = ChannelState.RUNNING
+STOPPED = ChannelState.STOPPED
+NONE = CompressionMethod.NONE
+GZIP = CompressionMethod.GZIP
+FULL_AVAIL_ONLY = FillPolicy.FULL_AVAIL_ONLY
+PARTIAL_AVAIL = FillPolicy.PARTIAL_AVAIL
+STITCHED_ONLY = InsertionMode.STITCHED_ONLY
+PLAYER_SELECT = InsertionMode.PLAYER_SELECT
+SINGLE = ListPrefetchScheduleType.SINGLE
+RECURRING = ListPrefetchScheduleType.RECURRING
+ALL = ListPrefetchScheduleType.ALL
+AS_RUN = LogType.AS_RUN
+VENDED_LOGS = LoggingStrategy.VENDED_LOGS
+LEGACY_CLOUDWATCH = LoggingStrategy.LEGACY_CLOUDWATCH
+GENERATED_MANIFEST = ManifestServiceExcludeEventType.GENERATED_MANIFEST
+ORIGIN_MANIFEST = ManifestServiceExcludeEventType.ORIGIN_MANIFEST
+SESSION_INITIALIZED = ManifestServiceExcludeEventType.SESSION_INITIALIZED
+TRACKING_RESPONSE = ManifestServiceExcludeEventType.TRACKING_RESPONSE
+CONFIG_SYNTAX_ERROR = ManifestServiceExcludeEventType.CONFIG_SYNTAX_ERROR
+CONFIG_SECURITY_ERROR = ManifestServiceExcludeEventType.CONFIG_SECURITY_ERROR
+UNKNOWN_HOST = ManifestServiceExcludeEventType.UNKNOWN_HOST
+TIMEOUT_ERROR = ManifestServiceExcludeEventType.TIMEOUT_ERROR
+CONNECTION_ERROR = ManifestServiceExcludeEventType.CONNECTION_ERROR
+IO_ERROR = ManifestServiceExcludeEventType.IO_ERROR
+UNKNOWN_ERROR = ManifestServiceExcludeEventType.UNKNOWN_ERROR
+HOST_DISALLOWED = ManifestServiceExcludeEventType.HOST_DISALLOWED
+PARSING_ERROR = ManifestServiceExcludeEventType.PARSING_ERROR
+MANIFEST_ERROR = ManifestServiceExcludeEventType.MANIFEST_ERROR
+NO_MASTER_OR_MEDIA_PLAYLIST = ManifestServiceExcludeEventType.NO_MASTER_OR_MEDIA_PLAYLIST
+NO_MASTER_PLAYLIST = ManifestServiceExcludeEventType.NO_MASTER_PLAYLIST
+NO_MEDIA_PLAYLIST = ManifestServiceExcludeEventType.NO_MEDIA_PLAYLIST
+INCOMPATIBLE_HLS_VERSION = ManifestServiceExcludeEventType.INCOMPATIBLE_HLS_VERSION
+SCTE35_PARSING_ERROR = ManifestServiceExcludeEventType.SCTE35_PARSING_ERROR
+INVALID_SINGLE_PERIOD_DASH_MANIFEST = ManifestServiceExcludeEventType.INVALID_SINGLE_PERIOD_DASH_MANIFEST
+UNSUPPORTED_SINGLE_PERIOD_DASH_MANIFEST = ManifestServiceExcludeEventType.UNSUPPORTED_SINGLE_PERIOD_DASH_MANIFEST
+LAST_PERIOD_MISSING_AUDIO = ManifestServiceExcludeEventType.LAST_PERIOD_MISSING_AUDIO
+LAST_PERIOD_MISSING_AUDIO_WARNING = ManifestServiceExcludeEventType.LAST_PERIOD_MISSING_AUDIO_WARNING
+ERROR_ORIGIN_PREFIX_INTERPOLATION = ManifestServiceExcludeEventType.ERROR_ORIGIN_PREFIX_INTERPOLATION
+ERROR_ADS_INTERPOLATION = ManifestServiceExcludeEventType.ERROR_ADS_INTERPOLATION
+ERROR_LIVE_PRE_ROLL_ADS_INTERPOLATION = ManifestServiceExcludeEventType.ERROR_LIVE_PRE_ROLL_ADS_INTERPOLATION
+ERROR_CDN_AD_SEGMENT_INTERPOLATION = ManifestServiceExcludeEventType.ERROR_CDN_AD_SEGMENT_INTERPOLATION
+ERROR_CDN_CONTENT_SEGMENT_INTERPOLATION = ManifestServiceExcludeEventType.ERROR_CDN_CONTENT_SEGMENT_INTERPOLATION
+ERROR_SLATE_AD_URL_INTERPOLATION = ManifestServiceExcludeEventType.ERROR_SLATE_AD_URL_INTERPOLATION
+ERROR_PROFILE_NAME_INTERPOLATION = ManifestServiceExcludeEventType.ERROR_PROFILE_NAME_INTERPOLATION
+ERROR_BUMPER_START_INTERPOLATION = ManifestServiceExcludeEventType.ERROR_BUMPER_START_INTERPOLATION
+ERROR_BUMPER_END_INTERPOLATION = ManifestServiceExcludeEventType.ERROR_BUMPER_END_INTERPOLATION
+SPLICE_INSERT = MessageType.SPLICE_INSERT
+TIME_SIGNAL = MessageType.TIME_SIGNAL
+GET = Method.GET
+POST = Method.POST
+OFF = Mode.OFF
+BEHIND_LIVE_EDGE = Mode.BEHIND_LIVE_EDGE
+AFTER_LIVE_EDGE = Mode.AFTER_LIVE_EDGE
+EQUALS = Operator.EQUALS
+SINGLE_PERIOD = OriginManifestType.SINGLE_PERIOD
+MULTI_PERIOD = OriginManifestType.MULTI_PERIOD
+LOOP = PlaybackMode.LOOP
+LINEAR = PlaybackMode.LINEAR
+SINGLE = PrefetchScheduleType.SINGLE
+RECURRING = PrefetchScheduleType.RECURRING
+BEFORE_PROGRAM = RelativePosition.BEFORE_PROGRAM
+AFTER_PROGRAM = RelativePosition.AFTER_PROGRAM
+PROGRAM = ScheduleEntryType.PROGRAM
+FILLER_SLATE = ScheduleEntryType.FILLER_SLATE
+ALTERNATE_MEDIA = ScheduleEntryType.ALTERNATE_MEDIA
+TRANSCODE = StreamingMediaFileConditioning.TRANSCODE
+NONE = StreamingMediaFileConditioning.NONE
+BASIC = Tier.BASIC
+STANDARD = Tier.STANDARD
+RETRIEVAL_WINDOW = TrafficShapingType.RETRIEVAL_WINDOW
+TPS = TrafficShapingType.TPS
+DASH = Type.DASH
+HLS = Type.HLS
 
 
 @dataclass
@@ -482,7 +865,7 @@ class HttpPackageConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     path: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    type_: Optional[Union[str, Type, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_group: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -607,7 +990,7 @@ class AdConditioningConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    streaming_media_file_conditioning: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    streaming_media_file_conditioning: Optional[Union[str, StreamingMediaFileConditioning, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -695,11 +1078,11 @@ class AvailSuppression:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    mode: Optional[Union[str, Mode, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    fill_policy: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    fill_policy: Optional[Union[str, FillPolicy, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -826,7 +1209,7 @@ class DashConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manifest_endpoint_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    origin_manifest_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    origin_manifest_type: Optional[Union[str, OriginManifestType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1056,7 +1439,7 @@ class PlaybackConfiguration(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     dash_configuration: Optional[DashConfiguration] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    insertion_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    insertion_mode: Optional[Union[str, InsertionMode, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     cdn_configuration: Optional[CdnConfiguration] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
@@ -1358,7 +1741,7 @@ class AccessConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secrets_manager_access_token_configuration: Optional[SecretsManagerAccessTokenConfiguration] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    access_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    access_type: Optional[Union[str, AccessType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1641,7 +2024,7 @@ class HttpPackageConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     path: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    type_: Optional[Union[str, Type, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_group: Optional[Union[str, Ref, GetAtt, Sub]] = None
 

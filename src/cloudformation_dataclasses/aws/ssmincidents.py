@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:38
+  Generated: 2025-12-17 16:59:39
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SSMIncidents
@@ -23,6 +23,129 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class IncidentRecordStatus:
+    """IncidentRecordStatus enum values."""
+
+    OPEN = "OPEN"
+    RESOLVED = "RESOLVED"
+
+
+class ItemType:
+    """ItemType enum values."""
+
+    ANALYSIS = "ANALYSIS"
+    INCIDENT = "INCIDENT"
+    METRIC = "METRIC"
+    PARENT = "PARENT"
+    ATTACHMENT = "ATTACHMENT"
+    OTHER = "OTHER"
+    AUTOMATION = "AUTOMATION"
+    INVOLVED_RESOURCE = "INVOLVED_RESOURCE"
+    TASK = "TASK"
+
+
+class RegionStatus:
+    """RegionStatus enum values."""
+
+    ACTIVE = "ACTIVE"
+    CREATING = "CREATING"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
+
+
+class ReplicationSetStatus:
+    """ReplicationSetStatus enum values."""
+
+    ACTIVE = "ACTIVE"
+    CREATING = "CREATING"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
+
+
+class ResourceType:
+    """ResourceType enum values."""
+
+    RESPONSE_PLAN = "RESPONSE_PLAN"
+    INCIDENT_RECORD = "INCIDENT_RECORD"
+    TIMELINE_EVENT = "TIMELINE_EVENT"
+    REPLICATION_SET = "REPLICATION_SET"
+    RESOURCE_POLICY = "RESOURCE_POLICY"
+
+
+class ServiceCode:
+    """ServiceCode enum values."""
+
+    SSM_INCIDENTS = "ssm-incidents"
+
+
+class SortOrder:
+    """SortOrder enum values."""
+
+    ASCENDING = "ASCENDING"
+    DESCENDING = "DESCENDING"
+
+
+class SsmTargetAccount:
+    """SsmTargetAccount enum values."""
+
+    RESPONSE_PLAN_OWNER_ACCOUNT = "RESPONSE_PLAN_OWNER_ACCOUNT"
+    IMPACTED_ACCOUNT = "IMPACTED_ACCOUNT"
+
+
+class TimelineEventSort:
+    """TimelineEventSort enum values."""
+
+    EVENT_TIME = "EVENT_TIME"
+
+
+class VariableType:
+    """VariableType enum values."""
+
+    INCIDENT_RECORD_ARN = "INCIDENT_RECORD_ARN"
+    INVOLVED_RESOURCES = "INVOLVED_RESOURCES"
+
+
+# Convenient aliases for enum values
+OPEN = IncidentRecordStatus.OPEN
+RESOLVED = IncidentRecordStatus.RESOLVED
+ANALYSIS = ItemType.ANALYSIS
+INCIDENT = ItemType.INCIDENT
+METRIC = ItemType.METRIC
+PARENT = ItemType.PARENT
+ATTACHMENT = ItemType.ATTACHMENT
+OTHER = ItemType.OTHER
+AUTOMATION = ItemType.AUTOMATION
+INVOLVED_RESOURCE = ItemType.INVOLVED_RESOURCE
+TASK = ItemType.TASK
+ACTIVE = RegionStatus.ACTIVE
+CREATING = RegionStatus.CREATING
+DELETING = RegionStatus.DELETING
+FAILED = RegionStatus.FAILED
+ACTIVE = ReplicationSetStatus.ACTIVE
+CREATING = ReplicationSetStatus.CREATING
+UPDATING = ReplicationSetStatus.UPDATING
+DELETING = ReplicationSetStatus.DELETING
+FAILED = ReplicationSetStatus.FAILED
+RESPONSE_PLAN = ResourceType.RESPONSE_PLAN
+INCIDENT_RECORD = ResourceType.INCIDENT_RECORD
+TIMELINE_EVENT = ResourceType.TIMELINE_EVENT
+REPLICATION_SET = ResourceType.REPLICATION_SET
+RESOURCE_POLICY = ResourceType.RESOURCE_POLICY
+SSM_INCIDENTS = ServiceCode.SSM_INCIDENTS
+ASCENDING = SortOrder.ASCENDING
+DESCENDING = SortOrder.DESCENDING
+RESPONSE_PLAN_OWNER_ACCOUNT = SsmTargetAccount.RESPONSE_PLAN_OWNER_ACCOUNT
+IMPACTED_ACCOUNT = SsmTargetAccount.IMPACTED_ACCOUNT
+EVENT_TIME = TimelineEventSort.EVENT_TIME
+INCIDENT_RECORD_ARN = VariableType.INCIDENT_RECORD_ARN
+INVOLVED_RESOURCES = VariableType.INVOLVED_RESOURCES
 
 
 @dataclass

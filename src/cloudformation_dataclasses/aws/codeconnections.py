@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:16
+  Generated: 2025-12-17 16:59:35
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CodeConnections
@@ -25,6 +25,119 @@ from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class BlockerStatus:
+    """BlockerStatus enum values."""
+
+    ACTIVE = "ACTIVE"
+    RESOLVED = "RESOLVED"
+
+
+class BlockerType:
+    """BlockerType enum values."""
+
+    AUTOMATED = "AUTOMATED"
+
+
+class ConnectionStatus:
+    """ConnectionStatus enum values."""
+
+    PENDING = "PENDING"
+    AVAILABLE = "AVAILABLE"
+    ERROR = "ERROR"
+
+
+class ProviderType:
+    """ProviderType enum values."""
+
+    BITBUCKET = "Bitbucket"
+    GITHUB = "GitHub"
+    GITHUBENTERPRISESERVER = "GitHubEnterpriseServer"
+    GITLAB = "GitLab"
+    GITLABSELFMANAGED = "GitLabSelfManaged"
+    AZUREDEVOPS = "AzureDevOps"
+
+
+class PublishDeploymentStatus:
+    """PublishDeploymentStatus enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class PullRequestComment:
+    """PullRequestComment enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class RepositorySyncStatus:
+    """RepositorySyncStatus enum values."""
+
+    FAILED = "FAILED"
+    INITIATED = "INITIATED"
+    IN_PROGRESS = "IN_PROGRESS"
+    SUCCEEDED = "SUCCEEDED"
+    QUEUED = "QUEUED"
+
+
+class ResourceSyncStatus:
+    """ResourceSyncStatus enum values."""
+
+    FAILED = "FAILED"
+    INITIATED = "INITIATED"
+    IN_PROGRESS = "IN_PROGRESS"
+    SUCCEEDED = "SUCCEEDED"
+
+
+class SyncConfigurationType:
+    """SyncConfigurationType enum values."""
+
+    CFN_STACK_SYNC = "CFN_STACK_SYNC"
+
+
+class TriggerResourceUpdateOn:
+    """TriggerResourceUpdateOn enum values."""
+
+    ANY_CHANGE = "ANY_CHANGE"
+    FILE_CHANGE = "FILE_CHANGE"
+
+
+# Convenient aliases for enum values
+ACTIVE = BlockerStatus.ACTIVE
+RESOLVED = BlockerStatus.RESOLVED
+AUTOMATED = BlockerType.AUTOMATED
+PENDING = ConnectionStatus.PENDING
+AVAILABLE = ConnectionStatus.AVAILABLE
+ERROR = ConnectionStatus.ERROR
+BITBUCKET = ProviderType.BITBUCKET
+GITHUB = ProviderType.GITHUB
+GITHUBENTERPRISESERVER = ProviderType.GITHUBENTERPRISESERVER
+GITLAB = ProviderType.GITLAB
+GITLABSELFMANAGED = ProviderType.GITLABSELFMANAGED
+AZUREDEVOPS = ProviderType.AZUREDEVOPS
+ENABLED = PublishDeploymentStatus.ENABLED
+DISABLED = PublishDeploymentStatus.DISABLED
+ENABLED = PullRequestComment.ENABLED
+DISABLED = PullRequestComment.DISABLED
+FAILED = RepositorySyncStatus.FAILED
+INITIATED = RepositorySyncStatus.INITIATED
+IN_PROGRESS = RepositorySyncStatus.IN_PROGRESS
+SUCCEEDED = RepositorySyncStatus.SUCCEEDED
+QUEUED = RepositorySyncStatus.QUEUED
+FAILED = ResourceSyncStatus.FAILED
+INITIATED = ResourceSyncStatus.INITIATED
+IN_PROGRESS = ResourceSyncStatus.IN_PROGRESS
+SUCCEEDED = ResourceSyncStatus.SUCCEEDED
+CFN_STACK_SYNC = SyncConfigurationType.CFN_STACK_SYNC
+ANY_CHANGE = TriggerResourceUpdateOn.ANY_CHANGE
+FILE_CHANGE = TriggerResourceUpdateOn.FILE_CHANGE
+
+
 @dataclass
 class Connection(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codec"""
@@ -36,7 +149,7 @@ class Connection(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     host_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    provider_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    provider_type: Optional[Union[str, ProviderType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 

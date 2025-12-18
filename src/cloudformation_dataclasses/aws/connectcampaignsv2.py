@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:18
+  Generated: 2025-12-17 16:59:35
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ConnectCampaignsV2
@@ -23,6 +23,224 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class AgentAction:
+    """AgentAction enum values."""
+
+    DISCARD = "DISCARD"
+
+
+class CampaignDeletionPolicy:
+    """CampaignDeletionPolicy enum values."""
+
+    RETAIN_ALL = "RETAIN_ALL"
+    DELETE_ALL = "DELETE_ALL"
+
+
+class CampaignState:
+    """CampaignState enum values."""
+
+    INITIALIZED = "Initialized"
+    RUNNING = "Running"
+    PAUSED = "Paused"
+    STOPPED = "Stopped"
+    FAILED = "Failed"
+    COMPLETED = "Completed"
+
+
+class ChannelSubtype:
+    """ChannelSubtype enum values."""
+
+    TELEPHONY = "TELEPHONY"
+    SMS = "SMS"
+    EMAIL = "EMAIL"
+    WHATSAPP = "WHATSAPP"
+
+
+class CommunicationLimitTimeUnit:
+    """CommunicationLimitTimeUnit enum values."""
+
+    DAY = "DAY"
+
+
+class CommunicationLimitsConfigType:
+    """CommunicationLimitsConfigType enum values."""
+
+    ALL_CHANNEL_SUBTYPES = "ALL_CHANNEL_SUBTYPES"
+
+
+class CommunicationTimeConfigType:
+    """CommunicationTimeConfigType enum values."""
+
+    TELEPHONY = "TELEPHONY"
+    SMS = "SMS"
+    EMAIL = "EMAIL"
+    WHATSAPP = "WHATSAPP"
+
+
+class DayOfWeek:
+    """DayOfWeek enum values."""
+
+    MONDAY = "MONDAY"
+    TUESDAY = "TUESDAY"
+    WEDNESDAY = "WEDNESDAY"
+    THURSDAY = "THURSDAY"
+    FRIDAY = "FRIDAY"
+    SATURDAY = "SATURDAY"
+    SUNDAY = "SUNDAY"
+
+
+class EncryptionType:
+    """EncryptionType enum values."""
+
+    KMS = "KMS"
+
+
+class EventType:
+    """EventType enum values."""
+
+    CAMPAIGN_EMAIL = "Campaign-Email"
+    CAMPAIGN_SMS = "Campaign-SMS"
+    CAMPAIGN_TELEPHONY = "Campaign-Telephony"
+    CAMPAIGN_ORCHESTRATION = "Campaign-Orchestration"
+
+
+class ExternalCampaignType:
+    """ExternalCampaignType enum values."""
+
+    MANAGED = "MANAGED"
+    JOURNEY = "JOURNEY"
+
+
+class FailureCode:
+    """FailureCode enum values."""
+
+    INVALIDINPUT = "InvalidInput"
+    REQUESTTHROTTLED = "RequestThrottled"
+    UNKNOWNERROR = "UnknownError"
+    BUFFERLIMITEXCEEDED = "BufferLimitExceeded"
+
+
+class GetCampaignStateBatchFailureCode:
+    """GetCampaignStateBatchFailureCode enum values."""
+
+    RESOURCENOTFOUND = "ResourceNotFound"
+    UNKNOWNERROR = "UnknownError"
+
+
+class InstanceIdFilterOperator:
+    """InstanceIdFilterOperator enum values."""
+
+    EQ = "Eq"
+
+
+class InstanceLimitsHandling:
+    """InstanceLimitsHandling enum values."""
+
+    OPT_IN = "OPT_IN"
+    OPT_OUT = "OPT_OUT"
+
+
+class InstanceOnboardingJobFailureCode:
+    """InstanceOnboardingJobFailureCode enum values."""
+
+    EVENT_BRIDGE_ACCESS_DENIED = "EVENT_BRIDGE_ACCESS_DENIED"
+    EVENT_BRIDGE_MANAGED_RULE_LIMIT_EXCEEDED = "EVENT_BRIDGE_MANAGED_RULE_LIMIT_EXCEEDED"
+    IAM_ACCESS_DENIED = "IAM_ACCESS_DENIED"
+    KMS_ACCESS_DENIED = "KMS_ACCESS_DENIED"
+    KMS_KEY_NOT_FOUND = "KMS_KEY_NOT_FOUND"
+    INTERNAL_FAILURE = "INTERNAL_FAILURE"
+
+
+class InstanceOnboardingJobStatusCode:
+    """InstanceOnboardingJobStatusCode enum values."""
+
+    IN_PROGRESS = "IN_PROGRESS"
+    SUCCEEDED = "SUCCEEDED"
+    FAILED = "FAILED"
+
+
+class LocalTimeZoneDetectionType:
+    """LocalTimeZoneDetectionType enum values."""
+
+    ZIP_CODE = "ZIP_CODE"
+    AREA_CODE = "AREA_CODE"
+
+
+class ProfileOutboundRequestFailureCode:
+    """ProfileOutboundRequestFailureCode enum values."""
+
+    UNKNOWNERROR = "UnknownError"
+    RESOURCENOTFOUND = "ResourceNotFound"
+    CONFLICT = "Conflict"
+    REQUESTTHROTTLED = "RequestThrottled"
+    INVALIDINPUT = "InvalidInput"
+
+
+# Convenient aliases for enum values
+DISCARD = AgentAction.DISCARD
+RETAIN_ALL = CampaignDeletionPolicy.RETAIN_ALL
+DELETE_ALL = CampaignDeletionPolicy.DELETE_ALL
+INITIALIZED = CampaignState.INITIALIZED
+RUNNING = CampaignState.RUNNING
+PAUSED = CampaignState.PAUSED
+STOPPED = CampaignState.STOPPED
+FAILED = CampaignState.FAILED
+COMPLETED = CampaignState.COMPLETED
+TELEPHONY = ChannelSubtype.TELEPHONY
+SMS = ChannelSubtype.SMS
+EMAIL = ChannelSubtype.EMAIL
+WHATSAPP = ChannelSubtype.WHATSAPP
+DAY = CommunicationLimitTimeUnit.DAY
+ALL_CHANNEL_SUBTYPES = CommunicationLimitsConfigType.ALL_CHANNEL_SUBTYPES
+TELEPHONY = CommunicationTimeConfigType.TELEPHONY
+SMS = CommunicationTimeConfigType.SMS
+EMAIL = CommunicationTimeConfigType.EMAIL
+WHATSAPP = CommunicationTimeConfigType.WHATSAPP
+MONDAY = DayOfWeek.MONDAY
+TUESDAY = DayOfWeek.TUESDAY
+WEDNESDAY = DayOfWeek.WEDNESDAY
+THURSDAY = DayOfWeek.THURSDAY
+FRIDAY = DayOfWeek.FRIDAY
+SATURDAY = DayOfWeek.SATURDAY
+SUNDAY = DayOfWeek.SUNDAY
+KMS = EncryptionType.KMS
+CAMPAIGN_EMAIL = EventType.CAMPAIGN_EMAIL
+CAMPAIGN_SMS = EventType.CAMPAIGN_SMS
+CAMPAIGN_TELEPHONY = EventType.CAMPAIGN_TELEPHONY
+CAMPAIGN_ORCHESTRATION = EventType.CAMPAIGN_ORCHESTRATION
+MANAGED = ExternalCampaignType.MANAGED
+JOURNEY = ExternalCampaignType.JOURNEY
+INVALIDINPUT = FailureCode.INVALIDINPUT
+REQUESTTHROTTLED = FailureCode.REQUESTTHROTTLED
+UNKNOWNERROR = FailureCode.UNKNOWNERROR
+BUFFERLIMITEXCEEDED = FailureCode.BUFFERLIMITEXCEEDED
+RESOURCENOTFOUND = GetCampaignStateBatchFailureCode.RESOURCENOTFOUND
+UNKNOWNERROR = GetCampaignStateBatchFailureCode.UNKNOWNERROR
+EQ = InstanceIdFilterOperator.EQ
+OPT_IN = InstanceLimitsHandling.OPT_IN
+OPT_OUT = InstanceLimitsHandling.OPT_OUT
+EVENT_BRIDGE_ACCESS_DENIED = InstanceOnboardingJobFailureCode.EVENT_BRIDGE_ACCESS_DENIED
+EVENT_BRIDGE_MANAGED_RULE_LIMIT_EXCEEDED = InstanceOnboardingJobFailureCode.EVENT_BRIDGE_MANAGED_RULE_LIMIT_EXCEEDED
+IAM_ACCESS_DENIED = InstanceOnboardingJobFailureCode.IAM_ACCESS_DENIED
+KMS_ACCESS_DENIED = InstanceOnboardingJobFailureCode.KMS_ACCESS_DENIED
+KMS_KEY_NOT_FOUND = InstanceOnboardingJobFailureCode.KMS_KEY_NOT_FOUND
+INTERNAL_FAILURE = InstanceOnboardingJobFailureCode.INTERNAL_FAILURE
+IN_PROGRESS = InstanceOnboardingJobStatusCode.IN_PROGRESS
+SUCCEEDED = InstanceOnboardingJobStatusCode.SUCCEEDED
+FAILED = InstanceOnboardingJobStatusCode.FAILED
+ZIP_CODE = LocalTimeZoneDetectionType.ZIP_CODE
+AREA_CODE = LocalTimeZoneDetectionType.AREA_CODE
+UNKNOWNERROR = ProfileOutboundRequestFailureCode.UNKNOWNERROR
+RESOURCENOTFOUND = ProfileOutboundRequestFailureCode.RESOURCENOTFOUND
+CONFLICT = ProfileOutboundRequestFailureCode.CONFLICT
+REQUESTTHROTTLED = ProfileOutboundRequestFailureCode.REQUESTTHROTTLED
+INVALIDINPUT = ProfileOutboundRequestFailureCode.INVALIDINPUT
 
 
 @dataclass

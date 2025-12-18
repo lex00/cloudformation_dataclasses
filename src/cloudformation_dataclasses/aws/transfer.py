@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:40
+  Generated: 2025-12-17 16:59:39
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Transfer
@@ -23,6 +23,436 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class AgreementStatusType:
+    """AgreementStatusType enum values."""
+
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
+
+
+class As2Transport:
+    """As2Transport enum values."""
+
+    HTTP = "HTTP"
+
+
+class CertificateStatusType:
+    """CertificateStatusType enum values."""
+
+    ACTIVE = "ACTIVE"
+    PENDING_ROTATION = "PENDING_ROTATION"
+    INACTIVE = "INACTIVE"
+
+
+class CertificateType:
+    """CertificateType enum values."""
+
+    CERTIFICATE = "CERTIFICATE"
+    CERTIFICATE_WITH_PRIVATE_KEY = "CERTIFICATE_WITH_PRIVATE_KEY"
+
+
+class CertificateUsageType:
+    """CertificateUsageType enum values."""
+
+    SIGNING = "SIGNING"
+    ENCRYPTION = "ENCRYPTION"
+    TLS = "TLS"
+
+
+class CompressionEnum:
+    """CompressionEnum enum values."""
+
+    ZLIB = "ZLIB"
+    DISABLED = "DISABLED"
+
+
+class ConnectorEgressType:
+    """ConnectorEgressType enum values."""
+
+    SERVICE_MANAGED = "SERVICE_MANAGED"
+    VPC_LATTICE = "VPC_LATTICE"
+
+
+class ConnectorStatus:
+    """ConnectorStatus enum values."""
+
+    ACTIVE = "ACTIVE"
+    ERRORED = "ERRORED"
+    PENDING = "PENDING"
+
+
+class CustomStepStatus:
+    """CustomStepStatus enum values."""
+
+    SUCCESS = "SUCCESS"
+    FAILURE = "FAILURE"
+
+
+class DirectoryListingOptimization:
+    """DirectoryListingOptimization enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class Domain:
+    """Domain enum values."""
+
+    S3 = "S3"
+    EFS = "EFS"
+
+
+class EncryptionAlg:
+    """EncryptionAlg enum values."""
+
+    AES128_CBC = "AES128_CBC"
+    AES192_CBC = "AES192_CBC"
+    AES256_CBC = "AES256_CBC"
+    DES_EDE3_CBC = "DES_EDE3_CBC"
+    NONE = "NONE"
+
+
+class EncryptionType:
+    """EncryptionType enum values."""
+
+    PGP = "PGP"
+
+
+class EndpointType:
+    """EndpointType enum values."""
+
+    PUBLIC = "PUBLIC"
+    VPC = "VPC"
+    VPC_ENDPOINT = "VPC_ENDPOINT"
+
+
+class EnforceMessageSigningType:
+    """EnforceMessageSigningType enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class ExecutionErrorType:
+    """ExecutionErrorType enum values."""
+
+    PERMISSION_DENIED = "PERMISSION_DENIED"
+    CUSTOM_STEP_FAILED = "CUSTOM_STEP_FAILED"
+    THROTTLED = "THROTTLED"
+    ALREADY_EXISTS = "ALREADY_EXISTS"
+    NOT_FOUND = "NOT_FOUND"
+    BAD_REQUEST = "BAD_REQUEST"
+    TIMEOUT = "TIMEOUT"
+    INTERNAL_SERVER_ERROR = "INTERNAL_SERVER_ERROR"
+
+
+class ExecutionStatus:
+    """ExecutionStatus enum values."""
+
+    IN_PROGRESS = "IN_PROGRESS"
+    COMPLETED = "COMPLETED"
+    EXCEPTION = "EXCEPTION"
+    HANDLING_EXCEPTION = "HANDLING_EXCEPTION"
+
+
+class HomeDirectoryType:
+    """HomeDirectoryType enum values."""
+
+    PATH = "PATH"
+    LOGICAL = "LOGICAL"
+
+
+class IdentityProviderType:
+    """IdentityProviderType enum values."""
+
+    SERVICE_MANAGED = "SERVICE_MANAGED"
+    API_GATEWAY = "API_GATEWAY"
+    AWS_DIRECTORY_SERVICE = "AWS_DIRECTORY_SERVICE"
+    AWS_LAMBDA = "AWS_LAMBDA"
+
+
+class IpAddressType:
+    """IpAddressType enum values."""
+
+    IPV4 = "IPV4"
+    DUALSTACK = "DUALSTACK"
+
+
+class MapType:
+    """MapType enum values."""
+
+    FILE = "FILE"
+    DIRECTORY = "DIRECTORY"
+
+
+class MdnResponse:
+    """MdnResponse enum values."""
+
+    SYNC = "SYNC"
+    NONE = "NONE"
+
+
+class MdnSigningAlg:
+    """MdnSigningAlg enum values."""
+
+    SHA256 = "SHA256"
+    SHA384 = "SHA384"
+    SHA512 = "SHA512"
+    SHA1 = "SHA1"
+    NONE = "NONE"
+    DEFAULT = "DEFAULT"
+
+
+class OverwriteExisting:
+    """OverwriteExisting enum values."""
+
+    TRUE = "TRUE"
+    FALSE = "FALSE"
+
+
+class PreserveContentType:
+    """PreserveContentType enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class PreserveFilenameType:
+    """PreserveFilenameType enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class ProfileType:
+    """ProfileType enum values."""
+
+    LOCAL = "LOCAL"
+    PARTNER = "PARTNER"
+
+
+class Protocol:
+    """Protocol enum values."""
+
+    SFTP = "SFTP"
+    FTP = "FTP"
+    FTPS = "FTPS"
+    AS2 = "AS2"
+
+
+class SecurityPolicyProtocol:
+    """SecurityPolicyProtocol enum values."""
+
+    SFTP = "SFTP"
+    FTPS = "FTPS"
+
+
+class SecurityPolicyResourceType:
+    """SecurityPolicyResourceType enum values."""
+
+    SERVER = "SERVER"
+    CONNECTOR = "CONNECTOR"
+
+
+class SetStatOption:
+    """SetStatOption enum values."""
+
+    DEFAULT = "DEFAULT"
+    ENABLE_NO_OP = "ENABLE_NO_OP"
+
+
+class SftpAuthenticationMethods:
+    """SftpAuthenticationMethods enum values."""
+
+    PASSWORD = "PASSWORD"
+    PUBLIC_KEY = "PUBLIC_KEY"
+    PUBLIC_KEY_OR_PASSWORD = "PUBLIC_KEY_OR_PASSWORD"
+    PUBLIC_KEY_AND_PASSWORD = "PUBLIC_KEY_AND_PASSWORD"
+
+
+class SigningAlg:
+    """SigningAlg enum values."""
+
+    SHA256 = "SHA256"
+    SHA384 = "SHA384"
+    SHA512 = "SHA512"
+    SHA1 = "SHA1"
+    NONE = "NONE"
+
+
+class State:
+    """State enum values."""
+
+    OFFLINE = "OFFLINE"
+    ONLINE = "ONLINE"
+    STARTING = "STARTING"
+    STOPPING = "STOPPING"
+    START_FAILED = "START_FAILED"
+    STOP_FAILED = "STOP_FAILED"
+
+
+class TlsSessionResumptionMode:
+    """TlsSessionResumptionMode enum values."""
+
+    DISABLED = "DISABLED"
+    ENABLED = "ENABLED"
+    ENFORCED = "ENFORCED"
+
+
+class TransferTableStatus:
+    """TransferTableStatus enum values."""
+
+    QUEUED = "QUEUED"
+    IN_PROGRESS = "IN_PROGRESS"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
+
+
+class WebAppEndpointPolicy:
+    """WebAppEndpointPolicy enum values."""
+
+    FIPS = "FIPS"
+    STANDARD = "STANDARD"
+
+
+class WebAppEndpointType:
+    """WebAppEndpointType enum values."""
+
+    PUBLIC = "PUBLIC"
+    VPC = "VPC"
+
+
+class WorkflowStepType:
+    """WorkflowStepType enum values."""
+
+    COPY = "COPY"
+    CUSTOM = "CUSTOM"
+    TAG = "TAG"
+    DELETE = "DELETE"
+    DECRYPT = "DECRYPT"
+
+
+# Convenient aliases for enum values
+ACTIVE = AgreementStatusType.ACTIVE
+INACTIVE = AgreementStatusType.INACTIVE
+HTTP = As2Transport.HTTP
+ACTIVE = CertificateStatusType.ACTIVE
+PENDING_ROTATION = CertificateStatusType.PENDING_ROTATION
+INACTIVE = CertificateStatusType.INACTIVE
+CERTIFICATE = CertificateType.CERTIFICATE
+CERTIFICATE_WITH_PRIVATE_KEY = CertificateType.CERTIFICATE_WITH_PRIVATE_KEY
+SIGNING = CertificateUsageType.SIGNING
+ENCRYPTION = CertificateUsageType.ENCRYPTION
+TLS = CertificateUsageType.TLS
+ZLIB = CompressionEnum.ZLIB
+DISABLED = CompressionEnum.DISABLED
+SERVICE_MANAGED = ConnectorEgressType.SERVICE_MANAGED
+VPC_LATTICE = ConnectorEgressType.VPC_LATTICE
+ACTIVE = ConnectorStatus.ACTIVE
+ERRORED = ConnectorStatus.ERRORED
+PENDING = ConnectorStatus.PENDING
+SUCCESS = CustomStepStatus.SUCCESS
+FAILURE = CustomStepStatus.FAILURE
+ENABLED = DirectoryListingOptimization.ENABLED
+DISABLED = DirectoryListingOptimization.DISABLED
+S3 = Domain.S3
+EFS = Domain.EFS
+AES128_CBC = EncryptionAlg.AES128_CBC
+AES192_CBC = EncryptionAlg.AES192_CBC
+AES256_CBC = EncryptionAlg.AES256_CBC
+DES_EDE3_CBC = EncryptionAlg.DES_EDE3_CBC
+NONE = EncryptionAlg.NONE
+PGP = EncryptionType.PGP
+PUBLIC = EndpointType.PUBLIC
+VPC = EndpointType.VPC
+VPC_ENDPOINT = EndpointType.VPC_ENDPOINT
+ENABLED = EnforceMessageSigningType.ENABLED
+DISABLED = EnforceMessageSigningType.DISABLED
+PERMISSION_DENIED = ExecutionErrorType.PERMISSION_DENIED
+CUSTOM_STEP_FAILED = ExecutionErrorType.CUSTOM_STEP_FAILED
+THROTTLED = ExecutionErrorType.THROTTLED
+ALREADY_EXISTS = ExecutionErrorType.ALREADY_EXISTS
+NOT_FOUND = ExecutionErrorType.NOT_FOUND
+BAD_REQUEST = ExecutionErrorType.BAD_REQUEST
+TIMEOUT = ExecutionErrorType.TIMEOUT
+INTERNAL_SERVER_ERROR = ExecutionErrorType.INTERNAL_SERVER_ERROR
+IN_PROGRESS = ExecutionStatus.IN_PROGRESS
+COMPLETED = ExecutionStatus.COMPLETED
+EXCEPTION = ExecutionStatus.EXCEPTION
+HANDLING_EXCEPTION = ExecutionStatus.HANDLING_EXCEPTION
+PATH = HomeDirectoryType.PATH
+LOGICAL = HomeDirectoryType.LOGICAL
+SERVICE_MANAGED = IdentityProviderType.SERVICE_MANAGED
+API_GATEWAY = IdentityProviderType.API_GATEWAY
+AWS_DIRECTORY_SERVICE = IdentityProviderType.AWS_DIRECTORY_SERVICE
+AWS_LAMBDA = IdentityProviderType.AWS_LAMBDA
+IPV4 = IpAddressType.IPV4
+DUALSTACK = IpAddressType.DUALSTACK
+FILE = MapType.FILE
+DIRECTORY = MapType.DIRECTORY
+SYNC = MdnResponse.SYNC
+NONE = MdnResponse.NONE
+SHA256 = MdnSigningAlg.SHA256
+SHA384 = MdnSigningAlg.SHA384
+SHA512 = MdnSigningAlg.SHA512
+SHA1 = MdnSigningAlg.SHA1
+NONE = MdnSigningAlg.NONE
+DEFAULT = MdnSigningAlg.DEFAULT
+TRUE = OverwriteExisting.TRUE
+FALSE = OverwriteExisting.FALSE
+ENABLED = PreserveContentType.ENABLED
+DISABLED = PreserveContentType.DISABLED
+ENABLED = PreserveFilenameType.ENABLED
+DISABLED = PreserveFilenameType.DISABLED
+LOCAL = ProfileType.LOCAL
+PARTNER = ProfileType.PARTNER
+SFTP = Protocol.SFTP
+FTP = Protocol.FTP
+FTPS = Protocol.FTPS
+AS2 = Protocol.AS2
+SFTP = SecurityPolicyProtocol.SFTP
+FTPS = SecurityPolicyProtocol.FTPS
+SERVER = SecurityPolicyResourceType.SERVER
+CONNECTOR = SecurityPolicyResourceType.CONNECTOR
+DEFAULT = SetStatOption.DEFAULT
+ENABLE_NO_OP = SetStatOption.ENABLE_NO_OP
+PASSWORD = SftpAuthenticationMethods.PASSWORD
+PUBLIC_KEY = SftpAuthenticationMethods.PUBLIC_KEY
+PUBLIC_KEY_OR_PASSWORD = SftpAuthenticationMethods.PUBLIC_KEY_OR_PASSWORD
+PUBLIC_KEY_AND_PASSWORD = SftpAuthenticationMethods.PUBLIC_KEY_AND_PASSWORD
+SHA256 = SigningAlg.SHA256
+SHA384 = SigningAlg.SHA384
+SHA512 = SigningAlg.SHA512
+SHA1 = SigningAlg.SHA1
+NONE = SigningAlg.NONE
+OFFLINE = State.OFFLINE
+ONLINE = State.ONLINE
+STARTING = State.STARTING
+STOPPING = State.STOPPING
+START_FAILED = State.START_FAILED
+STOP_FAILED = State.STOP_FAILED
+DISABLED = TlsSessionResumptionMode.DISABLED
+ENABLED = TlsSessionResumptionMode.ENABLED
+ENFORCED = TlsSessionResumptionMode.ENFORCED
+QUEUED = TransferTableStatus.QUEUED
+IN_PROGRESS = TransferTableStatus.IN_PROGRESS
+COMPLETED = TransferTableStatus.COMPLETED
+FAILED = TransferTableStatus.FAILED
+FIPS = WebAppEndpointPolicy.FIPS
+STANDARD = WebAppEndpointPolicy.STANDARD
+PUBLIC = WebAppEndpointType.PUBLIC
+VPC = WebAppEndpointType.VPC
+COPY = WorkflowStepType.COPY
+CUSTOM = WorkflowStepType.CUSTOM
+TAG = WorkflowStepType.TAG
+DELETE = WorkflowStepType.DELETE
+DECRYPT = WorkflowStepType.DECRYPT
 
 
 @dataclass
@@ -1052,7 +1482,7 @@ class IdentityProviderDetails:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     url: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    sftp_authentication_methods: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    sftp_authentication_methods: Optional[Union[str, SftpAuthenticationMethods, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1125,9 +1555,9 @@ class ProtocolDetails:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     passive_ip: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    set_stat_option: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    set_stat_option: Optional[Union[str, SetStatOption, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    tls_session_resumption_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    tls_session_resumption_mode: Optional[Union[str, TlsSessionResumptionMode, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1185,7 +1615,7 @@ class S3StorageOptions:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tra"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    directory_listing_optimization: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    directory_listing_optimization: Optional[Union[str, DirectoryListingOptimization, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1576,7 +2006,7 @@ class HomeDirectoryMapEntry:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    type_: Optional[Union[str, MapType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -2099,7 +2529,7 @@ class CopyStepDetails:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    overwrite_existing: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    overwrite_existing: Optional[Union[str, OverwriteExisting, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -2223,13 +2653,13 @@ class DecryptStepDetails:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_file_location: Optional[InputFileLocation] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    type_: Optional[Union[str, EncryptionType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_file_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    overwrite_existing: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    overwrite_existing: Optional[Union[str, OverwriteExisting, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -2570,7 +3000,7 @@ class WorkflowStep:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     decrypt_step_details: Optional[DecryptStepDetails] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    type_: Optional[Union[str, WorkflowStepType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tag_step_details: Optional[TagStepDetails] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid

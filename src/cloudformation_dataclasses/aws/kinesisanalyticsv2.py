@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:27
+  Generated: 2025-12-17 16:59:37
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service KinesisAnalyticsV2
@@ -25,12 +25,212 @@ from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class ApplicationMode:
+    """ApplicationMode enum values."""
+
+    STREAMING = "STREAMING"
+    INTERACTIVE = "INTERACTIVE"
+
+
+class ApplicationRestoreType:
+    """ApplicationRestoreType enum values."""
+
+    SKIP_RESTORE_FROM_SNAPSHOT = "SKIP_RESTORE_FROM_SNAPSHOT"
+    RESTORE_FROM_LATEST_SNAPSHOT = "RESTORE_FROM_LATEST_SNAPSHOT"
+    RESTORE_FROM_CUSTOM_SNAPSHOT = "RESTORE_FROM_CUSTOM_SNAPSHOT"
+
+
+class ApplicationStatus:
+    """ApplicationStatus enum values."""
+
+    DELETING = "DELETING"
+    STARTING = "STARTING"
+    STOPPING = "STOPPING"
+    READY = "READY"
+    RUNNING = "RUNNING"
+    UPDATING = "UPDATING"
+    AUTOSCALING = "AUTOSCALING"
+    FORCE_STOPPING = "FORCE_STOPPING"
+    ROLLING_BACK = "ROLLING_BACK"
+    MAINTENANCE = "MAINTENANCE"
+    ROLLED_BACK = "ROLLED_BACK"
+
+
+class ArtifactType:
+    """ArtifactType enum values."""
+
+    UDF = "UDF"
+    DEPENDENCY_JAR = "DEPENDENCY_JAR"
+
+
+class CodeContentType:
+    """CodeContentType enum values."""
+
+    PLAINTEXT = "PLAINTEXT"
+    ZIPFILE = "ZIPFILE"
+
+
+class ConfigurationType:
+    """ConfigurationType enum values."""
+
+    DEFAULT = "DEFAULT"
+    CUSTOM = "CUSTOM"
+
+
+class InputStartingPosition:
+    """InputStartingPosition enum values."""
+
+    NOW = "NOW"
+    TRIM_HORIZON = "TRIM_HORIZON"
+    LAST_STOPPED_POINT = "LAST_STOPPED_POINT"
+
+
+class KeyType:
+    """KeyType enum values."""
+
+    AWS_OWNED_KEY = "AWS_OWNED_KEY"
+    CUSTOMER_MANAGED_KEY = "CUSTOMER_MANAGED_KEY"
+
+
+class LogLevel:
+    """LogLevel enum values."""
+
+    INFO = "INFO"
+    WARN = "WARN"
+    ERROR = "ERROR"
+    DEBUG = "DEBUG"
+
+
+class MetricsLevel:
+    """MetricsLevel enum values."""
+
+    APPLICATION = "APPLICATION"
+    TASK = "TASK"
+    OPERATOR = "OPERATOR"
+    PARALLELISM = "PARALLELISM"
+
+
+class OperationStatus:
+    """OperationStatus enum values."""
+
+    IN_PROGRESS = "IN_PROGRESS"
+    CANCELLED = "CANCELLED"
+    SUCCESSFUL = "SUCCESSFUL"
+    FAILED = "FAILED"
+
+
+class RecordFormatType:
+    """RecordFormatType enum values."""
+
+    JSON = "JSON"
+    CSV = "CSV"
+
+
+class RuntimeEnvironment:
+    """RuntimeEnvironment enum values."""
+
+    SQL_1_0 = "SQL-1_0"
+    FLINK_1_6 = "FLINK-1_6"
+    FLINK_1_8 = "FLINK-1_8"
+    ZEPPELIN_FLINK_1_0 = "ZEPPELIN-FLINK-1_0"
+    FLINK_1_11 = "FLINK-1_11"
+    FLINK_1_13 = "FLINK-1_13"
+    ZEPPELIN_FLINK_2_0 = "ZEPPELIN-FLINK-2_0"
+    FLINK_1_15 = "FLINK-1_15"
+    ZEPPELIN_FLINK_3_0 = "ZEPPELIN-FLINK-3_0"
+    FLINK_1_18 = "FLINK-1_18"
+    FLINK_1_19 = "FLINK-1_19"
+    FLINK_1_20 = "FLINK-1_20"
+
+
+class SnapshotStatus:
+    """SnapshotStatus enum values."""
+
+    CREATING = "CREATING"
+    READY = "READY"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
+
+
+class UrlType:
+    """UrlType enum values."""
+
+    FLINK_DASHBOARD_URL = "FLINK_DASHBOARD_URL"
+    ZEPPELIN_UI_URL = "ZEPPELIN_UI_URL"
+
+
+# Convenient aliases for enum values
+STREAMING = ApplicationMode.STREAMING
+INTERACTIVE = ApplicationMode.INTERACTIVE
+SKIP_RESTORE_FROM_SNAPSHOT = ApplicationRestoreType.SKIP_RESTORE_FROM_SNAPSHOT
+RESTORE_FROM_LATEST_SNAPSHOT = ApplicationRestoreType.RESTORE_FROM_LATEST_SNAPSHOT
+RESTORE_FROM_CUSTOM_SNAPSHOT = ApplicationRestoreType.RESTORE_FROM_CUSTOM_SNAPSHOT
+DELETING = ApplicationStatus.DELETING
+STARTING = ApplicationStatus.STARTING
+STOPPING = ApplicationStatus.STOPPING
+READY = ApplicationStatus.READY
+RUNNING = ApplicationStatus.RUNNING
+UPDATING = ApplicationStatus.UPDATING
+AUTOSCALING = ApplicationStatus.AUTOSCALING
+FORCE_STOPPING = ApplicationStatus.FORCE_STOPPING
+ROLLING_BACK = ApplicationStatus.ROLLING_BACK
+MAINTENANCE = ApplicationStatus.MAINTENANCE
+ROLLED_BACK = ApplicationStatus.ROLLED_BACK
+UDF = ArtifactType.UDF
+DEPENDENCY_JAR = ArtifactType.DEPENDENCY_JAR
+PLAINTEXT = CodeContentType.PLAINTEXT
+ZIPFILE = CodeContentType.ZIPFILE
+DEFAULT = ConfigurationType.DEFAULT
+CUSTOM = ConfigurationType.CUSTOM
+NOW = InputStartingPosition.NOW
+TRIM_HORIZON = InputStartingPosition.TRIM_HORIZON
+LAST_STOPPED_POINT = InputStartingPosition.LAST_STOPPED_POINT
+AWS_OWNED_KEY = KeyType.AWS_OWNED_KEY
+CUSTOMER_MANAGED_KEY = KeyType.CUSTOMER_MANAGED_KEY
+INFO = LogLevel.INFO
+WARN = LogLevel.WARN
+ERROR = LogLevel.ERROR
+DEBUG = LogLevel.DEBUG
+APPLICATION = MetricsLevel.APPLICATION
+TASK = MetricsLevel.TASK
+OPERATOR = MetricsLevel.OPERATOR
+PARALLELISM = MetricsLevel.PARALLELISM
+IN_PROGRESS = OperationStatus.IN_PROGRESS
+CANCELLED = OperationStatus.CANCELLED
+SUCCESSFUL = OperationStatus.SUCCESSFUL
+FAILED = OperationStatus.FAILED
+JSON = RecordFormatType.JSON
+CSV = RecordFormatType.CSV
+SQL_1_0 = RuntimeEnvironment.SQL_1_0
+FLINK_1_6 = RuntimeEnvironment.FLINK_1_6
+FLINK_1_8 = RuntimeEnvironment.FLINK_1_8
+ZEPPELIN_FLINK_1_0 = RuntimeEnvironment.ZEPPELIN_FLINK_1_0
+FLINK_1_11 = RuntimeEnvironment.FLINK_1_11
+FLINK_1_13 = RuntimeEnvironment.FLINK_1_13
+ZEPPELIN_FLINK_2_0 = RuntimeEnvironment.ZEPPELIN_FLINK_2_0
+FLINK_1_15 = RuntimeEnvironment.FLINK_1_15
+ZEPPELIN_FLINK_3_0 = RuntimeEnvironment.ZEPPELIN_FLINK_3_0
+FLINK_1_18 = RuntimeEnvironment.FLINK_1_18
+FLINK_1_19 = RuntimeEnvironment.FLINK_1_19
+FLINK_1_20 = RuntimeEnvironment.FLINK_1_20
+CREATING = SnapshotStatus.CREATING
+READY = SnapshotStatus.READY
+DELETING = SnapshotStatus.DELETING
+FAILED = SnapshotStatus.FAILED
+FLINK_DASHBOARD_URL = UrlType.FLINK_DASHBOARD_URL
+ZEPPELIN_UI_URL = UrlType.ZEPPELIN_UI_URL
+
+
 @dataclass
 class ApplicationCodeConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    code_content_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    code_content_type: Optional[Union[str, CodeContentType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     code_content: Optional[CodeContent] = None
 
@@ -197,7 +397,7 @@ class ApplicationEncryptionConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    key_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    key_type: Optional[Union[str, KeyType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -262,7 +462,7 @@ class ApplicationRestoreConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     snapshot_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    application_restore_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    application_restore_type: Optional[Union[str, ApplicationRestoreType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -411,7 +611,7 @@ class CheckpointConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    configuration_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    configuration_type: Optional[Union[str, ConfigurationType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     checkpoint_interval: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -530,7 +730,7 @@ class CustomArtifactConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_content_location: Optional[S3ContentLocation] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    artifact_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    artifact_type: Optional[Union[str, ArtifactType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1108,11 +1308,11 @@ class MonitoringConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    configuration_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    configuration_type: Optional[Union[str, ConfigurationType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    metrics_level: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    metrics_level: Optional[Union[str, MetricsLevel, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    log_level: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    log_level: Optional[Union[str, LogLevel, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1159,7 +1359,7 @@ class ParallelismConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    configuration_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    configuration_type: Optional[Union[str, ConfigurationType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parallelism_per_kpu: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1314,7 +1514,7 @@ class RecordFormat:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mapping_parameters: Optional[MappingParameters] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    record_format_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    record_format_type: Optional[Union[str, RecordFormatType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1604,7 +1804,7 @@ class ZeppelinMonitoringConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    log_level: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    log_level: Optional[Union[str, LogLevel, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1844,7 +2044,7 @@ class DestinationSchema:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    record_format_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    record_format_type: Optional[Union[str, RecordFormatType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -2220,7 +2420,7 @@ class RecordFormat:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mapping_parameters: Optional[MappingParameters] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    record_format_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    record_format_type: Optional[Union[str, RecordFormatType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""

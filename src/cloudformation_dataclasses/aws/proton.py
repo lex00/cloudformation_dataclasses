@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:33
+  Generated: 2025-12-17 16:59:38
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Proton
@@ -23,6 +23,295 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class BlockerStatus:
+    """BlockerStatus enum values."""
+
+    ACTIVE = "ACTIVE"
+    RESOLVED = "RESOLVED"
+
+
+class BlockerType:
+    """BlockerType enum values."""
+
+    AUTOMATED = "AUTOMATED"
+
+
+class ComponentDeploymentUpdateType:
+    """ComponentDeploymentUpdateType enum values."""
+
+    NONE = "NONE"
+    CURRENT_VERSION = "CURRENT_VERSION"
+
+
+class DeploymentStatus:
+    """DeploymentStatus enum values."""
+
+    IN_PROGRESS = "IN_PROGRESS"
+    FAILED = "FAILED"
+    SUCCEEDED = "SUCCEEDED"
+    DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
+    DELETE_FAILED = "DELETE_FAILED"
+    DELETE_COMPLETE = "DELETE_COMPLETE"
+    CANCELLING = "CANCELLING"
+    CANCELLED = "CANCELLED"
+
+
+class DeploymentTargetResourceType:
+    """DeploymentTargetResourceType enum values."""
+
+    ENVIRONMENT = "ENVIRONMENT"
+    SERVICE_PIPELINE = "SERVICE_PIPELINE"
+    SERVICE_INSTANCE = "SERVICE_INSTANCE"
+    COMPONENT = "COMPONENT"
+
+
+class DeploymentUpdateType:
+    """DeploymentUpdateType enum values."""
+
+    NONE = "NONE"
+    CURRENT_VERSION = "CURRENT_VERSION"
+    MINOR_VERSION = "MINOR_VERSION"
+    MAJOR_VERSION = "MAJOR_VERSION"
+
+
+class EnvironmentAccountConnectionRequesterAccountType:
+    """EnvironmentAccountConnectionRequesterAccountType enum values."""
+
+    MANAGEMENT_ACCOUNT = "MANAGEMENT_ACCOUNT"
+    ENVIRONMENT_ACCOUNT = "ENVIRONMENT_ACCOUNT"
+
+
+class EnvironmentAccountConnectionStatus:
+    """EnvironmentAccountConnectionStatus enum values."""
+
+    PENDING = "PENDING"
+    CONNECTED = "CONNECTED"
+    REJECTED = "REJECTED"
+
+
+class ListServiceInstancesFilterBy:
+    """ListServiceInstancesFilterBy enum values."""
+
+    NAME = "name"
+    DEPLOYMENTSTATUS = "deploymentStatus"
+    TEMPLATENAME = "templateName"
+    SERVICENAME = "serviceName"
+    DEPLOYEDTEMPLATEVERSIONSTATUS = "deployedTemplateVersionStatus"
+    ENVIRONMENTNAME = "environmentName"
+    LASTDEPLOYMENTATTEMPTEDATBEFORE = "lastDeploymentAttemptedAtBefore"
+    LASTDEPLOYMENTATTEMPTEDATAFTER = "lastDeploymentAttemptedAtAfter"
+    CREATEDATBEFORE = "createdAtBefore"
+    CREATEDATAFTER = "createdAtAfter"
+
+
+class ListServiceInstancesSortBy:
+    """ListServiceInstancesSortBy enum values."""
+
+    NAME = "name"
+    DEPLOYMENTSTATUS = "deploymentStatus"
+    TEMPLATENAME = "templateName"
+    SERVICENAME = "serviceName"
+    ENVIRONMENTNAME = "environmentName"
+    LASTDEPLOYMENTATTEMPTEDAT = "lastDeploymentAttemptedAt"
+    CREATEDAT = "createdAt"
+
+
+class ProvisionedResourceEngine:
+    """ProvisionedResourceEngine enum values."""
+
+    CLOUDFORMATION = "CLOUDFORMATION"
+    TERRAFORM = "TERRAFORM"
+
+
+class Provisioning:
+    """Provisioning enum values."""
+
+    CUSTOMER_MANAGED = "CUSTOMER_MANAGED"
+
+
+class RepositoryProvider:
+    """RepositoryProvider enum values."""
+
+    GITHUB = "GITHUB"
+    GITHUB_ENTERPRISE = "GITHUB_ENTERPRISE"
+    BITBUCKET = "BITBUCKET"
+
+
+class RepositorySyncStatus:
+    """RepositorySyncStatus enum values."""
+
+    INITIATED = "INITIATED"
+    IN_PROGRESS = "IN_PROGRESS"
+    SUCCEEDED = "SUCCEEDED"
+    FAILED = "FAILED"
+    QUEUED = "QUEUED"
+
+
+class ResourceDeploymentStatus:
+    """ResourceDeploymentStatus enum values."""
+
+    IN_PROGRESS = "IN_PROGRESS"
+    FAILED = "FAILED"
+    SUCCEEDED = "SUCCEEDED"
+
+
+class ResourceSyncStatus:
+    """ResourceSyncStatus enum values."""
+
+    INITIATED = "INITIATED"
+    IN_PROGRESS = "IN_PROGRESS"
+    SUCCEEDED = "SUCCEEDED"
+    FAILED = "FAILED"
+
+
+class ServiceStatus:
+    """ServiceStatus enum values."""
+
+    CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS"
+    CREATE_FAILED_CLEANUP_IN_PROGRESS = "CREATE_FAILED_CLEANUP_IN_PROGRESS"
+    CREATE_FAILED_CLEANUP_COMPLETE = "CREATE_FAILED_CLEANUP_COMPLETE"
+    CREATE_FAILED_CLEANUP_FAILED = "CREATE_FAILED_CLEANUP_FAILED"
+    CREATE_FAILED = "CREATE_FAILED"
+    ACTIVE = "ACTIVE"
+    DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
+    DELETE_FAILED = "DELETE_FAILED"
+    UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS"
+    UPDATE_FAILED_CLEANUP_IN_PROGRESS = "UPDATE_FAILED_CLEANUP_IN_PROGRESS"
+    UPDATE_FAILED_CLEANUP_COMPLETE = "UPDATE_FAILED_CLEANUP_COMPLETE"
+    UPDATE_FAILED_CLEANUP_FAILED = "UPDATE_FAILED_CLEANUP_FAILED"
+    UPDATE_FAILED = "UPDATE_FAILED"
+    UPDATE_COMPLETE_CLEANUP_FAILED = "UPDATE_COMPLETE_CLEANUP_FAILED"
+
+
+class ServiceTemplateSupportedComponentSourceType:
+    """ServiceTemplateSupportedComponentSourceType enum values."""
+
+    DIRECTLY_DEFINED = "DIRECTLY_DEFINED"
+
+
+class SortOrder:
+    """SortOrder enum values."""
+
+    ASCENDING = "ASCENDING"
+    DESCENDING = "DESCENDING"
+
+
+class SyncType:
+    """SyncType enum values."""
+
+    TEMPLATE_SYNC = "TEMPLATE_SYNC"
+    SERVICE_SYNC = "SERVICE_SYNC"
+
+
+class TemplateType:
+    """TemplateType enum values."""
+
+    ENVIRONMENT = "ENVIRONMENT"
+    SERVICE = "SERVICE"
+
+
+class TemplateVersionStatus:
+    """TemplateVersionStatus enum values."""
+
+    REGISTRATION_IN_PROGRESS = "REGISTRATION_IN_PROGRESS"
+    REGISTRATION_FAILED = "REGISTRATION_FAILED"
+    DRAFT = "DRAFT"
+    PUBLISHED = "PUBLISHED"
+
+
+# Convenient aliases for enum values
+ACTIVE = BlockerStatus.ACTIVE
+RESOLVED = BlockerStatus.RESOLVED
+AUTOMATED = BlockerType.AUTOMATED
+NONE = ComponentDeploymentUpdateType.NONE
+CURRENT_VERSION = ComponentDeploymentUpdateType.CURRENT_VERSION
+IN_PROGRESS = DeploymentStatus.IN_PROGRESS
+FAILED = DeploymentStatus.FAILED
+SUCCEEDED = DeploymentStatus.SUCCEEDED
+DELETE_IN_PROGRESS = DeploymentStatus.DELETE_IN_PROGRESS
+DELETE_FAILED = DeploymentStatus.DELETE_FAILED
+DELETE_COMPLETE = DeploymentStatus.DELETE_COMPLETE
+CANCELLING = DeploymentStatus.CANCELLING
+CANCELLED = DeploymentStatus.CANCELLED
+ENVIRONMENT = DeploymentTargetResourceType.ENVIRONMENT
+SERVICE_PIPELINE = DeploymentTargetResourceType.SERVICE_PIPELINE
+SERVICE_INSTANCE = DeploymentTargetResourceType.SERVICE_INSTANCE
+COMPONENT = DeploymentTargetResourceType.COMPONENT
+NONE = DeploymentUpdateType.NONE
+CURRENT_VERSION = DeploymentUpdateType.CURRENT_VERSION
+MINOR_VERSION = DeploymentUpdateType.MINOR_VERSION
+MAJOR_VERSION = DeploymentUpdateType.MAJOR_VERSION
+MANAGEMENT_ACCOUNT = EnvironmentAccountConnectionRequesterAccountType.MANAGEMENT_ACCOUNT
+ENVIRONMENT_ACCOUNT = EnvironmentAccountConnectionRequesterAccountType.ENVIRONMENT_ACCOUNT
+PENDING = EnvironmentAccountConnectionStatus.PENDING
+CONNECTED = EnvironmentAccountConnectionStatus.CONNECTED
+REJECTED = EnvironmentAccountConnectionStatus.REJECTED
+NAME = ListServiceInstancesFilterBy.NAME
+DEPLOYMENTSTATUS = ListServiceInstancesFilterBy.DEPLOYMENTSTATUS
+TEMPLATENAME = ListServiceInstancesFilterBy.TEMPLATENAME
+SERVICENAME = ListServiceInstancesFilterBy.SERVICENAME
+DEPLOYEDTEMPLATEVERSIONSTATUS = ListServiceInstancesFilterBy.DEPLOYEDTEMPLATEVERSIONSTATUS
+ENVIRONMENTNAME = ListServiceInstancesFilterBy.ENVIRONMENTNAME
+LASTDEPLOYMENTATTEMPTEDATBEFORE = ListServiceInstancesFilterBy.LASTDEPLOYMENTATTEMPTEDATBEFORE
+LASTDEPLOYMENTATTEMPTEDATAFTER = ListServiceInstancesFilterBy.LASTDEPLOYMENTATTEMPTEDATAFTER
+CREATEDATBEFORE = ListServiceInstancesFilterBy.CREATEDATBEFORE
+CREATEDATAFTER = ListServiceInstancesFilterBy.CREATEDATAFTER
+NAME = ListServiceInstancesSortBy.NAME
+DEPLOYMENTSTATUS = ListServiceInstancesSortBy.DEPLOYMENTSTATUS
+TEMPLATENAME = ListServiceInstancesSortBy.TEMPLATENAME
+SERVICENAME = ListServiceInstancesSortBy.SERVICENAME
+ENVIRONMENTNAME = ListServiceInstancesSortBy.ENVIRONMENTNAME
+LASTDEPLOYMENTATTEMPTEDAT = ListServiceInstancesSortBy.LASTDEPLOYMENTATTEMPTEDAT
+CREATEDAT = ListServiceInstancesSortBy.CREATEDAT
+CLOUDFORMATION = ProvisionedResourceEngine.CLOUDFORMATION
+TERRAFORM = ProvisionedResourceEngine.TERRAFORM
+CUSTOMER_MANAGED = Provisioning.CUSTOMER_MANAGED
+GITHUB = RepositoryProvider.GITHUB
+GITHUB_ENTERPRISE = RepositoryProvider.GITHUB_ENTERPRISE
+BITBUCKET = RepositoryProvider.BITBUCKET
+INITIATED = RepositorySyncStatus.INITIATED
+IN_PROGRESS = RepositorySyncStatus.IN_PROGRESS
+SUCCEEDED = RepositorySyncStatus.SUCCEEDED
+FAILED = RepositorySyncStatus.FAILED
+QUEUED = RepositorySyncStatus.QUEUED
+IN_PROGRESS = ResourceDeploymentStatus.IN_PROGRESS
+FAILED = ResourceDeploymentStatus.FAILED
+SUCCEEDED = ResourceDeploymentStatus.SUCCEEDED
+INITIATED = ResourceSyncStatus.INITIATED
+IN_PROGRESS = ResourceSyncStatus.IN_PROGRESS
+SUCCEEDED = ResourceSyncStatus.SUCCEEDED
+FAILED = ResourceSyncStatus.FAILED
+CREATE_IN_PROGRESS = ServiceStatus.CREATE_IN_PROGRESS
+CREATE_FAILED_CLEANUP_IN_PROGRESS = ServiceStatus.CREATE_FAILED_CLEANUP_IN_PROGRESS
+CREATE_FAILED_CLEANUP_COMPLETE = ServiceStatus.CREATE_FAILED_CLEANUP_COMPLETE
+CREATE_FAILED_CLEANUP_FAILED = ServiceStatus.CREATE_FAILED_CLEANUP_FAILED
+CREATE_FAILED = ServiceStatus.CREATE_FAILED
+ACTIVE = ServiceStatus.ACTIVE
+DELETE_IN_PROGRESS = ServiceStatus.DELETE_IN_PROGRESS
+DELETE_FAILED = ServiceStatus.DELETE_FAILED
+UPDATE_IN_PROGRESS = ServiceStatus.UPDATE_IN_PROGRESS
+UPDATE_FAILED_CLEANUP_IN_PROGRESS = ServiceStatus.UPDATE_FAILED_CLEANUP_IN_PROGRESS
+UPDATE_FAILED_CLEANUP_COMPLETE = ServiceStatus.UPDATE_FAILED_CLEANUP_COMPLETE
+UPDATE_FAILED_CLEANUP_FAILED = ServiceStatus.UPDATE_FAILED_CLEANUP_FAILED
+UPDATE_FAILED = ServiceStatus.UPDATE_FAILED
+UPDATE_COMPLETE_CLEANUP_FAILED = ServiceStatus.UPDATE_COMPLETE_CLEANUP_FAILED
+DIRECTLY_DEFINED = ServiceTemplateSupportedComponentSourceType.DIRECTLY_DEFINED
+ASCENDING = SortOrder.ASCENDING
+DESCENDING = SortOrder.DESCENDING
+TEMPLATE_SYNC = SyncType.TEMPLATE_SYNC
+SERVICE_SYNC = SyncType.SERVICE_SYNC
+ENVIRONMENT = TemplateType.ENVIRONMENT
+SERVICE = TemplateType.SERVICE
+REGISTRATION_IN_PROGRESS = TemplateVersionStatus.REGISTRATION_IN_PROGRESS
+REGISTRATION_FAILED = TemplateVersionStatus.REGISTRATION_FAILED
+DRAFT = TemplateVersionStatus.DRAFT
+PUBLISHED = TemplateVersionStatus.PUBLISHED
 
 
 @dataclass

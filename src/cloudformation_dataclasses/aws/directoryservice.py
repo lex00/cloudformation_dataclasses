@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:20
+  Generated: 2025-12-17 16:59:36
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DirectoryService
@@ -23,6 +23,466 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class CaEnrollmentPolicyStatus:
+    """CaEnrollmentPolicyStatus enum values."""
+
+    INPROGRESS = "InProgress"
+    SUCCESS = "Success"
+    FAILED = "Failed"
+    DISABLING = "Disabling"
+    DISABLED = "Disabled"
+    IMPAIRED = "Impaired"
+
+
+class CertificateState:
+    """CertificateState enum values."""
+
+    REGISTERING = "Registering"
+    REGISTERED = "Registered"
+    REGISTERFAILED = "RegisterFailed"
+    DEREGISTERING = "Deregistering"
+    DEREGISTERED = "Deregistered"
+    DEREGISTERFAILED = "DeregisterFailed"
+
+
+class CertificateType:
+    """CertificateType enum values."""
+
+    CLIENTCERTAUTH = "ClientCertAuth"
+    CLIENTLDAPS = "ClientLDAPS"
+
+
+class ClientAuthenticationStatus:
+    """ClientAuthenticationStatus enum values."""
+
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class ClientAuthenticationType:
+    """ClientAuthenticationType enum values."""
+
+    SMARTCARD = "SmartCard"
+    SMARTCARDORPASSWORD = "SmartCardOrPassword"
+
+
+class DataAccessStatus:
+    """DataAccessStatus enum values."""
+
+    DISABLED = "Disabled"
+    DISABLING = "Disabling"
+    ENABLED = "Enabled"
+    ENABLING = "Enabling"
+    FAILED = "Failed"
+
+
+class DirectoryConfigurationStatus:
+    """DirectoryConfigurationStatus enum values."""
+
+    REQUESTED = "Requested"
+    UPDATING = "Updating"
+    UPDATED = "Updated"
+    FAILED = "Failed"
+    DEFAULT = "Default"
+
+
+class DirectoryEdition:
+    """DirectoryEdition enum values."""
+
+    ENTERPRISE = "Enterprise"
+    STANDARD = "Standard"
+    HYBRID = "Hybrid"
+
+
+class DirectorySize:
+    """DirectorySize enum values."""
+
+    SMALL = "Small"
+    LARGE = "Large"
+
+
+class DirectoryStage:
+    """DirectoryStage enum values."""
+
+    REQUESTED = "Requested"
+    CREATING = "Creating"
+    CREATED = "Created"
+    ACTIVE = "Active"
+    INOPERABLE = "Inoperable"
+    IMPAIRED = "Impaired"
+    RESTORING = "Restoring"
+    RESTOREFAILED = "RestoreFailed"
+    DELETING = "Deleting"
+    DELETED = "Deleted"
+    FAILED = "Failed"
+    UPDATING = "Updating"
+
+
+class DirectoryType:
+    """DirectoryType enum values."""
+
+    SIMPLEAD = "SimpleAD"
+    ADCONNECTOR = "ADConnector"
+    MICROSOFTAD = "MicrosoftAD"
+    SHAREDMICROSOFTAD = "SharedMicrosoftAD"
+
+
+class DomainControllerStatus:
+    """DomainControllerStatus enum values."""
+
+    CREATING = "Creating"
+    ACTIVE = "Active"
+    IMPAIRED = "Impaired"
+    RESTORING = "Restoring"
+    DELETING = "Deleting"
+    DELETED = "Deleted"
+    FAILED = "Failed"
+    UPDATING = "Updating"
+
+
+class HybridUpdateType:
+    """HybridUpdateType enum values."""
+
+    SELFMANAGEDINSTANCES = "SelfManagedInstances"
+    HYBRIDADMINISTRATORACCOUNT = "HybridAdministratorAccount"
+
+
+class IpRouteStatusMsg:
+    """IpRouteStatusMsg enum values."""
+
+    ADDING = "Adding"
+    ADDED = "Added"
+    REMOVING = "Removing"
+    REMOVED = "Removed"
+    ADDFAILED = "AddFailed"
+    REMOVEFAILED = "RemoveFailed"
+
+
+class LDAPSStatus:
+    """LDAPSStatus enum values."""
+
+    ENABLING = "Enabling"
+    ENABLED = "Enabled"
+    ENABLEFAILED = "EnableFailed"
+    DISABLED = "Disabled"
+
+
+class LDAPSType:
+    """LDAPSType enum values."""
+
+    CLIENT = "Client"
+
+
+class NetworkType:
+    """NetworkType enum values."""
+
+    DUAL_STACK = "Dual-stack"
+    IPV4 = "IPv4"
+    IPV6 = "IPv6"
+
+
+class OSVersion:
+    """OSVersion enum values."""
+
+    SERVER_2012 = "SERVER_2012"
+    SERVER_2019 = "SERVER_2019"
+
+
+class RadiusAuthenticationProtocol:
+    """RadiusAuthenticationProtocol enum values."""
+
+    PAP = "PAP"
+    CHAP = "CHAP"
+    MS_CHAPV1 = "MS-CHAPv1"
+    MS_CHAPV2 = "MS-CHAPv2"
+
+
+class RadiusStatus:
+    """RadiusStatus enum values."""
+
+    CREATING = "Creating"
+    COMPLETED = "Completed"
+    FAILED = "Failed"
+
+
+class RegionType:
+    """RegionType enum values."""
+
+    PRIMARY = "Primary"
+    ADDITIONAL = "Additional"
+
+
+class ReplicationScope:
+    """ReplicationScope enum values."""
+
+    DOMAIN = "Domain"
+
+
+class SchemaExtensionStatus:
+    """SchemaExtensionStatus enum values."""
+
+    INITIALIZING = "Initializing"
+    CREATINGSNAPSHOT = "CreatingSnapshot"
+    UPDATINGSCHEMA = "UpdatingSchema"
+    REPLICATING = "Replicating"
+    CANCELINPROGRESS = "CancelInProgress"
+    ROLLBACKINPROGRESS = "RollbackInProgress"
+    CANCELLED = "Cancelled"
+    FAILED = "Failed"
+    COMPLETED = "Completed"
+
+
+class SelectiveAuth:
+    """SelectiveAuth enum values."""
+
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class ShareMethod:
+    """ShareMethod enum values."""
+
+    ORGANIZATIONS = "ORGANIZATIONS"
+    HANDSHAKE = "HANDSHAKE"
+
+
+class ShareStatus:
+    """ShareStatus enum values."""
+
+    SHARED = "Shared"
+    PENDINGACCEPTANCE = "PendingAcceptance"
+    REJECTED = "Rejected"
+    REJECTING = "Rejecting"
+    REJECTFAILED = "RejectFailed"
+    SHARING = "Sharing"
+    SHAREFAILED = "ShareFailed"
+    DELETED = "Deleted"
+    DELETING = "Deleting"
+
+
+class SnapshotStatus:
+    """SnapshotStatus enum values."""
+
+    CREATING = "Creating"
+    COMPLETED = "Completed"
+    FAILED = "Failed"
+
+
+class SnapshotType:
+    """SnapshotType enum values."""
+
+    AUTO = "Auto"
+    MANUAL = "Manual"
+
+
+class TargetType:
+    """TargetType enum values."""
+
+    ACCOUNT = "ACCOUNT"
+
+
+class TopicStatus:
+    """TopicStatus enum values."""
+
+    REGISTERED = "Registered"
+    TOPIC_NOT_FOUND = "Topic not found"
+    FAILED = "Failed"
+    DELETED = "Deleted"
+
+
+class TrustDirection:
+    """TrustDirection enum values."""
+
+    ONE_WAY_OUTGOING = "One-Way: Outgoing"
+    ONE_WAY_INCOMING = "One-Way: Incoming"
+    TWO_WAY = "Two-Way"
+
+
+class TrustState:
+    """TrustState enum values."""
+
+    CREATING = "Creating"
+    CREATED = "Created"
+    VERIFYING = "Verifying"
+    VERIFYFAILED = "VerifyFailed"
+    VERIFIED = "Verified"
+    UPDATING = "Updating"
+    UPDATEFAILED = "UpdateFailed"
+    UPDATED = "Updated"
+    DELETING = "Deleting"
+    DELETED = "Deleted"
+    FAILED = "Failed"
+
+
+class TrustType:
+    """TrustType enum values."""
+
+    FOREST = "Forest"
+    EXTERNAL = "External"
+
+
+class UpdateStatus:
+    """UpdateStatus enum values."""
+
+    UPDATED = "Updated"
+    UPDATING = "Updating"
+    UPDATEFAILED = "UpdateFailed"
+
+
+class UpdateType:
+    """UpdateType enum values."""
+
+    OS = "OS"
+    NETWORK = "NETWORK"
+    SIZE = "SIZE"
+
+
+# Convenient aliases for enum values
+INPROGRESS = CaEnrollmentPolicyStatus.INPROGRESS
+SUCCESS = CaEnrollmentPolicyStatus.SUCCESS
+FAILED = CaEnrollmentPolicyStatus.FAILED
+DISABLING = CaEnrollmentPolicyStatus.DISABLING
+DISABLED = CaEnrollmentPolicyStatus.DISABLED
+IMPAIRED = CaEnrollmentPolicyStatus.IMPAIRED
+REGISTERING = CertificateState.REGISTERING
+REGISTERED = CertificateState.REGISTERED
+REGISTERFAILED = CertificateState.REGISTERFAILED
+DEREGISTERING = CertificateState.DEREGISTERING
+DEREGISTERED = CertificateState.DEREGISTERED
+DEREGISTERFAILED = CertificateState.DEREGISTERFAILED
+CLIENTCERTAUTH = CertificateType.CLIENTCERTAUTH
+CLIENTLDAPS = CertificateType.CLIENTLDAPS
+ENABLED = ClientAuthenticationStatus.ENABLED
+DISABLED = ClientAuthenticationStatus.DISABLED
+SMARTCARD = ClientAuthenticationType.SMARTCARD
+SMARTCARDORPASSWORD = ClientAuthenticationType.SMARTCARDORPASSWORD
+DISABLED = DataAccessStatus.DISABLED
+DISABLING = DataAccessStatus.DISABLING
+ENABLED = DataAccessStatus.ENABLED
+ENABLING = DataAccessStatus.ENABLING
+FAILED = DataAccessStatus.FAILED
+REQUESTED = DirectoryConfigurationStatus.REQUESTED
+UPDATING = DirectoryConfigurationStatus.UPDATING
+UPDATED = DirectoryConfigurationStatus.UPDATED
+FAILED = DirectoryConfigurationStatus.FAILED
+DEFAULT = DirectoryConfigurationStatus.DEFAULT
+ENTERPRISE = DirectoryEdition.ENTERPRISE
+STANDARD = DirectoryEdition.STANDARD
+HYBRID = DirectoryEdition.HYBRID
+SMALL = DirectorySize.SMALL
+LARGE = DirectorySize.LARGE
+REQUESTED = DirectoryStage.REQUESTED
+CREATING = DirectoryStage.CREATING
+CREATED = DirectoryStage.CREATED
+ACTIVE = DirectoryStage.ACTIVE
+INOPERABLE = DirectoryStage.INOPERABLE
+IMPAIRED = DirectoryStage.IMPAIRED
+RESTORING = DirectoryStage.RESTORING
+RESTOREFAILED = DirectoryStage.RESTOREFAILED
+DELETING = DirectoryStage.DELETING
+DELETED = DirectoryStage.DELETED
+FAILED = DirectoryStage.FAILED
+UPDATING = DirectoryStage.UPDATING
+SIMPLEAD = DirectoryType.SIMPLEAD
+ADCONNECTOR = DirectoryType.ADCONNECTOR
+MICROSOFTAD = DirectoryType.MICROSOFTAD
+SHAREDMICROSOFTAD = DirectoryType.SHAREDMICROSOFTAD
+CREATING = DomainControllerStatus.CREATING
+ACTIVE = DomainControllerStatus.ACTIVE
+IMPAIRED = DomainControllerStatus.IMPAIRED
+RESTORING = DomainControllerStatus.RESTORING
+DELETING = DomainControllerStatus.DELETING
+DELETED = DomainControllerStatus.DELETED
+FAILED = DomainControllerStatus.FAILED
+UPDATING = DomainControllerStatus.UPDATING
+SELFMANAGEDINSTANCES = HybridUpdateType.SELFMANAGEDINSTANCES
+HYBRIDADMINISTRATORACCOUNT = HybridUpdateType.HYBRIDADMINISTRATORACCOUNT
+ADDING = IpRouteStatusMsg.ADDING
+ADDED = IpRouteStatusMsg.ADDED
+REMOVING = IpRouteStatusMsg.REMOVING
+REMOVED = IpRouteStatusMsg.REMOVED
+ADDFAILED = IpRouteStatusMsg.ADDFAILED
+REMOVEFAILED = IpRouteStatusMsg.REMOVEFAILED
+ENABLING = LDAPSStatus.ENABLING
+ENABLED = LDAPSStatus.ENABLED
+ENABLEFAILED = LDAPSStatus.ENABLEFAILED
+DISABLED = LDAPSStatus.DISABLED
+CLIENT = LDAPSType.CLIENT
+DUAL_STACK = NetworkType.DUAL_STACK
+IPV4 = NetworkType.IPV4
+IPV6 = NetworkType.IPV6
+SERVER_2012 = OSVersion.SERVER_2012
+SERVER_2019 = OSVersion.SERVER_2019
+PAP = RadiusAuthenticationProtocol.PAP
+CHAP = RadiusAuthenticationProtocol.CHAP
+MS_CHAPV1 = RadiusAuthenticationProtocol.MS_CHAPV1
+MS_CHAPV2 = RadiusAuthenticationProtocol.MS_CHAPV2
+CREATING = RadiusStatus.CREATING
+COMPLETED = RadiusStatus.COMPLETED
+FAILED = RadiusStatus.FAILED
+PRIMARY = RegionType.PRIMARY
+ADDITIONAL = RegionType.ADDITIONAL
+DOMAIN = ReplicationScope.DOMAIN
+INITIALIZING = SchemaExtensionStatus.INITIALIZING
+CREATINGSNAPSHOT = SchemaExtensionStatus.CREATINGSNAPSHOT
+UPDATINGSCHEMA = SchemaExtensionStatus.UPDATINGSCHEMA
+REPLICATING = SchemaExtensionStatus.REPLICATING
+CANCELINPROGRESS = SchemaExtensionStatus.CANCELINPROGRESS
+ROLLBACKINPROGRESS = SchemaExtensionStatus.ROLLBACKINPROGRESS
+CANCELLED = SchemaExtensionStatus.CANCELLED
+FAILED = SchemaExtensionStatus.FAILED
+COMPLETED = SchemaExtensionStatus.COMPLETED
+ENABLED = SelectiveAuth.ENABLED
+DISABLED = SelectiveAuth.DISABLED
+ORGANIZATIONS = ShareMethod.ORGANIZATIONS
+HANDSHAKE = ShareMethod.HANDSHAKE
+SHARED = ShareStatus.SHARED
+PENDINGACCEPTANCE = ShareStatus.PENDINGACCEPTANCE
+REJECTED = ShareStatus.REJECTED
+REJECTING = ShareStatus.REJECTING
+REJECTFAILED = ShareStatus.REJECTFAILED
+SHARING = ShareStatus.SHARING
+SHAREFAILED = ShareStatus.SHAREFAILED
+DELETED = ShareStatus.DELETED
+DELETING = ShareStatus.DELETING
+CREATING = SnapshotStatus.CREATING
+COMPLETED = SnapshotStatus.COMPLETED
+FAILED = SnapshotStatus.FAILED
+AUTO = SnapshotType.AUTO
+MANUAL = SnapshotType.MANUAL
+ACCOUNT = TargetType.ACCOUNT
+REGISTERED = TopicStatus.REGISTERED
+TOPIC_NOT_FOUND = TopicStatus.TOPIC_NOT_FOUND
+FAILED = TopicStatus.FAILED
+DELETED = TopicStatus.DELETED
+ONE_WAY_OUTGOING = TrustDirection.ONE_WAY_OUTGOING
+ONE_WAY_INCOMING = TrustDirection.ONE_WAY_INCOMING
+TWO_WAY = TrustDirection.TWO_WAY
+CREATING = TrustState.CREATING
+CREATED = TrustState.CREATED
+VERIFYING = TrustState.VERIFYING
+VERIFYFAILED = TrustState.VERIFYFAILED
+VERIFIED = TrustState.VERIFIED
+UPDATING = TrustState.UPDATING
+UPDATEFAILED = TrustState.UPDATEFAILED
+UPDATED = TrustState.UPDATED
+DELETING = TrustState.DELETING
+DELETED = TrustState.DELETED
+FAILED = TrustState.FAILED
+FOREST = TrustType.FOREST
+EXTERNAL = TrustType.EXTERNAL
+UPDATED = UpdateStatus.UPDATED
+UPDATING = UpdateStatus.UPDATING
+UPDATEFAILED = UpdateStatus.UPDATEFAILED
+OS = UpdateType.OS
+NETWORK = UpdateType.NETWORK
+SIZE = UpdateType.SIZE
 
 
 @dataclass

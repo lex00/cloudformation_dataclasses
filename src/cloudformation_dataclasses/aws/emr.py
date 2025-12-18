@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:21
+  Generated: 2025-12-17 16:59:36
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service EMR
@@ -23,6 +23,645 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class ActionOnFailure:
+    """ActionOnFailure enum values."""
+
+    TERMINATE_JOB_FLOW = "TERMINATE_JOB_FLOW"
+    TERMINATE_CLUSTER = "TERMINATE_CLUSTER"
+    CANCEL_AND_WAIT = "CANCEL_AND_WAIT"
+    CONTINUE = "CONTINUE"
+
+
+class AdjustmentType:
+    """AdjustmentType enum values."""
+
+    CHANGE_IN_CAPACITY = "CHANGE_IN_CAPACITY"
+    PERCENT_CHANGE_IN_CAPACITY = "PERCENT_CHANGE_IN_CAPACITY"
+    EXACT_CAPACITY = "EXACT_CAPACITY"
+
+
+class AuthMode:
+    """AuthMode enum values."""
+
+    SSO = "SSO"
+    IAM = "IAM"
+
+
+class AutoScalingPolicyState:
+    """AutoScalingPolicyState enum values."""
+
+    PENDING = "PENDING"
+    ATTACHING = "ATTACHING"
+    ATTACHED = "ATTACHED"
+    DETACHING = "DETACHING"
+    DETACHED = "DETACHED"
+    FAILED = "FAILED"
+
+
+class AutoScalingPolicyStateChangeReasonCode:
+    """AutoScalingPolicyStateChangeReasonCode enum values."""
+
+    USER_REQUEST = "USER_REQUEST"
+    PROVISION_FAILURE = "PROVISION_FAILURE"
+    CLEANUP_FAILURE = "CLEANUP_FAILURE"
+
+
+class CancelStepsRequestStatus:
+    """CancelStepsRequestStatus enum values."""
+
+    SUBMITTED = "SUBMITTED"
+    FAILED = "FAILED"
+
+
+class ClusterState:
+    """ClusterState enum values."""
+
+    STARTING = "STARTING"
+    BOOTSTRAPPING = "BOOTSTRAPPING"
+    RUNNING = "RUNNING"
+    WAITING = "WAITING"
+    TERMINATING = "TERMINATING"
+    TERMINATED = "TERMINATED"
+    TERMINATED_WITH_ERRORS = "TERMINATED_WITH_ERRORS"
+
+
+class ClusterStateChangeReasonCode:
+    """ClusterStateChangeReasonCode enum values."""
+
+    INTERNAL_ERROR = "INTERNAL_ERROR"
+    VALIDATION_ERROR = "VALIDATION_ERROR"
+    INSTANCE_FAILURE = "INSTANCE_FAILURE"
+    INSTANCE_FLEET_TIMEOUT = "INSTANCE_FLEET_TIMEOUT"
+    BOOTSTRAP_FAILURE = "BOOTSTRAP_FAILURE"
+    USER_REQUEST = "USER_REQUEST"
+    STEP_FAILURE = "STEP_FAILURE"
+    ALL_STEPS_COMPLETED = "ALL_STEPS_COMPLETED"
+
+
+class ComparisonOperator:
+    """ComparisonOperator enum values."""
+
+    GREATER_THAN_OR_EQUAL = "GREATER_THAN_OR_EQUAL"
+    GREATER_THAN = "GREATER_THAN"
+    LESS_THAN = "LESS_THAN"
+    LESS_THAN_OR_EQUAL = "LESS_THAN_OR_EQUAL"
+
+
+class ComputeLimitsUnitType:
+    """ComputeLimitsUnitType enum values."""
+
+    INSTANCEFLEETUNITS = "InstanceFleetUnits"
+    INSTANCES = "Instances"
+    VCPU = "VCPU"
+
+
+class ExecutionEngineType:
+    """ExecutionEngineType enum values."""
+
+    EMR = "EMR"
+
+
+class IdcUserAssignment:
+    """IdcUserAssignment enum values."""
+
+    REQUIRED = "REQUIRED"
+    OPTIONAL = "OPTIONAL"
+
+
+class IdentityType:
+    """IdentityType enum values."""
+
+    USER = "USER"
+    GROUP = "GROUP"
+
+
+class InstanceCollectionType:
+    """InstanceCollectionType enum values."""
+
+    INSTANCE_FLEET = "INSTANCE_FLEET"
+    INSTANCE_GROUP = "INSTANCE_GROUP"
+
+
+class InstanceFleetState:
+    """InstanceFleetState enum values."""
+
+    PROVISIONING = "PROVISIONING"
+    BOOTSTRAPPING = "BOOTSTRAPPING"
+    RUNNING = "RUNNING"
+    RESIZING = "RESIZING"
+    RECONFIGURING = "RECONFIGURING"
+    SUSPENDED = "SUSPENDED"
+    TERMINATING = "TERMINATING"
+    TERMINATED = "TERMINATED"
+
+
+class InstanceFleetStateChangeReasonCode:
+    """InstanceFleetStateChangeReasonCode enum values."""
+
+    INTERNAL_ERROR = "INTERNAL_ERROR"
+    VALIDATION_ERROR = "VALIDATION_ERROR"
+    INSTANCE_FAILURE = "INSTANCE_FAILURE"
+    CLUSTER_TERMINATED = "CLUSTER_TERMINATED"
+
+
+class InstanceFleetType:
+    """InstanceFleetType enum values."""
+
+    MASTER = "MASTER"
+    CORE = "CORE"
+    TASK = "TASK"
+
+
+class InstanceGroupState:
+    """InstanceGroupState enum values."""
+
+    PROVISIONING = "PROVISIONING"
+    BOOTSTRAPPING = "BOOTSTRAPPING"
+    RUNNING = "RUNNING"
+    RECONFIGURING = "RECONFIGURING"
+    RESIZING = "RESIZING"
+    SUSPENDED = "SUSPENDED"
+    TERMINATING = "TERMINATING"
+    TERMINATED = "TERMINATED"
+    ARRESTED = "ARRESTED"
+    SHUTTING_DOWN = "SHUTTING_DOWN"
+    ENDED = "ENDED"
+
+
+class InstanceGroupStateChangeReasonCode:
+    """InstanceGroupStateChangeReasonCode enum values."""
+
+    INTERNAL_ERROR = "INTERNAL_ERROR"
+    VALIDATION_ERROR = "VALIDATION_ERROR"
+    INSTANCE_FAILURE = "INSTANCE_FAILURE"
+    CLUSTER_TERMINATED = "CLUSTER_TERMINATED"
+
+
+class InstanceGroupType:
+    """InstanceGroupType enum values."""
+
+    MASTER = "MASTER"
+    CORE = "CORE"
+    TASK = "TASK"
+
+
+class InstanceRoleType:
+    """InstanceRoleType enum values."""
+
+    MASTER = "MASTER"
+    CORE = "CORE"
+    TASK = "TASK"
+
+
+class InstanceState:
+    """InstanceState enum values."""
+
+    AWAITING_FULFILLMENT = "AWAITING_FULFILLMENT"
+    PROVISIONING = "PROVISIONING"
+    BOOTSTRAPPING = "BOOTSTRAPPING"
+    RUNNING = "RUNNING"
+    TERMINATED = "TERMINATED"
+
+
+class InstanceStateChangeReasonCode:
+    """InstanceStateChangeReasonCode enum values."""
+
+    INTERNAL_ERROR = "INTERNAL_ERROR"
+    VALIDATION_ERROR = "VALIDATION_ERROR"
+    INSTANCE_FAILURE = "INSTANCE_FAILURE"
+    BOOTSTRAP_FAILURE = "BOOTSTRAP_FAILURE"
+    CLUSTER_TERMINATED = "CLUSTER_TERMINATED"
+
+
+class JobFlowExecutionState:
+    """JobFlowExecutionState enum values."""
+
+    STARTING = "STARTING"
+    BOOTSTRAPPING = "BOOTSTRAPPING"
+    RUNNING = "RUNNING"
+    WAITING = "WAITING"
+    SHUTTING_DOWN = "SHUTTING_DOWN"
+    TERMINATED = "TERMINATED"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
+
+
+class MarketType:
+    """MarketType enum values."""
+
+    ON_DEMAND = "ON_DEMAND"
+    SPOT = "SPOT"
+
+
+class NotebookExecutionStatus:
+    """NotebookExecutionStatus enum values."""
+
+    START_PENDING = "START_PENDING"
+    STARTING = "STARTING"
+    RUNNING = "RUNNING"
+    FINISHING = "FINISHING"
+    FINISHED = "FINISHED"
+    FAILING = "FAILING"
+    FAILED = "FAILED"
+    STOP_PENDING = "STOP_PENDING"
+    STOPPING = "STOPPING"
+    STOPPED = "STOPPED"
+
+
+class OnClusterAppUIType:
+    """OnClusterAppUIType enum values."""
+
+    SPARKHISTORYSERVER = "SparkHistoryServer"
+    YARNTIMELINESERVICE = "YarnTimelineService"
+    TEZUI = "TezUI"
+    APPLICATIONMASTER = "ApplicationMaster"
+    JOBHISTORYSERVER = "JobHistoryServer"
+    RESOURCEMANAGER = "ResourceManager"
+
+
+class OnDemandCapacityReservationPreference:
+    """OnDemandCapacityReservationPreference enum values."""
+
+    OPEN = "open"
+    NONE = "none"
+
+
+class OnDemandCapacityReservationUsageStrategy:
+    """OnDemandCapacityReservationUsageStrategy enum values."""
+
+    USE_CAPACITY_RESERVATIONS_FIRST = "use-capacity-reservations-first"
+
+
+class OnDemandProvisioningAllocationStrategy:
+    """OnDemandProvisioningAllocationStrategy enum values."""
+
+    LOWEST_PRICE = "lowest-price"
+    PRIORITIZED = "prioritized"
+
+
+class OutputNotebookFormat:
+    """OutputNotebookFormat enum values."""
+
+    HTML = "HTML"
+
+
+class PersistentAppUIType:
+    """PersistentAppUIType enum values."""
+
+    SHS = "SHS"
+    TEZ = "TEZ"
+    YTS = "YTS"
+
+
+class PlacementGroupStrategy:
+    """PlacementGroupStrategy enum values."""
+
+    SPREAD = "SPREAD"
+    PARTITION = "PARTITION"
+    CLUSTER = "CLUSTER"
+    NONE = "NONE"
+
+
+class ProfilerType:
+    """ProfilerType enum values."""
+
+    SHS = "SHS"
+    TEZUI = "TEZUI"
+    YTS = "YTS"
+
+
+class ReconfigurationType:
+    """ReconfigurationType enum values."""
+
+    OVERWRITE = "OVERWRITE"
+    MERGE = "MERGE"
+
+
+class RepoUpgradeOnBoot:
+    """RepoUpgradeOnBoot enum values."""
+
+    SECURITY = "SECURITY"
+    NONE = "NONE"
+
+
+class ScaleDownBehavior:
+    """ScaleDownBehavior enum values."""
+
+    TERMINATE_AT_INSTANCE_HOUR = "TERMINATE_AT_INSTANCE_HOUR"
+    TERMINATE_AT_TASK_COMPLETION = "TERMINATE_AT_TASK_COMPLETION"
+
+
+class ScalingStrategy:
+    """ScalingStrategy enum values."""
+
+    DEFAULT = "DEFAULT"
+    ADVANCED = "ADVANCED"
+
+
+class SpotProvisioningAllocationStrategy:
+    """SpotProvisioningAllocationStrategy enum values."""
+
+    CAPACITY_OPTIMIZED = "capacity-optimized"
+    PRICE_CAPACITY_OPTIMIZED = "price-capacity-optimized"
+    LOWEST_PRICE = "lowest-price"
+    DIVERSIFIED = "diversified"
+    CAPACITY_OPTIMIZED_PRIORITIZED = "capacity-optimized-prioritized"
+
+
+class SpotProvisioningTimeoutAction:
+    """SpotProvisioningTimeoutAction enum values."""
+
+    SWITCH_TO_ON_DEMAND = "SWITCH_TO_ON_DEMAND"
+    TERMINATE_CLUSTER = "TERMINATE_CLUSTER"
+
+
+class Statistic:
+    """Statistic enum values."""
+
+    SAMPLE_COUNT = "SAMPLE_COUNT"
+    AVERAGE = "AVERAGE"
+    SUM = "SUM"
+    MINIMUM = "MINIMUM"
+    MAXIMUM = "MAXIMUM"
+
+
+class StepCancellationOption:
+    """StepCancellationOption enum values."""
+
+    SEND_INTERRUPT = "SEND_INTERRUPT"
+    TERMINATE_PROCESS = "TERMINATE_PROCESS"
+
+
+class StepExecutionState:
+    """StepExecutionState enum values."""
+
+    PENDING = "PENDING"
+    RUNNING = "RUNNING"
+    CONTINUE = "CONTINUE"
+    COMPLETED = "COMPLETED"
+    CANCELLED = "CANCELLED"
+    FAILED = "FAILED"
+    INTERRUPTED = "INTERRUPTED"
+
+
+class StepState:
+    """StepState enum values."""
+
+    PENDING = "PENDING"
+    CANCEL_PENDING = "CANCEL_PENDING"
+    RUNNING = "RUNNING"
+    COMPLETED = "COMPLETED"
+    CANCELLED = "CANCELLED"
+    FAILED = "FAILED"
+    INTERRUPTED = "INTERRUPTED"
+
+
+class StepStateChangeReasonCode:
+    """StepStateChangeReasonCode enum values."""
+
+    NONE = "NONE"
+
+
+class Unit:
+    """Unit enum values."""
+
+    NONE = "NONE"
+    SECONDS = "SECONDS"
+    MICRO_SECONDS = "MICRO_SECONDS"
+    MILLI_SECONDS = "MILLI_SECONDS"
+    BYTES = "BYTES"
+    KILO_BYTES = "KILO_BYTES"
+    MEGA_BYTES = "MEGA_BYTES"
+    GIGA_BYTES = "GIGA_BYTES"
+    TERA_BYTES = "TERA_BYTES"
+    BITS = "BITS"
+    KILO_BITS = "KILO_BITS"
+    MEGA_BITS = "MEGA_BITS"
+    GIGA_BITS = "GIGA_BITS"
+    TERA_BITS = "TERA_BITS"
+    PERCENT = "PERCENT"
+    COUNT = "COUNT"
+    BYTES_PER_SECOND = "BYTES_PER_SECOND"
+    KILO_BYTES_PER_SECOND = "KILO_BYTES_PER_SECOND"
+    MEGA_BYTES_PER_SECOND = "MEGA_BYTES_PER_SECOND"
+    GIGA_BYTES_PER_SECOND = "GIGA_BYTES_PER_SECOND"
+    TERA_BYTES_PER_SECOND = "TERA_BYTES_PER_SECOND"
+    BITS_PER_SECOND = "BITS_PER_SECOND"
+    KILO_BITS_PER_SECOND = "KILO_BITS_PER_SECOND"
+    MEGA_BITS_PER_SECOND = "MEGA_BITS_PER_SECOND"
+    GIGA_BITS_PER_SECOND = "GIGA_BITS_PER_SECOND"
+    TERA_BITS_PER_SECOND = "TERA_BITS_PER_SECOND"
+    COUNT_PER_SECOND = "COUNT_PER_SECOND"
+
+
+# Convenient aliases for enum values
+TERMINATE_JOB_FLOW = ActionOnFailure.TERMINATE_JOB_FLOW
+TERMINATE_CLUSTER = ActionOnFailure.TERMINATE_CLUSTER
+CANCEL_AND_WAIT = ActionOnFailure.CANCEL_AND_WAIT
+CONTINUE = ActionOnFailure.CONTINUE
+CHANGE_IN_CAPACITY = AdjustmentType.CHANGE_IN_CAPACITY
+PERCENT_CHANGE_IN_CAPACITY = AdjustmentType.PERCENT_CHANGE_IN_CAPACITY
+EXACT_CAPACITY = AdjustmentType.EXACT_CAPACITY
+SSO = AuthMode.SSO
+IAM = AuthMode.IAM
+PENDING = AutoScalingPolicyState.PENDING
+ATTACHING = AutoScalingPolicyState.ATTACHING
+ATTACHED = AutoScalingPolicyState.ATTACHED
+DETACHING = AutoScalingPolicyState.DETACHING
+DETACHED = AutoScalingPolicyState.DETACHED
+FAILED = AutoScalingPolicyState.FAILED
+USER_REQUEST = AutoScalingPolicyStateChangeReasonCode.USER_REQUEST
+PROVISION_FAILURE = AutoScalingPolicyStateChangeReasonCode.PROVISION_FAILURE
+CLEANUP_FAILURE = AutoScalingPolicyStateChangeReasonCode.CLEANUP_FAILURE
+SUBMITTED = CancelStepsRequestStatus.SUBMITTED
+FAILED = CancelStepsRequestStatus.FAILED
+STARTING = ClusterState.STARTING
+BOOTSTRAPPING = ClusterState.BOOTSTRAPPING
+RUNNING = ClusterState.RUNNING
+WAITING = ClusterState.WAITING
+TERMINATING = ClusterState.TERMINATING
+TERMINATED = ClusterState.TERMINATED
+TERMINATED_WITH_ERRORS = ClusterState.TERMINATED_WITH_ERRORS
+INTERNAL_ERROR = ClusterStateChangeReasonCode.INTERNAL_ERROR
+VALIDATION_ERROR = ClusterStateChangeReasonCode.VALIDATION_ERROR
+INSTANCE_FAILURE = ClusterStateChangeReasonCode.INSTANCE_FAILURE
+INSTANCE_FLEET_TIMEOUT = ClusterStateChangeReasonCode.INSTANCE_FLEET_TIMEOUT
+BOOTSTRAP_FAILURE = ClusterStateChangeReasonCode.BOOTSTRAP_FAILURE
+USER_REQUEST = ClusterStateChangeReasonCode.USER_REQUEST
+STEP_FAILURE = ClusterStateChangeReasonCode.STEP_FAILURE
+ALL_STEPS_COMPLETED = ClusterStateChangeReasonCode.ALL_STEPS_COMPLETED
+GREATER_THAN_OR_EQUAL = ComparisonOperator.GREATER_THAN_OR_EQUAL
+GREATER_THAN = ComparisonOperator.GREATER_THAN
+LESS_THAN = ComparisonOperator.LESS_THAN
+LESS_THAN_OR_EQUAL = ComparisonOperator.LESS_THAN_OR_EQUAL
+INSTANCEFLEETUNITS = ComputeLimitsUnitType.INSTANCEFLEETUNITS
+INSTANCES = ComputeLimitsUnitType.INSTANCES
+VCPU = ComputeLimitsUnitType.VCPU
+EMR = ExecutionEngineType.EMR
+REQUIRED = IdcUserAssignment.REQUIRED
+OPTIONAL = IdcUserAssignment.OPTIONAL
+USER = IdentityType.USER
+GROUP = IdentityType.GROUP
+INSTANCE_FLEET = InstanceCollectionType.INSTANCE_FLEET
+INSTANCE_GROUP = InstanceCollectionType.INSTANCE_GROUP
+PROVISIONING = InstanceFleetState.PROVISIONING
+BOOTSTRAPPING = InstanceFleetState.BOOTSTRAPPING
+RUNNING = InstanceFleetState.RUNNING
+RESIZING = InstanceFleetState.RESIZING
+RECONFIGURING = InstanceFleetState.RECONFIGURING
+SUSPENDED = InstanceFleetState.SUSPENDED
+TERMINATING = InstanceFleetState.TERMINATING
+TERMINATED = InstanceFleetState.TERMINATED
+INTERNAL_ERROR = InstanceFleetStateChangeReasonCode.INTERNAL_ERROR
+VALIDATION_ERROR = InstanceFleetStateChangeReasonCode.VALIDATION_ERROR
+INSTANCE_FAILURE = InstanceFleetStateChangeReasonCode.INSTANCE_FAILURE
+CLUSTER_TERMINATED = InstanceFleetStateChangeReasonCode.CLUSTER_TERMINATED
+MASTER = InstanceFleetType.MASTER
+CORE = InstanceFleetType.CORE
+TASK = InstanceFleetType.TASK
+PROVISIONING = InstanceGroupState.PROVISIONING
+BOOTSTRAPPING = InstanceGroupState.BOOTSTRAPPING
+RUNNING = InstanceGroupState.RUNNING
+RECONFIGURING = InstanceGroupState.RECONFIGURING
+RESIZING = InstanceGroupState.RESIZING
+SUSPENDED = InstanceGroupState.SUSPENDED
+TERMINATING = InstanceGroupState.TERMINATING
+TERMINATED = InstanceGroupState.TERMINATED
+ARRESTED = InstanceGroupState.ARRESTED
+SHUTTING_DOWN = InstanceGroupState.SHUTTING_DOWN
+ENDED = InstanceGroupState.ENDED
+INTERNAL_ERROR = InstanceGroupStateChangeReasonCode.INTERNAL_ERROR
+VALIDATION_ERROR = InstanceGroupStateChangeReasonCode.VALIDATION_ERROR
+INSTANCE_FAILURE = InstanceGroupStateChangeReasonCode.INSTANCE_FAILURE
+CLUSTER_TERMINATED = InstanceGroupStateChangeReasonCode.CLUSTER_TERMINATED
+MASTER = InstanceGroupType.MASTER
+CORE = InstanceGroupType.CORE
+TASK = InstanceGroupType.TASK
+MASTER = InstanceRoleType.MASTER
+CORE = InstanceRoleType.CORE
+TASK = InstanceRoleType.TASK
+AWAITING_FULFILLMENT = InstanceState.AWAITING_FULFILLMENT
+PROVISIONING = InstanceState.PROVISIONING
+BOOTSTRAPPING = InstanceState.BOOTSTRAPPING
+RUNNING = InstanceState.RUNNING
+TERMINATED = InstanceState.TERMINATED
+INTERNAL_ERROR = InstanceStateChangeReasonCode.INTERNAL_ERROR
+VALIDATION_ERROR = InstanceStateChangeReasonCode.VALIDATION_ERROR
+INSTANCE_FAILURE = InstanceStateChangeReasonCode.INSTANCE_FAILURE
+BOOTSTRAP_FAILURE = InstanceStateChangeReasonCode.BOOTSTRAP_FAILURE
+CLUSTER_TERMINATED = InstanceStateChangeReasonCode.CLUSTER_TERMINATED
+STARTING = JobFlowExecutionState.STARTING
+BOOTSTRAPPING = JobFlowExecutionState.BOOTSTRAPPING
+RUNNING = JobFlowExecutionState.RUNNING
+WAITING = JobFlowExecutionState.WAITING
+SHUTTING_DOWN = JobFlowExecutionState.SHUTTING_DOWN
+TERMINATED = JobFlowExecutionState.TERMINATED
+COMPLETED = JobFlowExecutionState.COMPLETED
+FAILED = JobFlowExecutionState.FAILED
+ON_DEMAND = MarketType.ON_DEMAND
+SPOT = MarketType.SPOT
+START_PENDING = NotebookExecutionStatus.START_PENDING
+STARTING = NotebookExecutionStatus.STARTING
+RUNNING = NotebookExecutionStatus.RUNNING
+FINISHING = NotebookExecutionStatus.FINISHING
+FINISHED = NotebookExecutionStatus.FINISHED
+FAILING = NotebookExecutionStatus.FAILING
+FAILED = NotebookExecutionStatus.FAILED
+STOP_PENDING = NotebookExecutionStatus.STOP_PENDING
+STOPPING = NotebookExecutionStatus.STOPPING
+STOPPED = NotebookExecutionStatus.STOPPED
+SPARKHISTORYSERVER = OnClusterAppUIType.SPARKHISTORYSERVER
+YARNTIMELINESERVICE = OnClusterAppUIType.YARNTIMELINESERVICE
+TEZUI = OnClusterAppUIType.TEZUI
+APPLICATIONMASTER = OnClusterAppUIType.APPLICATIONMASTER
+JOBHISTORYSERVER = OnClusterAppUIType.JOBHISTORYSERVER
+RESOURCEMANAGER = OnClusterAppUIType.RESOURCEMANAGER
+OPEN = OnDemandCapacityReservationPreference.OPEN
+NONE = OnDemandCapacityReservationPreference.NONE
+USE_CAPACITY_RESERVATIONS_FIRST = OnDemandCapacityReservationUsageStrategy.USE_CAPACITY_RESERVATIONS_FIRST
+LOWEST_PRICE = OnDemandProvisioningAllocationStrategy.LOWEST_PRICE
+PRIORITIZED = OnDemandProvisioningAllocationStrategy.PRIORITIZED
+HTML = OutputNotebookFormat.HTML
+SHS = PersistentAppUIType.SHS
+TEZ = PersistentAppUIType.TEZ
+YTS = PersistentAppUIType.YTS
+SPREAD = PlacementGroupStrategy.SPREAD
+PARTITION = PlacementGroupStrategy.PARTITION
+CLUSTER = PlacementGroupStrategy.CLUSTER
+NONE = PlacementGroupStrategy.NONE
+SHS = ProfilerType.SHS
+TEZUI = ProfilerType.TEZUI
+YTS = ProfilerType.YTS
+OVERWRITE = ReconfigurationType.OVERWRITE
+MERGE = ReconfigurationType.MERGE
+SECURITY = RepoUpgradeOnBoot.SECURITY
+NONE = RepoUpgradeOnBoot.NONE
+TERMINATE_AT_INSTANCE_HOUR = ScaleDownBehavior.TERMINATE_AT_INSTANCE_HOUR
+TERMINATE_AT_TASK_COMPLETION = ScaleDownBehavior.TERMINATE_AT_TASK_COMPLETION
+DEFAULT = ScalingStrategy.DEFAULT
+ADVANCED = ScalingStrategy.ADVANCED
+CAPACITY_OPTIMIZED = SpotProvisioningAllocationStrategy.CAPACITY_OPTIMIZED
+PRICE_CAPACITY_OPTIMIZED = SpotProvisioningAllocationStrategy.PRICE_CAPACITY_OPTIMIZED
+LOWEST_PRICE = SpotProvisioningAllocationStrategy.LOWEST_PRICE
+DIVERSIFIED = SpotProvisioningAllocationStrategy.DIVERSIFIED
+CAPACITY_OPTIMIZED_PRIORITIZED = SpotProvisioningAllocationStrategy.CAPACITY_OPTIMIZED_PRIORITIZED
+SWITCH_TO_ON_DEMAND = SpotProvisioningTimeoutAction.SWITCH_TO_ON_DEMAND
+TERMINATE_CLUSTER = SpotProvisioningTimeoutAction.TERMINATE_CLUSTER
+SAMPLE_COUNT = Statistic.SAMPLE_COUNT
+AVERAGE = Statistic.AVERAGE
+SUM = Statistic.SUM
+MINIMUM = Statistic.MINIMUM
+MAXIMUM = Statistic.MAXIMUM
+SEND_INTERRUPT = StepCancellationOption.SEND_INTERRUPT
+TERMINATE_PROCESS = StepCancellationOption.TERMINATE_PROCESS
+PENDING = StepExecutionState.PENDING
+RUNNING = StepExecutionState.RUNNING
+CONTINUE = StepExecutionState.CONTINUE
+COMPLETED = StepExecutionState.COMPLETED
+CANCELLED = StepExecutionState.CANCELLED
+FAILED = StepExecutionState.FAILED
+INTERRUPTED = StepExecutionState.INTERRUPTED
+PENDING = StepState.PENDING
+CANCEL_PENDING = StepState.CANCEL_PENDING
+RUNNING = StepState.RUNNING
+COMPLETED = StepState.COMPLETED
+CANCELLED = StepState.CANCELLED
+FAILED = StepState.FAILED
+INTERRUPTED = StepState.INTERRUPTED
+NONE = StepStateChangeReasonCode.NONE
+NONE = Unit.NONE
+SECONDS = Unit.SECONDS
+MICRO_SECONDS = Unit.MICRO_SECONDS
+MILLI_SECONDS = Unit.MILLI_SECONDS
+BYTES = Unit.BYTES
+KILO_BYTES = Unit.KILO_BYTES
+MEGA_BYTES = Unit.MEGA_BYTES
+GIGA_BYTES = Unit.GIGA_BYTES
+TERA_BYTES = Unit.TERA_BYTES
+BITS = Unit.BITS
+KILO_BITS = Unit.KILO_BITS
+MEGA_BITS = Unit.MEGA_BITS
+GIGA_BITS = Unit.GIGA_BITS
+TERA_BITS = Unit.TERA_BITS
+PERCENT = Unit.PERCENT
+COUNT = Unit.COUNT
+BYTES_PER_SECOND = Unit.BYTES_PER_SECOND
+KILO_BYTES_PER_SECOND = Unit.KILO_BYTES_PER_SECOND
+MEGA_BYTES_PER_SECOND = Unit.MEGA_BYTES_PER_SECOND
+GIGA_BYTES_PER_SECOND = Unit.GIGA_BYTES_PER_SECOND
+TERA_BYTES_PER_SECOND = Unit.TERA_BYTES_PER_SECOND
+BITS_PER_SECOND = Unit.BITS_PER_SECOND
+KILO_BITS_PER_SECOND = Unit.KILO_BITS_PER_SECOND
+MEGA_BITS_PER_SECOND = Unit.MEGA_BITS_PER_SECOND
+GIGA_BITS_PER_SECOND = Unit.GIGA_BITS_PER_SECOND
+TERA_BITS_PER_SECOND = Unit.TERA_BITS_PER_SECOND
+COUNT_PER_SECOND = Unit.COUNT_PER_SECOND
 
 
 @dataclass
@@ -195,7 +834,7 @@ class CloudWatchAlarmDefinition:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    comparison_operator: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    comparison_operator: Optional[Union[str, ComparisonOperator, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dimensions: Optional[list[MetricDimension]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -207,11 +846,11 @@ class CloudWatchAlarmDefinition:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     period: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    statistic: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    statistic: Optional[Union[str, Statistic, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     threshold: Optional[Union[float, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    unit: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    unit: Optional[Union[str, Unit, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -332,7 +971,7 @@ class ComputeLimits:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     minimum_capacity_units: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    unit_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    unit_type: Optional[Union[str, ComputeLimitsUnitType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -772,7 +1411,7 @@ class InstanceGroupConfig:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    market: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    market: Optional[Union[str, MarketType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -1379,7 +2018,7 @@ class ManagedScalingPolicy:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compute_limits: Optional[ComputeLimits] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    scaling_strategy: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    scaling_strategy: Optional[Union[str, ScalingStrategy, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     utilization_performance_index: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
@@ -1466,11 +2105,11 @@ class OnDemandCapacityReservationOptions:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    capacity_reservation_preference: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    capacity_reservation_preference: Optional[Union[str, OnDemandCapacityReservationPreference, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity_reservation_resource_group_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    usage_strategy: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    usage_strategy: Optional[Union[str, OnDemandCapacityReservationUsageStrategy, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1517,7 +2156,7 @@ class OnDemandProvisioningSpecification:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    allocation_strategy: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    allocation_strategy: Optional[Union[str, OnDemandProvisioningAllocationStrategy, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity_reservation_options: Optional[OnDemandCapacityReservationOptions] = None
 
@@ -1555,7 +2194,7 @@ class OnDemandResizingSpecification:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    allocation_strategy: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    allocation_strategy: Optional[Union[str, OnDemandProvisioningAllocationStrategy, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity_reservation_options: Optional[OnDemandCapacityReservationOptions] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1606,9 +2245,9 @@ class PlacementGroupConfig:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    instance_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    instance_role: Optional[Union[str, InstanceRoleType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    placement_strategy: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    placement_strategy: Optional[Union[str, PlacementGroupStrategy, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1669,7 +2308,7 @@ class ScalingAction:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    market: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    market: Optional[Union[str, MarketType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     simple_scaling_policy_configuration: Optional[SimpleScalingPolicyConfiguration] = None
 
@@ -1872,7 +2511,7 @@ class SimpleScalingPolicyConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    adjustment_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    adjustment_type: Optional[Union[str, AdjustmentType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cool_down: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1923,11 +2562,11 @@ class SpotProvisioningSpecification:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    allocation_strategy: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    allocation_strategy: Optional[Union[str, SpotProvisioningAllocationStrategy, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     block_duration_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    timeout_action: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    timeout_action: Optional[Union[str, SpotProvisioningTimeoutAction, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout_duration_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
@@ -1987,7 +2626,7 @@ class SpotResizingSpecification:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    allocation_strategy: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    allocation_strategy: Optional[Union[str, SpotProvisioningAllocationStrategy, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout_duration_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
@@ -2025,7 +2664,7 @@ class StepConfig:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    action_on_failure: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    action_on_failure: Optional[Union[str, ActionOnFailure, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hadoop_jar_step: Optional[HadoopJarStepConfig] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -2182,7 +2821,7 @@ class Cluster(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     release_label: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    scale_down_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    scale_down_behavior: Optional[Union[str, ScaleDownBehavior, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     security_configuration: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
@@ -2880,11 +3519,11 @@ class OnDemandCapacityReservationOptions:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    capacity_reservation_preference: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    capacity_reservation_preference: Optional[Union[str, OnDemandCapacityReservationPreference, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity_reservation_resource_group_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    usage_strategy: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    usage_strategy: Optional[Union[str, OnDemandCapacityReservationUsageStrategy, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -2931,7 +3570,7 @@ class OnDemandProvisioningSpecification:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    allocation_strategy: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    allocation_strategy: Optional[Union[str, OnDemandProvisioningAllocationStrategy, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity_reservation_options: Optional[OnDemandCapacityReservationOptions] = None
 
@@ -2969,7 +3608,7 @@ class OnDemandResizingSpecification:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    allocation_strategy: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    allocation_strategy: Optional[Union[str, OnDemandProvisioningAllocationStrategy, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity_reservation_options: Optional[OnDemandCapacityReservationOptions] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -3020,11 +3659,11 @@ class SpotProvisioningSpecification:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    allocation_strategy: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    allocation_strategy: Optional[Union[str, SpotProvisioningAllocationStrategy, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     block_duration_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    timeout_action: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    timeout_action: Optional[Union[str, SpotProvisioningTimeoutAction, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout_duration_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
@@ -3084,7 +3723,7 @@ class SpotResizingSpecification:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    allocation_strategy: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    allocation_strategy: Optional[Union[str, SpotProvisioningAllocationStrategy, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout_duration_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
@@ -3190,7 +3829,7 @@ class InstanceFleetConfig(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     cluster_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    instance_fleet_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    instance_fleet_type: Optional[Union[str, InstanceFleetType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     instance_type_configs: Optional[list[InstanceTypeConfig]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
@@ -3359,7 +3998,7 @@ class CloudWatchAlarmDefinition:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    comparison_operator: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    comparison_operator: Optional[Union[str, ComparisonOperator, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dimensions: Optional[list[MetricDimension]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -3371,11 +4010,11 @@ class CloudWatchAlarmDefinition:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     period: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    statistic: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    statistic: Optional[Union[str, Statistic, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     threshold: Optional[Union[float, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    unit: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    unit: Optional[Union[str, Unit, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -3653,7 +4292,7 @@ class ScalingAction:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    market: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    market: Optional[Union[str, MarketType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     simple_scaling_policy_configuration: Optional[SimpleScalingPolicyConfiguration] = None
 
@@ -3818,7 +4457,7 @@ class SimpleScalingPolicyConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    adjustment_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    adjustment_type: Optional[Union[str, AdjustmentType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cool_down: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -3947,13 +4586,13 @@ class InstanceGroupConfig(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     instance_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    instance_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    instance_role: Optional[Union[str, InstanceRoleType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     instance_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     job_flow_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    market: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    market: Optional[Union[str, MarketType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -4264,7 +4903,7 @@ class Step(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     job_flow_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    action_on_failure: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    action_on_failure: Optional[Union[str, ActionOnFailure, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     hadoop_jar_step: Optional[HadoopJarStepConfig] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
@@ -4359,7 +4998,7 @@ class Studio(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    idc_user_assignment: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    idc_user_assignment: Optional[Union[str, IdcUserAssignment, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     service_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
@@ -4371,7 +5010,7 @@ class Studio(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     idp_relay_state_parameter_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    auth_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    auth_mode: Optional[Union[str, AuthMode, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso

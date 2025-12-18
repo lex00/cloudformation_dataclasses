@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:13
+  Generated: 2025-12-17 16:59:34
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Athena
@@ -23,6 +23,286 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class AuthenticationType:
+    """AuthenticationType enum values."""
+
+    DIRECTORY_IDENTITY = "DIRECTORY_IDENTITY"
+
+
+class CalculationExecutionState:
+    """CalculationExecutionState enum values."""
+
+    CREATING = "CREATING"
+    CREATED = "CREATED"
+    QUEUED = "QUEUED"
+    RUNNING = "RUNNING"
+    CANCELING = "CANCELING"
+    CANCELED = "CANCELED"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
+
+
+class CapacityAllocationStatus:
+    """CapacityAllocationStatus enum values."""
+
+    PENDING = "PENDING"
+    SUCCEEDED = "SUCCEEDED"
+    FAILED = "FAILED"
+
+
+class CapacityReservationStatus:
+    """CapacityReservationStatus enum values."""
+
+    PENDING = "PENDING"
+    ACTIVE = "ACTIVE"
+    CANCELLING = "CANCELLING"
+    CANCELLED = "CANCELLED"
+    FAILED = "FAILED"
+    UPDATE_PENDING = "UPDATE_PENDING"
+
+
+class ColumnNullable:
+    """ColumnNullable enum values."""
+
+    NOT_NULL = "NOT_NULL"
+    NULLABLE = "NULLABLE"
+    UNKNOWN = "UNKNOWN"
+
+
+class ConnectionType:
+    """ConnectionType enum values."""
+
+    DYNAMODB = "DYNAMODB"
+    MYSQL = "MYSQL"
+    POSTGRESQL = "POSTGRESQL"
+    REDSHIFT = "REDSHIFT"
+    ORACLE = "ORACLE"
+    SYNAPSE = "SYNAPSE"
+    SQLSERVER = "SQLSERVER"
+    DB2 = "DB2"
+    OPENSEARCH = "OPENSEARCH"
+    BIGQUERY = "BIGQUERY"
+    GOOGLECLOUDSTORAGE = "GOOGLECLOUDSTORAGE"
+    HBASE = "HBASE"
+    DOCUMENTDB = "DOCUMENTDB"
+    CMDB = "CMDB"
+    TPCDS = "TPCDS"
+    TIMESTREAM = "TIMESTREAM"
+    SAPHANA = "SAPHANA"
+    SNOWFLAKE = "SNOWFLAKE"
+    DATALAKEGEN2 = "DATALAKEGEN2"
+    DB2AS400 = "DB2AS400"
+
+
+class DataCatalogStatus:
+    """DataCatalogStatus enum values."""
+
+    CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS"
+    CREATE_COMPLETE = "CREATE_COMPLETE"
+    CREATE_FAILED = "CREATE_FAILED"
+    CREATE_FAILED_CLEANUP_IN_PROGRESS = "CREATE_FAILED_CLEANUP_IN_PROGRESS"
+    CREATE_FAILED_CLEANUP_COMPLETE = "CREATE_FAILED_CLEANUP_COMPLETE"
+    CREATE_FAILED_CLEANUP_FAILED = "CREATE_FAILED_CLEANUP_FAILED"
+    DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
+    DELETE_COMPLETE = "DELETE_COMPLETE"
+    DELETE_FAILED = "DELETE_FAILED"
+
+
+class DataCatalogType:
+    """DataCatalogType enum values."""
+
+    LAMBDA = "LAMBDA"
+    GLUE = "GLUE"
+    HIVE = "HIVE"
+    FEDERATED = "FEDERATED"
+
+
+class EncryptionOption:
+    """EncryptionOption enum values."""
+
+    SSE_S3 = "SSE_S3"
+    SSE_KMS = "SSE_KMS"
+    CSE_KMS = "CSE_KMS"
+
+
+class ExecutorState:
+    """ExecutorState enum values."""
+
+    CREATING = "CREATING"
+    CREATED = "CREATED"
+    REGISTERED = "REGISTERED"
+    TERMINATING = "TERMINATING"
+    TERMINATED = "TERMINATED"
+    FAILED = "FAILED"
+
+
+class ExecutorType:
+    """ExecutorType enum values."""
+
+    COORDINATOR = "COORDINATOR"
+    GATEWAY = "GATEWAY"
+    WORKER = "WORKER"
+
+
+class NotebookType:
+    """NotebookType enum values."""
+
+    IPYNB = "IPYNB"
+
+
+class QueryExecutionState:
+    """QueryExecutionState enum values."""
+
+    QUEUED = "QUEUED"
+    RUNNING = "RUNNING"
+    SUCCEEDED = "SUCCEEDED"
+    FAILED = "FAILED"
+    CANCELLED = "CANCELLED"
+
+
+class QueryResultType:
+    """QueryResultType enum values."""
+
+    DATA_MANIFEST = "DATA_MANIFEST"
+    DATA_ROWS = "DATA_ROWS"
+
+
+class S3AclOption:
+    """S3AclOption enum values."""
+
+    BUCKET_OWNER_FULL_CONTROL = "BUCKET_OWNER_FULL_CONTROL"
+
+
+class SessionState:
+    """SessionState enum values."""
+
+    CREATING = "CREATING"
+    CREATED = "CREATED"
+    IDLE = "IDLE"
+    BUSY = "BUSY"
+    TERMINATING = "TERMINATING"
+    TERMINATED = "TERMINATED"
+    DEGRADED = "DEGRADED"
+    FAILED = "FAILED"
+
+
+class StatementType:
+    """StatementType enum values."""
+
+    DDL = "DDL"
+    DML = "DML"
+    UTILITY = "UTILITY"
+
+
+class ThrottleReason:
+    """ThrottleReason enum values."""
+
+    CONCURRENT_QUERY_LIMIT_EXCEEDED = "CONCURRENT_QUERY_LIMIT_EXCEEDED"
+
+
+class WorkGroupState:
+    """WorkGroupState enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+# Convenient aliases for enum values
+DIRECTORY_IDENTITY = AuthenticationType.DIRECTORY_IDENTITY
+CREATING = CalculationExecutionState.CREATING
+CREATED = CalculationExecutionState.CREATED
+QUEUED = CalculationExecutionState.QUEUED
+RUNNING = CalculationExecutionState.RUNNING
+CANCELING = CalculationExecutionState.CANCELING
+CANCELED = CalculationExecutionState.CANCELED
+COMPLETED = CalculationExecutionState.COMPLETED
+FAILED = CalculationExecutionState.FAILED
+PENDING = CapacityAllocationStatus.PENDING
+SUCCEEDED = CapacityAllocationStatus.SUCCEEDED
+FAILED = CapacityAllocationStatus.FAILED
+PENDING = CapacityReservationStatus.PENDING
+ACTIVE = CapacityReservationStatus.ACTIVE
+CANCELLING = CapacityReservationStatus.CANCELLING
+CANCELLED = CapacityReservationStatus.CANCELLED
+FAILED = CapacityReservationStatus.FAILED
+UPDATE_PENDING = CapacityReservationStatus.UPDATE_PENDING
+NOT_NULL = ColumnNullable.NOT_NULL
+NULLABLE = ColumnNullable.NULLABLE
+UNKNOWN = ColumnNullable.UNKNOWN
+DYNAMODB = ConnectionType.DYNAMODB
+MYSQL = ConnectionType.MYSQL
+POSTGRESQL = ConnectionType.POSTGRESQL
+REDSHIFT = ConnectionType.REDSHIFT
+ORACLE = ConnectionType.ORACLE
+SYNAPSE = ConnectionType.SYNAPSE
+SQLSERVER = ConnectionType.SQLSERVER
+DB2 = ConnectionType.DB2
+OPENSEARCH = ConnectionType.OPENSEARCH
+BIGQUERY = ConnectionType.BIGQUERY
+GOOGLECLOUDSTORAGE = ConnectionType.GOOGLECLOUDSTORAGE
+HBASE = ConnectionType.HBASE
+DOCUMENTDB = ConnectionType.DOCUMENTDB
+CMDB = ConnectionType.CMDB
+TPCDS = ConnectionType.TPCDS
+TIMESTREAM = ConnectionType.TIMESTREAM
+SAPHANA = ConnectionType.SAPHANA
+SNOWFLAKE = ConnectionType.SNOWFLAKE
+DATALAKEGEN2 = ConnectionType.DATALAKEGEN2
+DB2AS400 = ConnectionType.DB2AS400
+CREATE_IN_PROGRESS = DataCatalogStatus.CREATE_IN_PROGRESS
+CREATE_COMPLETE = DataCatalogStatus.CREATE_COMPLETE
+CREATE_FAILED = DataCatalogStatus.CREATE_FAILED
+CREATE_FAILED_CLEANUP_IN_PROGRESS = DataCatalogStatus.CREATE_FAILED_CLEANUP_IN_PROGRESS
+CREATE_FAILED_CLEANUP_COMPLETE = DataCatalogStatus.CREATE_FAILED_CLEANUP_COMPLETE
+CREATE_FAILED_CLEANUP_FAILED = DataCatalogStatus.CREATE_FAILED_CLEANUP_FAILED
+DELETE_IN_PROGRESS = DataCatalogStatus.DELETE_IN_PROGRESS
+DELETE_COMPLETE = DataCatalogStatus.DELETE_COMPLETE
+DELETE_FAILED = DataCatalogStatus.DELETE_FAILED
+LAMBDA = DataCatalogType.LAMBDA
+GLUE = DataCatalogType.GLUE
+HIVE = DataCatalogType.HIVE
+FEDERATED = DataCatalogType.FEDERATED
+SSE_S3 = EncryptionOption.SSE_S3
+SSE_KMS = EncryptionOption.SSE_KMS
+CSE_KMS = EncryptionOption.CSE_KMS
+CREATING = ExecutorState.CREATING
+CREATED = ExecutorState.CREATED
+REGISTERED = ExecutorState.REGISTERED
+TERMINATING = ExecutorState.TERMINATING
+TERMINATED = ExecutorState.TERMINATED
+FAILED = ExecutorState.FAILED
+COORDINATOR = ExecutorType.COORDINATOR
+GATEWAY = ExecutorType.GATEWAY
+WORKER = ExecutorType.WORKER
+IPYNB = NotebookType.IPYNB
+QUEUED = QueryExecutionState.QUEUED
+RUNNING = QueryExecutionState.RUNNING
+SUCCEEDED = QueryExecutionState.SUCCEEDED
+FAILED = QueryExecutionState.FAILED
+CANCELLED = QueryExecutionState.CANCELLED
+DATA_MANIFEST = QueryResultType.DATA_MANIFEST
+DATA_ROWS = QueryResultType.DATA_ROWS
+BUCKET_OWNER_FULL_CONTROL = S3AclOption.BUCKET_OWNER_FULL_CONTROL
+CREATING = SessionState.CREATING
+CREATED = SessionState.CREATED
+IDLE = SessionState.IDLE
+BUSY = SessionState.BUSY
+TERMINATING = SessionState.TERMINATING
+TERMINATED = SessionState.TERMINATED
+DEGRADED = SessionState.DEGRADED
+FAILED = SessionState.FAILED
+DDL = StatementType.DDL
+DML = StatementType.DML
+UTILITY = StatementType.UTILITY
+CONCURRENT_QUERY_LIMIT_EXCEEDED = ThrottleReason.CONCURRENT_QUERY_LIMIT_EXCEEDED
+ENABLED = WorkGroupState.ENABLED
+DISABLED = WorkGroupState.DISABLED
 
 
 @dataclass
@@ -178,15 +458,15 @@ class DataCatalog(CloudFormationResource):
     resource_type: ClassVar[str] = "AWS::Athena::DataCatalog"
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    status: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    status: Optional[Union[str, DataCatalogStatus, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    type_: Optional[Union[str, DataCatalogType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     parameters: Optional[dict[str, str]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    connection_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    connection_type: Optional[Union[str, ConnectionType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     error: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
@@ -477,7 +757,7 @@ class AclConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ath"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    s3_acl_option: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    s3_acl_option: Optional[Union[str, S3AclOption, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -629,7 +909,7 @@ class EncryptionConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ath"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    encryption_option: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    encryption_option: Optional[Union[str, EncryptionOption, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -1238,7 +1518,7 @@ class WorkGroup(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    state: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    state: Optional[Union[str, WorkGroupState, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso

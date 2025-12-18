@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:35
+  Generated: 2025-12-17 16:59:38
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Redshift
@@ -23,6 +23,439 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class ActionType:
+    """ActionType enum values."""
+
+    RESTORE_CLUSTER = "restore-cluster"
+    RECOMMEND_NODE_CONFIG = "recommend-node-config"
+    RESIZE_CLUSTER = "resize-cluster"
+
+
+class ApplicationType:
+    """ApplicationType enum values."""
+
+    NONE = "None"
+    LAKEHOUSE = "Lakehouse"
+
+
+class AquaConfigurationStatus:
+    """AquaConfigurationStatus enum values."""
+
+    ENABLED = "enabled"
+    DISABLED = "disabled"
+    AUTO = "auto"
+
+
+class AquaStatus:
+    """AquaStatus enum values."""
+
+    ENABLED = "enabled"
+    DISABLED = "disabled"
+    APPLYING = "applying"
+
+
+class AuthorizationStatus:
+    """AuthorizationStatus enum values."""
+
+    AUTHORIZED = "Authorized"
+    REVOKING = "Revoking"
+
+
+class DataShareStatus:
+    """DataShareStatus enum values."""
+
+    ACTIVE = "ACTIVE"
+    PENDING_AUTHORIZATION = "PENDING_AUTHORIZATION"
+    AUTHORIZED = "AUTHORIZED"
+    DEAUTHORIZED = "DEAUTHORIZED"
+    REJECTED = "REJECTED"
+    AVAILABLE = "AVAILABLE"
+
+
+class DataShareStatusForConsumer:
+    """DataShareStatusForConsumer enum values."""
+
+    ACTIVE = "ACTIVE"
+    AVAILABLE = "AVAILABLE"
+
+
+class DataShareStatusForProducer:
+    """DataShareStatusForProducer enum values."""
+
+    ACTIVE = "ACTIVE"
+    AUTHORIZED = "AUTHORIZED"
+    PENDING_AUTHORIZATION = "PENDING_AUTHORIZATION"
+    DEAUTHORIZED = "DEAUTHORIZED"
+    REJECTED = "REJECTED"
+
+
+class DataShareType:
+    """DataShareType enum values."""
+
+    INTERNAL = "INTERNAL"
+
+
+class DescribeIntegrationsFilterName:
+    """DescribeIntegrationsFilterName enum values."""
+
+    INTEGRATION_ARN = "integration-arn"
+    SOURCE_ARN = "source-arn"
+    SOURCE_TYPES = "source-types"
+    STATUS = "status"
+
+
+class ImpactRankingType:
+    """ImpactRankingType enum values."""
+
+    HIGH = "HIGH"
+    MEDIUM = "MEDIUM"
+    LOW = "LOW"
+
+
+class LakehouseIdcRegistration:
+    """LakehouseIdcRegistration enum values."""
+
+    ASSOCIATE = "Associate"
+    DISASSOCIATE = "Disassociate"
+
+
+class LakehouseRegistration:
+    """LakehouseRegistration enum values."""
+
+    REGISTER = "Register"
+    DEREGISTER = "Deregister"
+
+
+class LogDestinationType:
+    """LogDestinationType enum values."""
+
+    S3 = "s3"
+    CLOUDWATCH = "cloudwatch"
+
+
+class Mode:
+    """Mode enum values."""
+
+    STANDARD = "standard"
+    HIGH_PERFORMANCE = "high-performance"
+
+
+class NamespaceRegistrationStatus:
+    """NamespaceRegistrationStatus enum values."""
+
+    REGISTERING = "Registering"
+    DEREGISTERING = "Deregistering"
+
+
+class NodeConfigurationOptionsFilterName:
+    """NodeConfigurationOptionsFilterName enum values."""
+
+    NODETYPE = "NodeType"
+    NUMBEROFNODES = "NumberOfNodes"
+    ESTIMATEDDISKUTILIZATIONPERCENT = "EstimatedDiskUtilizationPercent"
+    MODE = "Mode"
+
+
+class OperatorType:
+    """OperatorType enum values."""
+
+    EQ = "eq"
+    LT = "lt"
+    GT = "gt"
+    LE = "le"
+    GE = "ge"
+    IN = "in"
+    BETWEEN = "between"
+
+
+class ParameterApplyType:
+    """ParameterApplyType enum values."""
+
+    STATIC = "static"
+    DYNAMIC = "dynamic"
+
+
+class PartnerIntegrationStatus:
+    """PartnerIntegrationStatus enum values."""
+
+    ACTIVE = "Active"
+    INACTIVE = "Inactive"
+    RUNTIMEFAILURE = "RuntimeFailure"
+    CONNECTIONFAILURE = "ConnectionFailure"
+
+
+class RecommendedActionType:
+    """RecommendedActionType enum values."""
+
+    SQL = "SQL"
+    CLI = "CLI"
+
+
+class ReservedNodeExchangeActionType:
+    """ReservedNodeExchangeActionType enum values."""
+
+    RESTORE_CLUSTER = "restore-cluster"
+    RESIZE_CLUSTER = "resize-cluster"
+
+
+class ReservedNodeExchangeStatusType:
+    """ReservedNodeExchangeStatusType enum values."""
+
+    REQUESTED = "REQUESTED"
+    PENDING = "PENDING"
+    IN_PROGRESS = "IN_PROGRESS"
+    RETRYING = "RETRYING"
+    SUCCEEDED = "SUCCEEDED"
+    FAILED = "FAILED"
+
+
+class ReservedNodeOfferingType:
+    """ReservedNodeOfferingType enum values."""
+
+    REGULAR = "Regular"
+    UPGRADABLE = "Upgradable"
+
+
+class ScheduleState:
+    """ScheduleState enum values."""
+
+    MODIFYING = "MODIFYING"
+    ACTIVE = "ACTIVE"
+    FAILED = "FAILED"
+
+
+class ScheduledActionFilterName:
+    """ScheduledActionFilterName enum values."""
+
+    CLUSTER_IDENTIFIER = "cluster-identifier"
+    IAM_ROLE = "iam-role"
+
+
+class ScheduledActionState:
+    """ScheduledActionState enum values."""
+
+    ACTIVE = "ACTIVE"
+    DISABLED = "DISABLED"
+
+
+class ScheduledActionTypeValues:
+    """ScheduledActionTypeValues enum values."""
+
+    RESIZECLUSTER = "ResizeCluster"
+    PAUSECLUSTER = "PauseCluster"
+    RESUMECLUSTER = "ResumeCluster"
+
+
+class ServiceAuthorization:
+    """ServiceAuthorization enum values."""
+
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class SnapshotAttributeToSortBy:
+    """SnapshotAttributeToSortBy enum values."""
+
+    SOURCE_TYPE = "SOURCE_TYPE"
+    TOTAL_SIZE = "TOTAL_SIZE"
+    CREATE_TIME = "CREATE_TIME"
+
+
+class SortByOrder:
+    """SortByOrder enum values."""
+
+    ASC = "ASC"
+    DESC = "DESC"
+
+
+class SourceType:
+    """SourceType enum values."""
+
+    CLUSTER = "cluster"
+    CLUSTER_PARAMETER_GROUP = "cluster-parameter-group"
+    CLUSTER_SECURITY_GROUP = "cluster-security-group"
+    CLUSTER_SNAPSHOT = "cluster-snapshot"
+    SCHEDULED_ACTION = "scheduled-action"
+
+
+class TableRestoreStatusType:
+    """TableRestoreStatusType enum values."""
+
+    PENDING = "PENDING"
+    IN_PROGRESS = "IN_PROGRESS"
+    SUCCEEDED = "SUCCEEDED"
+    FAILED = "FAILED"
+    CANCELED = "CANCELED"
+
+
+class UsageLimitBreachAction:
+    """UsageLimitBreachAction enum values."""
+
+    LOG = "log"
+    EMIT_METRIC = "emit-metric"
+    DISABLE = "disable"
+
+
+class UsageLimitFeatureType:
+    """UsageLimitFeatureType enum values."""
+
+    SPECTRUM = "spectrum"
+    CONCURRENCY_SCALING = "concurrency-scaling"
+    CROSS_REGION_DATASHARING = "cross-region-datasharing"
+
+
+class UsageLimitLimitType:
+    """UsageLimitLimitType enum values."""
+
+    TIME = "time"
+    DATA_SCANNED = "data-scanned"
+
+
+class UsageLimitPeriod:
+    """UsageLimitPeriod enum values."""
+
+    DAILY = "daily"
+    WEEKLY = "weekly"
+    MONTHLY = "monthly"
+
+
+class ZeroETLIntegrationStatus:
+    """ZeroETLIntegrationStatus enum values."""
+
+    CREATING = "creating"
+    ACTIVE = "active"
+    MODIFYING = "modifying"
+    FAILED = "failed"
+    DELETING = "deleting"
+    SYNCING = "syncing"
+    NEEDS_ATTENTION = "needs_attention"
+
+
+# Convenient aliases for enum values
+RESTORE_CLUSTER = ActionType.RESTORE_CLUSTER
+RECOMMEND_NODE_CONFIG = ActionType.RECOMMEND_NODE_CONFIG
+RESIZE_CLUSTER = ActionType.RESIZE_CLUSTER
+NONE = ApplicationType.NONE
+LAKEHOUSE = ApplicationType.LAKEHOUSE
+ENABLED = AquaConfigurationStatus.ENABLED
+DISABLED = AquaConfigurationStatus.DISABLED
+AUTO = AquaConfigurationStatus.AUTO
+ENABLED = AquaStatus.ENABLED
+DISABLED = AquaStatus.DISABLED
+APPLYING = AquaStatus.APPLYING
+AUTHORIZED = AuthorizationStatus.AUTHORIZED
+REVOKING = AuthorizationStatus.REVOKING
+ACTIVE = DataShareStatus.ACTIVE
+PENDING_AUTHORIZATION = DataShareStatus.PENDING_AUTHORIZATION
+AUTHORIZED = DataShareStatus.AUTHORIZED
+DEAUTHORIZED = DataShareStatus.DEAUTHORIZED
+REJECTED = DataShareStatus.REJECTED
+AVAILABLE = DataShareStatus.AVAILABLE
+ACTIVE = DataShareStatusForConsumer.ACTIVE
+AVAILABLE = DataShareStatusForConsumer.AVAILABLE
+ACTIVE = DataShareStatusForProducer.ACTIVE
+AUTHORIZED = DataShareStatusForProducer.AUTHORIZED
+PENDING_AUTHORIZATION = DataShareStatusForProducer.PENDING_AUTHORIZATION
+DEAUTHORIZED = DataShareStatusForProducer.DEAUTHORIZED
+REJECTED = DataShareStatusForProducer.REJECTED
+INTERNAL = DataShareType.INTERNAL
+INTEGRATION_ARN = DescribeIntegrationsFilterName.INTEGRATION_ARN
+SOURCE_ARN = DescribeIntegrationsFilterName.SOURCE_ARN
+SOURCE_TYPES = DescribeIntegrationsFilterName.SOURCE_TYPES
+STATUS = DescribeIntegrationsFilterName.STATUS
+HIGH = ImpactRankingType.HIGH
+MEDIUM = ImpactRankingType.MEDIUM
+LOW = ImpactRankingType.LOW
+ASSOCIATE = LakehouseIdcRegistration.ASSOCIATE
+DISASSOCIATE = LakehouseIdcRegistration.DISASSOCIATE
+REGISTER = LakehouseRegistration.REGISTER
+DEREGISTER = LakehouseRegistration.DEREGISTER
+S3 = LogDestinationType.S3
+CLOUDWATCH = LogDestinationType.CLOUDWATCH
+STANDARD = Mode.STANDARD
+HIGH_PERFORMANCE = Mode.HIGH_PERFORMANCE
+REGISTERING = NamespaceRegistrationStatus.REGISTERING
+DEREGISTERING = NamespaceRegistrationStatus.DEREGISTERING
+NODETYPE = NodeConfigurationOptionsFilterName.NODETYPE
+NUMBEROFNODES = NodeConfigurationOptionsFilterName.NUMBEROFNODES
+ESTIMATEDDISKUTILIZATIONPERCENT = NodeConfigurationOptionsFilterName.ESTIMATEDDISKUTILIZATIONPERCENT
+MODE = NodeConfigurationOptionsFilterName.MODE
+EQ = OperatorType.EQ
+LT = OperatorType.LT
+GT = OperatorType.GT
+LE = OperatorType.LE
+GE = OperatorType.GE
+IN = OperatorType.IN
+BETWEEN = OperatorType.BETWEEN
+STATIC = ParameterApplyType.STATIC
+DYNAMIC = ParameterApplyType.DYNAMIC
+ACTIVE = PartnerIntegrationStatus.ACTIVE
+INACTIVE = PartnerIntegrationStatus.INACTIVE
+RUNTIMEFAILURE = PartnerIntegrationStatus.RUNTIMEFAILURE
+CONNECTIONFAILURE = PartnerIntegrationStatus.CONNECTIONFAILURE
+SQL = RecommendedActionType.SQL
+CLI = RecommendedActionType.CLI
+RESTORE_CLUSTER = ReservedNodeExchangeActionType.RESTORE_CLUSTER
+RESIZE_CLUSTER = ReservedNodeExchangeActionType.RESIZE_CLUSTER
+REQUESTED = ReservedNodeExchangeStatusType.REQUESTED
+PENDING = ReservedNodeExchangeStatusType.PENDING
+IN_PROGRESS = ReservedNodeExchangeStatusType.IN_PROGRESS
+RETRYING = ReservedNodeExchangeStatusType.RETRYING
+SUCCEEDED = ReservedNodeExchangeStatusType.SUCCEEDED
+FAILED = ReservedNodeExchangeStatusType.FAILED
+REGULAR = ReservedNodeOfferingType.REGULAR
+UPGRADABLE = ReservedNodeOfferingType.UPGRADABLE
+MODIFYING = ScheduleState.MODIFYING
+ACTIVE = ScheduleState.ACTIVE
+FAILED = ScheduleState.FAILED
+CLUSTER_IDENTIFIER = ScheduledActionFilterName.CLUSTER_IDENTIFIER
+IAM_ROLE = ScheduledActionFilterName.IAM_ROLE
+ACTIVE = ScheduledActionState.ACTIVE
+DISABLED = ScheduledActionState.DISABLED
+RESIZECLUSTER = ScheduledActionTypeValues.RESIZECLUSTER
+PAUSECLUSTER = ScheduledActionTypeValues.PAUSECLUSTER
+RESUMECLUSTER = ScheduledActionTypeValues.RESUMECLUSTER
+ENABLED = ServiceAuthorization.ENABLED
+DISABLED = ServiceAuthorization.DISABLED
+SOURCE_TYPE = SnapshotAttributeToSortBy.SOURCE_TYPE
+TOTAL_SIZE = SnapshotAttributeToSortBy.TOTAL_SIZE
+CREATE_TIME = SnapshotAttributeToSortBy.CREATE_TIME
+ASC = SortByOrder.ASC
+DESC = SortByOrder.DESC
+CLUSTER = SourceType.CLUSTER
+CLUSTER_PARAMETER_GROUP = SourceType.CLUSTER_PARAMETER_GROUP
+CLUSTER_SECURITY_GROUP = SourceType.CLUSTER_SECURITY_GROUP
+CLUSTER_SNAPSHOT = SourceType.CLUSTER_SNAPSHOT
+SCHEDULED_ACTION = SourceType.SCHEDULED_ACTION
+PENDING = TableRestoreStatusType.PENDING
+IN_PROGRESS = TableRestoreStatusType.IN_PROGRESS
+SUCCEEDED = TableRestoreStatusType.SUCCEEDED
+FAILED = TableRestoreStatusType.FAILED
+CANCELED = TableRestoreStatusType.CANCELED
+LOG = UsageLimitBreachAction.LOG
+EMIT_METRIC = UsageLimitBreachAction.EMIT_METRIC
+DISABLE = UsageLimitBreachAction.DISABLE
+SPECTRUM = UsageLimitFeatureType.SPECTRUM
+CONCURRENCY_SCALING = UsageLimitFeatureType.CONCURRENCY_SCALING
+CROSS_REGION_DATASHARING = UsageLimitFeatureType.CROSS_REGION_DATASHARING
+TIME = UsageLimitLimitType.TIME
+DATA_SCANNED = UsageLimitLimitType.DATA_SCANNED
+DAILY = UsageLimitPeriod.DAILY
+WEEKLY = UsageLimitPeriod.WEEKLY
+MONTHLY = UsageLimitPeriod.MONTHLY
+CREATING = ZeroETLIntegrationStatus.CREATING
+ACTIVE = ZeroETLIntegrationStatus.ACTIVE
+MODIFYING = ZeroETLIntegrationStatus.MODIFYING
+FAILED = ZeroETLIntegrationStatus.FAILED
+DELETING = ZeroETLIntegrationStatus.DELETING
+SYNCING = ZeroETLIntegrationStatus.SYNCING
+NEEDS_ATTENTION = ZeroETLIntegrationStatus.NEEDS_ATTENTION
 
 
 @dataclass

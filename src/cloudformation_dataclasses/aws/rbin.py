@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:34
+  Generated: 2025-12-17 16:59:38
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Rbin
@@ -23,6 +23,88 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class ConflictExceptionReason:
+    """ConflictExceptionReason enum values."""
+
+    INVALID_RULE_STATE = "INVALID_RULE_STATE"
+
+
+class LockState:
+    """LockState enum values."""
+
+    LOCKED = "locked"
+    PENDING_UNLOCK = "pending_unlock"
+    UNLOCKED = "unlocked"
+
+
+class ResourceNotFoundExceptionReason:
+    """ResourceNotFoundExceptionReason enum values."""
+
+    RULE_NOT_FOUND = "RULE_NOT_FOUND"
+
+
+class ResourceType:
+    """ResourceType enum values."""
+
+    EBS_SNAPSHOT = "EBS_SNAPSHOT"
+    EC2_IMAGE = "EC2_IMAGE"
+    EBS_VOLUME = "EBS_VOLUME"
+
+
+class RetentionPeriodUnit:
+    """RetentionPeriodUnit enum values."""
+
+    DAYS = "DAYS"
+
+
+class RuleStatus:
+    """RuleStatus enum values."""
+
+    PENDING = "pending"
+    AVAILABLE = "available"
+
+
+class ServiceQuotaExceededExceptionReason:
+    """ServiceQuotaExceededExceptionReason enum values."""
+
+    SERVICE_QUOTA_EXCEEDED = "SERVICE_QUOTA_EXCEEDED"
+
+
+class UnlockDelayUnit:
+    """UnlockDelayUnit enum values."""
+
+    DAYS = "DAYS"
+
+
+class ValidationExceptionReason:
+    """ValidationExceptionReason enum values."""
+
+    INVALID_PAGE_TOKEN = "INVALID_PAGE_TOKEN"
+    INVALID_PARAMETER_VALUE = "INVALID_PARAMETER_VALUE"
+
+
+# Convenient aliases for enum values
+INVALID_RULE_STATE = ConflictExceptionReason.INVALID_RULE_STATE
+LOCKED = LockState.LOCKED
+PENDING_UNLOCK = LockState.PENDING_UNLOCK
+UNLOCKED = LockState.UNLOCKED
+RULE_NOT_FOUND = ResourceNotFoundExceptionReason.RULE_NOT_FOUND
+EBS_SNAPSHOT = ResourceType.EBS_SNAPSHOT
+EC2_IMAGE = ResourceType.EC2_IMAGE
+EBS_VOLUME = ResourceType.EBS_VOLUME
+DAYS = RetentionPeriodUnit.DAYS
+PENDING = RuleStatus.PENDING
+AVAILABLE = RuleStatus.AVAILABLE
+SERVICE_QUOTA_EXCEEDED = ServiceQuotaExceededExceptionReason.SERVICE_QUOTA_EXCEEDED
+DAYS = UnlockDelayUnit.DAYS
+INVALID_PAGE_TOKEN = ValidationExceptionReason.INVALID_PAGE_TOKEN
+INVALID_PARAMETER_VALUE = ValidationExceptionReason.INVALID_PARAMETER_VALUE
 
 
 @dataclass
@@ -68,7 +150,7 @@ class RetentionPeriod:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rbi"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    retention_period_unit: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    retention_period_unit: Optional[Union[str, RetentionPeriodUnit, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retention_period_value: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
@@ -108,7 +190,7 @@ class UnlockDelay:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     unlock_delay_value: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    unlock_delay_unit: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    unlock_delay_unit: Optional[Union[str, UnlockDelayUnit, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""

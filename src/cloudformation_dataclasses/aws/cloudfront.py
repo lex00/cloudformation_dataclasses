@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:15
+  Generated: 2025-12-17 16:59:35
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CloudFront
@@ -25,12 +25,578 @@ from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class CachePolicyCookieBehavior:
+    """CachePolicyCookieBehavior enum values."""
+
+    NONE = "none"
+    WHITELIST = "whitelist"
+    ALLEXCEPT = "allExcept"
+    ALL = "all"
+
+
+class CachePolicyHeaderBehavior:
+    """CachePolicyHeaderBehavior enum values."""
+
+    NONE = "none"
+    WHITELIST = "whitelist"
+
+
+class CachePolicyQueryStringBehavior:
+    """CachePolicyQueryStringBehavior enum values."""
+
+    NONE = "none"
+    WHITELIST = "whitelist"
+    ALLEXCEPT = "allExcept"
+    ALL = "all"
+
+
+class CachePolicyType:
+    """CachePolicyType enum values."""
+
+    MANAGED = "managed"
+    CUSTOM = "custom"
+
+
+class CertificateSource:
+    """CertificateSource enum values."""
+
+    CLOUDFRONT = "cloudfront"
+    IAM = "iam"
+    ACM = "acm"
+
+
+class CertificateTransparencyLoggingPreference:
+    """CertificateTransparencyLoggingPreference enum values."""
+
+    ENABLED = "enabled"
+    DISABLED = "disabled"
+
+
+class ConnectionMode:
+    """ConnectionMode enum values."""
+
+    DIRECT = "direct"
+    TENANT_ONLY = "tenant-only"
+
+
+class ContinuousDeploymentPolicyType:
+    """ContinuousDeploymentPolicyType enum values."""
+
+    SINGLEWEIGHT = "SingleWeight"
+    SINGLEHEADER = "SingleHeader"
+
+
+class CustomizationActionType:
+    """CustomizationActionType enum values."""
+
+    OVERRIDE = "override"
+    DISABLE = "disable"
+
+
+class DistributionResourceType:
+    """DistributionResourceType enum values."""
+
+    DISTRIBUTION = "distribution"
+    DISTRIBUTION_TENANT = "distribution-tenant"
+
+
+class DnsConfigurationStatus:
+    """DnsConfigurationStatus enum values."""
+
+    VALID_CONFIGURATION = "valid-configuration"
+    INVALID_CONFIGURATION = "invalid-configuration"
+    UNKNOWN_CONFIGURATION = "unknown-configuration"
+
+
+class DomainStatus:
+    """DomainStatus enum values."""
+
+    ACTIVE = "active"
+    INACTIVE = "inactive"
+
+
+class EventType:
+    """EventType enum values."""
+
+    VIEWER_REQUEST = "viewer-request"
+    VIEWER_RESPONSE = "viewer-response"
+    ORIGIN_REQUEST = "origin-request"
+    ORIGIN_RESPONSE = "origin-response"
+
+
+class Format:
+    """Format enum values."""
+
+    URLENCODED = "URLEncoded"
+
+
+class FrameOptionsList:
+    """FrameOptionsList enum values."""
+
+    DENY = "DENY"
+    SAMEORIGIN = "SAMEORIGIN"
+
+
+class FunctionRuntime:
+    """FunctionRuntime enum values."""
+
+    CLOUDFRONT_JS_1_0 = "cloudfront-js-1.0"
+    CLOUDFRONT_JS_2_0 = "cloudfront-js-2.0"
+
+
+class FunctionStage:
+    """FunctionStage enum values."""
+
+    DEVELOPMENT = "DEVELOPMENT"
+    LIVE = "LIVE"
+
+
+class GeoRestrictionType:
+    """GeoRestrictionType enum values."""
+
+    BLACKLIST = "blacklist"
+    WHITELIST = "whitelist"
+    NONE = "none"
+
+
+class HttpVersion:
+    """HttpVersion enum values."""
+
+    HTTP1_1 = "http1.1"
+    HTTP2 = "http2"
+    HTTP3 = "http3"
+    HTTP2AND3 = "http2and3"
+
+
+class ICPRecordalStatus:
+    """ICPRecordalStatus enum values."""
+
+    APPROVED = "APPROVED"
+    SUSPENDED = "SUSPENDED"
+    PENDING = "PENDING"
+
+
+class ImportSourceType:
+    """ImportSourceType enum values."""
+
+    S3 = "S3"
+
+
+class IpAddressType:
+    """IpAddressType enum values."""
+
+    IPV4 = "ipv4"
+    IPV6 = "ipv6"
+    DUALSTACK = "dualstack"
+
+
+class IpamCidrStatus:
+    """IpamCidrStatus enum values."""
+
+    PROVISIONED = "provisioned"
+    FAILED_PROVISION = "failed-provision"
+    PROVISIONING = "provisioning"
+    DEPROVISIONED = "deprovisioned"
+    FAILED_DEPROVISION = "failed-deprovision"
+    DEPROVISIONING = "deprovisioning"
+    ADVERTISED = "advertised"
+    FAILED_ADVERTISE = "failed-advertise"
+    ADVERTISING = "advertising"
+    WITHDRAWN = "withdrawn"
+    FAILED_WITHDRAW = "failed-withdraw"
+    WITHDRAWING = "withdrawing"
+
+
+class ItemSelection:
+    """ItemSelection enum values."""
+
+    NONE = "none"
+    WHITELIST = "whitelist"
+    ALL = "all"
+
+
+class ManagedCertificateStatus:
+    """ManagedCertificateStatus enum values."""
+
+    PENDING_VALIDATION = "pending-validation"
+    ISSUED = "issued"
+    INACTIVE = "inactive"
+    EXPIRED = "expired"
+    VALIDATION_TIMED_OUT = "validation-timed-out"
+    REVOKED = "revoked"
+    FAILED = "failed"
+
+
+class Method:
+    """Method enum values."""
+
+    GET = "GET"
+    HEAD = "HEAD"
+    POST = "POST"
+    PUT = "PUT"
+    PATCH = "PATCH"
+    OPTIONS = "OPTIONS"
+    DELETE = "DELETE"
+
+
+class MinimumProtocolVersion:
+    """MinimumProtocolVersion enum values."""
+
+    SSLV3 = "SSLv3"
+    TLSV1 = "TLSv1"
+    TLSV1_2016 = "TLSv1_2016"
+    TLSV1_1_2016 = "TLSv1.1_2016"
+    TLSV1_2_2018 = "TLSv1.2_2018"
+    TLSV1_2_2019 = "TLSv1.2_2019"
+    TLSV1_2_2021 = "TLSv1.2_2021"
+    TLSV1_3_2025 = "TLSv1.3_2025"
+    TLSV1_2_2025 = "TLSv1.2_2025"
+
+
+class OriginAccessControlOriginTypes:
+    """OriginAccessControlOriginTypes enum values."""
+
+    S3 = "s3"
+    MEDIASTORE = "mediastore"
+    MEDIAPACKAGEV2 = "mediapackagev2"
+    LAMBDA = "lambda"
+
+
+class OriginAccessControlSigningBehaviors:
+    """OriginAccessControlSigningBehaviors enum values."""
+
+    NEVER = "never"
+    ALWAYS = "always"
+    NO_OVERRIDE = "no-override"
+
+
+class OriginAccessControlSigningProtocols:
+    """OriginAccessControlSigningProtocols enum values."""
+
+    SIGV4 = "sigv4"
+
+
+class OriginGroupSelectionCriteria:
+    """OriginGroupSelectionCriteria enum values."""
+
+    DEFAULT = "default"
+    MEDIA_QUALITY_BASED = "media-quality-based"
+
+
+class OriginProtocolPolicy:
+    """OriginProtocolPolicy enum values."""
+
+    HTTP_ONLY = "http-only"
+    MATCH_VIEWER = "match-viewer"
+    HTTPS_ONLY = "https-only"
+
+
+class OriginRequestPolicyCookieBehavior:
+    """OriginRequestPolicyCookieBehavior enum values."""
+
+    NONE = "none"
+    WHITELIST = "whitelist"
+    ALL = "all"
+    ALLEXCEPT = "allExcept"
+
+
+class OriginRequestPolicyHeaderBehavior:
+    """OriginRequestPolicyHeaderBehavior enum values."""
+
+    NONE = "none"
+    WHITELIST = "whitelist"
+    ALLVIEWER = "allViewer"
+    ALLVIEWERANDWHITELISTCLOUDFRONT = "allViewerAndWhitelistCloudFront"
+    ALLEXCEPT = "allExcept"
+
+
+class OriginRequestPolicyQueryStringBehavior:
+    """OriginRequestPolicyQueryStringBehavior enum values."""
+
+    NONE = "none"
+    WHITELIST = "whitelist"
+    ALL = "all"
+    ALLEXCEPT = "allExcept"
+
+
+class OriginRequestPolicyType:
+    """OriginRequestPolicyType enum values."""
+
+    MANAGED = "managed"
+    CUSTOM = "custom"
+
+
+class PriceClass:
+    """PriceClass enum values."""
+
+    PRICECLASS_100 = "PriceClass_100"
+    PRICECLASS_200 = "PriceClass_200"
+    PRICECLASS_ALL = "PriceClass_All"
+    NONE = "None"
+
+
+class RealtimeMetricsSubscriptionStatus:
+    """RealtimeMetricsSubscriptionStatus enum values."""
+
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class ReferrerPolicyList:
+    """ReferrerPolicyList enum values."""
+
+    NO_REFERRER = "no-referrer"
+    NO_REFERRER_WHEN_DOWNGRADE = "no-referrer-when-downgrade"
+    ORIGIN = "origin"
+    ORIGIN_WHEN_CROSS_ORIGIN = "origin-when-cross-origin"
+    SAME_ORIGIN = "same-origin"
+    STRICT_ORIGIN = "strict-origin"
+    STRICT_ORIGIN_WHEN_CROSS_ORIGIN = "strict-origin-when-cross-origin"
+    UNSAFE_URL = "unsafe-url"
+
+
+class ResponseHeadersPolicyAccessControlAllowMethodsValues:
+    """ResponseHeadersPolicyAccessControlAllowMethodsValues enum values."""
+
+    GET = "GET"
+    POST = "POST"
+    OPTIONS = "OPTIONS"
+    PUT = "PUT"
+    DELETE = "DELETE"
+    PATCH = "PATCH"
+    HEAD = "HEAD"
+    ALL = "ALL"
+
+
+class ResponseHeadersPolicyType:
+    """ResponseHeadersPolicyType enum values."""
+
+    MANAGED = "managed"
+    CUSTOM = "custom"
+
+
+class SSLSupportMethod:
+    """SSLSupportMethod enum values."""
+
+    SNI_ONLY = "sni-only"
+    VIP = "vip"
+    STATIC_IP = "static-ip"
+
+
+class SslProtocol:
+    """SslProtocol enum values."""
+
+    SSLV3 = "SSLv3"
+    TLSV1 = "TLSv1"
+    TLSV1_1 = "TLSv1.1"
+    TLSV1_2 = "TLSv1.2"
+
+
+class TrustStoreStatus:
+    """TrustStoreStatus enum values."""
+
+    PENDING = "pending"
+    ACTIVE = "active"
+    FAILED = "failed"
+
+
+class ValidationTokenHost:
+    """ValidationTokenHost enum values."""
+
+    CLOUDFRONT = "cloudfront"
+    SELF_HOSTED = "self-hosted"
+
+
+class ViewerMtlsMode:
+    """ViewerMtlsMode enum values."""
+
+    REQUIRED = "required"
+    OPTIONAL = "optional"
+
+
+class ViewerProtocolPolicy:
+    """ViewerProtocolPolicy enum values."""
+
+    ALLOW_ALL = "allow-all"
+    HTTPS_ONLY = "https-only"
+    REDIRECT_TO_HTTPS = "redirect-to-https"
+
+
+# Convenient aliases for enum values
+NONE = CachePolicyCookieBehavior.NONE
+WHITELIST = CachePolicyCookieBehavior.WHITELIST
+ALLEXCEPT = CachePolicyCookieBehavior.ALLEXCEPT
+ALL = CachePolicyCookieBehavior.ALL
+NONE = CachePolicyHeaderBehavior.NONE
+WHITELIST = CachePolicyHeaderBehavior.WHITELIST
+NONE = CachePolicyQueryStringBehavior.NONE
+WHITELIST = CachePolicyQueryStringBehavior.WHITELIST
+ALLEXCEPT = CachePolicyQueryStringBehavior.ALLEXCEPT
+ALL = CachePolicyQueryStringBehavior.ALL
+MANAGED = CachePolicyType.MANAGED
+CUSTOM = CachePolicyType.CUSTOM
+CLOUDFRONT = CertificateSource.CLOUDFRONT
+IAM = CertificateSource.IAM
+ACM = CertificateSource.ACM
+ENABLED = CertificateTransparencyLoggingPreference.ENABLED
+DISABLED = CertificateTransparencyLoggingPreference.DISABLED
+DIRECT = ConnectionMode.DIRECT
+TENANT_ONLY = ConnectionMode.TENANT_ONLY
+SINGLEWEIGHT = ContinuousDeploymentPolicyType.SINGLEWEIGHT
+SINGLEHEADER = ContinuousDeploymentPolicyType.SINGLEHEADER
+OVERRIDE = CustomizationActionType.OVERRIDE
+DISABLE = CustomizationActionType.DISABLE
+DISTRIBUTION = DistributionResourceType.DISTRIBUTION
+DISTRIBUTION_TENANT = DistributionResourceType.DISTRIBUTION_TENANT
+VALID_CONFIGURATION = DnsConfigurationStatus.VALID_CONFIGURATION
+INVALID_CONFIGURATION = DnsConfigurationStatus.INVALID_CONFIGURATION
+UNKNOWN_CONFIGURATION = DnsConfigurationStatus.UNKNOWN_CONFIGURATION
+ACTIVE = DomainStatus.ACTIVE
+INACTIVE = DomainStatus.INACTIVE
+VIEWER_REQUEST = EventType.VIEWER_REQUEST
+VIEWER_RESPONSE = EventType.VIEWER_RESPONSE
+ORIGIN_REQUEST = EventType.ORIGIN_REQUEST
+ORIGIN_RESPONSE = EventType.ORIGIN_RESPONSE
+URLENCODED = Format.URLENCODED
+DENY = FrameOptionsList.DENY
+SAMEORIGIN = FrameOptionsList.SAMEORIGIN
+CLOUDFRONT_JS_1_0 = FunctionRuntime.CLOUDFRONT_JS_1_0
+CLOUDFRONT_JS_2_0 = FunctionRuntime.CLOUDFRONT_JS_2_0
+DEVELOPMENT = FunctionStage.DEVELOPMENT
+LIVE = FunctionStage.LIVE
+BLACKLIST = GeoRestrictionType.BLACKLIST
+WHITELIST = GeoRestrictionType.WHITELIST
+NONE = GeoRestrictionType.NONE
+HTTP1_1 = HttpVersion.HTTP1_1
+HTTP2 = HttpVersion.HTTP2
+HTTP3 = HttpVersion.HTTP3
+HTTP2AND3 = HttpVersion.HTTP2AND3
+APPROVED = ICPRecordalStatus.APPROVED
+SUSPENDED = ICPRecordalStatus.SUSPENDED
+PENDING = ICPRecordalStatus.PENDING
+S3 = ImportSourceType.S3
+IPV4 = IpAddressType.IPV4
+IPV6 = IpAddressType.IPV6
+DUALSTACK = IpAddressType.DUALSTACK
+PROVISIONED = IpamCidrStatus.PROVISIONED
+FAILED_PROVISION = IpamCidrStatus.FAILED_PROVISION
+PROVISIONING = IpamCidrStatus.PROVISIONING
+DEPROVISIONED = IpamCidrStatus.DEPROVISIONED
+FAILED_DEPROVISION = IpamCidrStatus.FAILED_DEPROVISION
+DEPROVISIONING = IpamCidrStatus.DEPROVISIONING
+ADVERTISED = IpamCidrStatus.ADVERTISED
+FAILED_ADVERTISE = IpamCidrStatus.FAILED_ADVERTISE
+ADVERTISING = IpamCidrStatus.ADVERTISING
+WITHDRAWN = IpamCidrStatus.WITHDRAWN
+FAILED_WITHDRAW = IpamCidrStatus.FAILED_WITHDRAW
+WITHDRAWING = IpamCidrStatus.WITHDRAWING
+NONE = ItemSelection.NONE
+WHITELIST = ItemSelection.WHITELIST
+ALL = ItemSelection.ALL
+PENDING_VALIDATION = ManagedCertificateStatus.PENDING_VALIDATION
+ISSUED = ManagedCertificateStatus.ISSUED
+INACTIVE = ManagedCertificateStatus.INACTIVE
+EXPIRED = ManagedCertificateStatus.EXPIRED
+VALIDATION_TIMED_OUT = ManagedCertificateStatus.VALIDATION_TIMED_OUT
+REVOKED = ManagedCertificateStatus.REVOKED
+FAILED = ManagedCertificateStatus.FAILED
+GET = Method.GET
+HEAD = Method.HEAD
+POST = Method.POST
+PUT = Method.PUT
+PATCH = Method.PATCH
+OPTIONS = Method.OPTIONS
+DELETE = Method.DELETE
+SSLV3 = MinimumProtocolVersion.SSLV3
+TLSV1 = MinimumProtocolVersion.TLSV1
+TLSV1_2016 = MinimumProtocolVersion.TLSV1_2016
+TLSV1_1_2016 = MinimumProtocolVersion.TLSV1_1_2016
+TLSV1_2_2018 = MinimumProtocolVersion.TLSV1_2_2018
+TLSV1_2_2019 = MinimumProtocolVersion.TLSV1_2_2019
+TLSV1_2_2021 = MinimumProtocolVersion.TLSV1_2_2021
+TLSV1_3_2025 = MinimumProtocolVersion.TLSV1_3_2025
+TLSV1_2_2025 = MinimumProtocolVersion.TLSV1_2_2025
+S3 = OriginAccessControlOriginTypes.S3
+MEDIASTORE = OriginAccessControlOriginTypes.MEDIASTORE
+MEDIAPACKAGEV2 = OriginAccessControlOriginTypes.MEDIAPACKAGEV2
+LAMBDA = OriginAccessControlOriginTypes.LAMBDA
+NEVER = OriginAccessControlSigningBehaviors.NEVER
+ALWAYS = OriginAccessControlSigningBehaviors.ALWAYS
+NO_OVERRIDE = OriginAccessControlSigningBehaviors.NO_OVERRIDE
+SIGV4 = OriginAccessControlSigningProtocols.SIGV4
+DEFAULT = OriginGroupSelectionCriteria.DEFAULT
+MEDIA_QUALITY_BASED = OriginGroupSelectionCriteria.MEDIA_QUALITY_BASED
+HTTP_ONLY = OriginProtocolPolicy.HTTP_ONLY
+MATCH_VIEWER = OriginProtocolPolicy.MATCH_VIEWER
+HTTPS_ONLY = OriginProtocolPolicy.HTTPS_ONLY
+NONE = OriginRequestPolicyCookieBehavior.NONE
+WHITELIST = OriginRequestPolicyCookieBehavior.WHITELIST
+ALL = OriginRequestPolicyCookieBehavior.ALL
+ALLEXCEPT = OriginRequestPolicyCookieBehavior.ALLEXCEPT
+NONE = OriginRequestPolicyHeaderBehavior.NONE
+WHITELIST = OriginRequestPolicyHeaderBehavior.WHITELIST
+ALLVIEWER = OriginRequestPolicyHeaderBehavior.ALLVIEWER
+ALLVIEWERANDWHITELISTCLOUDFRONT = OriginRequestPolicyHeaderBehavior.ALLVIEWERANDWHITELISTCLOUDFRONT
+ALLEXCEPT = OriginRequestPolicyHeaderBehavior.ALLEXCEPT
+NONE = OriginRequestPolicyQueryStringBehavior.NONE
+WHITELIST = OriginRequestPolicyQueryStringBehavior.WHITELIST
+ALL = OriginRequestPolicyQueryStringBehavior.ALL
+ALLEXCEPT = OriginRequestPolicyQueryStringBehavior.ALLEXCEPT
+MANAGED = OriginRequestPolicyType.MANAGED
+CUSTOM = OriginRequestPolicyType.CUSTOM
+PRICECLASS_100 = PriceClass.PRICECLASS_100
+PRICECLASS_200 = PriceClass.PRICECLASS_200
+PRICECLASS_ALL = PriceClass.PRICECLASS_ALL
+NONE = PriceClass.NONE
+ENABLED = RealtimeMetricsSubscriptionStatus.ENABLED
+DISABLED = RealtimeMetricsSubscriptionStatus.DISABLED
+NO_REFERRER = ReferrerPolicyList.NO_REFERRER
+NO_REFERRER_WHEN_DOWNGRADE = ReferrerPolicyList.NO_REFERRER_WHEN_DOWNGRADE
+ORIGIN = ReferrerPolicyList.ORIGIN
+ORIGIN_WHEN_CROSS_ORIGIN = ReferrerPolicyList.ORIGIN_WHEN_CROSS_ORIGIN
+SAME_ORIGIN = ReferrerPolicyList.SAME_ORIGIN
+STRICT_ORIGIN = ReferrerPolicyList.STRICT_ORIGIN
+STRICT_ORIGIN_WHEN_CROSS_ORIGIN = ReferrerPolicyList.STRICT_ORIGIN_WHEN_CROSS_ORIGIN
+UNSAFE_URL = ReferrerPolicyList.UNSAFE_URL
+GET = ResponseHeadersPolicyAccessControlAllowMethodsValues.GET
+POST = ResponseHeadersPolicyAccessControlAllowMethodsValues.POST
+OPTIONS = ResponseHeadersPolicyAccessControlAllowMethodsValues.OPTIONS
+PUT = ResponseHeadersPolicyAccessControlAllowMethodsValues.PUT
+DELETE = ResponseHeadersPolicyAccessControlAllowMethodsValues.DELETE
+PATCH = ResponseHeadersPolicyAccessControlAllowMethodsValues.PATCH
+HEAD = ResponseHeadersPolicyAccessControlAllowMethodsValues.HEAD
+ALL = ResponseHeadersPolicyAccessControlAllowMethodsValues.ALL
+MANAGED = ResponseHeadersPolicyType.MANAGED
+CUSTOM = ResponseHeadersPolicyType.CUSTOM
+SNI_ONLY = SSLSupportMethod.SNI_ONLY
+VIP = SSLSupportMethod.VIP
+STATIC_IP = SSLSupportMethod.STATIC_IP
+SSLV3 = SslProtocol.SSLV3
+TLSV1 = SslProtocol.TLSV1
+TLSV1_1 = SslProtocol.TLSV1_1
+TLSV1_2 = SslProtocol.TLSV1_2
+PENDING = TrustStoreStatus.PENDING
+ACTIVE = TrustStoreStatus.ACTIVE
+FAILED = TrustStoreStatus.FAILED
+CLOUDFRONT = ValidationTokenHost.CLOUDFRONT
+SELF_HOSTED = ValidationTokenHost.SELF_HOSTED
+REQUIRED = ViewerMtlsMode.REQUIRED
+OPTIONAL = ViewerMtlsMode.OPTIONAL
+ALLOW_ALL = ViewerProtocolPolicy.ALLOW_ALL
+HTTPS_ONLY = ViewerProtocolPolicy.HTTPS_ONLY
+REDIRECT_TO_HTTPS = ViewerProtocolPolicy.REDIRECT_TO_HTTPS
+
+
 @dataclass
 class AnycastIpList:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    ip_address_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    ip_address_type: Optional[Union[str, IpAddressType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     status: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -288,7 +854,7 @@ class AnycastIpList(CloudFormationResource):
     resource_type: ClassVar[str] = "AWS::CloudFront::AnycastIpList"
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    ip_address_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    ip_address_type: Optional[Union[str, IpAddressType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ip_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
@@ -1430,7 +1996,7 @@ class TrafficConfig:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     single_weight_config: Optional[SingleWeightConfig] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    type_: Optional[Union[str, ContinuousDeploymentPolicyType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     single_header_config: Optional[SingleHeaderConfig] = None
 
@@ -1528,7 +2094,7 @@ class CacheBehavior:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_origin_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    viewer_protocol_policy: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    viewer_protocol_policy: Optional[Union[str, ViewerProtocolPolicy, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     response_headers_policy_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1932,7 +2498,7 @@ class CustomOriginConfig:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    ip_address_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    ip_address_type: Optional[Union[str, IpAddressType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     origin_read_timeout: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1944,7 +2510,7 @@ class CustomOriginConfig:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http_port: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    origin_protocol_policy: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    origin_protocol_policy: Optional[Union[str, OriginProtocolPolicy, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -2043,7 +2609,7 @@ class DefaultCacheBehavior:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_origin_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    viewer_protocol_policy: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    viewer_protocol_policy: Optional[Union[str, ViewerProtocolPolicy, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     response_headers_policy_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -2332,7 +2898,7 @@ class DistributionConfig:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    price_class: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    price_class: Optional[Union[str, PriceClass, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     staging: Optional[Union[bool, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -2352,7 +2918,7 @@ class DistributionConfig:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     viewer_mtls_config: Optional[ViewerMtlsConfig] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    http_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    http_version: Optional[Union[str, HttpVersion, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     restrictions: Optional[Restrictions] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -2380,7 +2946,7 @@ class DistributionConfig:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aliases: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    connection_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    connection_mode: Optional[Union[str, ConnectionMode, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     web_acl_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -2748,7 +3314,7 @@ class FunctionAssociation:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     function_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    event_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    event_type: Optional[Union[str, EventType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -2786,7 +3352,7 @@ class GeoRestriction:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     locations: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    restriction_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    restriction_type: Optional[Union[str, GeoRestrictionType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -2849,7 +3415,7 @@ class LambdaFunctionAssociation:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_body: Optional[Union[bool, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    event_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    event_type: Optional[Union[str, EventType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lambda_function_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -3270,7 +3836,7 @@ class OriginGroup:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    selection_criteria: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    selection_criteria: Optional[Union[str, OriginGroupSelectionCriteria, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     id: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -3768,7 +4334,7 @@ class ViewerCertificate:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ssl_support_method: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    minimum_protocol_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    minimum_protocol_version: Optional[Union[str, MinimumProtocolVersion, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_front_default_certificate: Optional[Union[bool, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -3841,7 +4407,7 @@ class ViewerMtlsConfig:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    mode: Optional[Union[str, ViewerMtlsMode, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     trust_store_config: Optional[TrustStoreConfig] = None
 
@@ -4070,7 +4636,7 @@ class DomainResult:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    status: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    status: Optional[Union[str, DomainStatus, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     domain: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -4110,7 +4676,7 @@ class GeoRestrictionCustomization:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     locations: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    restriction_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    restriction_type: Optional[Union[str, GeoRestrictionType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -4146,9 +4712,9 @@ class ManagedCertificateRequest:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    certificate_transparency_logging_preference: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    certificate_transparency_logging_preference: Optional[Union[str, CertificateTransparencyLoggingPreference, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    validation_token_host: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    validation_token_host: Optional[Union[str, ValidationTokenHost, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     primary_domain_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -4235,7 +4801,7 @@ class WebAclCustomization:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    action: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    action: Optional[Union[str, CustomizationActionType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -4456,7 +5022,7 @@ class FunctionConfig:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     comment: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    runtime: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    runtime: Optional[Union[str, FunctionRuntime, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_value_store_associations: Optional[list[KeyValueStoreAssociation]] = None
 
@@ -4755,7 +5321,7 @@ class ImportSource:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    source_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    source_type: Optional[Union[str, ImportSourceType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -4892,7 +5458,7 @@ class RealtimeMetricsSubscriptionConfig:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    realtime_metrics_subscription_status: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    realtime_metrics_subscription_status: Optional[Union[str, RealtimeMetricsSubscriptionStatus, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -4962,13 +5528,13 @@ class OriginAccessControlConfig:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    signing_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    signing_behavior: Optional[Union[str, OriginAccessControlSigningBehaviors, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    origin_access_control_origin_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    origin_access_control_origin_type: Optional[Union[str, OriginAccessControlOriginTypes, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    signing_protocol: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    signing_protocol: Optional[Union[str, OriginAccessControlSigningProtocols, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -6530,7 +7096,7 @@ class StreamingDistributionConfig:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     comment: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    price_class: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    price_class: Optional[Union[str, PriceClass, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_origin: Optional[S3Origin] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -6898,7 +7464,7 @@ class VpcOriginEndpointConfig:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    origin_protocol_policy: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    origin_protocol_policy: Optional[Union[str, OriginProtocolPolicy, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""

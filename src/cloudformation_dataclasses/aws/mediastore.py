@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:30
+  Generated: 2025-12-17 16:59:37
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MediaStore
@@ -23,6 +23,46 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class ContainerLevelMetrics:
+    """ContainerLevelMetrics enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class ContainerStatus:
+    """ContainerStatus enum values."""
+
+    ACTIVE = "ACTIVE"
+    CREATING = "CREATING"
+    DELETING = "DELETING"
+
+
+class MethodName:
+    """MethodName enum values."""
+
+    PUT = "PUT"
+    GET = "GET"
+    DELETE = "DELETE"
+    HEAD = "HEAD"
+
+
+# Convenient aliases for enum values
+ENABLED = ContainerLevelMetrics.ENABLED
+DISABLED = ContainerLevelMetrics.DISABLED
+ACTIVE = ContainerStatus.ACTIVE
+CREATING = ContainerStatus.CREATING
+DELETING = ContainerStatus.DELETING
+PUT = MethodName.PUT
+GET = MethodName.GET
+DELETE = MethodName.DELETE
+HEAD = MethodName.HEAD
 
 
 @dataclass
@@ -107,7 +147,7 @@ class MetricPolicy:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    container_level_metrics: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    container_level_metrics: Optional[Union[str, ContainerLevelMetrics, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric_policy_rules: Optional[list[MetricPolicyRule]] = None
 

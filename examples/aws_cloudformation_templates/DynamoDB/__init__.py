@@ -1,6 +1,7 @@
 """DynamoDB CloudFormation template examples."""
 
 from cloudformation_dataclasses.aws.dynamodb import (
+    # Resources and property types
     AttributeDefinition,
     GlobalSecondaryIndex,
     KeySchema,
@@ -9,21 +10,24 @@ from cloudformation_dataclasses.aws.dynamodb import (
     Projection,
     ProvisionedThroughput,
     Table,
+    # DynamoDB-specific constants (auto-generated from botocore)
+    HASH,
+    RANGE,
+    KeyType,
+    S,
+    AttributeType,
+    KEYS_ONLY,
+    ProjectionType,
 )
 from cloudformation_dataclasses.core import (
-    HASH,
-    KEYS_ONLY,
+    # Parameter types
     NUMBER,
-    RANGE,
-    S,
     STRING,
-    AttributeType,
+    ParameterType,
+    # Core constructs
     DeploymentContext,
-    KeyType,
     Output,
     Parameter,
-    ParameterType,
-    ProjectionType,
     Template,
     cloudformation_dataclass,
     ref,

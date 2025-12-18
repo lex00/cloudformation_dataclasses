@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:40
+  Generated: 2025-12-17 16:59:39
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Synthetics
@@ -23,6 +23,146 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class BrowserType:
+    """BrowserType enum values."""
+
+    CHROME = "CHROME"
+    FIREFOX = "FIREFOX"
+
+
+class CanaryRunState:
+    """CanaryRunState enum values."""
+
+    RUNNING = "RUNNING"
+    PASSED = "PASSED"
+    FAILED = "FAILED"
+
+
+class CanaryRunStateReasonCode:
+    """CanaryRunStateReasonCode enum values."""
+
+    CANARY_FAILURE = "CANARY_FAILURE"
+    EXECUTION_FAILURE = "EXECUTION_FAILURE"
+
+
+class CanaryRunTestResult:
+    """CanaryRunTestResult enum values."""
+
+    PASSED = "PASSED"
+    FAILED = "FAILED"
+    UNKNOWN = "UNKNOWN"
+
+
+class CanaryState:
+    """CanaryState enum values."""
+
+    CREATING = "CREATING"
+    READY = "READY"
+    STARTING = "STARTING"
+    RUNNING = "RUNNING"
+    UPDATING = "UPDATING"
+    STOPPING = "STOPPING"
+    STOPPED = "STOPPED"
+    ERROR = "ERROR"
+    DELETING = "DELETING"
+
+
+class CanaryStateReasonCode:
+    """CanaryStateReasonCode enum values."""
+
+    INVALID_PERMISSIONS = "INVALID_PERMISSIONS"
+    CREATE_PENDING = "CREATE_PENDING"
+    CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS"
+    CREATE_FAILED = "CREATE_FAILED"
+    UPDATE_PENDING = "UPDATE_PENDING"
+    UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS"
+    UPDATE_COMPLETE = "UPDATE_COMPLETE"
+    ROLLBACK_COMPLETE = "ROLLBACK_COMPLETE"
+    ROLLBACK_FAILED = "ROLLBACK_FAILED"
+    DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
+    DELETE_FAILED = "DELETE_FAILED"
+    SYNC_DELETE_IN_PROGRESS = "SYNC_DELETE_IN_PROGRESS"
+
+
+class DependencyType:
+    """DependencyType enum values."""
+
+    LAMBDALAYER = "LambdaLayer"
+
+
+class EncryptionMode:
+    """EncryptionMode enum values."""
+
+    SSE_S3 = "SSE_S3"
+    SSE_KMS = "SSE_KMS"
+
+
+class ProvisionedResourceCleanupSetting:
+    """ProvisionedResourceCleanupSetting enum values."""
+
+    AUTOMATIC = "AUTOMATIC"
+    OFF = "OFF"
+
+
+class ResourceToTag:
+    """ResourceToTag enum values."""
+
+    LAMBDA_FUNCTION = "lambda-function"
+
+
+class RunType:
+    """RunType enum values."""
+
+    CANARY_RUN = "CANARY_RUN"
+    DRY_RUN = "DRY_RUN"
+
+
+# Convenient aliases for enum values
+CHROME = BrowserType.CHROME
+FIREFOX = BrowserType.FIREFOX
+RUNNING = CanaryRunState.RUNNING
+PASSED = CanaryRunState.PASSED
+FAILED = CanaryRunState.FAILED
+CANARY_FAILURE = CanaryRunStateReasonCode.CANARY_FAILURE
+EXECUTION_FAILURE = CanaryRunStateReasonCode.EXECUTION_FAILURE
+PASSED = CanaryRunTestResult.PASSED
+FAILED = CanaryRunTestResult.FAILED
+UNKNOWN = CanaryRunTestResult.UNKNOWN
+CREATING = CanaryState.CREATING
+READY = CanaryState.READY
+STARTING = CanaryState.STARTING
+RUNNING = CanaryState.RUNNING
+UPDATING = CanaryState.UPDATING
+STOPPING = CanaryState.STOPPING
+STOPPED = CanaryState.STOPPED
+ERROR = CanaryState.ERROR
+DELETING = CanaryState.DELETING
+INVALID_PERMISSIONS = CanaryStateReasonCode.INVALID_PERMISSIONS
+CREATE_PENDING = CanaryStateReasonCode.CREATE_PENDING
+CREATE_IN_PROGRESS = CanaryStateReasonCode.CREATE_IN_PROGRESS
+CREATE_FAILED = CanaryStateReasonCode.CREATE_FAILED
+UPDATE_PENDING = CanaryStateReasonCode.UPDATE_PENDING
+UPDATE_IN_PROGRESS = CanaryStateReasonCode.UPDATE_IN_PROGRESS
+UPDATE_COMPLETE = CanaryStateReasonCode.UPDATE_COMPLETE
+ROLLBACK_COMPLETE = CanaryStateReasonCode.ROLLBACK_COMPLETE
+ROLLBACK_FAILED = CanaryStateReasonCode.ROLLBACK_FAILED
+DELETE_IN_PROGRESS = CanaryStateReasonCode.DELETE_IN_PROGRESS
+DELETE_FAILED = CanaryStateReasonCode.DELETE_FAILED
+SYNC_DELETE_IN_PROGRESS = CanaryStateReasonCode.SYNC_DELETE_IN_PROGRESS
+LAMBDALAYER = DependencyType.LAMBDALAYER
+SSE_S3 = EncryptionMode.SSE_S3
+SSE_KMS = EncryptionMode.SSE_KMS
+AUTOMATIC = ProvisionedResourceCleanupSetting.AUTOMATIC
+OFF = ProvisionedResourceCleanupSetting.OFF
+LAMBDA_FUNCTION = ResourceToTag.LAMBDA_FUNCTION
+CANARY_RUN = RunType.CANARY_RUN
+DRY_RUN = RunType.DRY_RUN
 
 
 @dataclass
@@ -93,7 +233,7 @@ class BrowserConfig:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-syn"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    browser_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    browser_type: Optional[Union[str, BrowserType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -234,7 +374,7 @@ class Dependency:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-syn"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    type_: Optional[Union[str, DependencyType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     reference: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -604,7 +744,7 @@ class Canary(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    provisioned_resource_cleanup: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    provisioned_resource_cleanup: Optional[Union[str, ProvisionedResourceCleanupSetting, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     execution_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso

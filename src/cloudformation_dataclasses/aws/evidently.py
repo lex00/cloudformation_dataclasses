@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:22
+  Generated: 2025-12-17 16:59:36
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Evidently
@@ -23,6 +23,197 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class ChangeDirectionEnum:
+    """ChangeDirectionEnum enum values."""
+
+    INCREASE = "INCREASE"
+    DECREASE = "DECREASE"
+
+
+class EventType:
+    """EventType enum values."""
+
+    AWS_EVIDENTLY_EVALUATION = "aws.evidently.evaluation"
+    AWS_EVIDENTLY_CUSTOM = "aws.evidently.custom"
+
+
+class ExperimentBaseStat:
+    """ExperimentBaseStat enum values."""
+
+    MEAN = "Mean"
+
+
+class ExperimentReportName:
+    """ExperimentReportName enum values."""
+
+    BAYESIANINFERENCE = "BayesianInference"
+
+
+class ExperimentResultRequestType:
+    """ExperimentResultRequestType enum values."""
+
+    BASESTAT = "BaseStat"
+    TREATMENTEFFECT = "TreatmentEffect"
+    CONFIDENCEINTERVAL = "ConfidenceInterval"
+    PVALUE = "PValue"
+
+
+class ExperimentResultResponseType:
+    """ExperimentResultResponseType enum values."""
+
+    MEAN = "Mean"
+    TREATMENTEFFECT = "TreatmentEffect"
+    CONFIDENCEINTERVALUPPERBOUND = "ConfidenceIntervalUpperBound"
+    CONFIDENCEINTERVALLOWERBOUND = "ConfidenceIntervalLowerBound"
+    PVALUE = "PValue"
+
+
+class ExperimentStatus:
+    """ExperimentStatus enum values."""
+
+    CREATED = "CREATED"
+    UPDATING = "UPDATING"
+    RUNNING = "RUNNING"
+    COMPLETED = "COMPLETED"
+    CANCELLED = "CANCELLED"
+
+
+class ExperimentStopDesiredState:
+    """ExperimentStopDesiredState enum values."""
+
+    COMPLETED = "COMPLETED"
+    CANCELLED = "CANCELLED"
+
+
+class ExperimentType:
+    """ExperimentType enum values."""
+
+    AWS_EVIDENTLY_ONLINEAB = "aws.evidently.onlineab"
+
+
+class FeatureEvaluationStrategy:
+    """FeatureEvaluationStrategy enum values."""
+
+    ALL_RULES = "ALL_RULES"
+    DEFAULT_VARIATION = "DEFAULT_VARIATION"
+
+
+class FeatureStatus:
+    """FeatureStatus enum values."""
+
+    AVAILABLE = "AVAILABLE"
+    UPDATING = "UPDATING"
+
+
+class LaunchStatus:
+    """LaunchStatus enum values."""
+
+    CREATED = "CREATED"
+    UPDATING = "UPDATING"
+    RUNNING = "RUNNING"
+    COMPLETED = "COMPLETED"
+    CANCELLED = "CANCELLED"
+
+
+class LaunchStopDesiredState:
+    """LaunchStopDesiredState enum values."""
+
+    COMPLETED = "COMPLETED"
+    CANCELLED = "CANCELLED"
+
+
+class LaunchType:
+    """LaunchType enum values."""
+
+    AWS_EVIDENTLY_SPLITS = "aws.evidently.splits"
+
+
+class ProjectStatus:
+    """ProjectStatus enum values."""
+
+    AVAILABLE = "AVAILABLE"
+    UPDATING = "UPDATING"
+
+
+class SegmentReferenceResourceType:
+    """SegmentReferenceResourceType enum values."""
+
+    EXPERIMENT = "EXPERIMENT"
+    LAUNCH = "LAUNCH"
+
+
+class ValidationExceptionReason:
+    """ValidationExceptionReason enum values."""
+
+    UNKNOWNOPERATION = "unknownOperation"
+    CANNOTPARSE = "cannotParse"
+    FIELDVALIDATIONFAILED = "fieldValidationFailed"
+    OTHER = "other"
+
+
+class VariationValueType:
+    """VariationValueType enum values."""
+
+    STRING = "STRING"
+    LONG = "LONG"
+    DOUBLE = "DOUBLE"
+    BOOLEAN = "BOOLEAN"
+
+
+# Convenient aliases for enum values
+INCREASE = ChangeDirectionEnum.INCREASE
+DECREASE = ChangeDirectionEnum.DECREASE
+AWS_EVIDENTLY_EVALUATION = EventType.AWS_EVIDENTLY_EVALUATION
+AWS_EVIDENTLY_CUSTOM = EventType.AWS_EVIDENTLY_CUSTOM
+MEAN = ExperimentBaseStat.MEAN
+BAYESIANINFERENCE = ExperimentReportName.BAYESIANINFERENCE
+BASESTAT = ExperimentResultRequestType.BASESTAT
+TREATMENTEFFECT = ExperimentResultRequestType.TREATMENTEFFECT
+CONFIDENCEINTERVAL = ExperimentResultRequestType.CONFIDENCEINTERVAL
+PVALUE = ExperimentResultRequestType.PVALUE
+MEAN = ExperimentResultResponseType.MEAN
+TREATMENTEFFECT = ExperimentResultResponseType.TREATMENTEFFECT
+CONFIDENCEINTERVALUPPERBOUND = ExperimentResultResponseType.CONFIDENCEINTERVALUPPERBOUND
+CONFIDENCEINTERVALLOWERBOUND = ExperimentResultResponseType.CONFIDENCEINTERVALLOWERBOUND
+PVALUE = ExperimentResultResponseType.PVALUE
+CREATED = ExperimentStatus.CREATED
+UPDATING = ExperimentStatus.UPDATING
+RUNNING = ExperimentStatus.RUNNING
+COMPLETED = ExperimentStatus.COMPLETED
+CANCELLED = ExperimentStatus.CANCELLED
+COMPLETED = ExperimentStopDesiredState.COMPLETED
+CANCELLED = ExperimentStopDesiredState.CANCELLED
+AWS_EVIDENTLY_ONLINEAB = ExperimentType.AWS_EVIDENTLY_ONLINEAB
+ALL_RULES = FeatureEvaluationStrategy.ALL_RULES
+DEFAULT_VARIATION = FeatureEvaluationStrategy.DEFAULT_VARIATION
+AVAILABLE = FeatureStatus.AVAILABLE
+UPDATING = FeatureStatus.UPDATING
+CREATED = LaunchStatus.CREATED
+UPDATING = LaunchStatus.UPDATING
+RUNNING = LaunchStatus.RUNNING
+COMPLETED = LaunchStatus.COMPLETED
+CANCELLED = LaunchStatus.CANCELLED
+COMPLETED = LaunchStopDesiredState.COMPLETED
+CANCELLED = LaunchStopDesiredState.CANCELLED
+AWS_EVIDENTLY_SPLITS = LaunchType.AWS_EVIDENTLY_SPLITS
+AVAILABLE = ProjectStatus.AVAILABLE
+UPDATING = ProjectStatus.UPDATING
+EXPERIMENT = SegmentReferenceResourceType.EXPERIMENT
+LAUNCH = SegmentReferenceResourceType.LAUNCH
+UNKNOWNOPERATION = ValidationExceptionReason.UNKNOWNOPERATION
+CANNOTPARSE = ValidationExceptionReason.CANNOTPARSE
+FIELDVALIDATIONFAILED = ValidationExceptionReason.FIELDVALIDATIONFAILED
+OTHER = ValidationExceptionReason.OTHER
+STRING = VariationValueType.STRING
+LONG = VariationValueType.LONG
+DOUBLE = VariationValueType.DOUBLE
+BOOLEAN = VariationValueType.BOOLEAN
 
 
 @dataclass

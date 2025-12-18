@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:20
+  Generated: 2025-12-17 16:59:36
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DocDB
@@ -23,6 +23,59 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class ApplyMethod:
+    """ApplyMethod enum values."""
+
+    IMMEDIATE = "immediate"
+    PENDING_REBOOT = "pending-reboot"
+
+
+class FailoverStatus:
+    """FailoverStatus enum values."""
+
+    PENDING = "pending"
+    FAILING_OVER = "failing-over"
+    CANCELLING = "cancelling"
+
+
+class GlobalClusterMemberSynchronizationStatus:
+    """GlobalClusterMemberSynchronizationStatus enum values."""
+
+    CONNECTED = "connected"
+    PENDING_RESYNC = "pending-resync"
+
+
+class SourceType:
+    """SourceType enum values."""
+
+    DB_INSTANCE = "db-instance"
+    DB_PARAMETER_GROUP = "db-parameter-group"
+    DB_SECURITY_GROUP = "db-security-group"
+    DB_SNAPSHOT = "db-snapshot"
+    DB_CLUSTER = "db-cluster"
+    DB_CLUSTER_SNAPSHOT = "db-cluster-snapshot"
+
+
+# Convenient aliases for enum values
+IMMEDIATE = ApplyMethod.IMMEDIATE
+PENDING_REBOOT = ApplyMethod.PENDING_REBOOT
+PENDING = FailoverStatus.PENDING
+FAILING_OVER = FailoverStatus.FAILING_OVER
+CANCELLING = FailoverStatus.CANCELLING
+CONNECTED = GlobalClusterMemberSynchronizationStatus.CONNECTED
+PENDING_RESYNC = GlobalClusterMemberSynchronizationStatus.PENDING_RESYNC
+DB_INSTANCE = SourceType.DB_INSTANCE
+DB_PARAMETER_GROUP = SourceType.DB_PARAMETER_GROUP
+DB_SECURITY_GROUP = SourceType.DB_SECURITY_GROUP
+DB_SNAPSHOT = SourceType.DB_SNAPSHOT
+DB_CLUSTER = SourceType.DB_CLUSTER
+DB_CLUSTER_SNAPSHOT = SourceType.DB_CLUSTER_SNAPSHOT
 
 
 @dataclass

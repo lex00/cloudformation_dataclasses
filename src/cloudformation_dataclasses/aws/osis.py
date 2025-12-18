@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:31
+  Generated: 2025-12-17 16:59:38
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service OSIS
@@ -23,6 +23,97 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class ChangeProgressStageStatuses:
+    """ChangeProgressStageStatuses enum values."""
+
+    PENDING = "PENDING"
+    IN_PROGRESS = "IN_PROGRESS"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
+
+
+class ChangeProgressStatuses:
+    """ChangeProgressStatuses enum values."""
+
+    PENDING = "PENDING"
+    IN_PROGRESS = "IN_PROGRESS"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
+
+
+class PipelineEndpointStatus:
+    """PipelineEndpointStatus enum values."""
+
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    CREATE_FAILED = "CREATE_FAILED"
+    DELETING = "DELETING"
+    REVOKING = "REVOKING"
+    REVOKED = "REVOKED"
+
+
+class PipelineStatus:
+    """PipelineStatus enum values."""
+
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    CREATE_FAILED = "CREATE_FAILED"
+    UPDATE_FAILED = "UPDATE_FAILED"
+    STARTING = "STARTING"
+    START_FAILED = "START_FAILED"
+    STOPPING = "STOPPING"
+    STOPPED = "STOPPED"
+
+
+class VpcEndpointManagement:
+    """VpcEndpointManagement enum values."""
+
+    CUSTOMER = "CUSTOMER"
+    SERVICE = "SERVICE"
+
+
+class VpcEndpointServiceName:
+    """VpcEndpointServiceName enum values."""
+
+    OPENSEARCH_SERVERLESS = "OPENSEARCH_SERVERLESS"
+
+
+# Convenient aliases for enum values
+PENDING = ChangeProgressStageStatuses.PENDING
+IN_PROGRESS = ChangeProgressStageStatuses.IN_PROGRESS
+COMPLETED = ChangeProgressStageStatuses.COMPLETED
+FAILED = ChangeProgressStageStatuses.FAILED
+PENDING = ChangeProgressStatuses.PENDING
+IN_PROGRESS = ChangeProgressStatuses.IN_PROGRESS
+COMPLETED = ChangeProgressStatuses.COMPLETED
+FAILED = ChangeProgressStatuses.FAILED
+CREATING = PipelineEndpointStatus.CREATING
+ACTIVE = PipelineEndpointStatus.ACTIVE
+CREATE_FAILED = PipelineEndpointStatus.CREATE_FAILED
+DELETING = PipelineEndpointStatus.DELETING
+REVOKING = PipelineEndpointStatus.REVOKING
+REVOKED = PipelineEndpointStatus.REVOKED
+CREATING = PipelineStatus.CREATING
+ACTIVE = PipelineStatus.ACTIVE
+UPDATING = PipelineStatus.UPDATING
+DELETING = PipelineStatus.DELETING
+CREATE_FAILED = PipelineStatus.CREATE_FAILED
+UPDATE_FAILED = PipelineStatus.UPDATE_FAILED
+STARTING = PipelineStatus.STARTING
+START_FAILED = PipelineStatus.START_FAILED
+STOPPING = PipelineStatus.STOPPING
+STOPPED = PipelineStatus.STOPPED
+CUSTOMER = VpcEndpointManagement.CUSTOMER
+SERVICE = VpcEndpointManagement.SERVICE
+OPENSEARCH_SERVERLESS = VpcEndpointServiceName.OPENSEARCH_SERVERLESS
 
 
 @dataclass
@@ -259,7 +350,7 @@ class VpcOptions:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_attachment_options: Optional[VpcAttachmentOptions] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    vpc_endpoint_management: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    vpc_endpoint_management: Optional[Union[str, VpcEndpointManagement, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_group_ids: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid

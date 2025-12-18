@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:30
+  Generated: 2025-12-17 16:59:37
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MemoryDB
@@ -23,6 +23,117 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class AZStatus:
+    """AZStatus enum values."""
+
+    SINGLEAZ = "singleaz"
+    MULTIAZ = "multiaz"
+
+
+class AuthenticationType:
+    """AuthenticationType enum values."""
+
+    PASSWORD = "password"
+    NO_PASSWORD = "no-password"
+    IAM = "iam"
+
+
+class DataTieringStatus:
+    """DataTieringStatus enum values."""
+
+    TRUE = "true"
+    FALSE = "false"
+
+
+class InputAuthenticationType:
+    """InputAuthenticationType enum values."""
+
+    PASSWORD = "password"
+    IAM = "iam"
+
+
+class IpDiscovery:
+    """IpDiscovery enum values."""
+
+    IPV4 = "ipv4"
+    IPV6 = "ipv6"
+
+
+class NetworkType:
+    """NetworkType enum values."""
+
+    IPV4 = "ipv4"
+    IPV6 = "ipv6"
+    DUAL_STACK = "dual_stack"
+
+
+class ServiceUpdateStatus:
+    """ServiceUpdateStatus enum values."""
+
+    AVAILABLE = "available"
+    IN_PROGRESS = "in-progress"
+    COMPLETE = "complete"
+    SCHEDULED = "scheduled"
+
+
+class ServiceUpdateType:
+    """ServiceUpdateType enum values."""
+
+    SECURITY_UPDATE = "security-update"
+
+
+class SourceType:
+    """SourceType enum values."""
+
+    NODE = "node"
+    PARAMETER_GROUP = "parameter-group"
+    SUBNET_GROUP = "subnet-group"
+    CLUSTER = "cluster"
+    USER = "user"
+    ACL = "acl"
+
+
+class UpdateStrategy:
+    """UpdateStrategy enum values."""
+
+    COORDINATED = "coordinated"
+    UNCOORDINATED = "uncoordinated"
+
+
+# Convenient aliases for enum values
+SINGLEAZ = AZStatus.SINGLEAZ
+MULTIAZ = AZStatus.MULTIAZ
+PASSWORD = AuthenticationType.PASSWORD
+NO_PASSWORD = AuthenticationType.NO_PASSWORD
+IAM = AuthenticationType.IAM
+TRUE = DataTieringStatus.TRUE
+FALSE = DataTieringStatus.FALSE
+PASSWORD = InputAuthenticationType.PASSWORD
+IAM = InputAuthenticationType.IAM
+IPV4 = IpDiscovery.IPV4
+IPV6 = IpDiscovery.IPV6
+IPV4 = NetworkType.IPV4
+IPV6 = NetworkType.IPV6
+DUAL_STACK = NetworkType.DUAL_STACK
+AVAILABLE = ServiceUpdateStatus.AVAILABLE
+IN_PROGRESS = ServiceUpdateStatus.IN_PROGRESS
+COMPLETE = ServiceUpdateStatus.COMPLETE
+SCHEDULED = ServiceUpdateStatus.SCHEDULED
+SECURITY_UPDATE = ServiceUpdateType.SECURITY_UPDATE
+NODE = SourceType.NODE
+PARAMETER_GROUP = SourceType.PARAMETER_GROUP
+SUBNET_GROUP = SourceType.SUBNET_GROUP
+CLUSTER = SourceType.CLUSTER
+USER = SourceType.USER
+ACL = SourceType.ACL
+COORDINATED = UpdateStrategy.COORDINATED
+UNCOORDINATED = UpdateStrategy.UNCOORDINATED
 
 
 @dataclass
@@ -156,7 +267,7 @@ class Cluster(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tls_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    network_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    network_type: Optional[Union[str, NetworkType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     cluster_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
@@ -186,11 +297,11 @@ class Cluster(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     snapshot_retention_limit: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    data_tiering: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    data_tiering: Optional[Union[str, DataTieringStatus, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     node_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    ip_discovery: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    ip_discovery: Optional[Union[str, IpDiscovery, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     maintenance_window: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -953,7 +1064,7 @@ class AuthenticationMode:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mem"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    type_: Optional[Union[str, InputAuthenticationType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     passwords: Optional[Union[list[str], Ref]] = None
 

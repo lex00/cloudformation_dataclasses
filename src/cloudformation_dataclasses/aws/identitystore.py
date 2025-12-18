@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:25
+  Generated: 2025-12-17 16:59:36
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IdentityStore
@@ -23,6 +23,80 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class AccessDeniedExceptionReason:
+    """AccessDeniedExceptionReason enum values."""
+
+    KMS_ACCESS_DENIED = "KMS_ACCESS_DENIED"
+
+
+class ConflictExceptionReason:
+    """ConflictExceptionReason enum values."""
+
+    UNIQUENESS_CONSTRAINT_VIOLATION = "UNIQUENESS_CONSTRAINT_VIOLATION"
+    CONCURRENT_MODIFICATION = "CONCURRENT_MODIFICATION"
+
+
+class ResourceNotFoundExceptionReason:
+    """ResourceNotFoundExceptionReason enum values."""
+
+    KMS_KEY_NOT_FOUND = "KMS_KEY_NOT_FOUND"
+
+
+class ResourceType:
+    """ResourceType enum values."""
+
+    GROUP = "GROUP"
+    USER = "USER"
+    IDENTITY_STORE = "IDENTITY_STORE"
+    GROUP_MEMBERSHIP = "GROUP_MEMBERSHIP"
+    RESOURCE_POLICY = "RESOURCE_POLICY"
+
+
+class ThrottlingExceptionReason:
+    """ThrottlingExceptionReason enum values."""
+
+    KMS_THROTTLING = "KMS_THROTTLING"
+
+
+class UserStatus:
+    """UserStatus enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class ValidationExceptionReason:
+    """ValidationExceptionReason enum values."""
+
+    KMS_INVALID_ARN = "KMS_INVALID_ARN"
+    KMS_INVALID_KEY_USAGE = "KMS_INVALID_KEY_USAGE"
+    KMS_INVALID_STATE = "KMS_INVALID_STATE"
+    KMS_DISABLED = "KMS_DISABLED"
+
+
+# Convenient aliases for enum values
+KMS_ACCESS_DENIED = AccessDeniedExceptionReason.KMS_ACCESS_DENIED
+UNIQUENESS_CONSTRAINT_VIOLATION = ConflictExceptionReason.UNIQUENESS_CONSTRAINT_VIOLATION
+CONCURRENT_MODIFICATION = ConflictExceptionReason.CONCURRENT_MODIFICATION
+KMS_KEY_NOT_FOUND = ResourceNotFoundExceptionReason.KMS_KEY_NOT_FOUND
+GROUP = ResourceType.GROUP
+USER = ResourceType.USER
+IDENTITY_STORE = ResourceType.IDENTITY_STORE
+GROUP_MEMBERSHIP = ResourceType.GROUP_MEMBERSHIP
+RESOURCE_POLICY = ResourceType.RESOURCE_POLICY
+KMS_THROTTLING = ThrottlingExceptionReason.KMS_THROTTLING
+ENABLED = UserStatus.ENABLED
+DISABLED = UserStatus.DISABLED
+KMS_INVALID_ARN = ValidationExceptionReason.KMS_INVALID_ARN
+KMS_INVALID_KEY_USAGE = ValidationExceptionReason.KMS_INVALID_KEY_USAGE
+KMS_INVALID_STATE = ValidationExceptionReason.KMS_INVALID_STATE
+KMS_DISABLED = ValidationExceptionReason.KMS_DISABLED
 
 
 @dataclass

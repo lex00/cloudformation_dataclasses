@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:22
+  Generated: 2025-12-17 16:59:36
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ElasticLoadBalancingV2
@@ -23,6 +23,343 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class ActionTypeEnum:
+    """ActionTypeEnum enum values."""
+
+    FORWARD = "forward"
+    AUTHENTICATE_OIDC = "authenticate-oidc"
+    AUTHENTICATE_COGNITO = "authenticate-cognito"
+    REDIRECT = "redirect"
+    FIXED_RESPONSE = "fixed-response"
+    JWT_VALIDATION = "jwt-validation"
+
+
+class AdvertiseTrustStoreCaNamesEnum:
+    """AdvertiseTrustStoreCaNamesEnum enum values."""
+
+    ON = "on"
+    OFF = "off"
+
+
+class AnomalyResultEnum:
+    """AnomalyResultEnum enum values."""
+
+    ANOMALOUS = "anomalous"
+    NORMAL = "normal"
+
+
+class AuthenticateCognitoActionConditionalBehaviorEnum:
+    """AuthenticateCognitoActionConditionalBehaviorEnum enum values."""
+
+    DENY = "deny"
+    ALLOW = "allow"
+    AUTHENTICATE = "authenticate"
+
+
+class AuthenticateOidcActionConditionalBehaviorEnum:
+    """AuthenticateOidcActionConditionalBehaviorEnum enum values."""
+
+    DENY = "deny"
+    ALLOW = "allow"
+    AUTHENTICATE = "authenticate"
+
+
+class CapacityReservationStateEnum:
+    """CapacityReservationStateEnum enum values."""
+
+    PROVISIONED = "provisioned"
+    PENDING = "pending"
+    REBALANCING = "rebalancing"
+    FAILED = "failed"
+
+
+class DescribeTargetHealthInputIncludeEnum:
+    """DescribeTargetHealthInputIncludeEnum enum values."""
+
+    ANOMALYDETECTION = "AnomalyDetection"
+    ALL = "All"
+
+
+class EnablePrefixForIpv6SourceNatEnum:
+    """EnablePrefixForIpv6SourceNatEnum enum values."""
+
+    ON = "on"
+    OFF = "off"
+
+
+class EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum:
+    """EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum enum values."""
+
+    ON = "on"
+    OFF = "off"
+
+
+class IpAddressType:
+    """IpAddressType enum values."""
+
+    IPV4 = "ipv4"
+    DUALSTACK = "dualstack"
+    DUALSTACK_WITHOUT_PUBLIC_IPV4 = "dualstack-without-public-ipv4"
+
+
+class JwtValidationActionAdditionalClaimFormatEnum:
+    """JwtValidationActionAdditionalClaimFormatEnum enum values."""
+
+    SINGLE_STRING = "single-string"
+    STRING_ARRAY = "string-array"
+    SPACE_SEPARATED_VALUES = "space-separated-values"
+
+
+class LoadBalancerSchemeEnum:
+    """LoadBalancerSchemeEnum enum values."""
+
+    INTERNET_FACING = "internet-facing"
+    INTERNAL = "internal"
+
+
+class LoadBalancerStateEnum:
+    """LoadBalancerStateEnum enum values."""
+
+    ACTIVE = "active"
+    PROVISIONING = "provisioning"
+    ACTIVE_IMPAIRED = "active_impaired"
+    FAILED = "failed"
+
+
+class LoadBalancerTypeEnum:
+    """LoadBalancerTypeEnum enum values."""
+
+    APPLICATION = "application"
+    NETWORK = "network"
+    GATEWAY = "gateway"
+
+
+class MitigationInEffectEnum:
+    """MitigationInEffectEnum enum values."""
+
+    YES = "yes"
+    NO = "no"
+
+
+class ProtocolEnum:
+    """ProtocolEnum enum values."""
+
+    HTTP = "HTTP"
+    HTTPS = "HTTPS"
+    TCP = "TCP"
+    TLS = "TLS"
+    UDP = "UDP"
+    TCP_UDP = "TCP_UDP"
+    GENEVE = "GENEVE"
+    QUIC = "QUIC"
+    TCP_QUIC = "TCP_QUIC"
+
+
+class RedirectActionStatusCodeEnum:
+    """RedirectActionStatusCodeEnum enum values."""
+
+    HTTP_301 = "HTTP_301"
+    HTTP_302 = "HTTP_302"
+
+
+class RemoveIpamPoolEnum:
+    """RemoveIpamPoolEnum enum values."""
+
+    IPV4 = "ipv4"
+
+
+class RevocationType:
+    """RevocationType enum values."""
+
+    CRL = "CRL"
+
+
+class TargetAdministrativeOverrideReasonEnum:
+    """TargetAdministrativeOverrideReasonEnum enum values."""
+
+    ADMINISTRATIVEOVERRIDE_UNKNOWN = "AdministrativeOverride.Unknown"
+    ADMINISTRATIVEOVERRIDE_NOOVERRIDE = "AdministrativeOverride.NoOverride"
+    ADMINISTRATIVEOVERRIDE_ZONALSHIFTACTIVE = "AdministrativeOverride.ZonalShiftActive"
+    ADMINISTRATIVEOVERRIDE_ZONALSHIFTDELEGATEDTODNS = "AdministrativeOverride.ZonalShiftDelegatedToDns"
+
+
+class TargetAdministrativeOverrideStateEnum:
+    """TargetAdministrativeOverrideStateEnum enum values."""
+
+    UNKNOWN = "unknown"
+    NO_OVERRIDE = "no_override"
+    ZONAL_SHIFT_ACTIVE = "zonal_shift_active"
+    ZONAL_SHIFT_DELEGATED_TO_DNS = "zonal_shift_delegated_to_dns"
+
+
+class TargetGroupIpAddressTypeEnum:
+    """TargetGroupIpAddressTypeEnum enum values."""
+
+    IPV4 = "ipv4"
+    IPV6 = "ipv6"
+
+
+class TargetHealthReasonEnum:
+    """TargetHealthReasonEnum enum values."""
+
+    ELB_REGISTRATIONINPROGRESS = "Elb.RegistrationInProgress"
+    ELB_INITIALHEALTHCHECKING = "Elb.InitialHealthChecking"
+    TARGET_RESPONSECODEMISMATCH = "Target.ResponseCodeMismatch"
+    TARGET_TIMEOUT = "Target.Timeout"
+    TARGET_FAILEDHEALTHCHECKS = "Target.FailedHealthChecks"
+    TARGET_NOTREGISTERED = "Target.NotRegistered"
+    TARGET_NOTINUSE = "Target.NotInUse"
+    TARGET_DEREGISTRATIONINPROGRESS = "Target.DeregistrationInProgress"
+    TARGET_INVALIDSTATE = "Target.InvalidState"
+    TARGET_IPUNUSABLE = "Target.IpUnusable"
+    TARGET_HEALTHCHECKDISABLED = "Target.HealthCheckDisabled"
+    ELB_INTERNALERROR = "Elb.InternalError"
+
+
+class TargetHealthStateEnum:
+    """TargetHealthStateEnum enum values."""
+
+    INITIAL = "initial"
+    HEALTHY = "healthy"
+    UNHEALTHY = "unhealthy"
+    UNHEALTHY_DRAINING = "unhealthy.draining"
+    UNUSED = "unused"
+    DRAINING = "draining"
+    UNAVAILABLE = "unavailable"
+
+
+class TargetTypeEnum:
+    """TargetTypeEnum enum values."""
+
+    INSTANCE = "instance"
+    IP = "ip"
+    LAMBDA = "lambda"
+    ALB = "alb"
+
+
+class TransformTypeEnum:
+    """TransformTypeEnum enum values."""
+
+    HOST_HEADER_REWRITE = "host-header-rewrite"
+    URL_REWRITE = "url-rewrite"
+
+
+class TrustStoreAssociationStatusEnum:
+    """TrustStoreAssociationStatusEnum enum values."""
+
+    ACTIVE = "active"
+    REMOVED = "removed"
+
+
+class TrustStoreStatus:
+    """TrustStoreStatus enum values."""
+
+    ACTIVE = "ACTIVE"
+    CREATING = "CREATING"
+
+
+# Convenient aliases for enum values
+FORWARD = ActionTypeEnum.FORWARD
+AUTHENTICATE_OIDC = ActionTypeEnum.AUTHENTICATE_OIDC
+AUTHENTICATE_COGNITO = ActionTypeEnum.AUTHENTICATE_COGNITO
+REDIRECT = ActionTypeEnum.REDIRECT
+FIXED_RESPONSE = ActionTypeEnum.FIXED_RESPONSE
+JWT_VALIDATION = ActionTypeEnum.JWT_VALIDATION
+ON = AdvertiseTrustStoreCaNamesEnum.ON
+OFF = AdvertiseTrustStoreCaNamesEnum.OFF
+ANOMALOUS = AnomalyResultEnum.ANOMALOUS
+NORMAL = AnomalyResultEnum.NORMAL
+DENY = AuthenticateCognitoActionConditionalBehaviorEnum.DENY
+ALLOW = AuthenticateCognitoActionConditionalBehaviorEnum.ALLOW
+AUTHENTICATE = AuthenticateCognitoActionConditionalBehaviorEnum.AUTHENTICATE
+DENY = AuthenticateOidcActionConditionalBehaviorEnum.DENY
+ALLOW = AuthenticateOidcActionConditionalBehaviorEnum.ALLOW
+AUTHENTICATE = AuthenticateOidcActionConditionalBehaviorEnum.AUTHENTICATE
+PROVISIONED = CapacityReservationStateEnum.PROVISIONED
+PENDING = CapacityReservationStateEnum.PENDING
+REBALANCING = CapacityReservationStateEnum.REBALANCING
+FAILED = CapacityReservationStateEnum.FAILED
+ANOMALYDETECTION = DescribeTargetHealthInputIncludeEnum.ANOMALYDETECTION
+ALL = DescribeTargetHealthInputIncludeEnum.ALL
+ON = EnablePrefixForIpv6SourceNatEnum.ON
+OFF = EnablePrefixForIpv6SourceNatEnum.OFF
+ON = EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum.ON
+OFF = EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum.OFF
+IPV4 = IpAddressType.IPV4
+DUALSTACK = IpAddressType.DUALSTACK
+DUALSTACK_WITHOUT_PUBLIC_IPV4 = IpAddressType.DUALSTACK_WITHOUT_PUBLIC_IPV4
+SINGLE_STRING = JwtValidationActionAdditionalClaimFormatEnum.SINGLE_STRING
+STRING_ARRAY = JwtValidationActionAdditionalClaimFormatEnum.STRING_ARRAY
+SPACE_SEPARATED_VALUES = JwtValidationActionAdditionalClaimFormatEnum.SPACE_SEPARATED_VALUES
+INTERNET_FACING = LoadBalancerSchemeEnum.INTERNET_FACING
+INTERNAL = LoadBalancerSchemeEnum.INTERNAL
+ACTIVE = LoadBalancerStateEnum.ACTIVE
+PROVISIONING = LoadBalancerStateEnum.PROVISIONING
+ACTIVE_IMPAIRED = LoadBalancerStateEnum.ACTIVE_IMPAIRED
+FAILED = LoadBalancerStateEnum.FAILED
+APPLICATION = LoadBalancerTypeEnum.APPLICATION
+NETWORK = LoadBalancerTypeEnum.NETWORK
+GATEWAY = LoadBalancerTypeEnum.GATEWAY
+YES = MitigationInEffectEnum.YES
+NO = MitigationInEffectEnum.NO
+HTTP = ProtocolEnum.HTTP
+HTTPS = ProtocolEnum.HTTPS
+TCP = ProtocolEnum.TCP
+TLS = ProtocolEnum.TLS
+UDP = ProtocolEnum.UDP
+TCP_UDP = ProtocolEnum.TCP_UDP
+GENEVE = ProtocolEnum.GENEVE
+QUIC = ProtocolEnum.QUIC
+TCP_QUIC = ProtocolEnum.TCP_QUIC
+HTTP_301 = RedirectActionStatusCodeEnum.HTTP_301
+HTTP_302 = RedirectActionStatusCodeEnum.HTTP_302
+IPV4 = RemoveIpamPoolEnum.IPV4
+CRL = RevocationType.CRL
+ADMINISTRATIVEOVERRIDE_UNKNOWN = TargetAdministrativeOverrideReasonEnum.ADMINISTRATIVEOVERRIDE_UNKNOWN
+ADMINISTRATIVEOVERRIDE_NOOVERRIDE = TargetAdministrativeOverrideReasonEnum.ADMINISTRATIVEOVERRIDE_NOOVERRIDE
+ADMINISTRATIVEOVERRIDE_ZONALSHIFTACTIVE = TargetAdministrativeOverrideReasonEnum.ADMINISTRATIVEOVERRIDE_ZONALSHIFTACTIVE
+ADMINISTRATIVEOVERRIDE_ZONALSHIFTDELEGATEDTODNS = TargetAdministrativeOverrideReasonEnum.ADMINISTRATIVEOVERRIDE_ZONALSHIFTDELEGATEDTODNS
+UNKNOWN = TargetAdministrativeOverrideStateEnum.UNKNOWN
+NO_OVERRIDE = TargetAdministrativeOverrideStateEnum.NO_OVERRIDE
+ZONAL_SHIFT_ACTIVE = TargetAdministrativeOverrideStateEnum.ZONAL_SHIFT_ACTIVE
+ZONAL_SHIFT_DELEGATED_TO_DNS = TargetAdministrativeOverrideStateEnum.ZONAL_SHIFT_DELEGATED_TO_DNS
+IPV4 = TargetGroupIpAddressTypeEnum.IPV4
+IPV6 = TargetGroupIpAddressTypeEnum.IPV6
+ELB_REGISTRATIONINPROGRESS = TargetHealthReasonEnum.ELB_REGISTRATIONINPROGRESS
+ELB_INITIALHEALTHCHECKING = TargetHealthReasonEnum.ELB_INITIALHEALTHCHECKING
+TARGET_RESPONSECODEMISMATCH = TargetHealthReasonEnum.TARGET_RESPONSECODEMISMATCH
+TARGET_TIMEOUT = TargetHealthReasonEnum.TARGET_TIMEOUT
+TARGET_FAILEDHEALTHCHECKS = TargetHealthReasonEnum.TARGET_FAILEDHEALTHCHECKS
+TARGET_NOTREGISTERED = TargetHealthReasonEnum.TARGET_NOTREGISTERED
+TARGET_NOTINUSE = TargetHealthReasonEnum.TARGET_NOTINUSE
+TARGET_DEREGISTRATIONINPROGRESS = TargetHealthReasonEnum.TARGET_DEREGISTRATIONINPROGRESS
+TARGET_INVALIDSTATE = TargetHealthReasonEnum.TARGET_INVALIDSTATE
+TARGET_IPUNUSABLE = TargetHealthReasonEnum.TARGET_IPUNUSABLE
+TARGET_HEALTHCHECKDISABLED = TargetHealthReasonEnum.TARGET_HEALTHCHECKDISABLED
+ELB_INTERNALERROR = TargetHealthReasonEnum.ELB_INTERNALERROR
+INITIAL = TargetHealthStateEnum.INITIAL
+HEALTHY = TargetHealthStateEnum.HEALTHY
+UNHEALTHY = TargetHealthStateEnum.UNHEALTHY
+UNHEALTHY_DRAINING = TargetHealthStateEnum.UNHEALTHY_DRAINING
+UNUSED = TargetHealthStateEnum.UNUSED
+DRAINING = TargetHealthStateEnum.DRAINING
+UNAVAILABLE = TargetHealthStateEnum.UNAVAILABLE
+INSTANCE = TargetTypeEnum.INSTANCE
+IP = TargetTypeEnum.IP
+LAMBDA = TargetTypeEnum.LAMBDA
+ALB = TargetTypeEnum.ALB
+HOST_HEADER_REWRITE = TransformTypeEnum.HOST_HEADER_REWRITE
+URL_REWRITE = TransformTypeEnum.URL_REWRITE
+ACTIVE = TrustStoreAssociationStatusEnum.ACTIVE
+REMOVED = TrustStoreAssociationStatusEnum.REMOVED
+ACTIVE = TrustStoreStatus.ACTIVE
+CREATING = TrustStoreStatus.CREATING
 
 
 @dataclass
@@ -38,7 +375,7 @@ class Action:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     authenticate_cognito_config: Optional[AuthenticateCognitoConfig] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    type_: Optional[Union[str, ActionTypeEnum, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     redirect_config: Optional[RedirectConfig] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -557,7 +894,7 @@ class JwtValidationActionAdditionalClaim:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    format: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    format: Optional[Union[str, JwtValidationActionAdditionalClaimFormatEnum, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     values: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -945,7 +1282,7 @@ class Listener(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     certificates: Optional[list[Certificate]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    protocol: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    protocol: Optional[Union[str, ProtocolEnum, Ref, GetAtt, Sub]] = None
 
     def _get_properties(self) -> dict[str, Any]:
         """Serialize resource properties to CloudFormation format."""
@@ -1161,7 +1498,7 @@ class Action:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     authenticate_cognito_config: Optional[AuthenticateCognitoConfig] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    type_: Optional[Union[str, ActionTypeEnum, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     redirect_config: Optional[RedirectConfig] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1769,7 +2106,7 @@ class JwtValidationActionAdditionalClaim:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    format: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    format: Optional[Union[str, JwtValidationActionAdditionalClaimFormatEnum, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     values: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -2649,13 +2986,13 @@ class LoadBalancer(CloudFormationResource):
     resource_type: ClassVar[str] = "AWS::ElasticLoadBalancingV2::LoadBalancer"
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    ip_address_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    ip_address_type: Optional[Union[str, IpAddressType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     security_groups: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     load_balancer_attributes: Optional[list[LoadBalancerAttribute]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    scheme: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    scheme: Optional[Union[str, LoadBalancerSchemeEnum, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
@@ -2663,11 +3000,11 @@ class LoadBalancer(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     subnets: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    type_: Optional[Union[str, LoadBalancerTypeEnum, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     minimum_load_balancer_capacity: Optional[MinimumLoadBalancerCapacity] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    enable_prefix_for_ipv6_source_nat: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    enable_prefix_for_ipv6_source_nat: Optional[Union[str, EnablePrefixForIpv6SourceNatEnum, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ipv4_ipam_pool_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
@@ -3040,7 +3377,7 @@ class TargetGroup(CloudFormationResource):
     resource_type: ClassVar[str] = "AWS::ElasticLoadBalancingV2::TargetGroup"
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    ip_address_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    ip_address_type: Optional[Union[str, TargetGroupIpAddressTypeEnum, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     health_check_interval_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
@@ -3068,15 +3405,15 @@ class TargetGroup(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     healthy_threshold_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    health_check_protocol: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    health_check_protocol: Optional[Union[str, ProtocolEnum, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     target_group_attributes: Optional[list[TargetGroupAttribute]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    target_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    target_type: Optional[Union[str, TargetTypeEnum, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     health_check_port: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    protocol: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    protocol: Optional[Union[str, ProtocolEnum, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
@@ -3476,7 +3813,7 @@ class RevocationContent:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    revocation_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    revocation_type: Optional[Union[str, RevocationType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -3538,7 +3875,7 @@ class TrustStoreRevocation:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     trust_store_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    revocation_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    revocation_type: Optional[Union[str, RevocationType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     revocation_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 

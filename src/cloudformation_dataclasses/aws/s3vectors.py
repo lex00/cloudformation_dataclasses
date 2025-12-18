@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:37
+  Generated: 2025-12-17 16:59:39
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service S3Vectors
@@ -23,6 +23,38 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class DataType:
+    """DataType enum values."""
+
+    FLOAT32 = "float32"
+
+
+class DistanceMetric:
+    """DistanceMetric enum values."""
+
+    EUCLIDEAN = "euclidean"
+    COSINE = "cosine"
+
+
+class SseType:
+    """SseType enum values."""
+
+    AES256 = "AES256"
+    AWS_KMS = "aws:kms"
+
+
+# Convenient aliases for enum values
+FLOAT32 = DataType.FLOAT32
+EUCLIDEAN = DistanceMetric.EUCLIDEAN
+COSINE = DistanceMetric.COSINE
+AES256 = SseType.AES256
+AWS_KMS = SseType.AWS_KMS
 
 
 @dataclass

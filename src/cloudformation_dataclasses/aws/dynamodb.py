@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:20
+  Generated: 2025-12-17 16:59:36
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DynamoDB
@@ -25,12 +25,543 @@ from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class ApproximateCreationDateTimePrecision:
+    """ApproximateCreationDateTimePrecision enum values."""
+
+    MILLISECOND = "MILLISECOND"
+    MICROSECOND = "MICROSECOND"
+
+
+class AttributeAction:
+    """AttributeAction enum values."""
+
+    ADD = "ADD"
+    PUT = "PUT"
+    DELETE = "DELETE"
+
+
+class BackupStatus:
+    """BackupStatus enum values."""
+
+    CREATING = "CREATING"
+    DELETED = "DELETED"
+    AVAILABLE = "AVAILABLE"
+
+
+class BackupType:
+    """BackupType enum values."""
+
+    USER = "USER"
+    SYSTEM = "SYSTEM"
+    AWS_BACKUP = "AWS_BACKUP"
+
+
+class BackupTypeFilter:
+    """BackupTypeFilter enum values."""
+
+    USER = "USER"
+    SYSTEM = "SYSTEM"
+    AWS_BACKUP = "AWS_BACKUP"
+    ALL = "ALL"
+
+
+class BatchStatementErrorCodeEnum:
+    """BatchStatementErrorCodeEnum enum values."""
+
+    CONDITIONALCHECKFAILED = "ConditionalCheckFailed"
+    ITEMCOLLECTIONSIZELIMITEXCEEDED = "ItemCollectionSizeLimitExceeded"
+    REQUESTLIMITEXCEEDED = "RequestLimitExceeded"
+    VALIDATIONERROR = "ValidationError"
+    PROVISIONEDTHROUGHPUTEXCEEDED = "ProvisionedThroughputExceeded"
+    TRANSACTIONCONFLICT = "TransactionConflict"
+    THROTTLINGERROR = "ThrottlingError"
+    INTERNALSERVERERROR = "InternalServerError"
+    RESOURCENOTFOUND = "ResourceNotFound"
+    ACCESSDENIED = "AccessDenied"
+    DUPLICATEITEM = "DuplicateItem"
+
+
+class BillingMode:
+    """BillingMode enum values."""
+
+    PROVISIONED = "PROVISIONED"
+    PAY_PER_REQUEST = "PAY_PER_REQUEST"
+
+
+class ComparisonOperator:
+    """ComparisonOperator enum values."""
+
+    EQ = "EQ"
+    NE = "NE"
+    IN = "IN"
+    LE = "LE"
+    LT = "LT"
+    GE = "GE"
+    GT = "GT"
+    BETWEEN = "BETWEEN"
+    NOT_NULL = "NOT_NULL"
+    NULL = "NULL"
+    CONTAINS = "CONTAINS"
+    NOT_CONTAINS = "NOT_CONTAINS"
+    BEGINS_WITH = "BEGINS_WITH"
+
+
+class ConditionalOperator:
+    """ConditionalOperator enum values."""
+
+    AND = "AND"
+    OR = "OR"
+
+
+class ContinuousBackupsStatus:
+    """ContinuousBackupsStatus enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class ContributorInsightsAction:
+    """ContributorInsightsAction enum values."""
+
+    ENABLE = "ENABLE"
+    DISABLE = "DISABLE"
+
+
+class ContributorInsightsMode:
+    """ContributorInsightsMode enum values."""
+
+    ACCESSED_AND_THROTTLED_KEYS = "ACCESSED_AND_THROTTLED_KEYS"
+    THROTTLED_KEYS = "THROTTLED_KEYS"
+
+
+class ContributorInsightsStatus:
+    """ContributorInsightsStatus enum values."""
+
+    ENABLING = "ENABLING"
+    ENABLED = "ENABLED"
+    DISABLING = "DISABLING"
+    DISABLED = "DISABLED"
+    FAILED = "FAILED"
+
+
+class DestinationStatus:
+    """DestinationStatus enum values."""
+
+    ENABLING = "ENABLING"
+    ACTIVE = "ACTIVE"
+    DISABLING = "DISABLING"
+    DISABLED = "DISABLED"
+    ENABLE_FAILED = "ENABLE_FAILED"
+    UPDATING = "UPDATING"
+
+
+class ExportFormat:
+    """ExportFormat enum values."""
+
+    DYNAMODB_JSON = "DYNAMODB_JSON"
+    ION = "ION"
+
+
+class ExportStatus:
+    """ExportStatus enum values."""
+
+    IN_PROGRESS = "IN_PROGRESS"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
+
+
+class ExportType:
+    """ExportType enum values."""
+
+    FULL_EXPORT = "FULL_EXPORT"
+    INCREMENTAL_EXPORT = "INCREMENTAL_EXPORT"
+
+
+class ExportViewType:
+    """ExportViewType enum values."""
+
+    NEW_IMAGE = "NEW_IMAGE"
+    NEW_AND_OLD_IMAGES = "NEW_AND_OLD_IMAGES"
+
+
+class GlobalTableStatus:
+    """GlobalTableStatus enum values."""
+
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    DELETING = "DELETING"
+    UPDATING = "UPDATING"
+
+
+class ImportStatus:
+    """ImportStatus enum values."""
+
+    IN_PROGRESS = "IN_PROGRESS"
+    COMPLETED = "COMPLETED"
+    CANCELLING = "CANCELLING"
+    CANCELLED = "CANCELLED"
+    FAILED = "FAILED"
+
+
+class IndexStatus:
+    """IndexStatus enum values."""
+
+    CREATING = "CREATING"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    ACTIVE = "ACTIVE"
+
+
+class InputCompressionType:
+    """InputCompressionType enum values."""
+
+    GZIP = "GZIP"
+    ZSTD = "ZSTD"
+    NONE = "NONE"
+
+
+class InputFormat:
+    """InputFormat enum values."""
+
+    DYNAMODB_JSON = "DYNAMODB_JSON"
+    ION = "ION"
+    CSV = "CSV"
+
+
+class KeyType:
+    """KeyType enum values."""
+
+    HASH = "HASH"
+    RANGE = "RANGE"
+
+
+class MultiRegionConsistency:
+    """MultiRegionConsistency enum values."""
+
+    EVENTUAL = "EVENTUAL"
+    STRONG = "STRONG"
+
+
+class PointInTimeRecoveryStatus:
+    """PointInTimeRecoveryStatus enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class ProjectionType:
+    """ProjectionType enum values."""
+
+    ALL = "ALL"
+    KEYS_ONLY = "KEYS_ONLY"
+    INCLUDE = "INCLUDE"
+
+
+class ReplicaStatus:
+    """ReplicaStatus enum values."""
+
+    CREATING = "CREATING"
+    CREATION_FAILED = "CREATION_FAILED"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    ACTIVE = "ACTIVE"
+    REGION_DISABLED = "REGION_DISABLED"
+    INACCESSIBLE_ENCRYPTION_CREDENTIALS = "INACCESSIBLE_ENCRYPTION_CREDENTIALS"
+    ARCHIVING = "ARCHIVING"
+    ARCHIVED = "ARCHIVED"
+    REPLICATION_NOT_AUTHORIZED = "REPLICATION_NOT_AUTHORIZED"
+
+
+class ReturnConsumedCapacity:
+    """ReturnConsumedCapacity enum values."""
+
+    INDEXES = "INDEXES"
+    TOTAL = "TOTAL"
+    NONE = "NONE"
+
+
+class ReturnItemCollectionMetrics:
+    """ReturnItemCollectionMetrics enum values."""
+
+    SIZE = "SIZE"
+    NONE = "NONE"
+
+
+class ReturnValue:
+    """ReturnValue enum values."""
+
+    NONE = "NONE"
+    ALL_OLD = "ALL_OLD"
+    UPDATED_OLD = "UPDATED_OLD"
+    ALL_NEW = "ALL_NEW"
+    UPDATED_NEW = "UPDATED_NEW"
+
+
+class ReturnValuesOnConditionCheckFailure:
+    """ReturnValuesOnConditionCheckFailure enum values."""
+
+    ALL_OLD = "ALL_OLD"
+    NONE = "NONE"
+
+
+class S3SseAlgorithm:
+    """S3SseAlgorithm enum values."""
+
+    AES256 = "AES256"
+    KMS = "KMS"
+
+
+class SSEStatus:
+    """SSEStatus enum values."""
+
+    ENABLING = "ENABLING"
+    ENABLED = "ENABLED"
+    DISABLING = "DISABLING"
+    DISABLED = "DISABLED"
+    UPDATING = "UPDATING"
+
+
+class SSEType:
+    """SSEType enum values."""
+
+    AES256 = "AES256"
+    KMS = "KMS"
+
+
+class ScalarAttributeType:
+    """ScalarAttributeType enum values."""
+
+    S = "S"
+    N = "N"
+    B = "B"
+
+
+class Select:
+    """Select enum values."""
+
+    ALL_ATTRIBUTES = "ALL_ATTRIBUTES"
+    ALL_PROJECTED_ATTRIBUTES = "ALL_PROJECTED_ATTRIBUTES"
+    SPECIFIC_ATTRIBUTES = "SPECIFIC_ATTRIBUTES"
+    COUNT = "COUNT"
+
+
+class StreamViewType:
+    """StreamViewType enum values."""
+
+    NEW_IMAGE = "NEW_IMAGE"
+    OLD_IMAGE = "OLD_IMAGE"
+    NEW_AND_OLD_IMAGES = "NEW_AND_OLD_IMAGES"
+    KEYS_ONLY = "KEYS_ONLY"
+
+
+class TableClass:
+    """TableClass enum values."""
+
+    STANDARD = "STANDARD"
+    STANDARD_INFREQUENT_ACCESS = "STANDARD_INFREQUENT_ACCESS"
+
+
+class TableStatus:
+    """TableStatus enum values."""
+
+    CREATING = "CREATING"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    ACTIVE = "ACTIVE"
+    INACCESSIBLE_ENCRYPTION_CREDENTIALS = "INACCESSIBLE_ENCRYPTION_CREDENTIALS"
+    ARCHIVING = "ARCHIVING"
+    ARCHIVED = "ARCHIVED"
+    REPLICATION_NOT_AUTHORIZED = "REPLICATION_NOT_AUTHORIZED"
+
+
+class TimeToLiveStatus:
+    """TimeToLiveStatus enum values."""
+
+    ENABLING = "ENABLING"
+    DISABLING = "DISABLING"
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class WitnessStatus:
+    """WitnessStatus enum values."""
+
+    CREATING = "CREATING"
+    DELETING = "DELETING"
+    ACTIVE = "ACTIVE"
+
+
+# Convenient aliases for enum values
+AttributeType = ScalarAttributeType
+
+MILLISECOND = ApproximateCreationDateTimePrecision.MILLISECOND
+MICROSECOND = ApproximateCreationDateTimePrecision.MICROSECOND
+ADD = AttributeAction.ADD
+PUT = AttributeAction.PUT
+DELETE = AttributeAction.DELETE
+CREATING = BackupStatus.CREATING
+DELETED = BackupStatus.DELETED
+AVAILABLE = BackupStatus.AVAILABLE
+USER = BackupType.USER
+SYSTEM = BackupType.SYSTEM
+AWS_BACKUP = BackupType.AWS_BACKUP
+USER = BackupTypeFilter.USER
+SYSTEM = BackupTypeFilter.SYSTEM
+AWS_BACKUP = BackupTypeFilter.AWS_BACKUP
+ALL = BackupTypeFilter.ALL
+CONDITIONALCHECKFAILED = BatchStatementErrorCodeEnum.CONDITIONALCHECKFAILED
+ITEMCOLLECTIONSIZELIMITEXCEEDED = BatchStatementErrorCodeEnum.ITEMCOLLECTIONSIZELIMITEXCEEDED
+REQUESTLIMITEXCEEDED = BatchStatementErrorCodeEnum.REQUESTLIMITEXCEEDED
+VALIDATIONERROR = BatchStatementErrorCodeEnum.VALIDATIONERROR
+PROVISIONEDTHROUGHPUTEXCEEDED = BatchStatementErrorCodeEnum.PROVISIONEDTHROUGHPUTEXCEEDED
+TRANSACTIONCONFLICT = BatchStatementErrorCodeEnum.TRANSACTIONCONFLICT
+THROTTLINGERROR = BatchStatementErrorCodeEnum.THROTTLINGERROR
+INTERNALSERVERERROR = BatchStatementErrorCodeEnum.INTERNALSERVERERROR
+RESOURCENOTFOUND = BatchStatementErrorCodeEnum.RESOURCENOTFOUND
+ACCESSDENIED = BatchStatementErrorCodeEnum.ACCESSDENIED
+DUPLICATEITEM = BatchStatementErrorCodeEnum.DUPLICATEITEM
+PROVISIONED = BillingMode.PROVISIONED
+PAY_PER_REQUEST = BillingMode.PAY_PER_REQUEST
+EQ = ComparisonOperator.EQ
+NE = ComparisonOperator.NE
+IN = ComparisonOperator.IN
+LE = ComparisonOperator.LE
+LT = ComparisonOperator.LT
+GE = ComparisonOperator.GE
+GT = ComparisonOperator.GT
+BETWEEN = ComparisonOperator.BETWEEN
+NOT_NULL = ComparisonOperator.NOT_NULL
+NULL = ComparisonOperator.NULL
+CONTAINS = ComparisonOperator.CONTAINS
+NOT_CONTAINS = ComparisonOperator.NOT_CONTAINS
+BEGINS_WITH = ComparisonOperator.BEGINS_WITH
+AND = ConditionalOperator.AND
+OR = ConditionalOperator.OR
+ENABLED = ContinuousBackupsStatus.ENABLED
+DISABLED = ContinuousBackupsStatus.DISABLED
+ENABLE = ContributorInsightsAction.ENABLE
+DISABLE = ContributorInsightsAction.DISABLE
+ACCESSED_AND_THROTTLED_KEYS = ContributorInsightsMode.ACCESSED_AND_THROTTLED_KEYS
+THROTTLED_KEYS = ContributorInsightsMode.THROTTLED_KEYS
+ENABLING = ContributorInsightsStatus.ENABLING
+ENABLED = ContributorInsightsStatus.ENABLED
+DISABLING = ContributorInsightsStatus.DISABLING
+DISABLED = ContributorInsightsStatus.DISABLED
+FAILED = ContributorInsightsStatus.FAILED
+ENABLING = DestinationStatus.ENABLING
+ACTIVE = DestinationStatus.ACTIVE
+DISABLING = DestinationStatus.DISABLING
+DISABLED = DestinationStatus.DISABLED
+ENABLE_FAILED = DestinationStatus.ENABLE_FAILED
+UPDATING = DestinationStatus.UPDATING
+DYNAMODB_JSON = ExportFormat.DYNAMODB_JSON
+ION = ExportFormat.ION
+IN_PROGRESS = ExportStatus.IN_PROGRESS
+COMPLETED = ExportStatus.COMPLETED
+FAILED = ExportStatus.FAILED
+FULL_EXPORT = ExportType.FULL_EXPORT
+INCREMENTAL_EXPORT = ExportType.INCREMENTAL_EXPORT
+NEW_IMAGE = ExportViewType.NEW_IMAGE
+NEW_AND_OLD_IMAGES = ExportViewType.NEW_AND_OLD_IMAGES
+CREATING = GlobalTableStatus.CREATING
+ACTIVE = GlobalTableStatus.ACTIVE
+DELETING = GlobalTableStatus.DELETING
+UPDATING = GlobalTableStatus.UPDATING
+IN_PROGRESS = ImportStatus.IN_PROGRESS
+COMPLETED = ImportStatus.COMPLETED
+CANCELLING = ImportStatus.CANCELLING
+CANCELLED = ImportStatus.CANCELLED
+FAILED = ImportStatus.FAILED
+CREATING = IndexStatus.CREATING
+UPDATING = IndexStatus.UPDATING
+DELETING = IndexStatus.DELETING
+ACTIVE = IndexStatus.ACTIVE
+GZIP = InputCompressionType.GZIP
+ZSTD = InputCompressionType.ZSTD
+NONE = InputCompressionType.NONE
+DYNAMODB_JSON = InputFormat.DYNAMODB_JSON
+ION = InputFormat.ION
+CSV = InputFormat.CSV
+HASH = KeyType.HASH
+RANGE = KeyType.RANGE
+EVENTUAL = MultiRegionConsistency.EVENTUAL
+STRONG = MultiRegionConsistency.STRONG
+ENABLED = PointInTimeRecoveryStatus.ENABLED
+DISABLED = PointInTimeRecoveryStatus.DISABLED
+ALL = ProjectionType.ALL
+KEYS_ONLY = ProjectionType.KEYS_ONLY
+INCLUDE = ProjectionType.INCLUDE
+CREATING = ReplicaStatus.CREATING
+CREATION_FAILED = ReplicaStatus.CREATION_FAILED
+UPDATING = ReplicaStatus.UPDATING
+DELETING = ReplicaStatus.DELETING
+ACTIVE = ReplicaStatus.ACTIVE
+REGION_DISABLED = ReplicaStatus.REGION_DISABLED
+INACCESSIBLE_ENCRYPTION_CREDENTIALS = ReplicaStatus.INACCESSIBLE_ENCRYPTION_CREDENTIALS
+ARCHIVING = ReplicaStatus.ARCHIVING
+ARCHIVED = ReplicaStatus.ARCHIVED
+REPLICATION_NOT_AUTHORIZED = ReplicaStatus.REPLICATION_NOT_AUTHORIZED
+INDEXES = ReturnConsumedCapacity.INDEXES
+TOTAL = ReturnConsumedCapacity.TOTAL
+NONE = ReturnConsumedCapacity.NONE
+SIZE = ReturnItemCollectionMetrics.SIZE
+NONE = ReturnItemCollectionMetrics.NONE
+NONE = ReturnValue.NONE
+ALL_OLD = ReturnValue.ALL_OLD
+UPDATED_OLD = ReturnValue.UPDATED_OLD
+ALL_NEW = ReturnValue.ALL_NEW
+UPDATED_NEW = ReturnValue.UPDATED_NEW
+ALL_OLD = ReturnValuesOnConditionCheckFailure.ALL_OLD
+NONE = ReturnValuesOnConditionCheckFailure.NONE
+AES256 = S3SseAlgorithm.AES256
+KMS = S3SseAlgorithm.KMS
+ENABLING = SSEStatus.ENABLING
+ENABLED = SSEStatus.ENABLED
+DISABLING = SSEStatus.DISABLING
+DISABLED = SSEStatus.DISABLED
+UPDATING = SSEStatus.UPDATING
+AES256 = SSEType.AES256
+KMS = SSEType.KMS
+S = ScalarAttributeType.S
+N = ScalarAttributeType.N
+B = ScalarAttributeType.B
+ALL_ATTRIBUTES = Select.ALL_ATTRIBUTES
+ALL_PROJECTED_ATTRIBUTES = Select.ALL_PROJECTED_ATTRIBUTES
+SPECIFIC_ATTRIBUTES = Select.SPECIFIC_ATTRIBUTES
+COUNT = Select.COUNT
+NEW_IMAGE = StreamViewType.NEW_IMAGE
+OLD_IMAGE = StreamViewType.OLD_IMAGE
+NEW_AND_OLD_IMAGES = StreamViewType.NEW_AND_OLD_IMAGES
+KEYS_ONLY = StreamViewType.KEYS_ONLY
+STANDARD = TableClass.STANDARD
+STANDARD_INFREQUENT_ACCESS = TableClass.STANDARD_INFREQUENT_ACCESS
+CREATING = TableStatus.CREATING
+UPDATING = TableStatus.UPDATING
+DELETING = TableStatus.DELETING
+ACTIVE = TableStatus.ACTIVE
+INACCESSIBLE_ENCRYPTION_CREDENTIALS = TableStatus.INACCESSIBLE_ENCRYPTION_CREDENTIALS
+ARCHIVING = TableStatus.ARCHIVING
+ARCHIVED = TableStatus.ARCHIVED
+REPLICATION_NOT_AUTHORIZED = TableStatus.REPLICATION_NOT_AUTHORIZED
+ENABLING = TimeToLiveStatus.ENABLING
+DISABLING = TimeToLiveStatus.DISABLING
+ENABLED = TimeToLiveStatus.ENABLED
+DISABLED = TimeToLiveStatus.DISABLED
+CREATING = WitnessStatus.CREATING
+DELETING = WitnessStatus.DELETING
+ACTIVE = WitnessStatus.ACTIVE
+
+
 @dataclass
 class AttributeDefinition:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    attribute_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    attribute_type: Optional[Union[str, AttributeType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attribute_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -285,7 +816,7 @@ class KeySchema:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    key_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    key_type: Optional[Union[str, KeyType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attribute_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -450,7 +981,7 @@ class Projection:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    projection_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    projection_type: Optional[Union[str, ProjectionType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     non_key_attributes: Optional[Union[list[str], Ref]] = None
 
@@ -873,7 +1404,7 @@ class SSESpecification:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sse_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    sse_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    sse_type: Optional[Union[str, SSEType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -909,7 +1440,7 @@ class StreamSpecification:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    stream_view_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    stream_view_type: Optional[Union[str, StreamViewType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1380,7 +1911,7 @@ class AttributeDefinition:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    attribute_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    attribute_type: Optional[Union[str, AttributeType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attribute_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -1686,7 +2217,7 @@ class KeySchema:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    key_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    key_type: Optional[Union[str, KeyType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attribute_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -1891,7 +2422,7 @@ class Projection:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     non_key_attributes: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    projection_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    projection_type: Optional[Union[str, ProjectionType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -2043,7 +2574,7 @@ class SSESpecification:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sse_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    sse_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    sse_type: Optional[Union[str, SSEType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_master_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -2092,7 +2623,7 @@ class StreamSpecification:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    stream_view_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    stream_view_type: Optional[Union[str, StreamViewType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_policy: Optional[ResourcePolicy] = None
 

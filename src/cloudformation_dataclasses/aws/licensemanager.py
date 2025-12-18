@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:28
+  Generated: 2025-12-17 16:59:37
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service LicenseManager
@@ -23,6 +23,368 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class ActivationOverrideBehavior:
+    """ActivationOverrideBehavior enum values."""
+
+    DISTRIBUTED_GRANTS_ONLY = "DISTRIBUTED_GRANTS_ONLY"
+    ALL_GRANTS_PERMITTED_BY_ISSUER = "ALL_GRANTS_PERMITTED_BY_ISSUER"
+
+
+class AllowedOperation:
+    """AllowedOperation enum values."""
+
+    CREATEGRANT = "CreateGrant"
+    CHECKOUTLICENSE = "CheckoutLicense"
+    CHECKOUTBORROWLICENSE = "CheckoutBorrowLicense"
+    CHECKINLICENSE = "CheckInLicense"
+    EXTENDCONSUMPTIONLICENSE = "ExtendConsumptionLicense"
+    LISTPURCHASEDLICENSES = "ListPurchasedLicenses"
+    CREATETOKEN = "CreateToken"
+
+
+class CheckoutType:
+    """CheckoutType enum values."""
+
+    PROVISIONAL = "PROVISIONAL"
+    PERPETUAL = "PERPETUAL"
+
+
+class DigitalSignatureMethod:
+    """DigitalSignatureMethod enum values."""
+
+    JWT_PS384 = "JWT_PS384"
+
+
+class EntitlementDataUnit:
+    """EntitlementDataUnit enum values."""
+
+    COUNT = "Count"
+    NONE = "None"
+    SECONDS = "Seconds"
+    MICROSECONDS = "Microseconds"
+    MILLISECONDS = "Milliseconds"
+    BYTES = "Bytes"
+    KILOBYTES = "Kilobytes"
+    MEGABYTES = "Megabytes"
+    GIGABYTES = "Gigabytes"
+    TERABYTES = "Terabytes"
+    BITS = "Bits"
+    KILOBITS = "Kilobits"
+    MEGABITS = "Megabits"
+    GIGABITS = "Gigabits"
+    TERABITS = "Terabits"
+    PERCENT = "Percent"
+    BYTES_SECOND = "Bytes/Second"
+    KILOBYTES_SECOND = "Kilobytes/Second"
+    MEGABYTES_SECOND = "Megabytes/Second"
+    GIGABYTES_SECOND = "Gigabytes/Second"
+    TERABYTES_SECOND = "Terabytes/Second"
+    BITS_SECOND = "Bits/Second"
+    KILOBITS_SECOND = "Kilobits/Second"
+    MEGABITS_SECOND = "Megabits/Second"
+    GIGABITS_SECOND = "Gigabits/Second"
+    TERABITS_SECOND = "Terabits/Second"
+    COUNT_SECOND = "Count/Second"
+
+
+class EntitlementUnit:
+    """EntitlementUnit enum values."""
+
+    COUNT = "Count"
+    NONE = "None"
+    SECONDS = "Seconds"
+    MICROSECONDS = "Microseconds"
+    MILLISECONDS = "Milliseconds"
+    BYTES = "Bytes"
+    KILOBYTES = "Kilobytes"
+    MEGABYTES = "Megabytes"
+    GIGABYTES = "Gigabytes"
+    TERABYTES = "Terabytes"
+    BITS = "Bits"
+    KILOBITS = "Kilobits"
+    MEGABITS = "Megabits"
+    GIGABITS = "Gigabits"
+    TERABITS = "Terabits"
+    PERCENT = "Percent"
+    BYTES_SECOND = "Bytes/Second"
+    KILOBYTES_SECOND = "Kilobytes/Second"
+    MEGABYTES_SECOND = "Megabytes/Second"
+    GIGABYTES_SECOND = "Gigabytes/Second"
+    TERABYTES_SECOND = "Terabytes/Second"
+    BITS_SECOND = "Bits/Second"
+    KILOBITS_SECOND = "Kilobits/Second"
+    MEGABITS_SECOND = "Megabits/Second"
+    GIGABITS_SECOND = "Gigabits/Second"
+    TERABITS_SECOND = "Terabits/Second"
+    COUNT_SECOND = "Count/Second"
+
+
+class GrantStatus:
+    """GrantStatus enum values."""
+
+    PENDING_WORKFLOW = "PENDING_WORKFLOW"
+    PENDING_ACCEPT = "PENDING_ACCEPT"
+    REJECTED = "REJECTED"
+    ACTIVE = "ACTIVE"
+    FAILED_WORKFLOW = "FAILED_WORKFLOW"
+    DELETED = "DELETED"
+    PENDING_DELETE = "PENDING_DELETE"
+    DISABLED = "DISABLED"
+    WORKFLOW_COMPLETED = "WORKFLOW_COMPLETED"
+
+
+class InventoryFilterCondition:
+    """InventoryFilterCondition enum values."""
+
+    EQUALS = "EQUALS"
+    NOT_EQUALS = "NOT_EQUALS"
+    BEGINS_WITH = "BEGINS_WITH"
+    CONTAINS = "CONTAINS"
+
+
+class LicenseAssetGroupStatus:
+    """LicenseAssetGroupStatus enum values."""
+
+    ACTIVE = "ACTIVE"
+    DISABLED = "DISABLED"
+    DELETED = "DELETED"
+
+
+class LicenseConfigurationStatus:
+    """LicenseConfigurationStatus enum values."""
+
+    AVAILABLE = "AVAILABLE"
+    DISABLED = "DISABLED"
+
+
+class LicenseConversionTaskStatus:
+    """LicenseConversionTaskStatus enum values."""
+
+    IN_PROGRESS = "IN_PROGRESS"
+    SUCCEEDED = "SUCCEEDED"
+    FAILED = "FAILED"
+
+
+class LicenseCountingType:
+    """LicenseCountingType enum values."""
+
+    VCPU = "vCPU"
+    INSTANCE = "Instance"
+    CORE = "Core"
+    SOCKET = "Socket"
+
+
+class LicenseDeletionStatus:
+    """LicenseDeletionStatus enum values."""
+
+    PENDING_DELETE = "PENDING_DELETE"
+    DELETED = "DELETED"
+
+
+class LicenseStatus:
+    """LicenseStatus enum values."""
+
+    AVAILABLE = "AVAILABLE"
+    PENDING_AVAILABLE = "PENDING_AVAILABLE"
+    DEACTIVATED = "DEACTIVATED"
+    SUSPENDED = "SUSPENDED"
+    EXPIRED = "EXPIRED"
+    PENDING_DELETE = "PENDING_DELETE"
+    DELETED = "DELETED"
+
+
+class ProductCodeType:
+    """ProductCodeType enum values."""
+
+    MARKETPLACE = "marketplace"
+
+
+class ReceivedStatus:
+    """ReceivedStatus enum values."""
+
+    PENDING_WORKFLOW = "PENDING_WORKFLOW"
+    PENDING_ACCEPT = "PENDING_ACCEPT"
+    REJECTED = "REJECTED"
+    ACTIVE = "ACTIVE"
+    FAILED_WORKFLOW = "FAILED_WORKFLOW"
+    DELETED = "DELETED"
+    DISABLED = "DISABLED"
+    WORKFLOW_COMPLETED = "WORKFLOW_COMPLETED"
+
+
+class RenewType:
+    """RenewType enum values."""
+
+    NONE = "None"
+    WEEKLY = "Weekly"
+    MONTHLY = "Monthly"
+
+
+class ReportFrequencyType:
+    """ReportFrequencyType enum values."""
+
+    DAY = "DAY"
+    WEEK = "WEEK"
+    MONTH = "MONTH"
+    ONE_TIME = "ONE_TIME"
+
+
+class ReportType:
+    """ReportType enum values."""
+
+    LICENSECONFIGURATIONSUMMARYREPORT = "LicenseConfigurationSummaryReport"
+    LICENSECONFIGURATIONUSAGEREPORT = "LicenseConfigurationUsageReport"
+    LICENSEASSETGROUPUSAGEREPORT = "LicenseAssetGroupUsageReport"
+
+
+class ResourceType:
+    """ResourceType enum values."""
+
+    EC2_INSTANCE = "EC2_INSTANCE"
+    EC2_HOST = "EC2_HOST"
+    EC2_AMI = "EC2_AMI"
+    RDS = "RDS"
+    SYSTEMS_MANAGER_MANAGED_INSTANCE = "SYSTEMS_MANAGER_MANAGED_INSTANCE"
+
+
+class TokenType:
+    """TokenType enum values."""
+
+    REFRESH_TOKEN = "REFRESH_TOKEN"
+
+
+# Convenient aliases for enum values
+DISTRIBUTED_GRANTS_ONLY = ActivationOverrideBehavior.DISTRIBUTED_GRANTS_ONLY
+ALL_GRANTS_PERMITTED_BY_ISSUER = ActivationOverrideBehavior.ALL_GRANTS_PERMITTED_BY_ISSUER
+CREATEGRANT = AllowedOperation.CREATEGRANT
+CHECKOUTLICENSE = AllowedOperation.CHECKOUTLICENSE
+CHECKOUTBORROWLICENSE = AllowedOperation.CHECKOUTBORROWLICENSE
+CHECKINLICENSE = AllowedOperation.CHECKINLICENSE
+EXTENDCONSUMPTIONLICENSE = AllowedOperation.EXTENDCONSUMPTIONLICENSE
+LISTPURCHASEDLICENSES = AllowedOperation.LISTPURCHASEDLICENSES
+CREATETOKEN = AllowedOperation.CREATETOKEN
+PROVISIONAL = CheckoutType.PROVISIONAL
+PERPETUAL = CheckoutType.PERPETUAL
+JWT_PS384 = DigitalSignatureMethod.JWT_PS384
+COUNT = EntitlementDataUnit.COUNT
+NONE = EntitlementDataUnit.NONE
+SECONDS = EntitlementDataUnit.SECONDS
+MICROSECONDS = EntitlementDataUnit.MICROSECONDS
+MILLISECONDS = EntitlementDataUnit.MILLISECONDS
+BYTES = EntitlementDataUnit.BYTES
+KILOBYTES = EntitlementDataUnit.KILOBYTES
+MEGABYTES = EntitlementDataUnit.MEGABYTES
+GIGABYTES = EntitlementDataUnit.GIGABYTES
+TERABYTES = EntitlementDataUnit.TERABYTES
+BITS = EntitlementDataUnit.BITS
+KILOBITS = EntitlementDataUnit.KILOBITS
+MEGABITS = EntitlementDataUnit.MEGABITS
+GIGABITS = EntitlementDataUnit.GIGABITS
+TERABITS = EntitlementDataUnit.TERABITS
+PERCENT = EntitlementDataUnit.PERCENT
+BYTES_SECOND = EntitlementDataUnit.BYTES_SECOND
+KILOBYTES_SECOND = EntitlementDataUnit.KILOBYTES_SECOND
+MEGABYTES_SECOND = EntitlementDataUnit.MEGABYTES_SECOND
+GIGABYTES_SECOND = EntitlementDataUnit.GIGABYTES_SECOND
+TERABYTES_SECOND = EntitlementDataUnit.TERABYTES_SECOND
+BITS_SECOND = EntitlementDataUnit.BITS_SECOND
+KILOBITS_SECOND = EntitlementDataUnit.KILOBITS_SECOND
+MEGABITS_SECOND = EntitlementDataUnit.MEGABITS_SECOND
+GIGABITS_SECOND = EntitlementDataUnit.GIGABITS_SECOND
+TERABITS_SECOND = EntitlementDataUnit.TERABITS_SECOND
+COUNT_SECOND = EntitlementDataUnit.COUNT_SECOND
+COUNT = EntitlementUnit.COUNT
+NONE = EntitlementUnit.NONE
+SECONDS = EntitlementUnit.SECONDS
+MICROSECONDS = EntitlementUnit.MICROSECONDS
+MILLISECONDS = EntitlementUnit.MILLISECONDS
+BYTES = EntitlementUnit.BYTES
+KILOBYTES = EntitlementUnit.KILOBYTES
+MEGABYTES = EntitlementUnit.MEGABYTES
+GIGABYTES = EntitlementUnit.GIGABYTES
+TERABYTES = EntitlementUnit.TERABYTES
+BITS = EntitlementUnit.BITS
+KILOBITS = EntitlementUnit.KILOBITS
+MEGABITS = EntitlementUnit.MEGABITS
+GIGABITS = EntitlementUnit.GIGABITS
+TERABITS = EntitlementUnit.TERABITS
+PERCENT = EntitlementUnit.PERCENT
+BYTES_SECOND = EntitlementUnit.BYTES_SECOND
+KILOBYTES_SECOND = EntitlementUnit.KILOBYTES_SECOND
+MEGABYTES_SECOND = EntitlementUnit.MEGABYTES_SECOND
+GIGABYTES_SECOND = EntitlementUnit.GIGABYTES_SECOND
+TERABYTES_SECOND = EntitlementUnit.TERABYTES_SECOND
+BITS_SECOND = EntitlementUnit.BITS_SECOND
+KILOBITS_SECOND = EntitlementUnit.KILOBITS_SECOND
+MEGABITS_SECOND = EntitlementUnit.MEGABITS_SECOND
+GIGABITS_SECOND = EntitlementUnit.GIGABITS_SECOND
+TERABITS_SECOND = EntitlementUnit.TERABITS_SECOND
+COUNT_SECOND = EntitlementUnit.COUNT_SECOND
+PENDING_WORKFLOW = GrantStatus.PENDING_WORKFLOW
+PENDING_ACCEPT = GrantStatus.PENDING_ACCEPT
+REJECTED = GrantStatus.REJECTED
+ACTIVE = GrantStatus.ACTIVE
+FAILED_WORKFLOW = GrantStatus.FAILED_WORKFLOW
+DELETED = GrantStatus.DELETED
+PENDING_DELETE = GrantStatus.PENDING_DELETE
+DISABLED = GrantStatus.DISABLED
+WORKFLOW_COMPLETED = GrantStatus.WORKFLOW_COMPLETED
+EQUALS = InventoryFilterCondition.EQUALS
+NOT_EQUALS = InventoryFilterCondition.NOT_EQUALS
+BEGINS_WITH = InventoryFilterCondition.BEGINS_WITH
+CONTAINS = InventoryFilterCondition.CONTAINS
+ACTIVE = LicenseAssetGroupStatus.ACTIVE
+DISABLED = LicenseAssetGroupStatus.DISABLED
+DELETED = LicenseAssetGroupStatus.DELETED
+AVAILABLE = LicenseConfigurationStatus.AVAILABLE
+DISABLED = LicenseConfigurationStatus.DISABLED
+IN_PROGRESS = LicenseConversionTaskStatus.IN_PROGRESS
+SUCCEEDED = LicenseConversionTaskStatus.SUCCEEDED
+FAILED = LicenseConversionTaskStatus.FAILED
+VCPU = LicenseCountingType.VCPU
+INSTANCE = LicenseCountingType.INSTANCE
+CORE = LicenseCountingType.CORE
+SOCKET = LicenseCountingType.SOCKET
+PENDING_DELETE = LicenseDeletionStatus.PENDING_DELETE
+DELETED = LicenseDeletionStatus.DELETED
+AVAILABLE = LicenseStatus.AVAILABLE
+PENDING_AVAILABLE = LicenseStatus.PENDING_AVAILABLE
+DEACTIVATED = LicenseStatus.DEACTIVATED
+SUSPENDED = LicenseStatus.SUSPENDED
+EXPIRED = LicenseStatus.EXPIRED
+PENDING_DELETE = LicenseStatus.PENDING_DELETE
+DELETED = LicenseStatus.DELETED
+MARKETPLACE = ProductCodeType.MARKETPLACE
+PENDING_WORKFLOW = ReceivedStatus.PENDING_WORKFLOW
+PENDING_ACCEPT = ReceivedStatus.PENDING_ACCEPT
+REJECTED = ReceivedStatus.REJECTED
+ACTIVE = ReceivedStatus.ACTIVE
+FAILED_WORKFLOW = ReceivedStatus.FAILED_WORKFLOW
+DELETED = ReceivedStatus.DELETED
+DISABLED = ReceivedStatus.DISABLED
+WORKFLOW_COMPLETED = ReceivedStatus.WORKFLOW_COMPLETED
+NONE = RenewType.NONE
+WEEKLY = RenewType.WEEKLY
+MONTHLY = RenewType.MONTHLY
+DAY = ReportFrequencyType.DAY
+WEEK = ReportFrequencyType.WEEK
+MONTH = ReportFrequencyType.MONTH
+ONE_TIME = ReportFrequencyType.ONE_TIME
+LICENSECONFIGURATIONSUMMARYREPORT = ReportType.LICENSECONFIGURATIONSUMMARYREPORT
+LICENSECONFIGURATIONUSAGEREPORT = ReportType.LICENSECONFIGURATIONUSAGEREPORT
+LICENSEASSETGROUPUSAGEREPORT = ReportType.LICENSEASSETGROUPUSAGEREPORT
+EC2_INSTANCE = ResourceType.EC2_INSTANCE
+EC2_HOST = ResourceType.EC2_HOST
+EC2_AMI = ResourceType.EC2_AMI
+RDS = ResourceType.RDS
+SYSTEMS_MANAGER_MANAGED_INSTANCE = ResourceType.SYSTEMS_MANAGER_MANAGED_INSTANCE
+REFRESH_TOKEN = TokenType.REFRESH_TOKEN
 
 
 @dataclass
@@ -186,7 +548,7 @@ class ConsumptionConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     borrow_configuration: Optional[BorrowConfiguration] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    renew_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    renew_type: Optional[Union[str, RenewType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     provisional_configuration: Optional[ProvisionalConfiguration] = None
 
@@ -243,7 +605,7 @@ class Entitlement:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    unit: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    unit: Optional[Union[str, EntitlementUnit, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -468,7 +830,7 @@ class License(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     product_sku: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    status: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    status: Optional[Union[str, LicenseStatus, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     consumption_configuration: Optional[ConsumptionConfiguration] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso

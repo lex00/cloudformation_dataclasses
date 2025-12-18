@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:16
+  Generated: 2025-12-17 16:59:35
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CodeCommit
@@ -23,6 +23,201 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class ApprovalState:
+    """ApprovalState enum values."""
+
+    APPROVE = "APPROVE"
+    REVOKE = "REVOKE"
+
+
+class BatchGetRepositoriesErrorCodeEnum:
+    """BatchGetRepositoriesErrorCodeEnum enum values."""
+
+    ENCRYPTIONINTEGRITYCHECKSFAILEDEXCEPTION = "EncryptionIntegrityChecksFailedException"
+    ENCRYPTIONKEYACCESSDENIEDEXCEPTION = "EncryptionKeyAccessDeniedException"
+    ENCRYPTIONKEYDISABLEDEXCEPTION = "EncryptionKeyDisabledException"
+    ENCRYPTIONKEYNOTFOUNDEXCEPTION = "EncryptionKeyNotFoundException"
+    ENCRYPTIONKEYUNAVAILABLEEXCEPTION = "EncryptionKeyUnavailableException"
+    REPOSITORYDOESNOTEXISTEXCEPTION = "RepositoryDoesNotExistException"
+
+
+class ChangeTypeEnum:
+    """ChangeTypeEnum enum values."""
+
+    A = "A"
+    M = "M"
+    D = "D"
+
+
+class ConflictDetailLevelTypeEnum:
+    """ConflictDetailLevelTypeEnum enum values."""
+
+    FILE_LEVEL = "FILE_LEVEL"
+    LINE_LEVEL = "LINE_LEVEL"
+
+
+class ConflictResolutionStrategyTypeEnum:
+    """ConflictResolutionStrategyTypeEnum enum values."""
+
+    NONE = "NONE"
+    ACCEPT_SOURCE = "ACCEPT_SOURCE"
+    ACCEPT_DESTINATION = "ACCEPT_DESTINATION"
+    AUTOMERGE = "AUTOMERGE"
+
+
+class FileModeTypeEnum:
+    """FileModeTypeEnum enum values."""
+
+    EXECUTABLE = "EXECUTABLE"
+    NORMAL = "NORMAL"
+    SYMLINK = "SYMLINK"
+
+
+class MergeOptionTypeEnum:
+    """MergeOptionTypeEnum enum values."""
+
+    FAST_FORWARD_MERGE = "FAST_FORWARD_MERGE"
+    SQUASH_MERGE = "SQUASH_MERGE"
+    THREE_WAY_MERGE = "THREE_WAY_MERGE"
+
+
+class ObjectTypeEnum:
+    """ObjectTypeEnum enum values."""
+
+    FILE = "FILE"
+    DIRECTORY = "DIRECTORY"
+    GIT_LINK = "GIT_LINK"
+    SYMBOLIC_LINK = "SYMBOLIC_LINK"
+
+
+class OrderEnum:
+    """OrderEnum enum values."""
+
+    ASCENDING = "ascending"
+    DESCENDING = "descending"
+
+
+class OverrideStatus:
+    """OverrideStatus enum values."""
+
+    OVERRIDE = "OVERRIDE"
+    REVOKE = "REVOKE"
+
+
+class PullRequestEventType:
+    """PullRequestEventType enum values."""
+
+    PULL_REQUEST_CREATED = "PULL_REQUEST_CREATED"
+    PULL_REQUEST_STATUS_CHANGED = "PULL_REQUEST_STATUS_CHANGED"
+    PULL_REQUEST_SOURCE_REFERENCE_UPDATED = "PULL_REQUEST_SOURCE_REFERENCE_UPDATED"
+    PULL_REQUEST_MERGE_STATE_CHANGED = "PULL_REQUEST_MERGE_STATE_CHANGED"
+    PULL_REQUEST_APPROVAL_RULE_CREATED = "PULL_REQUEST_APPROVAL_RULE_CREATED"
+    PULL_REQUEST_APPROVAL_RULE_UPDATED = "PULL_REQUEST_APPROVAL_RULE_UPDATED"
+    PULL_REQUEST_APPROVAL_RULE_DELETED = "PULL_REQUEST_APPROVAL_RULE_DELETED"
+    PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN = "PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN"
+    PULL_REQUEST_APPROVAL_STATE_CHANGED = "PULL_REQUEST_APPROVAL_STATE_CHANGED"
+
+
+class PullRequestStatusEnum:
+    """PullRequestStatusEnum enum values."""
+
+    OPEN = "OPEN"
+    CLOSED = "CLOSED"
+
+
+class RelativeFileVersionEnum:
+    """RelativeFileVersionEnum enum values."""
+
+    BEFORE = "BEFORE"
+    AFTER = "AFTER"
+
+
+class ReplacementTypeEnum:
+    """ReplacementTypeEnum enum values."""
+
+    KEEP_BASE = "KEEP_BASE"
+    KEEP_SOURCE = "KEEP_SOURCE"
+    KEEP_DESTINATION = "KEEP_DESTINATION"
+    USE_NEW_CONTENT = "USE_NEW_CONTENT"
+
+
+class RepositoryTriggerEventEnum:
+    """RepositoryTriggerEventEnum enum values."""
+
+    ALL = "all"
+    UPDATEREFERENCE = "updateReference"
+    CREATEREFERENCE = "createReference"
+    DELETEREFERENCE = "deleteReference"
+
+
+class SortByEnum:
+    """SortByEnum enum values."""
+
+    REPOSITORYNAME = "repositoryName"
+    LASTMODIFIEDDATE = "lastModifiedDate"
+
+
+# Convenient aliases for enum values
+APPROVE = ApprovalState.APPROVE
+REVOKE = ApprovalState.REVOKE
+ENCRYPTIONINTEGRITYCHECKSFAILEDEXCEPTION = BatchGetRepositoriesErrorCodeEnum.ENCRYPTIONINTEGRITYCHECKSFAILEDEXCEPTION
+ENCRYPTIONKEYACCESSDENIEDEXCEPTION = BatchGetRepositoriesErrorCodeEnum.ENCRYPTIONKEYACCESSDENIEDEXCEPTION
+ENCRYPTIONKEYDISABLEDEXCEPTION = BatchGetRepositoriesErrorCodeEnum.ENCRYPTIONKEYDISABLEDEXCEPTION
+ENCRYPTIONKEYNOTFOUNDEXCEPTION = BatchGetRepositoriesErrorCodeEnum.ENCRYPTIONKEYNOTFOUNDEXCEPTION
+ENCRYPTIONKEYUNAVAILABLEEXCEPTION = BatchGetRepositoriesErrorCodeEnum.ENCRYPTIONKEYUNAVAILABLEEXCEPTION
+REPOSITORYDOESNOTEXISTEXCEPTION = BatchGetRepositoriesErrorCodeEnum.REPOSITORYDOESNOTEXISTEXCEPTION
+A = ChangeTypeEnum.A
+M = ChangeTypeEnum.M
+D = ChangeTypeEnum.D
+FILE_LEVEL = ConflictDetailLevelTypeEnum.FILE_LEVEL
+LINE_LEVEL = ConflictDetailLevelTypeEnum.LINE_LEVEL
+NONE = ConflictResolutionStrategyTypeEnum.NONE
+ACCEPT_SOURCE = ConflictResolutionStrategyTypeEnum.ACCEPT_SOURCE
+ACCEPT_DESTINATION = ConflictResolutionStrategyTypeEnum.ACCEPT_DESTINATION
+AUTOMERGE = ConflictResolutionStrategyTypeEnum.AUTOMERGE
+EXECUTABLE = FileModeTypeEnum.EXECUTABLE
+NORMAL = FileModeTypeEnum.NORMAL
+SYMLINK = FileModeTypeEnum.SYMLINK
+FAST_FORWARD_MERGE = MergeOptionTypeEnum.FAST_FORWARD_MERGE
+SQUASH_MERGE = MergeOptionTypeEnum.SQUASH_MERGE
+THREE_WAY_MERGE = MergeOptionTypeEnum.THREE_WAY_MERGE
+FILE = ObjectTypeEnum.FILE
+DIRECTORY = ObjectTypeEnum.DIRECTORY
+GIT_LINK = ObjectTypeEnum.GIT_LINK
+SYMBOLIC_LINK = ObjectTypeEnum.SYMBOLIC_LINK
+ASCENDING = OrderEnum.ASCENDING
+DESCENDING = OrderEnum.DESCENDING
+OVERRIDE = OverrideStatus.OVERRIDE
+REVOKE = OverrideStatus.REVOKE
+PULL_REQUEST_CREATED = PullRequestEventType.PULL_REQUEST_CREATED
+PULL_REQUEST_STATUS_CHANGED = PullRequestEventType.PULL_REQUEST_STATUS_CHANGED
+PULL_REQUEST_SOURCE_REFERENCE_UPDATED = PullRequestEventType.PULL_REQUEST_SOURCE_REFERENCE_UPDATED
+PULL_REQUEST_MERGE_STATE_CHANGED = PullRequestEventType.PULL_REQUEST_MERGE_STATE_CHANGED
+PULL_REQUEST_APPROVAL_RULE_CREATED = PullRequestEventType.PULL_REQUEST_APPROVAL_RULE_CREATED
+PULL_REQUEST_APPROVAL_RULE_UPDATED = PullRequestEventType.PULL_REQUEST_APPROVAL_RULE_UPDATED
+PULL_REQUEST_APPROVAL_RULE_DELETED = PullRequestEventType.PULL_REQUEST_APPROVAL_RULE_DELETED
+PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN = PullRequestEventType.PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN
+PULL_REQUEST_APPROVAL_STATE_CHANGED = PullRequestEventType.PULL_REQUEST_APPROVAL_STATE_CHANGED
+OPEN = PullRequestStatusEnum.OPEN
+CLOSED = PullRequestStatusEnum.CLOSED
+BEFORE = RelativeFileVersionEnum.BEFORE
+AFTER = RelativeFileVersionEnum.AFTER
+KEEP_BASE = ReplacementTypeEnum.KEEP_BASE
+KEEP_SOURCE = ReplacementTypeEnum.KEEP_SOURCE
+KEEP_DESTINATION = ReplacementTypeEnum.KEEP_DESTINATION
+USE_NEW_CONTENT = ReplacementTypeEnum.USE_NEW_CONTENT
+ALL = RepositoryTriggerEventEnum.ALL
+UPDATEREFERENCE = RepositoryTriggerEventEnum.UPDATEREFERENCE
+CREATEREFERENCE = RepositoryTriggerEventEnum.CREATEREFERENCE
+DELETEREFERENCE = RepositoryTriggerEventEnum.DELETEREFERENCE
+REPOSITORYNAME = SortByEnum.REPOSITORYNAME
+LASTMODIFIEDDATE = SortByEnum.LASTMODIFIEDDATE
 
 
 @dataclass

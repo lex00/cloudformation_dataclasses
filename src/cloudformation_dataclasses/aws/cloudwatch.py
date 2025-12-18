@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:16
+  Generated: 2025-12-17 16:59:35
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CloudWatch
@@ -23,6 +23,219 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class ActionsSuppressedBy:
+    """ActionsSuppressedBy enum values."""
+
+    WAITPERIOD = "WaitPeriod"
+    EXTENSIONPERIOD = "ExtensionPeriod"
+    ALARM = "Alarm"
+
+
+class AlarmType:
+    """AlarmType enum values."""
+
+    COMPOSITEALARM = "CompositeAlarm"
+    METRICALARM = "MetricAlarm"
+
+
+class AnomalyDetectorStateValue:
+    """AnomalyDetectorStateValue enum values."""
+
+    PENDING_TRAINING = "PENDING_TRAINING"
+    TRAINED_INSUFFICIENT_DATA = "TRAINED_INSUFFICIENT_DATA"
+    TRAINED = "TRAINED"
+
+
+class AnomalyDetectorType:
+    """AnomalyDetectorType enum values."""
+
+    SINGLE_METRIC = "SINGLE_METRIC"
+    METRIC_MATH = "METRIC_MATH"
+
+
+class ComparisonOperator:
+    """ComparisonOperator enum values."""
+
+    GREATERTHANOREQUALTOTHRESHOLD = "GreaterThanOrEqualToThreshold"
+    GREATERTHANTHRESHOLD = "GreaterThanThreshold"
+    LESSTHANTHRESHOLD = "LessThanThreshold"
+    LESSTHANOREQUALTOTHRESHOLD = "LessThanOrEqualToThreshold"
+    LESSTHANLOWERORGREATERTHANUPPERTHRESHOLD = "LessThanLowerOrGreaterThanUpperThreshold"
+    LESSTHANLOWERTHRESHOLD = "LessThanLowerThreshold"
+    GREATERTHANUPPERTHRESHOLD = "GreaterThanUpperThreshold"
+
+
+class EvaluationState:
+    """EvaluationState enum values."""
+
+    PARTIAL_DATA = "PARTIAL_DATA"
+
+
+class HistoryItemType:
+    """HistoryItemType enum values."""
+
+    CONFIGURATIONUPDATE = "ConfigurationUpdate"
+    STATEUPDATE = "StateUpdate"
+    ACTION = "Action"
+    ALARMCONTRIBUTORSTATEUPDATE = "AlarmContributorStateUpdate"
+    ALARMCONTRIBUTORACTION = "AlarmContributorAction"
+
+
+class MetricStreamOutputFormat:
+    """MetricStreamOutputFormat enum values."""
+
+    JSON = "json"
+    OPENTELEMETRY0_7 = "opentelemetry0.7"
+    OPENTELEMETRY1_0 = "opentelemetry1.0"
+
+
+class RecentlyActive:
+    """RecentlyActive enum values."""
+
+    PT3H = "PT3H"
+
+
+class ScanBy:
+    """ScanBy enum values."""
+
+    TIMESTAMPDESCENDING = "TimestampDescending"
+    TIMESTAMPASCENDING = "TimestampAscending"
+
+
+class StandardUnit:
+    """StandardUnit enum values."""
+
+    SECONDS = "Seconds"
+    MICROSECONDS = "Microseconds"
+    MILLISECONDS = "Milliseconds"
+    BYTES = "Bytes"
+    KILOBYTES = "Kilobytes"
+    MEGABYTES = "Megabytes"
+    GIGABYTES = "Gigabytes"
+    TERABYTES = "Terabytes"
+    BITS = "Bits"
+    KILOBITS = "Kilobits"
+    MEGABITS = "Megabits"
+    GIGABITS = "Gigabits"
+    TERABITS = "Terabits"
+    PERCENT = "Percent"
+    COUNT = "Count"
+    BYTES_SECOND = "Bytes/Second"
+    KILOBYTES_SECOND = "Kilobytes/Second"
+    MEGABYTES_SECOND = "Megabytes/Second"
+    GIGABYTES_SECOND = "Gigabytes/Second"
+    TERABYTES_SECOND = "Terabytes/Second"
+    BITS_SECOND = "Bits/Second"
+    KILOBITS_SECOND = "Kilobits/Second"
+    MEGABITS_SECOND = "Megabits/Second"
+    GIGABITS_SECOND = "Gigabits/Second"
+    TERABITS_SECOND = "Terabits/Second"
+    COUNT_SECOND = "Count/Second"
+    NONE = "None"
+
+
+class StateValue:
+    """StateValue enum values."""
+
+    OK = "OK"
+    ALARM = "ALARM"
+    INSUFFICIENT_DATA = "INSUFFICIENT_DATA"
+
+
+class Statistic:
+    """Statistic enum values."""
+
+    SAMPLECOUNT = "SampleCount"
+    AVERAGE = "Average"
+    SUM = "Sum"
+    MINIMUM = "Minimum"
+    MAXIMUM = "Maximum"
+
+
+class StatusCode:
+    """StatusCode enum values."""
+
+    COMPLETE = "Complete"
+    INTERNALERROR = "InternalError"
+    PARTIALDATA = "PartialData"
+    FORBIDDEN = "Forbidden"
+
+
+# Convenient aliases for enum values
+WAITPERIOD = ActionsSuppressedBy.WAITPERIOD
+EXTENSIONPERIOD = ActionsSuppressedBy.EXTENSIONPERIOD
+ALARM = ActionsSuppressedBy.ALARM
+COMPOSITEALARM = AlarmType.COMPOSITEALARM
+METRICALARM = AlarmType.METRICALARM
+PENDING_TRAINING = AnomalyDetectorStateValue.PENDING_TRAINING
+TRAINED_INSUFFICIENT_DATA = AnomalyDetectorStateValue.TRAINED_INSUFFICIENT_DATA
+TRAINED = AnomalyDetectorStateValue.TRAINED
+SINGLE_METRIC = AnomalyDetectorType.SINGLE_METRIC
+METRIC_MATH = AnomalyDetectorType.METRIC_MATH
+GREATERTHANOREQUALTOTHRESHOLD = ComparisonOperator.GREATERTHANOREQUALTOTHRESHOLD
+GREATERTHANTHRESHOLD = ComparisonOperator.GREATERTHANTHRESHOLD
+LESSTHANTHRESHOLD = ComparisonOperator.LESSTHANTHRESHOLD
+LESSTHANOREQUALTOTHRESHOLD = ComparisonOperator.LESSTHANOREQUALTOTHRESHOLD
+LESSTHANLOWERORGREATERTHANUPPERTHRESHOLD = ComparisonOperator.LESSTHANLOWERORGREATERTHANUPPERTHRESHOLD
+LESSTHANLOWERTHRESHOLD = ComparisonOperator.LESSTHANLOWERTHRESHOLD
+GREATERTHANUPPERTHRESHOLD = ComparisonOperator.GREATERTHANUPPERTHRESHOLD
+PARTIAL_DATA = EvaluationState.PARTIAL_DATA
+CONFIGURATIONUPDATE = HistoryItemType.CONFIGURATIONUPDATE
+STATEUPDATE = HistoryItemType.STATEUPDATE
+ACTION = HistoryItemType.ACTION
+ALARMCONTRIBUTORSTATEUPDATE = HistoryItemType.ALARMCONTRIBUTORSTATEUPDATE
+ALARMCONTRIBUTORACTION = HistoryItemType.ALARMCONTRIBUTORACTION
+JSON = MetricStreamOutputFormat.JSON
+OPENTELEMETRY0_7 = MetricStreamOutputFormat.OPENTELEMETRY0_7
+OPENTELEMETRY1_0 = MetricStreamOutputFormat.OPENTELEMETRY1_0
+PT3H = RecentlyActive.PT3H
+TIMESTAMPDESCENDING = ScanBy.TIMESTAMPDESCENDING
+TIMESTAMPASCENDING = ScanBy.TIMESTAMPASCENDING
+SECONDS = StandardUnit.SECONDS
+MICROSECONDS = StandardUnit.MICROSECONDS
+MILLISECONDS = StandardUnit.MILLISECONDS
+BYTES = StandardUnit.BYTES
+KILOBYTES = StandardUnit.KILOBYTES
+MEGABYTES = StandardUnit.MEGABYTES
+GIGABYTES = StandardUnit.GIGABYTES
+TERABYTES = StandardUnit.TERABYTES
+BITS = StandardUnit.BITS
+KILOBITS = StandardUnit.KILOBITS
+MEGABITS = StandardUnit.MEGABITS
+GIGABITS = StandardUnit.GIGABITS
+TERABITS = StandardUnit.TERABITS
+PERCENT = StandardUnit.PERCENT
+COUNT = StandardUnit.COUNT
+BYTES_SECOND = StandardUnit.BYTES_SECOND
+KILOBYTES_SECOND = StandardUnit.KILOBYTES_SECOND
+MEGABYTES_SECOND = StandardUnit.MEGABYTES_SECOND
+GIGABYTES_SECOND = StandardUnit.GIGABYTES_SECOND
+TERABYTES_SECOND = StandardUnit.TERABYTES_SECOND
+BITS_SECOND = StandardUnit.BITS_SECOND
+KILOBITS_SECOND = StandardUnit.KILOBITS_SECOND
+MEGABITS_SECOND = StandardUnit.MEGABITS_SECOND
+GIGABITS_SECOND = StandardUnit.GIGABITS_SECOND
+TERABITS_SECOND = StandardUnit.TERABITS_SECOND
+COUNT_SECOND = StandardUnit.COUNT_SECOND
+NONE = StandardUnit.NONE
+OK = StateValue.OK
+ALARM = StateValue.ALARM
+INSUFFICIENT_DATA = StateValue.INSUFFICIENT_DATA
+SAMPLECOUNT = Statistic.SAMPLECOUNT
+AVERAGE = Statistic.AVERAGE
+SUM = Statistic.SUM
+MINIMUM = Statistic.MINIMUM
+MAXIMUM = Statistic.MAXIMUM
+COMPLETE = StatusCode.COMPLETE
+INTERNALERROR = StatusCode.INTERNALERROR
+PARTIALDATA = StatusCode.PARTIALDATA
+FORBIDDEN = StatusCode.FORBIDDEN
 
 
 @dataclass
@@ -228,7 +441,7 @@ class MetricStat:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric: Optional[Metric] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    unit: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    unit: Optional[Union[str, StandardUnit, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -925,7 +1138,7 @@ class MetricStat:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric: Optional[Metric] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    unit: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    unit: Optional[Union[str, StandardUnit, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""

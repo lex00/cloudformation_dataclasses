@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:18
+  Generated: 2025-12-17 16:59:35
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DLM
@@ -23,6 +23,154 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class DefaultPoliciesTypeValues:
+    """DefaultPoliciesTypeValues enum values."""
+
+    VOLUME = "VOLUME"
+    INSTANCE = "INSTANCE"
+    ALL = "ALL"
+
+
+class DefaultPolicyTypeValues:
+    """DefaultPolicyTypeValues enum values."""
+
+    VOLUME = "VOLUME"
+    INSTANCE = "INSTANCE"
+
+
+class EventSourceValues:
+    """EventSourceValues enum values."""
+
+    MANAGED_CWE = "MANAGED_CWE"
+
+
+class EventTypeValues:
+    """EventTypeValues enum values."""
+
+    SHARESNAPSHOT = "shareSnapshot"
+
+
+class ExecutionHandlerServiceValues:
+    """ExecutionHandlerServiceValues enum values."""
+
+    AWS_SYSTEMS_MANAGER = "AWS_SYSTEMS_MANAGER"
+
+
+class GettablePolicyStateValues:
+    """GettablePolicyStateValues enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+    ERROR = "ERROR"
+
+
+class IntervalUnitValues:
+    """IntervalUnitValues enum values."""
+
+    HOURS = "HOURS"
+
+
+class LocationValues:
+    """LocationValues enum values."""
+
+    CLOUD = "CLOUD"
+    OUTPOST_LOCAL = "OUTPOST_LOCAL"
+    LOCAL_ZONE = "LOCAL_ZONE"
+
+
+class PolicyLanguageValues:
+    """PolicyLanguageValues enum values."""
+
+    SIMPLIFIED = "SIMPLIFIED"
+    STANDARD = "STANDARD"
+
+
+class PolicyTypeValues:
+    """PolicyTypeValues enum values."""
+
+    EBS_SNAPSHOT_MANAGEMENT = "EBS_SNAPSHOT_MANAGEMENT"
+    IMAGE_MANAGEMENT = "IMAGE_MANAGEMENT"
+    EVENT_BASED_POLICY = "EVENT_BASED_POLICY"
+
+
+class ResourceLocationValues:
+    """ResourceLocationValues enum values."""
+
+    CLOUD = "CLOUD"
+    OUTPOST = "OUTPOST"
+    LOCAL_ZONE = "LOCAL_ZONE"
+
+
+class ResourceTypeValues:
+    """ResourceTypeValues enum values."""
+
+    VOLUME = "VOLUME"
+    INSTANCE = "INSTANCE"
+
+
+class RetentionIntervalUnitValues:
+    """RetentionIntervalUnitValues enum values."""
+
+    DAYS = "DAYS"
+    WEEKS = "WEEKS"
+    MONTHS = "MONTHS"
+    YEARS = "YEARS"
+
+
+class SettablePolicyStateValues:
+    """SettablePolicyStateValues enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class StageValues:
+    """StageValues enum values."""
+
+    PRE = "PRE"
+    POST = "POST"
+
+
+# Convenient aliases for enum values
+VOLUME = DefaultPoliciesTypeValues.VOLUME
+INSTANCE = DefaultPoliciesTypeValues.INSTANCE
+ALL = DefaultPoliciesTypeValues.ALL
+VOLUME = DefaultPolicyTypeValues.VOLUME
+INSTANCE = DefaultPolicyTypeValues.INSTANCE
+MANAGED_CWE = EventSourceValues.MANAGED_CWE
+SHARESNAPSHOT = EventTypeValues.SHARESNAPSHOT
+AWS_SYSTEMS_MANAGER = ExecutionHandlerServiceValues.AWS_SYSTEMS_MANAGER
+ENABLED = GettablePolicyStateValues.ENABLED
+DISABLED = GettablePolicyStateValues.DISABLED
+ERROR = GettablePolicyStateValues.ERROR
+HOURS = IntervalUnitValues.HOURS
+CLOUD = LocationValues.CLOUD
+OUTPOST_LOCAL = LocationValues.OUTPOST_LOCAL
+LOCAL_ZONE = LocationValues.LOCAL_ZONE
+SIMPLIFIED = PolicyLanguageValues.SIMPLIFIED
+STANDARD = PolicyLanguageValues.STANDARD
+EBS_SNAPSHOT_MANAGEMENT = PolicyTypeValues.EBS_SNAPSHOT_MANAGEMENT
+IMAGE_MANAGEMENT = PolicyTypeValues.IMAGE_MANAGEMENT
+EVENT_BASED_POLICY = PolicyTypeValues.EVENT_BASED_POLICY
+CLOUD = ResourceLocationValues.CLOUD
+OUTPOST = ResourceLocationValues.OUTPOST
+LOCAL_ZONE = ResourceLocationValues.LOCAL_ZONE
+VOLUME = ResourceTypeValues.VOLUME
+INSTANCE = ResourceTypeValues.INSTANCE
+DAYS = RetentionIntervalUnitValues.DAYS
+WEEKS = RetentionIntervalUnitValues.WEEKS
+MONTHS = RetentionIntervalUnitValues.MONTHS
+YEARS = RetentionIntervalUnitValues.YEARS
+ENABLED = SettablePolicyStateValues.ENABLED
+DISABLED = SettablePolicyStateValues.DISABLED
+PRE = StageValues.PRE
+POST = StageValues.POST
 
 
 @dataclass
@@ -118,7 +266,7 @@ class CreateRule:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    interval_unit: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    interval_unit: Optional[Union[str, IntervalUnitValues, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scripts: Optional[list[Script]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -128,7 +276,7 @@ class CreateRule:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interval: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    location: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    location: Optional[Union[str, LocationValues, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -259,7 +407,7 @@ class CrossRegionCopyDeprecateRule:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    interval_unit: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    interval_unit: Optional[Union[str, RetentionIntervalUnitValues, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interval: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
@@ -297,7 +445,7 @@ class CrossRegionCopyRetainRule:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    interval_unit: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    interval_unit: Optional[Union[str, RetentionIntervalUnitValues, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interval: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
@@ -470,7 +618,7 @@ class DeprecateRule:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    interval_unit: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    interval_unit: Optional[Union[str, RetentionIntervalUnitValues, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     count: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -559,7 +707,7 @@ class EventParameters:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    event_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    event_type: Optional[Union[str, EventTypeValues, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     snapshot_owner: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -610,7 +758,7 @@ class EventSource:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    type_: Optional[Union[str, EventSourceValues, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parameters: Optional[EventParameters] = None
 
@@ -713,7 +861,7 @@ class FastRestoreRule:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    interval_unit: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    interval_unit: Optional[Union[str, RetentionIntervalUnitValues, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     availability_zones: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -828,13 +976,13 @@ class PolicyDetails:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    policy_language: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    policy_language: Optional[Union[str, PolicyLanguageValues, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_types: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     schedules: Optional[list[Schedule]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    policy_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    policy_type: Optional[Union[str, PolicyTypeValues, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     create_interval: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -846,7 +994,7 @@ class PolicyDetails:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     actions: Optional[list[Action]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    resource_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    resource_type: Optional[Union[str, ResourceTypeValues, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retain_interval: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1048,7 +1196,7 @@ class RetainRule:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    interval_unit: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    interval_unit: Optional[Union[str, RetentionIntervalUnitValues, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     count: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1099,7 +1247,7 @@ class RetentionArchiveTier:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    interval_unit: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    interval_unit: Optional[Union[str, RetentionIntervalUnitValues, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     count: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1305,7 +1453,7 @@ class Script:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    execution_handler_service: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    execution_handler_service: Optional[Union[str, ExecutionHandlerServiceValues, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     execution_timeout: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1397,7 +1545,7 @@ class ShareRule:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_accounts: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    unshare_interval_unit: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    unshare_interval_unit: Optional[Union[str, RetentionIntervalUnitValues, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     unshare_interval: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
@@ -1467,7 +1615,7 @@ class LifecyclePolicy(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     exclusions: Optional[Exclusions] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    state: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    state: Optional[Union[str, GettablePolicyStateValues, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     cross_region_copy_targets: Optional[CrossRegionCopyTargets] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso

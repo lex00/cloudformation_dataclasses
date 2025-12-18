@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:30
+  Generated: 2025-12-17 16:59:37
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MediaConnect
@@ -23,6 +23,672 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class Algorithm:
+    """Algorithm enum values."""
+
+    AES128 = "aes128"
+    AES192 = "aes192"
+    AES256 = "aes256"
+
+
+class BridgePlacement:
+    """BridgePlacement enum values."""
+
+    AVAILABLE = "AVAILABLE"
+    LOCKED = "LOCKED"
+
+
+class BridgeState:
+    """BridgeState enum values."""
+
+    CREATING = "CREATING"
+    STANDBY = "STANDBY"
+    STARTING = "STARTING"
+    DEPLOYING = "DEPLOYING"
+    ACTIVE = "ACTIVE"
+    STOPPING = "STOPPING"
+    DELETING = "DELETING"
+    DELETED = "DELETED"
+    START_FAILED = "START_FAILED"
+    START_PENDING = "START_PENDING"
+    STOP_FAILED = "STOP_FAILED"
+    UPDATING = "UPDATING"
+
+
+class Colorimetry:
+    """Colorimetry enum values."""
+
+    BT601 = "BT601"
+    BT709 = "BT709"
+    BT2020 = "BT2020"
+    BT2100 = "BT2100"
+    ST2065_1 = "ST2065-1"
+    ST2065_3 = "ST2065-3"
+    XYZ = "XYZ"
+
+
+class ConnectionStatus:
+    """ConnectionStatus enum values."""
+
+    CONNECTED = "CONNECTED"
+    DISCONNECTED = "DISCONNECTED"
+
+
+class ContentQualityAnalysisState:
+    """ContentQualityAnalysisState enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class Day:
+    """Day enum values."""
+
+    MONDAY = "MONDAY"
+    TUESDAY = "TUESDAY"
+    WEDNESDAY = "WEDNESDAY"
+    THURSDAY = "THURSDAY"
+    FRIDAY = "FRIDAY"
+    SATURDAY = "SATURDAY"
+    SUNDAY = "SUNDAY"
+
+
+class DesiredState:
+    """DesiredState enum values."""
+
+    ACTIVE = "ACTIVE"
+    STANDBY = "STANDBY"
+    DELETED = "DELETED"
+
+
+class DurationUnits:
+    """DurationUnits enum values."""
+
+    MONTHS = "MONTHS"
+
+
+class EncoderProfile:
+    """EncoderProfile enum values."""
+
+    MAIN = "main"
+    HIGH = "high"
+
+
+class EncodingName:
+    """EncodingName enum values."""
+
+    JXSV = "jxsv"
+    RAW = "raw"
+    SMPTE291 = "smpte291"
+    PCM = "pcm"
+
+
+class EntitlementStatus:
+    """EntitlementStatus enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class FailoverInputSourcePriorityMode:
+    """FailoverInputSourcePriorityMode enum values."""
+
+    NO_PRIORITY = "NO_PRIORITY"
+    PRIMARY_SECONDARY = "PRIMARY_SECONDARY"
+
+
+class FailoverMode:
+    """FailoverMode enum values."""
+
+    MERGE = "MERGE"
+    FAILOVER = "FAILOVER"
+
+
+class FlowSize:
+    """FlowSize enum values."""
+
+    MEDIUM = "MEDIUM"
+    LARGE = "LARGE"
+
+
+class FlowTransitEncryptionKeyType:
+    """FlowTransitEncryptionKeyType enum values."""
+
+    SECRETS_MANAGER = "SECRETS_MANAGER"
+    AUTOMATIC = "AUTOMATIC"
+
+
+class ForwardErrorCorrectionState:
+    """ForwardErrorCorrectionState enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class GatewayState:
+    """GatewayState enum values."""
+
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    UPDATING = "UPDATING"
+    ERROR = "ERROR"
+    DELETING = "DELETING"
+    DELETED = "DELETED"
+
+
+class InstanceState:
+    """InstanceState enum values."""
+
+    REGISTERING = "REGISTERING"
+    ACTIVE = "ACTIVE"
+    DEREGISTERING = "DEREGISTERING"
+    DEREGISTERED = "DEREGISTERED"
+    REGISTRATION_ERROR = "REGISTRATION_ERROR"
+    DEREGISTRATION_ERROR = "DEREGISTRATION_ERROR"
+
+
+class KeyType:
+    """KeyType enum values."""
+
+    SPEKE = "speke"
+    STATIC_KEY = "static-key"
+    SRT_PASSWORD = "srt-password"
+
+
+class MaintenanceDay:
+    """MaintenanceDay enum values."""
+
+    MONDAY = "Monday"
+    TUESDAY = "Tuesday"
+    WEDNESDAY = "Wednesday"
+    THURSDAY = "Thursday"
+    FRIDAY = "Friday"
+    SATURDAY = "Saturday"
+    SUNDAY = "Sunday"
+
+
+class MaintenanceScheduleType:
+    """MaintenanceScheduleType enum values."""
+
+    WINDOW = "WINDOW"
+
+
+class MaintenanceType:
+    """MaintenanceType enum values."""
+
+    PREFERRED_DAY_TIME = "PREFERRED_DAY_TIME"
+    DEFAULT = "DEFAULT"
+
+
+class MediaLiveInputPipelineId:
+    """MediaLiveInputPipelineId enum values."""
+
+    PIPELINE_0 = "PIPELINE_0"
+    PIPELINE_1 = "PIPELINE_1"
+
+
+class MediaLiveTransitEncryptionKeyType:
+    """MediaLiveTransitEncryptionKeyType enum values."""
+
+    SECRETS_MANAGER = "SECRETS_MANAGER"
+    AUTOMATIC = "AUTOMATIC"
+
+
+class MediaStreamType:
+    """MediaStreamType enum values."""
+
+    VIDEO = "video"
+    AUDIO = "audio"
+    ANCILLARY_DATA = "ancillary-data"
+
+
+class NdiState:
+    """NdiState enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class NetworkInterfaceType:
+    """NetworkInterfaceType enum values."""
+
+    ENA = "ena"
+    EFA = "efa"
+
+
+class OutputStatus:
+    """OutputStatus enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class PriceUnits:
+    """PriceUnits enum values."""
+
+    HOURLY = "HOURLY"
+
+
+class Protocol:
+    """Protocol enum values."""
+
+    ZIXI_PUSH = "zixi-push"
+    RTP_FEC = "rtp-fec"
+    RTP = "rtp"
+    ZIXI_PULL = "zixi-pull"
+    RIST = "rist"
+    ST2110_JPEGXS = "st2110-jpegxs"
+    CDI = "cdi"
+    SRT_LISTENER = "srt-listener"
+    SRT_CALLER = "srt-caller"
+    FUJITSU_QOS = "fujitsu-qos"
+    UDP = "udp"
+    NDI_SPEED_HQ = "ndi-speed-hq"
+
+
+class Range:
+    """Range enum values."""
+
+    NARROW = "NARROW"
+    FULL = "FULL"
+    FULLPROTECT = "FULLPROTECT"
+
+
+class ReservationState:
+    """ReservationState enum values."""
+
+    ACTIVE = "ACTIVE"
+    EXPIRED = "EXPIRED"
+    PROCESSING = "PROCESSING"
+    CANCELED = "CANCELED"
+
+
+class ResourceType:
+    """ResourceType enum values."""
+
+    MBPS_OUTBOUND_BANDWIDTH = "Mbps_Outbound_Bandwidth"
+
+
+class RouterInputProtocol:
+    """RouterInputProtocol enum values."""
+
+    RTP = "RTP"
+    RIST = "RIST"
+    SRT_CALLER = "SRT_CALLER"
+    SRT_LISTENER = "SRT_LISTENER"
+
+
+class RouterInputState:
+    """RouterInputState enum values."""
+
+    CREATING = "CREATING"
+    STANDBY = "STANDBY"
+    STARTING = "STARTING"
+    ACTIVE = "ACTIVE"
+    STOPPING = "STOPPING"
+    DELETING = "DELETING"
+    UPDATING = "UPDATING"
+    ERROR = "ERROR"
+    RECOVERING = "RECOVERING"
+    MIGRATING = "MIGRATING"
+
+
+class RouterInputTier:
+    """RouterInputTier enum values."""
+
+    INPUT_100 = "INPUT_100"
+    INPUT_50 = "INPUT_50"
+    INPUT_20 = "INPUT_20"
+
+
+class RouterInputTransitEncryptionKeyType:
+    """RouterInputTransitEncryptionKeyType enum values."""
+
+    SECRETS_MANAGER = "SECRETS_MANAGER"
+    AUTOMATIC = "AUTOMATIC"
+
+
+class RouterInputType:
+    """RouterInputType enum values."""
+
+    STANDARD = "STANDARD"
+    FAILOVER = "FAILOVER"
+    MERGE = "MERGE"
+    MEDIACONNECT_FLOW = "MEDIACONNECT_FLOW"
+
+
+class RouterNetworkInterfaceState:
+    """RouterNetworkInterfaceState enum values."""
+
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    ERROR = "ERROR"
+    RECOVERING = "RECOVERING"
+
+
+class RouterNetworkInterfaceType:
+    """RouterNetworkInterfaceType enum values."""
+
+    PUBLIC = "PUBLIC"
+    VPC = "VPC"
+
+
+class RouterOutputProtocol:
+    """RouterOutputProtocol enum values."""
+
+    RTP = "RTP"
+    RIST = "RIST"
+    SRT_CALLER = "SRT_CALLER"
+    SRT_LISTENER = "SRT_LISTENER"
+
+
+class RouterOutputRoutedState:
+    """RouterOutputRoutedState enum values."""
+
+    ROUTED = "ROUTED"
+    ROUTING = "ROUTING"
+    UNROUTED = "UNROUTED"
+
+
+class RouterOutputState:
+    """RouterOutputState enum values."""
+
+    CREATING = "CREATING"
+    STANDBY = "STANDBY"
+    STARTING = "STARTING"
+    ACTIVE = "ACTIVE"
+    STOPPING = "STOPPING"
+    DELETING = "DELETING"
+    UPDATING = "UPDATING"
+    ERROR = "ERROR"
+    RECOVERING = "RECOVERING"
+    MIGRATING = "MIGRATING"
+
+
+class RouterOutputTier:
+    """RouterOutputTier enum values."""
+
+    OUTPUT_100 = "OUTPUT_100"
+    OUTPUT_50 = "OUTPUT_50"
+    OUTPUT_20 = "OUTPUT_20"
+
+
+class RouterOutputType:
+    """RouterOutputType enum values."""
+
+    STANDARD = "STANDARD"
+    MEDIACONNECT_FLOW = "MEDIACONNECT_FLOW"
+    MEDIALIVE_INPUT = "MEDIALIVE_INPUT"
+
+
+class RoutingScope:
+    """RoutingScope enum values."""
+
+    REGIONAL = "REGIONAL"
+    GLOBAL = "GLOBAL"
+
+
+class ScanMode:
+    """ScanMode enum values."""
+
+    PROGRESSIVE = "progressive"
+    INTERLACE = "interlace"
+    PROGRESSIVE_SEGMENTED_FRAME = "progressive-segmented-frame"
+
+
+class SourceType:
+    """SourceType enum values."""
+
+    OWNED = "OWNED"
+    ENTITLED = "ENTITLED"
+
+
+class State:
+    """State enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class Status:
+    """Status enum values."""
+
+    STANDBY = "STANDBY"
+    ACTIVE = "ACTIVE"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    STARTING = "STARTING"
+    STOPPING = "STOPPING"
+    ERROR = "ERROR"
+
+
+class Tcs:
+    """Tcs enum values."""
+
+    SDR = "SDR"
+    PQ = "PQ"
+    HLG = "HLG"
+    LINEAR = "LINEAR"
+    BT2100LINPQ = "BT2100LINPQ"
+    BT2100LINHLG = "BT2100LINHLG"
+    ST2065_1 = "ST2065-1"
+    ST428_1 = "ST428-1"
+    DENSITY = "DENSITY"
+
+
+class ThumbnailState:
+    """ThumbnailState enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+# Convenient aliases for enum values
+AES128 = Algorithm.AES128
+AES192 = Algorithm.AES192
+AES256 = Algorithm.AES256
+AVAILABLE = BridgePlacement.AVAILABLE
+LOCKED = BridgePlacement.LOCKED
+CREATING = BridgeState.CREATING
+STANDBY = BridgeState.STANDBY
+STARTING = BridgeState.STARTING
+DEPLOYING = BridgeState.DEPLOYING
+ACTIVE = BridgeState.ACTIVE
+STOPPING = BridgeState.STOPPING
+DELETING = BridgeState.DELETING
+DELETED = BridgeState.DELETED
+START_FAILED = BridgeState.START_FAILED
+START_PENDING = BridgeState.START_PENDING
+STOP_FAILED = BridgeState.STOP_FAILED
+UPDATING = BridgeState.UPDATING
+BT601 = Colorimetry.BT601
+BT709 = Colorimetry.BT709
+BT2020 = Colorimetry.BT2020
+BT2100 = Colorimetry.BT2100
+ST2065_1 = Colorimetry.ST2065_1
+ST2065_3 = Colorimetry.ST2065_3
+XYZ = Colorimetry.XYZ
+CONNECTED = ConnectionStatus.CONNECTED
+DISCONNECTED = ConnectionStatus.DISCONNECTED
+ENABLED = ContentQualityAnalysisState.ENABLED
+DISABLED = ContentQualityAnalysisState.DISABLED
+MONDAY = Day.MONDAY
+TUESDAY = Day.TUESDAY
+WEDNESDAY = Day.WEDNESDAY
+THURSDAY = Day.THURSDAY
+FRIDAY = Day.FRIDAY
+SATURDAY = Day.SATURDAY
+SUNDAY = Day.SUNDAY
+ACTIVE = DesiredState.ACTIVE
+STANDBY = DesiredState.STANDBY
+DELETED = DesiredState.DELETED
+MONTHS = DurationUnits.MONTHS
+MAIN = EncoderProfile.MAIN
+HIGH = EncoderProfile.HIGH
+JXSV = EncodingName.JXSV
+RAW = EncodingName.RAW
+SMPTE291 = EncodingName.SMPTE291
+PCM = EncodingName.PCM
+ENABLED = EntitlementStatus.ENABLED
+DISABLED = EntitlementStatus.DISABLED
+NO_PRIORITY = FailoverInputSourcePriorityMode.NO_PRIORITY
+PRIMARY_SECONDARY = FailoverInputSourcePriorityMode.PRIMARY_SECONDARY
+MERGE = FailoverMode.MERGE
+FAILOVER = FailoverMode.FAILOVER
+MEDIUM = FlowSize.MEDIUM
+LARGE = FlowSize.LARGE
+SECRETS_MANAGER = FlowTransitEncryptionKeyType.SECRETS_MANAGER
+AUTOMATIC = FlowTransitEncryptionKeyType.AUTOMATIC
+ENABLED = ForwardErrorCorrectionState.ENABLED
+DISABLED = ForwardErrorCorrectionState.DISABLED
+CREATING = GatewayState.CREATING
+ACTIVE = GatewayState.ACTIVE
+UPDATING = GatewayState.UPDATING
+ERROR = GatewayState.ERROR
+DELETING = GatewayState.DELETING
+DELETED = GatewayState.DELETED
+REGISTERING = InstanceState.REGISTERING
+ACTIVE = InstanceState.ACTIVE
+DEREGISTERING = InstanceState.DEREGISTERING
+DEREGISTERED = InstanceState.DEREGISTERED
+REGISTRATION_ERROR = InstanceState.REGISTRATION_ERROR
+DEREGISTRATION_ERROR = InstanceState.DEREGISTRATION_ERROR
+SPEKE = KeyType.SPEKE
+STATIC_KEY = KeyType.STATIC_KEY
+SRT_PASSWORD = KeyType.SRT_PASSWORD
+MONDAY = MaintenanceDay.MONDAY
+TUESDAY = MaintenanceDay.TUESDAY
+WEDNESDAY = MaintenanceDay.WEDNESDAY
+THURSDAY = MaintenanceDay.THURSDAY
+FRIDAY = MaintenanceDay.FRIDAY
+SATURDAY = MaintenanceDay.SATURDAY
+SUNDAY = MaintenanceDay.SUNDAY
+WINDOW = MaintenanceScheduleType.WINDOW
+PREFERRED_DAY_TIME = MaintenanceType.PREFERRED_DAY_TIME
+DEFAULT = MaintenanceType.DEFAULT
+PIPELINE_0 = MediaLiveInputPipelineId.PIPELINE_0
+PIPELINE_1 = MediaLiveInputPipelineId.PIPELINE_1
+SECRETS_MANAGER = MediaLiveTransitEncryptionKeyType.SECRETS_MANAGER
+AUTOMATIC = MediaLiveTransitEncryptionKeyType.AUTOMATIC
+VIDEO = MediaStreamType.VIDEO
+AUDIO = MediaStreamType.AUDIO
+ANCILLARY_DATA = MediaStreamType.ANCILLARY_DATA
+ENABLED = NdiState.ENABLED
+DISABLED = NdiState.DISABLED
+ENA = NetworkInterfaceType.ENA
+EFA = NetworkInterfaceType.EFA
+ENABLED = OutputStatus.ENABLED
+DISABLED = OutputStatus.DISABLED
+HOURLY = PriceUnits.HOURLY
+ZIXI_PUSH = Protocol.ZIXI_PUSH
+RTP_FEC = Protocol.RTP_FEC
+RTP = Protocol.RTP
+ZIXI_PULL = Protocol.ZIXI_PULL
+RIST = Protocol.RIST
+ST2110_JPEGXS = Protocol.ST2110_JPEGXS
+CDI = Protocol.CDI
+SRT_LISTENER = Protocol.SRT_LISTENER
+SRT_CALLER = Protocol.SRT_CALLER
+FUJITSU_QOS = Protocol.FUJITSU_QOS
+UDP = Protocol.UDP
+NDI_SPEED_HQ = Protocol.NDI_SPEED_HQ
+NARROW = Range.NARROW
+FULL = Range.FULL
+FULLPROTECT = Range.FULLPROTECT
+ACTIVE = ReservationState.ACTIVE
+EXPIRED = ReservationState.EXPIRED
+PROCESSING = ReservationState.PROCESSING
+CANCELED = ReservationState.CANCELED
+MBPS_OUTBOUND_BANDWIDTH = ResourceType.MBPS_OUTBOUND_BANDWIDTH
+RTP = RouterInputProtocol.RTP
+RIST = RouterInputProtocol.RIST
+SRT_CALLER = RouterInputProtocol.SRT_CALLER
+SRT_LISTENER = RouterInputProtocol.SRT_LISTENER
+CREATING = RouterInputState.CREATING
+STANDBY = RouterInputState.STANDBY
+STARTING = RouterInputState.STARTING
+ACTIVE = RouterInputState.ACTIVE
+STOPPING = RouterInputState.STOPPING
+DELETING = RouterInputState.DELETING
+UPDATING = RouterInputState.UPDATING
+ERROR = RouterInputState.ERROR
+RECOVERING = RouterInputState.RECOVERING
+MIGRATING = RouterInputState.MIGRATING
+INPUT_100 = RouterInputTier.INPUT_100
+INPUT_50 = RouterInputTier.INPUT_50
+INPUT_20 = RouterInputTier.INPUT_20
+SECRETS_MANAGER = RouterInputTransitEncryptionKeyType.SECRETS_MANAGER
+AUTOMATIC = RouterInputTransitEncryptionKeyType.AUTOMATIC
+STANDARD = RouterInputType.STANDARD
+FAILOVER = RouterInputType.FAILOVER
+MERGE = RouterInputType.MERGE
+MEDIACONNECT_FLOW = RouterInputType.MEDIACONNECT_FLOW
+CREATING = RouterNetworkInterfaceState.CREATING
+ACTIVE = RouterNetworkInterfaceState.ACTIVE
+UPDATING = RouterNetworkInterfaceState.UPDATING
+DELETING = RouterNetworkInterfaceState.DELETING
+ERROR = RouterNetworkInterfaceState.ERROR
+RECOVERING = RouterNetworkInterfaceState.RECOVERING
+PUBLIC = RouterNetworkInterfaceType.PUBLIC
+VPC = RouterNetworkInterfaceType.VPC
+RTP = RouterOutputProtocol.RTP
+RIST = RouterOutputProtocol.RIST
+SRT_CALLER = RouterOutputProtocol.SRT_CALLER
+SRT_LISTENER = RouterOutputProtocol.SRT_LISTENER
+ROUTED = RouterOutputRoutedState.ROUTED
+ROUTING = RouterOutputRoutedState.ROUTING
+UNROUTED = RouterOutputRoutedState.UNROUTED
+CREATING = RouterOutputState.CREATING
+STANDBY = RouterOutputState.STANDBY
+STARTING = RouterOutputState.STARTING
+ACTIVE = RouterOutputState.ACTIVE
+STOPPING = RouterOutputState.STOPPING
+DELETING = RouterOutputState.DELETING
+UPDATING = RouterOutputState.UPDATING
+ERROR = RouterOutputState.ERROR
+RECOVERING = RouterOutputState.RECOVERING
+MIGRATING = RouterOutputState.MIGRATING
+OUTPUT_100 = RouterOutputTier.OUTPUT_100
+OUTPUT_50 = RouterOutputTier.OUTPUT_50
+OUTPUT_20 = RouterOutputTier.OUTPUT_20
+STANDARD = RouterOutputType.STANDARD
+MEDIACONNECT_FLOW = RouterOutputType.MEDIACONNECT_FLOW
+MEDIALIVE_INPUT = RouterOutputType.MEDIALIVE_INPUT
+REGIONAL = RoutingScope.REGIONAL
+GLOBAL = RoutingScope.GLOBAL
+PROGRESSIVE = ScanMode.PROGRESSIVE
+INTERLACE = ScanMode.INTERLACE
+PROGRESSIVE_SEGMENTED_FRAME = ScanMode.PROGRESSIVE_SEGMENTED_FRAME
+OWNED = SourceType.OWNED
+ENTITLED = SourceType.ENTITLED
+ENABLED = State.ENABLED
+DISABLED = State.DISABLED
+STANDBY = Status.STANDBY
+ACTIVE = Status.ACTIVE
+UPDATING = Status.UPDATING
+DELETING = Status.DELETING
+STARTING = Status.STARTING
+STOPPING = Status.STOPPING
+ERROR = Status.ERROR
+SDR = Tcs.SDR
+PQ = Tcs.PQ
+HLG = Tcs.HLG
+LINEAR = Tcs.LINEAR
+BT2100LINPQ = Tcs.BT2100LINPQ
+BT2100LINHLG = Tcs.BT2100LINHLG
+ST2065_1 = Tcs.ST2065_1
+ST428_1 = Tcs.ST428_1
+DENSITY = Tcs.DENSITY
+ENABLED = ThumbnailState.ENABLED
+DISABLED = ThumbnailState.DISABLED
 
 
 @dataclass
@@ -87,7 +753,7 @@ class BridgeNetworkOutput:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ip_address: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    protocol: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    protocol: Optional[Union[str, Protocol, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ttl: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -179,7 +845,7 @@ class BridgeNetworkSource:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    protocol: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    protocol: Optional[Union[str, Protocol, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -349,11 +1015,11 @@ class FailoverConfig:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    state: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    state: Optional[Union[str, State, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_priority: Optional[SourcePriority] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    failover_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    failover_mode: Optional[Union[str, FailoverMode, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -650,7 +1316,7 @@ class BridgeNetworkOutput:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ip_address: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    protocol: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    protocol: Optional[Union[str, Protocol, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ttl: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
@@ -827,7 +1493,7 @@ class BridgeNetworkSource:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    protocol: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    protocol: Optional[Union[str, Protocol, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1046,7 +1712,7 @@ class BlackFrames:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    state: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    state: Optional[Union[str, State, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     threshold_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
@@ -1086,7 +1752,7 @@ class Encryption:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    key_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    key_type: Optional[Union[str, KeyType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1096,7 +1762,7 @@ class Encryption:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     constant_initialization_vector: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    algorithm: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    algorithm: Optional[Union[str, Algorithm, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1213,11 +1879,11 @@ class FailoverConfig:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    state: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    state: Optional[Union[str, State, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_priority: Optional[SourcePriority] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    failover_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    failover_mode: Optional[Union[str, FailoverMode, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     recovery_window: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
@@ -1277,7 +1943,7 @@ class FlowTransitEncryption:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    encryption_key_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    encryption_key_type: Optional[Union[str, FlowTransitEncryptionKeyType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_key_configuration: Optional[FlowTransitEncryptionKeyConfiguration] = None
 
@@ -1355,17 +2021,17 @@ class Fmtp:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     par: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    scan_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    scan_mode: Optional[Union[str, ScanMode, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    tcs: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    tcs: Optional[Union[str, Tcs, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exact_framerate: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     channel_order: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    colorimetry: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    colorimetry: Optional[Union[str, Colorimetry, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    range: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    range: Optional[Union[str, Range, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1456,7 +2122,7 @@ class FrozenFrames:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    state: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    state: Optional[Union[str, State, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     threshold_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
@@ -1595,7 +2261,7 @@ class Maintenance:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    maintenance_day: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    maintenance_day: Optional[Union[str, MaintenanceDay, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maintenance_start_hour: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -1633,7 +2299,7 @@ class MediaStream:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    media_stream_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    media_stream_type: Optional[Union[str, MediaStreamType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     media_stream_id: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1791,7 +2457,7 @@ class MediaStreamSourceConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input_configurations: Optional[list[InputConfiguration]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    encoding_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    encoding_name: Optional[Union[str, EncodingName, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -1838,7 +2504,7 @@ class NdiConfig:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    ndi_state: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    ndi_state: Optional[Union[str, NdiState, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     machine_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1978,7 +2644,7 @@ class SilentAudio:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    state: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    state: Optional[Union[str, State, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     threshold_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
@@ -2036,7 +2702,7 @@ class Source:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     decryption: Optional[Encryption] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    router_integration_state: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    router_integration_state: Optional[Union[str, State, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     gateway_bridge_source: Optional[GatewayBridgeSource] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -2467,7 +3133,7 @@ class VpcInterface:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    network_interface_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    network_interface_type: Optional[Union[str, NetworkInterfaceType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_interface_ids: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -2600,7 +3266,7 @@ class Flow(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source: Optional[Source] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    flow_size: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    flow_size: Optional[Union[str, FlowSize, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -2785,7 +3451,7 @@ class Encryption:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    key_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    key_type: Optional[Union[str, KeyType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -2795,7 +3461,7 @@ class Encryption:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     constant_initialization_vector: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    algorithm: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    algorithm: Optional[Union[str, Algorithm, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -3089,7 +3755,7 @@ class EncodingParameters:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    encoder_profile: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    encoder_profile: Optional[Union[str, EncoderProfile, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compression_factor: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
@@ -3129,9 +3795,9 @@ class Encryption:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    key_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    key_type: Optional[Union[str, KeyType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    algorithm: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    algorithm: Optional[Union[str, Algorithm, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -3191,7 +3857,7 @@ class FlowTransitEncryption:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    encryption_key_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    encryption_key_type: Optional[Union[str, FlowTransitEncryptionKeyType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_key_configuration: Optional[FlowTransitEncryptionKeyConfiguration] = None
 
@@ -3296,7 +3962,7 @@ class MediaStreamOutputConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     media_stream_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    encoding_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    encoding_name: Optional[Union[str, EncodingName, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_configurations: Optional[list[DestinationConfiguration]] = None
 
@@ -3742,7 +4408,7 @@ class Encryption:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    key_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    key_type: Optional[Union[str, KeyType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -3752,7 +4418,7 @@ class Encryption:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     constant_initialization_vector: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    algorithm: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    algorithm: Optional[Union[str, Algorithm, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -4440,7 +5106,7 @@ class FailoverRouterInputConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_interface_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    source_priority_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    source_priority_mode: Optional[Union[str, FailoverInputSourcePriorityMode, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     protocol_configurations: Optional[list[FailoverRouterInputProtocolConfiguration]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -4566,7 +5232,7 @@ class FlowTransitEncryption:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    encryption_key_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    encryption_key_type: Optional[Union[str, FlowTransitEncryptionKeyType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_key_configuration: Optional[FlowTransitEncryptionKeyConfiguration] = None
 
@@ -4822,7 +5488,7 @@ class PreferredDayTimeMaintenanceConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     time: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    day: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    day: Optional[Union[str, Day, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -5024,7 +5690,7 @@ class RouterInputTransitEncryption:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    encryption_key_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    encryption_key_type: Optional[Union[str, RouterInputTransitEncryptionKeyType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_key_configuration: Optional[RouterInputTransitEncryptionKeyConfiguration] = None
 
@@ -5100,7 +5766,7 @@ class RtpRouterInputConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    forward_error_correction: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    forward_error_correction: Optional[Union[str, ForwardErrorCorrectionState, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
@@ -5333,7 +5999,7 @@ class StandardRouterInputConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_interface_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    protocol: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    protocol: Optional[Union[str, RouterInputProtocol, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -5382,13 +6048,13 @@ class RouterInput(CloudFormationResource):
     resource_type: ClassVar[str] = "AWS::MediaConnect::RouterInput"
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    routing_scope: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    routing_scope: Optional[Union[str, RoutingScope, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     transit_encryption: Optional[RouterInputTransitEncryption] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     configuration: Optional[RouterInputConfiguration] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    tier: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    tier: Optional[Union[str, RouterInputTier, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     region_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
@@ -5823,7 +6489,7 @@ class FlowTransitEncryption:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    encryption_key_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    encryption_key_type: Optional[Union[str, FlowTransitEncryptionKeyType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_key_configuration: Optional[FlowTransitEncryptionKeyConfiguration] = None
 
@@ -5990,7 +6656,7 @@ class MediaLiveInputRouterOutputConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     media_live_input_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    media_live_pipeline_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    media_live_pipeline_id: Optional[Union[str, MediaLiveInputPipelineId, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_transit_encryption: Optional[MediaLiveTransitEncryption] = None
 
@@ -6039,7 +6705,7 @@ class MediaLiveTransitEncryption:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    encryption_key_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    encryption_key_type: Optional[Union[str, MediaLiveTransitEncryptionKeyType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_key_configuration: Optional[MediaLiveTransitEncryptionKeyConfiguration] = None
 
@@ -6117,7 +6783,7 @@ class PreferredDayTimeMaintenanceConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     time: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    day: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    day: Optional[Union[str, Day, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -6306,7 +6972,7 @@ class RtpRouterOutputConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    forward_error_correction: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    forward_error_correction: Optional[Union[str, ForwardErrorCorrectionState, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_port: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -6552,7 +7218,7 @@ class StandardRouterOutputConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_interface_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    protocol: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    protocol: Optional[Union[str, RouterOutputProtocol, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -6601,11 +7267,11 @@ class RouterOutput(CloudFormationResource):
     resource_type: ClassVar[str] = "AWS::MediaConnect::RouterOutput"
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    routing_scope: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    routing_scope: Optional[Union[str, RoutingScope, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     configuration: Optional[RouterOutputConfiguration] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    tier: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    tier: Optional[Union[str, RouterOutputTier, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     region_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso

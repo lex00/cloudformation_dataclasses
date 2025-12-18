@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:14
+  Generated: 2025-12-17 16:59:35
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Batch
@@ -23,6 +23,369 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class ArrayJobDependency:
+    """ArrayJobDependency enum values."""
+
+    N_TO_N = "N_TO_N"
+    SEQUENTIAL = "SEQUENTIAL"
+
+
+class AssignPublicIp:
+    """AssignPublicIp enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class CEState:
+    """CEState enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class CEStatus:
+    """CEStatus enum values."""
+
+    CREATING = "CREATING"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    DELETED = "DELETED"
+    VALID = "VALID"
+    INVALID = "INVALID"
+
+
+class CEType:
+    """CEType enum values."""
+
+    MANAGED = "MANAGED"
+    UNMANAGED = "UNMANAGED"
+
+
+class CRAllocationStrategy:
+    """CRAllocationStrategy enum values."""
+
+    BEST_FIT = "BEST_FIT"
+    BEST_FIT_PROGRESSIVE = "BEST_FIT_PROGRESSIVE"
+    SPOT_CAPACITY_OPTIMIZED = "SPOT_CAPACITY_OPTIMIZED"
+    SPOT_PRICE_CAPACITY_OPTIMIZED = "SPOT_PRICE_CAPACITY_OPTIMIZED"
+
+
+class CRType:
+    """CRType enum values."""
+
+    EC2 = "EC2"
+    SPOT = "SPOT"
+    FARGATE = "FARGATE"
+    FARGATE_SPOT = "FARGATE_SPOT"
+
+
+class CRUpdateAllocationStrategy:
+    """CRUpdateAllocationStrategy enum values."""
+
+    BEST_FIT_PROGRESSIVE = "BEST_FIT_PROGRESSIVE"
+    SPOT_CAPACITY_OPTIMIZED = "SPOT_CAPACITY_OPTIMIZED"
+    SPOT_PRICE_CAPACITY_OPTIMIZED = "SPOT_PRICE_CAPACITY_OPTIMIZED"
+
+
+class DeviceCgroupPermission:
+    """DeviceCgroupPermission enum values."""
+
+    READ = "READ"
+    WRITE = "WRITE"
+    MKNOD = "MKNOD"
+
+
+class EFSAuthorizationConfigIAM:
+    """EFSAuthorizationConfigIAM enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class EFSTransitEncryption:
+    """EFSTransitEncryption enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class FirelensConfigurationType:
+    """FirelensConfigurationType enum values."""
+
+    FLUENTD = "fluentd"
+    FLUENTBIT = "fluentbit"
+
+
+class JQState:
+    """JQState enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class JQStatus:
+    """JQStatus enum values."""
+
+    CREATING = "CREATING"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    DELETED = "DELETED"
+    VALID = "VALID"
+    INVALID = "INVALID"
+
+
+class JobDefinitionType:
+    """JobDefinitionType enum values."""
+
+    CONTAINER = "container"
+    MULTINODE = "multinode"
+
+
+class JobQueueType:
+    """JobQueueType enum values."""
+
+    EKS = "EKS"
+    ECS = "ECS"
+    ECS_FARGATE = "ECS_FARGATE"
+    SAGEMAKER_TRAINING = "SAGEMAKER_TRAINING"
+
+
+class JobStateTimeLimitActionsAction:
+    """JobStateTimeLimitActionsAction enum values."""
+
+    CANCEL = "CANCEL"
+    TERMINATE = "TERMINATE"
+
+
+class JobStateTimeLimitActionsState:
+    """JobStateTimeLimitActionsState enum values."""
+
+    RUNNABLE = "RUNNABLE"
+
+
+class JobStatus:
+    """JobStatus enum values."""
+
+    SUBMITTED = "SUBMITTED"
+    PENDING = "PENDING"
+    RUNNABLE = "RUNNABLE"
+    STARTING = "STARTING"
+    RUNNING = "RUNNING"
+    SUCCEEDED = "SUCCEEDED"
+    FAILED = "FAILED"
+
+
+class LogDriver:
+    """LogDriver enum values."""
+
+    JSON_FILE = "json-file"
+    SYSLOG = "syslog"
+    JOURNALD = "journald"
+    GELF = "gelf"
+    FLUENTD = "fluentd"
+    AWSLOGS = "awslogs"
+    SPLUNK = "splunk"
+    AWSFIRELENS = "awsfirelens"
+
+
+class OrchestrationType:
+    """OrchestrationType enum values."""
+
+    ECS = "ECS"
+    EKS = "EKS"
+
+
+class PlatformCapability:
+    """PlatformCapability enum values."""
+
+    EC2 = "EC2"
+    FARGATE = "FARGATE"
+
+
+class ResourceType:
+    """ResourceType enum values."""
+
+    GPU = "GPU"
+    VCPU = "VCPU"
+    MEMORY = "MEMORY"
+
+
+class RetryAction:
+    """RetryAction enum values."""
+
+    RETRY = "RETRY"
+    EXIT = "EXIT"
+
+
+class ServiceEnvironmentState:
+    """ServiceEnvironmentState enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class ServiceEnvironmentStatus:
+    """ServiceEnvironmentStatus enum values."""
+
+    CREATING = "CREATING"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    DELETED = "DELETED"
+    VALID = "VALID"
+    INVALID = "INVALID"
+
+
+class ServiceEnvironmentType:
+    """ServiceEnvironmentType enum values."""
+
+    SAGEMAKER_TRAINING = "SAGEMAKER_TRAINING"
+
+
+class ServiceJobRetryAction:
+    """ServiceJobRetryAction enum values."""
+
+    RETRY = "RETRY"
+    EXIT = "EXIT"
+
+
+class ServiceJobStatus:
+    """ServiceJobStatus enum values."""
+
+    SUBMITTED = "SUBMITTED"
+    PENDING = "PENDING"
+    RUNNABLE = "RUNNABLE"
+    SCHEDULED = "SCHEDULED"
+    STARTING = "STARTING"
+    RUNNING = "RUNNING"
+    SUCCEEDED = "SUCCEEDED"
+    FAILED = "FAILED"
+
+
+class ServiceJobType:
+    """ServiceJobType enum values."""
+
+    SAGEMAKER_TRAINING = "SAGEMAKER_TRAINING"
+
+
+class ServiceResourceIdName:
+    """ServiceResourceIdName enum values."""
+
+    TRAININGJOBARN = "TrainingJobArn"
+
+
+class UserdataType:
+    """UserdataType enum values."""
+
+    EKS_BOOTSTRAP_SH = "EKS_BOOTSTRAP_SH"
+    EKS_NODEADM = "EKS_NODEADM"
+
+
+# Convenient aliases for enum values
+N_TO_N = ArrayJobDependency.N_TO_N
+SEQUENTIAL = ArrayJobDependency.SEQUENTIAL
+ENABLED = AssignPublicIp.ENABLED
+DISABLED = AssignPublicIp.DISABLED
+ENABLED = CEState.ENABLED
+DISABLED = CEState.DISABLED
+CREATING = CEStatus.CREATING
+UPDATING = CEStatus.UPDATING
+DELETING = CEStatus.DELETING
+DELETED = CEStatus.DELETED
+VALID = CEStatus.VALID
+INVALID = CEStatus.INVALID
+MANAGED = CEType.MANAGED
+UNMANAGED = CEType.UNMANAGED
+BEST_FIT = CRAllocationStrategy.BEST_FIT
+BEST_FIT_PROGRESSIVE = CRAllocationStrategy.BEST_FIT_PROGRESSIVE
+SPOT_CAPACITY_OPTIMIZED = CRAllocationStrategy.SPOT_CAPACITY_OPTIMIZED
+SPOT_PRICE_CAPACITY_OPTIMIZED = CRAllocationStrategy.SPOT_PRICE_CAPACITY_OPTIMIZED
+EC2 = CRType.EC2
+SPOT = CRType.SPOT
+FARGATE = CRType.FARGATE
+FARGATE_SPOT = CRType.FARGATE_SPOT
+BEST_FIT_PROGRESSIVE = CRUpdateAllocationStrategy.BEST_FIT_PROGRESSIVE
+SPOT_CAPACITY_OPTIMIZED = CRUpdateAllocationStrategy.SPOT_CAPACITY_OPTIMIZED
+SPOT_PRICE_CAPACITY_OPTIMIZED = CRUpdateAllocationStrategy.SPOT_PRICE_CAPACITY_OPTIMIZED
+READ = DeviceCgroupPermission.READ
+WRITE = DeviceCgroupPermission.WRITE
+MKNOD = DeviceCgroupPermission.MKNOD
+ENABLED = EFSAuthorizationConfigIAM.ENABLED
+DISABLED = EFSAuthorizationConfigIAM.DISABLED
+ENABLED = EFSTransitEncryption.ENABLED
+DISABLED = EFSTransitEncryption.DISABLED
+FLUENTD = FirelensConfigurationType.FLUENTD
+FLUENTBIT = FirelensConfigurationType.FLUENTBIT
+ENABLED = JQState.ENABLED
+DISABLED = JQState.DISABLED
+CREATING = JQStatus.CREATING
+UPDATING = JQStatus.UPDATING
+DELETING = JQStatus.DELETING
+DELETED = JQStatus.DELETED
+VALID = JQStatus.VALID
+INVALID = JQStatus.INVALID
+CONTAINER = JobDefinitionType.CONTAINER
+MULTINODE = JobDefinitionType.MULTINODE
+EKS = JobQueueType.EKS
+ECS = JobQueueType.ECS
+ECS_FARGATE = JobQueueType.ECS_FARGATE
+SAGEMAKER_TRAINING = JobQueueType.SAGEMAKER_TRAINING
+CANCEL = JobStateTimeLimitActionsAction.CANCEL
+TERMINATE = JobStateTimeLimitActionsAction.TERMINATE
+RUNNABLE = JobStateTimeLimitActionsState.RUNNABLE
+SUBMITTED = JobStatus.SUBMITTED
+PENDING = JobStatus.PENDING
+RUNNABLE = JobStatus.RUNNABLE
+STARTING = JobStatus.STARTING
+RUNNING = JobStatus.RUNNING
+SUCCEEDED = JobStatus.SUCCEEDED
+FAILED = JobStatus.FAILED
+JSON_FILE = LogDriver.JSON_FILE
+SYSLOG = LogDriver.SYSLOG
+JOURNALD = LogDriver.JOURNALD
+GELF = LogDriver.GELF
+FLUENTD = LogDriver.FLUENTD
+AWSLOGS = LogDriver.AWSLOGS
+SPLUNK = LogDriver.SPLUNK
+AWSFIRELENS = LogDriver.AWSFIRELENS
+ECS = OrchestrationType.ECS
+EKS = OrchestrationType.EKS
+EC2 = PlatformCapability.EC2
+FARGATE = PlatformCapability.FARGATE
+GPU = ResourceType.GPU
+VCPU = ResourceType.VCPU
+MEMORY = ResourceType.MEMORY
+RETRY = RetryAction.RETRY
+EXIT = RetryAction.EXIT
+ENABLED = ServiceEnvironmentState.ENABLED
+DISABLED = ServiceEnvironmentState.DISABLED
+CREATING = ServiceEnvironmentStatus.CREATING
+UPDATING = ServiceEnvironmentStatus.UPDATING
+DELETING = ServiceEnvironmentStatus.DELETING
+DELETED = ServiceEnvironmentStatus.DELETED
+VALID = ServiceEnvironmentStatus.VALID
+INVALID = ServiceEnvironmentStatus.INVALID
+SAGEMAKER_TRAINING = ServiceEnvironmentType.SAGEMAKER_TRAINING
+RETRY = ServiceJobRetryAction.RETRY
+EXIT = ServiceJobRetryAction.EXIT
+SUBMITTED = ServiceJobStatus.SUBMITTED
+PENDING = ServiceJobStatus.PENDING
+RUNNABLE = ServiceJobStatus.RUNNABLE
+SCHEDULED = ServiceJobStatus.SCHEDULED
+STARTING = ServiceJobStatus.STARTING
+RUNNING = ServiceJobStatus.RUNNING
+SUCCEEDED = ServiceJobStatus.SUCCEEDED
+FAILED = ServiceJobStatus.FAILED
+SAGEMAKER_TRAINING = ServiceJobType.SAGEMAKER_TRAINING
+TRAININGJOBARN = ServiceResourceIdName.TRAININGJOBARN
+EKS_BOOTSTRAP_SH = UserdataType.EKS_BOOTSTRAP_SH
+EKS_NODEADM = UserdataType.EKS_NODEADM
 
 
 @dataclass

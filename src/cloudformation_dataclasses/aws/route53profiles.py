@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:36
+  Generated: 2025-12-17 16:59:38
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Route53Profiles
@@ -23,6 +23,41 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class ProfileStatus:
+    """ProfileStatus enum values."""
+
+    COMPLETE = "COMPLETE"
+    DELETING = "DELETING"
+    UPDATING = "UPDATING"
+    CREATING = "CREATING"
+    DELETED = "DELETED"
+    FAILED = "FAILED"
+
+
+class ShareStatus:
+    """ShareStatus enum values."""
+
+    NOT_SHARED = "NOT_SHARED"
+    SHARED_WITH_ME = "SHARED_WITH_ME"
+    SHARED_BY_ME = "SHARED_BY_ME"
+
+
+# Convenient aliases for enum values
+COMPLETE = ProfileStatus.COMPLETE
+DELETING = ProfileStatus.DELETING
+UPDATING = ProfileStatus.UPDATING
+CREATING = ProfileStatus.CREATING
+DELETED = ProfileStatus.DELETED
+FAILED = ProfileStatus.FAILED
+NOT_SHARED = ShareStatus.NOT_SHARED
+SHARED_WITH_ME = ShareStatus.SHARED_WITH_ME
+SHARED_BY_ME = ShareStatus.SHARED_BY_ME
 
 
 @dataclass

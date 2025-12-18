@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:12
+  Generated: 2025-12-17 16:59:34
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AppMesh
@@ -23,6 +23,239 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class DefaultGatewayRouteRewrite:
+    """DefaultGatewayRouteRewrite enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class DnsResponseType:
+    """DnsResponseType enum values."""
+
+    LOADBALANCER = "LOADBALANCER"
+    ENDPOINTS = "ENDPOINTS"
+
+
+class DurationUnit:
+    """DurationUnit enum values."""
+
+    S = "s"
+    MS = "ms"
+
+
+class EgressFilterType:
+    """EgressFilterType enum values."""
+
+    ALLOW_ALL = "ALLOW_ALL"
+    DROP_ALL = "DROP_ALL"
+
+
+class GatewayRouteStatusCode:
+    """GatewayRouteStatusCode enum values."""
+
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
+    DELETED = "DELETED"
+
+
+class GrpcRetryPolicyEvent:
+    """GrpcRetryPolicyEvent enum values."""
+
+    CANCELLED = "cancelled"
+    DEADLINE_EXCEEDED = "deadline-exceeded"
+    INTERNAL = "internal"
+    RESOURCE_EXHAUSTED = "resource-exhausted"
+    UNAVAILABLE = "unavailable"
+
+
+class HttpMethod:
+    """HttpMethod enum values."""
+
+    GET = "GET"
+    HEAD = "HEAD"
+    POST = "POST"
+    PUT = "PUT"
+    DELETE = "DELETE"
+    CONNECT = "CONNECT"
+    OPTIONS = "OPTIONS"
+    TRACE = "TRACE"
+    PATCH = "PATCH"
+
+
+class HttpScheme:
+    """HttpScheme enum values."""
+
+    HTTP = "http"
+    HTTPS = "https"
+
+
+class IpPreference:
+    """IpPreference enum values."""
+
+    IPV6_PREFERRED = "IPv6_PREFERRED"
+    IPV4_PREFERRED = "IPv4_PREFERRED"
+    IPV4_ONLY = "IPv4_ONLY"
+    IPV6_ONLY = "IPv6_ONLY"
+
+
+class ListenerTlsMode:
+    """ListenerTlsMode enum values."""
+
+    STRICT = "STRICT"
+    PERMISSIVE = "PERMISSIVE"
+    DISABLED = "DISABLED"
+
+
+class MeshStatusCode:
+    """MeshStatusCode enum values."""
+
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
+    DELETED = "DELETED"
+
+
+class PortProtocol:
+    """PortProtocol enum values."""
+
+    HTTP = "http"
+    TCP = "tcp"
+    HTTP2 = "http2"
+    GRPC = "grpc"
+
+
+class RouteStatusCode:
+    """RouteStatusCode enum values."""
+
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
+    DELETED = "DELETED"
+
+
+class TcpRetryPolicyEvent:
+    """TcpRetryPolicyEvent enum values."""
+
+    CONNECTION_ERROR = "connection-error"
+
+
+class VirtualGatewayListenerTlsMode:
+    """VirtualGatewayListenerTlsMode enum values."""
+
+    STRICT = "STRICT"
+    PERMISSIVE = "PERMISSIVE"
+    DISABLED = "DISABLED"
+
+
+class VirtualGatewayPortProtocol:
+    """VirtualGatewayPortProtocol enum values."""
+
+    HTTP = "http"
+    HTTP2 = "http2"
+    GRPC = "grpc"
+
+
+class VirtualGatewayStatusCode:
+    """VirtualGatewayStatusCode enum values."""
+
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
+    DELETED = "DELETED"
+
+
+class VirtualNodeStatusCode:
+    """VirtualNodeStatusCode enum values."""
+
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
+    DELETED = "DELETED"
+
+
+class VirtualRouterStatusCode:
+    """VirtualRouterStatusCode enum values."""
+
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
+    DELETED = "DELETED"
+
+
+class VirtualServiceStatusCode:
+    """VirtualServiceStatusCode enum values."""
+
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
+    DELETED = "DELETED"
+
+
+# Convenient aliases for enum values
+ENABLED = DefaultGatewayRouteRewrite.ENABLED
+DISABLED = DefaultGatewayRouteRewrite.DISABLED
+LOADBALANCER = DnsResponseType.LOADBALANCER
+ENDPOINTS = DnsResponseType.ENDPOINTS
+S = DurationUnit.S
+MS = DurationUnit.MS
+ALLOW_ALL = EgressFilterType.ALLOW_ALL
+DROP_ALL = EgressFilterType.DROP_ALL
+ACTIVE = GatewayRouteStatusCode.ACTIVE
+INACTIVE = GatewayRouteStatusCode.INACTIVE
+DELETED = GatewayRouteStatusCode.DELETED
+CANCELLED = GrpcRetryPolicyEvent.CANCELLED
+DEADLINE_EXCEEDED = GrpcRetryPolicyEvent.DEADLINE_EXCEEDED
+INTERNAL = GrpcRetryPolicyEvent.INTERNAL
+RESOURCE_EXHAUSTED = GrpcRetryPolicyEvent.RESOURCE_EXHAUSTED
+UNAVAILABLE = GrpcRetryPolicyEvent.UNAVAILABLE
+GET = HttpMethod.GET
+HEAD = HttpMethod.HEAD
+POST = HttpMethod.POST
+PUT = HttpMethod.PUT
+DELETE = HttpMethod.DELETE
+CONNECT = HttpMethod.CONNECT
+OPTIONS = HttpMethod.OPTIONS
+TRACE = HttpMethod.TRACE
+PATCH = HttpMethod.PATCH
+HTTP = HttpScheme.HTTP
+HTTPS = HttpScheme.HTTPS
+IPV6_PREFERRED = IpPreference.IPV6_PREFERRED
+IPV4_PREFERRED = IpPreference.IPV4_PREFERRED
+IPV4_ONLY = IpPreference.IPV4_ONLY
+IPV6_ONLY = IpPreference.IPV6_ONLY
+STRICT = ListenerTlsMode.STRICT
+PERMISSIVE = ListenerTlsMode.PERMISSIVE
+DISABLED = ListenerTlsMode.DISABLED
+ACTIVE = MeshStatusCode.ACTIVE
+INACTIVE = MeshStatusCode.INACTIVE
+DELETED = MeshStatusCode.DELETED
+HTTP = PortProtocol.HTTP
+TCP = PortProtocol.TCP
+HTTP2 = PortProtocol.HTTP2
+GRPC = PortProtocol.GRPC
+ACTIVE = RouteStatusCode.ACTIVE
+INACTIVE = RouteStatusCode.INACTIVE
+DELETED = RouteStatusCode.DELETED
+CONNECTION_ERROR = TcpRetryPolicyEvent.CONNECTION_ERROR
+STRICT = VirtualGatewayListenerTlsMode.STRICT
+PERMISSIVE = VirtualGatewayListenerTlsMode.PERMISSIVE
+DISABLED = VirtualGatewayListenerTlsMode.DISABLED
+HTTP = VirtualGatewayPortProtocol.HTTP
+HTTP2 = VirtualGatewayPortProtocol.HTTP2
+GRPC = VirtualGatewayPortProtocol.GRPC
+ACTIVE = VirtualGatewayStatusCode.ACTIVE
+INACTIVE = VirtualGatewayStatusCode.INACTIVE
+DELETED = VirtualGatewayStatusCode.DELETED
+ACTIVE = VirtualNodeStatusCode.ACTIVE
+INACTIVE = VirtualNodeStatusCode.INACTIVE
+DELETED = VirtualNodeStatusCode.DELETED
+ACTIVE = VirtualRouterStatusCode.ACTIVE
+INACTIVE = VirtualRouterStatusCode.INACTIVE
+DELETED = VirtualRouterStatusCode.DELETED
+ACTIVE = VirtualServiceStatusCode.ACTIVE
+INACTIVE = VirtualServiceStatusCode.INACTIVE
+DELETED = VirtualServiceStatusCode.DELETED
 
 
 @dataclass

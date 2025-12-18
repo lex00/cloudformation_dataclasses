@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:34
+  Generated: 2025-12-17 16:59:38
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service QBusiness
@@ -23,6 +23,759 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class APISchemaType:
+    """APISchemaType enum values."""
+
+    OPEN_API_V3 = "OPEN_API_V3"
+
+
+class ActionPayloadFieldType:
+    """ActionPayloadFieldType enum values."""
+
+    STRING = "STRING"
+    NUMBER = "NUMBER"
+    ARRAY = "ARRAY"
+    BOOLEAN = "BOOLEAN"
+
+
+class ApplicationStatus:
+    """ApplicationStatus enum values."""
+
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
+    UPDATING = "UPDATING"
+
+
+class AttachmentStatus:
+    """AttachmentStatus enum values."""
+
+    FAILED = "FAILED"
+    SUCCESS = "SUCCESS"
+
+
+class AttachmentsControlMode:
+    """AttachmentsControlMode enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class AttributeType:
+    """AttributeType enum values."""
+
+    STRING = "STRING"
+    STRING_LIST = "STRING_LIST"
+    NUMBER = "NUMBER"
+    DATE = "DATE"
+
+
+class AttributeValueOperator:
+    """AttributeValueOperator enum values."""
+
+    DELETE = "DELETE"
+
+
+class AudioExtractionStatus:
+    """AudioExtractionStatus enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class AudioExtractionType:
+    """AudioExtractionType enum values."""
+
+    TRANSCRIPT = "TRANSCRIPT"
+    SUMMARY = "SUMMARY"
+
+
+class AutoSubscriptionStatus:
+    """AutoSubscriptionStatus enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class BrowserExtension:
+    """BrowserExtension enum values."""
+
+    FIREFOX = "FIREFOX"
+    CHROME = "CHROME"
+
+
+class ChatMode:
+    """ChatMode enum values."""
+
+    RETRIEVAL_MODE = "RETRIEVAL_MODE"
+    CREATOR_MODE = "CREATOR_MODE"
+    PLUGIN_MODE = "PLUGIN_MODE"
+
+
+class ChatResponseConfigurationStatus:
+    """ChatResponseConfigurationStatus enum values."""
+
+    CREATING = "CREATING"
+    UPDATING = "UPDATING"
+    FAILED = "FAILED"
+    ACTIVE = "ACTIVE"
+
+
+class ContentType:
+    """ContentType enum values."""
+
+    PDF = "PDF"
+    HTML = "HTML"
+    MS_WORD = "MS_WORD"
+    PLAIN_TEXT = "PLAIN_TEXT"
+    PPT = "PPT"
+    RTF = "RTF"
+    XML = "XML"
+    XSLT = "XSLT"
+    MS_EXCEL = "MS_EXCEL"
+    CSV = "CSV"
+    JSON = "JSON"
+    MD = "MD"
+
+
+class CreatorModeControl:
+    """CreatorModeControl enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class DataAccessorAuthenticationType:
+    """DataAccessorAuthenticationType enum values."""
+
+    AWS_IAM_IDC_TTI = "AWS_IAM_IDC_TTI"
+    AWS_IAM_IDC_AUTH_CODE = "AWS_IAM_IDC_AUTH_CODE"
+
+
+class DataSourceStatus:
+    """DataSourceStatus enum values."""
+
+    PENDING_CREATION = "PENDING_CREATION"
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
+    UPDATING = "UPDATING"
+
+
+class DataSourceSyncJobStatus:
+    """DataSourceSyncJobStatus enum values."""
+
+    FAILED = "FAILED"
+    SUCCEEDED = "SUCCEEDED"
+    SYNCING = "SYNCING"
+    INCOMPLETE = "INCOMPLETE"
+    STOPPING = "STOPPING"
+    ABORTED = "ABORTED"
+    SYNCING_INDEXING = "SYNCING_INDEXING"
+
+
+class DocumentAttributeBoostingLevel:
+    """DocumentAttributeBoostingLevel enum values."""
+
+    NONE = "NONE"
+    LOW = "LOW"
+    MEDIUM = "MEDIUM"
+    HIGH = "HIGH"
+    VERY_HIGH = "VERY_HIGH"
+    ONE = "ONE"
+    TWO = "TWO"
+
+
+class DocumentContentOperator:
+    """DocumentContentOperator enum values."""
+
+    DELETE = "DELETE"
+
+
+class DocumentEnrichmentConditionOperator:
+    """DocumentEnrichmentConditionOperator enum values."""
+
+    GREATER_THAN = "GREATER_THAN"
+    GREATER_THAN_OR_EQUALS = "GREATER_THAN_OR_EQUALS"
+    LESS_THAN = "LESS_THAN"
+    LESS_THAN_OR_EQUALS = "LESS_THAN_OR_EQUALS"
+    EQUALS = "EQUALS"
+    NOT_EQUALS = "NOT_EQUALS"
+    CONTAINS = "CONTAINS"
+    NOT_CONTAINS = "NOT_CONTAINS"
+    EXISTS = "EXISTS"
+    NOT_EXISTS = "NOT_EXISTS"
+    BEGINS_WITH = "BEGINS_WITH"
+
+
+class DocumentStatus:
+    """DocumentStatus enum values."""
+
+    RECEIVED = "RECEIVED"
+    PROCESSING = "PROCESSING"
+    INDEXED = "INDEXED"
+    UPDATED = "UPDATED"
+    FAILED = "FAILED"
+    DELETING = "DELETING"
+    DELETED = "DELETED"
+    DOCUMENT_FAILED_TO_INDEX = "DOCUMENT_FAILED_TO_INDEX"
+
+
+class ErrorCode:
+    """ErrorCode enum values."""
+
+    INTERNALERROR = "InternalError"
+    INVALIDREQUEST = "InvalidRequest"
+    RESOURCEINACTIVE = "ResourceInactive"
+    RESOURCENOTFOUND = "ResourceNotFound"
+
+
+class GroupStatus:
+    """GroupStatus enum values."""
+
+    FAILED = "FAILED"
+    SUCCEEDED = "SUCCEEDED"
+    PROCESSING = "PROCESSING"
+    DELETING = "DELETING"
+    DELETED = "DELETED"
+
+
+class HallucinationReductionControl:
+    """HallucinationReductionControl enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class IdentityType:
+    """IdentityType enum values."""
+
+    AWS_IAM_IDP_SAML = "AWS_IAM_IDP_SAML"
+    AWS_IAM_IDP_OIDC = "AWS_IAM_IDP_OIDC"
+    AWS_IAM_IDC = "AWS_IAM_IDC"
+    AWS_QUICKSIGHT_IDP = "AWS_QUICKSIGHT_IDP"
+    ANONYMOUS = "ANONYMOUS"
+
+
+class ImageExtractionStatus:
+    """ImageExtractionStatus enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class IndexStatus:
+    """IndexStatus enum values."""
+
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
+    UPDATING = "UPDATING"
+
+
+class IndexType:
+    """IndexType enum values."""
+
+    ENTERPRISE = "ENTERPRISE"
+    STARTER = "STARTER"
+
+
+class MemberRelation:
+    """MemberRelation enum values."""
+
+    AND = "AND"
+    OR = "OR"
+
+
+class MembershipType:
+    """MembershipType enum values."""
+
+    INDEX = "INDEX"
+    DATASOURCE = "DATASOURCE"
+
+
+class MessageType:
+    """MessageType enum values."""
+
+    USER = "USER"
+    SYSTEM = "SYSTEM"
+
+
+class MessageUsefulness:
+    """MessageUsefulness enum values."""
+
+    USEFUL = "USEFUL"
+    NOT_USEFUL = "NOT_USEFUL"
+
+
+class MessageUsefulnessReason:
+    """MessageUsefulnessReason enum values."""
+
+    NOT_FACTUALLY_CORRECT = "NOT_FACTUALLY_CORRECT"
+    HARMFUL_OR_UNSAFE = "HARMFUL_OR_UNSAFE"
+    INCORRECT_OR_MISSING_SOURCES = "INCORRECT_OR_MISSING_SOURCES"
+    NOT_HELPFUL = "NOT_HELPFUL"
+    FACTUALLY_CORRECT = "FACTUALLY_CORRECT"
+    COMPLETE = "COMPLETE"
+    RELEVANT_SOURCES = "RELEVANT_SOURCES"
+    HELPFUL = "HELPFUL"
+    NOT_BASED_ON_DOCUMENTS = "NOT_BASED_ON_DOCUMENTS"
+    NOT_COMPLETE = "NOT_COMPLETE"
+    NOT_CONCISE = "NOT_CONCISE"
+    OTHER = "OTHER"
+
+
+class NumberAttributeBoostingType:
+    """NumberAttributeBoostingType enum values."""
+
+    PRIORITIZE_LARGER_VALUES = "PRIORITIZE_LARGER_VALUES"
+    PRIORITIZE_SMALLER_VALUES = "PRIORITIZE_SMALLER_VALUES"
+
+
+class OrchestrationControl:
+    """OrchestrationControl enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class OutputFormat:
+    """OutputFormat enum values."""
+
+    RAW = "RAW"
+    EXTRACTED = "EXTRACTED"
+
+
+class PermissionConditionOperator:
+    """PermissionConditionOperator enum values."""
+
+    STRINGEQUALS = "StringEquals"
+
+
+class PersonalizationControlMode:
+    """PersonalizationControlMode enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class PluginBuildStatus:
+    """PluginBuildStatus enum values."""
+
+    READY = "READY"
+    CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS"
+    CREATE_FAILED = "CREATE_FAILED"
+    UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS"
+    UPDATE_FAILED = "UPDATE_FAILED"
+    DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
+    DELETE_FAILED = "DELETE_FAILED"
+
+
+class PluginState:
+    """PluginState enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class PluginType:
+    """PluginType enum values."""
+
+    SERVICE_NOW = "SERVICE_NOW"
+    SALESFORCE = "SALESFORCE"
+    JIRA = "JIRA"
+    ZENDESK = "ZENDESK"
+    CUSTOM = "CUSTOM"
+    QUICKSIGHT = "QUICKSIGHT"
+    SERVICENOW_NOW_PLATFORM = "SERVICENOW_NOW_PLATFORM"
+    JIRA_CLOUD = "JIRA_CLOUD"
+    SALESFORCE_CRM = "SALESFORCE_CRM"
+    ZENDESK_SUITE = "ZENDESK_SUITE"
+    ATLASSIAN_CONFLUENCE = "ATLASSIAN_CONFLUENCE"
+    GOOGLE_CALENDAR = "GOOGLE_CALENDAR"
+    MICROSOFT_TEAMS = "MICROSOFT_TEAMS"
+    MICROSOFT_EXCHANGE = "MICROSOFT_EXCHANGE"
+    PAGERDUTY_ADVANCE = "PAGERDUTY_ADVANCE"
+    SMARTSHEET = "SMARTSHEET"
+    ASANA = "ASANA"
+
+
+class PluginTypeCategory:
+    """PluginTypeCategory enum values."""
+
+    CUSTOMER_RELATIONSHIP_MANAGEMENT_CRM = "Customer relationship management (CRM)"
+    PROJECT_MANAGEMENT = "Project management"
+    COMMUNICATION = "Communication"
+    PRODUCTIVITY = "Productivity"
+    TICKETING_AND_INCIDENT_MANAGEMENT = "Ticketing and incident management"
+
+
+class QAppsControlMode:
+    """QAppsControlMode enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class ReadAccessType:
+    """ReadAccessType enum values."""
+
+    ALLOW = "ALLOW"
+    DENY = "DENY"
+
+
+class ResponseConfigurationType:
+    """ResponseConfigurationType enum values."""
+
+    ALL = "ALL"
+
+
+class ResponseScope:
+    """ResponseScope enum values."""
+
+    ENTERPRISE_CONTENT_ONLY = "ENTERPRISE_CONTENT_ONLY"
+    EXTENDED_KNOWLEDGE_ENABLED = "EXTENDED_KNOWLEDGE_ENABLED"
+
+
+class RetrieverStatus:
+    """RetrieverStatus enum values."""
+
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    FAILED = "FAILED"
+
+
+class RetrieverType:
+    """RetrieverType enum values."""
+
+    NATIVE_INDEX = "NATIVE_INDEX"
+    KENDRA_INDEX = "KENDRA_INDEX"
+
+
+class RuleType:
+    """RuleType enum values."""
+
+    CONTENT_BLOCKER_RULE = "CONTENT_BLOCKER_RULE"
+    CONTENT_RETRIEVAL_RULE = "CONTENT_RETRIEVAL_RULE"
+
+
+class ScoreConfidence:
+    """ScoreConfidence enum values."""
+
+    VERY_HIGH = "VERY_HIGH"
+    HIGH = "HIGH"
+    MEDIUM = "MEDIUM"
+    LOW = "LOW"
+    NOT_AVAILABLE = "NOT_AVAILABLE"
+
+
+class Status:
+    """Status enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class StringAttributeValueBoostingLevel:
+    """StringAttributeValueBoostingLevel enum values."""
+
+    LOW = "LOW"
+    MEDIUM = "MEDIUM"
+    HIGH = "HIGH"
+    VERY_HIGH = "VERY_HIGH"
+    ONE = "ONE"
+    TWO = "TWO"
+    THREE = "THREE"
+    FOUR = "FOUR"
+    FIVE = "FIVE"
+
+
+class SubscriptionType:
+    """SubscriptionType enum values."""
+
+    Q_LITE = "Q_LITE"
+    Q_BUSINESS = "Q_BUSINESS"
+
+
+class SystemMessageType:
+    """SystemMessageType enum values."""
+
+    RESPONSE = "RESPONSE"
+    GROUNDED_RESPONSE = "GROUNDED_RESPONSE"
+
+
+class ValidationExceptionReason:
+    """ValidationExceptionReason enum values."""
+
+    CANNOT_PARSE = "CANNOT_PARSE"
+    FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED"
+    UNKNOWN_OPERATION = "UNKNOWN_OPERATION"
+
+
+class VideoExtractionStatus:
+    """VideoExtractionStatus enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class VideoExtractionType:
+    """VideoExtractionType enum values."""
+
+    TRANSCRIPT = "TRANSCRIPT"
+    SUMMARY = "SUMMARY"
+
+
+class WebExperienceSamplePromptsControlMode:
+    """WebExperienceSamplePromptsControlMode enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class WebExperienceStatus:
+    """WebExperienceStatus enum values."""
+
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
+    PENDING_AUTH_CONFIG = "PENDING_AUTH_CONFIG"
+
+
+# Convenient aliases for enum values
+OPEN_API_V3 = APISchemaType.OPEN_API_V3
+STRING = ActionPayloadFieldType.STRING
+NUMBER = ActionPayloadFieldType.NUMBER
+ARRAY = ActionPayloadFieldType.ARRAY
+BOOLEAN = ActionPayloadFieldType.BOOLEAN
+CREATING = ApplicationStatus.CREATING
+ACTIVE = ApplicationStatus.ACTIVE
+DELETING = ApplicationStatus.DELETING
+FAILED = ApplicationStatus.FAILED
+UPDATING = ApplicationStatus.UPDATING
+FAILED = AttachmentStatus.FAILED
+SUCCESS = AttachmentStatus.SUCCESS
+ENABLED = AttachmentsControlMode.ENABLED
+DISABLED = AttachmentsControlMode.DISABLED
+STRING = AttributeType.STRING
+STRING_LIST = AttributeType.STRING_LIST
+NUMBER = AttributeType.NUMBER
+DATE = AttributeType.DATE
+DELETE = AttributeValueOperator.DELETE
+ENABLED = AudioExtractionStatus.ENABLED
+DISABLED = AudioExtractionStatus.DISABLED
+TRANSCRIPT = AudioExtractionType.TRANSCRIPT
+SUMMARY = AudioExtractionType.SUMMARY
+ENABLED = AutoSubscriptionStatus.ENABLED
+DISABLED = AutoSubscriptionStatus.DISABLED
+FIREFOX = BrowserExtension.FIREFOX
+CHROME = BrowserExtension.CHROME
+RETRIEVAL_MODE = ChatMode.RETRIEVAL_MODE
+CREATOR_MODE = ChatMode.CREATOR_MODE
+PLUGIN_MODE = ChatMode.PLUGIN_MODE
+CREATING = ChatResponseConfigurationStatus.CREATING
+UPDATING = ChatResponseConfigurationStatus.UPDATING
+FAILED = ChatResponseConfigurationStatus.FAILED
+ACTIVE = ChatResponseConfigurationStatus.ACTIVE
+PDF = ContentType.PDF
+HTML = ContentType.HTML
+MS_WORD = ContentType.MS_WORD
+PLAIN_TEXT = ContentType.PLAIN_TEXT
+PPT = ContentType.PPT
+RTF = ContentType.RTF
+XML = ContentType.XML
+XSLT = ContentType.XSLT
+MS_EXCEL = ContentType.MS_EXCEL
+CSV = ContentType.CSV
+JSON = ContentType.JSON
+MD = ContentType.MD
+ENABLED = CreatorModeControl.ENABLED
+DISABLED = CreatorModeControl.DISABLED
+AWS_IAM_IDC_TTI = DataAccessorAuthenticationType.AWS_IAM_IDC_TTI
+AWS_IAM_IDC_AUTH_CODE = DataAccessorAuthenticationType.AWS_IAM_IDC_AUTH_CODE
+PENDING_CREATION = DataSourceStatus.PENDING_CREATION
+CREATING = DataSourceStatus.CREATING
+ACTIVE = DataSourceStatus.ACTIVE
+DELETING = DataSourceStatus.DELETING
+FAILED = DataSourceStatus.FAILED
+UPDATING = DataSourceStatus.UPDATING
+FAILED = DataSourceSyncJobStatus.FAILED
+SUCCEEDED = DataSourceSyncJobStatus.SUCCEEDED
+SYNCING = DataSourceSyncJobStatus.SYNCING
+INCOMPLETE = DataSourceSyncJobStatus.INCOMPLETE
+STOPPING = DataSourceSyncJobStatus.STOPPING
+ABORTED = DataSourceSyncJobStatus.ABORTED
+SYNCING_INDEXING = DataSourceSyncJobStatus.SYNCING_INDEXING
+NONE = DocumentAttributeBoostingLevel.NONE
+LOW = DocumentAttributeBoostingLevel.LOW
+MEDIUM = DocumentAttributeBoostingLevel.MEDIUM
+HIGH = DocumentAttributeBoostingLevel.HIGH
+VERY_HIGH = DocumentAttributeBoostingLevel.VERY_HIGH
+ONE = DocumentAttributeBoostingLevel.ONE
+TWO = DocumentAttributeBoostingLevel.TWO
+DELETE = DocumentContentOperator.DELETE
+GREATER_THAN = DocumentEnrichmentConditionOperator.GREATER_THAN
+GREATER_THAN_OR_EQUALS = DocumentEnrichmentConditionOperator.GREATER_THAN_OR_EQUALS
+LESS_THAN = DocumentEnrichmentConditionOperator.LESS_THAN
+LESS_THAN_OR_EQUALS = DocumentEnrichmentConditionOperator.LESS_THAN_OR_EQUALS
+EQUALS = DocumentEnrichmentConditionOperator.EQUALS
+NOT_EQUALS = DocumentEnrichmentConditionOperator.NOT_EQUALS
+CONTAINS = DocumentEnrichmentConditionOperator.CONTAINS
+NOT_CONTAINS = DocumentEnrichmentConditionOperator.NOT_CONTAINS
+EXISTS = DocumentEnrichmentConditionOperator.EXISTS
+NOT_EXISTS = DocumentEnrichmentConditionOperator.NOT_EXISTS
+BEGINS_WITH = DocumentEnrichmentConditionOperator.BEGINS_WITH
+RECEIVED = DocumentStatus.RECEIVED
+PROCESSING = DocumentStatus.PROCESSING
+INDEXED = DocumentStatus.INDEXED
+UPDATED = DocumentStatus.UPDATED
+FAILED = DocumentStatus.FAILED
+DELETING = DocumentStatus.DELETING
+DELETED = DocumentStatus.DELETED
+DOCUMENT_FAILED_TO_INDEX = DocumentStatus.DOCUMENT_FAILED_TO_INDEX
+INTERNALERROR = ErrorCode.INTERNALERROR
+INVALIDREQUEST = ErrorCode.INVALIDREQUEST
+RESOURCEINACTIVE = ErrorCode.RESOURCEINACTIVE
+RESOURCENOTFOUND = ErrorCode.RESOURCENOTFOUND
+FAILED = GroupStatus.FAILED
+SUCCEEDED = GroupStatus.SUCCEEDED
+PROCESSING = GroupStatus.PROCESSING
+DELETING = GroupStatus.DELETING
+DELETED = GroupStatus.DELETED
+ENABLED = HallucinationReductionControl.ENABLED
+DISABLED = HallucinationReductionControl.DISABLED
+AWS_IAM_IDP_SAML = IdentityType.AWS_IAM_IDP_SAML
+AWS_IAM_IDP_OIDC = IdentityType.AWS_IAM_IDP_OIDC
+AWS_IAM_IDC = IdentityType.AWS_IAM_IDC
+AWS_QUICKSIGHT_IDP = IdentityType.AWS_QUICKSIGHT_IDP
+ANONYMOUS = IdentityType.ANONYMOUS
+ENABLED = ImageExtractionStatus.ENABLED
+DISABLED = ImageExtractionStatus.DISABLED
+CREATING = IndexStatus.CREATING
+ACTIVE = IndexStatus.ACTIVE
+DELETING = IndexStatus.DELETING
+FAILED = IndexStatus.FAILED
+UPDATING = IndexStatus.UPDATING
+ENTERPRISE = IndexType.ENTERPRISE
+STARTER = IndexType.STARTER
+AND = MemberRelation.AND
+OR = MemberRelation.OR
+INDEX = MembershipType.INDEX
+DATASOURCE = MembershipType.DATASOURCE
+USER = MessageType.USER
+SYSTEM = MessageType.SYSTEM
+USEFUL = MessageUsefulness.USEFUL
+NOT_USEFUL = MessageUsefulness.NOT_USEFUL
+NOT_FACTUALLY_CORRECT = MessageUsefulnessReason.NOT_FACTUALLY_CORRECT
+HARMFUL_OR_UNSAFE = MessageUsefulnessReason.HARMFUL_OR_UNSAFE
+INCORRECT_OR_MISSING_SOURCES = MessageUsefulnessReason.INCORRECT_OR_MISSING_SOURCES
+NOT_HELPFUL = MessageUsefulnessReason.NOT_HELPFUL
+FACTUALLY_CORRECT = MessageUsefulnessReason.FACTUALLY_CORRECT
+COMPLETE = MessageUsefulnessReason.COMPLETE
+RELEVANT_SOURCES = MessageUsefulnessReason.RELEVANT_SOURCES
+HELPFUL = MessageUsefulnessReason.HELPFUL
+NOT_BASED_ON_DOCUMENTS = MessageUsefulnessReason.NOT_BASED_ON_DOCUMENTS
+NOT_COMPLETE = MessageUsefulnessReason.NOT_COMPLETE
+NOT_CONCISE = MessageUsefulnessReason.NOT_CONCISE
+OTHER = MessageUsefulnessReason.OTHER
+PRIORITIZE_LARGER_VALUES = NumberAttributeBoostingType.PRIORITIZE_LARGER_VALUES
+PRIORITIZE_SMALLER_VALUES = NumberAttributeBoostingType.PRIORITIZE_SMALLER_VALUES
+ENABLED = OrchestrationControl.ENABLED
+DISABLED = OrchestrationControl.DISABLED
+RAW = OutputFormat.RAW
+EXTRACTED = OutputFormat.EXTRACTED
+STRINGEQUALS = PermissionConditionOperator.STRINGEQUALS
+ENABLED = PersonalizationControlMode.ENABLED
+DISABLED = PersonalizationControlMode.DISABLED
+READY = PluginBuildStatus.READY
+CREATE_IN_PROGRESS = PluginBuildStatus.CREATE_IN_PROGRESS
+CREATE_FAILED = PluginBuildStatus.CREATE_FAILED
+UPDATE_IN_PROGRESS = PluginBuildStatus.UPDATE_IN_PROGRESS
+UPDATE_FAILED = PluginBuildStatus.UPDATE_FAILED
+DELETE_IN_PROGRESS = PluginBuildStatus.DELETE_IN_PROGRESS
+DELETE_FAILED = PluginBuildStatus.DELETE_FAILED
+ENABLED = PluginState.ENABLED
+DISABLED = PluginState.DISABLED
+SERVICE_NOW = PluginType.SERVICE_NOW
+SALESFORCE = PluginType.SALESFORCE
+JIRA = PluginType.JIRA
+ZENDESK = PluginType.ZENDESK
+CUSTOM = PluginType.CUSTOM
+QUICKSIGHT = PluginType.QUICKSIGHT
+SERVICENOW_NOW_PLATFORM = PluginType.SERVICENOW_NOW_PLATFORM
+JIRA_CLOUD = PluginType.JIRA_CLOUD
+SALESFORCE_CRM = PluginType.SALESFORCE_CRM
+ZENDESK_SUITE = PluginType.ZENDESK_SUITE
+ATLASSIAN_CONFLUENCE = PluginType.ATLASSIAN_CONFLUENCE
+GOOGLE_CALENDAR = PluginType.GOOGLE_CALENDAR
+MICROSOFT_TEAMS = PluginType.MICROSOFT_TEAMS
+MICROSOFT_EXCHANGE = PluginType.MICROSOFT_EXCHANGE
+PAGERDUTY_ADVANCE = PluginType.PAGERDUTY_ADVANCE
+SMARTSHEET = PluginType.SMARTSHEET
+ASANA = PluginType.ASANA
+CUSTOMER_RELATIONSHIP_MANAGEMENT_CRM = PluginTypeCategory.CUSTOMER_RELATIONSHIP_MANAGEMENT_CRM
+PROJECT_MANAGEMENT = PluginTypeCategory.PROJECT_MANAGEMENT
+COMMUNICATION = PluginTypeCategory.COMMUNICATION
+PRODUCTIVITY = PluginTypeCategory.PRODUCTIVITY
+TICKETING_AND_INCIDENT_MANAGEMENT = PluginTypeCategory.TICKETING_AND_INCIDENT_MANAGEMENT
+ENABLED = QAppsControlMode.ENABLED
+DISABLED = QAppsControlMode.DISABLED
+ALLOW = ReadAccessType.ALLOW
+DENY = ReadAccessType.DENY
+ALL = ResponseConfigurationType.ALL
+ENTERPRISE_CONTENT_ONLY = ResponseScope.ENTERPRISE_CONTENT_ONLY
+EXTENDED_KNOWLEDGE_ENABLED = ResponseScope.EXTENDED_KNOWLEDGE_ENABLED
+CREATING = RetrieverStatus.CREATING
+ACTIVE = RetrieverStatus.ACTIVE
+FAILED = RetrieverStatus.FAILED
+NATIVE_INDEX = RetrieverType.NATIVE_INDEX
+KENDRA_INDEX = RetrieverType.KENDRA_INDEX
+CONTENT_BLOCKER_RULE = RuleType.CONTENT_BLOCKER_RULE
+CONTENT_RETRIEVAL_RULE = RuleType.CONTENT_RETRIEVAL_RULE
+VERY_HIGH = ScoreConfidence.VERY_HIGH
+HIGH = ScoreConfidence.HIGH
+MEDIUM = ScoreConfidence.MEDIUM
+LOW = ScoreConfidence.LOW
+NOT_AVAILABLE = ScoreConfidence.NOT_AVAILABLE
+ENABLED = Status.ENABLED
+DISABLED = Status.DISABLED
+LOW = StringAttributeValueBoostingLevel.LOW
+MEDIUM = StringAttributeValueBoostingLevel.MEDIUM
+HIGH = StringAttributeValueBoostingLevel.HIGH
+VERY_HIGH = StringAttributeValueBoostingLevel.VERY_HIGH
+ONE = StringAttributeValueBoostingLevel.ONE
+TWO = StringAttributeValueBoostingLevel.TWO
+THREE = StringAttributeValueBoostingLevel.THREE
+FOUR = StringAttributeValueBoostingLevel.FOUR
+FIVE = StringAttributeValueBoostingLevel.FIVE
+Q_LITE = SubscriptionType.Q_LITE
+Q_BUSINESS = SubscriptionType.Q_BUSINESS
+RESPONSE = SystemMessageType.RESPONSE
+GROUNDED_RESPONSE = SystemMessageType.GROUNDED_RESPONSE
+CANNOT_PARSE = ValidationExceptionReason.CANNOT_PARSE
+FIELD_VALIDATION_FAILED = ValidationExceptionReason.FIELD_VALIDATION_FAILED
+UNKNOWN_OPERATION = ValidationExceptionReason.UNKNOWN_OPERATION
+ENABLED = VideoExtractionStatus.ENABLED
+DISABLED = VideoExtractionStatus.DISABLED
+TRANSCRIPT = VideoExtractionType.TRANSCRIPT
+SUMMARY = VideoExtractionType.SUMMARY
+ENABLED = WebExperienceSamplePromptsControlMode.ENABLED
+DISABLED = WebExperienceSamplePromptsControlMode.DISABLED
+CREATING = WebExperienceStatus.CREATING
+ACTIVE = WebExperienceStatus.ACTIVE
+DELETING = WebExperienceStatus.DELETING
+FAILED = WebExperienceStatus.FAILED
+PENDING_AUTH_CONFIG = WebExperienceStatus.PENDING_AUTH_CONFIG
 
 
 @dataclass

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:31
+  Generated: 2025-12-17 16:59:38
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ODB
@@ -23,6 +23,308 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class Access:
+    """Access enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class ComputeModel:
+    """ComputeModel enum values."""
+
+    ECPU = "ECPU"
+    OCPU = "OCPU"
+
+
+class DayOfWeekName:
+    """DayOfWeekName enum values."""
+
+    MONDAY = "MONDAY"
+    TUESDAY = "TUESDAY"
+    WEDNESDAY = "WEDNESDAY"
+    THURSDAY = "THURSDAY"
+    FRIDAY = "FRIDAY"
+    SATURDAY = "SATURDAY"
+    SUNDAY = "SUNDAY"
+
+
+class DbNodeMaintenanceType:
+    """DbNodeMaintenanceType enum values."""
+
+    VMDB_REBOOT_MIGRATION = "VMDB_REBOOT_MIGRATION"
+
+
+class DbNodeResourceStatus:
+    """DbNodeResourceStatus enum values."""
+
+    AVAILABLE = "AVAILABLE"
+    FAILED = "FAILED"
+    PROVISIONING = "PROVISIONING"
+    TERMINATED = "TERMINATED"
+    TERMINATING = "TERMINATING"
+    UPDATING = "UPDATING"
+    STOPPING = "STOPPING"
+    STOPPED = "STOPPED"
+    STARTING = "STARTING"
+
+
+class DbServerPatchingStatus:
+    """DbServerPatchingStatus enum values."""
+
+    COMPLETE = "COMPLETE"
+    FAILED = "FAILED"
+    MAINTENANCE_IN_PROGRESS = "MAINTENANCE_IN_PROGRESS"
+    SCHEDULED = "SCHEDULED"
+
+
+class DiskRedundancy:
+    """DiskRedundancy enum values."""
+
+    HIGH = "HIGH"
+    NORMAL = "NORMAL"
+
+
+class IamRoleStatus:
+    """IamRoleStatus enum values."""
+
+    ASSOCIATING = "ASSOCIATING"
+    DISASSOCIATING = "DISASSOCIATING"
+    FAILED = "FAILED"
+    CONNECTED = "CONNECTED"
+    DISCONNECTED = "DISCONNECTED"
+    PARTIALLY_CONNECTED = "PARTIALLY_CONNECTED"
+    UNKNOWN = "UNKNOWN"
+
+
+class IormLifecycleState:
+    """IormLifecycleState enum values."""
+
+    BOOTSTRAPPING = "BOOTSTRAPPING"
+    DISABLED = "DISABLED"
+    ENABLED = "ENABLED"
+    FAILED = "FAILED"
+    UPDATING = "UPDATING"
+
+
+class LicenseModel:
+    """LicenseModel enum values."""
+
+    BRING_YOUR_OWN_LICENSE = "BRING_YOUR_OWN_LICENSE"
+    LICENSE_INCLUDED = "LICENSE_INCLUDED"
+
+
+class ManagedResourceStatus:
+    """ManagedResourceStatus enum values."""
+
+    ENABLED = "ENABLED"
+    ENABLING = "ENABLING"
+    DISABLED = "DISABLED"
+    DISABLING = "DISABLING"
+
+
+class MonthName:
+    """MonthName enum values."""
+
+    JANUARY = "JANUARY"
+    FEBRUARY = "FEBRUARY"
+    MARCH = "MARCH"
+    APRIL = "APRIL"
+    MAY = "MAY"
+    JUNE = "JUNE"
+    JULY = "JULY"
+    AUGUST = "AUGUST"
+    SEPTEMBER = "SEPTEMBER"
+    OCTOBER = "OCTOBER"
+    NOVEMBER = "NOVEMBER"
+    DECEMBER = "DECEMBER"
+
+
+class Objective:
+    """Objective enum values."""
+
+    AUTO = "AUTO"
+    BALANCED = "BALANCED"
+    BASIC = "BASIC"
+    HIGH_THROUGHPUT = "HIGH_THROUGHPUT"
+    LOW_LATENCY = "LOW_LATENCY"
+
+
+class OciOnboardingStatus:
+    """OciOnboardingStatus enum values."""
+
+    NOT_STARTED = "NOT_STARTED"
+    PENDING_LINK_GENERATION = "PENDING_LINK_GENERATION"
+    PENDING_CUSTOMER_ACTION = "PENDING_CUSTOMER_ACTION"
+    PENDING_INITIALIZATION = "PENDING_INITIALIZATION"
+    ACTIVATING = "ACTIVATING"
+    ACTIVE_IN_HOME_REGION = "ACTIVE_IN_HOME_REGION"
+    ACTIVE = "ACTIVE"
+    ACTIVE_LIMITED = "ACTIVE_LIMITED"
+    FAILED = "FAILED"
+    PUBLIC_OFFER_UNSUPPORTED = "PUBLIC_OFFER_UNSUPPORTED"
+    SUSPENDED = "SUSPENDED"
+    CANCELED = "CANCELED"
+
+
+class PatchingModeType:
+    """PatchingModeType enum values."""
+
+    ROLLING = "ROLLING"
+    NONROLLING = "NONROLLING"
+
+
+class PreferenceType:
+    """PreferenceType enum values."""
+
+    NO_PREFERENCE = "NO_PREFERENCE"
+    CUSTOM_PREFERENCE = "CUSTOM_PREFERENCE"
+
+
+class ResourceStatus:
+    """ResourceStatus enum values."""
+
+    AVAILABLE = "AVAILABLE"
+    FAILED = "FAILED"
+    PROVISIONING = "PROVISIONING"
+    TERMINATED = "TERMINATED"
+    TERMINATING = "TERMINATING"
+    UPDATING = "UPDATING"
+    MAINTENANCE_IN_PROGRESS = "MAINTENANCE_IN_PROGRESS"
+
+
+class ShapeType:
+    """ShapeType enum values."""
+
+    AMD = "AMD"
+    INTEL = "INTEL"
+    INTEL_FLEX_X9 = "INTEL_FLEX_X9"
+    AMPERE_FLEX_A1 = "AMPERE_FLEX_A1"
+
+
+class SupportedAwsIntegration:
+    """SupportedAwsIntegration enum values."""
+
+    KMSTDE = "KmsTde"
+
+
+class ValidationExceptionReason:
+    """ValidationExceptionReason enum values."""
+
+    UNKNOWNOPERATION = "unknownOperation"
+    CANNOTPARSE = "cannotParse"
+    FIELDVALIDATIONFAILED = "fieldValidationFailed"
+    OTHER = "other"
+
+
+class VpcEndpointType:
+    """VpcEndpointType enum values."""
+
+    SERVICENETWORK = "SERVICENETWORK"
+
+
+# Convenient aliases for enum values
+ENABLED = Access.ENABLED
+DISABLED = Access.DISABLED
+ECPU = ComputeModel.ECPU
+OCPU = ComputeModel.OCPU
+MONDAY = DayOfWeekName.MONDAY
+TUESDAY = DayOfWeekName.TUESDAY
+WEDNESDAY = DayOfWeekName.WEDNESDAY
+THURSDAY = DayOfWeekName.THURSDAY
+FRIDAY = DayOfWeekName.FRIDAY
+SATURDAY = DayOfWeekName.SATURDAY
+SUNDAY = DayOfWeekName.SUNDAY
+VMDB_REBOOT_MIGRATION = DbNodeMaintenanceType.VMDB_REBOOT_MIGRATION
+AVAILABLE = DbNodeResourceStatus.AVAILABLE
+FAILED = DbNodeResourceStatus.FAILED
+PROVISIONING = DbNodeResourceStatus.PROVISIONING
+TERMINATED = DbNodeResourceStatus.TERMINATED
+TERMINATING = DbNodeResourceStatus.TERMINATING
+UPDATING = DbNodeResourceStatus.UPDATING
+STOPPING = DbNodeResourceStatus.STOPPING
+STOPPED = DbNodeResourceStatus.STOPPED
+STARTING = DbNodeResourceStatus.STARTING
+COMPLETE = DbServerPatchingStatus.COMPLETE
+FAILED = DbServerPatchingStatus.FAILED
+MAINTENANCE_IN_PROGRESS = DbServerPatchingStatus.MAINTENANCE_IN_PROGRESS
+SCHEDULED = DbServerPatchingStatus.SCHEDULED
+HIGH = DiskRedundancy.HIGH
+NORMAL = DiskRedundancy.NORMAL
+ASSOCIATING = IamRoleStatus.ASSOCIATING
+DISASSOCIATING = IamRoleStatus.DISASSOCIATING
+FAILED = IamRoleStatus.FAILED
+CONNECTED = IamRoleStatus.CONNECTED
+DISCONNECTED = IamRoleStatus.DISCONNECTED
+PARTIALLY_CONNECTED = IamRoleStatus.PARTIALLY_CONNECTED
+UNKNOWN = IamRoleStatus.UNKNOWN
+BOOTSTRAPPING = IormLifecycleState.BOOTSTRAPPING
+DISABLED = IormLifecycleState.DISABLED
+ENABLED = IormLifecycleState.ENABLED
+FAILED = IormLifecycleState.FAILED
+UPDATING = IormLifecycleState.UPDATING
+BRING_YOUR_OWN_LICENSE = LicenseModel.BRING_YOUR_OWN_LICENSE
+LICENSE_INCLUDED = LicenseModel.LICENSE_INCLUDED
+ENABLED = ManagedResourceStatus.ENABLED
+ENABLING = ManagedResourceStatus.ENABLING
+DISABLED = ManagedResourceStatus.DISABLED
+DISABLING = ManagedResourceStatus.DISABLING
+JANUARY = MonthName.JANUARY
+FEBRUARY = MonthName.FEBRUARY
+MARCH = MonthName.MARCH
+APRIL = MonthName.APRIL
+MAY = MonthName.MAY
+JUNE = MonthName.JUNE
+JULY = MonthName.JULY
+AUGUST = MonthName.AUGUST
+SEPTEMBER = MonthName.SEPTEMBER
+OCTOBER = MonthName.OCTOBER
+NOVEMBER = MonthName.NOVEMBER
+DECEMBER = MonthName.DECEMBER
+AUTO = Objective.AUTO
+BALANCED = Objective.BALANCED
+BASIC = Objective.BASIC
+HIGH_THROUGHPUT = Objective.HIGH_THROUGHPUT
+LOW_LATENCY = Objective.LOW_LATENCY
+NOT_STARTED = OciOnboardingStatus.NOT_STARTED
+PENDING_LINK_GENERATION = OciOnboardingStatus.PENDING_LINK_GENERATION
+PENDING_CUSTOMER_ACTION = OciOnboardingStatus.PENDING_CUSTOMER_ACTION
+PENDING_INITIALIZATION = OciOnboardingStatus.PENDING_INITIALIZATION
+ACTIVATING = OciOnboardingStatus.ACTIVATING
+ACTIVE_IN_HOME_REGION = OciOnboardingStatus.ACTIVE_IN_HOME_REGION
+ACTIVE = OciOnboardingStatus.ACTIVE
+ACTIVE_LIMITED = OciOnboardingStatus.ACTIVE_LIMITED
+FAILED = OciOnboardingStatus.FAILED
+PUBLIC_OFFER_UNSUPPORTED = OciOnboardingStatus.PUBLIC_OFFER_UNSUPPORTED
+SUSPENDED = OciOnboardingStatus.SUSPENDED
+CANCELED = OciOnboardingStatus.CANCELED
+ROLLING = PatchingModeType.ROLLING
+NONROLLING = PatchingModeType.NONROLLING
+NO_PREFERENCE = PreferenceType.NO_PREFERENCE
+CUSTOM_PREFERENCE = PreferenceType.CUSTOM_PREFERENCE
+AVAILABLE = ResourceStatus.AVAILABLE
+FAILED = ResourceStatus.FAILED
+PROVISIONING = ResourceStatus.PROVISIONING
+TERMINATED = ResourceStatus.TERMINATED
+TERMINATING = ResourceStatus.TERMINATING
+UPDATING = ResourceStatus.UPDATING
+MAINTENANCE_IN_PROGRESS = ResourceStatus.MAINTENANCE_IN_PROGRESS
+AMD = ShapeType.AMD
+INTEL = ShapeType.INTEL
+INTEL_FLEX_X9 = ShapeType.INTEL_FLEX_X9
+AMPERE_FLEX_A1 = ShapeType.AMPERE_FLEX_A1
+KMSTDE = SupportedAwsIntegration.KMSTDE
+UNKNOWNOPERATION = ValidationExceptionReason.UNKNOWNOPERATION
+CANNOTPARSE = ValidationExceptionReason.CANNOTPARSE
+FIELDVALIDATIONFAILED = ValidationExceptionReason.FIELDVALIDATIONFAILED
+OTHER = ValidationExceptionReason.OTHER
+SERVICENETWORK = VpcEndpointType.SERVICENETWORK
 
 
 @dataclass

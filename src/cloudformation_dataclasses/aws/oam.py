@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:32
+  Generated: 2025-12-17 16:59:38
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Oam
@@ -23,6 +23,32 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class ResourceType:
+    """ResourceType enum values."""
+
+    AWS_CLOUDWATCH_METRIC = "AWS::CloudWatch::Metric"
+    AWS_LOGS_LOGGROUP = "AWS::Logs::LogGroup"
+    AWS_XRAY_TRACE = "AWS::XRay::Trace"
+    AWS_APPLICATIONINSIGHTS_APPLICATION = "AWS::ApplicationInsights::Application"
+    AWS_INTERNETMONITOR_MONITOR = "AWS::InternetMonitor::Monitor"
+    AWS_APPLICATIONSIGNALS_SERVICE = "AWS::ApplicationSignals::Service"
+    AWS_APPLICATIONSIGNALS_SERVICELEVELOBJECTIVE = "AWS::ApplicationSignals::ServiceLevelObjective"
+
+
+# Convenient aliases for enum values
+AWS_CLOUDWATCH_METRIC = ResourceType.AWS_CLOUDWATCH_METRIC
+AWS_LOGS_LOGGROUP = ResourceType.AWS_LOGS_LOGGROUP
+AWS_XRAY_TRACE = ResourceType.AWS_XRAY_TRACE
+AWS_APPLICATIONINSIGHTS_APPLICATION = ResourceType.AWS_APPLICATIONINSIGHTS_APPLICATION
+AWS_INTERNETMONITOR_MONITOR = ResourceType.AWS_INTERNETMONITOR_MONITOR
+AWS_APPLICATIONSIGNALS_SERVICE = ResourceType.AWS_APPLICATIONSIGNALS_SERVICE
+AWS_APPLICATIONSIGNALS_SERVICELEVELOBJECTIVE = ResourceType.AWS_APPLICATIONSIGNALS_SERVICELEVELOBJECTIVE
 
 
 @dataclass

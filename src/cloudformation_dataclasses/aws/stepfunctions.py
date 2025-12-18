@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:40
+  Generated: 2025-12-17 16:59:39
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service StepFunctions
@@ -23,6 +23,333 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class EncryptionType:
+    """EncryptionType enum values."""
+
+    AWS_OWNED_KEY = "AWS_OWNED_KEY"
+    CUSTOMER_MANAGED_KMS_KEY = "CUSTOMER_MANAGED_KMS_KEY"
+
+
+class ExecutionRedriveFilter:
+    """ExecutionRedriveFilter enum values."""
+
+    REDRIVEN = "REDRIVEN"
+    NOT_REDRIVEN = "NOT_REDRIVEN"
+
+
+class ExecutionRedriveStatus:
+    """ExecutionRedriveStatus enum values."""
+
+    REDRIVABLE = "REDRIVABLE"
+    NOT_REDRIVABLE = "NOT_REDRIVABLE"
+    REDRIVABLE_BY_MAP_RUN = "REDRIVABLE_BY_MAP_RUN"
+
+
+class ExecutionStatus:
+    """ExecutionStatus enum values."""
+
+    RUNNING = "RUNNING"
+    SUCCEEDED = "SUCCEEDED"
+    FAILED = "FAILED"
+    TIMED_OUT = "TIMED_OUT"
+    ABORTED = "ABORTED"
+    PENDING_REDRIVE = "PENDING_REDRIVE"
+
+
+class HistoryEventType:
+    """HistoryEventType enum values."""
+
+    ACTIVITYFAILED = "ActivityFailed"
+    ACTIVITYSCHEDULED = "ActivityScheduled"
+    ACTIVITYSCHEDULEFAILED = "ActivityScheduleFailed"
+    ACTIVITYSTARTED = "ActivityStarted"
+    ACTIVITYSUCCEEDED = "ActivitySucceeded"
+    ACTIVITYTIMEDOUT = "ActivityTimedOut"
+    CHOICESTATEENTERED = "ChoiceStateEntered"
+    CHOICESTATEEXITED = "ChoiceStateExited"
+    EXECUTIONABORTED = "ExecutionAborted"
+    EXECUTIONFAILED = "ExecutionFailed"
+    EXECUTIONSTARTED = "ExecutionStarted"
+    EXECUTIONSUCCEEDED = "ExecutionSucceeded"
+    EXECUTIONTIMEDOUT = "ExecutionTimedOut"
+    FAILSTATEENTERED = "FailStateEntered"
+    LAMBDAFUNCTIONFAILED = "LambdaFunctionFailed"
+    LAMBDAFUNCTIONSCHEDULED = "LambdaFunctionScheduled"
+    LAMBDAFUNCTIONSCHEDULEFAILED = "LambdaFunctionScheduleFailed"
+    LAMBDAFUNCTIONSTARTED = "LambdaFunctionStarted"
+    LAMBDAFUNCTIONSTARTFAILED = "LambdaFunctionStartFailed"
+    LAMBDAFUNCTIONSUCCEEDED = "LambdaFunctionSucceeded"
+    LAMBDAFUNCTIONTIMEDOUT = "LambdaFunctionTimedOut"
+    MAPITERATIONABORTED = "MapIterationAborted"
+    MAPITERATIONFAILED = "MapIterationFailed"
+    MAPITERATIONSTARTED = "MapIterationStarted"
+    MAPITERATIONSUCCEEDED = "MapIterationSucceeded"
+    MAPSTATEABORTED = "MapStateAborted"
+    MAPSTATEENTERED = "MapStateEntered"
+    MAPSTATEEXITED = "MapStateExited"
+    MAPSTATEFAILED = "MapStateFailed"
+    MAPSTATESTARTED = "MapStateStarted"
+    MAPSTATESUCCEEDED = "MapStateSucceeded"
+    PARALLELSTATEABORTED = "ParallelStateAborted"
+    PARALLELSTATEENTERED = "ParallelStateEntered"
+    PARALLELSTATEEXITED = "ParallelStateExited"
+    PARALLELSTATEFAILED = "ParallelStateFailed"
+    PARALLELSTATESTARTED = "ParallelStateStarted"
+    PARALLELSTATESUCCEEDED = "ParallelStateSucceeded"
+    PASSSTATEENTERED = "PassStateEntered"
+    PASSSTATEEXITED = "PassStateExited"
+    SUCCEEDSTATEENTERED = "SucceedStateEntered"
+    SUCCEEDSTATEEXITED = "SucceedStateExited"
+    TASKFAILED = "TaskFailed"
+    TASKSCHEDULED = "TaskScheduled"
+    TASKSTARTED = "TaskStarted"
+    TASKSTARTFAILED = "TaskStartFailed"
+    TASKSTATEABORTED = "TaskStateAborted"
+    TASKSTATEENTERED = "TaskStateEntered"
+    TASKSTATEEXITED = "TaskStateExited"
+    TASKSUBMITFAILED = "TaskSubmitFailed"
+    TASKSUBMITTED = "TaskSubmitted"
+    TASKSUCCEEDED = "TaskSucceeded"
+    TASKTIMEDOUT = "TaskTimedOut"
+    WAITSTATEABORTED = "WaitStateAborted"
+    WAITSTATEENTERED = "WaitStateEntered"
+    WAITSTATEEXITED = "WaitStateExited"
+    MAPRUNABORTED = "MapRunAborted"
+    MAPRUNFAILED = "MapRunFailed"
+    MAPRUNSTARTED = "MapRunStarted"
+    MAPRUNSUCCEEDED = "MapRunSucceeded"
+    EXECUTIONREDRIVEN = "ExecutionRedriven"
+    MAPRUNREDRIVEN = "MapRunRedriven"
+    EVALUATIONFAILED = "EvaluationFailed"
+
+
+class IncludedData:
+    """IncludedData enum values."""
+
+    ALL_DATA = "ALL_DATA"
+    METADATA_ONLY = "METADATA_ONLY"
+
+
+class InspectionLevel:
+    """InspectionLevel enum values."""
+
+    INFO = "INFO"
+    DEBUG = "DEBUG"
+    TRACE = "TRACE"
+
+
+class KmsKeyState:
+    """KmsKeyState enum values."""
+
+    DISABLED = "DISABLED"
+    PENDING_DELETION = "PENDING_DELETION"
+    PENDING_IMPORT = "PENDING_IMPORT"
+    UNAVAILABLE = "UNAVAILABLE"
+    CREATING = "CREATING"
+
+
+class LogLevel:
+    """LogLevel enum values."""
+
+    ALL = "ALL"
+    ERROR = "ERROR"
+    FATAL = "FATAL"
+    OFF = "OFF"
+
+
+class MapRunStatus:
+    """MapRunStatus enum values."""
+
+    RUNNING = "RUNNING"
+    SUCCEEDED = "SUCCEEDED"
+    FAILED = "FAILED"
+    ABORTED = "ABORTED"
+
+
+class MockResponseValidationMode:
+    """MockResponseValidationMode enum values."""
+
+    STRICT = "STRICT"
+    PRESENT = "PRESENT"
+    NONE = "NONE"
+
+
+class StateMachineStatus:
+    """StateMachineStatus enum values."""
+
+    ACTIVE = "ACTIVE"
+    DELETING = "DELETING"
+
+
+class StateMachineType:
+    """StateMachineType enum values."""
+
+    STANDARD = "STANDARD"
+    EXPRESS = "EXPRESS"
+
+
+class SyncExecutionStatus:
+    """SyncExecutionStatus enum values."""
+
+    SUCCEEDED = "SUCCEEDED"
+    FAILED = "FAILED"
+    TIMED_OUT = "TIMED_OUT"
+
+
+class TestExecutionStatus:
+    """TestExecutionStatus enum values."""
+
+    SUCCEEDED = "SUCCEEDED"
+    FAILED = "FAILED"
+    RETRIABLE = "RETRIABLE"
+    CAUGHT_ERROR = "CAUGHT_ERROR"
+
+
+class ValidateStateMachineDefinitionResultCode:
+    """ValidateStateMachineDefinitionResultCode enum values."""
+
+    OK = "OK"
+    FAIL = "FAIL"
+
+
+class ValidateStateMachineDefinitionSeverity:
+    """ValidateStateMachineDefinitionSeverity enum values."""
+
+    ERROR = "ERROR"
+    WARNING = "WARNING"
+
+
+class ValidationExceptionReason:
+    """ValidationExceptionReason enum values."""
+
+    API_DOES_NOT_SUPPORT_LABELED_ARNS = "API_DOES_NOT_SUPPORT_LABELED_ARNS"
+    MISSING_REQUIRED_PARAMETER = "MISSING_REQUIRED_PARAMETER"
+    CANNOT_UPDATE_COMPLETED_MAP_RUN = "CANNOT_UPDATE_COMPLETED_MAP_RUN"
+    INVALID_ROUTING_CONFIGURATION = "INVALID_ROUTING_CONFIGURATION"
+
+
+# Convenient aliases for enum values
+AWS_OWNED_KEY = EncryptionType.AWS_OWNED_KEY
+CUSTOMER_MANAGED_KMS_KEY = EncryptionType.CUSTOMER_MANAGED_KMS_KEY
+REDRIVEN = ExecutionRedriveFilter.REDRIVEN
+NOT_REDRIVEN = ExecutionRedriveFilter.NOT_REDRIVEN
+REDRIVABLE = ExecutionRedriveStatus.REDRIVABLE
+NOT_REDRIVABLE = ExecutionRedriveStatus.NOT_REDRIVABLE
+REDRIVABLE_BY_MAP_RUN = ExecutionRedriveStatus.REDRIVABLE_BY_MAP_RUN
+RUNNING = ExecutionStatus.RUNNING
+SUCCEEDED = ExecutionStatus.SUCCEEDED
+FAILED = ExecutionStatus.FAILED
+TIMED_OUT = ExecutionStatus.TIMED_OUT
+ABORTED = ExecutionStatus.ABORTED
+PENDING_REDRIVE = ExecutionStatus.PENDING_REDRIVE
+ACTIVITYFAILED = HistoryEventType.ACTIVITYFAILED
+ACTIVITYSCHEDULED = HistoryEventType.ACTIVITYSCHEDULED
+ACTIVITYSCHEDULEFAILED = HistoryEventType.ACTIVITYSCHEDULEFAILED
+ACTIVITYSTARTED = HistoryEventType.ACTIVITYSTARTED
+ACTIVITYSUCCEEDED = HistoryEventType.ACTIVITYSUCCEEDED
+ACTIVITYTIMEDOUT = HistoryEventType.ACTIVITYTIMEDOUT
+CHOICESTATEENTERED = HistoryEventType.CHOICESTATEENTERED
+CHOICESTATEEXITED = HistoryEventType.CHOICESTATEEXITED
+EXECUTIONABORTED = HistoryEventType.EXECUTIONABORTED
+EXECUTIONFAILED = HistoryEventType.EXECUTIONFAILED
+EXECUTIONSTARTED = HistoryEventType.EXECUTIONSTARTED
+EXECUTIONSUCCEEDED = HistoryEventType.EXECUTIONSUCCEEDED
+EXECUTIONTIMEDOUT = HistoryEventType.EXECUTIONTIMEDOUT
+FAILSTATEENTERED = HistoryEventType.FAILSTATEENTERED
+LAMBDAFUNCTIONFAILED = HistoryEventType.LAMBDAFUNCTIONFAILED
+LAMBDAFUNCTIONSCHEDULED = HistoryEventType.LAMBDAFUNCTIONSCHEDULED
+LAMBDAFUNCTIONSCHEDULEFAILED = HistoryEventType.LAMBDAFUNCTIONSCHEDULEFAILED
+LAMBDAFUNCTIONSTARTED = HistoryEventType.LAMBDAFUNCTIONSTARTED
+LAMBDAFUNCTIONSTARTFAILED = HistoryEventType.LAMBDAFUNCTIONSTARTFAILED
+LAMBDAFUNCTIONSUCCEEDED = HistoryEventType.LAMBDAFUNCTIONSUCCEEDED
+LAMBDAFUNCTIONTIMEDOUT = HistoryEventType.LAMBDAFUNCTIONTIMEDOUT
+MAPITERATIONABORTED = HistoryEventType.MAPITERATIONABORTED
+MAPITERATIONFAILED = HistoryEventType.MAPITERATIONFAILED
+MAPITERATIONSTARTED = HistoryEventType.MAPITERATIONSTARTED
+MAPITERATIONSUCCEEDED = HistoryEventType.MAPITERATIONSUCCEEDED
+MAPSTATEABORTED = HistoryEventType.MAPSTATEABORTED
+MAPSTATEENTERED = HistoryEventType.MAPSTATEENTERED
+MAPSTATEEXITED = HistoryEventType.MAPSTATEEXITED
+MAPSTATEFAILED = HistoryEventType.MAPSTATEFAILED
+MAPSTATESTARTED = HistoryEventType.MAPSTATESTARTED
+MAPSTATESUCCEEDED = HistoryEventType.MAPSTATESUCCEEDED
+PARALLELSTATEABORTED = HistoryEventType.PARALLELSTATEABORTED
+PARALLELSTATEENTERED = HistoryEventType.PARALLELSTATEENTERED
+PARALLELSTATEEXITED = HistoryEventType.PARALLELSTATEEXITED
+PARALLELSTATEFAILED = HistoryEventType.PARALLELSTATEFAILED
+PARALLELSTATESTARTED = HistoryEventType.PARALLELSTATESTARTED
+PARALLELSTATESUCCEEDED = HistoryEventType.PARALLELSTATESUCCEEDED
+PASSSTATEENTERED = HistoryEventType.PASSSTATEENTERED
+PASSSTATEEXITED = HistoryEventType.PASSSTATEEXITED
+SUCCEEDSTATEENTERED = HistoryEventType.SUCCEEDSTATEENTERED
+SUCCEEDSTATEEXITED = HistoryEventType.SUCCEEDSTATEEXITED
+TASKFAILED = HistoryEventType.TASKFAILED
+TASKSCHEDULED = HistoryEventType.TASKSCHEDULED
+TASKSTARTED = HistoryEventType.TASKSTARTED
+TASKSTARTFAILED = HistoryEventType.TASKSTARTFAILED
+TASKSTATEABORTED = HistoryEventType.TASKSTATEABORTED
+TASKSTATEENTERED = HistoryEventType.TASKSTATEENTERED
+TASKSTATEEXITED = HistoryEventType.TASKSTATEEXITED
+TASKSUBMITFAILED = HistoryEventType.TASKSUBMITFAILED
+TASKSUBMITTED = HistoryEventType.TASKSUBMITTED
+TASKSUCCEEDED = HistoryEventType.TASKSUCCEEDED
+TASKTIMEDOUT = HistoryEventType.TASKTIMEDOUT
+WAITSTATEABORTED = HistoryEventType.WAITSTATEABORTED
+WAITSTATEENTERED = HistoryEventType.WAITSTATEENTERED
+WAITSTATEEXITED = HistoryEventType.WAITSTATEEXITED
+MAPRUNABORTED = HistoryEventType.MAPRUNABORTED
+MAPRUNFAILED = HistoryEventType.MAPRUNFAILED
+MAPRUNSTARTED = HistoryEventType.MAPRUNSTARTED
+MAPRUNSUCCEEDED = HistoryEventType.MAPRUNSUCCEEDED
+EXECUTIONREDRIVEN = HistoryEventType.EXECUTIONREDRIVEN
+MAPRUNREDRIVEN = HistoryEventType.MAPRUNREDRIVEN
+EVALUATIONFAILED = HistoryEventType.EVALUATIONFAILED
+ALL_DATA = IncludedData.ALL_DATA
+METADATA_ONLY = IncludedData.METADATA_ONLY
+INFO = InspectionLevel.INFO
+DEBUG = InspectionLevel.DEBUG
+TRACE = InspectionLevel.TRACE
+DISABLED = KmsKeyState.DISABLED
+PENDING_DELETION = KmsKeyState.PENDING_DELETION
+PENDING_IMPORT = KmsKeyState.PENDING_IMPORT
+UNAVAILABLE = KmsKeyState.UNAVAILABLE
+CREATING = KmsKeyState.CREATING
+ALL = LogLevel.ALL
+ERROR = LogLevel.ERROR
+FATAL = LogLevel.FATAL
+OFF = LogLevel.OFF
+RUNNING = MapRunStatus.RUNNING
+SUCCEEDED = MapRunStatus.SUCCEEDED
+FAILED = MapRunStatus.FAILED
+ABORTED = MapRunStatus.ABORTED
+STRICT = MockResponseValidationMode.STRICT
+PRESENT = MockResponseValidationMode.PRESENT
+NONE = MockResponseValidationMode.NONE
+ACTIVE = StateMachineStatus.ACTIVE
+DELETING = StateMachineStatus.DELETING
+STANDARD = StateMachineType.STANDARD
+EXPRESS = StateMachineType.EXPRESS
+SUCCEEDED = SyncExecutionStatus.SUCCEEDED
+FAILED = SyncExecutionStatus.FAILED
+TIMED_OUT = SyncExecutionStatus.TIMED_OUT
+SUCCEEDED = TestExecutionStatus.SUCCEEDED
+FAILED = TestExecutionStatus.FAILED
+RETRIABLE = TestExecutionStatus.RETRIABLE
+CAUGHT_ERROR = TestExecutionStatus.CAUGHT_ERROR
+OK = ValidateStateMachineDefinitionResultCode.OK
+FAIL = ValidateStateMachineDefinitionResultCode.FAIL
+ERROR = ValidateStateMachineDefinitionSeverity.ERROR
+WARNING = ValidateStateMachineDefinitionSeverity.WARNING
+API_DOES_NOT_SUPPORT_LABELED_ARNS = ValidationExceptionReason.API_DOES_NOT_SUPPORT_LABELED_ARNS
+MISSING_REQUIRED_PARAMETER = ValidationExceptionReason.MISSING_REQUIRED_PARAMETER
+CANNOT_UPDATE_COMPLETED_MAP_RUN = ValidationExceptionReason.CANNOT_UPDATE_COMPLETED_MAP_RUN
+INVALID_ROUTING_CONFIGURATION = ValidationExceptionReason.INVALID_ROUTING_CONFIGURATION
 
 
 @dataclass

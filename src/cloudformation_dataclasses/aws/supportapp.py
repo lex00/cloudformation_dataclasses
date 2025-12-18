@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:40
+  Generated: 2025-12-17 16:59:39
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SupportApp
@@ -23,6 +23,33 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class AccountType:
+    """AccountType enum values."""
+
+    MANAGEMENT = "management"
+    MEMBER = "member"
+
+
+class NotificationSeverityLevel:
+    """NotificationSeverityLevel enum values."""
+
+    NONE = "none"
+    ALL = "all"
+    HIGH = "high"
+
+
+# Convenient aliases for enum values
+MANAGEMENT = AccountType.MANAGEMENT
+MEMBER = AccountType.MEMBER
+NONE = NotificationSeverityLevel.NONE
+ALL = NotificationSeverityLevel.ALL
+HIGH = NotificationSeverityLevel.HIGH
 
 
 @dataclass

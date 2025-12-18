@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:23
+  Generated: 2025-12-17 16:59:36
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Forecast
@@ -23,6 +23,230 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class AttributeType:
+    """AttributeType enum values."""
+
+    STRING = "string"
+    INTEGER = "integer"
+    FLOAT = "float"
+    TIMESTAMP = "timestamp"
+    GEOLOCATION = "geolocation"
+
+
+class AutoMLOverrideStrategy:
+    """AutoMLOverrideStrategy enum values."""
+
+    LATENCYOPTIMIZED = "LatencyOptimized"
+    ACCURACYOPTIMIZED = "AccuracyOptimized"
+
+
+class Condition:
+    """Condition enum values."""
+
+    EQUALS = "EQUALS"
+    NOT_EQUALS = "NOT_EQUALS"
+    LESS_THAN = "LESS_THAN"
+    GREATER_THAN = "GREATER_THAN"
+
+
+class DatasetType:
+    """DatasetType enum values."""
+
+    TARGET_TIME_SERIES = "TARGET_TIME_SERIES"
+    RELATED_TIME_SERIES = "RELATED_TIME_SERIES"
+    ITEM_METADATA = "ITEM_METADATA"
+
+
+class DayOfWeek:
+    """DayOfWeek enum values."""
+
+    MONDAY = "MONDAY"
+    TUESDAY = "TUESDAY"
+    WEDNESDAY = "WEDNESDAY"
+    THURSDAY = "THURSDAY"
+    FRIDAY = "FRIDAY"
+    SATURDAY = "SATURDAY"
+    SUNDAY = "SUNDAY"
+
+
+class Domain:
+    """Domain enum values."""
+
+    RETAIL = "RETAIL"
+    CUSTOM = "CUSTOM"
+    INVENTORY_PLANNING = "INVENTORY_PLANNING"
+    EC2_CAPACITY = "EC2_CAPACITY"
+    WORK_FORCE = "WORK_FORCE"
+    WEB_TRAFFIC = "WEB_TRAFFIC"
+    METRICS = "METRICS"
+
+
+class EvaluationType:
+    """EvaluationType enum values."""
+
+    SUMMARY = "SUMMARY"
+    COMPUTED = "COMPUTED"
+
+
+class FeaturizationMethodName:
+    """FeaturizationMethodName enum values."""
+
+    FILLING = "filling"
+
+
+class FilterConditionString:
+    """FilterConditionString enum values."""
+
+    IS = "IS"
+    IS_NOT = "IS_NOT"
+
+
+class ImportMode:
+    """ImportMode enum values."""
+
+    FULL = "FULL"
+    INCREMENTAL = "INCREMENTAL"
+
+
+class Month:
+    """Month enum values."""
+
+    JANUARY = "JANUARY"
+    FEBRUARY = "FEBRUARY"
+    MARCH = "MARCH"
+    APRIL = "APRIL"
+    MAY = "MAY"
+    JUNE = "JUNE"
+    JULY = "JULY"
+    AUGUST = "AUGUST"
+    SEPTEMBER = "SEPTEMBER"
+    OCTOBER = "OCTOBER"
+    NOVEMBER = "NOVEMBER"
+    DECEMBER = "DECEMBER"
+
+
+class Operation:
+    """Operation enum values."""
+
+    ADD = "ADD"
+    SUBTRACT = "SUBTRACT"
+    MULTIPLY = "MULTIPLY"
+    DIVIDE = "DIVIDE"
+
+
+class OptimizationMetric:
+    """OptimizationMetric enum values."""
+
+    WAPE = "WAPE"
+    RMSE = "RMSE"
+    AVERAGEWEIGHTEDQUANTILELOSS = "AverageWeightedQuantileLoss"
+    MASE = "MASE"
+    MAPE = "MAPE"
+
+
+class ScalingType:
+    """ScalingType enum values."""
+
+    AUTO = "Auto"
+    LINEAR = "Linear"
+    LOGARITHMIC = "Logarithmic"
+    REVERSELOGARITHMIC = "ReverseLogarithmic"
+
+
+class State:
+    """State enum values."""
+
+    ACTIVE = "Active"
+    DELETED = "Deleted"
+
+
+class TimePointGranularity:
+    """TimePointGranularity enum values."""
+
+    ALL = "ALL"
+    SPECIFIC = "SPECIFIC"
+
+
+class TimeSeriesGranularity:
+    """TimeSeriesGranularity enum values."""
+
+    ALL = "ALL"
+    SPECIFIC = "SPECIFIC"
+
+
+# Convenient aliases for enum values
+STRING = AttributeType.STRING
+INTEGER = AttributeType.INTEGER
+FLOAT = AttributeType.FLOAT
+TIMESTAMP = AttributeType.TIMESTAMP
+GEOLOCATION = AttributeType.GEOLOCATION
+LATENCYOPTIMIZED = AutoMLOverrideStrategy.LATENCYOPTIMIZED
+ACCURACYOPTIMIZED = AutoMLOverrideStrategy.ACCURACYOPTIMIZED
+EQUALS = Condition.EQUALS
+NOT_EQUALS = Condition.NOT_EQUALS
+LESS_THAN = Condition.LESS_THAN
+GREATER_THAN = Condition.GREATER_THAN
+TARGET_TIME_SERIES = DatasetType.TARGET_TIME_SERIES
+RELATED_TIME_SERIES = DatasetType.RELATED_TIME_SERIES
+ITEM_METADATA = DatasetType.ITEM_METADATA
+MONDAY = DayOfWeek.MONDAY
+TUESDAY = DayOfWeek.TUESDAY
+WEDNESDAY = DayOfWeek.WEDNESDAY
+THURSDAY = DayOfWeek.THURSDAY
+FRIDAY = DayOfWeek.FRIDAY
+SATURDAY = DayOfWeek.SATURDAY
+SUNDAY = DayOfWeek.SUNDAY
+RETAIL = Domain.RETAIL
+CUSTOM = Domain.CUSTOM
+INVENTORY_PLANNING = Domain.INVENTORY_PLANNING
+EC2_CAPACITY = Domain.EC2_CAPACITY
+WORK_FORCE = Domain.WORK_FORCE
+WEB_TRAFFIC = Domain.WEB_TRAFFIC
+METRICS = Domain.METRICS
+SUMMARY = EvaluationType.SUMMARY
+COMPUTED = EvaluationType.COMPUTED
+FILLING = FeaturizationMethodName.FILLING
+IS = FilterConditionString.IS
+IS_NOT = FilterConditionString.IS_NOT
+FULL = ImportMode.FULL
+INCREMENTAL = ImportMode.INCREMENTAL
+JANUARY = Month.JANUARY
+FEBRUARY = Month.FEBRUARY
+MARCH = Month.MARCH
+APRIL = Month.APRIL
+MAY = Month.MAY
+JUNE = Month.JUNE
+JULY = Month.JULY
+AUGUST = Month.AUGUST
+SEPTEMBER = Month.SEPTEMBER
+OCTOBER = Month.OCTOBER
+NOVEMBER = Month.NOVEMBER
+DECEMBER = Month.DECEMBER
+ADD = Operation.ADD
+SUBTRACT = Operation.SUBTRACT
+MULTIPLY = Operation.MULTIPLY
+DIVIDE = Operation.DIVIDE
+WAPE = OptimizationMetric.WAPE
+RMSE = OptimizationMetric.RMSE
+AVERAGEWEIGHTEDQUANTILELOSS = OptimizationMetric.AVERAGEWEIGHTEDQUANTILELOSS
+MASE = OptimizationMetric.MASE
+MAPE = OptimizationMetric.MAPE
+AUTO = ScalingType.AUTO
+LINEAR = ScalingType.LINEAR
+LOGARITHMIC = ScalingType.LOGARITHMIC
+REVERSELOGARITHMIC = ScalingType.REVERSELOGARITHMIC
+ACTIVE = State.ACTIVE
+DELETED = State.DELETED
+ALL = TimePointGranularity.ALL
+SPECIFIC = TimePointGranularity.SPECIFIC
+ALL = TimeSeriesGranularity.ALL
+SPECIFIC = TimeSeriesGranularity.SPECIFIC
 
 
 @dataclass

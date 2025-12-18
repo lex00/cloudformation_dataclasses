@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:37
+  Generated: 2025-12-17 16:59:39
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service S3Outposts
@@ -23,6 +23,37 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class EndpointAccessType:
+    """EndpointAccessType enum values."""
+
+    PRIVATE = "Private"
+    CUSTOMEROWNEDIP = "CustomerOwnedIp"
+
+
+class EndpointStatus:
+    """EndpointStatus enum values."""
+
+    PENDING = "Pending"
+    AVAILABLE = "Available"
+    DELETING = "Deleting"
+    CREATE_FAILED = "Create_Failed"
+    DELETE_FAILED = "Delete_Failed"
+
+
+# Convenient aliases for enum values
+PRIVATE = EndpointAccessType.PRIVATE
+CUSTOMEROWNEDIP = EndpointAccessType.CUSTOMEROWNEDIP
+PENDING = EndpointStatus.PENDING
+AVAILABLE = EndpointStatus.AVAILABLE
+DELETING = EndpointStatus.DELETING
+CREATE_FAILED = EndpointStatus.CREATE_FAILED
+DELETE_FAILED = EndpointStatus.DELETE_FAILED
 
 
 @dataclass
@@ -597,7 +628,7 @@ class Endpoint(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     subnet_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    access_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    access_type: Optional[Union[str, EndpointAccessType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     customer_owned_ipv4_pool: Optional[Union[str, Ref, GetAtt, Sub]] = None
 

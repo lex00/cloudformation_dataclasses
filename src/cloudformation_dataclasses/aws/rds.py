@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:34
+  Generated: 2025-12-17 16:59:38
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service RDS
@@ -23,6 +23,442 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class ActivityStreamMode:
+    """ActivityStreamMode enum values."""
+
+    SYNC = "sync"
+    ASYNC = "async"
+
+
+class ActivityStreamPolicyStatus:
+    """ActivityStreamPolicyStatus enum values."""
+
+    LOCKED = "locked"
+    UNLOCKED = "unlocked"
+    LOCKING_POLICY = "locking-policy"
+    UNLOCKING_POLICY = "unlocking-policy"
+
+
+class ActivityStreamStatus:
+    """ActivityStreamStatus enum values."""
+
+    STOPPED = "stopped"
+    STARTING = "starting"
+    STARTED = "started"
+    STOPPING = "stopping"
+
+
+class ApplyMethod:
+    """ApplyMethod enum values."""
+
+    IMMEDIATE = "immediate"
+    PENDING_REBOOT = "pending-reboot"
+
+
+class AuditPolicyState:
+    """AuditPolicyState enum values."""
+
+    LOCKED = "locked"
+    UNLOCKED = "unlocked"
+
+
+class AuthScheme:
+    """AuthScheme enum values."""
+
+    SECRETS = "SECRETS"
+
+
+class AutomationMode:
+    """AutomationMode enum values."""
+
+    FULL = "full"
+    ALL_PAUSED = "all-paused"
+
+
+class ClientPasswordAuthType:
+    """ClientPasswordAuthType enum values."""
+
+    MYSQL_NATIVE_PASSWORD = "MYSQL_NATIVE_PASSWORD"
+    MYSQL_CACHING_SHA2_PASSWORD = "MYSQL_CACHING_SHA2_PASSWORD"
+    POSTGRES_SCRAM_SHA_256 = "POSTGRES_SCRAM_SHA_256"
+    POSTGRES_MD5 = "POSTGRES_MD5"
+    SQL_SERVER_AUTHENTICATION = "SQL_SERVER_AUTHENTICATION"
+
+
+class ClusterScalabilityType:
+    """ClusterScalabilityType enum values."""
+
+    STANDARD = "standard"
+    LIMITLESS = "limitless"
+
+
+class CustomEngineVersionStatus:
+    """CustomEngineVersionStatus enum values."""
+
+    AVAILABLE = "available"
+    INACTIVE = "inactive"
+    INACTIVE_EXCEPT_RESTORE = "inactive-except-restore"
+
+
+class DBProxyEndpointStatus:
+    """DBProxyEndpointStatus enum values."""
+
+    AVAILABLE = "available"
+    MODIFYING = "modifying"
+    INCOMPATIBLE_NETWORK = "incompatible-network"
+    INSUFFICIENT_RESOURCE_LIMITS = "insufficient-resource-limits"
+    CREATING = "creating"
+    DELETING = "deleting"
+
+
+class DBProxyEndpointTargetRole:
+    """DBProxyEndpointTargetRole enum values."""
+
+    READ_WRITE = "READ_WRITE"
+    READ_ONLY = "READ_ONLY"
+
+
+class DBProxyStatus:
+    """DBProxyStatus enum values."""
+
+    AVAILABLE = "available"
+    MODIFYING = "modifying"
+    INCOMPATIBLE_NETWORK = "incompatible-network"
+    INSUFFICIENT_RESOURCE_LIMITS = "insufficient-resource-limits"
+    CREATING = "creating"
+    DELETING = "deleting"
+    SUSPENDED = "suspended"
+    SUSPENDING = "suspending"
+    REACTIVATING = "reactivating"
+
+
+class DatabaseInsightsMode:
+    """DatabaseInsightsMode enum values."""
+
+    STANDARD = "standard"
+    ADVANCED = "advanced"
+
+
+class DefaultAuthScheme:
+    """DefaultAuthScheme enum values."""
+
+    IAM_AUTH = "IAM_AUTH"
+    NONE = "NONE"
+
+
+class EndpointNetworkType:
+    """EndpointNetworkType enum values."""
+
+    IPV4 = "IPV4"
+    IPV6 = "IPV6"
+    DUAL = "DUAL"
+
+
+class EngineFamily:
+    """EngineFamily enum values."""
+
+    MYSQL = "MYSQL"
+    POSTGRESQL = "POSTGRESQL"
+    SQLSERVER = "SQLSERVER"
+
+
+class ExportSourceType:
+    """ExportSourceType enum values."""
+
+    SNAPSHOT = "SNAPSHOT"
+    CLUSTER = "CLUSTER"
+
+
+class FailoverStatus:
+    """FailoverStatus enum values."""
+
+    PENDING = "pending"
+    FAILING_OVER = "failing-over"
+    CANCELLING = "cancelling"
+
+
+class GlobalClusterMemberSynchronizationStatus:
+    """GlobalClusterMemberSynchronizationStatus enum values."""
+
+    CONNECTED = "connected"
+    PENDING_RESYNC = "pending-resync"
+
+
+class IAMAuthMode:
+    """IAMAuthMode enum values."""
+
+    DISABLED = "DISABLED"
+    REQUIRED = "REQUIRED"
+    ENABLED = "ENABLED"
+
+
+class IntegrationStatus:
+    """IntegrationStatus enum values."""
+
+    CREATING = "creating"
+    ACTIVE = "active"
+    MODIFYING = "modifying"
+    FAILED = "failed"
+    DELETING = "deleting"
+    SYNCING = "syncing"
+    NEEDS_ATTENTION = "needs_attention"
+
+
+class LifecycleSupportName:
+    """LifecycleSupportName enum values."""
+
+    OPEN_SOURCE_RDS_STANDARD_SUPPORT = "open-source-rds-standard-support"
+    OPEN_SOURCE_RDS_EXTENDED_SUPPORT = "open-source-rds-extended-support"
+
+
+class LimitlessDatabaseStatus:
+    """LimitlessDatabaseStatus enum values."""
+
+    ACTIVE = "active"
+    NOT_IN_USE = "not-in-use"
+    ENABLED = "enabled"
+    DISABLED = "disabled"
+    ENABLING = "enabling"
+    DISABLING = "disabling"
+    MODIFYING_MAX_CAPACITY = "modifying-max-capacity"
+    ERROR = "error"
+
+
+class LocalWriteForwardingStatus:
+    """LocalWriteForwardingStatus enum values."""
+
+    ENABLED = "enabled"
+    DISABLED = "disabled"
+    ENABLING = "enabling"
+    DISABLING = "disabling"
+    REQUESTED = "requested"
+
+
+class MasterUserAuthenticationType:
+    """MasterUserAuthenticationType enum values."""
+
+    PASSWORD = "password"
+    IAM_DB_AUTH = "iam-db-auth"
+
+
+class ReplicaMode:
+    """ReplicaMode enum values."""
+
+    OPEN_READ_ONLY = "open-read-only"
+    MOUNTED = "mounted"
+
+
+class SourceType:
+    """SourceType enum values."""
+
+    DB_INSTANCE = "db-instance"
+    DB_PARAMETER_GROUP = "db-parameter-group"
+    DB_SECURITY_GROUP = "db-security-group"
+    DB_SNAPSHOT = "db-snapshot"
+    DB_CLUSTER = "db-cluster"
+    DB_CLUSTER_SNAPSHOT = "db-cluster-snapshot"
+    CUSTOM_ENGINE_VERSION = "custom-engine-version"
+    DB_PROXY = "db-proxy"
+    BLUE_GREEN_DEPLOYMENT = "blue-green-deployment"
+    DB_SHARD_GROUP = "db-shard-group"
+    ZERO_ETL = "zero-etl"
+
+
+class TargetConnectionNetworkType:
+    """TargetConnectionNetworkType enum values."""
+
+    IPV4 = "IPV4"
+    IPV6 = "IPV6"
+
+
+class TargetHealthReason:
+    """TargetHealthReason enum values."""
+
+    UNREACHABLE = "UNREACHABLE"
+    CONNECTION_FAILED = "CONNECTION_FAILED"
+    AUTH_FAILURE = "AUTH_FAILURE"
+    PENDING_PROXY_CAPACITY = "PENDING_PROXY_CAPACITY"
+    INVALID_REPLICATION_STATE = "INVALID_REPLICATION_STATE"
+    PROMOTED = "PROMOTED"
+
+
+class TargetRole:
+    """TargetRole enum values."""
+
+    READ_WRITE = "READ_WRITE"
+    READ_ONLY = "READ_ONLY"
+    UNKNOWN = "UNKNOWN"
+
+
+class TargetState:
+    """TargetState enum values."""
+
+    REGISTERING = "REGISTERING"
+    AVAILABLE = "AVAILABLE"
+    UNAVAILABLE = "UNAVAILABLE"
+    UNUSED = "UNUSED"
+
+
+class TargetType:
+    """TargetType enum values."""
+
+    RDS_INSTANCE = "RDS_INSTANCE"
+    RDS_SERVERLESS_ENDPOINT = "RDS_SERVERLESS_ENDPOINT"
+    TRACKED_CLUSTER = "TRACKED_CLUSTER"
+
+
+class UpgradeRolloutOrder:
+    """UpgradeRolloutOrder enum values."""
+
+    FIRST = "first"
+    SECOND = "second"
+    LAST = "last"
+
+
+class WriteForwardingStatus:
+    """WriteForwardingStatus enum values."""
+
+    ENABLED = "enabled"
+    DISABLED = "disabled"
+    ENABLING = "enabling"
+    DISABLING = "disabling"
+    UNKNOWN = "unknown"
+
+
+# Convenient aliases for enum values
+SYNC = ActivityStreamMode.SYNC
+ASYNC = ActivityStreamMode.ASYNC
+LOCKED = ActivityStreamPolicyStatus.LOCKED
+UNLOCKED = ActivityStreamPolicyStatus.UNLOCKED
+LOCKING_POLICY = ActivityStreamPolicyStatus.LOCKING_POLICY
+UNLOCKING_POLICY = ActivityStreamPolicyStatus.UNLOCKING_POLICY
+STOPPED = ActivityStreamStatus.STOPPED
+STARTING = ActivityStreamStatus.STARTING
+STARTED = ActivityStreamStatus.STARTED
+STOPPING = ActivityStreamStatus.STOPPING
+IMMEDIATE = ApplyMethod.IMMEDIATE
+PENDING_REBOOT = ApplyMethod.PENDING_REBOOT
+LOCKED = AuditPolicyState.LOCKED
+UNLOCKED = AuditPolicyState.UNLOCKED
+SECRETS = AuthScheme.SECRETS
+FULL = AutomationMode.FULL
+ALL_PAUSED = AutomationMode.ALL_PAUSED
+MYSQL_NATIVE_PASSWORD = ClientPasswordAuthType.MYSQL_NATIVE_PASSWORD
+MYSQL_CACHING_SHA2_PASSWORD = ClientPasswordAuthType.MYSQL_CACHING_SHA2_PASSWORD
+POSTGRES_SCRAM_SHA_256 = ClientPasswordAuthType.POSTGRES_SCRAM_SHA_256
+POSTGRES_MD5 = ClientPasswordAuthType.POSTGRES_MD5
+SQL_SERVER_AUTHENTICATION = ClientPasswordAuthType.SQL_SERVER_AUTHENTICATION
+STANDARD = ClusterScalabilityType.STANDARD
+LIMITLESS = ClusterScalabilityType.LIMITLESS
+AVAILABLE = CustomEngineVersionStatus.AVAILABLE
+INACTIVE = CustomEngineVersionStatus.INACTIVE
+INACTIVE_EXCEPT_RESTORE = CustomEngineVersionStatus.INACTIVE_EXCEPT_RESTORE
+AVAILABLE = DBProxyEndpointStatus.AVAILABLE
+MODIFYING = DBProxyEndpointStatus.MODIFYING
+INCOMPATIBLE_NETWORK = DBProxyEndpointStatus.INCOMPATIBLE_NETWORK
+INSUFFICIENT_RESOURCE_LIMITS = DBProxyEndpointStatus.INSUFFICIENT_RESOURCE_LIMITS
+CREATING = DBProxyEndpointStatus.CREATING
+DELETING = DBProxyEndpointStatus.DELETING
+READ_WRITE = DBProxyEndpointTargetRole.READ_WRITE
+READ_ONLY = DBProxyEndpointTargetRole.READ_ONLY
+AVAILABLE = DBProxyStatus.AVAILABLE
+MODIFYING = DBProxyStatus.MODIFYING
+INCOMPATIBLE_NETWORK = DBProxyStatus.INCOMPATIBLE_NETWORK
+INSUFFICIENT_RESOURCE_LIMITS = DBProxyStatus.INSUFFICIENT_RESOURCE_LIMITS
+CREATING = DBProxyStatus.CREATING
+DELETING = DBProxyStatus.DELETING
+SUSPENDED = DBProxyStatus.SUSPENDED
+SUSPENDING = DBProxyStatus.SUSPENDING
+REACTIVATING = DBProxyStatus.REACTIVATING
+STANDARD = DatabaseInsightsMode.STANDARD
+ADVANCED = DatabaseInsightsMode.ADVANCED
+IAM_AUTH = DefaultAuthScheme.IAM_AUTH
+NONE = DefaultAuthScheme.NONE
+IPV4 = EndpointNetworkType.IPV4
+IPV6 = EndpointNetworkType.IPV6
+DUAL = EndpointNetworkType.DUAL
+MYSQL = EngineFamily.MYSQL
+POSTGRESQL = EngineFamily.POSTGRESQL
+SQLSERVER = EngineFamily.SQLSERVER
+SNAPSHOT = ExportSourceType.SNAPSHOT
+CLUSTER = ExportSourceType.CLUSTER
+PENDING = FailoverStatus.PENDING
+FAILING_OVER = FailoverStatus.FAILING_OVER
+CANCELLING = FailoverStatus.CANCELLING
+CONNECTED = GlobalClusterMemberSynchronizationStatus.CONNECTED
+PENDING_RESYNC = GlobalClusterMemberSynchronizationStatus.PENDING_RESYNC
+DISABLED = IAMAuthMode.DISABLED
+REQUIRED = IAMAuthMode.REQUIRED
+ENABLED = IAMAuthMode.ENABLED
+CREATING = IntegrationStatus.CREATING
+ACTIVE = IntegrationStatus.ACTIVE
+MODIFYING = IntegrationStatus.MODIFYING
+FAILED = IntegrationStatus.FAILED
+DELETING = IntegrationStatus.DELETING
+SYNCING = IntegrationStatus.SYNCING
+NEEDS_ATTENTION = IntegrationStatus.NEEDS_ATTENTION
+OPEN_SOURCE_RDS_STANDARD_SUPPORT = LifecycleSupportName.OPEN_SOURCE_RDS_STANDARD_SUPPORT
+OPEN_SOURCE_RDS_EXTENDED_SUPPORT = LifecycleSupportName.OPEN_SOURCE_RDS_EXTENDED_SUPPORT
+ACTIVE = LimitlessDatabaseStatus.ACTIVE
+NOT_IN_USE = LimitlessDatabaseStatus.NOT_IN_USE
+ENABLED = LimitlessDatabaseStatus.ENABLED
+DISABLED = LimitlessDatabaseStatus.DISABLED
+ENABLING = LimitlessDatabaseStatus.ENABLING
+DISABLING = LimitlessDatabaseStatus.DISABLING
+MODIFYING_MAX_CAPACITY = LimitlessDatabaseStatus.MODIFYING_MAX_CAPACITY
+ERROR = LimitlessDatabaseStatus.ERROR
+ENABLED = LocalWriteForwardingStatus.ENABLED
+DISABLED = LocalWriteForwardingStatus.DISABLED
+ENABLING = LocalWriteForwardingStatus.ENABLING
+DISABLING = LocalWriteForwardingStatus.DISABLING
+REQUESTED = LocalWriteForwardingStatus.REQUESTED
+PASSWORD = MasterUserAuthenticationType.PASSWORD
+IAM_DB_AUTH = MasterUserAuthenticationType.IAM_DB_AUTH
+OPEN_READ_ONLY = ReplicaMode.OPEN_READ_ONLY
+MOUNTED = ReplicaMode.MOUNTED
+DB_INSTANCE = SourceType.DB_INSTANCE
+DB_PARAMETER_GROUP = SourceType.DB_PARAMETER_GROUP
+DB_SECURITY_GROUP = SourceType.DB_SECURITY_GROUP
+DB_SNAPSHOT = SourceType.DB_SNAPSHOT
+DB_CLUSTER = SourceType.DB_CLUSTER
+DB_CLUSTER_SNAPSHOT = SourceType.DB_CLUSTER_SNAPSHOT
+CUSTOM_ENGINE_VERSION = SourceType.CUSTOM_ENGINE_VERSION
+DB_PROXY = SourceType.DB_PROXY
+BLUE_GREEN_DEPLOYMENT = SourceType.BLUE_GREEN_DEPLOYMENT
+DB_SHARD_GROUP = SourceType.DB_SHARD_GROUP
+ZERO_ETL = SourceType.ZERO_ETL
+IPV4 = TargetConnectionNetworkType.IPV4
+IPV6 = TargetConnectionNetworkType.IPV6
+UNREACHABLE = TargetHealthReason.UNREACHABLE
+CONNECTION_FAILED = TargetHealthReason.CONNECTION_FAILED
+AUTH_FAILURE = TargetHealthReason.AUTH_FAILURE
+PENDING_PROXY_CAPACITY = TargetHealthReason.PENDING_PROXY_CAPACITY
+INVALID_REPLICATION_STATE = TargetHealthReason.INVALID_REPLICATION_STATE
+PROMOTED = TargetHealthReason.PROMOTED
+READ_WRITE = TargetRole.READ_WRITE
+READ_ONLY = TargetRole.READ_ONLY
+UNKNOWN = TargetRole.UNKNOWN
+REGISTERING = TargetState.REGISTERING
+AVAILABLE = TargetState.AVAILABLE
+UNAVAILABLE = TargetState.UNAVAILABLE
+UNUSED = TargetState.UNUSED
+RDS_INSTANCE = TargetType.RDS_INSTANCE
+RDS_SERVERLESS_ENDPOINT = TargetType.RDS_SERVERLESS_ENDPOINT
+TRACKED_CLUSTER = TargetType.TRACKED_CLUSTER
+FIRST = UpgradeRolloutOrder.FIRST
+SECOND = UpgradeRolloutOrder.SECOND
+LAST = UpgradeRolloutOrder.LAST
+ENABLED = WriteForwardingStatus.ENABLED
+DISABLED = WriteForwardingStatus.DISABLED
+ENABLING = WriteForwardingStatus.ENABLING
+DISABLING = WriteForwardingStatus.DISABLING
+UNKNOWN = WriteForwardingStatus.UNKNOWN
 
 
 @dataclass
@@ -508,7 +944,7 @@ class DBCluster(CloudFormationResource):
     resource_type: ClassVar[str] = "AWS::RDS::DBCluster"
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    database_insights_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    database_insights_mode: Optional[Union[str, DatabaseInsightsMode, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     storage_encrypted: Optional[Union[bool, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
@@ -588,7 +1024,7 @@ class DBCluster(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     snapshot_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    cluster_scalability_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    cluster_scalability_type: Optional[Union[str, ClusterScalabilityType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     preferred_backup_window: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
@@ -1833,7 +2269,7 @@ class DBInstance(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     timezone: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    database_insights_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    database_insights_mode: Optional[Union[str, DatabaseInsightsMode, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     storage_encrypted: Optional[Union[bool, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
@@ -1945,7 +2381,7 @@ class DBInstance(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_iam_role_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    replica_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    replica_mode: Optional[Union[str, ReplicaMode, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     engine_lifecycle_support: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
@@ -3390,7 +3826,7 @@ class DBProxy(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     idle_client_timeout: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    target_connection_network_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    target_connection_network_type: Optional[Union[str, TargetConnectionNetworkType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     default_auth_scheme: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
@@ -3402,7 +3838,7 @@ class DBProxy(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[TagFormat]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    endpoint_network_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    endpoint_network_type: Optional[Union[str, EndpointNetworkType, Ref, GetAtt, Sub]] = None
 
     def _get_properties(self) -> dict[str, Any]:
         """Serialize resource properties to CloudFormation format."""
@@ -3641,7 +4077,7 @@ class DBProxyEndpoint(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     db_proxy_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    target_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    target_role: Optional[Union[str, DBProxyEndpointTargetRole, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_security_group_ids: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
@@ -3649,7 +4085,7 @@ class DBProxyEndpoint(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[TagFormat]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    endpoint_network_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    endpoint_network_type: Optional[Union[str, EndpointNetworkType, Ref, GetAtt, Sub]] = None
 
     def _get_properties(self) -> dict[str, Any]:
         """Serialize resource properties to CloudFormation format."""

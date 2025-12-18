@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:15
+  Generated: 2025-12-17 16:59:35
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Cloud9
@@ -23,6 +23,121 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class ConnectionType:
+    """ConnectionType enum values."""
+
+    CONNECT_SSH = "CONNECT_SSH"
+    CONNECT_SSM = "CONNECT_SSM"
+
+
+class EnvironmentLifecycleStatus:
+    """EnvironmentLifecycleStatus enum values."""
+
+    CREATING = "CREATING"
+    CREATED = "CREATED"
+    CREATE_FAILED = "CREATE_FAILED"
+    DELETING = "DELETING"
+    DELETE_FAILED = "DELETE_FAILED"
+
+
+class EnvironmentStatus:
+    """EnvironmentStatus enum values."""
+
+    ERROR = "error"
+    CREATING = "creating"
+    CONNECTING = "connecting"
+    READY = "ready"
+    STOPPING = "stopping"
+    STOPPED = "stopped"
+    DELETING = "deleting"
+
+
+class EnvironmentType:
+    """EnvironmentType enum values."""
+
+    SSH = "ssh"
+    EC2 = "ec2"
+
+
+class ManagedCredentialsAction:
+    """ManagedCredentialsAction enum values."""
+
+    ENABLE = "ENABLE"
+    DISABLE = "DISABLE"
+
+
+class ManagedCredentialsStatus:
+    """ManagedCredentialsStatus enum values."""
+
+    ENABLED_ON_CREATE = "ENABLED_ON_CREATE"
+    ENABLED_BY_OWNER = "ENABLED_BY_OWNER"
+    DISABLED_BY_DEFAULT = "DISABLED_BY_DEFAULT"
+    DISABLED_BY_OWNER = "DISABLED_BY_OWNER"
+    DISABLED_BY_COLLABORATOR = "DISABLED_BY_COLLABORATOR"
+    PENDING_REMOVAL_BY_COLLABORATOR = "PENDING_REMOVAL_BY_COLLABORATOR"
+    PENDING_START_REMOVAL_BY_COLLABORATOR = "PENDING_START_REMOVAL_BY_COLLABORATOR"
+    PENDING_REMOVAL_BY_OWNER = "PENDING_REMOVAL_BY_OWNER"
+    PENDING_START_REMOVAL_BY_OWNER = "PENDING_START_REMOVAL_BY_OWNER"
+    FAILED_REMOVAL_BY_COLLABORATOR = "FAILED_REMOVAL_BY_COLLABORATOR"
+    FAILED_REMOVAL_BY_OWNER = "FAILED_REMOVAL_BY_OWNER"
+
+
+class MemberPermissions:
+    """MemberPermissions enum values."""
+
+    READ_WRITE = "read-write"
+    READ_ONLY = "read-only"
+
+
+class Permissions:
+    """Permissions enum values."""
+
+    OWNER = "owner"
+    READ_WRITE = "read-write"
+    READ_ONLY = "read-only"
+
+
+# Convenient aliases for enum values
+CONNECT_SSH = ConnectionType.CONNECT_SSH
+CONNECT_SSM = ConnectionType.CONNECT_SSM
+CREATING = EnvironmentLifecycleStatus.CREATING
+CREATED = EnvironmentLifecycleStatus.CREATED
+CREATE_FAILED = EnvironmentLifecycleStatus.CREATE_FAILED
+DELETING = EnvironmentLifecycleStatus.DELETING
+DELETE_FAILED = EnvironmentLifecycleStatus.DELETE_FAILED
+ERROR = EnvironmentStatus.ERROR
+CREATING = EnvironmentStatus.CREATING
+CONNECTING = EnvironmentStatus.CONNECTING
+READY = EnvironmentStatus.READY
+STOPPING = EnvironmentStatus.STOPPING
+STOPPED = EnvironmentStatus.STOPPED
+DELETING = EnvironmentStatus.DELETING
+SSH = EnvironmentType.SSH
+EC2 = EnvironmentType.EC2
+ENABLE = ManagedCredentialsAction.ENABLE
+DISABLE = ManagedCredentialsAction.DISABLE
+ENABLED_ON_CREATE = ManagedCredentialsStatus.ENABLED_ON_CREATE
+ENABLED_BY_OWNER = ManagedCredentialsStatus.ENABLED_BY_OWNER
+DISABLED_BY_DEFAULT = ManagedCredentialsStatus.DISABLED_BY_DEFAULT
+DISABLED_BY_OWNER = ManagedCredentialsStatus.DISABLED_BY_OWNER
+DISABLED_BY_COLLABORATOR = ManagedCredentialsStatus.DISABLED_BY_COLLABORATOR
+PENDING_REMOVAL_BY_COLLABORATOR = ManagedCredentialsStatus.PENDING_REMOVAL_BY_COLLABORATOR
+PENDING_START_REMOVAL_BY_COLLABORATOR = ManagedCredentialsStatus.PENDING_START_REMOVAL_BY_COLLABORATOR
+PENDING_REMOVAL_BY_OWNER = ManagedCredentialsStatus.PENDING_REMOVAL_BY_OWNER
+PENDING_START_REMOVAL_BY_OWNER = ManagedCredentialsStatus.PENDING_START_REMOVAL_BY_OWNER
+FAILED_REMOVAL_BY_COLLABORATOR = ManagedCredentialsStatus.FAILED_REMOVAL_BY_COLLABORATOR
+FAILED_REMOVAL_BY_OWNER = ManagedCredentialsStatus.FAILED_REMOVAL_BY_OWNER
+READ_WRITE = MemberPermissions.READ_WRITE
+READ_ONLY = MemberPermissions.READ_ONLY
+OWNER = Permissions.OWNER
+READ_WRITE = Permissions.READ_WRITE
+READ_ONLY = Permissions.READ_ONLY
 
 
 @dataclass

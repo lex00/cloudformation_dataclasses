@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:24
+  Generated: 2025-12-17 16:59:36
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IVS
@@ -23,6 +23,159 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class ChannelLatencyMode:
+    """ChannelLatencyMode enum values."""
+
+    NORMAL = "NORMAL"
+    LOW = "LOW"
+
+
+class ChannelType:
+    """ChannelType enum values."""
+
+    BASIC = "BASIC"
+    STANDARD = "STANDARD"
+    ADVANCED_SD = "ADVANCED_SD"
+    ADVANCED_HD = "ADVANCED_HD"
+
+
+class ContainerFormat:
+    """ContainerFormat enum values."""
+
+    TS = "TS"
+    FRAGMENTED_MP4 = "FRAGMENTED_MP4"
+
+
+class MultitrackMaximumResolution:
+    """MultitrackMaximumResolution enum values."""
+
+    SD = "SD"
+    HD = "HD"
+    FULL_HD = "FULL_HD"
+
+
+class MultitrackPolicy:
+    """MultitrackPolicy enum values."""
+
+    ALLOW = "ALLOW"
+    REQUIRE = "REQUIRE"
+
+
+class RecordingConfigurationState:
+    """RecordingConfigurationState enum values."""
+
+    CREATING = "CREATING"
+    CREATE_FAILED = "CREATE_FAILED"
+    ACTIVE = "ACTIVE"
+
+
+class RecordingMode:
+    """RecordingMode enum values."""
+
+    DISABLED = "DISABLED"
+    INTERVAL = "INTERVAL"
+
+
+class RenditionConfigurationRendition:
+    """RenditionConfigurationRendition enum values."""
+
+    SD = "SD"
+    HD = "HD"
+    FULL_HD = "FULL_HD"
+    LOWEST_RESOLUTION = "LOWEST_RESOLUTION"
+
+
+class RenditionConfigurationRenditionSelection:
+    """RenditionConfigurationRenditionSelection enum values."""
+
+    ALL = "ALL"
+    NONE = "NONE"
+    CUSTOM = "CUSTOM"
+
+
+class StreamHealth:
+    """StreamHealth enum values."""
+
+    HEALTHY = "HEALTHY"
+    STARVING = "STARVING"
+    UNKNOWN = "UNKNOWN"
+
+
+class StreamState:
+    """StreamState enum values."""
+
+    LIVE = "LIVE"
+    OFFLINE = "OFFLINE"
+
+
+class ThumbnailConfigurationResolution:
+    """ThumbnailConfigurationResolution enum values."""
+
+    SD = "SD"
+    HD = "HD"
+    FULL_HD = "FULL_HD"
+    LOWEST_RESOLUTION = "LOWEST_RESOLUTION"
+
+
+class ThumbnailConfigurationStorage:
+    """ThumbnailConfigurationStorage enum values."""
+
+    SEQUENTIAL = "SEQUENTIAL"
+    LATEST = "LATEST"
+
+
+class TranscodePreset:
+    """TranscodePreset enum values."""
+
+    HIGHER_BANDWIDTH_DELIVERY = "HIGHER_BANDWIDTH_DELIVERY"
+    CONSTRAINED_BANDWIDTH_DELIVERY = "CONSTRAINED_BANDWIDTH_DELIVERY"
+
+
+# Convenient aliases for enum values
+NORMAL = ChannelLatencyMode.NORMAL
+LOW = ChannelLatencyMode.LOW
+BASIC = ChannelType.BASIC
+STANDARD = ChannelType.STANDARD
+ADVANCED_SD = ChannelType.ADVANCED_SD
+ADVANCED_HD = ChannelType.ADVANCED_HD
+TS = ContainerFormat.TS
+FRAGMENTED_MP4 = ContainerFormat.FRAGMENTED_MP4
+SD = MultitrackMaximumResolution.SD
+HD = MultitrackMaximumResolution.HD
+FULL_HD = MultitrackMaximumResolution.FULL_HD
+ALLOW = MultitrackPolicy.ALLOW
+REQUIRE = MultitrackPolicy.REQUIRE
+CREATING = RecordingConfigurationState.CREATING
+CREATE_FAILED = RecordingConfigurationState.CREATE_FAILED
+ACTIVE = RecordingConfigurationState.ACTIVE
+DISABLED = RecordingMode.DISABLED
+INTERVAL = RecordingMode.INTERVAL
+SD = RenditionConfigurationRendition.SD
+HD = RenditionConfigurationRendition.HD
+FULL_HD = RenditionConfigurationRendition.FULL_HD
+LOWEST_RESOLUTION = RenditionConfigurationRendition.LOWEST_RESOLUTION
+ALL = RenditionConfigurationRenditionSelection.ALL
+NONE = RenditionConfigurationRenditionSelection.NONE
+CUSTOM = RenditionConfigurationRenditionSelection.CUSTOM
+HEALTHY = StreamHealth.HEALTHY
+STARVING = StreamHealth.STARVING
+UNKNOWN = StreamHealth.UNKNOWN
+LIVE = StreamState.LIVE
+OFFLINE = StreamState.OFFLINE
+SD = ThumbnailConfigurationResolution.SD
+HD = ThumbnailConfigurationResolution.HD
+FULL_HD = ThumbnailConfigurationResolution.FULL_HD
+LOWEST_RESOLUTION = ThumbnailConfigurationResolution.LOWEST_RESOLUTION
+SEQUENTIAL = ThumbnailConfigurationStorage.SEQUENTIAL
+LATEST = ThumbnailConfigurationStorage.LATEST
+HIGHER_BANDWIDTH_DELIVERY = TranscodePreset.HIGHER_BANDWIDTH_DELIVERY
+CONSTRAINED_BANDWIDTH_DELIVERY = TranscodePreset.CONSTRAINED_BANDWIDTH_DELIVERY
 
 
 @dataclass

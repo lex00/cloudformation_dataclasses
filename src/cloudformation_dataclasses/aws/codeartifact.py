@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:16
+  Generated: 2025-12-17 16:59:35
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CodeArtifact
@@ -23,6 +23,214 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class AllowPublish:
+    """AllowPublish enum values."""
+
+    ALLOW = "ALLOW"
+    BLOCK = "BLOCK"
+
+
+class AllowUpstream:
+    """AllowUpstream enum values."""
+
+    ALLOW = "ALLOW"
+    BLOCK = "BLOCK"
+
+
+class DomainStatus:
+    """DomainStatus enum values."""
+
+    ACTIVE = "Active"
+    DELETED = "Deleted"
+
+
+class EndpointType:
+    """EndpointType enum values."""
+
+    DUALSTACK = "dualstack"
+    IPV4 = "ipv4"
+
+
+class ExternalConnectionStatus:
+    """ExternalConnectionStatus enum values."""
+
+    AVAILABLE = "Available"
+
+
+class HashAlgorithm:
+    """HashAlgorithm enum values."""
+
+    MD5 = "MD5"
+    SHA_1 = "SHA-1"
+    SHA_256 = "SHA-256"
+    SHA_512 = "SHA-512"
+
+
+class PackageFormat:
+    """PackageFormat enum values."""
+
+    NPM = "npm"
+    PYPI = "pypi"
+    MAVEN = "maven"
+    NUGET = "nuget"
+    GENERIC = "generic"
+    RUBY = "ruby"
+    SWIFT = "swift"
+    CARGO = "cargo"
+
+
+class PackageGroupAllowedRepositoryUpdateType:
+    """PackageGroupAllowedRepositoryUpdateType enum values."""
+
+    ADDED = "ADDED"
+    REMOVED = "REMOVED"
+
+
+class PackageGroupAssociationType:
+    """PackageGroupAssociationType enum values."""
+
+    STRONG = "STRONG"
+    WEAK = "WEAK"
+
+
+class PackageGroupOriginRestrictionMode:
+    """PackageGroupOriginRestrictionMode enum values."""
+
+    ALLOW = "ALLOW"
+    ALLOW_SPECIFIC_REPOSITORIES = "ALLOW_SPECIFIC_REPOSITORIES"
+    BLOCK = "BLOCK"
+    INHERIT = "INHERIT"
+
+
+class PackageGroupOriginRestrictionType:
+    """PackageGroupOriginRestrictionType enum values."""
+
+    EXTERNAL_UPSTREAM = "EXTERNAL_UPSTREAM"
+    INTERNAL_UPSTREAM = "INTERNAL_UPSTREAM"
+    PUBLISH = "PUBLISH"
+
+
+class PackageVersionErrorCode:
+    """PackageVersionErrorCode enum values."""
+
+    ALREADY_EXISTS = "ALREADY_EXISTS"
+    MISMATCHED_REVISION = "MISMATCHED_REVISION"
+    MISMATCHED_STATUS = "MISMATCHED_STATUS"
+    NOT_ALLOWED = "NOT_ALLOWED"
+    NOT_FOUND = "NOT_FOUND"
+    SKIPPED = "SKIPPED"
+
+
+class PackageVersionOriginType:
+    """PackageVersionOriginType enum values."""
+
+    INTERNAL = "INTERNAL"
+    EXTERNAL = "EXTERNAL"
+    UNKNOWN = "UNKNOWN"
+
+
+class PackageVersionSortType:
+    """PackageVersionSortType enum values."""
+
+    PUBLISHED_TIME = "PUBLISHED_TIME"
+
+
+class PackageVersionStatus:
+    """PackageVersionStatus enum values."""
+
+    PUBLISHED = "Published"
+    UNFINISHED = "Unfinished"
+    UNLISTED = "Unlisted"
+    ARCHIVED = "Archived"
+    DISPOSED = "Disposed"
+    DELETED = "Deleted"
+
+
+class ResourceType:
+    """ResourceType enum values."""
+
+    DOMAIN = "domain"
+    REPOSITORY = "repository"
+    PACKAGE = "package"
+    PACKAGE_VERSION = "package-version"
+    ASSET = "asset"
+
+
+class ValidationExceptionReason:
+    """ValidationExceptionReason enum values."""
+
+    CANNOT_PARSE = "CANNOT_PARSE"
+    ENCRYPTION_KEY_ERROR = "ENCRYPTION_KEY_ERROR"
+    FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED"
+    UNKNOWN_OPERATION = "UNKNOWN_OPERATION"
+    OTHER = "OTHER"
+
+
+# Convenient aliases for enum values
+ALLOW = AllowPublish.ALLOW
+BLOCK = AllowPublish.BLOCK
+ALLOW = AllowUpstream.ALLOW
+BLOCK = AllowUpstream.BLOCK
+ACTIVE = DomainStatus.ACTIVE
+DELETED = DomainStatus.DELETED
+DUALSTACK = EndpointType.DUALSTACK
+IPV4 = EndpointType.IPV4
+AVAILABLE = ExternalConnectionStatus.AVAILABLE
+MD5 = HashAlgorithm.MD5
+SHA_1 = HashAlgorithm.SHA_1
+SHA_256 = HashAlgorithm.SHA_256
+SHA_512 = HashAlgorithm.SHA_512
+NPM = PackageFormat.NPM
+PYPI = PackageFormat.PYPI
+MAVEN = PackageFormat.MAVEN
+NUGET = PackageFormat.NUGET
+GENERIC = PackageFormat.GENERIC
+RUBY = PackageFormat.RUBY
+SWIFT = PackageFormat.SWIFT
+CARGO = PackageFormat.CARGO
+ADDED = PackageGroupAllowedRepositoryUpdateType.ADDED
+REMOVED = PackageGroupAllowedRepositoryUpdateType.REMOVED
+STRONG = PackageGroupAssociationType.STRONG
+WEAK = PackageGroupAssociationType.WEAK
+ALLOW = PackageGroupOriginRestrictionMode.ALLOW
+ALLOW_SPECIFIC_REPOSITORIES = PackageGroupOriginRestrictionMode.ALLOW_SPECIFIC_REPOSITORIES
+BLOCK = PackageGroupOriginRestrictionMode.BLOCK
+INHERIT = PackageGroupOriginRestrictionMode.INHERIT
+EXTERNAL_UPSTREAM = PackageGroupOriginRestrictionType.EXTERNAL_UPSTREAM
+INTERNAL_UPSTREAM = PackageGroupOriginRestrictionType.INTERNAL_UPSTREAM
+PUBLISH = PackageGroupOriginRestrictionType.PUBLISH
+ALREADY_EXISTS = PackageVersionErrorCode.ALREADY_EXISTS
+MISMATCHED_REVISION = PackageVersionErrorCode.MISMATCHED_REVISION
+MISMATCHED_STATUS = PackageVersionErrorCode.MISMATCHED_STATUS
+NOT_ALLOWED = PackageVersionErrorCode.NOT_ALLOWED
+NOT_FOUND = PackageVersionErrorCode.NOT_FOUND
+SKIPPED = PackageVersionErrorCode.SKIPPED
+INTERNAL = PackageVersionOriginType.INTERNAL
+EXTERNAL = PackageVersionOriginType.EXTERNAL
+UNKNOWN = PackageVersionOriginType.UNKNOWN
+PUBLISHED_TIME = PackageVersionSortType.PUBLISHED_TIME
+PUBLISHED = PackageVersionStatus.PUBLISHED
+UNFINISHED = PackageVersionStatus.UNFINISHED
+UNLISTED = PackageVersionStatus.UNLISTED
+ARCHIVED = PackageVersionStatus.ARCHIVED
+DISPOSED = PackageVersionStatus.DISPOSED
+DELETED = PackageVersionStatus.DELETED
+DOMAIN = ResourceType.DOMAIN
+REPOSITORY = ResourceType.REPOSITORY
+PACKAGE = ResourceType.PACKAGE
+PACKAGE_VERSION = ResourceType.PACKAGE_VERSION
+ASSET = ResourceType.ASSET
+CANNOT_PARSE = ValidationExceptionReason.CANNOT_PARSE
+ENCRYPTION_KEY_ERROR = ValidationExceptionReason.ENCRYPTION_KEY_ERROR
+FIELD_VALIDATION_FAILED = ValidationExceptionReason.FIELD_VALIDATION_FAILED
+UNKNOWN_OPERATION = ValidationExceptionReason.UNKNOWN_OPERATION
+OTHER = ValidationExceptionReason.OTHER
 
 
 @dataclass

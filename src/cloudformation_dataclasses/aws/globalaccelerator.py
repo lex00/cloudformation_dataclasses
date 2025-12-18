@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:23
+  Generated: 2025-12-17 16:59:36
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service GlobalAccelerator
@@ -25,6 +25,134 @@ from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class AcceleratorStatus:
+    """AcceleratorStatus enum values."""
+
+    DEPLOYED = "DEPLOYED"
+    IN_PROGRESS = "IN_PROGRESS"
+
+
+class ByoipCidrState:
+    """ByoipCidrState enum values."""
+
+    PENDING_PROVISIONING = "PENDING_PROVISIONING"
+    READY = "READY"
+    PENDING_ADVERTISING = "PENDING_ADVERTISING"
+    ADVERTISING = "ADVERTISING"
+    PENDING_WITHDRAWING = "PENDING_WITHDRAWING"
+    PENDING_DEPROVISIONING = "PENDING_DEPROVISIONING"
+    DEPROVISIONED = "DEPROVISIONED"
+    FAILED_PROVISION = "FAILED_PROVISION"
+    FAILED_ADVERTISING = "FAILED_ADVERTISING"
+    FAILED_WITHDRAW = "FAILED_WITHDRAW"
+    FAILED_DEPROVISION = "FAILED_DEPROVISION"
+
+
+class ClientAffinity:
+    """ClientAffinity enum values."""
+
+    NONE = "NONE"
+    SOURCE_IP = "SOURCE_IP"
+
+
+class CustomRoutingAcceleratorStatus:
+    """CustomRoutingAcceleratorStatus enum values."""
+
+    DEPLOYED = "DEPLOYED"
+    IN_PROGRESS = "IN_PROGRESS"
+
+
+class CustomRoutingDestinationTrafficState:
+    """CustomRoutingDestinationTrafficState enum values."""
+
+    ALLOW = "ALLOW"
+    DENY = "DENY"
+
+
+class CustomRoutingProtocol:
+    """CustomRoutingProtocol enum values."""
+
+    TCP = "TCP"
+    UDP = "UDP"
+
+
+class HealthCheckProtocol:
+    """HealthCheckProtocol enum values."""
+
+    TCP = "TCP"
+    HTTP = "HTTP"
+    HTTPS = "HTTPS"
+
+
+class HealthState:
+    """HealthState enum values."""
+
+    INITIAL = "INITIAL"
+    HEALTHY = "HEALTHY"
+    UNHEALTHY = "UNHEALTHY"
+
+
+class IpAddressFamily:
+    """IpAddressFamily enum values."""
+
+    IPV4 = "IPv4"
+    IPV6 = "IPv6"
+
+
+class IpAddressType:
+    """IpAddressType enum values."""
+
+    IPV4 = "IPV4"
+    DUAL_STACK = "DUAL_STACK"
+
+
+class Protocol:
+    """Protocol enum values."""
+
+    TCP = "TCP"
+    UDP = "UDP"
+
+
+# Convenient aliases for enum values
+DEPLOYED = AcceleratorStatus.DEPLOYED
+IN_PROGRESS = AcceleratorStatus.IN_PROGRESS
+PENDING_PROVISIONING = ByoipCidrState.PENDING_PROVISIONING
+READY = ByoipCidrState.READY
+PENDING_ADVERTISING = ByoipCidrState.PENDING_ADVERTISING
+ADVERTISING = ByoipCidrState.ADVERTISING
+PENDING_WITHDRAWING = ByoipCidrState.PENDING_WITHDRAWING
+PENDING_DEPROVISIONING = ByoipCidrState.PENDING_DEPROVISIONING
+DEPROVISIONED = ByoipCidrState.DEPROVISIONED
+FAILED_PROVISION = ByoipCidrState.FAILED_PROVISION
+FAILED_ADVERTISING = ByoipCidrState.FAILED_ADVERTISING
+FAILED_WITHDRAW = ByoipCidrState.FAILED_WITHDRAW
+FAILED_DEPROVISION = ByoipCidrState.FAILED_DEPROVISION
+NONE = ClientAffinity.NONE
+SOURCE_IP = ClientAffinity.SOURCE_IP
+DEPLOYED = CustomRoutingAcceleratorStatus.DEPLOYED
+IN_PROGRESS = CustomRoutingAcceleratorStatus.IN_PROGRESS
+ALLOW = CustomRoutingDestinationTrafficState.ALLOW
+DENY = CustomRoutingDestinationTrafficState.DENY
+TCP = CustomRoutingProtocol.TCP
+UDP = CustomRoutingProtocol.UDP
+TCP = HealthCheckProtocol.TCP
+HTTP = HealthCheckProtocol.HTTP
+HTTPS = HealthCheckProtocol.HTTPS
+INITIAL = HealthState.INITIAL
+HEALTHY = HealthState.HEALTHY
+UNHEALTHY = HealthState.UNHEALTHY
+IPV4 = IpAddressFamily.IPV4
+IPV6 = IpAddressFamily.IPV6
+IPV4 = IpAddressType.IPV4
+DUAL_STACK = IpAddressType.DUAL_STACK
+TCP = Protocol.TCP
+UDP = Protocol.UDP
+
+
 @dataclass
 class Accelerator(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globa"""
@@ -32,7 +160,7 @@ class Accelerator(CloudFormationResource):
     resource_type: ClassVar[str] = "AWS::GlobalAccelerator::Accelerator"
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    ip_address_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    ip_address_type: Optional[Union[str, IpAddressType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ip_addresses: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
@@ -384,7 +512,7 @@ class EndpointGroup(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     traffic_dial_percentage: Optional[Union[float, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    health_check_protocol: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    health_check_protocol: Optional[Union[str, HealthCheckProtocol, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     threshold_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
@@ -585,9 +713,9 @@ class Listener(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     accelerator_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    protocol: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    protocol: Optional[Union[str, Protocol, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
-    client_affinity: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    client_affinity: Optional[Union[str, ClientAffinity, Ref, GetAtt, Sub]] = None
 
     def _get_properties(self) -> dict[str, Any]:
         """Serialize resource properties to CloudFormation format."""

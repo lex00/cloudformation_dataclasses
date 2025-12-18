@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:35
+  Generated: 2025-12-17 16:59:38
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ResourceGroups
@@ -23,6 +23,137 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class GroupConfigurationStatus:
+    """GroupConfigurationStatus enum values."""
+
+    UPDATING = "UPDATING"
+    UPDATE_COMPLETE = "UPDATE_COMPLETE"
+    UPDATE_FAILED = "UPDATE_FAILED"
+
+
+class GroupFilterName:
+    """GroupFilterName enum values."""
+
+    RESOURCE_TYPE = "resource-type"
+    CONFIGURATION_TYPE = "configuration-type"
+    OWNER = "owner"
+    DISPLAY_NAME = "display-name"
+    CRITICALITY = "criticality"
+
+
+class GroupLifecycleEventsDesiredStatus:
+    """GroupLifecycleEventsDesiredStatus enum values."""
+
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
+
+
+class GroupLifecycleEventsStatus:
+    """GroupLifecycleEventsStatus enum values."""
+
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
+    IN_PROGRESS = "IN_PROGRESS"
+    ERROR = "ERROR"
+
+
+class GroupingStatus:
+    """GroupingStatus enum values."""
+
+    SUCCESS = "SUCCESS"
+    FAILED = "FAILED"
+    IN_PROGRESS = "IN_PROGRESS"
+    SKIPPED = "SKIPPED"
+
+
+class GroupingType:
+    """GroupingType enum values."""
+
+    GROUP = "GROUP"
+    UNGROUP = "UNGROUP"
+
+
+class ListGroupingStatusesFilterName:
+    """ListGroupingStatusesFilterName enum values."""
+
+    STATUS = "status"
+    RESOURCE_ARN = "resource-arn"
+
+
+class QueryErrorCode:
+    """QueryErrorCode enum values."""
+
+    CLOUDFORMATION_STACK_INACTIVE = "CLOUDFORMATION_STACK_INACTIVE"
+    CLOUDFORMATION_STACK_NOT_EXISTING = "CLOUDFORMATION_STACK_NOT_EXISTING"
+    CLOUDFORMATION_STACK_UNASSUMABLE_ROLE = "CLOUDFORMATION_STACK_UNASSUMABLE_ROLE"
+    RESOURCE_TYPE_NOT_SUPPORTED = "RESOURCE_TYPE_NOT_SUPPORTED"
+
+
+class QueryType:
+    """QueryType enum values."""
+
+    TAG_FILTERS_1_0 = "TAG_FILTERS_1_0"
+    CLOUDFORMATION_STACK_1_0 = "CLOUDFORMATION_STACK_1_0"
+
+
+class ResourceFilterName:
+    """ResourceFilterName enum values."""
+
+    RESOURCE_TYPE = "resource-type"
+
+
+class ResourceStatusValue:
+    """ResourceStatusValue enum values."""
+
+    PENDING = "PENDING"
+
+
+class TagSyncTaskStatus:
+    """TagSyncTaskStatus enum values."""
+
+    ACTIVE = "ACTIVE"
+    ERROR = "ERROR"
+
+
+# Convenient aliases for enum values
+UPDATING = GroupConfigurationStatus.UPDATING
+UPDATE_COMPLETE = GroupConfigurationStatus.UPDATE_COMPLETE
+UPDATE_FAILED = GroupConfigurationStatus.UPDATE_FAILED
+RESOURCE_TYPE = GroupFilterName.RESOURCE_TYPE
+CONFIGURATION_TYPE = GroupFilterName.CONFIGURATION_TYPE
+OWNER = GroupFilterName.OWNER
+DISPLAY_NAME = GroupFilterName.DISPLAY_NAME
+CRITICALITY = GroupFilterName.CRITICALITY
+ACTIVE = GroupLifecycleEventsDesiredStatus.ACTIVE
+INACTIVE = GroupLifecycleEventsDesiredStatus.INACTIVE
+ACTIVE = GroupLifecycleEventsStatus.ACTIVE
+INACTIVE = GroupLifecycleEventsStatus.INACTIVE
+IN_PROGRESS = GroupLifecycleEventsStatus.IN_PROGRESS
+ERROR = GroupLifecycleEventsStatus.ERROR
+SUCCESS = GroupingStatus.SUCCESS
+FAILED = GroupingStatus.FAILED
+IN_PROGRESS = GroupingStatus.IN_PROGRESS
+SKIPPED = GroupingStatus.SKIPPED
+GROUP = GroupingType.GROUP
+UNGROUP = GroupingType.UNGROUP
+STATUS = ListGroupingStatusesFilterName.STATUS
+RESOURCE_ARN = ListGroupingStatusesFilterName.RESOURCE_ARN
+CLOUDFORMATION_STACK_INACTIVE = QueryErrorCode.CLOUDFORMATION_STACK_INACTIVE
+CLOUDFORMATION_STACK_NOT_EXISTING = QueryErrorCode.CLOUDFORMATION_STACK_NOT_EXISTING
+CLOUDFORMATION_STACK_UNASSUMABLE_ROLE = QueryErrorCode.CLOUDFORMATION_STACK_UNASSUMABLE_ROLE
+RESOURCE_TYPE_NOT_SUPPORTED = QueryErrorCode.RESOURCE_TYPE_NOT_SUPPORTED
+TAG_FILTERS_1_0 = QueryType.TAG_FILTERS_1_0
+CLOUDFORMATION_STACK_1_0 = QueryType.CLOUDFORMATION_STACK_1_0
+RESOURCE_TYPE = ResourceFilterName.RESOURCE_TYPE
+PENDING = ResourceStatusValue.PENDING
+ACTIVE = TagSyncTaskStatus.ACTIVE
+ERROR = TagSyncTaskStatus.ERROR
 
 
 @dataclass
@@ -157,7 +288,7 @@ class ResourceQuery:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-res"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    type_: Optional[Union[str, QueryType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query: Optional[Query] = None
 

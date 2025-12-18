@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:36
+  Generated: 2025-12-17 16:59:38
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Route53
@@ -23,6 +23,529 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class AcceleratedRecoveryStatus:
+    """AcceleratedRecoveryStatus enum values."""
+
+    ENABLING = "ENABLING"
+    ENABLE_FAILED = "ENABLE_FAILED"
+    ENABLING_HOSTED_ZONE_LOCKED = "ENABLING_HOSTED_ZONE_LOCKED"
+    ENABLED = "ENABLED"
+    DISABLING = "DISABLING"
+    DISABLE_FAILED = "DISABLE_FAILED"
+    DISABLED = "DISABLED"
+    DISABLING_HOSTED_ZONE_LOCKED = "DISABLING_HOSTED_ZONE_LOCKED"
+
+
+class AccountLimitType:
+    """AccountLimitType enum values."""
+
+    MAX_HEALTH_CHECKS_BY_OWNER = "MAX_HEALTH_CHECKS_BY_OWNER"
+    MAX_HOSTED_ZONES_BY_OWNER = "MAX_HOSTED_ZONES_BY_OWNER"
+    MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER = "MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER"
+    MAX_REUSABLE_DELEGATION_SETS_BY_OWNER = "MAX_REUSABLE_DELEGATION_SETS_BY_OWNER"
+    MAX_TRAFFIC_POLICIES_BY_OWNER = "MAX_TRAFFIC_POLICIES_BY_OWNER"
+
+
+class ChangeAction:
+    """ChangeAction enum values."""
+
+    CREATE = "CREATE"
+    DELETE = "DELETE"
+    UPSERT = "UPSERT"
+
+
+class ChangeStatus:
+    """ChangeStatus enum values."""
+
+    PENDING = "PENDING"
+    INSYNC = "INSYNC"
+
+
+class CidrCollectionChangeAction:
+    """CidrCollectionChangeAction enum values."""
+
+    PUT = "PUT"
+    DELETE_IF_EXISTS = "DELETE_IF_EXISTS"
+
+
+class CloudWatchRegion:
+    """CloudWatchRegion enum values."""
+
+    US_EAST_1 = "us-east-1"
+    US_EAST_2 = "us-east-2"
+    US_WEST_1 = "us-west-1"
+    US_WEST_2 = "us-west-2"
+    CA_CENTRAL_1 = "ca-central-1"
+    EU_CENTRAL_1 = "eu-central-1"
+    EU_CENTRAL_2 = "eu-central-2"
+    EU_WEST_1 = "eu-west-1"
+    EU_WEST_2 = "eu-west-2"
+    EU_WEST_3 = "eu-west-3"
+    AP_EAST_1 = "ap-east-1"
+    ME_SOUTH_1 = "me-south-1"
+    ME_CENTRAL_1 = "me-central-1"
+    AP_SOUTH_1 = "ap-south-1"
+    AP_SOUTH_2 = "ap-south-2"
+    AP_SOUTHEAST_1 = "ap-southeast-1"
+    AP_SOUTHEAST_2 = "ap-southeast-2"
+    AP_SOUTHEAST_3 = "ap-southeast-3"
+    AP_NORTHEAST_1 = "ap-northeast-1"
+    AP_NORTHEAST_2 = "ap-northeast-2"
+    AP_NORTHEAST_3 = "ap-northeast-3"
+    EU_NORTH_1 = "eu-north-1"
+    SA_EAST_1 = "sa-east-1"
+    CN_NORTHWEST_1 = "cn-northwest-1"
+    CN_NORTH_1 = "cn-north-1"
+    AF_SOUTH_1 = "af-south-1"
+    EU_SOUTH_1 = "eu-south-1"
+    EU_SOUTH_2 = "eu-south-2"
+    US_GOV_WEST_1 = "us-gov-west-1"
+    US_GOV_EAST_1 = "us-gov-east-1"
+    US_ISO_EAST_1 = "us-iso-east-1"
+    US_ISO_WEST_1 = "us-iso-west-1"
+    US_ISOB_EAST_1 = "us-isob-east-1"
+    AP_SOUTHEAST_4 = "ap-southeast-4"
+    IL_CENTRAL_1 = "il-central-1"
+    CA_WEST_1 = "ca-west-1"
+    AP_SOUTHEAST_5 = "ap-southeast-5"
+    MX_CENTRAL_1 = "mx-central-1"
+    US_ISOF_SOUTH_1 = "us-isof-south-1"
+    US_ISOF_EAST_1 = "us-isof-east-1"
+    AP_SOUTHEAST_7 = "ap-southeast-7"
+    AP_EAST_2 = "ap-east-2"
+    EU_ISOE_WEST_1 = "eu-isoe-west-1"
+    AP_SOUTHEAST_6 = "ap-southeast-6"
+    US_ISOB_WEST_1 = "us-isob-west-1"
+    EUSC_DE_EAST_1 = "eusc-de-east-1"
+
+
+class ComparisonOperator:
+    """ComparisonOperator enum values."""
+
+    GREATERTHANOREQUALTOTHRESHOLD = "GreaterThanOrEqualToThreshold"
+    GREATERTHANTHRESHOLD = "GreaterThanThreshold"
+    LESSTHANTHRESHOLD = "LessThanThreshold"
+    LESSTHANOREQUALTOTHRESHOLD = "LessThanOrEqualToThreshold"
+
+
+class HealthCheckRegion:
+    """HealthCheckRegion enum values."""
+
+    US_EAST_1 = "us-east-1"
+    US_WEST_1 = "us-west-1"
+    US_WEST_2 = "us-west-2"
+    EU_WEST_1 = "eu-west-1"
+    AP_SOUTHEAST_1 = "ap-southeast-1"
+    AP_SOUTHEAST_2 = "ap-southeast-2"
+    AP_NORTHEAST_1 = "ap-northeast-1"
+    SA_EAST_1 = "sa-east-1"
+
+
+class HealthCheckType:
+    """HealthCheckType enum values."""
+
+    HTTP = "HTTP"
+    HTTPS = "HTTPS"
+    HTTP_STR_MATCH = "HTTP_STR_MATCH"
+    HTTPS_STR_MATCH = "HTTPS_STR_MATCH"
+    TCP = "TCP"
+    CALCULATED = "CALCULATED"
+    CLOUDWATCH_METRIC = "CLOUDWATCH_METRIC"
+    RECOVERY_CONTROL = "RECOVERY_CONTROL"
+
+
+class HostedZoneLimitType:
+    """HostedZoneLimitType enum values."""
+
+    MAX_RRSETS_BY_ZONE = "MAX_RRSETS_BY_ZONE"
+    MAX_VPCS_ASSOCIATED_BY_ZONE = "MAX_VPCS_ASSOCIATED_BY_ZONE"
+
+
+class HostedZoneType:
+    """HostedZoneType enum values."""
+
+    PRIVATEHOSTEDZONE = "PrivateHostedZone"
+
+
+class InsufficientDataHealthStatus:
+    """InsufficientDataHealthStatus enum values."""
+
+    HEALTHY = "Healthy"
+    UNHEALTHY = "Unhealthy"
+    LASTKNOWNSTATUS = "LastKnownStatus"
+
+
+class RRType:
+    """RRType enum values."""
+
+    SOA = "SOA"
+    A = "A"
+    TXT = "TXT"
+    NS = "NS"
+    CNAME = "CNAME"
+    MX = "MX"
+    NAPTR = "NAPTR"
+    PTR = "PTR"
+    SRV = "SRV"
+    SPF = "SPF"
+    AAAA = "AAAA"
+    CAA = "CAA"
+    DS = "DS"
+    TLSA = "TLSA"
+    SSHFP = "SSHFP"
+    SVCB = "SVCB"
+    HTTPS = "HTTPS"
+
+
+class ResettableElementName:
+    """ResettableElementName enum values."""
+
+    FULLYQUALIFIEDDOMAINNAME = "FullyQualifiedDomainName"
+    REGIONS = "Regions"
+    RESOURCEPATH = "ResourcePath"
+    CHILDHEALTHCHECKS = "ChildHealthChecks"
+
+
+class ResourceRecordSetFailover:
+    """ResourceRecordSetFailover enum values."""
+
+    PRIMARY = "PRIMARY"
+    SECONDARY = "SECONDARY"
+
+
+class ResourceRecordSetRegion:
+    """ResourceRecordSetRegion enum values."""
+
+    US_EAST_1 = "us-east-1"
+    US_EAST_2 = "us-east-2"
+    US_WEST_1 = "us-west-1"
+    US_WEST_2 = "us-west-2"
+    CA_CENTRAL_1 = "ca-central-1"
+    EU_WEST_1 = "eu-west-1"
+    EU_WEST_2 = "eu-west-2"
+    EU_WEST_3 = "eu-west-3"
+    EU_CENTRAL_1 = "eu-central-1"
+    EU_CENTRAL_2 = "eu-central-2"
+    AP_SOUTHEAST_1 = "ap-southeast-1"
+    AP_SOUTHEAST_2 = "ap-southeast-2"
+    AP_SOUTHEAST_3 = "ap-southeast-3"
+    AP_NORTHEAST_1 = "ap-northeast-1"
+    AP_NORTHEAST_2 = "ap-northeast-2"
+    AP_NORTHEAST_3 = "ap-northeast-3"
+    EU_NORTH_1 = "eu-north-1"
+    SA_EAST_1 = "sa-east-1"
+    CN_NORTH_1 = "cn-north-1"
+    CN_NORTHWEST_1 = "cn-northwest-1"
+    AP_EAST_1 = "ap-east-1"
+    ME_SOUTH_1 = "me-south-1"
+    ME_CENTRAL_1 = "me-central-1"
+    AP_SOUTH_1 = "ap-south-1"
+    AP_SOUTH_2 = "ap-south-2"
+    AF_SOUTH_1 = "af-south-1"
+    EU_SOUTH_1 = "eu-south-1"
+    EU_SOUTH_2 = "eu-south-2"
+    AP_SOUTHEAST_4 = "ap-southeast-4"
+    IL_CENTRAL_1 = "il-central-1"
+    CA_WEST_1 = "ca-west-1"
+    AP_SOUTHEAST_5 = "ap-southeast-5"
+    MX_CENTRAL_1 = "mx-central-1"
+    AP_SOUTHEAST_7 = "ap-southeast-7"
+    US_GOV_EAST_1 = "us-gov-east-1"
+    US_GOV_WEST_1 = "us-gov-west-1"
+    AP_EAST_2 = "ap-east-2"
+    AP_SOUTHEAST_6 = "ap-southeast-6"
+    EUSC_DE_EAST_1 = "eusc-de-east-1"
+
+
+class ReusableDelegationSetLimitType:
+    """ReusableDelegationSetLimitType enum values."""
+
+    MAX_ZONES_BY_REUSABLE_DELEGATION_SET = "MAX_ZONES_BY_REUSABLE_DELEGATION_SET"
+
+
+class Statistic:
+    """Statistic enum values."""
+
+    AVERAGE = "Average"
+    SUM = "Sum"
+    SAMPLECOUNT = "SampleCount"
+    MAXIMUM = "Maximum"
+    MINIMUM = "Minimum"
+
+
+class TagResourceType:
+    """TagResourceType enum values."""
+
+    HEALTHCHECK = "healthcheck"
+    HOSTEDZONE = "hostedzone"
+
+
+class VPCRegion:
+    """VPCRegion enum values."""
+
+    US_EAST_1 = "us-east-1"
+    US_EAST_2 = "us-east-2"
+    US_WEST_1 = "us-west-1"
+    US_WEST_2 = "us-west-2"
+    EU_WEST_1 = "eu-west-1"
+    EU_WEST_2 = "eu-west-2"
+    EU_WEST_3 = "eu-west-3"
+    EU_CENTRAL_1 = "eu-central-1"
+    EU_CENTRAL_2 = "eu-central-2"
+    AP_EAST_1 = "ap-east-1"
+    ME_SOUTH_1 = "me-south-1"
+    US_GOV_WEST_1 = "us-gov-west-1"
+    US_GOV_EAST_1 = "us-gov-east-1"
+    US_ISO_EAST_1 = "us-iso-east-1"
+    US_ISO_WEST_1 = "us-iso-west-1"
+    US_ISOB_EAST_1 = "us-isob-east-1"
+    ME_CENTRAL_1 = "me-central-1"
+    AP_SOUTHEAST_1 = "ap-southeast-1"
+    AP_SOUTHEAST_2 = "ap-southeast-2"
+    AP_SOUTHEAST_3 = "ap-southeast-3"
+    AP_SOUTH_1 = "ap-south-1"
+    AP_SOUTH_2 = "ap-south-2"
+    AP_NORTHEAST_1 = "ap-northeast-1"
+    AP_NORTHEAST_2 = "ap-northeast-2"
+    AP_NORTHEAST_3 = "ap-northeast-3"
+    EU_NORTH_1 = "eu-north-1"
+    SA_EAST_1 = "sa-east-1"
+    CA_CENTRAL_1 = "ca-central-1"
+    CN_NORTH_1 = "cn-north-1"
+    CN_NORTHWEST_1 = "cn-northwest-1"
+    AF_SOUTH_1 = "af-south-1"
+    EU_SOUTH_1 = "eu-south-1"
+    EU_SOUTH_2 = "eu-south-2"
+    AP_SOUTHEAST_4 = "ap-southeast-4"
+    IL_CENTRAL_1 = "il-central-1"
+    CA_WEST_1 = "ca-west-1"
+    AP_SOUTHEAST_5 = "ap-southeast-5"
+    MX_CENTRAL_1 = "mx-central-1"
+    US_ISOF_SOUTH_1 = "us-isof-south-1"
+    US_ISOF_EAST_1 = "us-isof-east-1"
+    AP_SOUTHEAST_7 = "ap-southeast-7"
+    AP_EAST_2 = "ap-east-2"
+    EU_ISOE_WEST_1 = "eu-isoe-west-1"
+    AP_SOUTHEAST_6 = "ap-southeast-6"
+    US_ISOB_WEST_1 = "us-isob-west-1"
+    EUSC_DE_EAST_1 = "eusc-de-east-1"
+
+
+# Convenient aliases for enum values
+ENABLING = AcceleratedRecoveryStatus.ENABLING
+ENABLE_FAILED = AcceleratedRecoveryStatus.ENABLE_FAILED
+ENABLING_HOSTED_ZONE_LOCKED = AcceleratedRecoveryStatus.ENABLING_HOSTED_ZONE_LOCKED
+ENABLED = AcceleratedRecoveryStatus.ENABLED
+DISABLING = AcceleratedRecoveryStatus.DISABLING
+DISABLE_FAILED = AcceleratedRecoveryStatus.DISABLE_FAILED
+DISABLED = AcceleratedRecoveryStatus.DISABLED
+DISABLING_HOSTED_ZONE_LOCKED = AcceleratedRecoveryStatus.DISABLING_HOSTED_ZONE_LOCKED
+MAX_HEALTH_CHECKS_BY_OWNER = AccountLimitType.MAX_HEALTH_CHECKS_BY_OWNER
+MAX_HOSTED_ZONES_BY_OWNER = AccountLimitType.MAX_HOSTED_ZONES_BY_OWNER
+MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER = AccountLimitType.MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER
+MAX_REUSABLE_DELEGATION_SETS_BY_OWNER = AccountLimitType.MAX_REUSABLE_DELEGATION_SETS_BY_OWNER
+MAX_TRAFFIC_POLICIES_BY_OWNER = AccountLimitType.MAX_TRAFFIC_POLICIES_BY_OWNER
+CREATE = ChangeAction.CREATE
+DELETE = ChangeAction.DELETE
+UPSERT = ChangeAction.UPSERT
+PENDING = ChangeStatus.PENDING
+INSYNC = ChangeStatus.INSYNC
+PUT = CidrCollectionChangeAction.PUT
+DELETE_IF_EXISTS = CidrCollectionChangeAction.DELETE_IF_EXISTS
+US_EAST_1 = CloudWatchRegion.US_EAST_1
+US_EAST_2 = CloudWatchRegion.US_EAST_2
+US_WEST_1 = CloudWatchRegion.US_WEST_1
+US_WEST_2 = CloudWatchRegion.US_WEST_2
+CA_CENTRAL_1 = CloudWatchRegion.CA_CENTRAL_1
+EU_CENTRAL_1 = CloudWatchRegion.EU_CENTRAL_1
+EU_CENTRAL_2 = CloudWatchRegion.EU_CENTRAL_2
+EU_WEST_1 = CloudWatchRegion.EU_WEST_1
+EU_WEST_2 = CloudWatchRegion.EU_WEST_2
+EU_WEST_3 = CloudWatchRegion.EU_WEST_3
+AP_EAST_1 = CloudWatchRegion.AP_EAST_1
+ME_SOUTH_1 = CloudWatchRegion.ME_SOUTH_1
+ME_CENTRAL_1 = CloudWatchRegion.ME_CENTRAL_1
+AP_SOUTH_1 = CloudWatchRegion.AP_SOUTH_1
+AP_SOUTH_2 = CloudWatchRegion.AP_SOUTH_2
+AP_SOUTHEAST_1 = CloudWatchRegion.AP_SOUTHEAST_1
+AP_SOUTHEAST_2 = CloudWatchRegion.AP_SOUTHEAST_2
+AP_SOUTHEAST_3 = CloudWatchRegion.AP_SOUTHEAST_3
+AP_NORTHEAST_1 = CloudWatchRegion.AP_NORTHEAST_1
+AP_NORTHEAST_2 = CloudWatchRegion.AP_NORTHEAST_2
+AP_NORTHEAST_3 = CloudWatchRegion.AP_NORTHEAST_3
+EU_NORTH_1 = CloudWatchRegion.EU_NORTH_1
+SA_EAST_1 = CloudWatchRegion.SA_EAST_1
+CN_NORTHWEST_1 = CloudWatchRegion.CN_NORTHWEST_1
+CN_NORTH_1 = CloudWatchRegion.CN_NORTH_1
+AF_SOUTH_1 = CloudWatchRegion.AF_SOUTH_1
+EU_SOUTH_1 = CloudWatchRegion.EU_SOUTH_1
+EU_SOUTH_2 = CloudWatchRegion.EU_SOUTH_2
+US_GOV_WEST_1 = CloudWatchRegion.US_GOV_WEST_1
+US_GOV_EAST_1 = CloudWatchRegion.US_GOV_EAST_1
+US_ISO_EAST_1 = CloudWatchRegion.US_ISO_EAST_1
+US_ISO_WEST_1 = CloudWatchRegion.US_ISO_WEST_1
+US_ISOB_EAST_1 = CloudWatchRegion.US_ISOB_EAST_1
+AP_SOUTHEAST_4 = CloudWatchRegion.AP_SOUTHEAST_4
+IL_CENTRAL_1 = CloudWatchRegion.IL_CENTRAL_1
+CA_WEST_1 = CloudWatchRegion.CA_WEST_1
+AP_SOUTHEAST_5 = CloudWatchRegion.AP_SOUTHEAST_5
+MX_CENTRAL_1 = CloudWatchRegion.MX_CENTRAL_1
+US_ISOF_SOUTH_1 = CloudWatchRegion.US_ISOF_SOUTH_1
+US_ISOF_EAST_1 = CloudWatchRegion.US_ISOF_EAST_1
+AP_SOUTHEAST_7 = CloudWatchRegion.AP_SOUTHEAST_7
+AP_EAST_2 = CloudWatchRegion.AP_EAST_2
+EU_ISOE_WEST_1 = CloudWatchRegion.EU_ISOE_WEST_1
+AP_SOUTHEAST_6 = CloudWatchRegion.AP_SOUTHEAST_6
+US_ISOB_WEST_1 = CloudWatchRegion.US_ISOB_WEST_1
+EUSC_DE_EAST_1 = CloudWatchRegion.EUSC_DE_EAST_1
+GREATERTHANOREQUALTOTHRESHOLD = ComparisonOperator.GREATERTHANOREQUALTOTHRESHOLD
+GREATERTHANTHRESHOLD = ComparisonOperator.GREATERTHANTHRESHOLD
+LESSTHANTHRESHOLD = ComparisonOperator.LESSTHANTHRESHOLD
+LESSTHANOREQUALTOTHRESHOLD = ComparisonOperator.LESSTHANOREQUALTOTHRESHOLD
+US_EAST_1 = HealthCheckRegion.US_EAST_1
+US_WEST_1 = HealthCheckRegion.US_WEST_1
+US_WEST_2 = HealthCheckRegion.US_WEST_2
+EU_WEST_1 = HealthCheckRegion.EU_WEST_1
+AP_SOUTHEAST_1 = HealthCheckRegion.AP_SOUTHEAST_1
+AP_SOUTHEAST_2 = HealthCheckRegion.AP_SOUTHEAST_2
+AP_NORTHEAST_1 = HealthCheckRegion.AP_NORTHEAST_1
+SA_EAST_1 = HealthCheckRegion.SA_EAST_1
+HTTP = HealthCheckType.HTTP
+HTTPS = HealthCheckType.HTTPS
+HTTP_STR_MATCH = HealthCheckType.HTTP_STR_MATCH
+HTTPS_STR_MATCH = HealthCheckType.HTTPS_STR_MATCH
+TCP = HealthCheckType.TCP
+CALCULATED = HealthCheckType.CALCULATED
+CLOUDWATCH_METRIC = HealthCheckType.CLOUDWATCH_METRIC
+RECOVERY_CONTROL = HealthCheckType.RECOVERY_CONTROL
+MAX_RRSETS_BY_ZONE = HostedZoneLimitType.MAX_RRSETS_BY_ZONE
+MAX_VPCS_ASSOCIATED_BY_ZONE = HostedZoneLimitType.MAX_VPCS_ASSOCIATED_BY_ZONE
+PRIVATEHOSTEDZONE = HostedZoneType.PRIVATEHOSTEDZONE
+HEALTHY = InsufficientDataHealthStatus.HEALTHY
+UNHEALTHY = InsufficientDataHealthStatus.UNHEALTHY
+LASTKNOWNSTATUS = InsufficientDataHealthStatus.LASTKNOWNSTATUS
+SOA = RRType.SOA
+A = RRType.A
+TXT = RRType.TXT
+NS = RRType.NS
+CNAME = RRType.CNAME
+MX = RRType.MX
+NAPTR = RRType.NAPTR
+PTR = RRType.PTR
+SRV = RRType.SRV
+SPF = RRType.SPF
+AAAA = RRType.AAAA
+CAA = RRType.CAA
+DS = RRType.DS
+TLSA = RRType.TLSA
+SSHFP = RRType.SSHFP
+SVCB = RRType.SVCB
+HTTPS = RRType.HTTPS
+FULLYQUALIFIEDDOMAINNAME = ResettableElementName.FULLYQUALIFIEDDOMAINNAME
+REGIONS = ResettableElementName.REGIONS
+RESOURCEPATH = ResettableElementName.RESOURCEPATH
+CHILDHEALTHCHECKS = ResettableElementName.CHILDHEALTHCHECKS
+PRIMARY = ResourceRecordSetFailover.PRIMARY
+SECONDARY = ResourceRecordSetFailover.SECONDARY
+US_EAST_1 = ResourceRecordSetRegion.US_EAST_1
+US_EAST_2 = ResourceRecordSetRegion.US_EAST_2
+US_WEST_1 = ResourceRecordSetRegion.US_WEST_1
+US_WEST_2 = ResourceRecordSetRegion.US_WEST_2
+CA_CENTRAL_1 = ResourceRecordSetRegion.CA_CENTRAL_1
+EU_WEST_1 = ResourceRecordSetRegion.EU_WEST_1
+EU_WEST_2 = ResourceRecordSetRegion.EU_WEST_2
+EU_WEST_3 = ResourceRecordSetRegion.EU_WEST_3
+EU_CENTRAL_1 = ResourceRecordSetRegion.EU_CENTRAL_1
+EU_CENTRAL_2 = ResourceRecordSetRegion.EU_CENTRAL_2
+AP_SOUTHEAST_1 = ResourceRecordSetRegion.AP_SOUTHEAST_1
+AP_SOUTHEAST_2 = ResourceRecordSetRegion.AP_SOUTHEAST_2
+AP_SOUTHEAST_3 = ResourceRecordSetRegion.AP_SOUTHEAST_3
+AP_NORTHEAST_1 = ResourceRecordSetRegion.AP_NORTHEAST_1
+AP_NORTHEAST_2 = ResourceRecordSetRegion.AP_NORTHEAST_2
+AP_NORTHEAST_3 = ResourceRecordSetRegion.AP_NORTHEAST_3
+EU_NORTH_1 = ResourceRecordSetRegion.EU_NORTH_1
+SA_EAST_1 = ResourceRecordSetRegion.SA_EAST_1
+CN_NORTH_1 = ResourceRecordSetRegion.CN_NORTH_1
+CN_NORTHWEST_1 = ResourceRecordSetRegion.CN_NORTHWEST_1
+AP_EAST_1 = ResourceRecordSetRegion.AP_EAST_1
+ME_SOUTH_1 = ResourceRecordSetRegion.ME_SOUTH_1
+ME_CENTRAL_1 = ResourceRecordSetRegion.ME_CENTRAL_1
+AP_SOUTH_1 = ResourceRecordSetRegion.AP_SOUTH_1
+AP_SOUTH_2 = ResourceRecordSetRegion.AP_SOUTH_2
+AF_SOUTH_1 = ResourceRecordSetRegion.AF_SOUTH_1
+EU_SOUTH_1 = ResourceRecordSetRegion.EU_SOUTH_1
+EU_SOUTH_2 = ResourceRecordSetRegion.EU_SOUTH_2
+AP_SOUTHEAST_4 = ResourceRecordSetRegion.AP_SOUTHEAST_4
+IL_CENTRAL_1 = ResourceRecordSetRegion.IL_CENTRAL_1
+CA_WEST_1 = ResourceRecordSetRegion.CA_WEST_1
+AP_SOUTHEAST_5 = ResourceRecordSetRegion.AP_SOUTHEAST_5
+MX_CENTRAL_1 = ResourceRecordSetRegion.MX_CENTRAL_1
+AP_SOUTHEAST_7 = ResourceRecordSetRegion.AP_SOUTHEAST_7
+US_GOV_EAST_1 = ResourceRecordSetRegion.US_GOV_EAST_1
+US_GOV_WEST_1 = ResourceRecordSetRegion.US_GOV_WEST_1
+AP_EAST_2 = ResourceRecordSetRegion.AP_EAST_2
+AP_SOUTHEAST_6 = ResourceRecordSetRegion.AP_SOUTHEAST_6
+EUSC_DE_EAST_1 = ResourceRecordSetRegion.EUSC_DE_EAST_1
+MAX_ZONES_BY_REUSABLE_DELEGATION_SET = ReusableDelegationSetLimitType.MAX_ZONES_BY_REUSABLE_DELEGATION_SET
+AVERAGE = Statistic.AVERAGE
+SUM = Statistic.SUM
+SAMPLECOUNT = Statistic.SAMPLECOUNT
+MAXIMUM = Statistic.MAXIMUM
+MINIMUM = Statistic.MINIMUM
+HEALTHCHECK = TagResourceType.HEALTHCHECK
+HOSTEDZONE = TagResourceType.HOSTEDZONE
+US_EAST_1 = VPCRegion.US_EAST_1
+US_EAST_2 = VPCRegion.US_EAST_2
+US_WEST_1 = VPCRegion.US_WEST_1
+US_WEST_2 = VPCRegion.US_WEST_2
+EU_WEST_1 = VPCRegion.EU_WEST_1
+EU_WEST_2 = VPCRegion.EU_WEST_2
+EU_WEST_3 = VPCRegion.EU_WEST_3
+EU_CENTRAL_1 = VPCRegion.EU_CENTRAL_1
+EU_CENTRAL_2 = VPCRegion.EU_CENTRAL_2
+AP_EAST_1 = VPCRegion.AP_EAST_1
+ME_SOUTH_1 = VPCRegion.ME_SOUTH_1
+US_GOV_WEST_1 = VPCRegion.US_GOV_WEST_1
+US_GOV_EAST_1 = VPCRegion.US_GOV_EAST_1
+US_ISO_EAST_1 = VPCRegion.US_ISO_EAST_1
+US_ISO_WEST_1 = VPCRegion.US_ISO_WEST_1
+US_ISOB_EAST_1 = VPCRegion.US_ISOB_EAST_1
+ME_CENTRAL_1 = VPCRegion.ME_CENTRAL_1
+AP_SOUTHEAST_1 = VPCRegion.AP_SOUTHEAST_1
+AP_SOUTHEAST_2 = VPCRegion.AP_SOUTHEAST_2
+AP_SOUTHEAST_3 = VPCRegion.AP_SOUTHEAST_3
+AP_SOUTH_1 = VPCRegion.AP_SOUTH_1
+AP_SOUTH_2 = VPCRegion.AP_SOUTH_2
+AP_NORTHEAST_1 = VPCRegion.AP_NORTHEAST_1
+AP_NORTHEAST_2 = VPCRegion.AP_NORTHEAST_2
+AP_NORTHEAST_3 = VPCRegion.AP_NORTHEAST_3
+EU_NORTH_1 = VPCRegion.EU_NORTH_1
+SA_EAST_1 = VPCRegion.SA_EAST_1
+CA_CENTRAL_1 = VPCRegion.CA_CENTRAL_1
+CN_NORTH_1 = VPCRegion.CN_NORTH_1
+CN_NORTHWEST_1 = VPCRegion.CN_NORTHWEST_1
+AF_SOUTH_1 = VPCRegion.AF_SOUTH_1
+EU_SOUTH_1 = VPCRegion.EU_SOUTH_1
+EU_SOUTH_2 = VPCRegion.EU_SOUTH_2
+AP_SOUTHEAST_4 = VPCRegion.AP_SOUTHEAST_4
+IL_CENTRAL_1 = VPCRegion.IL_CENTRAL_1
+CA_WEST_1 = VPCRegion.CA_WEST_1
+AP_SOUTHEAST_5 = VPCRegion.AP_SOUTHEAST_5
+MX_CENTRAL_1 = VPCRegion.MX_CENTRAL_1
+US_ISOF_SOUTH_1 = VPCRegion.US_ISOF_SOUTH_1
+US_ISOF_EAST_1 = VPCRegion.US_ISOF_EAST_1
+AP_SOUTHEAST_7 = VPCRegion.AP_SOUTHEAST_7
+AP_EAST_2 = VPCRegion.AP_EAST_2
+EU_ISOE_WEST_1 = VPCRegion.EU_ISOE_WEST_1
+AP_SOUTHEAST_6 = VPCRegion.AP_SOUTHEAST_6
+US_ISOB_WEST_1 = VPCRegion.US_ISOB_WEST_1
+EUSC_DE_EAST_1 = VPCRegion.EUSC_DE_EAST_1
 
 
 @dataclass
@@ -154,7 +677,7 @@ class AlarmIdentifier:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    region: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    region: Optional[Union[str, CloudWatchRegion, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -202,11 +725,11 @@ class HealthCheckConfig:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     regions: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    insufficient_data_health_status: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    insufficient_data_health_status: Optional[Union[str, InsufficientDataHealthStatus, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     search_string: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    type_: Optional[Union[str, HealthCheckType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -627,7 +1150,7 @@ class VPC:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    vpc_region: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    vpc_region: Optional[Union[str, VPCRegion, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:25
+  Generated: 2025-12-17 16:59:37
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ImageBuilder
@@ -23,6 +23,441 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class BuildType:
+    """BuildType enum values."""
+
+    USER_INITIATED = "USER_INITIATED"
+    SCHEDULED = "SCHEDULED"
+    IMPORT = "IMPORT"
+    IMPORT_ISO = "IMPORT_ISO"
+
+
+class ComponentFormat:
+    """ComponentFormat enum values."""
+
+    SHELL = "SHELL"
+
+
+class ComponentStatus:
+    """ComponentStatus enum values."""
+
+    DEPRECATED = "DEPRECATED"
+    DISABLED = "DISABLED"
+    ACTIVE = "ACTIVE"
+
+
+class ComponentType:
+    """ComponentType enum values."""
+
+    BUILD = "BUILD"
+    TEST = "TEST"
+
+
+class ContainerRepositoryService:
+    """ContainerRepositoryService enum values."""
+
+    ECR = "ECR"
+
+
+class ContainerType:
+    """ContainerType enum values."""
+
+    DOCKER = "DOCKER"
+
+
+class DiskImageFormat:
+    """DiskImageFormat enum values."""
+
+    VMDK = "VMDK"
+    RAW = "RAW"
+    VHD = "VHD"
+
+
+class EbsVolumeType:
+    """EbsVolumeType enum values."""
+
+    STANDARD = "standard"
+    IO1 = "io1"
+    IO2 = "io2"
+    GP2 = "gp2"
+    GP3 = "gp3"
+    SC1 = "sc1"
+    ST1 = "st1"
+
+
+class ImageScanStatus:
+    """ImageScanStatus enum values."""
+
+    PENDING = "PENDING"
+    SCANNING = "SCANNING"
+    COLLECTING = "COLLECTING"
+    COMPLETED = "COMPLETED"
+    ABANDONED = "ABANDONED"
+    FAILED = "FAILED"
+    TIMED_OUT = "TIMED_OUT"
+
+
+class ImageSource:
+    """ImageSource enum values."""
+
+    AMAZON_MANAGED = "AMAZON_MANAGED"
+    AWS_MARKETPLACE = "AWS_MARKETPLACE"
+    IMPORTED = "IMPORTED"
+    CUSTOM = "CUSTOM"
+
+
+class ImageStatus:
+    """ImageStatus enum values."""
+
+    PENDING = "PENDING"
+    CREATING = "CREATING"
+    BUILDING = "BUILDING"
+    TESTING = "TESTING"
+    DISTRIBUTING = "DISTRIBUTING"
+    INTEGRATING = "INTEGRATING"
+    AVAILABLE = "AVAILABLE"
+    CANCELLED = "CANCELLED"
+    FAILED = "FAILED"
+    DEPRECATED = "DEPRECATED"
+    DELETED = "DELETED"
+    DISABLED = "DISABLED"
+
+
+class ImageType:
+    """ImageType enum values."""
+
+    AMI = "AMI"
+    DOCKER = "DOCKER"
+
+
+class LifecycleExecutionResourceActionName:
+    """LifecycleExecutionResourceActionName enum values."""
+
+    AVAILABLE = "AVAILABLE"
+    DELETE = "DELETE"
+    DEPRECATE = "DEPRECATE"
+    DISABLE = "DISABLE"
+
+
+class LifecycleExecutionResourceStatus:
+    """LifecycleExecutionResourceStatus enum values."""
+
+    FAILED = "FAILED"
+    IN_PROGRESS = "IN_PROGRESS"
+    SKIPPED = "SKIPPED"
+    SUCCESS = "SUCCESS"
+
+
+class LifecycleExecutionStatus:
+    """LifecycleExecutionStatus enum values."""
+
+    IN_PROGRESS = "IN_PROGRESS"
+    CANCELLED = "CANCELLED"
+    CANCELLING = "CANCELLING"
+    FAILED = "FAILED"
+    SUCCESS = "SUCCESS"
+    PENDING = "PENDING"
+
+
+class LifecyclePolicyDetailActionType:
+    """LifecyclePolicyDetailActionType enum values."""
+
+    DELETE = "DELETE"
+    DEPRECATE = "DEPRECATE"
+    DISABLE = "DISABLE"
+
+
+class LifecyclePolicyDetailFilterType:
+    """LifecyclePolicyDetailFilterType enum values."""
+
+    AGE = "AGE"
+    COUNT = "COUNT"
+
+
+class LifecyclePolicyResourceType:
+    """LifecyclePolicyResourceType enum values."""
+
+    AMI_IMAGE = "AMI_IMAGE"
+    CONTAINER_IMAGE = "CONTAINER_IMAGE"
+
+
+class LifecyclePolicyStatus:
+    """LifecyclePolicyStatus enum values."""
+
+    DISABLED = "DISABLED"
+    ENABLED = "ENABLED"
+
+
+class LifecyclePolicyTimeUnit:
+    """LifecyclePolicyTimeUnit enum values."""
+
+    DAYS = "DAYS"
+    WEEKS = "WEEKS"
+    MONTHS = "MONTHS"
+    YEARS = "YEARS"
+
+
+class MarketplaceResourceType:
+    """MarketplaceResourceType enum values."""
+
+    COMPONENT_DATA = "COMPONENT_DATA"
+    COMPONENT_ARTIFACT = "COMPONENT_ARTIFACT"
+
+
+class OnWorkflowFailure:
+    """OnWorkflowFailure enum values."""
+
+    CONTINUE = "CONTINUE"
+    ABORT = "ABORT"
+
+
+class Ownership:
+    """Ownership enum values."""
+
+    SELF = "Self"
+    SHARED = "Shared"
+    AMAZON = "Amazon"
+    THIRDPARTY = "ThirdParty"
+    AWSMARKETPLACE = "AWSMarketplace"
+
+
+class PipelineExecutionStartCondition:
+    """PipelineExecutionStartCondition enum values."""
+
+    EXPRESSION_MATCH_ONLY = "EXPRESSION_MATCH_ONLY"
+    EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE = "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE"
+
+
+class PipelineStatus:
+    """PipelineStatus enum values."""
+
+    DISABLED = "DISABLED"
+    ENABLED = "ENABLED"
+
+
+class Platform:
+    """Platform enum values."""
+
+    WINDOWS = "Windows"
+    LINUX = "Linux"
+    MACOS = "macOS"
+
+
+class ProductCodeType:
+    """ProductCodeType enum values."""
+
+    MARKETPLACE = "marketplace"
+
+
+class ResourceStatus:
+    """ResourceStatus enum values."""
+
+    AVAILABLE = "AVAILABLE"
+    DELETED = "DELETED"
+    DEPRECATED = "DEPRECATED"
+    DISABLED = "DISABLED"
+
+
+class SsmParameterDataType:
+    """SsmParameterDataType enum values."""
+
+    TEXT = "text"
+    AWS_EC2_IMAGE = "aws:ec2:image"
+
+
+class TenancyType:
+    """TenancyType enum values."""
+
+    DEFAULT = "default"
+    DEDICATED = "dedicated"
+    HOST = "host"
+
+
+class WorkflowExecutionStatus:
+    """WorkflowExecutionStatus enum values."""
+
+    PENDING = "PENDING"
+    SKIPPED = "SKIPPED"
+    RUNNING = "RUNNING"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
+    ROLLBACK_IN_PROGRESS = "ROLLBACK_IN_PROGRESS"
+    ROLLBACK_COMPLETED = "ROLLBACK_COMPLETED"
+    CANCELLED = "CANCELLED"
+
+
+class WorkflowStatus:
+    """WorkflowStatus enum values."""
+
+    DEPRECATED = "DEPRECATED"
+
+
+class WorkflowStepActionType:
+    """WorkflowStepActionType enum values."""
+
+    RESUME = "RESUME"
+    STOP = "STOP"
+
+
+class WorkflowStepExecutionRollbackStatus:
+    """WorkflowStepExecutionRollbackStatus enum values."""
+
+    RUNNING = "RUNNING"
+    COMPLETED = "COMPLETED"
+    SKIPPED = "SKIPPED"
+    FAILED = "FAILED"
+
+
+class WorkflowStepExecutionStatus:
+    """WorkflowStepExecutionStatus enum values."""
+
+    PENDING = "PENDING"
+    SKIPPED = "SKIPPED"
+    RUNNING = "RUNNING"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
+    CANCELLED = "CANCELLED"
+
+
+class WorkflowType:
+    """WorkflowType enum values."""
+
+    BUILD = "BUILD"
+    TEST = "TEST"
+    DISTRIBUTION = "DISTRIBUTION"
+
+
+# Convenient aliases for enum values
+USER_INITIATED = BuildType.USER_INITIATED
+SCHEDULED = BuildType.SCHEDULED
+IMPORT = BuildType.IMPORT
+IMPORT_ISO = BuildType.IMPORT_ISO
+SHELL = ComponentFormat.SHELL
+DEPRECATED = ComponentStatus.DEPRECATED
+DISABLED = ComponentStatus.DISABLED
+ACTIVE = ComponentStatus.ACTIVE
+BUILD = ComponentType.BUILD
+TEST = ComponentType.TEST
+ECR = ContainerRepositoryService.ECR
+DOCKER = ContainerType.DOCKER
+VMDK = DiskImageFormat.VMDK
+RAW = DiskImageFormat.RAW
+VHD = DiskImageFormat.VHD
+STANDARD = EbsVolumeType.STANDARD
+IO1 = EbsVolumeType.IO1
+IO2 = EbsVolumeType.IO2
+GP2 = EbsVolumeType.GP2
+GP3 = EbsVolumeType.GP3
+SC1 = EbsVolumeType.SC1
+ST1 = EbsVolumeType.ST1
+PENDING = ImageScanStatus.PENDING
+SCANNING = ImageScanStatus.SCANNING
+COLLECTING = ImageScanStatus.COLLECTING
+COMPLETED = ImageScanStatus.COMPLETED
+ABANDONED = ImageScanStatus.ABANDONED
+FAILED = ImageScanStatus.FAILED
+TIMED_OUT = ImageScanStatus.TIMED_OUT
+AMAZON_MANAGED = ImageSource.AMAZON_MANAGED
+AWS_MARKETPLACE = ImageSource.AWS_MARKETPLACE
+IMPORTED = ImageSource.IMPORTED
+CUSTOM = ImageSource.CUSTOM
+PENDING = ImageStatus.PENDING
+CREATING = ImageStatus.CREATING
+BUILDING = ImageStatus.BUILDING
+TESTING = ImageStatus.TESTING
+DISTRIBUTING = ImageStatus.DISTRIBUTING
+INTEGRATING = ImageStatus.INTEGRATING
+AVAILABLE = ImageStatus.AVAILABLE
+CANCELLED = ImageStatus.CANCELLED
+FAILED = ImageStatus.FAILED
+DEPRECATED = ImageStatus.DEPRECATED
+DELETED = ImageStatus.DELETED
+DISABLED = ImageStatus.DISABLED
+AMI = ImageType.AMI
+DOCKER = ImageType.DOCKER
+AVAILABLE = LifecycleExecutionResourceActionName.AVAILABLE
+DELETE = LifecycleExecutionResourceActionName.DELETE
+DEPRECATE = LifecycleExecutionResourceActionName.DEPRECATE
+DISABLE = LifecycleExecutionResourceActionName.DISABLE
+FAILED = LifecycleExecutionResourceStatus.FAILED
+IN_PROGRESS = LifecycleExecutionResourceStatus.IN_PROGRESS
+SKIPPED = LifecycleExecutionResourceStatus.SKIPPED
+SUCCESS = LifecycleExecutionResourceStatus.SUCCESS
+IN_PROGRESS = LifecycleExecutionStatus.IN_PROGRESS
+CANCELLED = LifecycleExecutionStatus.CANCELLED
+CANCELLING = LifecycleExecutionStatus.CANCELLING
+FAILED = LifecycleExecutionStatus.FAILED
+SUCCESS = LifecycleExecutionStatus.SUCCESS
+PENDING = LifecycleExecutionStatus.PENDING
+DELETE = LifecyclePolicyDetailActionType.DELETE
+DEPRECATE = LifecyclePolicyDetailActionType.DEPRECATE
+DISABLE = LifecyclePolicyDetailActionType.DISABLE
+AGE = LifecyclePolicyDetailFilterType.AGE
+COUNT = LifecyclePolicyDetailFilterType.COUNT
+AMI_IMAGE = LifecyclePolicyResourceType.AMI_IMAGE
+CONTAINER_IMAGE = LifecyclePolicyResourceType.CONTAINER_IMAGE
+DISABLED = LifecyclePolicyStatus.DISABLED
+ENABLED = LifecyclePolicyStatus.ENABLED
+DAYS = LifecyclePolicyTimeUnit.DAYS
+WEEKS = LifecyclePolicyTimeUnit.WEEKS
+MONTHS = LifecyclePolicyTimeUnit.MONTHS
+YEARS = LifecyclePolicyTimeUnit.YEARS
+COMPONENT_DATA = MarketplaceResourceType.COMPONENT_DATA
+COMPONENT_ARTIFACT = MarketplaceResourceType.COMPONENT_ARTIFACT
+CONTINUE = OnWorkflowFailure.CONTINUE
+ABORT = OnWorkflowFailure.ABORT
+SELF = Ownership.SELF
+SHARED = Ownership.SHARED
+AMAZON = Ownership.AMAZON
+THIRDPARTY = Ownership.THIRDPARTY
+AWSMARKETPLACE = Ownership.AWSMARKETPLACE
+EXPRESSION_MATCH_ONLY = PipelineExecutionStartCondition.EXPRESSION_MATCH_ONLY
+EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE = PipelineExecutionStartCondition.EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE
+DISABLED = PipelineStatus.DISABLED
+ENABLED = PipelineStatus.ENABLED
+WINDOWS = Platform.WINDOWS
+LINUX = Platform.LINUX
+MACOS = Platform.MACOS
+MARKETPLACE = ProductCodeType.MARKETPLACE
+AVAILABLE = ResourceStatus.AVAILABLE
+DELETED = ResourceStatus.DELETED
+DEPRECATED = ResourceStatus.DEPRECATED
+DISABLED = ResourceStatus.DISABLED
+TEXT = SsmParameterDataType.TEXT
+AWS_EC2_IMAGE = SsmParameterDataType.AWS_EC2_IMAGE
+DEFAULT = TenancyType.DEFAULT
+DEDICATED = TenancyType.DEDICATED
+HOST = TenancyType.HOST
+PENDING = WorkflowExecutionStatus.PENDING
+SKIPPED = WorkflowExecutionStatus.SKIPPED
+RUNNING = WorkflowExecutionStatus.RUNNING
+COMPLETED = WorkflowExecutionStatus.COMPLETED
+FAILED = WorkflowExecutionStatus.FAILED
+ROLLBACK_IN_PROGRESS = WorkflowExecutionStatus.ROLLBACK_IN_PROGRESS
+ROLLBACK_COMPLETED = WorkflowExecutionStatus.ROLLBACK_COMPLETED
+CANCELLED = WorkflowExecutionStatus.CANCELLED
+DEPRECATED = WorkflowStatus.DEPRECATED
+RESUME = WorkflowStepActionType.RESUME
+STOP = WorkflowStepActionType.STOP
+RUNNING = WorkflowStepExecutionRollbackStatus.RUNNING
+COMPLETED = WorkflowStepExecutionRollbackStatus.COMPLETED
+SKIPPED = WorkflowStepExecutionRollbackStatus.SKIPPED
+FAILED = WorkflowStepExecutionRollbackStatus.FAILED
+PENDING = WorkflowStepExecutionStatus.PENDING
+SKIPPED = WorkflowStepExecutionStatus.SKIPPED
+RUNNING = WorkflowStepExecutionStatus.RUNNING
+COMPLETED = WorkflowStepExecutionStatus.COMPLETED
+FAILED = WorkflowStepExecutionStatus.FAILED
+CANCELLED = WorkflowStepExecutionStatus.CANCELLED
+BUILD = WorkflowType.BUILD
+TEST = WorkflowType.TEST
+DISTRIBUTION = WorkflowType.DISTRIBUTION
 
 
 @dataclass

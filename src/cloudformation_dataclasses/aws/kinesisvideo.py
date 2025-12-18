@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:28
+  Generated: 2025-12-17 16:59:37
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service KinesisVideo
@@ -23,6 +23,203 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class APIName:
+    """APIName enum values."""
+
+    PUT_MEDIA = "PUT_MEDIA"
+    GET_MEDIA = "GET_MEDIA"
+    LIST_FRAGMENTS = "LIST_FRAGMENTS"
+    GET_MEDIA_FOR_FRAGMENT_LIST = "GET_MEDIA_FOR_FRAGMENT_LIST"
+    GET_HLS_STREAMING_SESSION_URL = "GET_HLS_STREAMING_SESSION_URL"
+    GET_DASH_STREAMING_SESSION_URL = "GET_DASH_STREAMING_SESSION_URL"
+    GET_CLIP = "GET_CLIP"
+    GET_IMAGES = "GET_IMAGES"
+
+
+class ChannelProtocol:
+    """ChannelProtocol enum values."""
+
+    WSS = "WSS"
+    HTTPS = "HTTPS"
+    WEBRTC = "WEBRTC"
+
+
+class ChannelRole:
+    """ChannelRole enum values."""
+
+    MASTER = "MASTER"
+    VIEWER = "VIEWER"
+
+
+class ChannelType:
+    """ChannelType enum values."""
+
+    SINGLE_MASTER = "SINGLE_MASTER"
+    FULL_MESH = "FULL_MESH"
+
+
+class ComparisonOperator:
+    """ComparisonOperator enum values."""
+
+    BEGINS_WITH = "BEGINS_WITH"
+
+
+class ConfigurationStatus:
+    """ConfigurationStatus enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class DefaultStorageTier:
+    """DefaultStorageTier enum values."""
+
+    HOT = "HOT"
+    WARM = "WARM"
+
+
+class Format:
+    """Format enum values."""
+
+    JPEG = "JPEG"
+    PNG = "PNG"
+
+
+class FormatConfigKey:
+    """FormatConfigKey enum values."""
+
+    JPEGQUALITY = "JPEGQuality"
+
+
+class ImageSelectorType:
+    """ImageSelectorType enum values."""
+
+    SERVER_TIMESTAMP = "SERVER_TIMESTAMP"
+    PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP"
+
+
+class MediaStorageConfigurationStatus:
+    """MediaStorageConfigurationStatus enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class MediaUriType:
+    """MediaUriType enum values."""
+
+    RTSP_URI = "RTSP_URI"
+    FILE_URI = "FILE_URI"
+
+
+class RecorderStatus:
+    """RecorderStatus enum values."""
+
+    SUCCESS = "SUCCESS"
+    USER_ERROR = "USER_ERROR"
+    SYSTEM_ERROR = "SYSTEM_ERROR"
+
+
+class Status:
+    """Status enum values."""
+
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+
+
+class StrategyOnFullSize:
+    """StrategyOnFullSize enum values."""
+
+    DELETE_OLDEST_MEDIA = "DELETE_OLDEST_MEDIA"
+    DENY_NEW_MEDIA = "DENY_NEW_MEDIA"
+
+
+class SyncStatus:
+    """SyncStatus enum values."""
+
+    SYNCING = "SYNCING"
+    ACKNOWLEDGED = "ACKNOWLEDGED"
+    IN_SYNC = "IN_SYNC"
+    SYNC_FAILED = "SYNC_FAILED"
+    DELETING = "DELETING"
+    DELETE_FAILED = "DELETE_FAILED"
+    DELETING_ACKNOWLEDGED = "DELETING_ACKNOWLEDGED"
+
+
+class UpdateDataRetentionOperation:
+    """UpdateDataRetentionOperation enum values."""
+
+    INCREASE_DATA_RETENTION = "INCREASE_DATA_RETENTION"
+    DECREASE_DATA_RETENTION = "DECREASE_DATA_RETENTION"
+
+
+class UploaderStatus:
+    """UploaderStatus enum values."""
+
+    SUCCESS = "SUCCESS"
+    USER_ERROR = "USER_ERROR"
+    SYSTEM_ERROR = "SYSTEM_ERROR"
+
+
+# Convenient aliases for enum values
+PUT_MEDIA = APIName.PUT_MEDIA
+GET_MEDIA = APIName.GET_MEDIA
+LIST_FRAGMENTS = APIName.LIST_FRAGMENTS
+GET_MEDIA_FOR_FRAGMENT_LIST = APIName.GET_MEDIA_FOR_FRAGMENT_LIST
+GET_HLS_STREAMING_SESSION_URL = APIName.GET_HLS_STREAMING_SESSION_URL
+GET_DASH_STREAMING_SESSION_URL = APIName.GET_DASH_STREAMING_SESSION_URL
+GET_CLIP = APIName.GET_CLIP
+GET_IMAGES = APIName.GET_IMAGES
+WSS = ChannelProtocol.WSS
+HTTPS = ChannelProtocol.HTTPS
+WEBRTC = ChannelProtocol.WEBRTC
+MASTER = ChannelRole.MASTER
+VIEWER = ChannelRole.VIEWER
+SINGLE_MASTER = ChannelType.SINGLE_MASTER
+FULL_MESH = ChannelType.FULL_MESH
+BEGINS_WITH = ComparisonOperator.BEGINS_WITH
+ENABLED = ConfigurationStatus.ENABLED
+DISABLED = ConfigurationStatus.DISABLED
+HOT = DefaultStorageTier.HOT
+WARM = DefaultStorageTier.WARM
+JPEG = Format.JPEG
+PNG = Format.PNG
+JPEGQUALITY = FormatConfigKey.JPEGQUALITY
+SERVER_TIMESTAMP = ImageSelectorType.SERVER_TIMESTAMP
+PRODUCER_TIMESTAMP = ImageSelectorType.PRODUCER_TIMESTAMP
+ENABLED = MediaStorageConfigurationStatus.ENABLED
+DISABLED = MediaStorageConfigurationStatus.DISABLED
+RTSP_URI = MediaUriType.RTSP_URI
+FILE_URI = MediaUriType.FILE_URI
+SUCCESS = RecorderStatus.SUCCESS
+USER_ERROR = RecorderStatus.USER_ERROR
+SYSTEM_ERROR = RecorderStatus.SYSTEM_ERROR
+CREATING = Status.CREATING
+ACTIVE = Status.ACTIVE
+UPDATING = Status.UPDATING
+DELETING = Status.DELETING
+DELETE_OLDEST_MEDIA = StrategyOnFullSize.DELETE_OLDEST_MEDIA
+DENY_NEW_MEDIA = StrategyOnFullSize.DENY_NEW_MEDIA
+SYNCING = SyncStatus.SYNCING
+ACKNOWLEDGED = SyncStatus.ACKNOWLEDGED
+IN_SYNC = SyncStatus.IN_SYNC
+SYNC_FAILED = SyncStatus.SYNC_FAILED
+DELETING = SyncStatus.DELETING
+DELETE_FAILED = SyncStatus.DELETE_FAILED
+DELETING_ACKNOWLEDGED = SyncStatus.DELETING_ACKNOWLEDGED
+INCREASE_DATA_RETENTION = UpdateDataRetentionOperation.INCREASE_DATA_RETENTION
+DECREASE_DATA_RETENTION = UpdateDataRetentionOperation.DECREASE_DATA_RETENTION
+SUCCESS = UploaderStatus.SUCCESS
+USER_ERROR = UploaderStatus.USER_ERROR
+SYSTEM_ERROR = UploaderStatus.SYSTEM_ERROR
 
 
 @dataclass
@@ -106,7 +303,7 @@ class StreamStorageConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    default_storage_tier: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    default_storage_tier: Optional[Union[str, DefaultStorageTier, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""

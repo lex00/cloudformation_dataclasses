@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:32
+  Generated: 2025-12-17 16:59:38
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service OpenSearchServerless
@@ -23,6 +23,131 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class AccessPolicyType:
+    """AccessPolicyType enum values."""
+
+    DATA = "data"
+
+
+class CollectionStatus:
+    """CollectionStatus enum values."""
+
+    CREATING = "CREATING"
+    DELETING = "DELETING"
+    ACTIVE = "ACTIVE"
+    FAILED = "FAILED"
+
+
+class CollectionType:
+    """CollectionType enum values."""
+
+    SEARCH = "SEARCH"
+    TIMESERIES = "TIMESERIES"
+    VECTORSEARCH = "VECTORSEARCH"
+
+
+class IamIdentityCenterGroupAttribute:
+    """IamIdentityCenterGroupAttribute enum values."""
+
+    GROUPID = "GroupId"
+    GROUPNAME = "GroupName"
+
+
+class IamIdentityCenterUserAttribute:
+    """IamIdentityCenterUserAttribute enum values."""
+
+    USERID = "UserId"
+    USERNAME = "UserName"
+    EMAIL = "Email"
+
+
+class LifecyclePolicyType:
+    """LifecyclePolicyType enum values."""
+
+    RETENTION = "retention"
+
+
+class ResourceType:
+    """ResourceType enum values."""
+
+    INDEX = "index"
+
+
+class SecurityConfigType:
+    """SecurityConfigType enum values."""
+
+    SAML = "saml"
+    IAMIDENTITYCENTER = "iamidentitycenter"
+    IAMFEDERATION = "iamfederation"
+
+
+class SecurityPolicyType:
+    """SecurityPolicyType enum values."""
+
+    ENCRYPTION = "encryption"
+    NETWORK = "network"
+
+
+class ServerlessVectorAccelerationStatus:
+    """ServerlessVectorAccelerationStatus enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+    ALLOWED = "ALLOWED"
+
+
+class StandbyReplicas:
+    """StandbyReplicas enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class VpcEndpointStatus:
+    """VpcEndpointStatus enum values."""
+
+    PENDING = "PENDING"
+    DELETING = "DELETING"
+    ACTIVE = "ACTIVE"
+    FAILED = "FAILED"
+
+
+# Convenient aliases for enum values
+DATA = AccessPolicyType.DATA
+CREATING = CollectionStatus.CREATING
+DELETING = CollectionStatus.DELETING
+ACTIVE = CollectionStatus.ACTIVE
+FAILED = CollectionStatus.FAILED
+SEARCH = CollectionType.SEARCH
+TIMESERIES = CollectionType.TIMESERIES
+VECTORSEARCH = CollectionType.VECTORSEARCH
+GROUPID = IamIdentityCenterGroupAttribute.GROUPID
+GROUPNAME = IamIdentityCenterGroupAttribute.GROUPNAME
+USERID = IamIdentityCenterUserAttribute.USERID
+USERNAME = IamIdentityCenterUserAttribute.USERNAME
+EMAIL = IamIdentityCenterUserAttribute.EMAIL
+RETENTION = LifecyclePolicyType.RETENTION
+INDEX = ResourceType.INDEX
+SAML = SecurityConfigType.SAML
+IAMIDENTITYCENTER = SecurityConfigType.IAMIDENTITYCENTER
+IAMFEDERATION = SecurityConfigType.IAMFEDERATION
+ENCRYPTION = SecurityPolicyType.ENCRYPTION
+NETWORK = SecurityPolicyType.NETWORK
+ENABLED = ServerlessVectorAccelerationStatus.ENABLED
+DISABLED = ServerlessVectorAccelerationStatus.DISABLED
+ALLOWED = ServerlessVectorAccelerationStatus.ALLOWED
+ENABLED = StandbyReplicas.ENABLED
+DISABLED = StandbyReplicas.DISABLED
+PENDING = VpcEndpointStatus.PENDING
+DELETING = VpcEndpointStatus.DELETING
+ACTIVE = VpcEndpointStatus.ACTIVE
+FAILED = VpcEndpointStatus.FAILED
 
 
 @dataclass

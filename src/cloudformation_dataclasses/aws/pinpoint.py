@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:33
+  Generated: 2025-12-17 16:59:38
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Pinpoint
@@ -23,6 +23,415 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class Action:
+    """Action enum values."""
+
+    OPEN_APP = "OPEN_APP"
+    DEEP_LINK = "DEEP_LINK"
+    URL = "URL"
+
+
+class Alignment:
+    """Alignment enum values."""
+
+    LEFT = "LEFT"
+    CENTER = "CENTER"
+    RIGHT = "RIGHT"
+
+
+class AttributeType:
+    """AttributeType enum values."""
+
+    INCLUSIVE = "INCLUSIVE"
+    EXCLUSIVE = "EXCLUSIVE"
+    CONTAINS = "CONTAINS"
+    BEFORE = "BEFORE"
+    AFTER = "AFTER"
+    ON = "ON"
+    BETWEEN = "BETWEEN"
+
+
+class ButtonAction:
+    """ButtonAction enum values."""
+
+    LINK = "LINK"
+    DEEP_LINK = "DEEP_LINK"
+    CLOSE = "CLOSE"
+
+
+class CampaignStatus:
+    """CampaignStatus enum values."""
+
+    SCHEDULED = "SCHEDULED"
+    EXECUTING = "EXECUTING"
+    PENDING_NEXT_RUN = "PENDING_NEXT_RUN"
+    COMPLETED = "COMPLETED"
+    PAUSED = "PAUSED"
+    DELETED = "DELETED"
+    INVALID = "INVALID"
+
+
+class ChannelType:
+    """ChannelType enum values."""
+
+    PUSH = "PUSH"
+    GCM = "GCM"
+    APNS = "APNS"
+    APNS_SANDBOX = "APNS_SANDBOX"
+    APNS_VOIP = "APNS_VOIP"
+    APNS_VOIP_SANDBOX = "APNS_VOIP_SANDBOX"
+    ADM = "ADM"
+    SMS = "SMS"
+    VOICE = "VOICE"
+    EMAIL = "EMAIL"
+    BAIDU = "BAIDU"
+    CUSTOM = "CUSTOM"
+    IN_APP = "IN_APP"
+
+
+class DayOfWeek:
+    """DayOfWeek enum values."""
+
+    MONDAY = "MONDAY"
+    TUESDAY = "TUESDAY"
+    WEDNESDAY = "WEDNESDAY"
+    THURSDAY = "THURSDAY"
+    FRIDAY = "FRIDAY"
+    SATURDAY = "SATURDAY"
+    SUNDAY = "SUNDAY"
+
+
+class DeliveryStatus:
+    """DeliveryStatus enum values."""
+
+    SUCCESSFUL = "SUCCESSFUL"
+    THROTTLED = "THROTTLED"
+    TEMPORARY_FAILURE = "TEMPORARY_FAILURE"
+    PERMANENT_FAILURE = "PERMANENT_FAILURE"
+    UNKNOWN_FAILURE = "UNKNOWN_FAILURE"
+    OPT_OUT = "OPT_OUT"
+    DUPLICATE = "DUPLICATE"
+
+
+class DimensionType:
+    """DimensionType enum values."""
+
+    INCLUSIVE = "INCLUSIVE"
+    EXCLUSIVE = "EXCLUSIVE"
+
+
+class Duration:
+    """Duration enum values."""
+
+    HR_24 = "HR_24"
+    DAY_7 = "DAY_7"
+    DAY_14 = "DAY_14"
+    DAY_30 = "DAY_30"
+
+
+class FilterType:
+    """FilterType enum values."""
+
+    SYSTEM = "SYSTEM"
+    ENDPOINT = "ENDPOINT"
+
+
+class Format:
+    """Format enum values."""
+
+    CSV = "CSV"
+    JSON = "JSON"
+
+
+class Frequency:
+    """Frequency enum values."""
+
+    ONCE = "ONCE"
+    HOURLY = "HOURLY"
+    DAILY = "DAILY"
+    WEEKLY = "WEEKLY"
+    MONTHLY = "MONTHLY"
+    EVENT = "EVENT"
+    IN_APP_EVENT = "IN_APP_EVENT"
+
+
+class Include:
+    """Include enum values."""
+
+    ALL = "ALL"
+    ANY = "ANY"
+    NONE = "NONE"
+
+
+class JobStatus:
+    """JobStatus enum values."""
+
+    CREATED = "CREATED"
+    PREPARING_FOR_INITIALIZATION = "PREPARING_FOR_INITIALIZATION"
+    INITIALIZING = "INITIALIZING"
+    PROCESSING = "PROCESSING"
+    PENDING_JOB = "PENDING_JOB"
+    COMPLETING = "COMPLETING"
+    COMPLETED = "COMPLETED"
+    FAILING = "FAILING"
+    FAILED = "FAILED"
+
+
+class JourneyRunStatus:
+    """JourneyRunStatus enum values."""
+
+    SCHEDULED = "SCHEDULED"
+    RUNNING = "RUNNING"
+    COMPLETED = "COMPLETED"
+    CANCELLED = "CANCELLED"
+
+
+class Layout:
+    """Layout enum values."""
+
+    BOTTOM_BANNER = "BOTTOM_BANNER"
+    TOP_BANNER = "TOP_BANNER"
+    OVERLAYS = "OVERLAYS"
+    MOBILE_FEED = "MOBILE_FEED"
+    MIDDLE_BANNER = "MIDDLE_BANNER"
+    CAROUSEL = "CAROUSEL"
+
+
+class MessageType:
+    """MessageType enum values."""
+
+    TRANSACTIONAL = "TRANSACTIONAL"
+    PROMOTIONAL = "PROMOTIONAL"
+
+
+class Mode:
+    """Mode enum values."""
+
+    DELIVERY = "DELIVERY"
+    FILTER = "FILTER"
+
+
+class Operator:
+    """Operator enum values."""
+
+    ALL = "ALL"
+    ANY = "ANY"
+
+
+class RecencyType:
+    """RecencyType enum values."""
+
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
+
+
+class SegmentType:
+    """SegmentType enum values."""
+
+    DIMENSIONAL = "DIMENSIONAL"
+    IMPORT = "IMPORT"
+
+
+class SourceType:
+    """SourceType enum values."""
+
+    ALL = "ALL"
+    ANY = "ANY"
+    NONE = "NONE"
+
+
+class State:
+    """State enum values."""
+
+    DRAFT = "DRAFT"
+    ACTIVE = "ACTIVE"
+    COMPLETED = "COMPLETED"
+    CANCELLED = "CANCELLED"
+    CLOSED = "CLOSED"
+    PAUSED = "PAUSED"
+
+
+class TemplateType:
+    """TemplateType enum values."""
+
+    EMAIL = "EMAIL"
+    SMS = "SMS"
+    VOICE = "VOICE"
+    PUSH = "PUSH"
+    INAPP = "INAPP"
+
+
+class Type:
+    """Type enum values."""
+
+    ALL = "ALL"
+    ANY = "ANY"
+    NONE = "NONE"
+
+
+class __EndpointTypesElement:
+    """__EndpointTypesElement enum values."""
+
+    PUSH = "PUSH"
+    GCM = "GCM"
+    APNS = "APNS"
+    APNS_SANDBOX = "APNS_SANDBOX"
+    APNS_VOIP = "APNS_VOIP"
+    APNS_VOIP_SANDBOX = "APNS_VOIP_SANDBOX"
+    ADM = "ADM"
+    SMS = "SMS"
+    VOICE = "VOICE"
+    EMAIL = "EMAIL"
+    BAIDU = "BAIDU"
+    CUSTOM = "CUSTOM"
+    IN_APP = "IN_APP"
+
+
+class __TimezoneEstimationMethodsElement:
+    """__TimezoneEstimationMethodsElement enum values."""
+
+    PHONE_NUMBER = "PHONE_NUMBER"
+    POSTAL_CODE = "POSTAL_CODE"
+
+
+# Convenient aliases for enum values
+OPEN_APP = Action.OPEN_APP
+DEEP_LINK = Action.DEEP_LINK
+URL = Action.URL
+LEFT = Alignment.LEFT
+CENTER = Alignment.CENTER
+RIGHT = Alignment.RIGHT
+INCLUSIVE = AttributeType.INCLUSIVE
+EXCLUSIVE = AttributeType.EXCLUSIVE
+CONTAINS = AttributeType.CONTAINS
+BEFORE = AttributeType.BEFORE
+AFTER = AttributeType.AFTER
+ON = AttributeType.ON
+BETWEEN = AttributeType.BETWEEN
+LINK = ButtonAction.LINK
+DEEP_LINK = ButtonAction.DEEP_LINK
+CLOSE = ButtonAction.CLOSE
+SCHEDULED = CampaignStatus.SCHEDULED
+EXECUTING = CampaignStatus.EXECUTING
+PENDING_NEXT_RUN = CampaignStatus.PENDING_NEXT_RUN
+COMPLETED = CampaignStatus.COMPLETED
+PAUSED = CampaignStatus.PAUSED
+DELETED = CampaignStatus.DELETED
+INVALID = CampaignStatus.INVALID
+PUSH = ChannelType.PUSH
+GCM = ChannelType.GCM
+APNS = ChannelType.APNS
+APNS_SANDBOX = ChannelType.APNS_SANDBOX
+APNS_VOIP = ChannelType.APNS_VOIP
+APNS_VOIP_SANDBOX = ChannelType.APNS_VOIP_SANDBOX
+ADM = ChannelType.ADM
+SMS = ChannelType.SMS
+VOICE = ChannelType.VOICE
+EMAIL = ChannelType.EMAIL
+BAIDU = ChannelType.BAIDU
+CUSTOM = ChannelType.CUSTOM
+IN_APP = ChannelType.IN_APP
+MONDAY = DayOfWeek.MONDAY
+TUESDAY = DayOfWeek.TUESDAY
+WEDNESDAY = DayOfWeek.WEDNESDAY
+THURSDAY = DayOfWeek.THURSDAY
+FRIDAY = DayOfWeek.FRIDAY
+SATURDAY = DayOfWeek.SATURDAY
+SUNDAY = DayOfWeek.SUNDAY
+SUCCESSFUL = DeliveryStatus.SUCCESSFUL
+THROTTLED = DeliveryStatus.THROTTLED
+TEMPORARY_FAILURE = DeliveryStatus.TEMPORARY_FAILURE
+PERMANENT_FAILURE = DeliveryStatus.PERMANENT_FAILURE
+UNKNOWN_FAILURE = DeliveryStatus.UNKNOWN_FAILURE
+OPT_OUT = DeliveryStatus.OPT_OUT
+DUPLICATE = DeliveryStatus.DUPLICATE
+INCLUSIVE = DimensionType.INCLUSIVE
+EXCLUSIVE = DimensionType.EXCLUSIVE
+HR_24 = Duration.HR_24
+DAY_7 = Duration.DAY_7
+DAY_14 = Duration.DAY_14
+DAY_30 = Duration.DAY_30
+SYSTEM = FilterType.SYSTEM
+ENDPOINT = FilterType.ENDPOINT
+CSV = Format.CSV
+JSON = Format.JSON
+ONCE = Frequency.ONCE
+HOURLY = Frequency.HOURLY
+DAILY = Frequency.DAILY
+WEEKLY = Frequency.WEEKLY
+MONTHLY = Frequency.MONTHLY
+EVENT = Frequency.EVENT
+IN_APP_EVENT = Frequency.IN_APP_EVENT
+ALL = Include.ALL
+ANY = Include.ANY
+NONE = Include.NONE
+CREATED = JobStatus.CREATED
+PREPARING_FOR_INITIALIZATION = JobStatus.PREPARING_FOR_INITIALIZATION
+INITIALIZING = JobStatus.INITIALIZING
+PROCESSING = JobStatus.PROCESSING
+PENDING_JOB = JobStatus.PENDING_JOB
+COMPLETING = JobStatus.COMPLETING
+COMPLETED = JobStatus.COMPLETED
+FAILING = JobStatus.FAILING
+FAILED = JobStatus.FAILED
+SCHEDULED = JourneyRunStatus.SCHEDULED
+RUNNING = JourneyRunStatus.RUNNING
+COMPLETED = JourneyRunStatus.COMPLETED
+CANCELLED = JourneyRunStatus.CANCELLED
+BOTTOM_BANNER = Layout.BOTTOM_BANNER
+TOP_BANNER = Layout.TOP_BANNER
+OVERLAYS = Layout.OVERLAYS
+MOBILE_FEED = Layout.MOBILE_FEED
+MIDDLE_BANNER = Layout.MIDDLE_BANNER
+CAROUSEL = Layout.CAROUSEL
+TRANSACTIONAL = MessageType.TRANSACTIONAL
+PROMOTIONAL = MessageType.PROMOTIONAL
+DELIVERY = Mode.DELIVERY
+FILTER = Mode.FILTER
+ALL = Operator.ALL
+ANY = Operator.ANY
+ACTIVE = RecencyType.ACTIVE
+INACTIVE = RecencyType.INACTIVE
+DIMENSIONAL = SegmentType.DIMENSIONAL
+IMPORT = SegmentType.IMPORT
+ALL = SourceType.ALL
+ANY = SourceType.ANY
+NONE = SourceType.NONE
+DRAFT = State.DRAFT
+ACTIVE = State.ACTIVE
+COMPLETED = State.COMPLETED
+CANCELLED = State.CANCELLED
+CLOSED = State.CLOSED
+PAUSED = State.PAUSED
+EMAIL = TemplateType.EMAIL
+SMS = TemplateType.SMS
+VOICE = TemplateType.VOICE
+PUSH = TemplateType.PUSH
+INAPP = TemplateType.INAPP
+ALL = Type.ALL
+ANY = Type.ANY
+NONE = Type.NONE
+PUSH = __EndpointTypesElement.PUSH
+GCM = __EndpointTypesElement.GCM
+APNS = __EndpointTypesElement.APNS
+APNS_SANDBOX = __EndpointTypesElement.APNS_SANDBOX
+APNS_VOIP = __EndpointTypesElement.APNS_VOIP
+APNS_VOIP_SANDBOX = __EndpointTypesElement.APNS_VOIP_SANDBOX
+ADM = __EndpointTypesElement.ADM
+SMS = __EndpointTypesElement.SMS
+VOICE = __EndpointTypesElement.VOICE
+EMAIL = __EndpointTypesElement.EMAIL
+BAIDU = __EndpointTypesElement.BAIDU
+CUSTOM = __EndpointTypesElement.CUSTOM
+IN_APP = __EndpointTypesElement.IN_APP
+PHONE_NUMBER = __TimezoneEstimationMethodsElement.PHONE_NUMBER
+POSTAL_CODE = __TimezoneEstimationMethodsElement.POSTAL_CODE
 
 
 @dataclass
@@ -751,7 +1160,7 @@ class CampaignHook:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    mode: Optional[Union[str, Mode, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     web_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1069,7 +1478,7 @@ class AttributeDimension:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    attribute_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    attribute_type: Optional[Union[str, AttributeType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     values: Optional[Union[list[str], Ref]] = None
 
@@ -1196,7 +1605,7 @@ class CampaignEventFilter:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    filter_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    filter_type: Optional[Union[str, FilterType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dimensions: Optional[EventDimensions] = None
 
@@ -1234,7 +1643,7 @@ class CampaignHook:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    mode: Optional[Union[str, Mode, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     web_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1287,7 +1696,7 @@ class CampaignInAppMessage:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_config: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    layout: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    layout: Optional[Union[str, Layout, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     content: Optional[list[InAppMessageContent]] = None
 
@@ -1344,7 +1753,7 @@ class CampaignSmsMessage:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     body: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    message_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    message_type: Optional[Union[str, MessageType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     template_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -1464,7 +1873,7 @@ class DefaultButtonConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    button_action: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    button_action: Optional[Union[str, ButtonAction, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     border_radius: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1605,7 +2014,7 @@ class InAppMessageBodyConfig:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    alignment: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    alignment: Optional[Union[str, Alignment, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_color: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1810,7 +2219,7 @@ class InAppMessageHeaderConfig:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    alignment: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    alignment: Optional[Union[str, Alignment, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1940,7 +2349,7 @@ class Message:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     json_body: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    action: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    action: Optional[Union[str, Action, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     media_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -2273,7 +2682,7 @@ class OverrideButtonConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    button_action: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    button_action: Optional[Union[str, ButtonAction, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     link: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -2357,7 +2766,7 @@ class Schedule:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start_time: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    frequency: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    frequency: Optional[Union[str, Frequency, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     event_filter: Optional[CampaignEventFilter] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -2452,7 +2861,7 @@ class SetDimension:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    dimension_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    dimension_type: Optional[Union[str, DimensionType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     values: Optional[Union[list[str], Ref]] = None
 
@@ -3494,7 +3903,7 @@ class DefaultButtonConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     border_radius: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    button_action: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    button_action: Optional[Union[str, ButtonAction, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -3723,7 +4132,7 @@ class OverrideButtonConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    button_action: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    button_action: Optional[Union[str, ButtonAction, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     link: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
@@ -3867,7 +4276,7 @@ class APNSPushNotificationTemplate:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    action: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    action: Optional[Union[str, Action, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     media_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -3957,7 +4366,7 @@ class AndroidPushNotificationTemplate:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    action: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    action: Optional[Union[str, Action, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -4073,7 +4482,7 @@ class DefaultPushNotificationTemplate:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    action: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    action: Optional[Union[str, Action, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     title: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -4376,7 +4785,7 @@ class AttributeDimension:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    attribute_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    attribute_type: Optional[Union[str, AttributeType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     values: Optional[Union[list[str], Ref]] = None
 
@@ -4873,7 +5282,7 @@ class SetDimension:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    dimension_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    dimension_type: Optional[Union[str, DimensionType, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     values: Optional[Union[list[str], Ref]] = None
 

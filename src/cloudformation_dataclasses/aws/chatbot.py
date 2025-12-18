@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:15
+  Generated: 2025-12-17 16:59:35
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Chatbot
@@ -23,6 +23,22 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class CustomActionAttachmentCriteriaOperator:
+    """CustomActionAttachmentCriteriaOperator enum values."""
+
+    HAS_VALUE = "HAS_VALUE"
+    EQUALS = "EQUALS"
+
+
+# Convenient aliases for enum values
+HAS_VALUE = CustomActionAttachmentCriteriaOperator.HAS_VALUE
+EQUALS = CustomActionAttachmentCriteriaOperator.EQUALS
 
 
 @dataclass
@@ -94,7 +110,7 @@ class CustomActionAttachmentCriteria:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cha"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    operator: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    operator: Optional[Union[str, CustomActionAttachmentCriteriaOperator, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     variable_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid

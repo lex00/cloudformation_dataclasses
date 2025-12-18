@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:21:24
+  Generated: 2025-12-17 16:59:36
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service HealthLake
@@ -23,6 +23,107 @@ from typing import Any, ClassVar, Optional, Union
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# =============================================================================
+# Service Constants (auto-generated from botocore)
+# =============================================================================
+
+class AuthorizationStrategy:
+    """AuthorizationStrategy enum values."""
+
+    SMART_ON_FHIR_V1 = "SMART_ON_FHIR_V1"
+    SMART_ON_FHIR = "SMART_ON_FHIR"
+    AWS_AUTH = "AWS_AUTH"
+
+
+class CmkType:
+    """CmkType enum values."""
+
+    CUSTOMER_MANAGED_KMS_KEY = "CUSTOMER_MANAGED_KMS_KEY"
+    AWS_OWNED_KMS_KEY = "AWS_OWNED_KMS_KEY"
+
+
+class DatastoreStatus:
+    """DatastoreStatus enum values."""
+
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    DELETING = "DELETING"
+    DELETED = "DELETED"
+    CREATE_FAILED = "CREATE_FAILED"
+
+
+class ErrorCategory:
+    """ErrorCategory enum values."""
+
+    RETRYABLE_ERROR = "RETRYABLE_ERROR"
+    NON_RETRYABLE_ERROR = "NON_RETRYABLE_ERROR"
+
+
+class FHIRVersion:
+    """FHIRVersion enum values."""
+
+    R4 = "R4"
+
+
+class JobStatus:
+    """JobStatus enum values."""
+
+    SUBMITTED = "SUBMITTED"
+    QUEUED = "QUEUED"
+    IN_PROGRESS = "IN_PROGRESS"
+    COMPLETED_WITH_ERRORS = "COMPLETED_WITH_ERRORS"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
+    CANCEL_SUBMITTED = "CANCEL_SUBMITTED"
+    CANCEL_IN_PROGRESS = "CANCEL_IN_PROGRESS"
+    CANCEL_COMPLETED = "CANCEL_COMPLETED"
+    CANCEL_FAILED = "CANCEL_FAILED"
+
+
+class PreloadDataType:
+    """PreloadDataType enum values."""
+
+    SYNTHEA = "SYNTHEA"
+
+
+class ValidationLevel:
+    """ValidationLevel enum values."""
+
+    STRICT = "strict"
+    STRUCTURE_ONLY = "structure-only"
+    MINIMAL = "minimal"
+
+
+# Convenient aliases for enum values
+SMART_ON_FHIR_V1 = AuthorizationStrategy.SMART_ON_FHIR_V1
+SMART_ON_FHIR = AuthorizationStrategy.SMART_ON_FHIR
+AWS_AUTH = AuthorizationStrategy.AWS_AUTH
+CUSTOMER_MANAGED_KMS_KEY = CmkType.CUSTOMER_MANAGED_KMS_KEY
+AWS_OWNED_KMS_KEY = CmkType.AWS_OWNED_KMS_KEY
+CREATING = DatastoreStatus.CREATING
+ACTIVE = DatastoreStatus.ACTIVE
+DELETING = DatastoreStatus.DELETING
+DELETED = DatastoreStatus.DELETED
+CREATE_FAILED = DatastoreStatus.CREATE_FAILED
+RETRYABLE_ERROR = ErrorCategory.RETRYABLE_ERROR
+NON_RETRYABLE_ERROR = ErrorCategory.NON_RETRYABLE_ERROR
+R4 = FHIRVersion.R4
+SUBMITTED = JobStatus.SUBMITTED
+QUEUED = JobStatus.QUEUED
+IN_PROGRESS = JobStatus.IN_PROGRESS
+COMPLETED_WITH_ERRORS = JobStatus.COMPLETED_WITH_ERRORS
+COMPLETED = JobStatus.COMPLETED
+FAILED = JobStatus.FAILED
+CANCEL_SUBMITTED = JobStatus.CANCEL_SUBMITTED
+CANCEL_IN_PROGRESS = JobStatus.CANCEL_IN_PROGRESS
+CANCEL_COMPLETED = JobStatus.CANCEL_COMPLETED
+CANCEL_FAILED = JobStatus.CANCEL_FAILED
+SYNTHEA = PreloadDataType.SYNTHEA
+STRICT = ValidationLevel.STRICT
+STRUCTURE_ONLY = ValidationLevel.STRUCTURE_ONLY
+MINIMAL = ValidationLevel.MINIMAL
 
 
 @dataclass
@@ -68,7 +169,7 @@ class IdentityProviderConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-hea"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    authorization_strategy: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    authorization_strategy: Optional[Union[str, AuthorizationStrategy, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     idp_lambda_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -134,7 +235,7 @@ class KmsEncryptionConfig:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    cmk_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    cmk_type: Optional[Union[str, CmkType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
@@ -170,7 +271,7 @@ class PreloadDataConfig:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-hea"""
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
-    preload_data_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    preload_data_type: Optional[Union[str, PreloadDataType, Ref, GetAtt, Sub]] = None
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
