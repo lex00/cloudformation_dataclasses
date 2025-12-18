@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DataPipeline
@@ -60,8 +60,6 @@ FALSE = TaskStatus.FALSE
 
 @dataclass
 class Field(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ref_value": "RefValue",
         "string_value": "StringValue",
@@ -75,8 +73,6 @@ class Field(PropertyType):
 
 @dataclass
 class ParameterAttribute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "string_value": "StringValue",
         "key": "Key",
@@ -88,8 +84,6 @@ class ParameterAttribute(PropertyType):
 
 @dataclass
 class ParameterObject(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attributes": "Attributes",
         "id": "Id",
@@ -101,8 +95,6 @@ class ParameterObject(PropertyType):
 
 @dataclass
 class ParameterValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id": "Id",
         "string_value": "StringValue",
@@ -114,8 +106,6 @@ class ParameterValue(PropertyType):
 
 @dataclass
 class PipelineObject(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fields": "Fields",
         "id": "Id",
@@ -129,8 +119,6 @@ class PipelineObject(PropertyType):
 
 @dataclass
 class PipelineTag(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",

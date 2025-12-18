@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ManagedBlockchain
@@ -242,8 +242,6 @@ class Accessor(CloudFormationResource):
 
 @dataclass
 class ApprovalThresholdPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-man"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "threshold_comparator": "ThresholdComparator",
         "threshold_percentage": "ThresholdPercentage",
@@ -257,8 +255,6 @@ class ApprovalThresholdPolicy(PropertyType):
 
 @dataclass
 class MemberConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-man"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "member_framework_configuration": "MemberFrameworkConfiguration",
@@ -272,8 +268,6 @@ class MemberConfiguration(PropertyType):
 
 @dataclass
 class MemberFabricConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-man"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "admin_username": "AdminUsername",
         "admin_password": "AdminPassword",
@@ -285,8 +279,6 @@ class MemberFabricConfiguration(PropertyType):
 
 @dataclass
 class MemberFrameworkConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-man"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "member_fabric_configuration": "MemberFabricConfiguration",
     }
@@ -296,8 +288,6 @@ class MemberFrameworkConfiguration(PropertyType):
 
 @dataclass
 class NetworkConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-man"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "framework_version": "FrameworkVersion",
@@ -317,8 +307,6 @@ class NetworkConfiguration(PropertyType):
 
 @dataclass
 class NetworkFabricConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-man"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "edition": "Edition",
     }
@@ -328,8 +316,6 @@ class NetworkFabricConfiguration(PropertyType):
 
 @dataclass
 class NetworkFrameworkConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-man"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_fabric_configuration": "NetworkFabricConfiguration",
     }
@@ -339,8 +325,6 @@ class NetworkFrameworkConfiguration(PropertyType):
 
 @dataclass
 class VotingPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-man"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "approval_threshold_policy": "ApprovalThresholdPolicy",
     }
@@ -380,8 +364,6 @@ class Member(CloudFormationResource):
 
 @dataclass
 class NodeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-man"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_zone": "AvailabilityZone",
         "instance_type": "InstanceType",

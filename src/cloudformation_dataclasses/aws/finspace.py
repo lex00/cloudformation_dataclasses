@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service FinSpace
@@ -331,8 +331,6 @@ SUCCESSFULLY_UPDATED = tgwStatus.SUCCESSFULLY_UPDATED
 
 @dataclass
 class AttributeMapItems(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -344,8 +342,6 @@ class AttributeMapItems(PropertyType):
 
 @dataclass
 class FederationParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_map": "AttributeMap",
         "federation_provider_name": "FederationProviderName",
@@ -365,8 +361,6 @@ class FederationParameters(PropertyType):
 
 @dataclass
 class SuperuserParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "first_name": "FirstName",
         "last_name": "LastName",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service StepFunctions
@@ -354,8 +354,6 @@ INVALID_ROUTING_CONFIGURATION = ValidationExceptionReason.INVALID_ROUTING_CONFIG
 
 @dataclass
 class EncryptionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ste"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "kms_key_id": "KmsKeyId",
@@ -369,8 +367,6 @@ class EncryptionConfiguration(PropertyType):
 
 @dataclass
 class TagsEntry(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ste"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -410,8 +406,6 @@ class Activity(CloudFormationResource):
 
 @dataclass
 class CloudWatchLogsLogGroup(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ste"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group_arn": "LogGroupArn",
     }
@@ -421,8 +415,6 @@ class CloudWatchLogsLogGroup(PropertyType):
 
 @dataclass
 class EncryptionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ste"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "kms_key_id": "KmsKeyId",
@@ -436,8 +428,6 @@ class EncryptionConfiguration(PropertyType):
 
 @dataclass
 class LogDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ste"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_logs_log_group": "CloudWatchLogsLogGroup",
     }
@@ -447,8 +437,6 @@ class LogDestination(PropertyType):
 
 @dataclass
 class LoggingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ste"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_execution_data": "IncludeExecutionData",
         "destinations": "Destinations",
@@ -462,8 +450,6 @@ class LoggingConfiguration(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ste"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "version": "Version",
@@ -477,8 +463,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class TagsEntry(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ste"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -490,8 +474,6 @@ class TagsEntry(PropertyType):
 
 @dataclass
 class TracingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ste"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -550,8 +532,6 @@ class StateMachine(CloudFormationResource):
 
 @dataclass
 class DeploymentPreference(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ste"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "state_machine_version_arn": "StateMachineVersionArn",
@@ -569,8 +549,6 @@ class DeploymentPreference(PropertyType):
 
 @dataclass
 class RoutingConfigurationVersion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ste"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state_machine_version_arn": "StateMachineVersionArn",
         "weight": "Weight",

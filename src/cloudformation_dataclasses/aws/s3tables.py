@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service S3Tables
@@ -187,8 +187,6 @@ class Namespace(CloudFormationResource):
 
 @dataclass
 class Compaction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3t"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "target_file_size_mb": "TargetFileSizeMB",
@@ -200,8 +198,6 @@ class Compaction(PropertyType):
 
 @dataclass
 class IcebergMetadata(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3t"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iceberg_schema": "IcebergSchema",
     }
@@ -211,8 +207,6 @@ class IcebergMetadata(PropertyType):
 
 @dataclass
 class IcebergSchema(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3t"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schema_field_list": "SchemaFieldList",
     }
@@ -222,8 +216,6 @@ class IcebergSchema(PropertyType):
 
 @dataclass
 class SchemaField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3t"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "required": "Required",
@@ -237,8 +229,6 @@ class SchemaField(PropertyType):
 
 @dataclass
 class SnapshotManagement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3t"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "min_snapshots_to_keep": "MinSnapshotsToKeep",
@@ -252,8 +242,6 @@ class SnapshotManagement(PropertyType):
 
 @dataclass
 class StorageClassConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3t"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_class": "StorageClass",
     }
@@ -310,8 +298,6 @@ class Table(CloudFormationResource):
 
 @dataclass
 class EncryptionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3t"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KMSKeyArn",
         "sse_algorithm": "SSEAlgorithm",
@@ -323,8 +309,6 @@ class EncryptionConfiguration(PropertyType):
 
 @dataclass
 class MetricsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3t"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
     }
@@ -334,8 +318,6 @@ class MetricsConfiguration(PropertyType):
 
 @dataclass
 class StorageClassConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3t"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_class": "StorageClass",
     }
@@ -345,8 +327,6 @@ class StorageClassConfiguration(PropertyType):
 
 @dataclass
 class UnreferencedFileRemoval(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3t"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "noncurrent_days": "NoncurrentDays",

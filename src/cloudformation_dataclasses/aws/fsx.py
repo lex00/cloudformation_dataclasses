@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service FSx
@@ -888,8 +888,6 @@ SINGLE_AZ_2 = WindowsDeploymentType.SINGLE_AZ_2
 
 @dataclass
 class AutoExportPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "events": "Events",
     }
@@ -899,8 +897,6 @@ class AutoExportPolicy(PropertyType):
 
 @dataclass
 class AutoImportPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "events": "Events",
     }
@@ -910,8 +906,6 @@ class AutoImportPolicy(PropertyType):
 
 @dataclass
 class S3(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_import_policy": "AutoImportPolicy",
         "auto_export_policy": "AutoExportPolicy",
@@ -959,8 +953,6 @@ class DataRepositoryAssociation(CloudFormationResource):
 
 @dataclass
 class AuditLogConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file_access_audit_log_level": "FileAccessAuditLogLevel",
         "file_share_access_audit_log_level": "FileShareAccessAuditLogLevel",
@@ -974,8 +966,6 @@ class AuditLogConfiguration(PropertyType):
 
 @dataclass
 class ClientConfigurations(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "options": "Options",
         "clients": "Clients",
@@ -987,8 +977,6 @@ class ClientConfigurations(PropertyType):
 
 @dataclass
 class DataReadCacheConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sizing_mode": "SizingMode",
         "size_gi_b": "SizeGiB",
@@ -1000,8 +988,6 @@ class DataReadCacheConfiguration(PropertyType):
 
 @dataclass
 class DiskIopsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
         "iops": "Iops",
@@ -1013,8 +999,6 @@ class DiskIopsConfiguration(PropertyType):
 
 @dataclass
 class LustreConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "drive_cache_type": "DriveCacheType",
         "auto_import_policy": "AutoImportPolicy",
@@ -1054,8 +1038,6 @@ class LustreConfiguration(PropertyType):
 
 @dataclass
 class MetadataConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
         "iops": "Iops",
@@ -1067,8 +1049,6 @@ class MetadataConfiguration(PropertyType):
 
 @dataclass
 class NfsExports(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_configurations": "ClientConfigurations",
     }
@@ -1078,8 +1058,6 @@ class NfsExports(PropertyType):
 
 @dataclass
 class OntapConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ha_pairs": "HAPairs",
         "fsx_admin_password": "FsxAdminPassword",
@@ -1113,8 +1091,6 @@ class OntapConfiguration(PropertyType):
 
 @dataclass
 class OpenZFSConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "options": "Options",
         "copy_tags_to_volumes": "CopyTagsToVolumes",
@@ -1152,8 +1128,6 @@ class OpenZFSConfiguration(PropertyType):
 
 @dataclass
 class ReadCacheConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sizing_mode": "SizingMode",
         "size_gi_b": "SizeGiB",
@@ -1165,8 +1139,6 @@ class ReadCacheConfiguration(PropertyType):
 
 @dataclass
 class RootVolumeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "read_only": "ReadOnly",
         "data_compression_type": "DataCompressionType",
@@ -1186,8 +1158,6 @@ class RootVolumeConfiguration(PropertyType):
 
 @dataclass
 class SelfManagedActiveDirectoryConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file_system_administrators_group": "FileSystemAdministratorsGroup",
         "user_name": "UserName",
@@ -1209,8 +1179,6 @@ class SelfManagedActiveDirectoryConfiguration(PropertyType):
 
 @dataclass
 class UserAndGroupQuotas(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "id": "Id",
@@ -1224,8 +1192,6 @@ class UserAndGroupQuotas(PropertyType):
 
 @dataclass
 class WindowsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "self_managed_active_directory_configuration": "SelfManagedActiveDirectoryConfiguration",
         "audit_log_configuration": "AuditLogConfiguration",
@@ -1317,8 +1283,6 @@ class FileSystem(CloudFormationResource):
 
 @dataclass
 class FileSystemGID(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "gid": "Gid",
     }
@@ -1328,8 +1292,6 @@ class FileSystemGID(PropertyType):
 
 @dataclass
 class OntapFileSystemIdentity(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "unix_user": "UnixUser",
@@ -1343,8 +1305,6 @@ class OntapFileSystemIdentity(PropertyType):
 
 @dataclass
 class OntapUnixFileSystemUser(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -1354,8 +1314,6 @@ class OntapUnixFileSystemUser(PropertyType):
 
 @dataclass
 class OntapWindowsFileSystemUser(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -1365,8 +1323,6 @@ class OntapWindowsFileSystemUser(PropertyType):
 
 @dataclass
 class OpenZFSFileSystemIdentity(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "posix_user": "PosixUser",
@@ -1378,8 +1334,6 @@ class OpenZFSFileSystemIdentity(PropertyType):
 
 @dataclass
 class OpenZFSPosixFileSystemUser(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uid": "Uid",
         "secondary_gids": "SecondaryGids",
@@ -1393,8 +1347,6 @@ class OpenZFSPosixFileSystemUser(PropertyType):
 
 @dataclass
 class S3AccessPoint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
         "resource_arn": "ResourceARN",
@@ -1410,8 +1362,6 @@ class S3AccessPoint(PropertyType):
 
 @dataclass
 class S3AccessPointOntapConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "volume_id": "VolumeId",
         "file_system_identity": "FileSystemIdentity",
@@ -1423,8 +1373,6 @@ class S3AccessPointOntapConfiguration(PropertyType):
 
 @dataclass
 class S3AccessPointOpenZFSConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "volume_id": "VolumeId",
         "file_system_identity": "FileSystemIdentity",
@@ -1436,8 +1384,6 @@ class S3AccessPointOpenZFSConfiguration(PropertyType):
 
 @dataclass
 class S3AccessPointVpcConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_id": "VpcId",
     }
@@ -1502,8 +1448,6 @@ class Snapshot(CloudFormationResource):
 
 @dataclass
 class ActiveDirectoryConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "self_managed_active_directory_configuration": "SelfManagedActiveDirectoryConfiguration",
         "net_bios_name": "NetBiosName",
@@ -1515,8 +1459,6 @@ class ActiveDirectoryConfiguration(PropertyType):
 
 @dataclass
 class SelfManagedActiveDirectoryConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file_system_administrators_group": "FileSystemAdministratorsGroup",
         "user_name": "UserName",
@@ -1577,8 +1519,6 @@ class StorageVirtualMachine(CloudFormationResource):
 
 @dataclass
 class AggregateConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregates": "Aggregates",
         "constituents_per_aggregate": "ConstituentsPerAggregate",
@@ -1590,8 +1530,6 @@ class AggregateConfiguration(PropertyType):
 
 @dataclass
 class AutocommitPeriod(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -1603,8 +1541,6 @@ class AutocommitPeriod(PropertyType):
 
 @dataclass
 class ClientConfigurations(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "options": "Options",
         "clients": "Clients",
@@ -1616,8 +1552,6 @@ class ClientConfigurations(PropertyType):
 
 @dataclass
 class NfsExports(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_configurations": "ClientConfigurations",
     }
@@ -1627,8 +1561,6 @@ class NfsExports(PropertyType):
 
 @dataclass
 class OntapConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "junction_path": "JunctionPath",
         "storage_virtual_machine_id": "StorageVirtualMachineId",
@@ -1662,8 +1594,6 @@ class OntapConfiguration(PropertyType):
 
 @dataclass
 class OpenZFSConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "read_only": "ReadOnly",
         "options": "Options",
@@ -1693,8 +1623,6 @@ class OpenZFSConfiguration(PropertyType):
 
 @dataclass
 class OriginSnapshot(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "copy_strategy": "CopyStrategy",
         "snapshot_arn": "SnapshotARN",
@@ -1706,8 +1634,6 @@ class OriginSnapshot(PropertyType):
 
 @dataclass
 class RetentionPeriod(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -1719,8 +1645,6 @@ class RetentionPeriod(PropertyType):
 
 @dataclass
 class SnaplockConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audit_log_volume": "AuditLogVolume",
         "volume_append_mode_enabled": "VolumeAppendModeEnabled",
@@ -1740,8 +1664,6 @@ class SnaplockConfiguration(PropertyType):
 
 @dataclass
 class SnaplockRetentionPeriod(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_retention": "DefaultRetention",
         "maximum_retention": "MaximumRetention",
@@ -1755,8 +1677,6 @@ class SnaplockRetentionPeriod(PropertyType):
 
 @dataclass
 class TieringPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cooling_period": "CoolingPeriod",
         "name": "Name",
@@ -1768,8 +1688,6 @@ class TieringPolicy(PropertyType):
 
 @dataclass
 class UserAndGroupQuotas(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "id": "Id",

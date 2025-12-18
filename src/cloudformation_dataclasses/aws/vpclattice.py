@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:35
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service VpcLattice
@@ -88,8 +88,6 @@ class AuthPolicy(CloudFormationResource):
 
 @dataclass
 class TxtMethodConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "name",
         "value": "value",
@@ -147,8 +145,6 @@ class DomainVerification(CloudFormationResource):
 
 @dataclass
 class DefaultAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "forward": "Forward",
         "fixed_response": "FixedResponse",
@@ -160,8 +156,6 @@ class DefaultAction(PropertyType):
 
 @dataclass
 class FixedResponse(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status_code": "StatusCode",
     }
@@ -171,8 +165,6 @@ class FixedResponse(PropertyType):
 
 @dataclass
 class Forward(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_groups": "TargetGroups",
     }
@@ -182,8 +174,6 @@ class Forward(PropertyType):
 
 @dataclass
 class WeightedTargetGroup(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "weight": "Weight",
         "target_group_identifier": "TargetGroupIdentifier",
@@ -239,8 +229,6 @@ class Listener(CloudFormationResource):
 
 @dataclass
 class DnsResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IpAddressType",
         "domain_name": "DomainName",
@@ -252,8 +240,6 @@ class DnsResource(PropertyType):
 
 @dataclass
 class ResourceConfigurationDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_resource": "IpResource",
         "dns_resource": "DnsResource",
@@ -366,8 +352,6 @@ class ResourcePolicy(CloudFormationResource):
 
 @dataclass
 class Action(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "forward": "Forward",
         "fixed_response": "FixedResponse",
@@ -379,8 +363,6 @@ class Action(PropertyType):
 
 @dataclass
 class FixedResponse(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status_code": "StatusCode",
     }
@@ -390,8 +372,6 @@ class FixedResponse(PropertyType):
 
 @dataclass
 class Forward(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_groups": "TargetGroups",
     }
@@ -401,8 +381,6 @@ class Forward(PropertyType):
 
 @dataclass
 class HeaderMatch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "case_sensitive": "CaseSensitive",
         "name": "Name",
@@ -416,8 +394,6 @@ class HeaderMatch(PropertyType):
 
 @dataclass
 class HeaderMatchType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "contains": "Contains",
         "exact": "Exact",
@@ -431,8 +407,6 @@ class HeaderMatchType(PropertyType):
 
 @dataclass
 class HttpMatch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header_matches": "HeaderMatches",
         "path_match": "PathMatch",
@@ -446,8 +420,6 @@ class HttpMatch(PropertyType):
 
 @dataclass
 class Match(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "http_match": "HttpMatch",
     }
@@ -457,8 +429,6 @@ class Match(PropertyType):
 
 @dataclass
 class PathMatch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "case_sensitive": "CaseSensitive",
         "match": "Match",
@@ -470,8 +440,6 @@ class PathMatch(PropertyType):
 
 @dataclass
 class PathMatchType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exact": "Exact",
         "prefix": "Prefix",
@@ -483,8 +451,6 @@ class PathMatchType(PropertyType):
 
 @dataclass
 class WeightedTargetGroup(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "weight": "Weight",
         "target_group_identifier": "TargetGroupIdentifier",
@@ -532,8 +498,6 @@ class Rule(CloudFormationResource):
 
 @dataclass
 class DnsEntry(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_name": "DomainName",
         "hosted_zone_id": "HostedZoneId",
@@ -604,8 +568,6 @@ class Service(CloudFormationResource):
 
 @dataclass
 class SharingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "enabled",
     }
@@ -685,8 +647,6 @@ class ServiceNetworkResourceAssociation(CloudFormationResource):
 
 @dataclass
 class DnsEntry(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_name": "DomainName",
         "hosted_zone_id": "HostedZoneId",
@@ -778,8 +738,6 @@ class ServiceNetworkServiceAssociation(CloudFormationResource):
 
 @dataclass
 class DnsOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "private_dns_specified_domains": "PrivateDnsSpecifiedDomains",
         "private_dns_preference": "PrivateDnsPreference",
@@ -855,8 +813,6 @@ class ServiceNetworkVpcAssociation(CloudFormationResource):
 
 @dataclass
 class HealthCheckConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "health_check_interval_seconds": "HealthCheckIntervalSeconds",
@@ -884,8 +840,6 @@ class HealthCheckConfig(PropertyType):
 
 @dataclass
 class Matcher(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "http_code": "HttpCode",
     }
@@ -895,8 +849,6 @@ class Matcher(PropertyType):
 
 @dataclass
 class Target(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "id": "Id",
@@ -908,8 +860,6 @@ class Target(PropertyType):
 
 @dataclass
 class TargetGroupConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IpAddressType",
         "port": "Port",

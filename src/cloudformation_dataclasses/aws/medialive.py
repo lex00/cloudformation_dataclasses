@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MediaLive
@@ -3845,8 +3845,6 @@ PASSTHROUGH = WebvttDestinationStyleControl.PASSTHROUGH
 
 @dataclass
 class AacSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "coding_mode": "CodingMode",
         "rate_control_mode": "RateControlMode",
@@ -3872,8 +3870,6 @@ class AacSettings(PropertyType):
 
 @dataclass
 class Ac3Settings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "coding_mode": "CodingMode",
         "drc_profile": "DrcProfile",
@@ -3897,8 +3893,6 @@ class Ac3Settings(PropertyType):
 
 @dataclass
 class AdditionalDestinations(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
     }
@@ -3908,8 +3902,6 @@ class AdditionalDestinations(PropertyType):
 
 @dataclass
 class AncillarySourceSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_ancillary_channel_number": "SourceAncillaryChannelNumber",
     }
@@ -3919,8 +3911,6 @@ class AncillarySourceSettings(PropertyType):
 
 @dataclass
 class AnywhereSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channel_placement_group_id": "ChannelPlacementGroupId",
         "cluster_id": "ClusterId",
@@ -3932,8 +3922,6 @@ class AnywhereSettings(PropertyType):
 
 @dataclass
 class ArchiveCdnSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "archive_s3_settings": "ArchiveS3Settings",
     }
@@ -3943,8 +3931,6 @@ class ArchiveCdnSettings(PropertyType):
 
 @dataclass
 class ArchiveContainerSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "raw_settings": "RawSettings",
         "m2ts_settings": "M2tsSettings",
@@ -3956,8 +3942,6 @@ class ArchiveContainerSettings(PropertyType):
 
 @dataclass
 class ArchiveGroupSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "archive_cdn_settings": "ArchiveCdnSettings",
@@ -3971,8 +3955,6 @@ class ArchiveGroupSettings(PropertyType):
 
 @dataclass
 class ArchiveOutputSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "extension": "Extension",
         "name_modifier": "NameModifier",
@@ -3986,8 +3968,6 @@ class ArchiveOutputSettings(PropertyType):
 
 @dataclass
 class ArchiveS3Settings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "canned_acl": "CannedAcl",
     }
@@ -3997,22 +3977,16 @@ class ArchiveS3Settings(PropertyType):
 
 @dataclass
 class AribDestinationSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     pass
 
 
 @dataclass
 class AribSourceSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     pass
 
 
 @dataclass
 class AudioChannelMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "output_channel": "OutputChannel",
         "input_channel_levels": "InputChannelLevels",
@@ -4024,8 +3998,6 @@ class AudioChannelMapping(PropertyType):
 
 @dataclass
 class AudioCodecSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "eac3_settings": "Eac3Settings",
         "ac3_settings": "Ac3Settings",
@@ -4047,8 +4019,6 @@ class AudioCodecSettings(PropertyType):
 
 @dataclass
 class AudioDescription(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audio_dash_roles": "AudioDashRoles",
         "language_code_control": "LanguageCodeControl",
@@ -4082,8 +4052,6 @@ class AudioDescription(PropertyType):
 
 @dataclass
 class AudioDolbyEDecode(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "program_selection": "ProgramSelection",
     }
@@ -4093,8 +4061,6 @@ class AudioDolbyEDecode(PropertyType):
 
 @dataclass
 class AudioHlsRenditionSelection(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_id": "GroupId",
         "name": "Name",
@@ -4106,8 +4072,6 @@ class AudioHlsRenditionSelection(PropertyType):
 
 @dataclass
 class AudioLanguageSelection(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "language_code": "LanguageCode",
         "language_selection_policy": "LanguageSelectionPolicy",
@@ -4119,8 +4083,6 @@ class AudioLanguageSelection(PropertyType):
 
 @dataclass
 class AudioNormalizationSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_lkfs": "TargetLkfs",
         "algorithm": "Algorithm",
@@ -4134,8 +4096,6 @@ class AudioNormalizationSettings(PropertyType):
 
 @dataclass
 class AudioOnlyHlsSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "segment_type": "SegmentType",
         "audio_track_type": "AudioTrackType",
@@ -4151,8 +4111,6 @@ class AudioOnlyHlsSettings(PropertyType):
 
 @dataclass
 class AudioPidSelection(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pid": "Pid",
     }
@@ -4162,8 +4120,6 @@ class AudioPidSelection(PropertyType):
 
 @dataclass
 class AudioSelector(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "selector_settings": "SelectorSettings",
         "name": "Name",
@@ -4175,8 +4131,6 @@ class AudioSelector(PropertyType):
 
 @dataclass
 class AudioSelectorSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audio_pid_selection": "AudioPidSelection",
         "audio_language_selection": "AudioLanguageSelection",
@@ -4192,8 +4146,6 @@ class AudioSelectorSettings(PropertyType):
 
 @dataclass
 class AudioSilenceFailoverSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audio_selector_name": "AudioSelectorName",
         "audio_silence_threshold_msec": "AudioSilenceThresholdMsec",
@@ -4205,8 +4157,6 @@ class AudioSilenceFailoverSettings(PropertyType):
 
 @dataclass
 class AudioTrack(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "track": "Track",
     }
@@ -4216,8 +4166,6 @@ class AudioTrack(PropertyType):
 
 @dataclass
 class AudioTrackSelection(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dolby_e_decode": "DolbyEDecode",
         "tracks": "Tracks",
@@ -4229,8 +4177,6 @@ class AudioTrackSelection(PropertyType):
 
 @dataclass
 class AudioWatermarkSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "nielsen_watermarks_settings": "NielsenWatermarksSettings",
     }
@@ -4240,8 +4186,6 @@ class AudioWatermarkSettings(PropertyType):
 
 @dataclass
 class AutomaticInputFailoverSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "failover_conditions": "FailoverConditions",
         "input_preference": "InputPreference",
@@ -4257,8 +4201,6 @@ class AutomaticInputFailoverSettings(PropertyType):
 
 @dataclass
 class Av1ColorSpaceSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rec601_settings": "Rec601Settings",
         "rec709_settings": "Rec709Settings",
@@ -4274,8 +4216,6 @@ class Av1ColorSpaceSettings(PropertyType):
 
 @dataclass
 class Av1Settings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timecode_burnin_settings": "TimecodeBurninSettings",
         "color_space_settings": "ColorSpaceSettings",
@@ -4327,8 +4267,6 @@ class Av1Settings(PropertyType):
 
 @dataclass
 class AvailBlanking(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
         "avail_blanking_image": "AvailBlankingImage",
@@ -4340,8 +4278,6 @@ class AvailBlanking(PropertyType):
 
 @dataclass
 class AvailConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "avail_settings": "AvailSettings",
         "scte35_segmentation_scope": "Scte35SegmentationScope",
@@ -4353,8 +4289,6 @@ class AvailConfiguration(PropertyType):
 
 @dataclass
 class AvailSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scte35_splice_insert": "Scte35SpliceInsert",
         "scte35_time_signal_apos": "Scte35TimeSignalApos",
@@ -4368,8 +4302,6 @@ class AvailSettings(PropertyType):
 
 @dataclass
 class BandwidthReductionFilterSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "post_filter_sharpening": "PostFilterSharpening",
         "strength": "Strength",
@@ -4381,8 +4313,6 @@ class BandwidthReductionFilterSettings(PropertyType):
 
 @dataclass
 class BlackoutSlate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_end_blackout": "NetworkEndBlackout",
         "state": "State",
@@ -4400,8 +4330,6 @@ class BlackoutSlate(PropertyType):
 
 @dataclass
 class BurnInDestinationSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "background_opacity": "BackgroundOpacity",
         "font_resolution": "FontResolution",
@@ -4445,8 +4373,6 @@ class BurnInDestinationSettings(PropertyType):
 
 @dataclass
 class CaptionDescription(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_settings": "DestinationSettings",
         "language_code": "LanguageCode",
@@ -4470,8 +4396,6 @@ class CaptionDescription(PropertyType):
 
 @dataclass
 class CaptionDestinationSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arib_destination_settings": "AribDestinationSettings",
         "ebu_tt_d_destination_settings": "EbuTtDDestinationSettings",
@@ -4505,8 +4429,6 @@ class CaptionDestinationSettings(PropertyType):
 
 @dataclass
 class CaptionLanguageMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "language_code": "LanguageCode",
         "language_description": "LanguageDescription",
@@ -4520,8 +4442,6 @@ class CaptionLanguageMapping(PropertyType):
 
 @dataclass
 class CaptionRectangle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "top_offset": "TopOffset",
         "height": "Height",
@@ -4537,8 +4457,6 @@ class CaptionRectangle(PropertyType):
 
 @dataclass
 class CaptionSelector(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "language_code": "LanguageCode",
         "selector_settings": "SelectorSettings",
@@ -4552,8 +4470,6 @@ class CaptionSelector(PropertyType):
 
 @dataclass
 class CaptionSelectorSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dvb_sub_source_settings": "DvbSubSourceSettings",
         "scte27_source_settings": "Scte27SourceSettings",
@@ -4575,8 +4491,6 @@ class CaptionSelectorSettings(PropertyType):
 
 @dataclass
 class CdiInputSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resolution": "Resolution",
     }
@@ -4586,8 +4500,6 @@ class CdiInputSpecification(PropertyType):
 
 @dataclass
 class ChannelEngineVersionRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
     }
@@ -4597,8 +4509,6 @@ class ChannelEngineVersionRequest(PropertyType):
 
 @dataclass
 class CmafIngestCaptionLanguageMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "language_code": "LanguageCode",
         "caption_channel": "CaptionChannel",
@@ -4610,8 +4520,6 @@ class CmafIngestCaptionLanguageMapping(PropertyType):
 
 @dataclass
 class CmafIngestGroupSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "klv_name_modifier": "KlvNameModifier",
@@ -4653,8 +4561,6 @@ class CmafIngestGroupSettings(PropertyType):
 
 @dataclass
 class CmafIngestOutputSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name_modifier": "NameModifier",
     }
@@ -4664,8 +4570,6 @@ class CmafIngestOutputSettings(PropertyType):
 
 @dataclass
 class ColorCorrection(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "output_color_space": "OutputColorSpace",
         "input_color_space": "InputColorSpace",
@@ -4679,8 +4583,6 @@ class ColorCorrection(PropertyType):
 
 @dataclass
 class ColorCorrectionSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "global_color_corrections": "GlobalColorCorrections",
     }
@@ -4690,22 +4592,16 @@ class ColorCorrectionSettings(PropertyType):
 
 @dataclass
 class ColorSpacePassthroughSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     pass
 
 
 @dataclass
 class DolbyVision81Settings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     pass
 
 
 @dataclass
 class DvbNitSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_name": "NetworkName",
         "rep_interval": "RepInterval",
@@ -4719,8 +4615,6 @@ class DvbNitSettings(PropertyType):
 
 @dataclass
 class DvbSdtSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_provider_name": "ServiceProviderName",
         "output_sdt": "OutputSdt",
@@ -4736,8 +4630,6 @@ class DvbSdtSettings(PropertyType):
 
 @dataclass
 class DvbSubDestinationSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "background_opacity": "BackgroundOpacity",
         "font_resolution": "FontResolution",
@@ -4781,8 +4673,6 @@ class DvbSubDestinationSettings(PropertyType):
 
 @dataclass
 class DvbSubSourceSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ocr_language": "OcrLanguage",
         "pid": "Pid",
@@ -4794,8 +4684,6 @@ class DvbSubSourceSettings(PropertyType):
 
 @dataclass
 class DvbTdtSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rep_interval": "RepInterval",
     }
@@ -4805,8 +4693,6 @@ class DvbTdtSettings(PropertyType):
 
 @dataclass
 class Eac3AtmosSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "coding_mode": "CodingMode",
         "dialnorm": "Dialnorm",
@@ -4828,8 +4714,6 @@ class Eac3AtmosSettings(PropertyType):
 
 @dataclass
 class Eac3Settings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "coding_mode": "CodingMode",
         "surround_mode": "SurroundMode",
@@ -4877,8 +4761,6 @@ class Eac3Settings(PropertyType):
 
 @dataclass
 class EbuTtDDestinationSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "font_family": "FontFamily",
         "default_font_size": "DefaultFontSize",
@@ -4898,22 +4780,16 @@ class EbuTtDDestinationSettings(PropertyType):
 
 @dataclass
 class EmbeddedDestinationSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     pass
 
 
 @dataclass
 class EmbeddedPlusScte20DestinationSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     pass
 
 
 @dataclass
 class EmbeddedSourceSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source608_channel_number": "Source608ChannelNumber",
         "scte20_detection": "Scte20Detection",
@@ -4929,8 +4805,6 @@ class EmbeddedSourceSettings(PropertyType):
 
 @dataclass
 class EncoderSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audio_descriptions": "AudioDescriptions",
         "video_descriptions": "VideoDescriptions",
@@ -4966,8 +4840,6 @@ class EncoderSettings(PropertyType):
 
 @dataclass
 class EpochLockingSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "jam_sync_time": "JamSyncTime",
         "custom_epoch": "CustomEpoch",
@@ -4979,8 +4851,6 @@ class EpochLockingSettings(PropertyType):
 
 @dataclass
 class Esam(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ad_avail_offset": "AdAvailOffset",
         "zone_identity": "ZoneIdentity",
@@ -5000,8 +4870,6 @@ class Esam(PropertyType):
 
 @dataclass
 class FailoverCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "failover_condition_settings": "FailoverConditionSettings",
     }
@@ -5011,8 +4879,6 @@ class FailoverCondition(PropertyType):
 
 @dataclass
 class FailoverConditionSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audio_silence_settings": "AudioSilenceSettings",
         "video_black_settings": "VideoBlackSettings",
@@ -5026,8 +4892,6 @@ class FailoverConditionSettings(PropertyType):
 
 @dataclass
 class FeatureActivations(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_prepare_schedule_actions": "InputPrepareScheduleActions",
         "output_static_image_overlay_schedule_actions": "OutputStaticImageOverlayScheduleActions",
@@ -5039,8 +4903,6 @@ class FeatureActivations(PropertyType):
 
 @dataclass
 class FecOutputSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "row_length": "RowLength",
         "column_depth": "ColumnDepth",
@@ -5054,8 +4916,6 @@ class FecOutputSettings(PropertyType):
 
 @dataclass
 class Fmp4HlsSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audio_rendition_sets": "AudioRenditionSets",
         "nielsen_id3_behavior": "NielsenId3Behavior",
@@ -5069,8 +4929,6 @@ class Fmp4HlsSettings(PropertyType):
 
 @dataclass
 class FrameCaptureCdnSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "frame_capture_s3_settings": "FrameCaptureS3Settings",
     }
@@ -5080,8 +4938,6 @@ class FrameCaptureCdnSettings(PropertyType):
 
 @dataclass
 class FrameCaptureGroupSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "frame_capture_cdn_settings": "FrameCaptureCdnSettings",
         "destination": "Destination",
@@ -5093,15 +4949,11 @@ class FrameCaptureGroupSettings(PropertyType):
 
 @dataclass
 class FrameCaptureHlsSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     pass
 
 
 @dataclass
 class FrameCaptureOutputSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name_modifier": "NameModifier",
     }
@@ -5111,8 +4963,6 @@ class FrameCaptureOutputSettings(PropertyType):
 
 @dataclass
 class FrameCaptureS3Settings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "canned_acl": "CannedAcl",
     }
@@ -5122,8 +4972,6 @@ class FrameCaptureS3Settings(PropertyType):
 
 @dataclass
 class FrameCaptureSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timecode_burnin_settings": "TimecodeBurninSettings",
         "capture_interval": "CaptureInterval",
@@ -5137,8 +4985,6 @@ class FrameCaptureSettings(PropertyType):
 
 @dataclass
 class GlobalConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_end_action": "InputEndAction",
         "output_locking_settings": "OutputLockingSettings",
@@ -5160,8 +5006,6 @@ class GlobalConfiguration(PropertyType):
 
 @dataclass
 class H264ColorSpaceSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rec601_settings": "Rec601Settings",
         "rec709_settings": "Rec709Settings",
@@ -5175,8 +5019,6 @@ class H264ColorSpaceSettings(PropertyType):
 
 @dataclass
 class H264FilterSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "temporal_filter_settings": "TemporalFilterSettings",
         "bandwidth_reduction_filter_settings": "BandwidthReductionFilterSettings",
@@ -5188,8 +5030,6 @@ class H264FilterSettings(PropertyType):
 
 @dataclass
 class H264Settings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timecode_burnin_settings": "TimecodeBurninSettings",
         "num_ref_frames": "NumRefFrames",
@@ -5285,8 +5125,6 @@ class H264Settings(PropertyType):
 
 @dataclass
 class H265ColorSpaceSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rec601_settings": "Rec601Settings",
         "rec709_settings": "Rec709Settings",
@@ -5306,8 +5144,6 @@ class H265ColorSpaceSettings(PropertyType):
 
 @dataclass
 class H265FilterSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "temporal_filter_settings": "TemporalFilterSettings",
         "bandwidth_reduction_filter_settings": "BandwidthReductionFilterSettings",
@@ -5319,8 +5155,6 @@ class H265FilterSettings(PropertyType):
 
 @dataclass
 class H265Settings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mv_over_picture_boundaries": "MvOverPictureBoundaries",
         "timecode_burnin_settings": "TimecodeBurninSettings",
@@ -5412,8 +5246,6 @@ class H265Settings(PropertyType):
 
 @dataclass
 class Hdr10Settings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_cll": "MaxCll",
         "max_fall": "MaxFall",
@@ -5425,15 +5257,11 @@ class Hdr10Settings(PropertyType):
 
 @dataclass
 class Hlg2020Settings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     pass
 
 
 @dataclass
 class HlsAkamaiSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "salt": "Salt",
         "filecache_duration": "FilecacheDuration",
@@ -5455,8 +5283,6 @@ class HlsAkamaiSettings(PropertyType):
 
 @dataclass
 class HlsBasicPutSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filecache_duration": "FilecacheDuration",
         "num_retries": "NumRetries",
@@ -5472,8 +5298,6 @@ class HlsBasicPutSettings(PropertyType):
 
 @dataclass
 class HlsCdnSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hls_webdav_settings": "HlsWebdavSettings",
         "hls_s3_settings": "HlsS3Settings",
@@ -5491,8 +5315,6 @@ class HlsCdnSettings(PropertyType):
 
 @dataclass
 class HlsGroupSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "segmentation_mode": "SegmentationMode",
         "destination": "Destination",
@@ -5586,8 +5408,6 @@ class HlsGroupSettings(PropertyType):
 
 @dataclass
 class HlsInputSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scte35_source": "Scte35Source",
         "buffer_segments": "BufferSegments",
@@ -5605,8 +5425,6 @@ class HlsInputSettings(PropertyType):
 
 @dataclass
 class HlsMediaStoreSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filecache_duration": "FilecacheDuration",
         "num_retries": "NumRetries",
@@ -5624,8 +5442,6 @@ class HlsMediaStoreSettings(PropertyType):
 
 @dataclass
 class HlsOutputSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name_modifier": "NameModifier",
         "hls_settings": "HlsSettings",
@@ -5641,8 +5457,6 @@ class HlsOutputSettings(PropertyType):
 
 @dataclass
 class HlsS3Settings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "canned_acl": "CannedAcl",
     }
@@ -5652,8 +5466,6 @@ class HlsS3Settings(PropertyType):
 
 @dataclass
 class HlsSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "standard_hls_settings": "StandardHlsSettings",
         "audio_only_hls_settings": "AudioOnlyHlsSettings",
@@ -5669,8 +5481,6 @@ class HlsSettings(PropertyType):
 
 @dataclass
 class HlsWebdavSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filecache_duration": "FilecacheDuration",
         "num_retries": "NumRetries",
@@ -5688,15 +5498,11 @@ class HlsWebdavSettings(PropertyType):
 
 @dataclass
 class HtmlMotionGraphicsSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     pass
 
 
 @dataclass
 class InputAttachment(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_attachment_name": "InputAttachmentName",
         "logical_interface_names": "LogicalInterfaceNames",
@@ -5714,8 +5520,6 @@ class InputAttachment(PropertyType):
 
 @dataclass
 class InputChannelLevel(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_channel": "InputChannel",
         "gain": "Gain",
@@ -5727,8 +5531,6 @@ class InputChannelLevel(PropertyType):
 
 @dataclass
 class InputLocation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "username": "Username",
         "password_param": "PasswordParam",
@@ -5742,8 +5544,6 @@ class InputLocation(PropertyType):
 
 @dataclass
 class InputLossBehavior(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_loss_image_color": "InputLossImageColor",
         "black_frame_msec": "BlackFrameMsec",
@@ -5761,8 +5561,6 @@ class InputLossBehavior(PropertyType):
 
 @dataclass
 class InputLossFailoverSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_loss_threshold_msec": "InputLossThresholdMsec",
     }
@@ -5772,8 +5570,6 @@ class InputLossFailoverSettings(PropertyType):
 
 @dataclass
 class InputSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scte35_pid": "Scte35Pid",
         "deblock_filter": "DeblockFilter",
@@ -5803,8 +5599,6 @@ class InputSettings(PropertyType):
 
 @dataclass
 class InputSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "codec": "Codec",
         "maximum_bitrate": "MaximumBitrate",
@@ -5818,8 +5612,6 @@ class InputSpecification(PropertyType):
 
 @dataclass
 class KeyProviderSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "static_key_settings": "StaticKeySettings",
     }
@@ -5829,8 +5621,6 @@ class KeyProviderSettings(PropertyType):
 
 @dataclass
 class M2tsSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "etv_platform_pid": "EtvPlatformPid",
         "pat_interval": "PatInterval",
@@ -5934,8 +5724,6 @@ class M2tsSettings(PropertyType):
 
 @dataclass
 class M3u8Settings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pat_interval": "PatInterval",
         "program_num": "ProgramNum",
@@ -5981,8 +5769,6 @@ class M3u8Settings(PropertyType):
 
 @dataclass
 class MaintenanceCreateSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maintenance_day": "MaintenanceDay",
         "maintenance_start_time": "MaintenanceStartTime",
@@ -5994,8 +5780,6 @@ class MaintenanceCreateSettings(PropertyType):
 
 @dataclass
 class MaintenanceUpdateSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maintenance_day": "MaintenanceDay",
         "maintenance_scheduled_date": "MaintenanceScheduledDate",
@@ -6009,8 +5793,6 @@ class MaintenanceUpdateSettings(PropertyType):
 
 @dataclass
 class MediaPackageGroupSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "mediapackage_v2_group_settings": "MediapackageV2GroupSettings",
@@ -6022,8 +5804,6 @@ class MediaPackageGroupSettings(PropertyType):
 
 @dataclass
 class MediaPackageOutputDestinationSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channel_name": "ChannelName",
         "channel_id": "ChannelId",
@@ -6037,8 +5817,6 @@ class MediaPackageOutputDestinationSettings(PropertyType):
 
 @dataclass
 class MediaPackageOutputSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "media_package_v2_destination_settings": "MediaPackageV2DestinationSettings",
     }
@@ -6048,8 +5826,6 @@ class MediaPackageOutputSettings(PropertyType):
 
 @dataclass
 class MediaPackageV2DestinationSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audio_rendition_sets": "AudioRenditionSets",
         "hls_default": "HlsDefault",
@@ -6065,8 +5841,6 @@ class MediaPackageV2DestinationSettings(PropertyType):
 
 @dataclass
 class MediaPackageV2GroupSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "caption_language_mappings": "CaptionLanguageMappings",
         "scte35_type": "Scte35Type",
@@ -6094,8 +5868,6 @@ class MediaPackageV2GroupSettings(PropertyType):
 
 @dataclass
 class MotionGraphicsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "motion_graphics_settings": "MotionGraphicsSettings",
         "motion_graphics_insertion": "MotionGraphicsInsertion",
@@ -6107,8 +5879,6 @@ class MotionGraphicsConfiguration(PropertyType):
 
 @dataclass
 class MotionGraphicsSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "html_motion_graphics_settings": "HtmlMotionGraphicsSettings",
     }
@@ -6118,8 +5888,6 @@ class MotionGraphicsSettings(PropertyType):
 
 @dataclass
 class Mp2Settings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "coding_mode": "CodingMode",
         "sample_rate": "SampleRate",
@@ -6133,8 +5901,6 @@ class Mp2Settings(PropertyType):
 
 @dataclass
 class Mpeg2FilterSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "temporal_filter_settings": "TemporalFilterSettings",
     }
@@ -6144,8 +5910,6 @@ class Mpeg2FilterSettings(PropertyType):
 
 @dataclass
 class Mpeg2Settings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timecode_burnin_settings": "TimecodeBurninSettings",
         "color_space": "ColorSpace",
@@ -6187,8 +5951,6 @@ class Mpeg2Settings(PropertyType):
 
 @dataclass
 class MsSmoothGroupSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "segmentation_mode": "SegmentationMode",
         "destination": "Destination",
@@ -6234,8 +5996,6 @@ class MsSmoothGroupSettings(PropertyType):
 
 @dataclass
 class MsSmoothOutputSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name_modifier": "NameModifier",
         "h265_packaging_type": "H265PackagingType",
@@ -6247,8 +6007,6 @@ class MsSmoothOutputSettings(PropertyType):
 
 @dataclass
 class MulticastInputSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_ip_address": "SourceIpAddress",
     }
@@ -6258,8 +6016,6 @@ class MulticastInputSettings(PropertyType):
 
 @dataclass
 class MultiplexContainerSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "multiplex_m2ts_settings": "MultiplexM2tsSettings",
     }
@@ -6269,15 +6025,11 @@ class MultiplexContainerSettings(PropertyType):
 
 @dataclass
 class MultiplexGroupSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     pass
 
 
 @dataclass
 class MultiplexM2tsSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scte35_control": "Scte35Control",
         "pcr_period": "PcrPeriod",
@@ -6313,8 +6065,6 @@ class MultiplexM2tsSettings(PropertyType):
 
 @dataclass
 class MultiplexOutputSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "container_settings": "ContainerSettings",
@@ -6326,8 +6076,6 @@ class MultiplexOutputSettings(PropertyType):
 
 @dataclass
 class MultiplexProgramChannelDestinationSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "multiplex_id": "MultiplexId",
         "program_name": "ProgramName",
@@ -6339,8 +6087,6 @@ class MultiplexProgramChannelDestinationSettings(PropertyType):
 
 @dataclass
 class NetworkInputSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "server_validation": "ServerValidation",
         "hls_input_settings": "HlsInputSettings",
@@ -6354,8 +6100,6 @@ class NetworkInputSettings(PropertyType):
 
 @dataclass
 class NielsenCBET(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cbet_check_digit_string": "CbetCheckDigitString",
         "cbet_stepaside": "CbetStepaside",
@@ -6369,8 +6113,6 @@ class NielsenCBET(PropertyType):
 
 @dataclass
 class NielsenConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "distributor_id": "DistributorId",
         "nielsen_pcm_to_id3_tagging": "NielsenPcmToId3Tagging",
@@ -6382,8 +6124,6 @@ class NielsenConfiguration(PropertyType):
 
 @dataclass
 class NielsenNaesIiNw(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timezone": "Timezone",
         "check_digit_string": "CheckDigitString",
@@ -6397,8 +6137,6 @@ class NielsenNaesIiNw(PropertyType):
 
 @dataclass
 class NielsenWatermarksSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "nielsen_distribution_type": "NielsenDistributionType",
         "nielsen_cbet_settings": "NielsenCbetSettings",
@@ -6412,8 +6150,6 @@ class NielsenWatermarksSettings(PropertyType):
 
 @dataclass
 class Output(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "output_settings": "OutputSettings",
         "caption_description_names": "CaptionDescriptionNames",
@@ -6431,8 +6167,6 @@ class Output(PropertyType):
 
 @dataclass
 class OutputDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "srt_settings": "SrtSettings",
         "logical_interface_names": "LogicalInterfaceNames",
@@ -6452,8 +6186,6 @@ class OutputDestination(PropertyType):
 
 @dataclass
 class OutputDestinationSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stream_name": "StreamName",
         "username": "Username",
@@ -6469,8 +6201,6 @@ class OutputDestinationSettings(PropertyType):
 
 @dataclass
 class OutputGroup(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "outputs": "Outputs",
         "output_group_settings": "OutputGroupSettings",
@@ -6484,8 +6214,6 @@ class OutputGroup(PropertyType):
 
 @dataclass
 class OutputGroupSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hls_group_settings": "HlsGroupSettings",
         "frame_capture_group_settings": "FrameCaptureGroupSettings",
@@ -6513,8 +6241,6 @@ class OutputGroupSettings(PropertyType):
 
 @dataclass
 class OutputLocationRef(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_ref_id": "DestinationRefId",
     }
@@ -6524,8 +6250,6 @@ class OutputLocationRef(PropertyType):
 
 @dataclass
 class OutputLockingSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pipeline_locking_settings": "PipelineLockingSettings",
         "epoch_locking_settings": "EpochLockingSettings",
@@ -6537,8 +6261,6 @@ class OutputLockingSettings(PropertyType):
 
 @dataclass
 class OutputSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "media_package_output_settings": "MediaPackageOutputSettings",
         "ms_smooth_output_settings": "MsSmoothOutputSettings",
@@ -6566,43 +6288,31 @@ class OutputSettings(PropertyType):
 
 @dataclass
 class PassThroughSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     pass
 
 
 @dataclass
 class PipelineLockingSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     pass
 
 
 @dataclass
 class RawSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     pass
 
 
 @dataclass
 class Rec601Settings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     pass
 
 
 @dataclass
 class Rec709Settings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     pass
 
 
 @dataclass
 class RemixSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channels_out": "ChannelsOut",
         "channel_mappings": "ChannelMappings",
@@ -6616,15 +6326,11 @@ class RemixSettings(PropertyType):
 
 @dataclass
 class RtmpCaptionInfoDestinationSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     pass
 
 
 @dataclass
 class RtmpGroupSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authentication_scheme": "AuthenticationScheme",
         "cache_length": "CacheLength",
@@ -6648,8 +6354,6 @@ class RtmpGroupSettings(PropertyType):
 
 @dataclass
 class RtmpOutputSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "certificate_mode": "CertificateMode",
@@ -6665,15 +6369,11 @@ class RtmpOutputSettings(PropertyType):
 
 @dataclass
 class Scte20PlusEmbeddedDestinationSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     pass
 
 
 @dataclass
 class Scte20SourceSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source608_channel_number": "Source608ChannelNumber",
         "convert608_to708": "Convert608To708",
@@ -6685,15 +6385,11 @@ class Scte20SourceSettings(PropertyType):
 
 @dataclass
 class Scte27DestinationSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     pass
 
 
 @dataclass
 class Scte27SourceSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ocr_language": "OcrLanguage",
         "pid": "Pid",
@@ -6705,8 +6401,6 @@ class Scte27SourceSettings(PropertyType):
 
 @dataclass
 class Scte35SpliceInsert(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ad_avail_offset": "AdAvailOffset",
         "web_delivery_allowed_flag": "WebDeliveryAllowedFlag",
@@ -6720,8 +6414,6 @@ class Scte35SpliceInsert(PropertyType):
 
 @dataclass
 class Scte35TimeSignalApos(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ad_avail_offset": "AdAvailOffset",
         "web_delivery_allowed_flag": "WebDeliveryAllowedFlag",
@@ -6735,15 +6427,11 @@ class Scte35TimeSignalApos(PropertyType):
 
 @dataclass
 class SmpteTtDestinationSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     pass
 
 
 @dataclass
 class SrtGroupSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_loss_action": "InputLossAction",
     }
@@ -6753,8 +6441,6 @@ class SrtGroupSettings(PropertyType):
 
 @dataclass
 class SrtOutputDestinationSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stream_id": "StreamId",
         "encryption_passphrase_secret_arn": "EncryptionPassphraseSecretArn",
@@ -6768,8 +6454,6 @@ class SrtOutputDestinationSettings(PropertyType):
 
 @dataclass
 class SrtOutputSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_type": "EncryptionType",
         "destination": "Destination",
@@ -6787,8 +6471,6 @@ class SrtOutputSettings(PropertyType):
 
 @dataclass
 class StandardHlsSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audio_rendition_sets": "AudioRenditionSets",
         "m3u8_settings": "M3u8Settings",
@@ -6800,8 +6482,6 @@ class StandardHlsSettings(PropertyType):
 
 @dataclass
 class StaticKeySettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_provider_server": "KeyProviderServer",
         "static_key_value": "StaticKeyValue",
@@ -6813,15 +6493,11 @@ class StaticKeySettings(PropertyType):
 
 @dataclass
 class TeletextDestinationSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     pass
 
 
 @dataclass
 class TeletextSourceSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "output_rectangle": "OutputRectangle",
         "page_number": "PageNumber",
@@ -6833,8 +6509,6 @@ class TeletextSourceSettings(PropertyType):
 
 @dataclass
 class TemporalFilterSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "post_filter_sharpening": "PostFilterSharpening",
         "strength": "Strength",
@@ -6846,8 +6520,6 @@ class TemporalFilterSettings(PropertyType):
 
 @dataclass
 class ThumbnailConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
     }
@@ -6857,8 +6529,6 @@ class ThumbnailConfiguration(PropertyType):
 
 @dataclass
 class TimecodeBurninSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "font_size": "FontSize",
         "position": "Position",
@@ -6872,8 +6542,6 @@ class TimecodeBurninSettings(PropertyType):
 
 @dataclass
 class TimecodeConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sync_threshold": "SyncThreshold",
         "source": "Source",
@@ -6885,8 +6553,6 @@ class TimecodeConfig(PropertyType):
 
 @dataclass
 class TtmlDestinationSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "style_control": "StyleControl",
     }
@@ -6896,8 +6562,6 @@ class TtmlDestinationSettings(PropertyType):
 
 @dataclass
 class UdpContainerSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "m2ts_settings": "M2tsSettings",
     }
@@ -6907,8 +6571,6 @@ class UdpContainerSettings(PropertyType):
 
 @dataclass
 class UdpGroupSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timed_metadata_id3_frame": "TimedMetadataId3Frame",
         "timed_metadata_id3_period": "TimedMetadataId3Period",
@@ -6922,8 +6584,6 @@ class UdpGroupSettings(PropertyType):
 
 @dataclass
 class UdpOutputSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "fec_output_settings": "FecOutputSettings",
@@ -6939,8 +6599,6 @@ class UdpOutputSettings(PropertyType):
 
 @dataclass
 class VideoBlackFailoverSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "video_black_threshold_msec": "VideoBlackThresholdMsec",
         "black_detect_threshold": "BlackDetectThreshold",
@@ -6952,8 +6610,6 @@ class VideoBlackFailoverSettings(PropertyType):
 
 @dataclass
 class VideoCodecSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mpeg2_settings": "Mpeg2Settings",
         "frame_capture_settings": "FrameCaptureSettings",
@@ -6971,8 +6627,6 @@ class VideoCodecSettings(PropertyType):
 
 @dataclass
 class VideoDescription(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scaling_behavior": "ScalingBehavior",
         "respond_to_afd": "RespondToAfd",
@@ -6994,8 +6648,6 @@ class VideoDescription(PropertyType):
 
 @dataclass
 class VideoSelector(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "color_space_settings": "ColorSpaceSettings",
         "selector_settings": "SelectorSettings",
@@ -7011,8 +6663,6 @@ class VideoSelector(PropertyType):
 
 @dataclass
 class VideoSelectorColorSpaceSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hdr10_settings": "Hdr10Settings",
     }
@@ -7022,8 +6672,6 @@ class VideoSelectorColorSpaceSettings(PropertyType):
 
 @dataclass
 class VideoSelectorPid(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pid": "Pid",
     }
@@ -7033,8 +6681,6 @@ class VideoSelectorPid(PropertyType):
 
 @dataclass
 class VideoSelectorProgramId(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "program_id": "ProgramId",
     }
@@ -7044,8 +6690,6 @@ class VideoSelectorProgramId(PropertyType):
 
 @dataclass
 class VideoSelectorSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "video_selector_program_id": "VideoSelectorProgramId",
         "video_selector_pid": "VideoSelectorPid",
@@ -7057,8 +6701,6 @@ class VideoSelectorSettings(PropertyType):
 
 @dataclass
 class VpcOutputSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "public_address_allocation_ids": "PublicAddressAllocationIds",
         "security_group_ids": "SecurityGroupIds",
@@ -7072,8 +6714,6 @@ class VpcOutputSettings(PropertyType):
 
 @dataclass
 class WavSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "coding_mode": "CodingMode",
         "sample_rate": "SampleRate",
@@ -7087,8 +6727,6 @@ class WavSettings(PropertyType):
 
 @dataclass
 class WebvttDestinationSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "style_control": "StyleControl",
     }
@@ -7150,8 +6788,6 @@ class Channel(CloudFormationResource):
 
 @dataclass
 class Tags(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -7314,8 +6950,6 @@ class CloudWatchAlarmTemplateGroup(CloudFormationResource):
 
 @dataclass
 class ClusterNetworkSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interface_mappings": "InterfaceMappings",
         "default_route": "DefaultRoute",
@@ -7327,8 +6961,6 @@ class ClusterNetworkSettings(PropertyType):
 
 @dataclass
 class InterfaceMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_id": "NetworkId",
         "logical_interface_name": "LogicalInterfaceName",
@@ -7340,8 +6972,6 @@ class InterfaceMapping(PropertyType):
 
 @dataclass
 class Tags(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -7395,8 +7025,6 @@ class Cluster(CloudFormationResource):
 
 @dataclass
 class EventBridgeRuleTemplateTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -7503,8 +7131,6 @@ class EventBridgeRuleTemplateGroup(CloudFormationResource):
 
 @dataclass
 class InputDestinationRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stream_name": "StreamName",
         "network": "Network",
@@ -7520,8 +7146,6 @@ class InputDestinationRequest(PropertyType):
 
 @dataclass
 class InputDeviceRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id": "Id",
     }
@@ -7531,8 +7155,6 @@ class InputDeviceRequest(PropertyType):
 
 @dataclass
 class InputDeviceSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id": "Id",
     }
@@ -7542,8 +7164,6 @@ class InputDeviceSettings(PropertyType):
 
 @dataclass
 class InputRequestDestinationRoute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr": "Cidr",
         "gateway": "Gateway",
@@ -7555,8 +7175,6 @@ class InputRequestDestinationRoute(PropertyType):
 
 @dataclass
 class InputSdpLocation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "media_index": "MediaIndex",
         "sdp_url": "SdpUrl",
@@ -7568,8 +7186,6 @@ class InputSdpLocation(PropertyType):
 
 @dataclass
 class InputSourceRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "username": "Username",
         "password_param": "PasswordParam",
@@ -7583,8 +7199,6 @@ class InputSourceRequest(PropertyType):
 
 @dataclass
 class InputVpcRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_group_ids": "SecurityGroupIds",
         "subnet_ids": "SubnetIds",
@@ -7596,8 +7210,6 @@ class InputVpcRequest(PropertyType):
 
 @dataclass
 class MediaConnectFlowRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "flow_arn": "FlowArn",
     }
@@ -7607,8 +7219,6 @@ class MediaConnectFlowRequest(PropertyType):
 
 @dataclass
 class MulticastSettingsCreateRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sources": "Sources",
     }
@@ -7618,8 +7228,6 @@ class MulticastSettingsCreateRequest(PropertyType):
 
 @dataclass
 class MulticastSettingsUpdateRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sources": "Sources",
     }
@@ -7629,8 +7237,6 @@ class MulticastSettingsUpdateRequest(PropertyType):
 
 @dataclass
 class MulticastSourceCreateRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_ip": "SourceIp",
         "url": "Url",
@@ -7642,8 +7248,6 @@ class MulticastSourceCreateRequest(PropertyType):
 
 @dataclass
 class MulticastSourceUpdateRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_ip": "SourceIp",
         "url": "Url",
@@ -7655,8 +7259,6 @@ class MulticastSourceUpdateRequest(PropertyType):
 
 @dataclass
 class RouterDestinationSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_zone_name": "AvailabilityZoneName",
     }
@@ -7666,8 +7268,6 @@ class RouterDestinationSettings(PropertyType):
 
 @dataclass
 class RouterSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "encryption_type": "EncryptionType",
@@ -7681,8 +7281,6 @@ class RouterSettings(PropertyType):
 
 @dataclass
 class Smpte2110ReceiverGroup(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sdp_settings": "SdpSettings",
     }
@@ -7692,8 +7290,6 @@ class Smpte2110ReceiverGroup(PropertyType):
 
 @dataclass
 class Smpte2110ReceiverGroupSdpSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audio_sdps": "AudioSdps",
         "ancillary_sdps": "AncillarySdps",
@@ -7707,8 +7303,6 @@ class Smpte2110ReceiverGroupSdpSettings(PropertyType):
 
 @dataclass
 class Smpte2110ReceiverGroupSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "smpte2110_receiver_groups": "Smpte2110ReceiverGroups",
     }
@@ -7718,8 +7312,6 @@ class Smpte2110ReceiverGroupSettings(PropertyType):
 
 @dataclass
 class SpecialRouterSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "router_arn": "RouterArn",
     }
@@ -7729,8 +7321,6 @@ class SpecialRouterSettings(PropertyType):
 
 @dataclass
 class SrtCallerDecryptionRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "algorithm": "Algorithm",
         "passphrase_secret_arn": "PassphraseSecretArn",
@@ -7742,8 +7332,6 @@ class SrtCallerDecryptionRequest(PropertyType):
 
 @dataclass
 class SrtCallerSourceRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "srt_listener_port": "SrtListenerPort",
         "stream_id": "StreamId",
@@ -7761,8 +7349,6 @@ class SrtCallerSourceRequest(PropertyType):
 
 @dataclass
 class SrtSettingsRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "srt_caller_sources": "SrtCallerSources",
     }
@@ -7831,8 +7417,6 @@ class Input(CloudFormationResource):
 
 @dataclass
 class InputWhitelistRuleCidr(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr": "Cidr",
     }
@@ -7863,8 +7447,6 @@ class InputSecurityGroup(CloudFormationResource):
 
 @dataclass
 class MultiplexMediaConnectOutputDestinationSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entitlement_arn": "EntitlementArn",
     }
@@ -7874,8 +7456,6 @@ class MultiplexMediaConnectOutputDestinationSettings(PropertyType):
 
 @dataclass
 class MultiplexOutputDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "multiplex_media_connect_output_destination_settings": "MultiplexMediaConnectOutputDestinationSettings",
     }
@@ -7885,8 +7465,6 @@ class MultiplexOutputDestination(PropertyType):
 
 @dataclass
 class MultiplexSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transport_stream_bitrate": "TransportStreamBitrate",
         "maximum_video_buffer_delay_milliseconds": "MaximumVideoBufferDelayMilliseconds",
@@ -7902,8 +7480,6 @@ class MultiplexSettings(PropertyType):
 
 @dataclass
 class Tags(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -7962,8 +7538,6 @@ class Multiplex(CloudFormationResource):
 
 @dataclass
 class MultiplexProgramPacketIdentifiersMap(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "etv_platform_pid": "EtvPlatformPid",
         "dvb_teletext_pid": "DvbTeletextPid",
@@ -7997,8 +7571,6 @@ class MultiplexProgramPacketIdentifiersMap(PropertyType):
 
 @dataclass
 class MultiplexProgramPipelineDetail(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "active_channel_pipeline": "ActiveChannelPipeline",
         "pipeline_id": "PipelineId",
@@ -8010,8 +7582,6 @@ class MultiplexProgramPipelineDetail(PropertyType):
 
 @dataclass
 class MultiplexProgramServiceDescriptor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "provider_name": "ProviderName",
         "service_name": "ServiceName",
@@ -8023,8 +7593,6 @@ class MultiplexProgramServiceDescriptor(PropertyType):
 
 @dataclass
 class MultiplexProgramSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "preferred_channel_pipeline": "PreferredChannelPipeline",
         "service_descriptor": "ServiceDescriptor",
@@ -8040,8 +7608,6 @@ class MultiplexProgramSettings(PropertyType):
 
 @dataclass
 class MultiplexStatmuxVideoSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "priority": "Priority",
         "maximum_bitrate": "MaximumBitrate",
@@ -8055,8 +7621,6 @@ class MultiplexStatmuxVideoSettings(PropertyType):
 
 @dataclass
 class MultiplexVideoSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "statmux_settings": "StatmuxSettings",
         "constant_bitrate": "ConstantBitrate",
@@ -8097,8 +7661,6 @@ class Multiplexprogram(CloudFormationResource):
 
 @dataclass
 class IpPool(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr": "Cidr",
     }
@@ -8108,8 +7670,6 @@ class IpPool(PropertyType):
 
 @dataclass
 class Route(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr": "Cidr",
         "gateway": "Gateway",
@@ -8121,8 +7681,6 @@ class Route(PropertyType):
 
 @dataclass
 class Tags(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -8174,8 +7732,6 @@ class Network(CloudFormationResource):
 
 @dataclass
 class Tags(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -8227,8 +7783,6 @@ class SdiSource(CloudFormationResource):
 
 @dataclass
 class MediaResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destinations": "Destinations",
         "sources": "Sources",
@@ -8242,8 +7796,6 @@ class MediaResource(PropertyType):
 
 @dataclass
 class MediaResourceNeighbor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
         "name": "Name",
@@ -8255,8 +7807,6 @@ class MediaResourceNeighbor(PropertyType):
 
 @dataclass
 class MonitorDeployment(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "details_uri": "DetailsUri",
         "status": "Status",
@@ -8270,8 +7820,6 @@ class MonitorDeployment(PropertyType):
 
 @dataclass
 class SuccessfulMonitorDeployment(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "details_uri": "DetailsUri",
         "status": "Status",

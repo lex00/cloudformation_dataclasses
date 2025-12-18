@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CloudFront
@@ -593,8 +593,6 @@ REDIRECT_TO_HTTPS = ViewerProtocolPolicy.REDIRECT_TO_HTTPS
 
 @dataclass
 class AnycastIpList(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IpAddressType",
         "status": "Status",
@@ -620,8 +618,6 @@ class AnycastIpList(PropertyType):
 
 @dataclass
 class IpamCidrConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr": "Cidr",
         "ipam_pool_arn": "IpamPoolArn",
@@ -633,8 +629,6 @@ class IpamCidrConfig(PropertyType):
 
 @dataclass
 class IpamCidrConfigResult(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "anycast_ip": "AnycastIp",
@@ -650,8 +644,6 @@ class IpamCidrConfigResult(PropertyType):
 
 @dataclass
 class Tags(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "items": "Items",
     }
@@ -748,8 +740,6 @@ class AnycastIpList(CloudFormationResource):
 
 @dataclass
 class CachePolicyConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comment": "Comment",
         "min_ttl": "MinTTL",
@@ -769,8 +759,6 @@ class CachePolicyConfig(PropertyType):
 
 @dataclass
 class CookiesConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cookies": "Cookies",
         "cookie_behavior": "CookieBehavior",
@@ -782,8 +770,6 @@ class CookiesConfig(PropertyType):
 
 @dataclass
 class HeadersConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "headers": "Headers",
         "header_behavior": "HeaderBehavior",
@@ -795,8 +781,6 @@ class HeadersConfig(PropertyType):
 
 @dataclass
 class ParametersInCacheKeyAndForwardedToOrigin(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_accept_encoding_brotli": "EnableAcceptEncodingBrotli",
         "headers_config": "HeadersConfig",
@@ -814,8 +798,6 @@ class ParametersInCacheKeyAndForwardedToOrigin(PropertyType):
 
 @dataclass
 class QueryStringsConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "query_strings": "QueryStrings",
         "query_string_behavior": "QueryStringBehavior",
@@ -851,8 +833,6 @@ class CachePolicy(CloudFormationResource):
 
 @dataclass
 class CloudFrontOriginAccessIdentityConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comment": "Comment",
     }
@@ -886,8 +866,6 @@ class CloudFrontOriginAccessIdentity(CloudFormationResource):
 
 @dataclass
 class ConnectionFunctionConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comment": "Comment",
         "runtime": "Runtime",
@@ -901,8 +879,6 @@ class ConnectionFunctionConfig(PropertyType):
 
 @dataclass
 class KeyValueStoreAssociation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_value_store_arn": "KeyValueStoreARN",
     }
@@ -1031,8 +1007,6 @@ class ConnectionGroup(CloudFormationResource):
 
 @dataclass
 class ContinuousDeploymentPolicyConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "single_header_policy_config": "SingleHeaderPolicyConfig",
@@ -1052,8 +1026,6 @@ class ContinuousDeploymentPolicyConfig(PropertyType):
 
 @dataclass
 class SessionStickinessConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "idle_ttl": "IdleTTL",
         "maximum_ttl": "MaximumTTL",
@@ -1065,8 +1037,6 @@ class SessionStickinessConfig(PropertyType):
 
 @dataclass
 class SingleHeaderConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header": "Header",
         "value": "Value",
@@ -1078,8 +1048,6 @@ class SingleHeaderConfig(PropertyType):
 
 @dataclass
 class SingleHeaderPolicyConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header": "Header",
         "value": "Value",
@@ -1091,8 +1059,6 @@ class SingleHeaderPolicyConfig(PropertyType):
 
 @dataclass
 class SingleWeightConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "session_stickiness_config": "SessionStickinessConfig",
         "weight": "Weight",
@@ -1104,8 +1070,6 @@ class SingleWeightConfig(PropertyType):
 
 @dataclass
 class SingleWeightPolicyConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "session_stickiness_config": "SessionStickinessConfig",
         "weight": "Weight",
@@ -1117,8 +1081,6 @@ class SingleWeightPolicyConfig(PropertyType):
 
 @dataclass
 class TrafficConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "single_weight_config": "SingleWeightConfig",
         "type_": "Type",
@@ -1156,8 +1118,6 @@ class ContinuousDeploymentPolicy(CloudFormationResource):
 
 @dataclass
 class CacheBehavior(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compress": "Compress",
         "function_associations": "FunctionAssociations",
@@ -1207,8 +1167,6 @@ class CacheBehavior(PropertyType):
 
 @dataclass
 class ConnectionFunctionAssociation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id": "Id",
     }
@@ -1218,8 +1176,6 @@ class ConnectionFunctionAssociation(PropertyType):
 
 @dataclass
 class Cookies(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "whitelisted_names": "WhitelistedNames",
         "forward": "Forward",
@@ -1231,8 +1187,6 @@ class Cookies(PropertyType):
 
 @dataclass
 class CustomErrorResponse(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "response_code": "ResponseCode",
         "error_caching_min_ttl": "ErrorCachingMinTTL",
@@ -1248,8 +1202,6 @@ class CustomErrorResponse(PropertyType):
 
 @dataclass
 class CustomOriginConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IpAddressType",
         "origin_read_timeout": "OriginReadTimeout",
@@ -1271,8 +1223,6 @@ class CustomOriginConfig(PropertyType):
 
 @dataclass
 class DefaultCacheBehavior(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compress": "Compress",
         "function_associations": "FunctionAssociations",
@@ -1320,8 +1270,6 @@ class DefaultCacheBehavior(PropertyType):
 
 @dataclass
 class Definition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "string_schema": "StringSchema",
     }
@@ -1331,8 +1279,6 @@ class Definition(PropertyType):
 
 @dataclass
 class DistributionConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "price_class": "PriceClass",
         "staging": "Staging",
@@ -1392,8 +1338,6 @@ class DistributionConfig(PropertyType):
 
 @dataclass
 class ForwardedValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cookies": "Cookies",
         "headers": "Headers",
@@ -1409,8 +1353,6 @@ class ForwardedValues(PropertyType):
 
 @dataclass
 class FunctionAssociation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function_arn": "FunctionARN",
         "event_type": "EventType",
@@ -1422,8 +1364,6 @@ class FunctionAssociation(PropertyType):
 
 @dataclass
 class GeoRestriction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "locations": "Locations",
         "restriction_type": "RestrictionType",
@@ -1435,8 +1375,6 @@ class GeoRestriction(PropertyType):
 
 @dataclass
 class GrpcConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -1446,8 +1384,6 @@ class GrpcConfig(PropertyType):
 
 @dataclass
 class LambdaFunctionAssociation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_body": "IncludeBody",
         "event_type": "EventType",
@@ -1461,8 +1397,6 @@ class LambdaFunctionAssociation(PropertyType):
 
 @dataclass
 class LegacyCustomOrigin(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "https_port": "HTTPSPort",
         "origin_ssl_protocols": "OriginSSLProtocols",
@@ -1480,8 +1414,6 @@ class LegacyCustomOrigin(PropertyType):
 
 @dataclass
 class LegacyS3Origin(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "origin_access_identity": "OriginAccessIdentity",
         "dns_name": "DNSName",
@@ -1493,8 +1425,6 @@ class LegacyS3Origin(PropertyType):
 
 @dataclass
 class Logging(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_cookies": "IncludeCookies",
         "bucket": "Bucket",
@@ -1508,8 +1438,6 @@ class Logging(PropertyType):
 
 @dataclass
 class Origin(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_timeout": "ConnectionTimeout",
         "origin_access_control_id": "OriginAccessControlId",
@@ -1541,8 +1469,6 @@ class Origin(PropertyType):
 
 @dataclass
 class OriginCustomHeader(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header_value": "HeaderValue",
         "header_name": "HeaderName",
@@ -1554,8 +1480,6 @@ class OriginCustomHeader(PropertyType):
 
 @dataclass
 class OriginGroup(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "selection_criteria": "SelectionCriteria",
         "id": "Id",
@@ -1571,8 +1495,6 @@ class OriginGroup(PropertyType):
 
 @dataclass
 class OriginGroupFailoverCriteria(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status_codes": "StatusCodes",
     }
@@ -1582,8 +1504,6 @@ class OriginGroupFailoverCriteria(PropertyType):
 
 @dataclass
 class OriginGroupMember(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "origin_id": "OriginId",
     }
@@ -1593,8 +1513,6 @@ class OriginGroupMember(PropertyType):
 
 @dataclass
 class OriginGroupMembers(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "quantity": "Quantity",
         "items": "Items",
@@ -1606,8 +1524,6 @@ class OriginGroupMembers(PropertyType):
 
 @dataclass
 class OriginGroups(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "quantity": "Quantity",
         "items": "Items",
@@ -1619,8 +1535,6 @@ class OriginGroups(PropertyType):
 
 @dataclass
 class OriginShield(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "origin_shield_region": "OriginShieldRegion",
         "enabled": "Enabled",
@@ -1632,8 +1546,6 @@ class OriginShield(PropertyType):
 
 @dataclass
 class ParameterDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "definition": "Definition",
         "name": "Name",
@@ -1645,8 +1557,6 @@ class ParameterDefinition(PropertyType):
 
 @dataclass
 class Restrictions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "geo_restriction": "GeoRestriction",
     }
@@ -1656,8 +1566,6 @@ class Restrictions(PropertyType):
 
 @dataclass
 class S3OriginConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "origin_read_timeout": "OriginReadTimeout",
         "origin_access_identity": "OriginAccessIdentity",
@@ -1669,8 +1577,6 @@ class S3OriginConfig(PropertyType):
 
 @dataclass
 class StatusCodes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "quantity": "Quantity",
         "items": "Items",
@@ -1682,8 +1588,6 @@ class StatusCodes(PropertyType):
 
 @dataclass
 class StringSchema(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comment": "Comment",
         "default_value": "DefaultValue",
@@ -1697,8 +1601,6 @@ class StringSchema(PropertyType):
 
 @dataclass
 class TenantConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_definitions": "ParameterDefinitions",
     }
@@ -1708,8 +1610,6 @@ class TenantConfig(PropertyType):
 
 @dataclass
 class TrustStoreConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "trust_store_id": "TrustStoreId",
         "ignore_certificate_expiry": "IgnoreCertificateExpiry",
@@ -1723,8 +1623,6 @@ class TrustStoreConfig(PropertyType):
 
 @dataclass
 class ViewerCertificate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iam_certificate_id": "IamCertificateId",
         "ssl_support_method": "SslSupportMethod",
@@ -1742,8 +1640,6 @@ class ViewerCertificate(PropertyType):
 
 @dataclass
 class ViewerMtlsConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
         "trust_store_config": "TrustStoreConfig",
@@ -1755,8 +1651,6 @@ class ViewerMtlsConfig(PropertyType):
 
 @dataclass
 class VpcOriginConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "origin_read_timeout": "OriginReadTimeout",
         "vpc_origin_id": "VpcOriginId",
@@ -1798,8 +1692,6 @@ class Distribution(CloudFormationResource):
 
 @dataclass
 class Certificate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -1809,8 +1701,6 @@ class Certificate(PropertyType):
 
 @dataclass
 class Customizations(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "web_acl": "WebAcl",
         "geo_restrictions": "GeoRestrictions",
@@ -1824,8 +1714,6 @@ class Customizations(PropertyType):
 
 @dataclass
 class DomainResult(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "domain": "Domain",
@@ -1837,8 +1725,6 @@ class DomainResult(PropertyType):
 
 @dataclass
 class GeoRestrictionCustomization(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "locations": "Locations",
         "restriction_type": "RestrictionType",
@@ -1850,8 +1736,6 @@ class GeoRestrictionCustomization(PropertyType):
 
 @dataclass
 class ManagedCertificateRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_transparency_logging_preference": "CertificateTransparencyLoggingPreference",
         "validation_token_host": "ValidationTokenHost",
@@ -1865,8 +1749,6 @@ class ManagedCertificateRequest(PropertyType):
 
 @dataclass
 class Parameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -1878,8 +1760,6 @@ class Parameter(PropertyType):
 
 @dataclass
 class WebAclCustomization(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "arn": "Arn",
@@ -1956,8 +1836,6 @@ class DistributionTenant(CloudFormationResource):
 
 @dataclass
 class FunctionConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comment": "Comment",
         "runtime": "Runtime",
@@ -1971,8 +1849,6 @@ class FunctionConfig(PropertyType):
 
 @dataclass
 class FunctionMetadata(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function_arn": "FunctionARN",
     }
@@ -1982,8 +1858,6 @@ class FunctionMetadata(PropertyType):
 
 @dataclass
 class KeyValueStoreAssociation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_value_store_arn": "KeyValueStoreARN",
     }
@@ -2030,8 +1904,6 @@ class Function(CloudFormationResource):
 
 @dataclass
 class KeyGroupConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comment": "Comment",
         "items": "Items",
@@ -2069,8 +1941,6 @@ class KeyGroup(CloudFormationResource):
 
 @dataclass
 class ImportSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_arn": "SourceArn",
         "source_type": "SourceType",
@@ -2115,8 +1985,6 @@ class KeyValueStore(CloudFormationResource):
 
 @dataclass
 class MonitoringSubscription(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "realtime_metrics_subscription_config": "RealtimeMetricsSubscriptionConfig",
     }
@@ -2126,8 +1994,6 @@ class MonitoringSubscription(PropertyType):
 
 @dataclass
 class RealtimeMetricsSubscriptionConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "realtime_metrics_subscription_status": "RealtimeMetricsSubscriptionStatus",
     }
@@ -2152,8 +2018,6 @@ class MonitoringSubscription(CloudFormationResource):
 
 @dataclass
 class OriginAccessControlConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "signing_behavior": "SigningBehavior",
         "description": "Description",
@@ -2190,8 +2054,6 @@ class OriginAccessControl(CloudFormationResource):
 
 @dataclass
 class CookiesConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cookies": "Cookies",
         "cookie_behavior": "CookieBehavior",
@@ -2203,8 +2065,6 @@ class CookiesConfig(PropertyType):
 
 @dataclass
 class HeadersConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "headers": "Headers",
         "header_behavior": "HeaderBehavior",
@@ -2216,8 +2076,6 @@ class HeadersConfig(PropertyType):
 
 @dataclass
 class OriginRequestPolicyConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comment": "Comment",
         "headers_config": "HeadersConfig",
@@ -2235,8 +2093,6 @@ class OriginRequestPolicyConfig(PropertyType):
 
 @dataclass
 class QueryStringsConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "query_strings": "QueryStrings",
         "query_string_behavior": "QueryStringBehavior",
@@ -2272,8 +2128,6 @@ class OriginRequestPolicy(CloudFormationResource):
 
 @dataclass
 class PublicKeyConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comment": "Comment",
         "caller_reference": "CallerReference",
@@ -2313,8 +2167,6 @@ class PublicKey(CloudFormationResource):
 
 @dataclass
 class EndPoint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kinesis_stream_config": "KinesisStreamConfig",
         "stream_type": "StreamType",
@@ -2326,8 +2178,6 @@ class EndPoint(PropertyType):
 
 @dataclass
 class KinesisStreamConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stream_arn": "StreamArn",
         "role_arn": "RoleArn",
@@ -2364,8 +2214,6 @@ class RealtimeLogConfig(CloudFormationResource):
 
 @dataclass
 class AccessControlAllowHeaders(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "items": "Items",
     }
@@ -2375,8 +2223,6 @@ class AccessControlAllowHeaders(PropertyType):
 
 @dataclass
 class AccessControlAllowMethods(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "items": "Items",
     }
@@ -2386,8 +2232,6 @@ class AccessControlAllowMethods(PropertyType):
 
 @dataclass
 class AccessControlAllowOrigins(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "items": "Items",
     }
@@ -2397,8 +2241,6 @@ class AccessControlAllowOrigins(PropertyType):
 
 @dataclass
 class AccessControlExposeHeaders(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "items": "Items",
     }
@@ -2408,8 +2250,6 @@ class AccessControlExposeHeaders(PropertyType):
 
 @dataclass
 class ContentSecurityPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_security_policy": "ContentSecurityPolicy",
         "override": "Override",
@@ -2421,8 +2261,6 @@ class ContentSecurityPolicy(PropertyType):
 
 @dataclass
 class ContentTypeOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "override": "Override",
     }
@@ -2432,8 +2270,6 @@ class ContentTypeOptions(PropertyType):
 
 @dataclass
 class CorsConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_control_allow_credentials": "AccessControlAllowCredentials",
         "access_control_allow_headers": "AccessControlAllowHeaders",
@@ -2455,8 +2291,6 @@ class CorsConfig(PropertyType):
 
 @dataclass
 class CustomHeader(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header": "Header",
         "value": "Value",
@@ -2470,8 +2304,6 @@ class CustomHeader(PropertyType):
 
 @dataclass
 class CustomHeadersConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "items": "Items",
     }
@@ -2481,8 +2313,6 @@ class CustomHeadersConfig(PropertyType):
 
 @dataclass
 class FrameOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "frame_option": "FrameOption",
         "override": "Override",
@@ -2494,8 +2324,6 @@ class FrameOptions(PropertyType):
 
 @dataclass
 class ReferrerPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "override": "Override",
         "referrer_policy": "ReferrerPolicy",
@@ -2507,8 +2335,6 @@ class ReferrerPolicy(PropertyType):
 
 @dataclass
 class RemoveHeader(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header": "Header",
     }
@@ -2518,8 +2344,6 @@ class RemoveHeader(PropertyType):
 
 @dataclass
 class RemoveHeadersConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "items": "Items",
     }
@@ -2529,8 +2353,6 @@ class RemoveHeadersConfig(PropertyType):
 
 @dataclass
 class ResponseHeadersPolicyConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comment": "Comment",
         "security_headers_config": "SecurityHeadersConfig",
@@ -2552,8 +2374,6 @@ class ResponseHeadersPolicyConfig(PropertyType):
 
 @dataclass
 class SecurityHeadersConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_security_policy": "ContentSecurityPolicy",
         "frame_options": "FrameOptions",
@@ -2573,8 +2393,6 @@ class SecurityHeadersConfig(PropertyType):
 
 @dataclass
 class ServerTimingHeadersConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "sampling_rate": "SamplingRate",
@@ -2586,8 +2404,6 @@ class ServerTimingHeadersConfig(PropertyType):
 
 @dataclass
 class StrictTransportSecurity(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "preload": "Preload",
         "access_control_max_age_sec": "AccessControlMaxAgeSec",
@@ -2603,8 +2419,6 @@ class StrictTransportSecurity(PropertyType):
 
 @dataclass
 class XSSProtection(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "report_uri": "ReportUri",
         "override": "Override",
@@ -2644,8 +2458,6 @@ class ResponseHeadersPolicy(CloudFormationResource):
 
 @dataclass
 class Logging(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "enabled": "Enabled",
@@ -2659,8 +2471,6 @@ class Logging(PropertyType):
 
 @dataclass
 class S3Origin(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_name": "DomainName",
         "origin_access_identity": "OriginAccessIdentity",
@@ -2672,8 +2482,6 @@ class S3Origin(PropertyType):
 
 @dataclass
 class StreamingDistributionConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logging": "Logging",
         "comment": "Comment",
@@ -2695,8 +2503,6 @@ class StreamingDistributionConfig(PropertyType):
 
 @dataclass
 class TrustedSigners(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "aws_account_numbers": "AwsAccountNumbers",
@@ -2729,8 +2535,6 @@ class StreamingDistribution(CloudFormationResource):
 
 @dataclass
 class CaCertificatesBundleS3Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "version": "Version",
@@ -2746,8 +2550,6 @@ class CaCertificatesBundleS3Location(PropertyType):
 
 @dataclass
 class CaCertificatesBundleSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ca_certificates_bundle_s3_location": "CaCertificatesBundleS3Location",
     }
@@ -2805,8 +2607,6 @@ class TrustStore(CloudFormationResource):
 
 @dataclass
 class VpcOriginEndpointConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "https_port": "HTTPSPort",
         "origin_ssl_protocols": "OriginSSLProtocols",

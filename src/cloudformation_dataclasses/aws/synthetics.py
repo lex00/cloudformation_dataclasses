@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Synthetics
@@ -167,8 +167,6 @@ DRY_RUN = RunType.DRY_RUN
 
 @dataclass
 class ArtifactConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-syn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_encryption": "S3Encryption",
     }
@@ -178,8 +176,6 @@ class ArtifactConfig(PropertyType):
 
 @dataclass
 class BaseScreenshot(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-syn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ignore_coordinates": "IgnoreCoordinates",
         "screenshot_name": "ScreenshotName",
@@ -191,8 +187,6 @@ class BaseScreenshot(PropertyType):
 
 @dataclass
 class BrowserConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-syn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "browser_type": "BrowserType",
     }
@@ -202,8 +196,6 @@ class BrowserConfig(PropertyType):
 
 @dataclass
 class Code(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-syn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "script": "Script",
         "s3_object_version": "S3ObjectVersion",
@@ -227,8 +219,6 @@ class Code(PropertyType):
 
 @dataclass
 class Dependency(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-syn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "reference": "Reference",
@@ -240,8 +230,6 @@ class Dependency(PropertyType):
 
 @dataclass
 class RetryConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-syn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_retries": "MaxRetries",
     }
@@ -251,8 +239,6 @@ class RetryConfig(PropertyType):
 
 @dataclass
 class RunConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-syn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timeout_in_seconds": "TimeoutInSeconds",
         "environment_variables": "EnvironmentVariables",
@@ -270,8 +256,6 @@ class RunConfig(PropertyType):
 
 @dataclass
 class S3Encryption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-syn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
         "encryption_mode": "EncryptionMode",
@@ -283,8 +267,6 @@ class S3Encryption(PropertyType):
 
 @dataclass
 class Schedule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-syn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration_in_seconds": "DurationInSeconds",
         "retry_config": "RetryConfig",
@@ -298,8 +280,6 @@ class Schedule(PropertyType):
 
 @dataclass
 class VPCConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-syn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ipv6_allowed_for_dual_stack": "Ipv6AllowedForDualStack",
         "vpc_id": "VpcId",
@@ -315,8 +295,6 @@ class VPCConfig(PropertyType):
 
 @dataclass
 class VisualReference(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-syn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "base_screenshots": "BaseScreenshots",
         "browser_type": "BrowserType",

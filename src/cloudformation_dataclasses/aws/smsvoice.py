@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SMSVOICE
@@ -27,8 +27,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CloudWatchLogsDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iam_role_arn": "IamRoleArn",
         "log_group_arn": "LogGroupArn",
@@ -40,8 +38,6 @@ class CloudWatchLogsDestination(PropertyType):
 
 @dataclass
 class EventDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_destination_name": "EventDestinationName",
         "sns_destination": "SnsDestination",
@@ -61,8 +57,6 @@ class EventDestination(PropertyType):
 
 @dataclass
 class KinesisFirehoseDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_stream_arn": "DeliveryStreamArn",
         "iam_role_arn": "IamRoleArn",
@@ -74,8 +68,6 @@ class KinesisFirehoseDestination(PropertyType):
 
 @dataclass
 class SnsDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topic_arn": "TopicArn",
     }
@@ -135,8 +127,6 @@ class OptOutList(CloudFormationResource):
 
 @dataclass
 class MandatoryKeyword(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message": "Message",
     }
@@ -146,8 +136,6 @@ class MandatoryKeyword(PropertyType):
 
 @dataclass
 class MandatoryKeywords(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "help": "HELP",
         "stop": "STOP",
@@ -159,8 +147,6 @@ class MandatoryKeywords(PropertyType):
 
 @dataclass
 class OptionalKeyword(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "keyword": "Keyword",
@@ -174,8 +160,6 @@ class OptionalKeyword(PropertyType):
 
 @dataclass
 class TwoWay(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channel_arn": "ChannelArn",
         "channel_role": "ChannelRole",
@@ -236,8 +220,6 @@ class PhoneNumber(CloudFormationResource):
 
 @dataclass
 class MandatoryKeyword(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message": "Message",
     }
@@ -247,8 +229,6 @@ class MandatoryKeyword(PropertyType):
 
 @dataclass
 class MandatoryKeywords(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "help": "HELP",
         "stop": "STOP",
@@ -260,8 +240,6 @@ class MandatoryKeywords(PropertyType):
 
 @dataclass
 class OptionalKeyword(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "keyword": "Keyword",
@@ -275,8 +253,6 @@ class OptionalKeyword(PropertyType):
 
 @dataclass
 class TwoWay(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channel_arn": "ChannelArn",
         "channel_role": "ChannelRole",
@@ -330,8 +306,6 @@ class Pool(CloudFormationResource):
 
 @dataclass
 class CountryRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "protect_status": "ProtectStatus",
         "country_code": "CountryCode",
@@ -343,8 +317,6 @@ class CountryRule(PropertyType):
 
 @dataclass
 class CountryRuleSet(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "voice": "VOICE",
         "mms": "MMS",

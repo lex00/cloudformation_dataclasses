@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service NetworkManager
@@ -541,8 +541,6 @@ OTHER = ValidationExceptionReason.OTHER
 
 @dataclass
 class ConnectAttachmentOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "protocol": "Protocol",
     }
@@ -552,8 +550,6 @@ class ConnectAttachmentOptions(PropertyType):
 
 @dataclass
 class ProposedNetworkFunctionGroupChange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tags": "Tags",
         "network_function_group_name": "NetworkFunctionGroupName",
@@ -567,8 +563,6 @@ class ProposedNetworkFunctionGroupChange(PropertyType):
 
 @dataclass
 class ProposedSegmentChange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "segment_name": "SegmentName",
         "tags": "Tags",
@@ -667,8 +661,6 @@ class ConnectAttachment(CloudFormationResource):
 
 @dataclass
 class BgpOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "peer_asn": "PeerAsn",
     }
@@ -678,8 +670,6 @@ class BgpOptions(PropertyType):
 
 @dataclass
 class ConnectPeerBgpConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "peer_address": "PeerAddress",
         "core_network_address": "CoreNetworkAddress",
@@ -695,8 +685,6 @@ class ConnectPeerBgpConfiguration(PropertyType):
 
 @dataclass
 class ConnectPeerConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bgp_configurations": "BgpConfigurations",
         "peer_address": "PeerAddress",
@@ -800,8 +788,6 @@ class ConnectPeer(CloudFormationResource):
 
 @dataclass
 class CoreNetworkEdge(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inside_cidr_blocks": "InsideCidrBlocks",
         "asn": "Asn",
@@ -815,8 +801,6 @@ class CoreNetworkEdge(PropertyType):
 
 @dataclass
 class CoreNetworkNetworkFunctionGroup(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "edge_locations": "EdgeLocations",
         "segments": "Segments",
@@ -830,8 +814,6 @@ class CoreNetworkNetworkFunctionGroup(PropertyType):
 
 @dataclass
 class CoreNetworkSegment(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "edge_locations": "EdgeLocations",
         "shared_segments": "SharedSegments",
@@ -845,8 +827,6 @@ class CoreNetworkSegment(PropertyType):
 
 @dataclass
 class Segments(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "send_to": "SendTo",
         "send_via": "SendVia",
@@ -954,8 +934,6 @@ class CustomerGatewayAssociation(CloudFormationResource):
 
 @dataclass
 class AWSLocation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "zone": "Zone",
         "subnet_arn": "SubnetArn",
@@ -967,8 +945,6 @@ class AWSLocation(PropertyType):
 
 @dataclass
 class Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address": "Address",
         "latitude": "Latitude",
@@ -1034,8 +1010,6 @@ class Device(CloudFormationResource):
 
 @dataclass
 class ProposedNetworkFunctionGroupChange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tags": "Tags",
         "network_function_group_name": "NetworkFunctionGroupName",
@@ -1049,8 +1023,6 @@ class ProposedNetworkFunctionGroupChange(PropertyType):
 
 @dataclass
 class ProposedSegmentChange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "segment_name": "SegmentName",
         "tags": "Tags",
@@ -1180,8 +1152,6 @@ class GlobalNetwork(CloudFormationResource):
 
 @dataclass
 class Bandwidth(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "download_speed": "DownloadSpeed",
         "upload_speed": "UploadSpeed",
@@ -1256,8 +1226,6 @@ class LinkAssociation(CloudFormationResource):
 
 @dataclass
 class Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address": "Address",
         "latitude": "Latitude",
@@ -1311,8 +1279,6 @@ class Site(CloudFormationResource):
 
 @dataclass
 class ProposedNetworkFunctionGroupChange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tags": "Tags",
         "network_function_group_name": "NetworkFunctionGroupName",
@@ -1326,8 +1292,6 @@ class ProposedNetworkFunctionGroupChange(PropertyType):
 
 @dataclass
 class ProposedSegmentChange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "segment_name": "SegmentName",
         "tags": "Tags",
@@ -1510,8 +1474,6 @@ class TransitGatewayRegistration(CloudFormationResource):
 
 @dataclass
 class ProposedNetworkFunctionGroupChange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tags": "Tags",
         "network_function_group_name": "NetworkFunctionGroupName",
@@ -1525,8 +1487,6 @@ class ProposedNetworkFunctionGroupChange(PropertyType):
 
 @dataclass
 class ProposedSegmentChange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "segment_name": "SegmentName",
         "tags": "Tags",
@@ -1631,8 +1591,6 @@ class TransitGatewayRouteTableAttachment(CloudFormationResource):
 
 @dataclass
 class ProposedNetworkFunctionGroupChange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tags": "Tags",
         "network_function_group_name": "NetworkFunctionGroupName",
@@ -1646,8 +1604,6 @@ class ProposedNetworkFunctionGroupChange(PropertyType):
 
 @dataclass
 class ProposedSegmentChange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "segment_name": "SegmentName",
         "tags": "Tags",
@@ -1661,8 +1617,6 @@ class ProposedSegmentChange(PropertyType):
 
 @dataclass
 class VpcOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ipv6_support": "Ipv6Support",
         "appliance_mode_support": "ApplianceModeSupport",

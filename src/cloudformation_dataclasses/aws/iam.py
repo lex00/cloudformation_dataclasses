@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IAM
@@ -436,8 +436,6 @@ class AccessKey(CloudFormationResource):
 
 @dataclass
 class Policy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_name": "PolicyName",
         "policy_document": "PolicyDocument",
@@ -632,8 +630,6 @@ class Policy(CloudFormationResource):
 
 @dataclass
 class Policy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_name": "PolicyName",
         "policy_document": "PolicyDocument",
@@ -702,8 +698,6 @@ class RolePolicy(CloudFormationResource):
 
 @dataclass
 class SAMLPrivateKey(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_id": "KeyId",
         "timestamp": "Timestamp",
@@ -803,8 +797,6 @@ class ServiceLinkedRole(CloudFormationResource):
 
 @dataclass
 class LoginProfile(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "password_reset_required": "PasswordResetRequired",
         "password": "Password",
@@ -816,8 +808,6 @@ class LoginProfile(PropertyType):
 
 @dataclass
 class Policy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_name": "PolicyName",
         "policy_document": "PolicyDocument",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ResourceGroups
@@ -158,8 +158,6 @@ ERROR = TagSyncTaskStatus.ERROR
 
 @dataclass
 class ConfigurationItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-res"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "parameters": "Parameters",
@@ -171,8 +169,6 @@ class ConfigurationItem(PropertyType):
 
 @dataclass
 class ConfigurationParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-res"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "name": "Name",
@@ -184,8 +180,6 @@ class ConfigurationParameter(PropertyType):
 
 @dataclass
 class Query(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-res"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tag_filters": "TagFilters",
         "resource_type_filters": "ResourceTypeFilters",
@@ -199,8 +193,6 @@ class Query(PropertyType):
 
 @dataclass
 class ResourceQuery(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-res"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "query": "Query",
@@ -212,8 +204,6 @@ class ResourceQuery(PropertyType):
 
 @dataclass
 class TagFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-res"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "key": "Key",

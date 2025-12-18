@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service KinesisAnalyticsV2
@@ -227,8 +227,6 @@ ZEPPELIN_UI_URL = UrlType.ZEPPELIN_UI_URL
 
 @dataclass
 class ApplicationCodeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "code_content_type": "CodeContentType",
         "code_content": "CodeContent",
@@ -240,8 +238,6 @@ class ApplicationCodeConfiguration(PropertyType):
 
 @dataclass
 class ApplicationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_code_configuration": "ApplicationCodeConfiguration",
         "application_encryption_configuration": "ApplicationEncryptionConfiguration",
@@ -267,8 +263,6 @@ class ApplicationConfiguration(PropertyType):
 
 @dataclass
 class ApplicationEncryptionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_type": "KeyType",
         "key_id": "KeyId",
@@ -280,8 +274,6 @@ class ApplicationEncryptionConfiguration(PropertyType):
 
 @dataclass
 class ApplicationMaintenanceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_maintenance_window_start_time": "ApplicationMaintenanceWindowStartTime",
     }
@@ -291,8 +283,6 @@ class ApplicationMaintenanceConfiguration(PropertyType):
 
 @dataclass
 class ApplicationRestoreConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "snapshot_name": "SnapshotName",
         "application_restore_type": "ApplicationRestoreType",
@@ -304,8 +294,6 @@ class ApplicationRestoreConfiguration(PropertyType):
 
 @dataclass
 class ApplicationSnapshotConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "snapshots_enabled": "SnapshotsEnabled",
     }
@@ -315,8 +303,6 @@ class ApplicationSnapshotConfiguration(PropertyType):
 
 @dataclass
 class ApplicationSystemRollbackConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rollback_enabled": "RollbackEnabled",
     }
@@ -326,8 +312,6 @@ class ApplicationSystemRollbackConfiguration(PropertyType):
 
 @dataclass
 class CSVMappingParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "record_row_delimiter": "RecordRowDelimiter",
         "record_column_delimiter": "RecordColumnDelimiter",
@@ -339,8 +323,6 @@ class CSVMappingParameters(PropertyType):
 
 @dataclass
 class CatalogConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "glue_data_catalog_configuration": "GlueDataCatalogConfiguration",
     }
@@ -350,8 +332,6 @@ class CatalogConfiguration(PropertyType):
 
 @dataclass
 class CheckpointConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration_type": "ConfigurationType",
         "checkpoint_interval": "CheckpointInterval",
@@ -367,8 +347,6 @@ class CheckpointConfiguration(PropertyType):
 
 @dataclass
 class CodeContent(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "zip_file_content": "ZipFileContent",
         "s3_content_location": "S3ContentLocation",
@@ -382,8 +360,6 @@ class CodeContent(PropertyType):
 
 @dataclass
 class CustomArtifactConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maven_reference": "MavenReference",
         "s3_content_location": "S3ContentLocation",
@@ -397,8 +373,6 @@ class CustomArtifactConfiguration(PropertyType):
 
 @dataclass
 class DeployAsApplicationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_content_location": "S3ContentLocation",
     }
@@ -408,8 +382,6 @@ class DeployAsApplicationConfiguration(PropertyType):
 
 @dataclass
 class EnvironmentProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "property_groups": "PropertyGroups",
     }
@@ -419,8 +391,6 @@ class EnvironmentProperties(PropertyType):
 
 @dataclass
 class FlinkApplicationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "checkpoint_configuration": "CheckpointConfiguration",
         "parallelism_configuration": "ParallelismConfiguration",
@@ -434,8 +404,6 @@ class FlinkApplicationConfiguration(PropertyType):
 
 @dataclass
 class FlinkRunConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allow_non_restored_state": "AllowNonRestoredState",
     }
@@ -445,8 +413,6 @@ class FlinkRunConfiguration(PropertyType):
 
 @dataclass
 class GlueDataCatalogConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "database_arn": "DatabaseARN",
     }
@@ -456,8 +422,6 @@ class GlueDataCatalogConfiguration(PropertyType):
 
 @dataclass
 class Input(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name_prefix": "NamePrefix",
         "input_schema": "InputSchema",
@@ -477,8 +441,6 @@ class Input(PropertyType):
 
 @dataclass
 class InputLambdaProcessor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceARN",
     }
@@ -488,8 +450,6 @@ class InputLambdaProcessor(PropertyType):
 
 @dataclass
 class InputParallelism(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "count": "Count",
     }
@@ -499,8 +459,6 @@ class InputParallelism(PropertyType):
 
 @dataclass
 class InputProcessingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_lambda_processor": "InputLambdaProcessor",
     }
@@ -510,8 +468,6 @@ class InputProcessingConfiguration(PropertyType):
 
 @dataclass
 class InputSchema(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "record_encoding": "RecordEncoding",
         "record_columns": "RecordColumns",
@@ -525,8 +481,6 @@ class InputSchema(PropertyType):
 
 @dataclass
 class JSONMappingParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "record_row_path": "RecordRowPath",
     }
@@ -536,8 +490,6 @@ class JSONMappingParameters(PropertyType):
 
 @dataclass
 class KinesisFirehoseInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceARN",
     }
@@ -547,8 +499,6 @@ class KinesisFirehoseInput(PropertyType):
 
 @dataclass
 class KinesisStreamsInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceARN",
     }
@@ -558,8 +508,6 @@ class KinesisStreamsInput(PropertyType):
 
 @dataclass
 class MappingParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "json_mapping_parameters": "JSONMappingParameters",
         "csv_mapping_parameters": "CSVMappingParameters",
@@ -571,8 +519,6 @@ class MappingParameters(PropertyType):
 
 @dataclass
 class MavenReference(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "artifact_id": "ArtifactId",
         "version": "Version",
@@ -586,8 +532,6 @@ class MavenReference(PropertyType):
 
 @dataclass
 class MonitoringConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration_type": "ConfigurationType",
         "metrics_level": "MetricsLevel",
@@ -601,8 +545,6 @@ class MonitoringConfiguration(PropertyType):
 
 @dataclass
 class ParallelismConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration_type": "ConfigurationType",
         "parallelism_per_kpu": "ParallelismPerKPU",
@@ -618,8 +560,6 @@ class ParallelismConfiguration(PropertyType):
 
 @dataclass
 class PropertyGroup(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "property_map": "PropertyMap",
         "property_group_id": "PropertyGroupId",
@@ -631,8 +571,6 @@ class PropertyGroup(PropertyType):
 
 @dataclass
 class RecordColumn(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mapping": "Mapping",
         "sql_type": "SqlType",
@@ -646,8 +584,6 @@ class RecordColumn(PropertyType):
 
 @dataclass
 class RecordFormat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mapping_parameters": "MappingParameters",
         "record_format_type": "RecordFormatType",
@@ -659,8 +595,6 @@ class RecordFormat(PropertyType):
 
 @dataclass
 class RunConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "flink_run_configuration": "FlinkRunConfiguration",
         "application_restore_configuration": "ApplicationRestoreConfiguration",
@@ -672,8 +606,6 @@ class RunConfiguration(PropertyType):
 
 @dataclass
 class S3ContentBaseLocation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_arn": "BucketARN",
         "base_path": "BasePath",
@@ -685,8 +617,6 @@ class S3ContentBaseLocation(PropertyType):
 
 @dataclass
 class S3ContentLocation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_arn": "BucketARN",
         "file_key": "FileKey",
@@ -700,8 +630,6 @@ class S3ContentLocation(PropertyType):
 
 @dataclass
 class SqlApplicationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inputs": "Inputs",
     }
@@ -711,8 +639,6 @@ class SqlApplicationConfiguration(PropertyType):
 
 @dataclass
 class VpcConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_group_ids": "SecurityGroupIds",
         "subnet_ids": "SubnetIds",
@@ -724,8 +650,6 @@ class VpcConfiguration(PropertyType):
 
 @dataclass
 class ZeppelinApplicationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "catalog_configuration": "CatalogConfiguration",
         "monitoring_configuration": "MonitoringConfiguration",
@@ -741,8 +665,6 @@ class ZeppelinApplicationConfiguration(PropertyType):
 
 @dataclass
 class ZeppelinMonitoringConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_level": "LogLevel",
     }
@@ -781,8 +703,6 @@ class Application(CloudFormationResource):
 
 @dataclass
 class CloudWatchLoggingOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_stream_arn": "LogStreamARN",
     }
@@ -807,8 +727,6 @@ class ApplicationCloudWatchLoggingOption(CloudFormationResource):
 
 @dataclass
 class DestinationSchema(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "record_format_type": "RecordFormatType",
     }
@@ -818,8 +736,6 @@ class DestinationSchema(PropertyType):
 
 @dataclass
 class KinesisFirehoseOutput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceARN",
     }
@@ -829,8 +745,6 @@ class KinesisFirehoseOutput(PropertyType):
 
 @dataclass
 class KinesisStreamsOutput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceARN",
     }
@@ -840,8 +754,6 @@ class KinesisStreamsOutput(PropertyType):
 
 @dataclass
 class LambdaOutput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceARN",
     }
@@ -851,8 +763,6 @@ class LambdaOutput(PropertyType):
 
 @dataclass
 class Output(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_schema": "DestinationSchema",
         "lambda_output": "LambdaOutput",
@@ -885,8 +795,6 @@ class ApplicationOutput(CloudFormationResource):
 
 @dataclass
 class CSVMappingParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "record_row_delimiter": "RecordRowDelimiter",
         "record_column_delimiter": "RecordColumnDelimiter",
@@ -898,8 +806,6 @@ class CSVMappingParameters(PropertyType):
 
 @dataclass
 class JSONMappingParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "record_row_path": "RecordRowPath",
     }
@@ -909,8 +815,6 @@ class JSONMappingParameters(PropertyType):
 
 @dataclass
 class MappingParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "json_mapping_parameters": "JSONMappingParameters",
         "csv_mapping_parameters": "CSVMappingParameters",
@@ -922,8 +826,6 @@ class MappingParameters(PropertyType):
 
 @dataclass
 class RecordColumn(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mapping": "Mapping",
         "sql_type": "SqlType",
@@ -937,8 +839,6 @@ class RecordColumn(PropertyType):
 
 @dataclass
 class RecordFormat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mapping_parameters": "MappingParameters",
         "record_format_type": "RecordFormatType",
@@ -950,8 +850,6 @@ class RecordFormat(PropertyType):
 
 @dataclass
 class ReferenceDataSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "reference_schema": "ReferenceSchema",
         "table_name": "TableName",
@@ -965,8 +863,6 @@ class ReferenceDataSource(PropertyType):
 
 @dataclass
 class ReferenceSchema(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "record_encoding": "RecordEncoding",
         "record_columns": "RecordColumns",
@@ -980,8 +876,6 @@ class ReferenceSchema(PropertyType):
 
 @dataclass
 class S3ReferenceDataSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_arn": "BucketARN",
         "file_key": "FileKey",

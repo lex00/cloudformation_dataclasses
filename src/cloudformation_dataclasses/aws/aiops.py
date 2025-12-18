@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:29
+  Generated: 2025-12-17 21:53:45
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AIOps
@@ -43,8 +43,6 @@ CUSTOMER_MANAGED_KMS_KEY = EncryptionConfigurationType.CUSTOMER_MANAGED_KMS_KEY
 
 @dataclass
 class ChatbotNotificationChannel(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aio"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sns_topic_arn": "SNSTopicArn",
         "chat_configuration_arns": "ChatConfigurationArns",
@@ -56,8 +54,6 @@ class ChatbotNotificationChannel(PropertyType):
 
 @dataclass
 class CrossAccountConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aio"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_role_arn": "SourceRoleArn",
     }
@@ -67,8 +63,6 @@ class CrossAccountConfiguration(PropertyType):
 
 @dataclass
 class EncryptionConfigMap(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aio"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_configuration_type": "EncryptionConfigurationType",
         "kms_key_id": "KmsKeyId",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service OpsWorks
@@ -27,8 +27,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DataSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ops"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
         "database_name": "DatabaseName",
@@ -42,8 +40,6 @@ class DataSource(PropertyType):
 
 @dataclass
 class EnvironmentVariable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ops"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key": "Key",
         "secure": "Secure",
@@ -57,8 +53,6 @@ class EnvironmentVariable(PropertyType):
 
 @dataclass
 class Source(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ops"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "password": "Password",
         "revision": "Revision",
@@ -78,8 +72,6 @@ class Source(PropertyType):
 
 @dataclass
 class SslConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ops"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate": "Certificate",
         "chain": "Chain",
@@ -143,8 +135,6 @@ class ElasticLoadBalancerAttachment(CloudFormationResource):
 
 @dataclass
 class BlockDeviceMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ops"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "device_name": "DeviceName",
         "ebs": "Ebs",
@@ -160,8 +150,6 @@ class BlockDeviceMapping(PropertyType):
 
 @dataclass
 class EbsBlockDevice(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ops"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delete_on_termination": "DeleteOnTermination",
         "iops": "Iops",
@@ -179,8 +167,6 @@ class EbsBlockDevice(PropertyType):
 
 @dataclass
 class TimeBasedAutoScaling(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ops"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "friday": "Friday",
         "monday": "Monday",
@@ -281,8 +267,6 @@ class Instance(CloudFormationResource):
 
 @dataclass
 class AutoScalingThresholds(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ops"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cpu_threshold": "CpuThreshold",
         "ignore_metrics_time": "IgnoreMetricsTime",
@@ -302,8 +286,6 @@ class AutoScalingThresholds(PropertyType):
 
 @dataclass
 class LifecycleEventConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ops"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "shutdown_event_configuration": "ShutdownEventConfiguration",
     }
@@ -313,8 +295,6 @@ class LifecycleEventConfiguration(PropertyType):
 
 @dataclass
 class LoadBasedAutoScaling(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ops"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "down_scaling": "DownScaling",
         "enable": "Enable",
@@ -328,8 +308,6 @@ class LoadBasedAutoScaling(PropertyType):
 
 @dataclass
 class Recipes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ops"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configure": "Configure",
         "deploy": "Deploy",
@@ -347,8 +325,6 @@ class Recipes(PropertyType):
 
 @dataclass
 class ShutdownEventConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ops"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delay_until_elb_connections_drained": "DelayUntilElbConnectionsDrained",
         "execution_timeout": "ExecutionTimeout",
@@ -360,8 +336,6 @@ class ShutdownEventConfiguration(PropertyType):
 
 @dataclass
 class VolumeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ops"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encrypted": "Encrypted",
         "iops": "Iops",
@@ -432,8 +406,6 @@ class Layer(CloudFormationResource):
 
 @dataclass
 class ChefConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ops"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "berkshelf_version": "BerkshelfVersion",
         "manage_berkshelf": "ManageBerkshelf",
@@ -445,8 +417,6 @@ class ChefConfiguration(PropertyType):
 
 @dataclass
 class ElasticIp(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ops"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip": "Ip",
         "name": "Name",
@@ -458,8 +428,6 @@ class ElasticIp(PropertyType):
 
 @dataclass
 class RdsDbInstance(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ops"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "db_password": "DbPassword",
         "db_user": "DbUser",
@@ -473,8 +441,6 @@ class RdsDbInstance(PropertyType):
 
 @dataclass
 class Source(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ops"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "password": "Password",
         "revision": "Revision",
@@ -494,8 +460,6 @@ class Source(PropertyType):
 
 @dataclass
 class StackConfigurationManager(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ops"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
         "version": "Version",

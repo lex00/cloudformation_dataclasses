@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MediaTailor
@@ -410,8 +410,6 @@ HLS = Type.HLS
 
 @dataclass
 class DashPlaylistSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "manifest_window_seconds": "ManifestWindowSeconds",
         "suggested_presentation_delay_seconds": "SuggestedPresentationDelaySeconds",
@@ -427,8 +425,6 @@ class DashPlaylistSettings(PropertyType):
 
 @dataclass
 class HlsPlaylistSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "manifest_window_seconds": "ManifestWindowSeconds",
         "ad_markup_type": "AdMarkupType",
@@ -440,8 +436,6 @@ class HlsPlaylistSettings(PropertyType):
 
 @dataclass
 class LogConfigurationForChannel(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_types": "LogTypes",
     }
@@ -451,8 +445,6 @@ class LogConfigurationForChannel(PropertyType):
 
 @dataclass
 class RequestOutputItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "manifest_name": "ManifestName",
         "dash_playlist_settings": "DashPlaylistSettings",
@@ -468,8 +460,6 @@ class RequestOutputItem(PropertyType):
 
 @dataclass
 class SlateSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vod_source_name": "VodSourceName",
         "source_location_name": "SourceLocationName",
@@ -481,8 +471,6 @@ class SlateSource(PropertyType):
 
 @dataclass
 class TimeShiftConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_time_delay_seconds": "MaxTimeDelaySeconds",
     }
@@ -542,8 +530,6 @@ class ChannelPolicy(CloudFormationResource):
 
 @dataclass
 class HttpPackageConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "type_": "Type",
@@ -582,8 +568,6 @@ class LiveSource(CloudFormationResource):
 
 @dataclass
 class AdConditioningConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "streaming_media_file_conditioning": "StreamingMediaFileConditioning",
     }
@@ -593,8 +577,6 @@ class AdConditioningConfiguration(PropertyType):
 
 @dataclass
 class AdMarkerPassthrough(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -604,8 +586,6 @@ class AdMarkerPassthrough(PropertyType):
 
 @dataclass
 class AdsInteractionLog(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclude_event_types": "ExcludeEventTypes",
         "publish_opt_in_event_types": "PublishOptInEventTypes",
@@ -617,8 +597,6 @@ class AdsInteractionLog(PropertyType):
 
 @dataclass
 class AvailSuppression(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
         "value": "Value",
@@ -632,8 +610,6 @@ class AvailSuppression(PropertyType):
 
 @dataclass
 class Bumper(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start_url": "StartUrl",
         "end_url": "EndUrl",
@@ -645,8 +621,6 @@ class Bumper(PropertyType):
 
 @dataclass
 class CdnConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ad_segment_url_prefix": "AdSegmentUrlPrefix",
         "content_segment_url_prefix": "ContentSegmentUrlPrefix",
@@ -658,8 +632,6 @@ class CdnConfiguration(PropertyType):
 
 @dataclass
 class DashConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mpd_location": "MpdLocation",
         "manifest_endpoint_prefix": "ManifestEndpointPrefix",
@@ -673,8 +645,6 @@ class DashConfiguration(PropertyType):
 
 @dataclass
 class HlsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "manifest_endpoint_prefix": "ManifestEndpointPrefix",
     }
@@ -684,8 +654,6 @@ class HlsConfiguration(PropertyType):
 
 @dataclass
 class LivePreRollConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ad_decision_server_url": "AdDecisionServerUrl",
         "max_duration_seconds": "MaxDurationSeconds",
@@ -697,8 +665,6 @@ class LivePreRollConfiguration(PropertyType):
 
 @dataclass
 class LogConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled_logging_strategies": "EnabledLoggingStrategies",
         "percent_enabled": "PercentEnabled",
@@ -714,8 +680,6 @@ class LogConfiguration(PropertyType):
 
 @dataclass
 class ManifestProcessingRules(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ad_marker_passthrough": "AdMarkerPassthrough",
     }
@@ -725,8 +689,6 @@ class ManifestProcessingRules(PropertyType):
 
 @dataclass
 class ManifestServiceInteractionLog(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclude_event_types": "ExcludeEventTypes",
     }
@@ -809,8 +771,6 @@ class PlaybackConfiguration(CloudFormationResource):
 
 @dataclass
 class AccessConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secrets_manager_access_token_configuration": "SecretsManagerAccessTokenConfiguration",
         "access_type": "AccessType",
@@ -822,8 +782,6 @@ class AccessConfiguration(PropertyType):
 
 @dataclass
 class DefaultSegmentDeliveryConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "base_url": "BaseUrl",
     }
@@ -833,8 +791,6 @@ class DefaultSegmentDeliveryConfiguration(PropertyType):
 
 @dataclass
 class HttpConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "base_url": "BaseUrl",
     }
@@ -844,8 +800,6 @@ class HttpConfiguration(PropertyType):
 
 @dataclass
 class SecretsManagerAccessTokenConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "header_name": "HeaderName",
@@ -859,8 +813,6 @@ class SecretsManagerAccessTokenConfiguration(PropertyType):
 
 @dataclass
 class SegmentDeliveryConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "base_url": "BaseUrl",
         "name": "Name",
@@ -901,8 +853,6 @@ class SourceLocation(CloudFormationResource):
 
 @dataclass
 class HttpPackageConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "type_": "Type",

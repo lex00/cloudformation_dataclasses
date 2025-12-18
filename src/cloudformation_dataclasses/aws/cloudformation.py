@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CloudFormation
@@ -1174,8 +1174,6 @@ class CustomResource(CloudFormationResource):
 
 @dataclass
 class HookTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "invocation_point": "InvocationPoint",
         "action": "Action",
@@ -1189,8 +1187,6 @@ class HookTarget(PropertyType):
 
 @dataclass
 class Options(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_params": "InputParams",
     }
@@ -1200,8 +1196,6 @@ class Options(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version_id": "VersionId",
         "uri": "Uri",
@@ -1213,8 +1207,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class StackFilters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filtering_criteria": "FilteringCriteria",
         "stack_names": "StackNames",
@@ -1228,8 +1220,6 @@ class StackFilters(PropertyType):
 
 @dataclass
 class StackNames(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclude": "Exclude",
         "include": "Include",
@@ -1241,8 +1231,6 @@ class StackNames(PropertyType):
 
 @dataclass
 class StackRoles(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclude": "Exclude",
         "include": "Include",
@@ -1254,8 +1242,6 @@ class StackRoles(PropertyType):
 
 @dataclass
 class TargetFilters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "actions": "Actions",
         "target_names": "TargetNames",
@@ -1356,8 +1342,6 @@ class HookTypeConfig(CloudFormationResource):
 
 @dataclass
 class LoggingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group_name": "LogGroupName",
         "log_role_arn": "LogRoleArn",
@@ -1414,8 +1398,6 @@ class HookVersion(CloudFormationResource):
 
 @dataclass
 class HookTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "invocation_point": "InvocationPoint",
         "action": "Action",
@@ -1429,8 +1411,6 @@ class HookTarget(PropertyType):
 
 @dataclass
 class StackFilters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filtering_criteria": "FilteringCriteria",
         "stack_names": "StackNames",
@@ -1444,8 +1424,6 @@ class StackFilters(PropertyType):
 
 @dataclass
 class StackNames(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclude": "Exclude",
         "include": "Include",
@@ -1457,8 +1435,6 @@ class StackNames(PropertyType):
 
 @dataclass
 class StackRoles(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclude": "Exclude",
         "include": "Include",
@@ -1470,8 +1446,6 @@ class StackRoles(PropertyType):
 
 @dataclass
 class TargetFilters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "actions": "Actions",
         "target_names": "TargetNames",
@@ -1710,8 +1684,6 @@ class ResourceDefaultVersion(CloudFormationResource):
 
 @dataclass
 class LoggingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group_name": "LogGroupName",
         "log_role_arn": "LogRoleArn",
@@ -1794,8 +1766,6 @@ class Stack(CloudFormationResource):
 
 @dataclass
 class AutoDeployment(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "depends_on": "DependsOn",
         "enabled": "Enabled",
@@ -1809,8 +1779,6 @@ class AutoDeployment(PropertyType):
 
 @dataclass
 class DeploymentTargets(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account_filter_type": "AccountFilterType",
         "accounts": "Accounts",
@@ -1826,8 +1794,6 @@ class DeploymentTargets(PropertyType):
 
 @dataclass
 class ManagedExecution(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "active": "Active",
     }
@@ -1837,8 +1803,6 @@ class ManagedExecution(PropertyType):
 
 @dataclass
 class OperationPreferences(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_concurrent_percentage": "MaxConcurrentPercentage",
         "region_concurrency_type": "RegionConcurrencyType",
@@ -1860,8 +1824,6 @@ class OperationPreferences(PropertyType):
 
 @dataclass
 class Parameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_value": "ParameterValue",
         "parameter_key": "ParameterKey",
@@ -1873,8 +1835,6 @@ class Parameter(PropertyType):
 
 @dataclass
 class StackInstances(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_overrides": "ParameterOverrides",
         "deployment_targets": "DeploymentTargets",
@@ -1935,8 +1895,6 @@ class StackSet(CloudFormationResource):
 
 @dataclass
 class LoggingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group_name": "LogGroupName",
         "log_role_arn": "LogRoleArn",

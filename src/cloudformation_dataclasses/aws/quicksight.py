@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service QuickSight
@@ -3629,8 +3629,6 @@ NORMAL = WordCloudWordScaling.NORMAL
 
 @dataclass
 class AggregationFunction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_aggregation_function": "AttributeAggregationFunction",
         "date_aggregation_function": "DateAggregationFunction",
@@ -3646,8 +3644,6 @@ class AggregationFunction(PropertyType):
 
 @dataclass
 class AggregationSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation_function": "AggregationFunction",
         "sort_direction": "SortDirection",
@@ -3661,8 +3657,6 @@ class AggregationSortConfiguration(PropertyType):
 
 @dataclass
 class AnalysisDefaults(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_new_sheet_configuration": "DefaultNewSheetConfiguration",
     }
@@ -3672,8 +3666,6 @@ class AnalysisDefaults(PropertyType):
 
 @dataclass
 class AnalysisDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "options": "Options",
         "filter_groups": "FilterGroups",
@@ -3701,8 +3693,6 @@ class AnalysisDefinition(PropertyType):
 
 @dataclass
 class AnalysisError(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "message": "Message",
@@ -3716,8 +3706,6 @@ class AnalysisError(PropertyType):
 
 @dataclass
 class AnalysisSourceEntity(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_template": "SourceTemplate",
     }
@@ -3727,8 +3715,6 @@ class AnalysisSourceEntity(PropertyType):
 
 @dataclass
 class AnalysisSourceTemplate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_set_references": "DataSetReferences",
         "arn": "Arn",
@@ -3740,8 +3726,6 @@ class AnalysisSourceTemplate(PropertyType):
 
 @dataclass
 class AnchorDateConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "anchor_option": "AnchorOption",
         "parameter_name": "ParameterName",
@@ -3753,8 +3737,6 @@ class AnchorDateConfiguration(PropertyType):
 
 @dataclass
 class ArcAxisConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "range": "Range",
         "reserve_range": "ReserveRange",
@@ -3766,8 +3748,6 @@ class ArcAxisConfiguration(PropertyType):
 
 @dataclass
 class ArcAxisDisplayRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -3779,8 +3759,6 @@ class ArcAxisDisplayRange(PropertyType):
 
 @dataclass
 class ArcConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arc_angle": "ArcAngle",
         "arc_thickness": "ArcThickness",
@@ -3792,8 +3770,6 @@ class ArcConfiguration(PropertyType):
 
 @dataclass
 class ArcOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arc_thickness": "ArcThickness",
     }
@@ -3803,8 +3779,6 @@ class ArcOptions(PropertyType):
 
 @dataclass
 class AssetOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timezone": "Timezone",
         "week_start": "WeekStart",
@@ -3816,8 +3790,6 @@ class AssetOptions(PropertyType):
 
 @dataclass
 class AttributeAggregationFunction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "simple_attribute_aggregation": "SimpleAttributeAggregation",
         "value_for_multiple_values": "ValueForMultipleValues",
@@ -3829,8 +3801,6 @@ class AttributeAggregationFunction(PropertyType):
 
 @dataclass
 class AxisDataOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "date_axis_options": "DateAxisOptions",
         "numeric_axis_options": "NumericAxisOptions",
@@ -3842,8 +3812,6 @@ class AxisDataOptions(PropertyType):
 
 @dataclass
 class AxisDisplayMinMaxRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "minimum": "Minimum",
         "maximum": "Maximum",
@@ -3855,8 +3823,6 @@ class AxisDisplayMinMaxRange(PropertyType):
 
 @dataclass
 class AxisDisplayOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_options": "DataOptions",
         "tick_label_options": "TickLabelOptions",
@@ -3876,8 +3842,6 @@ class AxisDisplayOptions(PropertyType):
 
 @dataclass
 class AxisDisplayRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_driven": "DataDriven",
         "min_max": "MinMax",
@@ -3889,8 +3853,6 @@ class AxisDisplayRange(PropertyType):
 
 @dataclass
 class AxisLabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_label": "CustomLabel",
         "apply_to": "ApplyTo",
@@ -3904,8 +3866,6 @@ class AxisLabelOptions(PropertyType):
 
 @dataclass
 class AxisLabelReferenceOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "field_id": "FieldId",
@@ -3917,8 +3877,6 @@ class AxisLabelReferenceOptions(PropertyType):
 
 @dataclass
 class AxisLinearScale(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "step_size": "StepSize",
         "step_count": "StepCount",
@@ -3930,8 +3888,6 @@ class AxisLinearScale(PropertyType):
 
 @dataclass
 class AxisLogarithmicScale(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "base": "Base",
     }
@@ -3941,8 +3897,6 @@ class AxisLogarithmicScale(PropertyType):
 
 @dataclass
 class AxisScale(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logarithmic": "Logarithmic",
         "linear": "Linear",
@@ -3954,8 +3908,6 @@ class AxisScale(PropertyType):
 
 @dataclass
 class AxisTickLabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rotation_angle": "RotationAngle",
         "label_options": "LabelOptions",
@@ -3967,8 +3919,6 @@ class AxisTickLabelOptions(PropertyType):
 
 @dataclass
 class BarChartAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "colors": "Colors",
@@ -3984,8 +3934,6 @@ class BarChartAggregatedFieldWells(PropertyType):
 
 @dataclass
 class BarChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "legend": "Legend",
@@ -4027,8 +3975,6 @@ class BarChartConfiguration(PropertyType):
 
 @dataclass
 class BarChartFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bar_chart_aggregated_field_wells": "BarChartAggregatedFieldWells",
     }
@@ -4038,8 +3984,6 @@ class BarChartFieldWells(PropertyType):
 
 @dataclass
 class BarChartSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "small_multiples_sort": "SmallMultiplesSort",
         "color_sort": "ColorSort",
@@ -4059,8 +4003,6 @@ class BarChartSortConfiguration(PropertyType):
 
 @dataclass
 class BarChartVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -4082,8 +4024,6 @@ class BarChartVisual(PropertyType):
 
 @dataclass
 class BinCountOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -4093,8 +4033,6 @@ class BinCountOptions(PropertyType):
 
 @dataclass
 class BinWidthOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bin_count_limit": "BinCountLimit",
         "value": "Value",
@@ -4106,8 +4044,6 @@ class BinWidthOptions(PropertyType):
 
 @dataclass
 class BodySectionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content": "Content",
         "style": "Style",
@@ -4125,8 +4061,6 @@ class BodySectionConfiguration(PropertyType):
 
 @dataclass
 class BodySectionContent(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "layout": "Layout",
     }
@@ -4136,8 +4070,6 @@ class BodySectionContent(PropertyType):
 
 @dataclass
 class BodySectionDynamicCategoryDimensionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "sort_by_metrics": "SortByMetrics",
@@ -4151,8 +4083,6 @@ class BodySectionDynamicCategoryDimensionConfiguration(PropertyType):
 
 @dataclass
 class BodySectionDynamicNumericDimensionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "sort_by_metrics": "SortByMetrics",
@@ -4166,8 +4096,6 @@ class BodySectionDynamicNumericDimensionConfiguration(PropertyType):
 
 @dataclass
 class BodySectionRepeatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_configurations": "DimensionConfigurations",
         "non_repeating_visuals": "NonRepeatingVisuals",
@@ -4181,8 +4109,6 @@ class BodySectionRepeatConfiguration(PropertyType):
 
 @dataclass
 class BodySectionRepeatDimensionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dynamic_numeric_dimension_configuration": "DynamicNumericDimensionConfiguration",
         "dynamic_category_dimension_configuration": "DynamicCategoryDimensionConfiguration",
@@ -4194,8 +4120,6 @@ class BodySectionRepeatDimensionConfiguration(PropertyType):
 
 @dataclass
 class BodySectionRepeatPageBreakConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "after": "After",
     }
@@ -4205,8 +4129,6 @@ class BodySectionRepeatPageBreakConfiguration(PropertyType):
 
 @dataclass
 class BoxPlotAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_by": "GroupBy",
         "values": "Values",
@@ -4218,8 +4140,6 @@ class BoxPlotAggregatedFieldWells(PropertyType):
 
 @dataclass
 class BoxPlotChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "legend": "Legend",
@@ -4251,8 +4171,6 @@ class BoxPlotChartConfiguration(PropertyType):
 
 @dataclass
 class BoxPlotFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "box_plot_aggregated_field_wells": "BoxPlotAggregatedFieldWells",
     }
@@ -4262,8 +4180,6 @@ class BoxPlotFieldWells(PropertyType):
 
 @dataclass
 class BoxPlotOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "style_options": "StyleOptions",
         "outlier_visibility": "OutlierVisibility",
@@ -4277,8 +4193,6 @@ class BoxPlotOptions(PropertyType):
 
 @dataclass
 class BoxPlotSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_sort": "CategorySort",
         "pagination_configuration": "PaginationConfiguration",
@@ -4290,8 +4204,6 @@ class BoxPlotSortConfiguration(PropertyType):
 
 @dataclass
 class BoxPlotStyleOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fill_style": "FillStyle",
     }
@@ -4301,8 +4213,6 @@ class BoxPlotStyleOptions(PropertyType):
 
 @dataclass
 class BoxPlotVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -4324,8 +4234,6 @@ class BoxPlotVisual(PropertyType):
 
 @dataclass
 class CalculatedField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "data_set_identifier": "DataSetIdentifier",
@@ -4339,8 +4247,6 @@ class CalculatedField(PropertyType):
 
 @dataclass
 class CalculatedMeasureField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "field_id": "FieldId",
@@ -4352,8 +4258,6 @@ class CalculatedMeasureField(PropertyType):
 
 @dataclass
 class CascadingControlConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_controls": "SourceControls",
     }
@@ -4363,8 +4267,6 @@ class CascadingControlConfiguration(PropertyType):
 
 @dataclass
 class CascadingControlSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_sheet_control_id": "SourceSheetControlId",
         "column_to_match": "ColumnToMatch",
@@ -4376,8 +4278,6 @@ class CascadingControlSource(PropertyType):
 
 @dataclass
 class CategoricalDimensionField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hierarchy_id": "HierarchyId",
         "format_configuration": "FormatConfiguration",
@@ -4393,8 +4293,6 @@ class CategoricalDimensionField(PropertyType):
 
 @dataclass
 class CategoricalMeasureField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation_function": "AggregationFunction",
         "format_configuration": "FormatConfiguration",
@@ -4410,8 +4308,6 @@ class CategoricalMeasureField(PropertyType):
 
 @dataclass
 class CategoryDrillDownFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "category_values": "CategoryValues",
@@ -4423,8 +4319,6 @@ class CategoryDrillDownFilter(PropertyType):
 
 @dataclass
 class CategoryFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration": "Configuration",
         "column": "Column",
@@ -4440,8 +4334,6 @@ class CategoryFilter(PropertyType):
 
 @dataclass
 class CategoryFilterConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_filter_list_configuration": "CustomFilterListConfiguration",
         "custom_filter_configuration": "CustomFilterConfiguration",
@@ -4455,8 +4347,6 @@ class CategoryFilterConfiguration(PropertyType):
 
 @dataclass
 class CategoryInnerFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration": "Configuration",
         "column": "Column",
@@ -4470,8 +4360,6 @@ class CategoryInnerFilter(PropertyType):
 
 @dataclass
 class ChartAxisLabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
         "sort_icon_visibility": "SortIconVisibility",
@@ -4485,8 +4373,6 @@ class ChartAxisLabelOptions(PropertyType):
 
 @dataclass
 class ClusterMarker(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "simple_cluster_marker": "SimpleClusterMarker",
     }
@@ -4496,8 +4382,6 @@ class ClusterMarker(PropertyType):
 
 @dataclass
 class ClusterMarkerConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_marker": "ClusterMarker",
     }
@@ -4507,8 +4391,6 @@ class ClusterMarkerConfiguration(PropertyType):
 
 @dataclass
 class ColorScale(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "colors": "Colors",
         "color_fill_type": "ColorFillType",
@@ -4522,8 +4404,6 @@ class ColorScale(PropertyType):
 
 @dataclass
 class ColorsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_colors": "CustomColors",
     }
@@ -4533,8 +4413,6 @@ class ColorsConfiguration(PropertyType):
 
 @dataclass
 class ColumnConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role": "Role",
         "format_configuration": "FormatConfiguration",
@@ -4550,8 +4428,6 @@ class ColumnConfiguration(PropertyType):
 
 @dataclass
 class ColumnHierarchy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "date_time_hierarchy": "DateTimeHierarchy",
         "explicit_hierarchy": "ExplicitHierarchy",
@@ -4565,8 +4441,6 @@ class ColumnHierarchy(PropertyType):
 
 @dataclass
 class ColumnIdentifier(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_name": "ColumnName",
         "data_set_identifier": "DataSetIdentifier",
@@ -4578,8 +4452,6 @@ class ColumnIdentifier(PropertyType):
 
 @dataclass
 class ColumnSort(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation_function": "AggregationFunction",
         "sort_by": "SortBy",
@@ -4593,8 +4465,6 @@ class ColumnSort(PropertyType):
 
 @dataclass
 class ColumnTooltipItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation": "Aggregation",
         "tooltip_target": "TooltipTarget",
@@ -4612,8 +4482,6 @@ class ColumnTooltipItem(PropertyType):
 
 @dataclass
 class ComboChartAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bar_values": "BarValues",
         "category": "Category",
@@ -4629,8 +4497,6 @@ class ComboChartAggregatedFieldWells(PropertyType):
 
 @dataclass
 class ComboChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "legend": "Legend",
@@ -4674,8 +4540,6 @@ class ComboChartConfiguration(PropertyType):
 
 @dataclass
 class ComboChartFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "combo_chart_aggregated_field_wells": "ComboChartAggregatedFieldWells",
     }
@@ -4685,8 +4549,6 @@ class ComboChartFieldWells(PropertyType):
 
 @dataclass
 class ComboChartSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "color_sort": "ColorSort",
         "color_items_limit": "ColorItemsLimit",
@@ -4702,8 +4564,6 @@ class ComboChartSortConfiguration(PropertyType):
 
 @dataclass
 class ComboChartVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -4725,8 +4585,6 @@ class ComboChartVisual(PropertyType):
 
 @dataclass
 class ComparisonConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison_method": "ComparisonMethod",
         "comparison_format": "ComparisonFormat",
@@ -4738,8 +4596,6 @@ class ComparisonConfiguration(PropertyType):
 
 @dataclass
 class ComparisonFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "number_display_format_configuration": "NumberDisplayFormatConfiguration",
         "percentage_display_format_configuration": "PercentageDisplayFormatConfiguration",
@@ -4751,8 +4607,6 @@ class ComparisonFormatConfiguration(PropertyType):
 
 @dataclass
 class Computation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "period_to_date": "PeriodToDate",
         "growth_rate": "GrowthRate",
@@ -4780,8 +4634,6 @@ class Computation(PropertyType):
 
 @dataclass
 class ConditionalFormattingColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "gradient": "Gradient",
         "solid": "Solid",
@@ -4793,8 +4645,6 @@ class ConditionalFormattingColor(PropertyType):
 
 @dataclass
 class ConditionalFormattingCustomIconCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "color": "Color",
@@ -4810,8 +4660,6 @@ class ConditionalFormattingCustomIconCondition(PropertyType):
 
 @dataclass
 class ConditionalFormattingCustomIconOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "unicode_icon": "UnicodeIcon",
         "icon": "Icon",
@@ -4823,8 +4671,6 @@ class ConditionalFormattingCustomIconOptions(PropertyType):
 
 @dataclass
 class ConditionalFormattingGradientColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "color": "Color",
@@ -4836,8 +4682,6 @@ class ConditionalFormattingGradientColor(PropertyType):
 
 @dataclass
 class ConditionalFormattingIcon(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_condition": "CustomCondition",
         "icon_set": "IconSet",
@@ -4849,8 +4693,6 @@ class ConditionalFormattingIcon(PropertyType):
 
 @dataclass
 class ConditionalFormattingIconDisplayConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "icon_display_option": "IconDisplayOption",
     }
@@ -4860,8 +4702,6 @@ class ConditionalFormattingIconDisplayConfiguration(PropertyType):
 
 @dataclass
 class ConditionalFormattingIconSet(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "icon_set_type": "IconSetType",
@@ -4873,8 +4713,6 @@ class ConditionalFormattingIconSet(PropertyType):
 
 @dataclass
 class ConditionalFormattingSolidColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "color": "Color",
@@ -4886,8 +4724,6 @@ class ConditionalFormattingSolidColor(PropertyType):
 
 @dataclass
 class ContextMenuOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_status": "AvailabilityStatus",
     }
@@ -4897,8 +4733,6 @@ class ContextMenuOption(PropertyType):
 
 @dataclass
 class ContributionAnalysisDefault(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "measure_field_id": "MeasureFieldId",
         "contributor_dimensions": "ContributorDimensions",
@@ -4910,8 +4744,6 @@ class ContributionAnalysisDefault(PropertyType):
 
 @dataclass
 class CurrencyDisplayFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "negative_value_configuration": "NegativeValueConfiguration",
         "decimal_places_configuration": "DecimalPlacesConfiguration",
@@ -4935,8 +4767,6 @@ class CurrencyDisplayFormatConfiguration(PropertyType):
 
 @dataclass
 class CustomActionFilterOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "selected_fields_configuration": "SelectedFieldsConfiguration",
         "target_visuals_configuration": "TargetVisualsConfiguration",
@@ -4948,8 +4778,6 @@ class CustomActionFilterOperation(PropertyType):
 
 @dataclass
 class CustomActionNavigationOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "local_navigation_configuration": "LocalNavigationConfiguration",
     }
@@ -4959,8 +4787,6 @@ class CustomActionNavigationOperation(PropertyType):
 
 @dataclass
 class CustomActionSetParametersOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_value_configurations": "ParameterValueConfigurations",
     }
@@ -4970,8 +4796,6 @@ class CustomActionSetParametersOperation(PropertyType):
 
 @dataclass
 class CustomActionURLOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "url_template": "URLTemplate",
         "url_target": "URLTarget",
@@ -4983,8 +4807,6 @@ class CustomActionURLOperation(PropertyType):
 
 @dataclass
 class CustomColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "color": "Color",
         "field_value": "FieldValue",
@@ -4998,8 +4820,6 @@ class CustomColor(PropertyType):
 
 @dataclass
 class CustomContentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_url": "ContentUrl",
         "content_type": "ContentType",
@@ -5015,8 +4835,6 @@ class CustomContentConfiguration(PropertyType):
 
 @dataclass
 class CustomContentVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -5038,8 +4856,6 @@ class CustomContentVisual(PropertyType):
 
 @dataclass
 class CustomFilterConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_value": "CategoryValue",
         "parameter_name": "ParameterName",
@@ -5057,8 +4873,6 @@ class CustomFilterConfiguration(PropertyType):
 
 @dataclass
 class CustomFilterListConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_values": "CategoryValues",
         "null_option": "NullOption",
@@ -5074,8 +4888,6 @@ class CustomFilterListConfiguration(PropertyType):
 
 @dataclass
 class CustomNarrativeOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "narrative": "Narrative",
     }
@@ -5085,8 +4897,6 @@ class CustomNarrativeOptions(PropertyType):
 
 @dataclass
 class CustomParameterValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "decimal_values": "DecimalValues",
         "integer_values": "IntegerValues",
@@ -5102,8 +4912,6 @@ class CustomParameterValues(PropertyType):
 
 @dataclass
 class CustomValuesConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_null_value": "IncludeNullValue",
         "custom_values": "CustomValues",
@@ -5115,8 +4923,6 @@ class CustomValuesConfiguration(PropertyType):
 
 @dataclass
 class DataBarsOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "positive_color": "PositiveColor",
         "field_id": "FieldId",
@@ -5130,8 +4936,6 @@ class DataBarsOptions(PropertyType):
 
 @dataclass
 class DataColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_value": "DataValue",
         "color": "Color",
@@ -5143,8 +4947,6 @@ class DataColor(PropertyType):
 
 @dataclass
 class DataFieldSeriesItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_id": "FieldId",
         "axis_binding": "AxisBinding",
@@ -5160,8 +4962,6 @@ class DataFieldSeriesItem(PropertyType):
 
 @dataclass
 class DataLabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_label_types": "DataLabelTypes",
         "measure_label_visibility": "MeasureLabelVisibility",
@@ -5189,8 +4989,6 @@ class DataLabelOptions(PropertyType):
 
 @dataclass
 class DataLabelType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maximum_label_type": "MaximumLabelType",
         "data_path_label_type": "DataPathLabelType",
@@ -5208,8 +5006,6 @@ class DataLabelType(PropertyType):
 
 @dataclass
 class DataPathColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "element": "Element",
         "color": "Color",
@@ -5223,8 +5019,6 @@ class DataPathColor(PropertyType):
 
 @dataclass
 class DataPathLabelType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_id": "FieldId",
         "visibility": "Visibility",
@@ -5238,8 +5032,6 @@ class DataPathLabelType(PropertyType):
 
 @dataclass
 class DataPathSort(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_paths": "SortPaths",
         "direction": "Direction",
@@ -5251,8 +5043,6 @@ class DataPathSort(PropertyType):
 
 @dataclass
 class DataPathType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pivot_table_data_path_type": "PivotTableDataPathType",
     }
@@ -5262,8 +5052,6 @@ class DataPathType(PropertyType):
 
 @dataclass
 class DataPathValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_path_type": "DataPathType",
         "field_id": "FieldId",
@@ -5277,8 +5065,6 @@ class DataPathValue(PropertyType):
 
 @dataclass
 class DataSetIdentifierDeclaration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "identifier": "Identifier",
         "data_set_arn": "DataSetArn",
@@ -5290,8 +5076,6 @@ class DataSetIdentifierDeclaration(PropertyType):
 
 @dataclass
 class DataSetReference(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_set_arn": "DataSetArn",
         "data_set_placeholder": "DataSetPlaceholder",
@@ -5303,8 +5087,6 @@ class DataSetReference(PropertyType):
 
 @dataclass
 class DateAxisOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "missing_date_visibility": "MissingDateVisibility",
     }
@@ -5314,8 +5096,6 @@ class DateAxisOptions(PropertyType):
 
 @dataclass
 class DateDimensionField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hierarchy_id": "HierarchyId",
         "format_configuration": "FormatConfiguration",
@@ -5333,8 +5113,6 @@ class DateDimensionField(PropertyType):
 
 @dataclass
 class DateMeasureField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation_function": "AggregationFunction",
         "format_configuration": "FormatConfiguration",
@@ -5350,8 +5128,6 @@ class DateMeasureField(PropertyType):
 
 @dataclass
 class DateTimeDefaultValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rolling_date": "RollingDate",
         "dynamic_value": "DynamicValue",
@@ -5365,8 +5141,6 @@ class DateTimeDefaultValues(PropertyType):
 
 @dataclass
 class DateTimeFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "numeric_format_configuration": "NumericFormatConfiguration",
         "null_value_format_configuration": "NullValueFormatConfiguration",
@@ -5380,8 +5154,6 @@ class DateTimeFormatConfiguration(PropertyType):
 
 @dataclass
 class DateTimeHierarchy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hierarchy_id": "HierarchyId",
         "drill_down_filters": "DrillDownFilters",
@@ -5393,8 +5165,6 @@ class DateTimeHierarchy(PropertyType):
 
 @dataclass
 class DateTimeParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "name": "Name",
@@ -5406,8 +5176,6 @@ class DateTimeParameter(PropertyType):
 
 @dataclass
 class DateTimeParameterDeclaration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mapped_data_set_parameters": "MappedDataSetParameters",
         "default_values": "DefaultValues",
@@ -5425,8 +5193,6 @@ class DateTimeParameterDeclaration(PropertyType):
 
 @dataclass
 class DateTimePickerControlDisplayOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "title_options": "TitleOptions",
         "info_icon_label_options": "InfoIconLabelOptions",
@@ -5444,8 +5210,6 @@ class DateTimePickerControlDisplayOptions(PropertyType):
 
 @dataclass
 class DateTimeValueWhenUnsetConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_when_unset_option": "ValueWhenUnsetOption",
         "custom_value": "CustomValue",
@@ -5457,8 +5221,6 @@ class DateTimeValueWhenUnsetConfiguration(PropertyType):
 
 @dataclass
 class DecimalDefaultValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dynamic_value": "DynamicValue",
         "static_values": "StaticValues",
@@ -5470,8 +5232,6 @@ class DecimalDefaultValues(PropertyType):
 
 @dataclass
 class DecimalParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "name": "Name",
@@ -5483,8 +5243,6 @@ class DecimalParameter(PropertyType):
 
 @dataclass
 class DecimalParameterDeclaration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mapped_data_set_parameters": "MappedDataSetParameters",
         "default_values": "DefaultValues",
@@ -5502,8 +5260,6 @@ class DecimalParameterDeclaration(PropertyType):
 
 @dataclass
 class DecimalPlacesConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "decimal_places": "DecimalPlaces",
     }
@@ -5513,8 +5269,6 @@ class DecimalPlacesConfiguration(PropertyType):
 
 @dataclass
 class DecimalValueWhenUnsetConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_when_unset_option": "ValueWhenUnsetOption",
         "custom_value": "CustomValue",
@@ -5526,8 +5280,6 @@ class DecimalValueWhenUnsetConfiguration(PropertyType):
 
 @dataclass
 class DefaultDateTimePickerControlOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "display_options": "DisplayOptions",
@@ -5541,8 +5293,6 @@ class DefaultDateTimePickerControlOptions(PropertyType):
 
 @dataclass
 class DefaultFilterControlConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "control_options": "ControlOptions",
         "title": "Title",
@@ -5554,8 +5304,6 @@ class DefaultFilterControlConfiguration(PropertyType):
 
 @dataclass
 class DefaultFilterControlOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_slider_options": "DefaultSliderOptions",
         "default_relative_date_time_options": "DefaultRelativeDateTimeOptions",
@@ -5577,8 +5325,6 @@ class DefaultFilterControlOptions(PropertyType):
 
 @dataclass
 class DefaultFilterDropDownControlOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "display_options": "DisplayOptions",
@@ -5594,8 +5340,6 @@ class DefaultFilterDropDownControlOptions(PropertyType):
 
 @dataclass
 class DefaultFilterListControlOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "display_options": "DisplayOptions",
@@ -5609,8 +5353,6 @@ class DefaultFilterListControlOptions(PropertyType):
 
 @dataclass
 class DefaultFreeFormLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "canvas_size_options": "CanvasSizeOptions",
     }
@@ -5620,8 +5362,6 @@ class DefaultFreeFormLayoutConfiguration(PropertyType):
 
 @dataclass
 class DefaultGridLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "canvas_size_options": "CanvasSizeOptions",
     }
@@ -5631,8 +5371,6 @@ class DefaultGridLayoutConfiguration(PropertyType):
 
 @dataclass
 class DefaultInteractiveLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "free_form": "FreeForm",
         "grid": "Grid",
@@ -5644,8 +5382,6 @@ class DefaultInteractiveLayoutConfiguration(PropertyType):
 
 @dataclass
 class DefaultNewSheetConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sheet_content_type": "SheetContentType",
         "interactive_layout_configuration": "InteractiveLayoutConfiguration",
@@ -5659,8 +5395,6 @@ class DefaultNewSheetConfiguration(PropertyType):
 
 @dataclass
 class DefaultPaginatedLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "section_based": "SectionBased",
     }
@@ -5670,8 +5404,6 @@ class DefaultPaginatedLayoutConfiguration(PropertyType):
 
 @dataclass
 class DefaultRelativeDateTimeControlOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "display_options": "DisplayOptions",
         "commit_mode": "CommitMode",
@@ -5683,8 +5415,6 @@ class DefaultRelativeDateTimeControlOptions(PropertyType):
 
 @dataclass
 class DefaultSectionBasedLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "canvas_size_options": "CanvasSizeOptions",
     }
@@ -5694,8 +5424,6 @@ class DefaultSectionBasedLayoutConfiguration(PropertyType):
 
 @dataclass
 class DefaultSliderControlOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "step_size": "StepSize",
@@ -5713,8 +5441,6 @@ class DefaultSliderControlOptions(PropertyType):
 
 @dataclass
 class DefaultTextAreaControlOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delimiter": "Delimiter",
         "display_options": "DisplayOptions",
@@ -5726,8 +5452,6 @@ class DefaultTextAreaControlOptions(PropertyType):
 
 @dataclass
 class DefaultTextFieldControlOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "display_options": "DisplayOptions",
     }
@@ -5737,8 +5461,6 @@ class DefaultTextFieldControlOptions(PropertyType):
 
 @dataclass
 class DestinationParameterValueConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_values_configuration": "CustomValuesConfiguration",
         "source_parameter_name": "SourceParameterName",
@@ -5756,8 +5478,6 @@ class DestinationParameterValueConfiguration(PropertyType):
 
 @dataclass
 class DimensionField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "date_dimension_field": "DateDimensionField",
         "numerical_dimension_field": "NumericalDimensionField",
@@ -5771,8 +5491,6 @@ class DimensionField(PropertyType):
 
 @dataclass
 class DonutCenterOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "label_visibility": "LabelVisibility",
     }
@@ -5782,8 +5500,6 @@ class DonutCenterOptions(PropertyType):
 
 @dataclass
 class DonutOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "donut_center_options": "DonutCenterOptions",
         "arc_options": "ArcOptions",
@@ -5795,8 +5511,6 @@ class DonutOptions(PropertyType):
 
 @dataclass
 class DrillDownFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "numeric_equality_filter": "NumericEqualityFilter",
         "time_range_filter": "TimeRangeFilter",
@@ -5810,8 +5524,6 @@ class DrillDownFilter(PropertyType):
 
 @dataclass
 class DropDownControlDisplayOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "title_options": "TitleOptions",
         "select_all_options": "SelectAllOptions",
@@ -5825,8 +5537,6 @@ class DropDownControlDisplayOptions(PropertyType):
 
 @dataclass
 class DynamicDefaultValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_name_column": "GroupNameColumn",
         "default_value_column": "DefaultValueColumn",
@@ -5840,8 +5550,6 @@ class DynamicDefaultValue(PropertyType):
 
 @dataclass
 class EmptyVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visual_id": "VisualId",
         "actions": "Actions",
@@ -5855,8 +5563,6 @@ class EmptyVisual(PropertyType):
 
 @dataclass
 class Entity(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
     }
@@ -5866,8 +5572,6 @@ class Entity(PropertyType):
 
 @dataclass
 class ExcludePeriodConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "amount": "Amount",
@@ -5881,8 +5585,6 @@ class ExcludePeriodConfiguration(PropertyType):
 
 @dataclass
 class ExplicitHierarchy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hierarchy_id": "HierarchyId",
         "drill_down_filters": "DrillDownFilters",
@@ -5896,8 +5598,6 @@ class ExplicitHierarchy(PropertyType):
 
 @dataclass
 class FieldBasedTooltip(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tooltip_fields": "TooltipFields",
         "aggregation_visibility": "AggregationVisibility",
@@ -5911,8 +5611,6 @@ class FieldBasedTooltip(PropertyType):
 
 @dataclass
 class FieldLabelType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_id": "FieldId",
         "visibility": "Visibility",
@@ -5924,8 +5622,6 @@ class FieldLabelType(PropertyType):
 
 @dataclass
 class FieldSeriesItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_id": "FieldId",
         "axis_binding": "AxisBinding",
@@ -5939,8 +5635,6 @@ class FieldSeriesItem(PropertyType):
 
 @dataclass
 class FieldSort(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_id": "FieldId",
         "direction": "Direction",
@@ -5952,8 +5646,6 @@ class FieldSort(PropertyType):
 
 @dataclass
 class FieldSortOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_sort": "FieldSort",
         "column_sort": "ColumnSort",
@@ -5965,8 +5657,6 @@ class FieldSortOptions(PropertyType):
 
 @dataclass
 class FieldTooltipItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tooltip_target": "TooltipTarget",
         "field_id": "FieldId",
@@ -5982,8 +5672,6 @@ class FieldTooltipItem(PropertyType):
 
 @dataclass
 class FilledMapAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "geospatial": "Geospatial",
@@ -5995,8 +5683,6 @@ class FilledMapAggregatedFieldWells(PropertyType):
 
 @dataclass
 class FilledMapConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "conditional_formatting_options": "ConditionalFormattingOptions",
     }
@@ -6006,8 +5692,6 @@ class FilledMapConditionalFormatting(PropertyType):
 
 @dataclass
 class FilledMapConditionalFormattingOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "shape": "Shape",
     }
@@ -6017,8 +5701,6 @@ class FilledMapConditionalFormattingOption(PropertyType):
 
 @dataclass
 class FilledMapConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "legend": "Legend",
@@ -6040,8 +5722,6 @@ class FilledMapConfiguration(PropertyType):
 
 @dataclass
 class FilledMapFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filled_map_aggregated_field_wells": "FilledMapAggregatedFieldWells",
     }
@@ -6051,8 +5731,6 @@ class FilledMapFieldWells(PropertyType):
 
 @dataclass
 class FilledMapShapeConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "format": "Format",
         "field_id": "FieldId",
@@ -6064,8 +5742,6 @@ class FilledMapShapeConditionalFormatting(PropertyType):
 
 @dataclass
 class FilledMapSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_sort": "CategorySort",
     }
@@ -6075,8 +5751,6 @@ class FilledMapSortConfiguration(PropertyType):
 
 @dataclass
 class FilledMapVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "conditional_formatting": "ConditionalFormatting",
@@ -6100,8 +5774,6 @@ class FilledMapVisual(PropertyType):
 
 @dataclass
 class Filter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "nested_filter": "NestedFilter",
         "numeric_equality_filter": "NumericEqualityFilter",
@@ -6125,8 +5797,6 @@ class Filter(PropertyType):
 
 @dataclass
 class FilterControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "slider": "Slider",
         "text_area": "TextArea",
@@ -6150,8 +5820,6 @@ class FilterControl(PropertyType):
 
 @dataclass
 class FilterCrossSheetControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_control_id": "FilterControlId",
         "cascading_control_configuration": "CascadingControlConfiguration",
@@ -6165,8 +5833,6 @@ class FilterCrossSheetControl(PropertyType):
 
 @dataclass
 class FilterDateTimePickerControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_control_id": "FilterControlId",
         "type_": "Type",
@@ -6186,8 +5852,6 @@ class FilterDateTimePickerControl(PropertyType):
 
 @dataclass
 class FilterDropDownControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_control_id": "FilterControlId",
         "type_": "Type",
@@ -6211,8 +5875,6 @@ class FilterDropDownControl(PropertyType):
 
 @dataclass
 class FilterGroup(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "filters": "Filters",
@@ -6230,8 +5892,6 @@ class FilterGroup(PropertyType):
 
 @dataclass
 class FilterListConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_values": "CategoryValues",
         "null_option": "NullOption",
@@ -6247,8 +5907,6 @@ class FilterListConfiguration(PropertyType):
 
 @dataclass
 class FilterListControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_control_id": "FilterControlId",
         "type_": "Type",
@@ -6270,8 +5928,6 @@ class FilterListControl(PropertyType):
 
 @dataclass
 class FilterOperationSelectedFieldsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "selected_columns": "SelectedColumns",
         "selected_fields": "SelectedFields",
@@ -6285,8 +5941,6 @@ class FilterOperationSelectedFieldsConfiguration(PropertyType):
 
 @dataclass
 class FilterOperationTargetVisualsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "same_sheet_target_visual_configuration": "SameSheetTargetVisualConfiguration",
     }
@@ -6296,8 +5950,6 @@ class FilterOperationTargetVisualsConfiguration(PropertyType):
 
 @dataclass
 class FilterRelativeDateTimeControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_control_id": "FilterControlId",
         "display_options": "DisplayOptions",
@@ -6315,8 +5967,6 @@ class FilterRelativeDateTimeControl(PropertyType):
 
 @dataclass
 class FilterScopeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all_sheets": "AllSheets",
         "selected_sheets": "SelectedSheets",
@@ -6328,8 +5978,6 @@ class FilterScopeConfiguration(PropertyType):
 
 @dataclass
 class FilterSelectableValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
     }
@@ -6339,8 +5987,6 @@ class FilterSelectableValues(PropertyType):
 
 @dataclass
 class FilterSliderControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_control_id": "FilterControlId",
         "type_": "Type",
@@ -6364,8 +6010,6 @@ class FilterSliderControl(PropertyType):
 
 @dataclass
 class FilterTextAreaControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_control_id": "FilterControlId",
         "delimiter": "Delimiter",
@@ -6383,8 +6027,6 @@ class FilterTextAreaControl(PropertyType):
 
 @dataclass
 class FilterTextFieldControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_control_id": "FilterControlId",
         "display_options": "DisplayOptions",
@@ -6400,8 +6042,6 @@ class FilterTextFieldControl(PropertyType):
 
 @dataclass
 class FontConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "font_family": "FontFamily",
         "font_style": "FontStyle",
@@ -6421,8 +6061,6 @@ class FontConfiguration(PropertyType):
 
 @dataclass
 class FontSize(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "relative": "Relative",
         "absolute": "Absolute",
@@ -6434,8 +6072,6 @@ class FontSize(PropertyType):
 
 @dataclass
 class FontWeight(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -6445,8 +6081,6 @@ class FontWeight(PropertyType):
 
 @dataclass
 class ForecastComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "periods_backward": "PeriodsBackward",
         "periods_forward": "PeriodsForward",
@@ -6476,8 +6110,6 @@ class ForecastComputation(PropertyType):
 
 @dataclass
 class ForecastConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "forecast_properties": "ForecastProperties",
         "scenario": "Scenario",
@@ -6489,8 +6121,6 @@ class ForecastConfiguration(PropertyType):
 
 @dataclass
 class ForecastScenario(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "what_if_range_scenario": "WhatIfRangeScenario",
         "what_if_point_scenario": "WhatIfPointScenario",
@@ -6502,8 +6132,6 @@ class ForecastScenario(PropertyType):
 
 @dataclass
 class FormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "number_format_configuration": "NumberFormatConfiguration",
         "date_time_format_configuration": "DateTimeFormatConfiguration",
@@ -6517,8 +6145,6 @@ class FormatConfiguration(PropertyType):
 
 @dataclass
 class FreeFormLayoutCanvasSizeOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "screen_canvas_size_options": "ScreenCanvasSizeOptions",
     }
@@ -6528,8 +6154,6 @@ class FreeFormLayoutCanvasSizeOptions(PropertyType):
 
 @dataclass
 class FreeFormLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "canvas_size_options": "CanvasSizeOptions",
         "elements": "Elements",
@@ -6541,8 +6165,6 @@ class FreeFormLayoutConfiguration(PropertyType):
 
 @dataclass
 class FreeFormLayoutElement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "element_type": "ElementType",
         "border_style": "BorderStyle",
@@ -6574,8 +6196,6 @@ class FreeFormLayoutElement(PropertyType):
 
 @dataclass
 class FreeFormLayoutElementBackgroundStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "color": "Color",
         "visibility": "Visibility",
@@ -6587,8 +6207,6 @@ class FreeFormLayoutElementBackgroundStyle(PropertyType):
 
 @dataclass
 class FreeFormLayoutElementBorderStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "color": "Color",
         "visibility": "Visibility",
@@ -6600,8 +6218,6 @@ class FreeFormLayoutElementBorderStyle(PropertyType):
 
 @dataclass
 class FreeFormLayoutScreenCanvasSizeOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "optimized_view_port_width": "OptimizedViewPortWidth",
     }
@@ -6611,8 +6227,6 @@ class FreeFormLayoutScreenCanvasSizeOptions(PropertyType):
 
 @dataclass
 class FreeFormSectionLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "elements": "Elements",
     }
@@ -6622,8 +6236,6 @@ class FreeFormSectionLayoutConfiguration(PropertyType):
 
 @dataclass
 class FunnelChartAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "values": "Values",
@@ -6635,8 +6247,6 @@ class FunnelChartAggregatedFieldWells(PropertyType):
 
 @dataclass
 class FunnelChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "data_label_options": "DataLabelOptions",
@@ -6660,8 +6270,6 @@ class FunnelChartConfiguration(PropertyType):
 
 @dataclass
 class FunnelChartDataLabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "measure_label_visibility": "MeasureLabelVisibility",
         "position": "Position",
@@ -6683,8 +6291,6 @@ class FunnelChartDataLabelOptions(PropertyType):
 
 @dataclass
 class FunnelChartFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "funnel_chart_aggregated_field_wells": "FunnelChartAggregatedFieldWells",
     }
@@ -6694,8 +6300,6 @@ class FunnelChartFieldWells(PropertyType):
 
 @dataclass
 class FunnelChartSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_items_limit": "CategoryItemsLimit",
         "category_sort": "CategorySort",
@@ -6707,8 +6311,6 @@ class FunnelChartSortConfiguration(PropertyType):
 
 @dataclass
 class FunnelChartVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -6730,8 +6332,6 @@ class FunnelChartVisual(PropertyType):
 
 @dataclass
 class GaugeChartArcConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "foreground_color": "ForegroundColor",
     }
@@ -6741,8 +6341,6 @@ class GaugeChartArcConditionalFormatting(PropertyType):
 
 @dataclass
 class GaugeChartColorConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "foreground_color": "ForegroundColor",
         "background_color": "BackgroundColor",
@@ -6754,8 +6352,6 @@ class GaugeChartColorConfiguration(PropertyType):
 
 @dataclass
 class GaugeChartConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "conditional_formatting_options": "ConditionalFormattingOptions",
     }
@@ -6765,8 +6361,6 @@ class GaugeChartConditionalFormatting(PropertyType):
 
 @dataclass
 class GaugeChartConditionalFormattingOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arc": "Arc",
         "primary_value": "PrimaryValue",
@@ -6778,8 +6372,6 @@ class GaugeChartConditionalFormattingOption(PropertyType):
 
 @dataclass
 class GaugeChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_labels": "DataLabels",
         "field_wells": "FieldWells",
@@ -6801,8 +6393,6 @@ class GaugeChartConfiguration(PropertyType):
 
 @dataclass
 class GaugeChartFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_values": "TargetValues",
         "values": "Values",
@@ -6814,8 +6404,6 @@ class GaugeChartFieldWells(PropertyType):
 
 @dataclass
 class GaugeChartOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arc": "Arc",
         "comparison": "Comparison",
@@ -6833,8 +6421,6 @@ class GaugeChartOptions(PropertyType):
 
 @dataclass
 class GaugeChartPrimaryValueConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_color": "TextColor",
         "icon": "Icon",
@@ -6846,8 +6432,6 @@ class GaugeChartPrimaryValueConditionalFormatting(PropertyType):
 
 @dataclass
 class GaugeChartVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "conditional_formatting": "ConditionalFormatting",
@@ -6869,8 +6453,6 @@ class GaugeChartVisual(PropertyType):
 
 @dataclass
 class GeospatialCategoricalColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_data_colors": "CategoryDataColors",
         "default_opacity": "DefaultOpacity",
@@ -6886,8 +6468,6 @@ class GeospatialCategoricalColor(PropertyType):
 
 @dataclass
 class GeospatialCategoricalDataColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_value": "DataValue",
         "color": "Color",
@@ -6899,8 +6479,6 @@ class GeospatialCategoricalDataColor(PropertyType):
 
 @dataclass
 class GeospatialCircleRadius(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "radius": "Radius",
     }
@@ -6910,8 +6488,6 @@ class GeospatialCircleRadius(PropertyType):
 
 @dataclass
 class GeospatialCircleSymbolStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fill_color": "FillColor",
         "stroke_width": "StrokeWidth",
@@ -6927,8 +6503,6 @@ class GeospatialCircleSymbolStyle(PropertyType):
 
 @dataclass
 class GeospatialColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "gradient": "Gradient",
         "categorical": "Categorical",
@@ -6942,8 +6516,6 @@ class GeospatialColor(PropertyType):
 
 @dataclass
 class GeospatialCoordinateBounds(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "west": "West",
         "south": "South",
@@ -6959,8 +6531,6 @@ class GeospatialCoordinateBounds(PropertyType):
 
 @dataclass
 class GeospatialDataSourceItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "static_file_data_source": "StaticFileDataSource",
     }
@@ -6970,8 +6540,6 @@ class GeospatialDataSourceItem(PropertyType):
 
 @dataclass
 class GeospatialGradientColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_opacity": "DefaultOpacity",
         "step_colors": "StepColors",
@@ -6987,8 +6555,6 @@ class GeospatialGradientColor(PropertyType):
 
 @dataclass
 class GeospatialGradientStepColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_value": "DataValue",
         "color": "Color",
@@ -7000,8 +6566,6 @@ class GeospatialGradientStepColor(PropertyType):
 
 @dataclass
 class GeospatialHeatmapColorScale(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "colors": "Colors",
     }
@@ -7011,8 +6575,6 @@ class GeospatialHeatmapColorScale(PropertyType):
 
 @dataclass
 class GeospatialHeatmapConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "heatmap_color": "HeatmapColor",
     }
@@ -7022,8 +6584,6 @@ class GeospatialHeatmapConfiguration(PropertyType):
 
 @dataclass
 class GeospatialHeatmapDataColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "color": "Color",
     }
@@ -7033,8 +6593,6 @@ class GeospatialHeatmapDataColor(PropertyType):
 
 @dataclass
 class GeospatialLayerColorField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "color_values_fields": "ColorValuesFields",
         "color_dimensions_fields": "ColorDimensionsFields",
@@ -7046,8 +6604,6 @@ class GeospatialLayerColorField(PropertyType):
 
 @dataclass
 class GeospatialLayerDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "point_layer": "PointLayer",
         "polygon_layer": "PolygonLayer",
@@ -7061,8 +6617,6 @@ class GeospatialLayerDefinition(PropertyType):
 
 @dataclass
 class GeospatialLayerItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "layer_id": "LayerId",
         "join_definition": "JoinDefinition",
@@ -7088,8 +6642,6 @@ class GeospatialLayerItem(PropertyType):
 
 @dataclass
 class GeospatialLayerJoinDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "color_field": "ColorField",
         "shape_key_field": "ShapeKeyField",
@@ -7103,8 +6655,6 @@ class GeospatialLayerJoinDefinition(PropertyType):
 
 @dataclass
 class GeospatialLayerMapConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "legend": "Legend",
         "map_state": "MapState",
@@ -7122,8 +6672,6 @@ class GeospatialLayerMapConfiguration(PropertyType):
 
 @dataclass
 class GeospatialLineLayer(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "style": "Style",
     }
@@ -7133,8 +6681,6 @@ class GeospatialLineLayer(PropertyType):
 
 @dataclass
 class GeospatialLineStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "line_symbol_style": "LineSymbolStyle",
     }
@@ -7144,8 +6690,6 @@ class GeospatialLineStyle(PropertyType):
 
 @dataclass
 class GeospatialLineSymbolStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fill_color": "FillColor",
         "line_width": "LineWidth",
@@ -7157,8 +6701,6 @@ class GeospatialLineSymbolStyle(PropertyType):
 
 @dataclass
 class GeospatialLineWidth(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "line_width": "LineWidth",
     }
@@ -7168,8 +6710,6 @@ class GeospatialLineWidth(PropertyType):
 
 @dataclass
 class GeospatialMapAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "colors": "Colors",
         "values": "Values",
@@ -7183,8 +6723,6 @@ class GeospatialMapAggregatedFieldWells(PropertyType):
 
 @dataclass
 class GeospatialMapConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "legend": "Legend",
         "map_style_options": "MapStyleOptions",
@@ -7208,8 +6746,6 @@ class GeospatialMapConfiguration(PropertyType):
 
 @dataclass
 class GeospatialMapFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "geospatial_map_aggregated_field_wells": "GeospatialMapAggregatedFieldWells",
     }
@@ -7219,8 +6755,6 @@ class GeospatialMapFieldWells(PropertyType):
 
 @dataclass
 class GeospatialMapState(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bounds": "Bounds",
         "map_navigation": "MapNavigation",
@@ -7232,8 +6766,6 @@ class GeospatialMapState(PropertyType):
 
 @dataclass
 class GeospatialMapStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "base_map_style": "BaseMapStyle",
         "base_map_visibility": "BaseMapVisibility",
@@ -7247,8 +6779,6 @@ class GeospatialMapStyle(PropertyType):
 
 @dataclass
 class GeospatialMapStyleOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "base_map_style": "BaseMapStyle",
     }
@@ -7258,8 +6788,6 @@ class GeospatialMapStyleOptions(PropertyType):
 
 @dataclass
 class GeospatialMapVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -7281,8 +6809,6 @@ class GeospatialMapVisual(PropertyType):
 
 @dataclass
 class GeospatialNullDataSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "symbol_style": "SymbolStyle",
     }
@@ -7292,8 +6818,6 @@ class GeospatialNullDataSettings(PropertyType):
 
 @dataclass
 class GeospatialNullSymbolStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fill_color": "FillColor",
         "stroke_width": "StrokeWidth",
@@ -7307,8 +6831,6 @@ class GeospatialNullSymbolStyle(PropertyType):
 
 @dataclass
 class GeospatialPointLayer(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "style": "Style",
     }
@@ -7318,8 +6840,6 @@ class GeospatialPointLayer(PropertyType):
 
 @dataclass
 class GeospatialPointStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "circle_symbol_style": "CircleSymbolStyle",
     }
@@ -7329,8 +6849,6 @@ class GeospatialPointStyle(PropertyType):
 
 @dataclass
 class GeospatialPointStyleOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "selected_point_style": "SelectedPointStyle",
         "cluster_marker_configuration": "ClusterMarkerConfiguration",
@@ -7344,8 +6862,6 @@ class GeospatialPointStyleOptions(PropertyType):
 
 @dataclass
 class GeospatialPolygonLayer(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "style": "Style",
     }
@@ -7355,8 +6871,6 @@ class GeospatialPolygonLayer(PropertyType):
 
 @dataclass
 class GeospatialPolygonStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "polygon_symbol_style": "PolygonSymbolStyle",
     }
@@ -7366,8 +6880,6 @@ class GeospatialPolygonStyle(PropertyType):
 
 @dataclass
 class GeospatialPolygonSymbolStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fill_color": "FillColor",
         "stroke_width": "StrokeWidth",
@@ -7381,8 +6893,6 @@ class GeospatialPolygonSymbolStyle(PropertyType):
 
 @dataclass
 class GeospatialSolidColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
         "color": "Color",
@@ -7394,8 +6904,6 @@ class GeospatialSolidColor(PropertyType):
 
 @dataclass
 class GeospatialStaticFileSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "static_file_id": "StaticFileId",
     }
@@ -7405,8 +6913,6 @@ class GeospatialStaticFileSource(PropertyType):
 
 @dataclass
 class GeospatialWindowOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bounds": "Bounds",
         "map_zoom_mode": "MapZoomMode",
@@ -7418,8 +6924,6 @@ class GeospatialWindowOptions(PropertyType):
 
 @dataclass
 class GlobalTableBorderOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uniform_border": "UniformBorder",
         "side_specific_border": "SideSpecificBorder",
@@ -7431,8 +6935,6 @@ class GlobalTableBorderOptions(PropertyType):
 
 @dataclass
 class GradientColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stops": "Stops",
     }
@@ -7442,8 +6944,6 @@ class GradientColor(PropertyType):
 
 @dataclass
 class GradientStop(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "gradient_offset": "GradientOffset",
         "data_value": "DataValue",
@@ -7457,8 +6957,6 @@ class GradientStop(PropertyType):
 
 @dataclass
 class GridLayoutCanvasSizeOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "screen_canvas_size_options": "ScreenCanvasSizeOptions",
     }
@@ -7468,8 +6966,6 @@ class GridLayoutCanvasSizeOptions(PropertyType):
 
 @dataclass
 class GridLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "canvas_size_options": "CanvasSizeOptions",
         "elements": "Elements",
@@ -7481,8 +6977,6 @@ class GridLayoutConfiguration(PropertyType):
 
 @dataclass
 class GridLayoutElement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "element_type": "ElementType",
         "column_span": "ColumnSpan",
@@ -7502,8 +6996,6 @@ class GridLayoutElement(PropertyType):
 
 @dataclass
 class GridLayoutScreenCanvasSizeOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "optimized_view_port_width": "OptimizedViewPortWidth",
         "resize_option": "ResizeOption",
@@ -7515,8 +7007,6 @@ class GridLayoutScreenCanvasSizeOptions(PropertyType):
 
 @dataclass
 class GrowthRateComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "time": "Time",
@@ -7534,8 +7024,6 @@ class GrowthRateComputation(PropertyType):
 
 @dataclass
 class HeaderFooterSectionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "layout": "Layout",
         "style": "Style",
@@ -7549,8 +7037,6 @@ class HeaderFooterSectionConfiguration(PropertyType):
 
 @dataclass
 class HeatMapAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "columns": "Columns",
@@ -7564,8 +7050,6 @@ class HeatMapAggregatedFieldWells(PropertyType):
 
 @dataclass
 class HeatMapConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "column_label_options": "ColumnLabelOptions",
@@ -7591,8 +7075,6 @@ class HeatMapConfiguration(PropertyType):
 
 @dataclass
 class HeatMapFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "heat_map_aggregated_field_wells": "HeatMapAggregatedFieldWells",
     }
@@ -7602,8 +7084,6 @@ class HeatMapFieldWells(PropertyType):
 
 @dataclass
 class HeatMapSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "heat_map_row_sort": "HeatMapRowSort",
         "heat_map_row_items_limit_configuration": "HeatMapRowItemsLimitConfiguration",
@@ -7619,8 +7099,6 @@ class HeatMapSortConfiguration(PropertyType):
 
 @dataclass
 class HeatMapVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -7642,8 +7120,6 @@ class HeatMapVisual(PropertyType):
 
 @dataclass
 class HistogramAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
     }
@@ -7653,8 +7129,6 @@ class HistogramAggregatedFieldWells(PropertyType):
 
 @dataclass
 class HistogramBinOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bin_width": "BinWidth",
         "start_value": "StartValue",
@@ -7670,8 +7144,6 @@ class HistogramBinOptions(PropertyType):
 
 @dataclass
 class HistogramConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "y_axis_display_options": "YAxisDisplayOptions",
         "data_labels": "DataLabels",
@@ -7697,8 +7169,6 @@ class HistogramConfiguration(PropertyType):
 
 @dataclass
 class HistogramFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "histogram_aggregated_field_wells": "HistogramAggregatedFieldWells",
     }
@@ -7708,8 +7178,6 @@ class HistogramFieldWells(PropertyType):
 
 @dataclass
 class HistogramVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -7729,8 +7197,6 @@ class HistogramVisual(PropertyType):
 
 @dataclass
 class ImageCustomAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "trigger": "Trigger",
@@ -7748,8 +7214,6 @@ class ImageCustomAction(PropertyType):
 
 @dataclass
 class ImageCustomActionOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "navigation_operation": "NavigationOperation",
         "set_parameters_operation": "SetParametersOperation",
@@ -7763,8 +7227,6 @@ class ImageCustomActionOperation(PropertyType):
 
 @dataclass
 class ImageInteractionOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "image_menu_option": "ImageMenuOption",
     }
@@ -7774,8 +7236,6 @@ class ImageInteractionOptions(PropertyType):
 
 @dataclass
 class ImageMenuOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_status": "AvailabilityStatus",
     }
@@ -7785,8 +7245,6 @@ class ImageMenuOption(PropertyType):
 
 @dataclass
 class ImageStaticFile(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "static_file_id": "StaticFileId",
         "source": "Source",
@@ -7798,8 +7256,6 @@ class ImageStaticFile(PropertyType):
 
 @dataclass
 class InnerFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_inner_filter": "CategoryInnerFilter",
     }
@@ -7809,8 +7265,6 @@ class InnerFilter(PropertyType):
 
 @dataclass
 class InsightConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "computations": "Computations",
         "custom_narrative": "CustomNarrative",
@@ -7824,8 +7278,6 @@ class InsightConfiguration(PropertyType):
 
 @dataclass
 class InsightVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -7847,8 +7299,6 @@ class InsightVisual(PropertyType):
 
 @dataclass
 class IntegerDefaultValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dynamic_value": "DynamicValue",
         "static_values": "StaticValues",
@@ -7860,8 +7310,6 @@ class IntegerDefaultValues(PropertyType):
 
 @dataclass
 class IntegerParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "name": "Name",
@@ -7873,8 +7321,6 @@ class IntegerParameter(PropertyType):
 
 @dataclass
 class IntegerParameterDeclaration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mapped_data_set_parameters": "MappedDataSetParameters",
         "default_values": "DefaultValues",
@@ -7892,8 +7338,6 @@ class IntegerParameterDeclaration(PropertyType):
 
 @dataclass
 class IntegerValueWhenUnsetConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_when_unset_option": "ValueWhenUnsetOption",
         "custom_value": "CustomValue",
@@ -7905,8 +7349,6 @@ class IntegerValueWhenUnsetConfiguration(PropertyType):
 
 @dataclass
 class ItemsLimitConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "items_limit": "ItemsLimit",
         "other_categories": "OtherCategories",
@@ -7918,8 +7360,6 @@ class ItemsLimitConfiguration(PropertyType):
 
 @dataclass
 class KPIActualValueConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_color": "TextColor",
         "icon": "Icon",
@@ -7931,8 +7371,6 @@ class KPIActualValueConditionalFormatting(PropertyType):
 
 @dataclass
 class KPIComparisonValueConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_color": "TextColor",
         "icon": "Icon",
@@ -7944,8 +7382,6 @@ class KPIComparisonValueConditionalFormatting(PropertyType):
 
 @dataclass
 class KPIConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "conditional_formatting_options": "ConditionalFormattingOptions",
     }
@@ -7955,8 +7391,6 @@ class KPIConditionalFormatting(PropertyType):
 
 @dataclass
 class KPIConditionalFormattingOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "primary_value": "PrimaryValue",
         "actual_value": "ActualValue",
@@ -7972,8 +7406,6 @@ class KPIConditionalFormattingOption(PropertyType):
 
 @dataclass
 class KPIConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "kpi_options": "KPIOptions",
@@ -7989,8 +7421,6 @@ class KPIConfiguration(PropertyType):
 
 @dataclass
 class KPIFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_values": "TargetValues",
         "trend_groups": "TrendGroups",
@@ -8004,8 +7434,6 @@ class KPIFieldWells(PropertyType):
 
 @dataclass
 class KPIOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secondary_value_font_configuration": "SecondaryValueFontConfiguration",
         "visual_layout_options": "VisualLayoutOptions",
@@ -8031,8 +7459,6 @@ class KPIOptions(PropertyType):
 
 @dataclass
 class KPIPrimaryValueConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_color": "TextColor",
         "icon": "Icon",
@@ -8044,8 +7470,6 @@ class KPIPrimaryValueConditionalFormatting(PropertyType):
 
 @dataclass
 class KPIProgressBarConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "foreground_color": "ForegroundColor",
     }
@@ -8055,8 +7479,6 @@ class KPIProgressBarConditionalFormatting(PropertyType):
 
 @dataclass
 class KPISortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "trend_group_sort": "TrendGroupSort",
     }
@@ -8066,8 +7488,6 @@ class KPISortConfiguration(PropertyType):
 
 @dataclass
 class KPISparklineOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "color": "Color",
@@ -8083,8 +7503,6 @@ class KPISparklineOptions(PropertyType):
 
 @dataclass
 class KPIVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "conditional_formatting": "ConditionalFormatting",
@@ -8108,8 +7526,6 @@ class KPIVisual(PropertyType):
 
 @dataclass
 class KPIVisualLayoutOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "standard_layout": "StandardLayout",
     }
@@ -8119,8 +7535,6 @@ class KPIVisualLayoutOptions(PropertyType):
 
 @dataclass
 class KPIVisualStandardLayout(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -8130,8 +7544,6 @@ class KPIVisualStandardLayout(PropertyType):
 
 @dataclass
 class LabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_label": "CustomLabel",
         "visibility": "Visibility",
@@ -8145,8 +7557,6 @@ class LabelOptions(PropertyType):
 
 @dataclass
 class LayerCustomAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "trigger": "Trigger",
@@ -8164,8 +7574,6 @@ class LayerCustomAction(PropertyType):
 
 @dataclass
 class LayerCustomActionOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "navigation_operation": "NavigationOperation",
         "set_parameters_operation": "SetParametersOperation",
@@ -8181,8 +7589,6 @@ class LayerCustomActionOperation(PropertyType):
 
 @dataclass
 class LayerMapVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -8202,8 +7608,6 @@ class LayerMapVisual(PropertyType):
 
 @dataclass
 class Layout(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration": "Configuration",
     }
@@ -8213,8 +7617,6 @@ class Layout(PropertyType):
 
 @dataclass
 class LayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "grid_layout": "GridLayout",
         "free_form_layout": "FreeFormLayout",
@@ -8228,8 +7630,6 @@ class LayoutConfiguration(PropertyType):
 
 @dataclass
 class LegendOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "position": "Position",
         "value_font_configuration": "ValueFontConfiguration",
@@ -8249,8 +7649,6 @@ class LegendOptions(PropertyType):
 
 @dataclass
 class LineChartAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "colors": "Colors",
@@ -8266,8 +7664,6 @@ class LineChartAggregatedFieldWells(PropertyType):
 
 @dataclass
 class LineChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "legend": "Legend",
@@ -8317,8 +7713,6 @@ class LineChartConfiguration(PropertyType):
 
 @dataclass
 class LineChartDefaultSeriesSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "line_style_settings": "LineStyleSettings",
         "axis_binding": "AxisBinding",
@@ -8332,8 +7726,6 @@ class LineChartDefaultSeriesSettings(PropertyType):
 
 @dataclass
 class LineChartFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "line_chart_aggregated_field_wells": "LineChartAggregatedFieldWells",
     }
@@ -8343,8 +7735,6 @@ class LineChartFieldWells(PropertyType):
 
 @dataclass
 class LineChartLineStyleSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "line_interpolation": "LineInterpolation",
         "line_style": "LineStyle",
@@ -8360,8 +7750,6 @@ class LineChartLineStyleSettings(PropertyType):
 
 @dataclass
 class LineChartMarkerStyleSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "marker_shape": "MarkerShape",
         "marker_size": "MarkerSize",
@@ -8377,8 +7765,6 @@ class LineChartMarkerStyleSettings(PropertyType):
 
 @dataclass
 class LineChartSeriesSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "line_style_settings": "LineStyleSettings",
         "marker_style_settings": "MarkerStyleSettings",
@@ -8390,8 +7776,6 @@ class LineChartSeriesSettings(PropertyType):
 
 @dataclass
 class LineChartSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_items_limit_configuration": "CategoryItemsLimitConfiguration",
         "color_items_limit_configuration": "ColorItemsLimitConfiguration",
@@ -8409,8 +7793,6 @@ class LineChartSortConfiguration(PropertyType):
 
 @dataclass
 class LineChartVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -8432,8 +7814,6 @@ class LineChartVisual(PropertyType):
 
 @dataclass
 class LineSeriesAxisDisplayOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "missing_data_configurations": "MissingDataConfigurations",
         "axis_options": "AxisOptions",
@@ -8445,8 +7825,6 @@ class LineSeriesAxisDisplayOptions(PropertyType):
 
 @dataclass
 class ListControlDisplayOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "title_options": "TitleOptions",
         "search_options": "SearchOptions",
@@ -8462,8 +7840,6 @@ class ListControlDisplayOptions(PropertyType):
 
 @dataclass
 class ListControlSearchOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -8473,8 +7849,6 @@ class ListControlSearchOptions(PropertyType):
 
 @dataclass
 class ListControlSelectAllOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -8484,8 +7858,6 @@ class ListControlSelectAllOptions(PropertyType):
 
 @dataclass
 class LoadingAnimation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -8495,8 +7867,6 @@ class LoadingAnimation(PropertyType):
 
 @dataclass
 class LocalNavigationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_sheet_id": "TargetSheetId",
     }
@@ -8506,8 +7876,6 @@ class LocalNavigationConfiguration(PropertyType):
 
 @dataclass
 class LongFormatText(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rich_text": "RichText",
         "plain_text": "PlainText",
@@ -8519,8 +7887,6 @@ class LongFormatText(PropertyType):
 
 @dataclass
 class MappedDataSetParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_set_parameter_name": "DataSetParameterName",
         "data_set_identifier": "DataSetIdentifier",
@@ -8532,8 +7898,6 @@ class MappedDataSetParameter(PropertyType):
 
 @dataclass
 class MaximumLabelType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -8543,8 +7907,6 @@ class MaximumLabelType(PropertyType):
 
 @dataclass
 class MaximumMinimumComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -8562,8 +7924,6 @@ class MaximumMinimumComputation(PropertyType):
 
 @dataclass
 class MeasureField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "date_measure_field": "DateMeasureField",
         "numerical_measure_field": "NumericalMeasureField",
@@ -8579,8 +7939,6 @@ class MeasureField(PropertyType):
 
 @dataclass
 class MetricComparisonComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_value": "TargetValue",
         "time": "Time",
@@ -8598,8 +7956,6 @@ class MetricComparisonComputation(PropertyType):
 
 @dataclass
 class MinimumLabelType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -8609,8 +7965,6 @@ class MinimumLabelType(PropertyType):
 
 @dataclass
 class MissingDataConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "treatment_option": "TreatmentOption",
     }
@@ -8620,8 +7974,6 @@ class MissingDataConfiguration(PropertyType):
 
 @dataclass
 class NegativeValueConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "display_mode": "DisplayMode",
     }
@@ -8631,8 +7983,6 @@ class NegativeValueConfiguration(PropertyType):
 
 @dataclass
 class NestedFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "inner_filter": "InnerFilter",
@@ -8648,8 +7998,6 @@ class NestedFilter(PropertyType):
 
 @dataclass
 class NullValueFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "null_string": "NullString",
     }
@@ -8659,8 +8007,6 @@ class NullValueFormatConfiguration(PropertyType):
 
 @dataclass
 class NumberDisplayFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "negative_value_configuration": "NegativeValueConfiguration",
         "decimal_places_configuration": "DecimalPlacesConfiguration",
@@ -8682,8 +8028,6 @@ class NumberDisplayFormatConfiguration(PropertyType):
 
 @dataclass
 class NumberFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "format_configuration": "FormatConfiguration",
     }
@@ -8693,8 +8037,6 @@ class NumberFormatConfiguration(PropertyType):
 
 @dataclass
 class NumericAxisOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scale": "Scale",
         "range": "Range",
@@ -8706,8 +8048,6 @@ class NumericAxisOptions(PropertyType):
 
 @dataclass
 class NumericEqualityDrillDownFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "value": "Value",
@@ -8719,8 +8059,6 @@ class NumericEqualityDrillDownFilter(PropertyType):
 
 @dataclass
 class NumericEqualityFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation_function": "AggregationFunction",
         "column": "Column",
@@ -8746,8 +8084,6 @@ class NumericEqualityFilter(PropertyType):
 
 @dataclass
 class NumericFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "number_display_format_configuration": "NumberDisplayFormatConfiguration",
         "currency_display_format_configuration": "CurrencyDisplayFormatConfiguration",
@@ -8761,8 +8097,6 @@ class NumericFormatConfiguration(PropertyType):
 
 @dataclass
 class NumericRangeFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation_function": "AggregationFunction",
         "column": "Column",
@@ -8790,8 +8124,6 @@ class NumericRangeFilter(PropertyType):
 
 @dataclass
 class NumericRangeFilterValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "static_value": "StaticValue",
         "parameter": "Parameter",
@@ -8803,8 +8135,6 @@ class NumericRangeFilterValue(PropertyType):
 
 @dataclass
 class NumericSeparatorConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "decimal_separator": "DecimalSeparator",
         "thousands_separator": "ThousandsSeparator",
@@ -8816,8 +8146,6 @@ class NumericSeparatorConfiguration(PropertyType):
 
 @dataclass
 class NumericalAggregationFunction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "percentile_aggregation": "PercentileAggregation",
         "simple_numerical_aggregation": "SimpleNumericalAggregation",
@@ -8829,8 +8157,6 @@ class NumericalAggregationFunction(PropertyType):
 
 @dataclass
 class NumericalDimensionField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hierarchy_id": "HierarchyId",
         "format_configuration": "FormatConfiguration",
@@ -8846,8 +8172,6 @@ class NumericalDimensionField(PropertyType):
 
 @dataclass
 class NumericalMeasureField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation_function": "AggregationFunction",
         "format_configuration": "FormatConfiguration",
@@ -8863,8 +8187,6 @@ class NumericalMeasureField(PropertyType):
 
 @dataclass
 class PaginationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "page_size": "PageSize",
         "page_number": "PageNumber",
@@ -8876,8 +8198,6 @@ class PaginationConfiguration(PropertyType):
 
 @dataclass
 class PanelConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "border_thickness": "BorderThickness",
         "border_style": "BorderStyle",
@@ -8903,8 +8223,6 @@ class PanelConfiguration(PropertyType):
 
 @dataclass
 class PanelTitleOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
         "font_configuration": "FontConfiguration",
@@ -8918,8 +8236,6 @@ class PanelTitleOptions(PropertyType):
 
 @dataclass
 class ParameterControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "slider": "Slider",
         "text_area": "TextArea",
@@ -8939,8 +8255,6 @@ class ParameterControl(PropertyType):
 
 @dataclass
 class ParameterDateTimePickerControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_control_id": "ParameterControlId",
         "display_options": "DisplayOptions",
@@ -8956,8 +8270,6 @@ class ParameterDateTimePickerControl(PropertyType):
 
 @dataclass
 class ParameterDeclaration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "string_parameter_declaration": "StringParameterDeclaration",
         "date_time_parameter_declaration": "DateTimeParameterDeclaration",
@@ -8973,8 +8285,6 @@ class ParameterDeclaration(PropertyType):
 
 @dataclass
 class ParameterDropDownControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_control_id": "ParameterControlId",
         "type_": "Type",
@@ -8998,8 +8308,6 @@ class ParameterDropDownControl(PropertyType):
 
 @dataclass
 class ParameterListControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_control_id": "ParameterControlId",
         "type_": "Type",
@@ -9021,8 +8329,6 @@ class ParameterListControl(PropertyType):
 
 @dataclass
 class ParameterSelectableValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "link_to_data_set_column": "LinkToDataSetColumn",
         "values": "Values",
@@ -9034,8 +8340,6 @@ class ParameterSelectableValues(PropertyType):
 
 @dataclass
 class ParameterSliderControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_control_id": "ParameterControlId",
         "step_size": "StepSize",
@@ -9057,8 +8361,6 @@ class ParameterSliderControl(PropertyType):
 
 @dataclass
 class ParameterTextAreaControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_control_id": "ParameterControlId",
         "delimiter": "Delimiter",
@@ -9076,8 +8378,6 @@ class ParameterTextAreaControl(PropertyType):
 
 @dataclass
 class ParameterTextFieldControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_control_id": "ParameterControlId",
         "display_options": "DisplayOptions",
@@ -9093,8 +8393,6 @@ class ParameterTextFieldControl(PropertyType):
 
 @dataclass
 class Parameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "string_parameters": "StringParameters",
         "decimal_parameters": "DecimalParameters",
@@ -9110,8 +8408,6 @@ class Parameters(PropertyType):
 
 @dataclass
 class PercentVisibleRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "from_": "From",
         "to": "To",
@@ -9123,8 +8419,6 @@ class PercentVisibleRange(PropertyType):
 
 @dataclass
 class PercentageDisplayFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "negative_value_configuration": "NegativeValueConfiguration",
         "decimal_places_configuration": "DecimalPlacesConfiguration",
@@ -9144,8 +8438,6 @@ class PercentageDisplayFormatConfiguration(PropertyType):
 
 @dataclass
 class PercentileAggregation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "percentile_value": "PercentileValue",
     }
@@ -9155,8 +8447,6 @@ class PercentileAggregation(PropertyType):
 
 @dataclass
 class PeriodOverPeriodComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "time": "Time",
@@ -9172,8 +8462,6 @@ class PeriodOverPeriodComputation(PropertyType):
 
 @dataclass
 class PeriodToDateComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "period_time_granularity": "PeriodTimeGranularity",
         "value": "Value",
@@ -9191,8 +8479,6 @@ class PeriodToDateComputation(PropertyType):
 
 @dataclass
 class PieChartAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "values": "Values",
@@ -9206,8 +8492,6 @@ class PieChartAggregatedFieldWells(PropertyType):
 
 @dataclass
 class PieChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "legend": "Legend",
@@ -9239,8 +8523,6 @@ class PieChartConfiguration(PropertyType):
 
 @dataclass
 class PieChartFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pie_chart_aggregated_field_wells": "PieChartAggregatedFieldWells",
     }
@@ -9250,8 +8532,6 @@ class PieChartFieldWells(PropertyType):
 
 @dataclass
 class PieChartSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "small_multiples_sort": "SmallMultiplesSort",
         "category_items_limit": "CategoryItemsLimit",
@@ -9267,8 +8547,6 @@ class PieChartSortConfiguration(PropertyType):
 
 @dataclass
 class PieChartVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -9290,8 +8568,6 @@ class PieChartVisual(PropertyType):
 
 @dataclass
 class PivotFieldSortOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_by": "SortBy",
         "field_id": "FieldId",
@@ -9303,8 +8579,6 @@ class PivotFieldSortOptions(PropertyType):
 
 @dataclass
 class PivotTableAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "columns": "Columns",
@@ -9318,8 +8592,6 @@ class PivotTableAggregatedFieldWells(PropertyType):
 
 @dataclass
 class PivotTableCellConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scope": "Scope",
         "scopes": "Scopes",
@@ -9335,8 +8607,6 @@ class PivotTableCellConditionalFormatting(PropertyType):
 
 @dataclass
 class PivotTableConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "conditional_formatting_options": "ConditionalFormattingOptions",
     }
@@ -9346,8 +8616,6 @@ class PivotTableConditionalFormatting(PropertyType):
 
 @dataclass
 class PivotTableConditionalFormattingOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cell": "Cell",
     }
@@ -9357,8 +8625,6 @@ class PivotTableConditionalFormattingOption(PropertyType):
 
 @dataclass
 class PivotTableConditionalFormattingScope(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role": "Role",
     }
@@ -9368,8 +8634,6 @@ class PivotTableConditionalFormattingScope(PropertyType):
 
 @dataclass
 class PivotTableConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "paginated_report_options": "PaginatedReportOptions",
@@ -9391,8 +8655,6 @@ class PivotTableConfiguration(PropertyType):
 
 @dataclass
 class PivotTableDataPathOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_path_list": "DataPathList",
         "width": "Width",
@@ -9404,8 +8666,6 @@ class PivotTableDataPathOption(PropertyType):
 
 @dataclass
 class PivotTableFieldCollapseStateOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target": "Target",
         "state": "State",
@@ -9417,8 +8677,6 @@ class PivotTableFieldCollapseStateOption(PropertyType):
 
 @dataclass
 class PivotTableFieldCollapseStateTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_id": "FieldId",
         "field_data_path_values": "FieldDataPathValues",
@@ -9430,8 +8688,6 @@ class PivotTableFieldCollapseStateTarget(PropertyType):
 
 @dataclass
 class PivotTableFieldOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_label": "CustomLabel",
         "field_id": "FieldId",
@@ -9445,8 +8701,6 @@ class PivotTableFieldOption(PropertyType):
 
 @dataclass
 class PivotTableFieldOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "collapse_state_options": "CollapseStateOptions",
         "data_path_options": "DataPathOptions",
@@ -9460,8 +8714,6 @@ class PivotTableFieldOptions(PropertyType):
 
 @dataclass
 class PivotTableFieldSubtotalOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_id": "FieldId",
     }
@@ -9471,8 +8723,6 @@ class PivotTableFieldSubtotalOptions(PropertyType):
 
 @dataclass
 class PivotTableFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pivot_table_aggregated_field_wells": "PivotTableAggregatedFieldWells",
     }
@@ -9482,8 +8732,6 @@ class PivotTableFieldWells(PropertyType):
 
 @dataclass
 class PivotTableOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "row_field_names_style": "RowFieldNamesStyle",
         "row_header_style": "RowHeaderStyle",
@@ -9517,8 +8765,6 @@ class PivotTableOptions(PropertyType):
 
 @dataclass
 class PivotTablePaginatedReportOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "overflow_column_header_visibility": "OverflowColumnHeaderVisibility",
         "vertical_overflow_visibility": "VerticalOverflowVisibility",
@@ -9530,8 +8776,6 @@ class PivotTablePaginatedReportOptions(PropertyType):
 
 @dataclass
 class PivotTableRowsLabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_label": "CustomLabel",
         "visibility": "Visibility",
@@ -9543,8 +8787,6 @@ class PivotTableRowsLabelOptions(PropertyType):
 
 @dataclass
 class PivotTableSortBy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field": "Field",
         "data_path": "DataPath",
@@ -9558,8 +8800,6 @@ class PivotTableSortBy(PropertyType):
 
 @dataclass
 class PivotTableSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_sort_options": "FieldSortOptions",
     }
@@ -9569,8 +8809,6 @@ class PivotTableSortConfiguration(PropertyType):
 
 @dataclass
 class PivotTableTotalOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_subtotal_options": "ColumnSubtotalOptions",
         "row_subtotal_options": "RowSubtotalOptions",
@@ -9586,8 +8824,6 @@ class PivotTableTotalOptions(PropertyType):
 
 @dataclass
 class PivotTableVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "conditional_formatting": "ConditionalFormatting",
@@ -9609,8 +8845,6 @@ class PivotTableVisual(PropertyType):
 
 @dataclass
 class PivotTotalOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "total_aggregation_options": "TotalAggregationOptions",
         "custom_label": "CustomLabel",
@@ -9634,8 +8868,6 @@ class PivotTotalOptions(PropertyType):
 
 @dataclass
 class PluginVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "plugin_arn": "PluginArn",
@@ -9655,8 +8887,6 @@ class PluginVisual(PropertyType):
 
 @dataclass
 class PluginVisualConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "visual_options": "VisualOptions",
@@ -9670,8 +8900,6 @@ class PluginVisualConfiguration(PropertyType):
 
 @dataclass
 class PluginVisualFieldWell(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "unaggregated": "Unaggregated",
         "axis_name": "AxisName",
@@ -9687,8 +8915,6 @@ class PluginVisualFieldWell(PropertyType):
 
 @dataclass
 class PluginVisualItemsLimitConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "items_limit": "ItemsLimit",
     }
@@ -9698,8 +8924,6 @@ class PluginVisualItemsLimitConfiguration(PropertyType):
 
 @dataclass
 class PluginVisualOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visual_properties": "VisualProperties",
     }
@@ -9709,8 +8933,6 @@ class PluginVisualOptions(PropertyType):
 
 @dataclass
 class PluginVisualProperty(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -9722,8 +8944,6 @@ class PluginVisualProperty(PropertyType):
 
 @dataclass
 class PluginVisualSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "plugin_visual_table_query_sort": "PluginVisualTableQuerySort",
     }
@@ -9733,8 +8953,6 @@ class PluginVisualSortConfiguration(PropertyType):
 
 @dataclass
 class PluginVisualTableQuerySort(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "items_limit_configuration": "ItemsLimitConfiguration",
         "row_sort": "RowSort",
@@ -9746,8 +8964,6 @@ class PluginVisualTableQuerySort(PropertyType):
 
 @dataclass
 class PredefinedHierarchy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hierarchy_id": "HierarchyId",
         "drill_down_filters": "DrillDownFilters",
@@ -9761,8 +8977,6 @@ class PredefinedHierarchy(PropertyType):
 
 @dataclass
 class ProgressBarOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -9772,8 +8986,6 @@ class ProgressBarOptions(PropertyType):
 
 @dataclass
 class QueryExecutionOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "query_execution_mode": "QueryExecutionMode",
     }
@@ -9783,8 +8995,6 @@ class QueryExecutionOptions(PropertyType):
 
 @dataclass
 class RadarChartAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "color": "Color",
@@ -9798,8 +9008,6 @@ class RadarChartAggregatedFieldWells(PropertyType):
 
 @dataclass
 class RadarChartAreaStyleSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -9809,8 +9017,6 @@ class RadarChartAreaStyleSettings(PropertyType):
 
 @dataclass
 class RadarChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "legend": "Legend",
@@ -9850,8 +9056,6 @@ class RadarChartConfiguration(PropertyType):
 
 @dataclass
 class RadarChartFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "radar_chart_aggregated_field_wells": "RadarChartAggregatedFieldWells",
     }
@@ -9861,8 +9065,6 @@ class RadarChartFieldWells(PropertyType):
 
 @dataclass
 class RadarChartSeriesSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "area_style_settings": "AreaStyleSettings",
     }
@@ -9872,8 +9074,6 @@ class RadarChartSeriesSettings(PropertyType):
 
 @dataclass
 class RadarChartSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "color_sort": "ColorSort",
         "color_items_limit": "ColorItemsLimit",
@@ -9889,8 +9089,6 @@ class RadarChartSortConfiguration(PropertyType):
 
 @dataclass
 class RadarChartVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -9912,8 +9110,6 @@ class RadarChartVisual(PropertyType):
 
 @dataclass
 class RangeEndsLabelType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -9923,8 +9119,6 @@ class RangeEndsLabelType(PropertyType):
 
 @dataclass
 class ReferenceLine(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "data_configuration": "DataConfiguration",
@@ -9940,8 +9134,6 @@ class ReferenceLine(PropertyType):
 
 @dataclass
 class ReferenceLineCustomLabelConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_label": "CustomLabel",
     }
@@ -9951,8 +9143,6 @@ class ReferenceLineCustomLabelConfiguration(PropertyType):
 
 @dataclass
 class ReferenceLineDataConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dynamic_configuration": "DynamicConfiguration",
         "axis_binding": "AxisBinding",
@@ -9968,8 +9158,6 @@ class ReferenceLineDataConfiguration(PropertyType):
 
 @dataclass
 class ReferenceLineDynamicDataConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "measure_aggregation_function": "MeasureAggregationFunction",
@@ -9983,8 +9171,6 @@ class ReferenceLineDynamicDataConfiguration(PropertyType):
 
 @dataclass
 class ReferenceLineLabelConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "horizontal_position": "HorizontalPosition",
         "value_label_configuration": "ValueLabelConfiguration",
@@ -10004,8 +9190,6 @@ class ReferenceLineLabelConfiguration(PropertyType):
 
 @dataclass
 class ReferenceLineStaticDataConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -10015,8 +9199,6 @@ class ReferenceLineStaticDataConfiguration(PropertyType):
 
 @dataclass
 class ReferenceLineStyleConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pattern": "Pattern",
         "color": "Color",
@@ -10028,8 +9210,6 @@ class ReferenceLineStyleConfiguration(PropertyType):
 
 @dataclass
 class ReferenceLineValueLabelConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "format_configuration": "FormatConfiguration",
         "relative_position": "RelativePosition",
@@ -10041,8 +9221,6 @@ class ReferenceLineValueLabelConfiguration(PropertyType):
 
 @dataclass
 class RelativeDateTimeControlDisplayOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "title_options": "TitleOptions",
         "info_icon_label_options": "InfoIconLabelOptions",
@@ -10056,8 +9234,6 @@ class RelativeDateTimeControlDisplayOptions(PropertyType):
 
 @dataclass
 class RelativeDatesFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "relative_date_value": "RelativeDateValue",
         "column": "Column",
@@ -10087,8 +9263,6 @@ class RelativeDatesFilter(PropertyType):
 
 @dataclass
 class ResourcePermission(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "actions": "Actions",
         "principal": "Principal",
@@ -10100,8 +9274,6 @@ class ResourcePermission(PropertyType):
 
 @dataclass
 class RollingDateConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "data_set_identifier": "DataSetIdentifier",
@@ -10113,8 +9285,6 @@ class RollingDateConfiguration(PropertyType):
 
 @dataclass
 class RowAlternateColorOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "use_primary_background_color": "UsePrimaryBackgroundColor",
@@ -10128,8 +9298,6 @@ class RowAlternateColorOptions(PropertyType):
 
 @dataclass
 class SameSheetTargetVisualConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_visual_options": "TargetVisualOptions",
         "target_visuals": "TargetVisuals",
@@ -10141,8 +9309,6 @@ class SameSheetTargetVisualConfiguration(PropertyType):
 
 @dataclass
 class SankeyDiagramAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "source": "Source",
@@ -10156,8 +9322,6 @@ class SankeyDiagramAggregatedFieldWells(PropertyType):
 
 @dataclass
 class SankeyDiagramChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "data_labels": "DataLabels",
@@ -10173,8 +9337,6 @@ class SankeyDiagramChartConfiguration(PropertyType):
 
 @dataclass
 class SankeyDiagramFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sankey_diagram_aggregated_field_wells": "SankeyDiagramAggregatedFieldWells",
     }
@@ -10184,8 +9346,6 @@ class SankeyDiagramFieldWells(PropertyType):
 
 @dataclass
 class SankeyDiagramSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "weight_sort": "WeightSort",
         "source_items_limit": "SourceItemsLimit",
@@ -10199,8 +9359,6 @@ class SankeyDiagramSortConfiguration(PropertyType):
 
 @dataclass
 class SankeyDiagramVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -10220,8 +9378,6 @@ class SankeyDiagramVisual(PropertyType):
 
 @dataclass
 class ScatterPlotCategoricallyAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "size": "Size",
@@ -10239,8 +9395,6 @@ class ScatterPlotCategoricallyAggregatedFieldWells(PropertyType):
 
 @dataclass
 class ScatterPlotConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "y_axis_label_options": "YAxisLabelOptions",
         "sort_configuration": "SortConfiguration",
@@ -10270,8 +9424,6 @@ class ScatterPlotConfiguration(PropertyType):
 
 @dataclass
 class ScatterPlotFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scatter_plot_unaggregated_field_wells": "ScatterPlotUnaggregatedFieldWells",
         "scatter_plot_categorically_aggregated_field_wells": "ScatterPlotCategoricallyAggregatedFieldWells",
@@ -10283,8 +9435,6 @@ class ScatterPlotFieldWells(PropertyType):
 
 @dataclass
 class ScatterPlotSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scatter_plot_limit_configuration": "ScatterPlotLimitConfiguration",
     }
@@ -10294,8 +9444,6 @@ class ScatterPlotSortConfiguration(PropertyType):
 
 @dataclass
 class ScatterPlotUnaggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "size": "Size",
@@ -10313,8 +9461,6 @@ class ScatterPlotUnaggregatedFieldWells(PropertyType):
 
 @dataclass
 class ScatterPlotVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -10336,8 +9482,6 @@ class ScatterPlotVisual(PropertyType):
 
 @dataclass
 class ScrollBarOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visible_range": "VisibleRange",
         "visibility": "Visibility",
@@ -10349,8 +9493,6 @@ class ScrollBarOptions(PropertyType):
 
 @dataclass
 class SecondaryValueOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -10360,8 +9502,6 @@ class SecondaryValueOptions(PropertyType):
 
 @dataclass
 class SectionAfterPageBreak(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
     }
@@ -10371,8 +9511,6 @@ class SectionAfterPageBreak(PropertyType):
 
 @dataclass
 class SectionBasedLayoutCanvasSizeOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "paper_canvas_size_options": "PaperCanvasSizeOptions",
     }
@@ -10382,8 +9520,6 @@ class SectionBasedLayoutCanvasSizeOptions(PropertyType):
 
 @dataclass
 class SectionBasedLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "canvas_size_options": "CanvasSizeOptions",
         "footer_sections": "FooterSections",
@@ -10399,8 +9535,6 @@ class SectionBasedLayoutConfiguration(PropertyType):
 
 @dataclass
 class SectionBasedLayoutPaperCanvasSizeOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "paper_margin": "PaperMargin",
         "paper_size": "PaperSize",
@@ -10414,8 +9548,6 @@ class SectionBasedLayoutPaperCanvasSizeOptions(PropertyType):
 
 @dataclass
 class SectionLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "free_form_layout": "FreeFormLayout",
     }
@@ -10425,8 +9557,6 @@ class SectionLayoutConfiguration(PropertyType):
 
 @dataclass
 class SectionPageBreakConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "after": "After",
     }
@@ -10436,8 +9566,6 @@ class SectionPageBreakConfiguration(PropertyType):
 
 @dataclass
 class SectionStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "padding": "Padding",
         "height": "Height",
@@ -10449,8 +9577,6 @@ class SectionStyle(PropertyType):
 
 @dataclass
 class SelectedSheetsFilterScopeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sheet_visual_scoping_configurations": "SheetVisualScopingConfigurations",
     }
@@ -10460,8 +9586,6 @@ class SelectedSheetsFilterScopeConfiguration(PropertyType):
 
 @dataclass
 class SeriesItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_series_item": "FieldSeriesItem",
         "data_field_series_item": "DataFieldSeriesItem",
@@ -10473,8 +9597,6 @@ class SeriesItem(PropertyType):
 
 @dataclass
 class SetParameterValueConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_parameter_name": "DestinationParameterName",
         "value": "Value",
@@ -10486,8 +9608,6 @@ class SetParameterValueConfiguration(PropertyType):
 
 @dataclass
 class ShapeConditionalFormat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "background_color": "BackgroundColor",
     }
@@ -10497,8 +9617,6 @@ class ShapeConditionalFormat(PropertyType):
 
 @dataclass
 class Sheet(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sheet_id": "SheetId",
         "name": "Name",
@@ -10510,8 +9628,6 @@ class Sheet(PropertyType):
 
 @dataclass
 class SheetControlInfoIconLabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
         "info_icon_text": "InfoIconText",
@@ -10523,8 +9639,6 @@ class SheetControlInfoIconLabelOptions(PropertyType):
 
 @dataclass
 class SheetControlLayout(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration": "Configuration",
     }
@@ -10534,8 +9648,6 @@ class SheetControlLayout(PropertyType):
 
 @dataclass
 class SheetControlLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "grid_layout": "GridLayout",
     }
@@ -10545,8 +9657,6 @@ class SheetControlLayoutConfiguration(PropertyType):
 
 @dataclass
 class SheetDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "parameter_controls": "ParameterControls",
@@ -10578,8 +9688,6 @@ class SheetDefinition(PropertyType):
 
 @dataclass
 class SheetElementConfigurationOverrides(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -10589,8 +9697,6 @@ class SheetElementConfigurationOverrides(PropertyType):
 
 @dataclass
 class SheetElementRenderingRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "configuration_overrides": "ConfigurationOverrides",
@@ -10602,8 +9708,6 @@ class SheetElementRenderingRule(PropertyType):
 
 @dataclass
 class SheetImage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "actions": "Actions",
         "sheet_image_id": "SheetImageId",
@@ -10625,8 +9729,6 @@ class SheetImage(PropertyType):
 
 @dataclass
 class SheetImageScalingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scaling_type": "ScalingType",
     }
@@ -10636,8 +9738,6 @@ class SheetImageScalingConfiguration(PropertyType):
 
 @dataclass
 class SheetImageSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sheet_image_static_file_source": "SheetImageStaticFileSource",
     }
@@ -10647,8 +9747,6 @@ class SheetImageSource(PropertyType):
 
 @dataclass
 class SheetImageStaticFileSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "static_file_id": "StaticFileId",
     }
@@ -10658,8 +9756,6 @@ class SheetImageStaticFileSource(PropertyType):
 
 @dataclass
 class SheetImageTooltipConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
         "tooltip_text": "TooltipText",
@@ -10671,8 +9767,6 @@ class SheetImageTooltipConfiguration(PropertyType):
 
 @dataclass
 class SheetImageTooltipText(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "plain_text": "PlainText",
     }
@@ -10682,8 +9776,6 @@ class SheetImageTooltipText(PropertyType):
 
 @dataclass
 class SheetTextBox(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sheet_text_box_id": "SheetTextBoxId",
         "content": "Content",
@@ -10695,8 +9787,6 @@ class SheetTextBox(PropertyType):
 
 @dataclass
 class SheetVisualScopingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scope": "Scope",
         "sheet_id": "SheetId",
@@ -10710,8 +9800,6 @@ class SheetVisualScopingConfiguration(PropertyType):
 
 @dataclass
 class ShortFormatText(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rich_text": "RichText",
         "plain_text": "PlainText",
@@ -10723,8 +9811,6 @@ class ShortFormatText(PropertyType):
 
 @dataclass
 class SimpleClusterMarker(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "color": "Color",
     }
@@ -10734,8 +9820,6 @@ class SimpleClusterMarker(PropertyType):
 
 @dataclass
 class SingleAxisOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "y_axis_options": "YAxisOptions",
     }
@@ -10745,8 +9829,6 @@ class SingleAxisOptions(PropertyType):
 
 @dataclass
 class SliderControlDisplayOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "title_options": "TitleOptions",
         "info_icon_label_options": "InfoIconLabelOptions",
@@ -10758,8 +9840,6 @@ class SliderControlDisplayOptions(PropertyType):
 
 @dataclass
 class SmallMultiplesAxisProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "placement": "Placement",
         "scale": "Scale",
@@ -10771,8 +9851,6 @@ class SmallMultiplesAxisProperties(PropertyType):
 
 @dataclass
 class SmallMultiplesOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_visible_rows": "MaxVisibleRows",
         "panel_configuration": "PanelConfiguration",
@@ -10790,8 +9868,6 @@ class SmallMultiplesOptions(PropertyType):
 
 @dataclass
 class Spacing(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "left": "Left",
         "top": "Top",
@@ -10807,8 +9883,6 @@ class Spacing(PropertyType):
 
 @dataclass
 class SpatialStaticFile(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "static_file_id": "StaticFileId",
         "source": "Source",
@@ -10820,8 +9894,6 @@ class SpatialStaticFile(PropertyType):
 
 @dataclass
 class StaticFile(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "image_static_file": "ImageStaticFile",
         "spatial_static_file": "SpatialStaticFile",
@@ -10833,8 +9905,6 @@ class StaticFile(PropertyType):
 
 @dataclass
 class StaticFileS3SourceOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "object_key": "ObjectKey",
@@ -10848,8 +9918,6 @@ class StaticFileS3SourceOptions(PropertyType):
 
 @dataclass
 class StaticFileSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "url_options": "UrlOptions",
         "s3_options": "S3Options",
@@ -10861,8 +9929,6 @@ class StaticFileSource(PropertyType):
 
 @dataclass
 class StaticFileUrlSourceOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "url": "Url",
     }
@@ -10872,8 +9938,6 @@ class StaticFileUrlSourceOptions(PropertyType):
 
 @dataclass
 class StringDefaultValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dynamic_value": "DynamicValue",
         "static_values": "StaticValues",
@@ -10885,8 +9949,6 @@ class StringDefaultValues(PropertyType):
 
 @dataclass
 class StringFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "numeric_format_configuration": "NumericFormatConfiguration",
         "null_value_format_configuration": "NullValueFormatConfiguration",
@@ -10898,8 +9960,6 @@ class StringFormatConfiguration(PropertyType):
 
 @dataclass
 class StringParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "name": "Name",
@@ -10911,8 +9971,6 @@ class StringParameter(PropertyType):
 
 @dataclass
 class StringParameterDeclaration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mapped_data_set_parameters": "MappedDataSetParameters",
         "default_values": "DefaultValues",
@@ -10930,8 +9988,6 @@ class StringParameterDeclaration(PropertyType):
 
 @dataclass
 class StringValueWhenUnsetConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_when_unset_option": "ValueWhenUnsetOption",
         "custom_value": "CustomValue",
@@ -10943,8 +9999,6 @@ class StringValueWhenUnsetConfiguration(PropertyType):
 
 @dataclass
 class SubtotalOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_label": "CustomLabel",
         "field_level_options": "FieldLevelOptions",
@@ -10968,8 +10022,6 @@ class SubtotalOptions(PropertyType):
 
 @dataclass
 class TableAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_by": "GroupBy",
         "values": "Values",
@@ -10981,8 +10033,6 @@ class TableAggregatedFieldWells(PropertyType):
 
 @dataclass
 class TableBorderOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "thickness": "Thickness",
         "color": "Color",
@@ -10996,8 +10046,6 @@ class TableBorderOptions(PropertyType):
 
 @dataclass
 class TableCellConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_id": "FieldId",
         "text_format": "TextFormat",
@@ -11009,8 +10057,6 @@ class TableCellConditionalFormatting(PropertyType):
 
 @dataclass
 class TableCellImageSizingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_cell_image_scaling_configuration": "TableCellImageScalingConfiguration",
     }
@@ -11020,8 +10066,6 @@ class TableCellImageSizingConfiguration(PropertyType):
 
 @dataclass
 class TableCellStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vertical_text_alignment": "VerticalTextAlignment",
         "visibility": "Visibility",
@@ -11045,8 +10089,6 @@ class TableCellStyle(PropertyType):
 
 @dataclass
 class TableConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "conditional_formatting_options": "ConditionalFormattingOptions",
     }
@@ -11056,8 +10098,6 @@ class TableConditionalFormatting(PropertyType):
 
 @dataclass
 class TableConditionalFormattingOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "row": "Row",
         "cell": "Cell",
@@ -11069,8 +10109,6 @@ class TableConditionalFormattingOption(PropertyType):
 
 @dataclass
 class TableConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "paginated_report_options": "PaginatedReportOptions",
@@ -11094,8 +10132,6 @@ class TableConfiguration(PropertyType):
 
 @dataclass
 class TableFieldCustomIconContent(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "icon": "Icon",
     }
@@ -11105,8 +10141,6 @@ class TableFieldCustomIconContent(PropertyType):
 
 @dataclass
 class TableFieldCustomTextContent(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "font_configuration": "FontConfiguration",
@@ -11118,8 +10152,6 @@ class TableFieldCustomTextContent(PropertyType):
 
 @dataclass
 class TableFieldImageConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sizing_options": "SizingOptions",
     }
@@ -11129,8 +10161,6 @@ class TableFieldImageConfiguration(PropertyType):
 
 @dataclass
 class TableFieldLinkConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target": "Target",
         "content": "Content",
@@ -11142,8 +10172,6 @@ class TableFieldLinkConfiguration(PropertyType):
 
 @dataclass
 class TableFieldLinkContentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_icon_content": "CustomIconContent",
         "custom_text_content": "CustomTextContent",
@@ -11155,8 +10183,6 @@ class TableFieldLinkContentConfiguration(PropertyType):
 
 @dataclass
 class TableFieldOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_label": "CustomLabel",
         "url_styling": "URLStyling",
@@ -11174,8 +10200,6 @@ class TableFieldOption(PropertyType):
 
 @dataclass
 class TableFieldOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "order": "Order",
         "pinned_field_options": "PinnedFieldOptions",
@@ -11191,8 +10215,6 @@ class TableFieldOptions(PropertyType):
 
 @dataclass
 class TableFieldURLConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "link_configuration": "LinkConfiguration",
         "image_configuration": "ImageConfiguration",
@@ -11204,8 +10226,6 @@ class TableFieldURLConfiguration(PropertyType):
 
 @dataclass
 class TableFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_unaggregated_field_wells": "TableUnaggregatedFieldWells",
         "table_aggregated_field_wells": "TableAggregatedFieldWells",
@@ -11217,8 +10237,6 @@ class TableFieldWells(PropertyType):
 
 @dataclass
 class TableInlineVisualization(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_bars": "DataBars",
     }
@@ -11228,8 +10246,6 @@ class TableInlineVisualization(PropertyType):
 
 @dataclass
 class TableOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header_style": "HeaderStyle",
         "cell_style": "CellStyle",
@@ -11245,8 +10261,6 @@ class TableOptions(PropertyType):
 
 @dataclass
 class TablePaginatedReportOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "overflow_column_header_visibility": "OverflowColumnHeaderVisibility",
         "vertical_overflow_visibility": "VerticalOverflowVisibility",
@@ -11258,8 +10272,6 @@ class TablePaginatedReportOptions(PropertyType):
 
 @dataclass
 class TablePinnedFieldOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pinned_left_fields": "PinnedLeftFields",
     }
@@ -11269,8 +10281,6 @@ class TablePinnedFieldOptions(PropertyType):
 
 @dataclass
 class TableRowConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_color": "TextColor",
         "background_color": "BackgroundColor",
@@ -11282,8 +10292,6 @@ class TableRowConditionalFormatting(PropertyType):
 
 @dataclass
 class TableSideBorderOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "left": "Left",
         "top": "Top",
@@ -11303,8 +10311,6 @@ class TableSideBorderOptions(PropertyType):
 
 @dataclass
 class TableSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "row_sort": "RowSort",
         "pagination_configuration": "PaginationConfiguration",
@@ -11316,8 +10322,6 @@ class TableSortConfiguration(PropertyType):
 
 @dataclass
 class TableStyleTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cell_type": "CellType",
     }
@@ -11327,8 +10331,6 @@ class TableStyleTarget(PropertyType):
 
 @dataclass
 class TableUnaggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
     }
@@ -11338,8 +10340,6 @@ class TableUnaggregatedFieldWells(PropertyType):
 
 @dataclass
 class TableVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "conditional_formatting": "ConditionalFormatting",
@@ -11361,8 +10361,6 @@ class TableVisual(PropertyType):
 
 @dataclass
 class TextAreaControlDisplayOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "title_options": "TitleOptions",
         "placeholder_options": "PlaceholderOptions",
@@ -11376,8 +10374,6 @@ class TextAreaControlDisplayOptions(PropertyType):
 
 @dataclass
 class TextConditionalFormat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_color": "TextColor",
         "icon": "Icon",
@@ -11391,8 +10387,6 @@ class TextConditionalFormat(PropertyType):
 
 @dataclass
 class TextControlPlaceholderOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -11402,8 +10396,6 @@ class TextControlPlaceholderOptions(PropertyType):
 
 @dataclass
 class TextFieldControlDisplayOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "title_options": "TitleOptions",
         "placeholder_options": "PlaceholderOptions",
@@ -11417,8 +10409,6 @@ class TextFieldControlDisplayOptions(PropertyType):
 
 @dataclass
 class ThousandSeparatorOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "symbol": "Symbol",
         "visibility": "Visibility",
@@ -11432,8 +10422,6 @@ class ThousandSeparatorOptions(PropertyType):
 
 @dataclass
 class TimeBasedForecastProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "periods_backward": "PeriodsBackward",
         "periods_forward": "PeriodsForward",
@@ -11453,8 +10441,6 @@ class TimeBasedForecastProperties(PropertyType):
 
 @dataclass
 class TimeEqualityFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "rolling_date": "RollingDate",
@@ -11476,8 +10462,6 @@ class TimeEqualityFilter(PropertyType):
 
 @dataclass
 class TimeRangeDrillDownFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "range_minimum": "RangeMinimum",
@@ -11493,8 +10477,6 @@ class TimeRangeDrillDownFilter(PropertyType):
 
 @dataclass
 class TimeRangeFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "range_minimum_value": "RangeMinimumValue",
         "column": "Column",
@@ -11522,8 +10504,6 @@ class TimeRangeFilter(PropertyType):
 
 @dataclass
 class TimeRangeFilterValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rolling_date": "RollingDate",
         "static_value": "StaticValue",
@@ -11537,8 +10517,6 @@ class TimeRangeFilterValue(PropertyType):
 
 @dataclass
 class TooltipItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_tooltip_item": "FieldTooltipItem",
         "column_tooltip_item": "ColumnTooltipItem",
@@ -11550,8 +10528,6 @@ class TooltipItem(PropertyType):
 
 @dataclass
 class TooltipOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "selected_tooltip_type": "SelectedTooltipType",
         "tooltip_visibility": "TooltipVisibility",
@@ -11565,8 +10541,6 @@ class TooltipOptions(PropertyType):
 
 @dataclass
 class TopBottomFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation_sort_configurations": "AggregationSortConfigurations",
         "column": "Column",
@@ -11588,8 +10562,6 @@ class TopBottomFilter(PropertyType):
 
 @dataclass
 class TopBottomMoversComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "category": "Category",
@@ -11613,8 +10585,6 @@ class TopBottomMoversComputation(PropertyType):
 
 @dataclass
 class TopBottomRankedComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "category": "Category",
@@ -11634,8 +10604,6 @@ class TopBottomRankedComputation(PropertyType):
 
 @dataclass
 class TotalAggregationComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "computation_id": "ComputationId",
@@ -11649,8 +10617,6 @@ class TotalAggregationComputation(PropertyType):
 
 @dataclass
 class TotalAggregationFunction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "simple_total_aggregation_function": "SimpleTotalAggregationFunction",
     }
@@ -11660,8 +10626,6 @@ class TotalAggregationFunction(PropertyType):
 
 @dataclass
 class TotalAggregationOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "total_aggregation_function": "TotalAggregationFunction",
         "field_id": "FieldId",
@@ -11673,8 +10637,6 @@ class TotalAggregationOption(PropertyType):
 
 @dataclass
 class TotalOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "total_aggregation_options": "TotalAggregationOptions",
         "custom_label": "CustomLabel",
@@ -11694,8 +10656,6 @@ class TotalOptions(PropertyType):
 
 @dataclass
 class TransposedTableOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_width": "ColumnWidth",
         "column_index": "ColumnIndex",
@@ -11709,8 +10669,6 @@ class TransposedTableOption(PropertyType):
 
 @dataclass
 class TreeMapAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sizes": "Sizes",
         "colors": "Colors",
@@ -11724,8 +10682,6 @@ class TreeMapAggregatedFieldWells(PropertyType):
 
 @dataclass
 class TreeMapConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "legend": "Legend",
@@ -11753,8 +10709,6 @@ class TreeMapConfiguration(PropertyType):
 
 @dataclass
 class TreeMapFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tree_map_aggregated_field_wells": "TreeMapAggregatedFieldWells",
     }
@@ -11764,8 +10718,6 @@ class TreeMapFieldWells(PropertyType):
 
 @dataclass
 class TreeMapSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tree_map_sort": "TreeMapSort",
         "tree_map_group_items_limit_configuration": "TreeMapGroupItemsLimitConfiguration",
@@ -11777,8 +10729,6 @@ class TreeMapSortConfiguration(PropertyType):
 
 @dataclass
 class TreeMapVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -11800,8 +10750,6 @@ class TreeMapVisual(PropertyType):
 
 @dataclass
 class TrendArrowOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -11811,8 +10759,6 @@ class TrendArrowOptions(PropertyType):
 
 @dataclass
 class UnaggregatedField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "format_configuration": "FormatConfiguration",
         "column": "Column",
@@ -11826,8 +10772,6 @@ class UnaggregatedField(PropertyType):
 
 @dataclass
 class UniqueValuesComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "computation_id": "ComputationId",
@@ -11841,8 +10785,6 @@ class UniqueValuesComputation(PropertyType):
 
 @dataclass
 class ValidationStrategy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
     }
@@ -11852,8 +10794,6 @@ class ValidationStrategy(PropertyType):
 
 @dataclass
 class VisibleRangeOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "percent_range": "PercentRange",
     }
@@ -11863,8 +10803,6 @@ class VisibleRangeOptions(PropertyType):
 
 @dataclass
 class Visual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "funnel_chart_visual": "FunnelChartVisual",
         "box_plot_visual": "BoxPlotVisual",
@@ -11922,8 +10860,6 @@ class Visual(PropertyType):
 
 @dataclass
 class VisualCustomAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "trigger": "Trigger",
@@ -11941,8 +10877,6 @@ class VisualCustomAction(PropertyType):
 
 @dataclass
 class VisualCustomActionOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "navigation_operation": "NavigationOperation",
         "set_parameters_operation": "SetParametersOperation",
@@ -11958,8 +10892,6 @@ class VisualCustomActionOperation(PropertyType):
 
 @dataclass
 class VisualInteractionOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "context_menu_option": "ContextMenuOption",
         "visual_menu_option": "VisualMenuOption",
@@ -11971,8 +10903,6 @@ class VisualInteractionOptions(PropertyType):
 
 @dataclass
 class VisualMenuOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_status": "AvailabilityStatus",
     }
@@ -11982,8 +10912,6 @@ class VisualMenuOption(PropertyType):
 
 @dataclass
 class VisualPalette(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "chart_color": "ChartColor",
         "color_map": "ColorMap",
@@ -11995,8 +10923,6 @@ class VisualPalette(PropertyType):
 
 @dataclass
 class VisualSubtitleLabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
         "format_text": "FormatText",
@@ -12008,8 +10934,6 @@ class VisualSubtitleLabelOptions(PropertyType):
 
 @dataclass
 class VisualTitleLabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
         "format_text": "FormatText",
@@ -12021,8 +10945,6 @@ class VisualTitleLabelOptions(PropertyType):
 
 @dataclass
 class WaterfallChartAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "categories": "Categories",
         "breakdowns": "Breakdowns",
@@ -12036,8 +10958,6 @@ class WaterfallChartAggregatedFieldWells(PropertyType):
 
 @dataclass
 class WaterfallChartColorConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_color_configuration": "GroupColorConfiguration",
     }
@@ -12047,8 +10967,6 @@ class WaterfallChartColorConfiguration(PropertyType):
 
 @dataclass
 class WaterfallChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_axis_label_options": "CategoryAxisLabelOptions",
         "sort_configuration": "SortConfiguration",
@@ -12080,8 +10998,6 @@ class WaterfallChartConfiguration(PropertyType):
 
 @dataclass
 class WaterfallChartFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "waterfall_chart_aggregated_field_wells": "WaterfallChartAggregatedFieldWells",
     }
@@ -12091,8 +11007,6 @@ class WaterfallChartFieldWells(PropertyType):
 
 @dataclass
 class WaterfallChartGroupColorConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "negative_bar_color": "NegativeBarColor",
         "total_bar_color": "TotalBarColor",
@@ -12106,8 +11020,6 @@ class WaterfallChartGroupColorConfiguration(PropertyType):
 
 @dataclass
 class WaterfallChartOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "total_bar_label": "TotalBarLabel",
     }
@@ -12117,8 +11029,6 @@ class WaterfallChartOptions(PropertyType):
 
 @dataclass
 class WaterfallChartSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "breakdown_items_limit": "BreakdownItemsLimit",
         "category_sort": "CategorySort",
@@ -12130,8 +11040,6 @@ class WaterfallChartSortConfiguration(PropertyType):
 
 @dataclass
 class WaterfallVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -12153,8 +11061,6 @@ class WaterfallVisual(PropertyType):
 
 @dataclass
 class WhatIfPointScenario(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "date": "Date",
@@ -12166,8 +11072,6 @@ class WhatIfPointScenario(PropertyType):
 
 @dataclass
 class WhatIfRangeScenario(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start_date": "StartDate",
         "value": "Value",
@@ -12181,8 +11085,6 @@ class WhatIfRangeScenario(PropertyType):
 
 @dataclass
 class WordCloudAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_by": "GroupBy",
         "size": "Size",
@@ -12194,8 +11096,6 @@ class WordCloudAggregatedFieldWells(PropertyType):
 
 @dataclass
 class WordCloudChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "category_label_options": "CategoryLabelOptions",
@@ -12213,8 +11113,6 @@ class WordCloudChartConfiguration(PropertyType):
 
 @dataclass
 class WordCloudFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "word_cloud_aggregated_field_wells": "WordCloudAggregatedFieldWells",
     }
@@ -12224,8 +11122,6 @@ class WordCloudFieldWells(PropertyType):
 
 @dataclass
 class WordCloudOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "word_orientation": "WordOrientation",
         "word_scaling": "WordScaling",
@@ -12245,8 +11141,6 @@ class WordCloudOptions(PropertyType):
 
 @dataclass
 class WordCloudSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_items_limit": "CategoryItemsLimit",
         "category_sort": "CategorySort",
@@ -12258,8 +11152,6 @@ class WordCloudSortConfiguration(PropertyType):
 
 @dataclass
 class WordCloudVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -12281,8 +11173,6 @@ class WordCloudVisual(PropertyType):
 
 @dataclass
 class YAxisOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "y_axis": "YAxis",
     }
@@ -12352,8 +11242,6 @@ class Analysis(CloudFormationResource):
 
 @dataclass
 class Capabilities(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_content_in_scheduled_reports_email": "IncludeContentInScheduledReportsEmail",
         "export_to_csv_in_scheduled_reports": "ExportToCsvInScheduledReports",
@@ -12436,8 +11324,6 @@ class CustomPermissions(CloudFormationResource):
 
 @dataclass
 class AdHocFilteringOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_status": "AvailabilityStatus",
     }
@@ -12447,8 +11333,6 @@ class AdHocFilteringOption(PropertyType):
 
 @dataclass
 class AggregationFunction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_aggregation_function": "AttributeAggregationFunction",
         "date_aggregation_function": "DateAggregationFunction",
@@ -12464,8 +11348,6 @@ class AggregationFunction(PropertyType):
 
 @dataclass
 class AggregationSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation_function": "AggregationFunction",
         "sort_direction": "SortDirection",
@@ -12479,8 +11361,6 @@ class AggregationSortConfiguration(PropertyType):
 
 @dataclass
 class AnalysisDefaults(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_new_sheet_configuration": "DefaultNewSheetConfiguration",
     }
@@ -12490,8 +11370,6 @@ class AnalysisDefaults(PropertyType):
 
 @dataclass
 class AnchorDateConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "anchor_option": "AnchorOption",
         "parameter_name": "ParameterName",
@@ -12503,8 +11381,6 @@ class AnchorDateConfiguration(PropertyType):
 
 @dataclass
 class ArcAxisConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "range": "Range",
         "reserve_range": "ReserveRange",
@@ -12516,8 +11392,6 @@ class ArcAxisConfiguration(PropertyType):
 
 @dataclass
 class ArcAxisDisplayRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -12529,8 +11403,6 @@ class ArcAxisDisplayRange(PropertyType):
 
 @dataclass
 class ArcConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arc_angle": "ArcAngle",
         "arc_thickness": "ArcThickness",
@@ -12542,8 +11414,6 @@ class ArcConfiguration(PropertyType):
 
 @dataclass
 class ArcOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arc_thickness": "ArcThickness",
     }
@@ -12553,8 +11423,6 @@ class ArcOptions(PropertyType):
 
 @dataclass
 class AssetOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timezone": "Timezone",
         "week_start": "WeekStart",
@@ -12570,8 +11438,6 @@ class AssetOptions(PropertyType):
 
 @dataclass
 class AttributeAggregationFunction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "simple_attribute_aggregation": "SimpleAttributeAggregation",
         "value_for_multiple_values": "ValueForMultipleValues",
@@ -12583,8 +11449,6 @@ class AttributeAggregationFunction(PropertyType):
 
 @dataclass
 class AxisDataOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "date_axis_options": "DateAxisOptions",
         "numeric_axis_options": "NumericAxisOptions",
@@ -12596,8 +11460,6 @@ class AxisDataOptions(PropertyType):
 
 @dataclass
 class AxisDisplayMinMaxRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "minimum": "Minimum",
         "maximum": "Maximum",
@@ -12609,8 +11471,6 @@ class AxisDisplayMinMaxRange(PropertyType):
 
 @dataclass
 class AxisDisplayOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_options": "DataOptions",
         "tick_label_options": "TickLabelOptions",
@@ -12630,8 +11490,6 @@ class AxisDisplayOptions(PropertyType):
 
 @dataclass
 class AxisDisplayRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_driven": "DataDriven",
         "min_max": "MinMax",
@@ -12643,8 +11501,6 @@ class AxisDisplayRange(PropertyType):
 
 @dataclass
 class AxisLabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_label": "CustomLabel",
         "apply_to": "ApplyTo",
@@ -12658,8 +11514,6 @@ class AxisLabelOptions(PropertyType):
 
 @dataclass
 class AxisLabelReferenceOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "field_id": "FieldId",
@@ -12671,8 +11525,6 @@ class AxisLabelReferenceOptions(PropertyType):
 
 @dataclass
 class AxisLinearScale(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "step_size": "StepSize",
         "step_count": "StepCount",
@@ -12684,8 +11536,6 @@ class AxisLinearScale(PropertyType):
 
 @dataclass
 class AxisLogarithmicScale(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "base": "Base",
     }
@@ -12695,8 +11545,6 @@ class AxisLogarithmicScale(PropertyType):
 
 @dataclass
 class AxisScale(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logarithmic": "Logarithmic",
         "linear": "Linear",
@@ -12708,8 +11556,6 @@ class AxisScale(PropertyType):
 
 @dataclass
 class AxisTickLabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rotation_angle": "RotationAngle",
         "label_options": "LabelOptions",
@@ -12721,8 +11567,6 @@ class AxisTickLabelOptions(PropertyType):
 
 @dataclass
 class BarChartAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "colors": "Colors",
@@ -12738,8 +11582,6 @@ class BarChartAggregatedFieldWells(PropertyType):
 
 @dataclass
 class BarChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "legend": "Legend",
@@ -12781,8 +11623,6 @@ class BarChartConfiguration(PropertyType):
 
 @dataclass
 class BarChartFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bar_chart_aggregated_field_wells": "BarChartAggregatedFieldWells",
     }
@@ -12792,8 +11632,6 @@ class BarChartFieldWells(PropertyType):
 
 @dataclass
 class BarChartSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "small_multiples_sort": "SmallMultiplesSort",
         "color_sort": "ColorSort",
@@ -12813,8 +11651,6 @@ class BarChartSortConfiguration(PropertyType):
 
 @dataclass
 class BarChartVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -12836,8 +11672,6 @@ class BarChartVisual(PropertyType):
 
 @dataclass
 class BinCountOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -12847,8 +11681,6 @@ class BinCountOptions(PropertyType):
 
 @dataclass
 class BinWidthOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bin_count_limit": "BinCountLimit",
         "value": "Value",
@@ -12860,8 +11692,6 @@ class BinWidthOptions(PropertyType):
 
 @dataclass
 class BodySectionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content": "Content",
         "style": "Style",
@@ -12879,8 +11709,6 @@ class BodySectionConfiguration(PropertyType):
 
 @dataclass
 class BodySectionContent(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "layout": "Layout",
     }
@@ -12890,8 +11718,6 @@ class BodySectionContent(PropertyType):
 
 @dataclass
 class BodySectionDynamicCategoryDimensionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "sort_by_metrics": "SortByMetrics",
@@ -12905,8 +11731,6 @@ class BodySectionDynamicCategoryDimensionConfiguration(PropertyType):
 
 @dataclass
 class BodySectionDynamicNumericDimensionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "sort_by_metrics": "SortByMetrics",
@@ -12920,8 +11744,6 @@ class BodySectionDynamicNumericDimensionConfiguration(PropertyType):
 
 @dataclass
 class BodySectionRepeatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_configurations": "DimensionConfigurations",
         "non_repeating_visuals": "NonRepeatingVisuals",
@@ -12935,8 +11757,6 @@ class BodySectionRepeatConfiguration(PropertyType):
 
 @dataclass
 class BodySectionRepeatDimensionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dynamic_numeric_dimension_configuration": "DynamicNumericDimensionConfiguration",
         "dynamic_category_dimension_configuration": "DynamicCategoryDimensionConfiguration",
@@ -12948,8 +11768,6 @@ class BodySectionRepeatDimensionConfiguration(PropertyType):
 
 @dataclass
 class BodySectionRepeatPageBreakConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "after": "After",
     }
@@ -12959,8 +11777,6 @@ class BodySectionRepeatPageBreakConfiguration(PropertyType):
 
 @dataclass
 class BoxPlotAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_by": "GroupBy",
         "values": "Values",
@@ -12972,8 +11788,6 @@ class BoxPlotAggregatedFieldWells(PropertyType):
 
 @dataclass
 class BoxPlotChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "legend": "Legend",
@@ -13005,8 +11819,6 @@ class BoxPlotChartConfiguration(PropertyType):
 
 @dataclass
 class BoxPlotFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "box_plot_aggregated_field_wells": "BoxPlotAggregatedFieldWells",
     }
@@ -13016,8 +11828,6 @@ class BoxPlotFieldWells(PropertyType):
 
 @dataclass
 class BoxPlotOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "style_options": "StyleOptions",
         "outlier_visibility": "OutlierVisibility",
@@ -13031,8 +11841,6 @@ class BoxPlotOptions(PropertyType):
 
 @dataclass
 class BoxPlotSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_sort": "CategorySort",
         "pagination_configuration": "PaginationConfiguration",
@@ -13044,8 +11852,6 @@ class BoxPlotSortConfiguration(PropertyType):
 
 @dataclass
 class BoxPlotStyleOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fill_style": "FillStyle",
     }
@@ -13055,8 +11861,6 @@ class BoxPlotStyleOptions(PropertyType):
 
 @dataclass
 class BoxPlotVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -13078,8 +11882,6 @@ class BoxPlotVisual(PropertyType):
 
 @dataclass
 class CalculatedField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "data_set_identifier": "DataSetIdentifier",
@@ -13093,8 +11895,6 @@ class CalculatedField(PropertyType):
 
 @dataclass
 class CalculatedMeasureField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "field_id": "FieldId",
@@ -13106,8 +11906,6 @@ class CalculatedMeasureField(PropertyType):
 
 @dataclass
 class CascadingControlConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_controls": "SourceControls",
     }
@@ -13117,8 +11915,6 @@ class CascadingControlConfiguration(PropertyType):
 
 @dataclass
 class CascadingControlSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_sheet_control_id": "SourceSheetControlId",
         "column_to_match": "ColumnToMatch",
@@ -13130,8 +11926,6 @@ class CascadingControlSource(PropertyType):
 
 @dataclass
 class CategoricalDimensionField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hierarchy_id": "HierarchyId",
         "format_configuration": "FormatConfiguration",
@@ -13147,8 +11941,6 @@ class CategoricalDimensionField(PropertyType):
 
 @dataclass
 class CategoricalMeasureField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation_function": "AggregationFunction",
         "format_configuration": "FormatConfiguration",
@@ -13164,8 +11956,6 @@ class CategoricalMeasureField(PropertyType):
 
 @dataclass
 class CategoryDrillDownFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "category_values": "CategoryValues",
@@ -13177,8 +11967,6 @@ class CategoryDrillDownFilter(PropertyType):
 
 @dataclass
 class CategoryFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration": "Configuration",
         "column": "Column",
@@ -13194,8 +11982,6 @@ class CategoryFilter(PropertyType):
 
 @dataclass
 class CategoryFilterConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_filter_list_configuration": "CustomFilterListConfiguration",
         "custom_filter_configuration": "CustomFilterConfiguration",
@@ -13209,8 +11995,6 @@ class CategoryFilterConfiguration(PropertyType):
 
 @dataclass
 class CategoryInnerFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration": "Configuration",
         "column": "Column",
@@ -13224,8 +12008,6 @@ class CategoryInnerFilter(PropertyType):
 
 @dataclass
 class ChartAxisLabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
         "sort_icon_visibility": "SortIconVisibility",
@@ -13239,8 +12021,6 @@ class ChartAxisLabelOptions(PropertyType):
 
 @dataclass
 class ClusterMarker(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "simple_cluster_marker": "SimpleClusterMarker",
     }
@@ -13250,8 +12030,6 @@ class ClusterMarker(PropertyType):
 
 @dataclass
 class ClusterMarkerConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_marker": "ClusterMarker",
     }
@@ -13261,8 +12039,6 @@ class ClusterMarkerConfiguration(PropertyType):
 
 @dataclass
 class ColorScale(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "colors": "Colors",
         "color_fill_type": "ColorFillType",
@@ -13276,8 +12052,6 @@ class ColorScale(PropertyType):
 
 @dataclass
 class ColorsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_colors": "CustomColors",
     }
@@ -13287,8 +12061,6 @@ class ColorsConfiguration(PropertyType):
 
 @dataclass
 class ColumnConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role": "Role",
         "format_configuration": "FormatConfiguration",
@@ -13304,8 +12076,6 @@ class ColumnConfiguration(PropertyType):
 
 @dataclass
 class ColumnHierarchy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "date_time_hierarchy": "DateTimeHierarchy",
         "explicit_hierarchy": "ExplicitHierarchy",
@@ -13319,8 +12089,6 @@ class ColumnHierarchy(PropertyType):
 
 @dataclass
 class ColumnIdentifier(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_name": "ColumnName",
         "data_set_identifier": "DataSetIdentifier",
@@ -13332,8 +12100,6 @@ class ColumnIdentifier(PropertyType):
 
 @dataclass
 class ColumnSort(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation_function": "AggregationFunction",
         "sort_by": "SortBy",
@@ -13347,8 +12113,6 @@ class ColumnSort(PropertyType):
 
 @dataclass
 class ColumnTooltipItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation": "Aggregation",
         "tooltip_target": "TooltipTarget",
@@ -13366,8 +12130,6 @@ class ColumnTooltipItem(PropertyType):
 
 @dataclass
 class ComboChartAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bar_values": "BarValues",
         "category": "Category",
@@ -13383,8 +12145,6 @@ class ComboChartAggregatedFieldWells(PropertyType):
 
 @dataclass
 class ComboChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "legend": "Legend",
@@ -13428,8 +12188,6 @@ class ComboChartConfiguration(PropertyType):
 
 @dataclass
 class ComboChartFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "combo_chart_aggregated_field_wells": "ComboChartAggregatedFieldWells",
     }
@@ -13439,8 +12197,6 @@ class ComboChartFieldWells(PropertyType):
 
 @dataclass
 class ComboChartSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "color_sort": "ColorSort",
         "color_items_limit": "ColorItemsLimit",
@@ -13456,8 +12212,6 @@ class ComboChartSortConfiguration(PropertyType):
 
 @dataclass
 class ComboChartVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -13479,8 +12233,6 @@ class ComboChartVisual(PropertyType):
 
 @dataclass
 class ComparisonConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison_method": "ComparisonMethod",
         "comparison_format": "ComparisonFormat",
@@ -13492,8 +12244,6 @@ class ComparisonConfiguration(PropertyType):
 
 @dataclass
 class ComparisonFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "number_display_format_configuration": "NumberDisplayFormatConfiguration",
         "percentage_display_format_configuration": "PercentageDisplayFormatConfiguration",
@@ -13505,8 +12255,6 @@ class ComparisonFormatConfiguration(PropertyType):
 
 @dataclass
 class Computation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "period_to_date": "PeriodToDate",
         "growth_rate": "GrowthRate",
@@ -13534,8 +12282,6 @@ class Computation(PropertyType):
 
 @dataclass
 class ConditionalFormattingColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "gradient": "Gradient",
         "solid": "Solid",
@@ -13547,8 +12293,6 @@ class ConditionalFormattingColor(PropertyType):
 
 @dataclass
 class ConditionalFormattingCustomIconCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "color": "Color",
@@ -13564,8 +12308,6 @@ class ConditionalFormattingCustomIconCondition(PropertyType):
 
 @dataclass
 class ConditionalFormattingCustomIconOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "unicode_icon": "UnicodeIcon",
         "icon": "Icon",
@@ -13577,8 +12319,6 @@ class ConditionalFormattingCustomIconOptions(PropertyType):
 
 @dataclass
 class ConditionalFormattingGradientColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "color": "Color",
@@ -13590,8 +12330,6 @@ class ConditionalFormattingGradientColor(PropertyType):
 
 @dataclass
 class ConditionalFormattingIcon(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_condition": "CustomCondition",
         "icon_set": "IconSet",
@@ -13603,8 +12341,6 @@ class ConditionalFormattingIcon(PropertyType):
 
 @dataclass
 class ConditionalFormattingIconDisplayConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "icon_display_option": "IconDisplayOption",
     }
@@ -13614,8 +12350,6 @@ class ConditionalFormattingIconDisplayConfiguration(PropertyType):
 
 @dataclass
 class ConditionalFormattingIconSet(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "icon_set_type": "IconSetType",
@@ -13627,8 +12361,6 @@ class ConditionalFormattingIconSet(PropertyType):
 
 @dataclass
 class ConditionalFormattingSolidColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "color": "Color",
@@ -13640,8 +12372,6 @@ class ConditionalFormattingSolidColor(PropertyType):
 
 @dataclass
 class ContextMenuOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_status": "AvailabilityStatus",
     }
@@ -13651,8 +12381,6 @@ class ContextMenuOption(PropertyType):
 
 @dataclass
 class ContributionAnalysisDefault(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "measure_field_id": "MeasureFieldId",
         "contributor_dimensions": "ContributorDimensions",
@@ -13664,8 +12392,6 @@ class ContributionAnalysisDefault(PropertyType):
 
 @dataclass
 class CurrencyDisplayFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "negative_value_configuration": "NegativeValueConfiguration",
         "decimal_places_configuration": "DecimalPlacesConfiguration",
@@ -13689,8 +12415,6 @@ class CurrencyDisplayFormatConfiguration(PropertyType):
 
 @dataclass
 class CustomActionFilterOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "selected_fields_configuration": "SelectedFieldsConfiguration",
         "target_visuals_configuration": "TargetVisualsConfiguration",
@@ -13702,8 +12426,6 @@ class CustomActionFilterOperation(PropertyType):
 
 @dataclass
 class CustomActionNavigationOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "local_navigation_configuration": "LocalNavigationConfiguration",
     }
@@ -13713,8 +12435,6 @@ class CustomActionNavigationOperation(PropertyType):
 
 @dataclass
 class CustomActionSetParametersOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_value_configurations": "ParameterValueConfigurations",
     }
@@ -13724,8 +12444,6 @@ class CustomActionSetParametersOperation(PropertyType):
 
 @dataclass
 class CustomActionURLOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "url_template": "URLTemplate",
         "url_target": "URLTarget",
@@ -13737,8 +12455,6 @@ class CustomActionURLOperation(PropertyType):
 
 @dataclass
 class CustomColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "color": "Color",
         "field_value": "FieldValue",
@@ -13752,8 +12468,6 @@ class CustomColor(PropertyType):
 
 @dataclass
 class CustomContentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_url": "ContentUrl",
         "content_type": "ContentType",
@@ -13769,8 +12483,6 @@ class CustomContentConfiguration(PropertyType):
 
 @dataclass
 class CustomContentVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -13792,8 +12504,6 @@ class CustomContentVisual(PropertyType):
 
 @dataclass
 class CustomFilterConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_value": "CategoryValue",
         "parameter_name": "ParameterName",
@@ -13811,8 +12521,6 @@ class CustomFilterConfiguration(PropertyType):
 
 @dataclass
 class CustomFilterListConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_values": "CategoryValues",
         "null_option": "NullOption",
@@ -13828,8 +12536,6 @@ class CustomFilterListConfiguration(PropertyType):
 
 @dataclass
 class CustomNarrativeOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "narrative": "Narrative",
     }
@@ -13839,8 +12545,6 @@ class CustomNarrativeOptions(PropertyType):
 
 @dataclass
 class CustomParameterValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "decimal_values": "DecimalValues",
         "integer_values": "IntegerValues",
@@ -13856,8 +12560,6 @@ class CustomParameterValues(PropertyType):
 
 @dataclass
 class CustomValuesConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_null_value": "IncludeNullValue",
         "custom_values": "CustomValues",
@@ -13869,8 +12571,6 @@ class CustomValuesConfiguration(PropertyType):
 
 @dataclass
 class DashboardError(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "message": "Message",
@@ -13884,8 +12584,6 @@ class DashboardError(PropertyType):
 
 @dataclass
 class DashboardPublishOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sheet_controls_option": "SheetControlsOption",
         "data_point_drill_up_down_option": "DataPointDrillUpDownOption",
@@ -13923,8 +12621,6 @@ class DashboardPublishOptions(PropertyType):
 
 @dataclass
 class DashboardSourceEntity(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_template": "SourceTemplate",
     }
@@ -13934,8 +12630,6 @@ class DashboardSourceEntity(PropertyType):
 
 @dataclass
 class DashboardSourceTemplate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_set_references": "DataSetReferences",
         "arn": "Arn",
@@ -13947,8 +12641,6 @@ class DashboardSourceTemplate(PropertyType):
 
 @dataclass
 class DashboardVersion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "errors": "Errors",
@@ -13976,8 +12668,6 @@ class DashboardVersion(PropertyType):
 
 @dataclass
 class DashboardVersionDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "options": "Options",
         "filter_groups": "FilterGroups",
@@ -14003,8 +12693,6 @@ class DashboardVersionDefinition(PropertyType):
 
 @dataclass
 class DashboardVisualPublishOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "export_hidden_fields_option": "ExportHiddenFieldsOption",
     }
@@ -14014,8 +12702,6 @@ class DashboardVisualPublishOptions(PropertyType):
 
 @dataclass
 class DataBarsOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "positive_color": "PositiveColor",
         "field_id": "FieldId",
@@ -14029,8 +12715,6 @@ class DataBarsOptions(PropertyType):
 
 @dataclass
 class DataColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_value": "DataValue",
         "color": "Color",
@@ -14042,8 +12726,6 @@ class DataColor(PropertyType):
 
 @dataclass
 class DataFieldSeriesItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_id": "FieldId",
         "axis_binding": "AxisBinding",
@@ -14059,8 +12741,6 @@ class DataFieldSeriesItem(PropertyType):
 
 @dataclass
 class DataLabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_label_types": "DataLabelTypes",
         "measure_label_visibility": "MeasureLabelVisibility",
@@ -14088,8 +12768,6 @@ class DataLabelOptions(PropertyType):
 
 @dataclass
 class DataLabelType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maximum_label_type": "MaximumLabelType",
         "data_path_label_type": "DataPathLabelType",
@@ -14107,8 +12785,6 @@ class DataLabelType(PropertyType):
 
 @dataclass
 class DataPathColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "element": "Element",
         "color": "Color",
@@ -14122,8 +12798,6 @@ class DataPathColor(PropertyType):
 
 @dataclass
 class DataPathLabelType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_id": "FieldId",
         "visibility": "Visibility",
@@ -14137,8 +12811,6 @@ class DataPathLabelType(PropertyType):
 
 @dataclass
 class DataPathSort(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_paths": "SortPaths",
         "direction": "Direction",
@@ -14150,8 +12822,6 @@ class DataPathSort(PropertyType):
 
 @dataclass
 class DataPathType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pivot_table_data_path_type": "PivotTableDataPathType",
     }
@@ -14161,8 +12831,6 @@ class DataPathType(PropertyType):
 
 @dataclass
 class DataPathValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_path_type": "DataPathType",
         "field_id": "FieldId",
@@ -14176,8 +12844,6 @@ class DataPathValue(PropertyType):
 
 @dataclass
 class DataPointDrillUpDownOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_status": "AvailabilityStatus",
     }
@@ -14187,8 +12853,6 @@ class DataPointDrillUpDownOption(PropertyType):
 
 @dataclass
 class DataPointMenuLabelOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_status": "AvailabilityStatus",
     }
@@ -14198,8 +12862,6 @@ class DataPointMenuLabelOption(PropertyType):
 
 @dataclass
 class DataPointTooltipOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_status": "AvailabilityStatus",
     }
@@ -14209,8 +12871,6 @@ class DataPointTooltipOption(PropertyType):
 
 @dataclass
 class DataQAEnabledOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_status": "AvailabilityStatus",
     }
@@ -14220,8 +12880,6 @@ class DataQAEnabledOption(PropertyType):
 
 @dataclass
 class DataSetIdentifierDeclaration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "identifier": "Identifier",
         "data_set_arn": "DataSetArn",
@@ -14233,8 +12891,6 @@ class DataSetIdentifierDeclaration(PropertyType):
 
 @dataclass
 class DataSetReference(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_set_arn": "DataSetArn",
         "data_set_placeholder": "DataSetPlaceholder",
@@ -14246,8 +12902,6 @@ class DataSetReference(PropertyType):
 
 @dataclass
 class DataStoriesSharingOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_status": "AvailabilityStatus",
     }
@@ -14257,8 +12911,6 @@ class DataStoriesSharingOption(PropertyType):
 
 @dataclass
 class DateAxisOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "missing_date_visibility": "MissingDateVisibility",
     }
@@ -14268,8 +12920,6 @@ class DateAxisOptions(PropertyType):
 
 @dataclass
 class DateDimensionField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hierarchy_id": "HierarchyId",
         "format_configuration": "FormatConfiguration",
@@ -14287,8 +12937,6 @@ class DateDimensionField(PropertyType):
 
 @dataclass
 class DateMeasureField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation_function": "AggregationFunction",
         "format_configuration": "FormatConfiguration",
@@ -14304,8 +12952,6 @@ class DateMeasureField(PropertyType):
 
 @dataclass
 class DateTimeDefaultValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rolling_date": "RollingDate",
         "dynamic_value": "DynamicValue",
@@ -14319,8 +12965,6 @@ class DateTimeDefaultValues(PropertyType):
 
 @dataclass
 class DateTimeFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "numeric_format_configuration": "NumericFormatConfiguration",
         "null_value_format_configuration": "NullValueFormatConfiguration",
@@ -14334,8 +12978,6 @@ class DateTimeFormatConfiguration(PropertyType):
 
 @dataclass
 class DateTimeHierarchy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hierarchy_id": "HierarchyId",
         "drill_down_filters": "DrillDownFilters",
@@ -14347,8 +12989,6 @@ class DateTimeHierarchy(PropertyType):
 
 @dataclass
 class DateTimeParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "name": "Name",
@@ -14360,8 +13000,6 @@ class DateTimeParameter(PropertyType):
 
 @dataclass
 class DateTimeParameterDeclaration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mapped_data_set_parameters": "MappedDataSetParameters",
         "default_values": "DefaultValues",
@@ -14379,8 +13017,6 @@ class DateTimeParameterDeclaration(PropertyType):
 
 @dataclass
 class DateTimePickerControlDisplayOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "title_options": "TitleOptions",
         "info_icon_label_options": "InfoIconLabelOptions",
@@ -14398,8 +13034,6 @@ class DateTimePickerControlDisplayOptions(PropertyType):
 
 @dataclass
 class DateTimeValueWhenUnsetConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_when_unset_option": "ValueWhenUnsetOption",
         "custom_value": "CustomValue",
@@ -14411,8 +13045,6 @@ class DateTimeValueWhenUnsetConfiguration(PropertyType):
 
 @dataclass
 class DecimalDefaultValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dynamic_value": "DynamicValue",
         "static_values": "StaticValues",
@@ -14424,8 +13056,6 @@ class DecimalDefaultValues(PropertyType):
 
 @dataclass
 class DecimalParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "name": "Name",
@@ -14437,8 +13067,6 @@ class DecimalParameter(PropertyType):
 
 @dataclass
 class DecimalParameterDeclaration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mapped_data_set_parameters": "MappedDataSetParameters",
         "default_values": "DefaultValues",
@@ -14456,8 +13084,6 @@ class DecimalParameterDeclaration(PropertyType):
 
 @dataclass
 class DecimalPlacesConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "decimal_places": "DecimalPlaces",
     }
@@ -14467,8 +13093,6 @@ class DecimalPlacesConfiguration(PropertyType):
 
 @dataclass
 class DecimalValueWhenUnsetConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_when_unset_option": "ValueWhenUnsetOption",
         "custom_value": "CustomValue",
@@ -14480,8 +13104,6 @@ class DecimalValueWhenUnsetConfiguration(PropertyType):
 
 @dataclass
 class DefaultDateTimePickerControlOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "display_options": "DisplayOptions",
@@ -14495,8 +13117,6 @@ class DefaultDateTimePickerControlOptions(PropertyType):
 
 @dataclass
 class DefaultFilterControlConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "control_options": "ControlOptions",
         "title": "Title",
@@ -14508,8 +13128,6 @@ class DefaultFilterControlConfiguration(PropertyType):
 
 @dataclass
 class DefaultFilterControlOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_slider_options": "DefaultSliderOptions",
         "default_relative_date_time_options": "DefaultRelativeDateTimeOptions",
@@ -14531,8 +13149,6 @@ class DefaultFilterControlOptions(PropertyType):
 
 @dataclass
 class DefaultFilterDropDownControlOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "display_options": "DisplayOptions",
@@ -14548,8 +13164,6 @@ class DefaultFilterDropDownControlOptions(PropertyType):
 
 @dataclass
 class DefaultFilterListControlOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "display_options": "DisplayOptions",
@@ -14563,8 +13177,6 @@ class DefaultFilterListControlOptions(PropertyType):
 
 @dataclass
 class DefaultFreeFormLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "canvas_size_options": "CanvasSizeOptions",
     }
@@ -14574,8 +13186,6 @@ class DefaultFreeFormLayoutConfiguration(PropertyType):
 
 @dataclass
 class DefaultGridLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "canvas_size_options": "CanvasSizeOptions",
     }
@@ -14585,8 +13195,6 @@ class DefaultGridLayoutConfiguration(PropertyType):
 
 @dataclass
 class DefaultInteractiveLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "free_form": "FreeForm",
         "grid": "Grid",
@@ -14598,8 +13206,6 @@ class DefaultInteractiveLayoutConfiguration(PropertyType):
 
 @dataclass
 class DefaultNewSheetConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sheet_content_type": "SheetContentType",
         "interactive_layout_configuration": "InteractiveLayoutConfiguration",
@@ -14613,8 +13219,6 @@ class DefaultNewSheetConfiguration(PropertyType):
 
 @dataclass
 class DefaultPaginatedLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "section_based": "SectionBased",
     }
@@ -14624,8 +13228,6 @@ class DefaultPaginatedLayoutConfiguration(PropertyType):
 
 @dataclass
 class DefaultRelativeDateTimeControlOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "display_options": "DisplayOptions",
         "commit_mode": "CommitMode",
@@ -14637,8 +13239,6 @@ class DefaultRelativeDateTimeControlOptions(PropertyType):
 
 @dataclass
 class DefaultSectionBasedLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "canvas_size_options": "CanvasSizeOptions",
     }
@@ -14648,8 +13248,6 @@ class DefaultSectionBasedLayoutConfiguration(PropertyType):
 
 @dataclass
 class DefaultSliderControlOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "step_size": "StepSize",
@@ -14667,8 +13265,6 @@ class DefaultSliderControlOptions(PropertyType):
 
 @dataclass
 class DefaultTextAreaControlOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delimiter": "Delimiter",
         "display_options": "DisplayOptions",
@@ -14680,8 +13276,6 @@ class DefaultTextAreaControlOptions(PropertyType):
 
 @dataclass
 class DefaultTextFieldControlOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "display_options": "DisplayOptions",
     }
@@ -14691,8 +13285,6 @@ class DefaultTextFieldControlOptions(PropertyType):
 
 @dataclass
 class DestinationParameterValueConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_values_configuration": "CustomValuesConfiguration",
         "source_parameter_name": "SourceParameterName",
@@ -14710,8 +13302,6 @@ class DestinationParameterValueConfiguration(PropertyType):
 
 @dataclass
 class DimensionField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "date_dimension_field": "DateDimensionField",
         "numerical_dimension_field": "NumericalDimensionField",
@@ -14725,8 +13315,6 @@ class DimensionField(PropertyType):
 
 @dataclass
 class DonutCenterOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "label_visibility": "LabelVisibility",
     }
@@ -14736,8 +13324,6 @@ class DonutCenterOptions(PropertyType):
 
 @dataclass
 class DonutOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "donut_center_options": "DonutCenterOptions",
         "arc_options": "ArcOptions",
@@ -14749,8 +13335,6 @@ class DonutOptions(PropertyType):
 
 @dataclass
 class DrillDownFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "numeric_equality_filter": "NumericEqualityFilter",
         "time_range_filter": "TimeRangeFilter",
@@ -14764,8 +13348,6 @@ class DrillDownFilter(PropertyType):
 
 @dataclass
 class DropDownControlDisplayOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "title_options": "TitleOptions",
         "select_all_options": "SelectAllOptions",
@@ -14779,8 +13361,6 @@ class DropDownControlDisplayOptions(PropertyType):
 
 @dataclass
 class DynamicDefaultValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_name_column": "GroupNameColumn",
         "default_value_column": "DefaultValueColumn",
@@ -14794,8 +13374,6 @@ class DynamicDefaultValue(PropertyType):
 
 @dataclass
 class EmptyVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visual_id": "VisualId",
         "actions": "Actions",
@@ -14809,8 +13387,6 @@ class EmptyVisual(PropertyType):
 
 @dataclass
 class Entity(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
     }
@@ -14820,8 +13396,6 @@ class Entity(PropertyType):
 
 @dataclass
 class ExcludePeriodConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "amount": "Amount",
@@ -14835,8 +13409,6 @@ class ExcludePeriodConfiguration(PropertyType):
 
 @dataclass
 class ExecutiveSummaryOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_status": "AvailabilityStatus",
     }
@@ -14846,8 +13418,6 @@ class ExecutiveSummaryOption(PropertyType):
 
 @dataclass
 class ExplicitHierarchy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hierarchy_id": "HierarchyId",
         "drill_down_filters": "DrillDownFilters",
@@ -14861,8 +13431,6 @@ class ExplicitHierarchy(PropertyType):
 
 @dataclass
 class ExportHiddenFieldsOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_status": "AvailabilityStatus",
     }
@@ -14872,8 +13440,6 @@ class ExportHiddenFieldsOption(PropertyType):
 
 @dataclass
 class ExportToCSVOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_status": "AvailabilityStatus",
     }
@@ -14883,8 +13449,6 @@ class ExportToCSVOption(PropertyType):
 
 @dataclass
 class ExportWithHiddenFieldsOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_status": "AvailabilityStatus",
     }
@@ -14894,8 +13458,6 @@ class ExportWithHiddenFieldsOption(PropertyType):
 
 @dataclass
 class FieldBasedTooltip(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tooltip_fields": "TooltipFields",
         "aggregation_visibility": "AggregationVisibility",
@@ -14909,8 +13471,6 @@ class FieldBasedTooltip(PropertyType):
 
 @dataclass
 class FieldLabelType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_id": "FieldId",
         "visibility": "Visibility",
@@ -14922,8 +13482,6 @@ class FieldLabelType(PropertyType):
 
 @dataclass
 class FieldSeriesItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_id": "FieldId",
         "axis_binding": "AxisBinding",
@@ -14937,8 +13495,6 @@ class FieldSeriesItem(PropertyType):
 
 @dataclass
 class FieldSort(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_id": "FieldId",
         "direction": "Direction",
@@ -14950,8 +13506,6 @@ class FieldSort(PropertyType):
 
 @dataclass
 class FieldSortOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_sort": "FieldSort",
         "column_sort": "ColumnSort",
@@ -14963,8 +13517,6 @@ class FieldSortOptions(PropertyType):
 
 @dataclass
 class FieldTooltipItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tooltip_target": "TooltipTarget",
         "field_id": "FieldId",
@@ -14980,8 +13532,6 @@ class FieldTooltipItem(PropertyType):
 
 @dataclass
 class FilledMapAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "geospatial": "Geospatial",
@@ -14993,8 +13543,6 @@ class FilledMapAggregatedFieldWells(PropertyType):
 
 @dataclass
 class FilledMapConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "conditional_formatting_options": "ConditionalFormattingOptions",
     }
@@ -15004,8 +13552,6 @@ class FilledMapConditionalFormatting(PropertyType):
 
 @dataclass
 class FilledMapConditionalFormattingOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "shape": "Shape",
     }
@@ -15015,8 +13561,6 @@ class FilledMapConditionalFormattingOption(PropertyType):
 
 @dataclass
 class FilledMapConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "legend": "Legend",
@@ -15038,8 +13582,6 @@ class FilledMapConfiguration(PropertyType):
 
 @dataclass
 class FilledMapFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filled_map_aggregated_field_wells": "FilledMapAggregatedFieldWells",
     }
@@ -15049,8 +13591,6 @@ class FilledMapFieldWells(PropertyType):
 
 @dataclass
 class FilledMapShapeConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "format": "Format",
         "field_id": "FieldId",
@@ -15062,8 +13602,6 @@ class FilledMapShapeConditionalFormatting(PropertyType):
 
 @dataclass
 class FilledMapSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_sort": "CategorySort",
     }
@@ -15073,8 +13611,6 @@ class FilledMapSortConfiguration(PropertyType):
 
 @dataclass
 class FilledMapVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "conditional_formatting": "ConditionalFormatting",
@@ -15098,8 +13634,6 @@ class FilledMapVisual(PropertyType):
 
 @dataclass
 class Filter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "nested_filter": "NestedFilter",
         "numeric_equality_filter": "NumericEqualityFilter",
@@ -15123,8 +13657,6 @@ class Filter(PropertyType):
 
 @dataclass
 class FilterControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "slider": "Slider",
         "text_area": "TextArea",
@@ -15148,8 +13680,6 @@ class FilterControl(PropertyType):
 
 @dataclass
 class FilterCrossSheetControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_control_id": "FilterControlId",
         "cascading_control_configuration": "CascadingControlConfiguration",
@@ -15163,8 +13693,6 @@ class FilterCrossSheetControl(PropertyType):
 
 @dataclass
 class FilterDateTimePickerControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_control_id": "FilterControlId",
         "type_": "Type",
@@ -15184,8 +13712,6 @@ class FilterDateTimePickerControl(PropertyType):
 
 @dataclass
 class FilterDropDownControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_control_id": "FilterControlId",
         "type_": "Type",
@@ -15209,8 +13735,6 @@ class FilterDropDownControl(PropertyType):
 
 @dataclass
 class FilterGroup(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "filters": "Filters",
@@ -15228,8 +13752,6 @@ class FilterGroup(PropertyType):
 
 @dataclass
 class FilterListConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_values": "CategoryValues",
         "null_option": "NullOption",
@@ -15245,8 +13767,6 @@ class FilterListConfiguration(PropertyType):
 
 @dataclass
 class FilterListControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_control_id": "FilterControlId",
         "type_": "Type",
@@ -15268,8 +13788,6 @@ class FilterListControl(PropertyType):
 
 @dataclass
 class FilterOperationSelectedFieldsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "selected_columns": "SelectedColumns",
         "selected_fields": "SelectedFields",
@@ -15283,8 +13801,6 @@ class FilterOperationSelectedFieldsConfiguration(PropertyType):
 
 @dataclass
 class FilterOperationTargetVisualsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "same_sheet_target_visual_configuration": "SameSheetTargetVisualConfiguration",
     }
@@ -15294,8 +13810,6 @@ class FilterOperationTargetVisualsConfiguration(PropertyType):
 
 @dataclass
 class FilterRelativeDateTimeControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_control_id": "FilterControlId",
         "display_options": "DisplayOptions",
@@ -15313,8 +13827,6 @@ class FilterRelativeDateTimeControl(PropertyType):
 
 @dataclass
 class FilterScopeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all_sheets": "AllSheets",
         "selected_sheets": "SelectedSheets",
@@ -15326,8 +13838,6 @@ class FilterScopeConfiguration(PropertyType):
 
 @dataclass
 class FilterSelectableValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
     }
@@ -15337,8 +13847,6 @@ class FilterSelectableValues(PropertyType):
 
 @dataclass
 class FilterSliderControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_control_id": "FilterControlId",
         "type_": "Type",
@@ -15362,8 +13870,6 @@ class FilterSliderControl(PropertyType):
 
 @dataclass
 class FilterTextAreaControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_control_id": "FilterControlId",
         "delimiter": "Delimiter",
@@ -15381,8 +13887,6 @@ class FilterTextAreaControl(PropertyType):
 
 @dataclass
 class FilterTextFieldControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_control_id": "FilterControlId",
         "display_options": "DisplayOptions",
@@ -15398,8 +13902,6 @@ class FilterTextFieldControl(PropertyType):
 
 @dataclass
 class FontConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "font_family": "FontFamily",
         "font_style": "FontStyle",
@@ -15419,8 +13921,6 @@ class FontConfiguration(PropertyType):
 
 @dataclass
 class FontSize(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "relative": "Relative",
         "absolute": "Absolute",
@@ -15432,8 +13932,6 @@ class FontSize(PropertyType):
 
 @dataclass
 class FontWeight(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -15443,8 +13941,6 @@ class FontWeight(PropertyType):
 
 @dataclass
 class ForecastComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "periods_backward": "PeriodsBackward",
         "periods_forward": "PeriodsForward",
@@ -15474,8 +13970,6 @@ class ForecastComputation(PropertyType):
 
 @dataclass
 class ForecastConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "forecast_properties": "ForecastProperties",
         "scenario": "Scenario",
@@ -15487,8 +13981,6 @@ class ForecastConfiguration(PropertyType):
 
 @dataclass
 class ForecastScenario(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "what_if_range_scenario": "WhatIfRangeScenario",
         "what_if_point_scenario": "WhatIfPointScenario",
@@ -15500,8 +13992,6 @@ class ForecastScenario(PropertyType):
 
 @dataclass
 class FormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "number_format_configuration": "NumberFormatConfiguration",
         "date_time_format_configuration": "DateTimeFormatConfiguration",
@@ -15515,8 +14005,6 @@ class FormatConfiguration(PropertyType):
 
 @dataclass
 class FreeFormLayoutCanvasSizeOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "screen_canvas_size_options": "ScreenCanvasSizeOptions",
     }
@@ -15526,8 +14014,6 @@ class FreeFormLayoutCanvasSizeOptions(PropertyType):
 
 @dataclass
 class FreeFormLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "canvas_size_options": "CanvasSizeOptions",
         "elements": "Elements",
@@ -15539,8 +14025,6 @@ class FreeFormLayoutConfiguration(PropertyType):
 
 @dataclass
 class FreeFormLayoutElement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "element_type": "ElementType",
         "border_style": "BorderStyle",
@@ -15572,8 +14056,6 @@ class FreeFormLayoutElement(PropertyType):
 
 @dataclass
 class FreeFormLayoutElementBackgroundStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "color": "Color",
         "visibility": "Visibility",
@@ -15585,8 +14067,6 @@ class FreeFormLayoutElementBackgroundStyle(PropertyType):
 
 @dataclass
 class FreeFormLayoutElementBorderStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "color": "Color",
         "visibility": "Visibility",
@@ -15598,8 +14078,6 @@ class FreeFormLayoutElementBorderStyle(PropertyType):
 
 @dataclass
 class FreeFormLayoutScreenCanvasSizeOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "optimized_view_port_width": "OptimizedViewPortWidth",
     }
@@ -15609,8 +14087,6 @@ class FreeFormLayoutScreenCanvasSizeOptions(PropertyType):
 
 @dataclass
 class FreeFormSectionLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "elements": "Elements",
     }
@@ -15620,8 +14096,6 @@ class FreeFormSectionLayoutConfiguration(PropertyType):
 
 @dataclass
 class FunnelChartAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "values": "Values",
@@ -15633,8 +14107,6 @@ class FunnelChartAggregatedFieldWells(PropertyType):
 
 @dataclass
 class FunnelChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "data_label_options": "DataLabelOptions",
@@ -15658,8 +14130,6 @@ class FunnelChartConfiguration(PropertyType):
 
 @dataclass
 class FunnelChartDataLabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "measure_label_visibility": "MeasureLabelVisibility",
         "position": "Position",
@@ -15681,8 +14151,6 @@ class FunnelChartDataLabelOptions(PropertyType):
 
 @dataclass
 class FunnelChartFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "funnel_chart_aggregated_field_wells": "FunnelChartAggregatedFieldWells",
     }
@@ -15692,8 +14160,6 @@ class FunnelChartFieldWells(PropertyType):
 
 @dataclass
 class FunnelChartSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_items_limit": "CategoryItemsLimit",
         "category_sort": "CategorySort",
@@ -15705,8 +14171,6 @@ class FunnelChartSortConfiguration(PropertyType):
 
 @dataclass
 class FunnelChartVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -15728,8 +14192,6 @@ class FunnelChartVisual(PropertyType):
 
 @dataclass
 class GaugeChartArcConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "foreground_color": "ForegroundColor",
     }
@@ -15739,8 +14201,6 @@ class GaugeChartArcConditionalFormatting(PropertyType):
 
 @dataclass
 class GaugeChartColorConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "foreground_color": "ForegroundColor",
         "background_color": "BackgroundColor",
@@ -15752,8 +14212,6 @@ class GaugeChartColorConfiguration(PropertyType):
 
 @dataclass
 class GaugeChartConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "conditional_formatting_options": "ConditionalFormattingOptions",
     }
@@ -15763,8 +14221,6 @@ class GaugeChartConditionalFormatting(PropertyType):
 
 @dataclass
 class GaugeChartConditionalFormattingOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arc": "Arc",
         "primary_value": "PrimaryValue",
@@ -15776,8 +14232,6 @@ class GaugeChartConditionalFormattingOption(PropertyType):
 
 @dataclass
 class GaugeChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_labels": "DataLabels",
         "field_wells": "FieldWells",
@@ -15799,8 +14253,6 @@ class GaugeChartConfiguration(PropertyType):
 
 @dataclass
 class GaugeChartFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_values": "TargetValues",
         "values": "Values",
@@ -15812,8 +14264,6 @@ class GaugeChartFieldWells(PropertyType):
 
 @dataclass
 class GaugeChartOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arc": "Arc",
         "comparison": "Comparison",
@@ -15831,8 +14281,6 @@ class GaugeChartOptions(PropertyType):
 
 @dataclass
 class GaugeChartPrimaryValueConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_color": "TextColor",
         "icon": "Icon",
@@ -15844,8 +14292,6 @@ class GaugeChartPrimaryValueConditionalFormatting(PropertyType):
 
 @dataclass
 class GaugeChartVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "conditional_formatting": "ConditionalFormatting",
@@ -15867,8 +14313,6 @@ class GaugeChartVisual(PropertyType):
 
 @dataclass
 class GeospatialCategoricalColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_data_colors": "CategoryDataColors",
         "default_opacity": "DefaultOpacity",
@@ -15884,8 +14328,6 @@ class GeospatialCategoricalColor(PropertyType):
 
 @dataclass
 class GeospatialCategoricalDataColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_value": "DataValue",
         "color": "Color",
@@ -15897,8 +14339,6 @@ class GeospatialCategoricalDataColor(PropertyType):
 
 @dataclass
 class GeospatialCircleRadius(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "radius": "Radius",
     }
@@ -15908,8 +14348,6 @@ class GeospatialCircleRadius(PropertyType):
 
 @dataclass
 class GeospatialCircleSymbolStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fill_color": "FillColor",
         "stroke_width": "StrokeWidth",
@@ -15925,8 +14363,6 @@ class GeospatialCircleSymbolStyle(PropertyType):
 
 @dataclass
 class GeospatialColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "gradient": "Gradient",
         "categorical": "Categorical",
@@ -15940,8 +14376,6 @@ class GeospatialColor(PropertyType):
 
 @dataclass
 class GeospatialCoordinateBounds(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "west": "West",
         "south": "South",
@@ -15957,8 +14391,6 @@ class GeospatialCoordinateBounds(PropertyType):
 
 @dataclass
 class GeospatialDataSourceItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "static_file_data_source": "StaticFileDataSource",
     }
@@ -15968,8 +14400,6 @@ class GeospatialDataSourceItem(PropertyType):
 
 @dataclass
 class GeospatialGradientColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_opacity": "DefaultOpacity",
         "step_colors": "StepColors",
@@ -15985,8 +14415,6 @@ class GeospatialGradientColor(PropertyType):
 
 @dataclass
 class GeospatialGradientStepColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_value": "DataValue",
         "color": "Color",
@@ -15998,8 +14426,6 @@ class GeospatialGradientStepColor(PropertyType):
 
 @dataclass
 class GeospatialHeatmapColorScale(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "colors": "Colors",
     }
@@ -16009,8 +14435,6 @@ class GeospatialHeatmapColorScale(PropertyType):
 
 @dataclass
 class GeospatialHeatmapConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "heatmap_color": "HeatmapColor",
     }
@@ -16020,8 +14444,6 @@ class GeospatialHeatmapConfiguration(PropertyType):
 
 @dataclass
 class GeospatialHeatmapDataColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "color": "Color",
     }
@@ -16031,8 +14453,6 @@ class GeospatialHeatmapDataColor(PropertyType):
 
 @dataclass
 class GeospatialLayerColorField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "color_values_fields": "ColorValuesFields",
         "color_dimensions_fields": "ColorDimensionsFields",
@@ -16044,8 +14464,6 @@ class GeospatialLayerColorField(PropertyType):
 
 @dataclass
 class GeospatialLayerDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "point_layer": "PointLayer",
         "polygon_layer": "PolygonLayer",
@@ -16059,8 +14477,6 @@ class GeospatialLayerDefinition(PropertyType):
 
 @dataclass
 class GeospatialLayerItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "layer_id": "LayerId",
         "join_definition": "JoinDefinition",
@@ -16086,8 +14502,6 @@ class GeospatialLayerItem(PropertyType):
 
 @dataclass
 class GeospatialLayerJoinDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "color_field": "ColorField",
         "shape_key_field": "ShapeKeyField",
@@ -16101,8 +14515,6 @@ class GeospatialLayerJoinDefinition(PropertyType):
 
 @dataclass
 class GeospatialLayerMapConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "legend": "Legend",
         "map_state": "MapState",
@@ -16120,8 +14532,6 @@ class GeospatialLayerMapConfiguration(PropertyType):
 
 @dataclass
 class GeospatialLineLayer(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "style": "Style",
     }
@@ -16131,8 +14541,6 @@ class GeospatialLineLayer(PropertyType):
 
 @dataclass
 class GeospatialLineStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "line_symbol_style": "LineSymbolStyle",
     }
@@ -16142,8 +14550,6 @@ class GeospatialLineStyle(PropertyType):
 
 @dataclass
 class GeospatialLineSymbolStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fill_color": "FillColor",
         "line_width": "LineWidth",
@@ -16155,8 +14561,6 @@ class GeospatialLineSymbolStyle(PropertyType):
 
 @dataclass
 class GeospatialLineWidth(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "line_width": "LineWidth",
     }
@@ -16166,8 +14570,6 @@ class GeospatialLineWidth(PropertyType):
 
 @dataclass
 class GeospatialMapAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "colors": "Colors",
         "values": "Values",
@@ -16181,8 +14583,6 @@ class GeospatialMapAggregatedFieldWells(PropertyType):
 
 @dataclass
 class GeospatialMapConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "legend": "Legend",
         "map_style_options": "MapStyleOptions",
@@ -16206,8 +14606,6 @@ class GeospatialMapConfiguration(PropertyType):
 
 @dataclass
 class GeospatialMapFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "geospatial_map_aggregated_field_wells": "GeospatialMapAggregatedFieldWells",
     }
@@ -16217,8 +14615,6 @@ class GeospatialMapFieldWells(PropertyType):
 
 @dataclass
 class GeospatialMapState(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bounds": "Bounds",
         "map_navigation": "MapNavigation",
@@ -16230,8 +14626,6 @@ class GeospatialMapState(PropertyType):
 
 @dataclass
 class GeospatialMapStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "base_map_style": "BaseMapStyle",
         "base_map_visibility": "BaseMapVisibility",
@@ -16245,8 +14639,6 @@ class GeospatialMapStyle(PropertyType):
 
 @dataclass
 class GeospatialMapStyleOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "base_map_style": "BaseMapStyle",
     }
@@ -16256,8 +14648,6 @@ class GeospatialMapStyleOptions(PropertyType):
 
 @dataclass
 class GeospatialMapVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -16279,8 +14669,6 @@ class GeospatialMapVisual(PropertyType):
 
 @dataclass
 class GeospatialNullDataSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "symbol_style": "SymbolStyle",
     }
@@ -16290,8 +14678,6 @@ class GeospatialNullDataSettings(PropertyType):
 
 @dataclass
 class GeospatialNullSymbolStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fill_color": "FillColor",
         "stroke_width": "StrokeWidth",
@@ -16305,8 +14691,6 @@ class GeospatialNullSymbolStyle(PropertyType):
 
 @dataclass
 class GeospatialPointLayer(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "style": "Style",
     }
@@ -16316,8 +14700,6 @@ class GeospatialPointLayer(PropertyType):
 
 @dataclass
 class GeospatialPointStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "circle_symbol_style": "CircleSymbolStyle",
     }
@@ -16327,8 +14709,6 @@ class GeospatialPointStyle(PropertyType):
 
 @dataclass
 class GeospatialPointStyleOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "selected_point_style": "SelectedPointStyle",
         "cluster_marker_configuration": "ClusterMarkerConfiguration",
@@ -16342,8 +14722,6 @@ class GeospatialPointStyleOptions(PropertyType):
 
 @dataclass
 class GeospatialPolygonLayer(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "style": "Style",
     }
@@ -16353,8 +14731,6 @@ class GeospatialPolygonLayer(PropertyType):
 
 @dataclass
 class GeospatialPolygonStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "polygon_symbol_style": "PolygonSymbolStyle",
     }
@@ -16364,8 +14740,6 @@ class GeospatialPolygonStyle(PropertyType):
 
 @dataclass
 class GeospatialPolygonSymbolStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fill_color": "FillColor",
         "stroke_width": "StrokeWidth",
@@ -16379,8 +14753,6 @@ class GeospatialPolygonSymbolStyle(PropertyType):
 
 @dataclass
 class GeospatialSolidColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
         "color": "Color",
@@ -16392,8 +14764,6 @@ class GeospatialSolidColor(PropertyType):
 
 @dataclass
 class GeospatialStaticFileSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "static_file_id": "StaticFileId",
     }
@@ -16403,8 +14773,6 @@ class GeospatialStaticFileSource(PropertyType):
 
 @dataclass
 class GeospatialWindowOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bounds": "Bounds",
         "map_zoom_mode": "MapZoomMode",
@@ -16416,8 +14784,6 @@ class GeospatialWindowOptions(PropertyType):
 
 @dataclass
 class GlobalTableBorderOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uniform_border": "UniformBorder",
         "side_specific_border": "SideSpecificBorder",
@@ -16429,8 +14795,6 @@ class GlobalTableBorderOptions(PropertyType):
 
 @dataclass
 class GradientColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stops": "Stops",
     }
@@ -16440,8 +14804,6 @@ class GradientColor(PropertyType):
 
 @dataclass
 class GradientStop(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "gradient_offset": "GradientOffset",
         "data_value": "DataValue",
@@ -16455,8 +14817,6 @@ class GradientStop(PropertyType):
 
 @dataclass
 class GridLayoutCanvasSizeOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "screen_canvas_size_options": "ScreenCanvasSizeOptions",
     }
@@ -16466,8 +14826,6 @@ class GridLayoutCanvasSizeOptions(PropertyType):
 
 @dataclass
 class GridLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "canvas_size_options": "CanvasSizeOptions",
         "elements": "Elements",
@@ -16479,8 +14837,6 @@ class GridLayoutConfiguration(PropertyType):
 
 @dataclass
 class GridLayoutElement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "element_type": "ElementType",
         "column_span": "ColumnSpan",
@@ -16500,8 +14856,6 @@ class GridLayoutElement(PropertyType):
 
 @dataclass
 class GridLayoutScreenCanvasSizeOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "optimized_view_port_width": "OptimizedViewPortWidth",
         "resize_option": "ResizeOption",
@@ -16513,8 +14867,6 @@ class GridLayoutScreenCanvasSizeOptions(PropertyType):
 
 @dataclass
 class GrowthRateComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "time": "Time",
@@ -16532,8 +14884,6 @@ class GrowthRateComputation(PropertyType):
 
 @dataclass
 class HeaderFooterSectionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "layout": "Layout",
         "style": "Style",
@@ -16547,8 +14897,6 @@ class HeaderFooterSectionConfiguration(PropertyType):
 
 @dataclass
 class HeatMapAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "columns": "Columns",
@@ -16562,8 +14910,6 @@ class HeatMapAggregatedFieldWells(PropertyType):
 
 @dataclass
 class HeatMapConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "column_label_options": "ColumnLabelOptions",
@@ -16589,8 +14935,6 @@ class HeatMapConfiguration(PropertyType):
 
 @dataclass
 class HeatMapFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "heat_map_aggregated_field_wells": "HeatMapAggregatedFieldWells",
     }
@@ -16600,8 +14944,6 @@ class HeatMapFieldWells(PropertyType):
 
 @dataclass
 class HeatMapSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "heat_map_row_sort": "HeatMapRowSort",
         "heat_map_row_items_limit_configuration": "HeatMapRowItemsLimitConfiguration",
@@ -16617,8 +14959,6 @@ class HeatMapSortConfiguration(PropertyType):
 
 @dataclass
 class HeatMapVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -16640,8 +14980,6 @@ class HeatMapVisual(PropertyType):
 
 @dataclass
 class HistogramAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
     }
@@ -16651,8 +14989,6 @@ class HistogramAggregatedFieldWells(PropertyType):
 
 @dataclass
 class HistogramBinOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bin_width": "BinWidth",
         "start_value": "StartValue",
@@ -16668,8 +15004,6 @@ class HistogramBinOptions(PropertyType):
 
 @dataclass
 class HistogramConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "y_axis_display_options": "YAxisDisplayOptions",
         "data_labels": "DataLabels",
@@ -16695,8 +15029,6 @@ class HistogramConfiguration(PropertyType):
 
 @dataclass
 class HistogramFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "histogram_aggregated_field_wells": "HistogramAggregatedFieldWells",
     }
@@ -16706,8 +15038,6 @@ class HistogramFieldWells(PropertyType):
 
 @dataclass
 class HistogramVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -16727,8 +15057,6 @@ class HistogramVisual(PropertyType):
 
 @dataclass
 class ImageCustomAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "trigger": "Trigger",
@@ -16746,8 +15074,6 @@ class ImageCustomAction(PropertyType):
 
 @dataclass
 class ImageCustomActionOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "navigation_operation": "NavigationOperation",
         "set_parameters_operation": "SetParametersOperation",
@@ -16761,8 +15087,6 @@ class ImageCustomActionOperation(PropertyType):
 
 @dataclass
 class ImageInteractionOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "image_menu_option": "ImageMenuOption",
     }
@@ -16772,8 +15096,6 @@ class ImageInteractionOptions(PropertyType):
 
 @dataclass
 class ImageMenuOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_status": "AvailabilityStatus",
     }
@@ -16783,8 +15105,6 @@ class ImageMenuOption(PropertyType):
 
 @dataclass
 class ImageStaticFile(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "static_file_id": "StaticFileId",
         "source": "Source",
@@ -16796,8 +15116,6 @@ class ImageStaticFile(PropertyType):
 
 @dataclass
 class InnerFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_inner_filter": "CategoryInnerFilter",
     }
@@ -16807,8 +15125,6 @@ class InnerFilter(PropertyType):
 
 @dataclass
 class InsightConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "computations": "Computations",
         "custom_narrative": "CustomNarrative",
@@ -16822,8 +15138,6 @@ class InsightConfiguration(PropertyType):
 
 @dataclass
 class InsightVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -16845,8 +15159,6 @@ class InsightVisual(PropertyType):
 
 @dataclass
 class IntegerDefaultValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dynamic_value": "DynamicValue",
         "static_values": "StaticValues",
@@ -16858,8 +15170,6 @@ class IntegerDefaultValues(PropertyType):
 
 @dataclass
 class IntegerParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "name": "Name",
@@ -16871,8 +15181,6 @@ class IntegerParameter(PropertyType):
 
 @dataclass
 class IntegerParameterDeclaration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mapped_data_set_parameters": "MappedDataSetParameters",
         "default_values": "DefaultValues",
@@ -16890,8 +15198,6 @@ class IntegerParameterDeclaration(PropertyType):
 
 @dataclass
 class IntegerValueWhenUnsetConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_when_unset_option": "ValueWhenUnsetOption",
         "custom_value": "CustomValue",
@@ -16903,8 +15209,6 @@ class IntegerValueWhenUnsetConfiguration(PropertyType):
 
 @dataclass
 class ItemsLimitConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "items_limit": "ItemsLimit",
         "other_categories": "OtherCategories",
@@ -16916,8 +15220,6 @@ class ItemsLimitConfiguration(PropertyType):
 
 @dataclass
 class KPIActualValueConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_color": "TextColor",
         "icon": "Icon",
@@ -16929,8 +15231,6 @@ class KPIActualValueConditionalFormatting(PropertyType):
 
 @dataclass
 class KPIComparisonValueConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_color": "TextColor",
         "icon": "Icon",
@@ -16942,8 +15242,6 @@ class KPIComparisonValueConditionalFormatting(PropertyType):
 
 @dataclass
 class KPIConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "conditional_formatting_options": "ConditionalFormattingOptions",
     }
@@ -16953,8 +15251,6 @@ class KPIConditionalFormatting(PropertyType):
 
 @dataclass
 class KPIConditionalFormattingOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "primary_value": "PrimaryValue",
         "actual_value": "ActualValue",
@@ -16970,8 +15266,6 @@ class KPIConditionalFormattingOption(PropertyType):
 
 @dataclass
 class KPIConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "kpi_options": "KPIOptions",
@@ -16987,8 +15281,6 @@ class KPIConfiguration(PropertyType):
 
 @dataclass
 class KPIFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_values": "TargetValues",
         "trend_groups": "TrendGroups",
@@ -17002,8 +15294,6 @@ class KPIFieldWells(PropertyType):
 
 @dataclass
 class KPIOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secondary_value_font_configuration": "SecondaryValueFontConfiguration",
         "visual_layout_options": "VisualLayoutOptions",
@@ -17029,8 +15319,6 @@ class KPIOptions(PropertyType):
 
 @dataclass
 class KPIPrimaryValueConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_color": "TextColor",
         "icon": "Icon",
@@ -17042,8 +15330,6 @@ class KPIPrimaryValueConditionalFormatting(PropertyType):
 
 @dataclass
 class KPIProgressBarConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "foreground_color": "ForegroundColor",
     }
@@ -17053,8 +15339,6 @@ class KPIProgressBarConditionalFormatting(PropertyType):
 
 @dataclass
 class KPISortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "trend_group_sort": "TrendGroupSort",
     }
@@ -17064,8 +15348,6 @@ class KPISortConfiguration(PropertyType):
 
 @dataclass
 class KPISparklineOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "color": "Color",
@@ -17081,8 +15363,6 @@ class KPISparklineOptions(PropertyType):
 
 @dataclass
 class KPIVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "conditional_formatting": "ConditionalFormatting",
@@ -17106,8 +15386,6 @@ class KPIVisual(PropertyType):
 
 @dataclass
 class KPIVisualLayoutOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "standard_layout": "StandardLayout",
     }
@@ -17117,8 +15395,6 @@ class KPIVisualLayoutOptions(PropertyType):
 
 @dataclass
 class KPIVisualStandardLayout(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -17128,8 +15404,6 @@ class KPIVisualStandardLayout(PropertyType):
 
 @dataclass
 class LabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_label": "CustomLabel",
         "visibility": "Visibility",
@@ -17143,8 +15417,6 @@ class LabelOptions(PropertyType):
 
 @dataclass
 class LayerCustomAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "trigger": "Trigger",
@@ -17162,8 +15434,6 @@ class LayerCustomAction(PropertyType):
 
 @dataclass
 class LayerCustomActionOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "navigation_operation": "NavigationOperation",
         "set_parameters_operation": "SetParametersOperation",
@@ -17179,8 +15449,6 @@ class LayerCustomActionOperation(PropertyType):
 
 @dataclass
 class LayerMapVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -17200,8 +15468,6 @@ class LayerMapVisual(PropertyType):
 
 @dataclass
 class Layout(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration": "Configuration",
     }
@@ -17211,8 +15477,6 @@ class Layout(PropertyType):
 
 @dataclass
 class LayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "grid_layout": "GridLayout",
         "free_form_layout": "FreeFormLayout",
@@ -17226,8 +15490,6 @@ class LayoutConfiguration(PropertyType):
 
 @dataclass
 class LegendOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "position": "Position",
         "value_font_configuration": "ValueFontConfiguration",
@@ -17247,8 +15509,6 @@ class LegendOptions(PropertyType):
 
 @dataclass
 class LineChartAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "colors": "Colors",
@@ -17264,8 +15524,6 @@ class LineChartAggregatedFieldWells(PropertyType):
 
 @dataclass
 class LineChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "legend": "Legend",
@@ -17315,8 +15573,6 @@ class LineChartConfiguration(PropertyType):
 
 @dataclass
 class LineChartDefaultSeriesSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "line_style_settings": "LineStyleSettings",
         "axis_binding": "AxisBinding",
@@ -17330,8 +15586,6 @@ class LineChartDefaultSeriesSettings(PropertyType):
 
 @dataclass
 class LineChartFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "line_chart_aggregated_field_wells": "LineChartAggregatedFieldWells",
     }
@@ -17341,8 +15595,6 @@ class LineChartFieldWells(PropertyType):
 
 @dataclass
 class LineChartLineStyleSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "line_interpolation": "LineInterpolation",
         "line_style": "LineStyle",
@@ -17358,8 +15610,6 @@ class LineChartLineStyleSettings(PropertyType):
 
 @dataclass
 class LineChartMarkerStyleSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "marker_shape": "MarkerShape",
         "marker_size": "MarkerSize",
@@ -17375,8 +15625,6 @@ class LineChartMarkerStyleSettings(PropertyType):
 
 @dataclass
 class LineChartSeriesSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "line_style_settings": "LineStyleSettings",
         "marker_style_settings": "MarkerStyleSettings",
@@ -17388,8 +15636,6 @@ class LineChartSeriesSettings(PropertyType):
 
 @dataclass
 class LineChartSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_items_limit_configuration": "CategoryItemsLimitConfiguration",
         "color_items_limit_configuration": "ColorItemsLimitConfiguration",
@@ -17407,8 +15653,6 @@ class LineChartSortConfiguration(PropertyType):
 
 @dataclass
 class LineChartVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -17430,8 +15674,6 @@ class LineChartVisual(PropertyType):
 
 @dataclass
 class LineSeriesAxisDisplayOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "missing_data_configurations": "MissingDataConfigurations",
         "axis_options": "AxisOptions",
@@ -17443,8 +15685,6 @@ class LineSeriesAxisDisplayOptions(PropertyType):
 
 @dataclass
 class LinkSharingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "permissions": "Permissions",
     }
@@ -17454,8 +15694,6 @@ class LinkSharingConfiguration(PropertyType):
 
 @dataclass
 class ListControlDisplayOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "title_options": "TitleOptions",
         "search_options": "SearchOptions",
@@ -17471,8 +15709,6 @@ class ListControlDisplayOptions(PropertyType):
 
 @dataclass
 class ListControlSearchOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -17482,8 +15718,6 @@ class ListControlSearchOptions(PropertyType):
 
 @dataclass
 class ListControlSelectAllOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -17493,8 +15727,6 @@ class ListControlSelectAllOptions(PropertyType):
 
 @dataclass
 class LoadingAnimation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -17504,8 +15736,6 @@ class LoadingAnimation(PropertyType):
 
 @dataclass
 class LocalNavigationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_sheet_id": "TargetSheetId",
     }
@@ -17515,8 +15745,6 @@ class LocalNavigationConfiguration(PropertyType):
 
 @dataclass
 class LongFormatText(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rich_text": "RichText",
         "plain_text": "PlainText",
@@ -17528,8 +15756,6 @@ class LongFormatText(PropertyType):
 
 @dataclass
 class MappedDataSetParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_set_parameter_name": "DataSetParameterName",
         "data_set_identifier": "DataSetIdentifier",
@@ -17541,8 +15767,6 @@ class MappedDataSetParameter(PropertyType):
 
 @dataclass
 class MaximumLabelType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -17552,8 +15776,6 @@ class MaximumLabelType(PropertyType):
 
 @dataclass
 class MaximumMinimumComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -17571,8 +15793,6 @@ class MaximumMinimumComputation(PropertyType):
 
 @dataclass
 class MeasureField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "date_measure_field": "DateMeasureField",
         "numerical_measure_field": "NumericalMeasureField",
@@ -17588,8 +15808,6 @@ class MeasureField(PropertyType):
 
 @dataclass
 class MetricComparisonComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_value": "TargetValue",
         "time": "Time",
@@ -17607,8 +15825,6 @@ class MetricComparisonComputation(PropertyType):
 
 @dataclass
 class MinimumLabelType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -17618,8 +15834,6 @@ class MinimumLabelType(PropertyType):
 
 @dataclass
 class MissingDataConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "treatment_option": "TreatmentOption",
     }
@@ -17629,8 +15843,6 @@ class MissingDataConfiguration(PropertyType):
 
 @dataclass
 class NegativeValueConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "display_mode": "DisplayMode",
     }
@@ -17640,8 +15852,6 @@ class NegativeValueConfiguration(PropertyType):
 
 @dataclass
 class NestedFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "inner_filter": "InnerFilter",
@@ -17657,8 +15867,6 @@ class NestedFilter(PropertyType):
 
 @dataclass
 class NullValueFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "null_string": "NullString",
     }
@@ -17668,8 +15876,6 @@ class NullValueFormatConfiguration(PropertyType):
 
 @dataclass
 class NumberDisplayFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "negative_value_configuration": "NegativeValueConfiguration",
         "decimal_places_configuration": "DecimalPlacesConfiguration",
@@ -17691,8 +15897,6 @@ class NumberDisplayFormatConfiguration(PropertyType):
 
 @dataclass
 class NumberFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "format_configuration": "FormatConfiguration",
     }
@@ -17702,8 +15906,6 @@ class NumberFormatConfiguration(PropertyType):
 
 @dataclass
 class NumericAxisOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scale": "Scale",
         "range": "Range",
@@ -17715,8 +15917,6 @@ class NumericAxisOptions(PropertyType):
 
 @dataclass
 class NumericEqualityDrillDownFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "value": "Value",
@@ -17728,8 +15928,6 @@ class NumericEqualityDrillDownFilter(PropertyType):
 
 @dataclass
 class NumericEqualityFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation_function": "AggregationFunction",
         "column": "Column",
@@ -17755,8 +15953,6 @@ class NumericEqualityFilter(PropertyType):
 
 @dataclass
 class NumericFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "number_display_format_configuration": "NumberDisplayFormatConfiguration",
         "currency_display_format_configuration": "CurrencyDisplayFormatConfiguration",
@@ -17770,8 +15966,6 @@ class NumericFormatConfiguration(PropertyType):
 
 @dataclass
 class NumericRangeFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation_function": "AggregationFunction",
         "column": "Column",
@@ -17799,8 +15993,6 @@ class NumericRangeFilter(PropertyType):
 
 @dataclass
 class NumericRangeFilterValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "static_value": "StaticValue",
         "parameter": "Parameter",
@@ -17812,8 +16004,6 @@ class NumericRangeFilterValue(PropertyType):
 
 @dataclass
 class NumericSeparatorConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "decimal_separator": "DecimalSeparator",
         "thousands_separator": "ThousandsSeparator",
@@ -17825,8 +16015,6 @@ class NumericSeparatorConfiguration(PropertyType):
 
 @dataclass
 class NumericalAggregationFunction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "percentile_aggregation": "PercentileAggregation",
         "simple_numerical_aggregation": "SimpleNumericalAggregation",
@@ -17838,8 +16026,6 @@ class NumericalAggregationFunction(PropertyType):
 
 @dataclass
 class NumericalDimensionField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hierarchy_id": "HierarchyId",
         "format_configuration": "FormatConfiguration",
@@ -17855,8 +16041,6 @@ class NumericalDimensionField(PropertyType):
 
 @dataclass
 class NumericalMeasureField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation_function": "AggregationFunction",
         "format_configuration": "FormatConfiguration",
@@ -17872,8 +16056,6 @@ class NumericalMeasureField(PropertyType):
 
 @dataclass
 class PaginationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "page_size": "PageSize",
         "page_number": "PageNumber",
@@ -17885,8 +16067,6 @@ class PaginationConfiguration(PropertyType):
 
 @dataclass
 class PanelConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "border_thickness": "BorderThickness",
         "border_style": "BorderStyle",
@@ -17912,8 +16092,6 @@ class PanelConfiguration(PropertyType):
 
 @dataclass
 class PanelTitleOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
         "font_configuration": "FontConfiguration",
@@ -17927,8 +16105,6 @@ class PanelTitleOptions(PropertyType):
 
 @dataclass
 class ParameterControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "slider": "Slider",
         "text_area": "TextArea",
@@ -17948,8 +16124,6 @@ class ParameterControl(PropertyType):
 
 @dataclass
 class ParameterDateTimePickerControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_control_id": "ParameterControlId",
         "display_options": "DisplayOptions",
@@ -17965,8 +16139,6 @@ class ParameterDateTimePickerControl(PropertyType):
 
 @dataclass
 class ParameterDeclaration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "string_parameter_declaration": "StringParameterDeclaration",
         "date_time_parameter_declaration": "DateTimeParameterDeclaration",
@@ -17982,8 +16154,6 @@ class ParameterDeclaration(PropertyType):
 
 @dataclass
 class ParameterDropDownControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_control_id": "ParameterControlId",
         "type_": "Type",
@@ -18007,8 +16177,6 @@ class ParameterDropDownControl(PropertyType):
 
 @dataclass
 class ParameterListControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_control_id": "ParameterControlId",
         "type_": "Type",
@@ -18030,8 +16198,6 @@ class ParameterListControl(PropertyType):
 
 @dataclass
 class ParameterSelectableValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "link_to_data_set_column": "LinkToDataSetColumn",
         "values": "Values",
@@ -18043,8 +16209,6 @@ class ParameterSelectableValues(PropertyType):
 
 @dataclass
 class ParameterSliderControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_control_id": "ParameterControlId",
         "step_size": "StepSize",
@@ -18066,8 +16230,6 @@ class ParameterSliderControl(PropertyType):
 
 @dataclass
 class ParameterTextAreaControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_control_id": "ParameterControlId",
         "delimiter": "Delimiter",
@@ -18085,8 +16247,6 @@ class ParameterTextAreaControl(PropertyType):
 
 @dataclass
 class ParameterTextFieldControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_control_id": "ParameterControlId",
         "display_options": "DisplayOptions",
@@ -18102,8 +16262,6 @@ class ParameterTextFieldControl(PropertyType):
 
 @dataclass
 class Parameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "string_parameters": "StringParameters",
         "decimal_parameters": "DecimalParameters",
@@ -18119,8 +16277,6 @@ class Parameters(PropertyType):
 
 @dataclass
 class PercentVisibleRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "from_": "From",
         "to": "To",
@@ -18132,8 +16288,6 @@ class PercentVisibleRange(PropertyType):
 
 @dataclass
 class PercentageDisplayFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "negative_value_configuration": "NegativeValueConfiguration",
         "decimal_places_configuration": "DecimalPlacesConfiguration",
@@ -18153,8 +16307,6 @@ class PercentageDisplayFormatConfiguration(PropertyType):
 
 @dataclass
 class PercentileAggregation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "percentile_value": "PercentileValue",
     }
@@ -18164,8 +16316,6 @@ class PercentileAggregation(PropertyType):
 
 @dataclass
 class PeriodOverPeriodComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "time": "Time",
@@ -18181,8 +16331,6 @@ class PeriodOverPeriodComputation(PropertyType):
 
 @dataclass
 class PeriodToDateComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "period_time_granularity": "PeriodTimeGranularity",
         "value": "Value",
@@ -18200,8 +16348,6 @@ class PeriodToDateComputation(PropertyType):
 
 @dataclass
 class PieChartAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "values": "Values",
@@ -18215,8 +16361,6 @@ class PieChartAggregatedFieldWells(PropertyType):
 
 @dataclass
 class PieChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "legend": "Legend",
@@ -18248,8 +16392,6 @@ class PieChartConfiguration(PropertyType):
 
 @dataclass
 class PieChartFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pie_chart_aggregated_field_wells": "PieChartAggregatedFieldWells",
     }
@@ -18259,8 +16401,6 @@ class PieChartFieldWells(PropertyType):
 
 @dataclass
 class PieChartSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "small_multiples_sort": "SmallMultiplesSort",
         "category_items_limit": "CategoryItemsLimit",
@@ -18276,8 +16416,6 @@ class PieChartSortConfiguration(PropertyType):
 
 @dataclass
 class PieChartVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -18299,8 +16437,6 @@ class PieChartVisual(PropertyType):
 
 @dataclass
 class PivotFieldSortOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_by": "SortBy",
         "field_id": "FieldId",
@@ -18312,8 +16448,6 @@ class PivotFieldSortOptions(PropertyType):
 
 @dataclass
 class PivotTableAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "columns": "Columns",
@@ -18327,8 +16461,6 @@ class PivotTableAggregatedFieldWells(PropertyType):
 
 @dataclass
 class PivotTableCellConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scope": "Scope",
         "scopes": "Scopes",
@@ -18344,8 +16476,6 @@ class PivotTableCellConditionalFormatting(PropertyType):
 
 @dataclass
 class PivotTableConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "conditional_formatting_options": "ConditionalFormattingOptions",
     }
@@ -18355,8 +16485,6 @@ class PivotTableConditionalFormatting(PropertyType):
 
 @dataclass
 class PivotTableConditionalFormattingOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cell": "Cell",
     }
@@ -18366,8 +16494,6 @@ class PivotTableConditionalFormattingOption(PropertyType):
 
 @dataclass
 class PivotTableConditionalFormattingScope(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role": "Role",
     }
@@ -18377,8 +16503,6 @@ class PivotTableConditionalFormattingScope(PropertyType):
 
 @dataclass
 class PivotTableConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "paginated_report_options": "PaginatedReportOptions",
@@ -18400,8 +16524,6 @@ class PivotTableConfiguration(PropertyType):
 
 @dataclass
 class PivotTableDataPathOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_path_list": "DataPathList",
         "width": "Width",
@@ -18413,8 +16535,6 @@ class PivotTableDataPathOption(PropertyType):
 
 @dataclass
 class PivotTableFieldCollapseStateOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target": "Target",
         "state": "State",
@@ -18426,8 +16546,6 @@ class PivotTableFieldCollapseStateOption(PropertyType):
 
 @dataclass
 class PivotTableFieldCollapseStateTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_id": "FieldId",
         "field_data_path_values": "FieldDataPathValues",
@@ -18439,8 +16557,6 @@ class PivotTableFieldCollapseStateTarget(PropertyType):
 
 @dataclass
 class PivotTableFieldOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_label": "CustomLabel",
         "field_id": "FieldId",
@@ -18454,8 +16570,6 @@ class PivotTableFieldOption(PropertyType):
 
 @dataclass
 class PivotTableFieldOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "collapse_state_options": "CollapseStateOptions",
         "data_path_options": "DataPathOptions",
@@ -18469,8 +16583,6 @@ class PivotTableFieldOptions(PropertyType):
 
 @dataclass
 class PivotTableFieldSubtotalOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_id": "FieldId",
     }
@@ -18480,8 +16592,6 @@ class PivotTableFieldSubtotalOptions(PropertyType):
 
 @dataclass
 class PivotTableFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pivot_table_aggregated_field_wells": "PivotTableAggregatedFieldWells",
     }
@@ -18491,8 +16601,6 @@ class PivotTableFieldWells(PropertyType):
 
 @dataclass
 class PivotTableOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "row_field_names_style": "RowFieldNamesStyle",
         "row_header_style": "RowHeaderStyle",
@@ -18526,8 +16634,6 @@ class PivotTableOptions(PropertyType):
 
 @dataclass
 class PivotTablePaginatedReportOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "overflow_column_header_visibility": "OverflowColumnHeaderVisibility",
         "vertical_overflow_visibility": "VerticalOverflowVisibility",
@@ -18539,8 +16645,6 @@ class PivotTablePaginatedReportOptions(PropertyType):
 
 @dataclass
 class PivotTableRowsLabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_label": "CustomLabel",
         "visibility": "Visibility",
@@ -18552,8 +16656,6 @@ class PivotTableRowsLabelOptions(PropertyType):
 
 @dataclass
 class PivotTableSortBy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field": "Field",
         "data_path": "DataPath",
@@ -18567,8 +16669,6 @@ class PivotTableSortBy(PropertyType):
 
 @dataclass
 class PivotTableSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_sort_options": "FieldSortOptions",
     }
@@ -18578,8 +16678,6 @@ class PivotTableSortConfiguration(PropertyType):
 
 @dataclass
 class PivotTableTotalOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_subtotal_options": "ColumnSubtotalOptions",
         "row_subtotal_options": "RowSubtotalOptions",
@@ -18595,8 +16693,6 @@ class PivotTableTotalOptions(PropertyType):
 
 @dataclass
 class PivotTableVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "conditional_formatting": "ConditionalFormatting",
@@ -18618,8 +16714,6 @@ class PivotTableVisual(PropertyType):
 
 @dataclass
 class PivotTotalOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "total_aggregation_options": "TotalAggregationOptions",
         "custom_label": "CustomLabel",
@@ -18643,8 +16737,6 @@ class PivotTotalOptions(PropertyType):
 
 @dataclass
 class PluginVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "plugin_arn": "PluginArn",
@@ -18664,8 +16756,6 @@ class PluginVisual(PropertyType):
 
 @dataclass
 class PluginVisualConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "visual_options": "VisualOptions",
@@ -18679,8 +16769,6 @@ class PluginVisualConfiguration(PropertyType):
 
 @dataclass
 class PluginVisualFieldWell(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "unaggregated": "Unaggregated",
         "axis_name": "AxisName",
@@ -18696,8 +16784,6 @@ class PluginVisualFieldWell(PropertyType):
 
 @dataclass
 class PluginVisualItemsLimitConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "items_limit": "ItemsLimit",
     }
@@ -18707,8 +16793,6 @@ class PluginVisualItemsLimitConfiguration(PropertyType):
 
 @dataclass
 class PluginVisualOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visual_properties": "VisualProperties",
     }
@@ -18718,8 +16802,6 @@ class PluginVisualOptions(PropertyType):
 
 @dataclass
 class PluginVisualProperty(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -18731,8 +16813,6 @@ class PluginVisualProperty(PropertyType):
 
 @dataclass
 class PluginVisualSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "plugin_visual_table_query_sort": "PluginVisualTableQuerySort",
     }
@@ -18742,8 +16822,6 @@ class PluginVisualSortConfiguration(PropertyType):
 
 @dataclass
 class PluginVisualTableQuerySort(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "items_limit_configuration": "ItemsLimitConfiguration",
         "row_sort": "RowSort",
@@ -18755,8 +16833,6 @@ class PluginVisualTableQuerySort(PropertyType):
 
 @dataclass
 class PredefinedHierarchy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hierarchy_id": "HierarchyId",
         "drill_down_filters": "DrillDownFilters",
@@ -18770,8 +16846,6 @@ class PredefinedHierarchy(PropertyType):
 
 @dataclass
 class ProgressBarOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -18781,8 +16855,6 @@ class ProgressBarOptions(PropertyType):
 
 @dataclass
 class QuickSuiteActionsOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_status": "AvailabilityStatus",
     }
@@ -18792,8 +16864,6 @@ class QuickSuiteActionsOption(PropertyType):
 
 @dataclass
 class RadarChartAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "color": "Color",
@@ -18807,8 +16877,6 @@ class RadarChartAggregatedFieldWells(PropertyType):
 
 @dataclass
 class RadarChartAreaStyleSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -18818,8 +16886,6 @@ class RadarChartAreaStyleSettings(PropertyType):
 
 @dataclass
 class RadarChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "legend": "Legend",
@@ -18859,8 +16925,6 @@ class RadarChartConfiguration(PropertyType):
 
 @dataclass
 class RadarChartFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "radar_chart_aggregated_field_wells": "RadarChartAggregatedFieldWells",
     }
@@ -18870,8 +16934,6 @@ class RadarChartFieldWells(PropertyType):
 
 @dataclass
 class RadarChartSeriesSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "area_style_settings": "AreaStyleSettings",
     }
@@ -18881,8 +16943,6 @@ class RadarChartSeriesSettings(PropertyType):
 
 @dataclass
 class RadarChartSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "color_sort": "ColorSort",
         "color_items_limit": "ColorItemsLimit",
@@ -18898,8 +16958,6 @@ class RadarChartSortConfiguration(PropertyType):
 
 @dataclass
 class RadarChartVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -18921,8 +16979,6 @@ class RadarChartVisual(PropertyType):
 
 @dataclass
 class RangeEndsLabelType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -18932,8 +16988,6 @@ class RangeEndsLabelType(PropertyType):
 
 @dataclass
 class ReferenceLine(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "data_configuration": "DataConfiguration",
@@ -18949,8 +17003,6 @@ class ReferenceLine(PropertyType):
 
 @dataclass
 class ReferenceLineCustomLabelConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_label": "CustomLabel",
     }
@@ -18960,8 +17012,6 @@ class ReferenceLineCustomLabelConfiguration(PropertyType):
 
 @dataclass
 class ReferenceLineDataConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dynamic_configuration": "DynamicConfiguration",
         "axis_binding": "AxisBinding",
@@ -18977,8 +17027,6 @@ class ReferenceLineDataConfiguration(PropertyType):
 
 @dataclass
 class ReferenceLineDynamicDataConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "measure_aggregation_function": "MeasureAggregationFunction",
@@ -18992,8 +17040,6 @@ class ReferenceLineDynamicDataConfiguration(PropertyType):
 
 @dataclass
 class ReferenceLineLabelConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "horizontal_position": "HorizontalPosition",
         "value_label_configuration": "ValueLabelConfiguration",
@@ -19013,8 +17059,6 @@ class ReferenceLineLabelConfiguration(PropertyType):
 
 @dataclass
 class ReferenceLineStaticDataConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -19024,8 +17068,6 @@ class ReferenceLineStaticDataConfiguration(PropertyType):
 
 @dataclass
 class ReferenceLineStyleConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pattern": "Pattern",
         "color": "Color",
@@ -19037,8 +17079,6 @@ class ReferenceLineStyleConfiguration(PropertyType):
 
 @dataclass
 class ReferenceLineValueLabelConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "format_configuration": "FormatConfiguration",
         "relative_position": "RelativePosition",
@@ -19050,8 +17090,6 @@ class ReferenceLineValueLabelConfiguration(PropertyType):
 
 @dataclass
 class RelativeDateTimeControlDisplayOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "title_options": "TitleOptions",
         "info_icon_label_options": "InfoIconLabelOptions",
@@ -19065,8 +17103,6 @@ class RelativeDateTimeControlDisplayOptions(PropertyType):
 
 @dataclass
 class RelativeDatesFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "relative_date_value": "RelativeDateValue",
         "column": "Column",
@@ -19096,8 +17132,6 @@ class RelativeDatesFilter(PropertyType):
 
 @dataclass
 class ResourcePermission(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "actions": "Actions",
         "principal": "Principal",
@@ -19109,8 +17143,6 @@ class ResourcePermission(PropertyType):
 
 @dataclass
 class RollingDateConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "data_set_identifier": "DataSetIdentifier",
@@ -19122,8 +17154,6 @@ class RollingDateConfiguration(PropertyType):
 
 @dataclass
 class RowAlternateColorOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "use_primary_background_color": "UsePrimaryBackgroundColor",
@@ -19137,8 +17167,6 @@ class RowAlternateColorOptions(PropertyType):
 
 @dataclass
 class SameSheetTargetVisualConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_visual_options": "TargetVisualOptions",
         "target_visuals": "TargetVisuals",
@@ -19150,8 +17178,6 @@ class SameSheetTargetVisualConfiguration(PropertyType):
 
 @dataclass
 class SankeyDiagramAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "source": "Source",
@@ -19165,8 +17191,6 @@ class SankeyDiagramAggregatedFieldWells(PropertyType):
 
 @dataclass
 class SankeyDiagramChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "data_labels": "DataLabels",
@@ -19182,8 +17206,6 @@ class SankeyDiagramChartConfiguration(PropertyType):
 
 @dataclass
 class SankeyDiagramFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sankey_diagram_aggregated_field_wells": "SankeyDiagramAggregatedFieldWells",
     }
@@ -19193,8 +17215,6 @@ class SankeyDiagramFieldWells(PropertyType):
 
 @dataclass
 class SankeyDiagramSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "weight_sort": "WeightSort",
         "source_items_limit": "SourceItemsLimit",
@@ -19208,8 +17228,6 @@ class SankeyDiagramSortConfiguration(PropertyType):
 
 @dataclass
 class SankeyDiagramVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -19229,8 +17247,6 @@ class SankeyDiagramVisual(PropertyType):
 
 @dataclass
 class ScatterPlotCategoricallyAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "size": "Size",
@@ -19248,8 +17264,6 @@ class ScatterPlotCategoricallyAggregatedFieldWells(PropertyType):
 
 @dataclass
 class ScatterPlotConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "y_axis_label_options": "YAxisLabelOptions",
         "sort_configuration": "SortConfiguration",
@@ -19279,8 +17293,6 @@ class ScatterPlotConfiguration(PropertyType):
 
 @dataclass
 class ScatterPlotFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scatter_plot_unaggregated_field_wells": "ScatterPlotUnaggregatedFieldWells",
         "scatter_plot_categorically_aggregated_field_wells": "ScatterPlotCategoricallyAggregatedFieldWells",
@@ -19292,8 +17304,6 @@ class ScatterPlotFieldWells(PropertyType):
 
 @dataclass
 class ScatterPlotSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scatter_plot_limit_configuration": "ScatterPlotLimitConfiguration",
     }
@@ -19303,8 +17313,6 @@ class ScatterPlotSortConfiguration(PropertyType):
 
 @dataclass
 class ScatterPlotUnaggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "size": "Size",
@@ -19322,8 +17330,6 @@ class ScatterPlotUnaggregatedFieldWells(PropertyType):
 
 @dataclass
 class ScatterPlotVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -19345,8 +17351,6 @@ class ScatterPlotVisual(PropertyType):
 
 @dataclass
 class ScrollBarOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visible_range": "VisibleRange",
         "visibility": "Visibility",
@@ -19358,8 +17362,6 @@ class ScrollBarOptions(PropertyType):
 
 @dataclass
 class SecondaryValueOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -19369,8 +17371,6 @@ class SecondaryValueOptions(PropertyType):
 
 @dataclass
 class SectionAfterPageBreak(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
     }
@@ -19380,8 +17380,6 @@ class SectionAfterPageBreak(PropertyType):
 
 @dataclass
 class SectionBasedLayoutCanvasSizeOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "paper_canvas_size_options": "PaperCanvasSizeOptions",
     }
@@ -19391,8 +17389,6 @@ class SectionBasedLayoutCanvasSizeOptions(PropertyType):
 
 @dataclass
 class SectionBasedLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "canvas_size_options": "CanvasSizeOptions",
         "footer_sections": "FooterSections",
@@ -19408,8 +17404,6 @@ class SectionBasedLayoutConfiguration(PropertyType):
 
 @dataclass
 class SectionBasedLayoutPaperCanvasSizeOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "paper_margin": "PaperMargin",
         "paper_size": "PaperSize",
@@ -19423,8 +17417,6 @@ class SectionBasedLayoutPaperCanvasSizeOptions(PropertyType):
 
 @dataclass
 class SectionLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "free_form_layout": "FreeFormLayout",
     }
@@ -19434,8 +17426,6 @@ class SectionLayoutConfiguration(PropertyType):
 
 @dataclass
 class SectionPageBreakConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "after": "After",
     }
@@ -19445,8 +17435,6 @@ class SectionPageBreakConfiguration(PropertyType):
 
 @dataclass
 class SectionStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "padding": "Padding",
         "height": "Height",
@@ -19458,8 +17446,6 @@ class SectionStyle(PropertyType):
 
 @dataclass
 class SelectedSheetsFilterScopeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sheet_visual_scoping_configurations": "SheetVisualScopingConfigurations",
     }
@@ -19469,8 +17455,6 @@ class SelectedSheetsFilterScopeConfiguration(PropertyType):
 
 @dataclass
 class SeriesItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_series_item": "FieldSeriesItem",
         "data_field_series_item": "DataFieldSeriesItem",
@@ -19482,8 +17466,6 @@ class SeriesItem(PropertyType):
 
 @dataclass
 class SetParameterValueConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_parameter_name": "DestinationParameterName",
         "value": "Value",
@@ -19495,8 +17477,6 @@ class SetParameterValueConfiguration(PropertyType):
 
 @dataclass
 class ShapeConditionalFormat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "background_color": "BackgroundColor",
     }
@@ -19506,8 +17486,6 @@ class ShapeConditionalFormat(PropertyType):
 
 @dataclass
 class Sheet(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sheet_id": "SheetId",
         "name": "Name",
@@ -19519,8 +17497,6 @@ class Sheet(PropertyType):
 
 @dataclass
 class SheetControlInfoIconLabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
         "info_icon_text": "InfoIconText",
@@ -19532,8 +17508,6 @@ class SheetControlInfoIconLabelOptions(PropertyType):
 
 @dataclass
 class SheetControlLayout(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration": "Configuration",
     }
@@ -19543,8 +17517,6 @@ class SheetControlLayout(PropertyType):
 
 @dataclass
 class SheetControlLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "grid_layout": "GridLayout",
     }
@@ -19554,8 +17526,6 @@ class SheetControlLayoutConfiguration(PropertyType):
 
 @dataclass
 class SheetControlsOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility_state": "VisibilityState",
     }
@@ -19565,8 +17535,6 @@ class SheetControlsOption(PropertyType):
 
 @dataclass
 class SheetDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "parameter_controls": "ParameterControls",
@@ -19598,8 +17566,6 @@ class SheetDefinition(PropertyType):
 
 @dataclass
 class SheetElementConfigurationOverrides(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -19609,8 +17575,6 @@ class SheetElementConfigurationOverrides(PropertyType):
 
 @dataclass
 class SheetElementRenderingRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "configuration_overrides": "ConfigurationOverrides",
@@ -19622,8 +17586,6 @@ class SheetElementRenderingRule(PropertyType):
 
 @dataclass
 class SheetImage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "actions": "Actions",
         "sheet_image_id": "SheetImageId",
@@ -19645,8 +17607,6 @@ class SheetImage(PropertyType):
 
 @dataclass
 class SheetImageScalingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scaling_type": "ScalingType",
     }
@@ -19656,8 +17616,6 @@ class SheetImageScalingConfiguration(PropertyType):
 
 @dataclass
 class SheetImageSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sheet_image_static_file_source": "SheetImageStaticFileSource",
     }
@@ -19667,8 +17625,6 @@ class SheetImageSource(PropertyType):
 
 @dataclass
 class SheetImageStaticFileSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "static_file_id": "StaticFileId",
     }
@@ -19678,8 +17634,6 @@ class SheetImageStaticFileSource(PropertyType):
 
 @dataclass
 class SheetImageTooltipConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
         "tooltip_text": "TooltipText",
@@ -19691,8 +17645,6 @@ class SheetImageTooltipConfiguration(PropertyType):
 
 @dataclass
 class SheetImageTooltipText(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "plain_text": "PlainText",
     }
@@ -19702,8 +17654,6 @@ class SheetImageTooltipText(PropertyType):
 
 @dataclass
 class SheetLayoutElementMaximizationOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_status": "AvailabilityStatus",
     }
@@ -19713,8 +17663,6 @@ class SheetLayoutElementMaximizationOption(PropertyType):
 
 @dataclass
 class SheetTextBox(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sheet_text_box_id": "SheetTextBoxId",
         "content": "Content",
@@ -19726,8 +17674,6 @@ class SheetTextBox(PropertyType):
 
 @dataclass
 class SheetVisualScopingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scope": "Scope",
         "sheet_id": "SheetId",
@@ -19741,8 +17687,6 @@ class SheetVisualScopingConfiguration(PropertyType):
 
 @dataclass
 class ShortFormatText(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rich_text": "RichText",
         "plain_text": "PlainText",
@@ -19754,8 +17698,6 @@ class ShortFormatText(PropertyType):
 
 @dataclass
 class SimpleClusterMarker(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "color": "Color",
     }
@@ -19765,8 +17707,6 @@ class SimpleClusterMarker(PropertyType):
 
 @dataclass
 class SingleAxisOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "y_axis_options": "YAxisOptions",
     }
@@ -19776,8 +17716,6 @@ class SingleAxisOptions(PropertyType):
 
 @dataclass
 class SliderControlDisplayOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "title_options": "TitleOptions",
         "info_icon_label_options": "InfoIconLabelOptions",
@@ -19789,8 +17727,6 @@ class SliderControlDisplayOptions(PropertyType):
 
 @dataclass
 class SmallMultiplesAxisProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "placement": "Placement",
         "scale": "Scale",
@@ -19802,8 +17738,6 @@ class SmallMultiplesAxisProperties(PropertyType):
 
 @dataclass
 class SmallMultiplesOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_visible_rows": "MaxVisibleRows",
         "panel_configuration": "PanelConfiguration",
@@ -19821,8 +17755,6 @@ class SmallMultiplesOptions(PropertyType):
 
 @dataclass
 class Spacing(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "left": "Left",
         "top": "Top",
@@ -19838,8 +17770,6 @@ class Spacing(PropertyType):
 
 @dataclass
 class SpatialStaticFile(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "static_file_id": "StaticFileId",
         "source": "Source",
@@ -19851,8 +17781,6 @@ class SpatialStaticFile(PropertyType):
 
 @dataclass
 class StaticFile(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "image_static_file": "ImageStaticFile",
         "spatial_static_file": "SpatialStaticFile",
@@ -19864,8 +17792,6 @@ class StaticFile(PropertyType):
 
 @dataclass
 class StaticFileS3SourceOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "object_key": "ObjectKey",
@@ -19879,8 +17805,6 @@ class StaticFileS3SourceOptions(PropertyType):
 
 @dataclass
 class StaticFileSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "url_options": "UrlOptions",
         "s3_options": "S3Options",
@@ -19892,8 +17816,6 @@ class StaticFileSource(PropertyType):
 
 @dataclass
 class StaticFileUrlSourceOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "url": "Url",
     }
@@ -19903,8 +17825,6 @@ class StaticFileUrlSourceOptions(PropertyType):
 
 @dataclass
 class StringDefaultValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dynamic_value": "DynamicValue",
         "static_values": "StaticValues",
@@ -19916,8 +17836,6 @@ class StringDefaultValues(PropertyType):
 
 @dataclass
 class StringFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "numeric_format_configuration": "NumericFormatConfiguration",
         "null_value_format_configuration": "NullValueFormatConfiguration",
@@ -19929,8 +17847,6 @@ class StringFormatConfiguration(PropertyType):
 
 @dataclass
 class StringParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "name": "Name",
@@ -19942,8 +17858,6 @@ class StringParameter(PropertyType):
 
 @dataclass
 class StringParameterDeclaration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mapped_data_set_parameters": "MappedDataSetParameters",
         "default_values": "DefaultValues",
@@ -19961,8 +17875,6 @@ class StringParameterDeclaration(PropertyType):
 
 @dataclass
 class StringValueWhenUnsetConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_when_unset_option": "ValueWhenUnsetOption",
         "custom_value": "CustomValue",
@@ -19974,8 +17886,6 @@ class StringValueWhenUnsetConfiguration(PropertyType):
 
 @dataclass
 class SubtotalOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_label": "CustomLabel",
         "field_level_options": "FieldLevelOptions",
@@ -19999,8 +17909,6 @@ class SubtotalOptions(PropertyType):
 
 @dataclass
 class TableAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_by": "GroupBy",
         "values": "Values",
@@ -20012,8 +17920,6 @@ class TableAggregatedFieldWells(PropertyType):
 
 @dataclass
 class TableBorderOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "thickness": "Thickness",
         "color": "Color",
@@ -20027,8 +17933,6 @@ class TableBorderOptions(PropertyType):
 
 @dataclass
 class TableCellConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_id": "FieldId",
         "text_format": "TextFormat",
@@ -20040,8 +17944,6 @@ class TableCellConditionalFormatting(PropertyType):
 
 @dataclass
 class TableCellImageSizingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_cell_image_scaling_configuration": "TableCellImageScalingConfiguration",
     }
@@ -20051,8 +17953,6 @@ class TableCellImageSizingConfiguration(PropertyType):
 
 @dataclass
 class TableCellStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vertical_text_alignment": "VerticalTextAlignment",
         "visibility": "Visibility",
@@ -20076,8 +17976,6 @@ class TableCellStyle(PropertyType):
 
 @dataclass
 class TableConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "conditional_formatting_options": "ConditionalFormattingOptions",
     }
@@ -20087,8 +17985,6 @@ class TableConditionalFormatting(PropertyType):
 
 @dataclass
 class TableConditionalFormattingOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "row": "Row",
         "cell": "Cell",
@@ -20100,8 +17996,6 @@ class TableConditionalFormattingOption(PropertyType):
 
 @dataclass
 class TableConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "paginated_report_options": "PaginatedReportOptions",
@@ -20125,8 +18019,6 @@ class TableConfiguration(PropertyType):
 
 @dataclass
 class TableFieldCustomIconContent(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "icon": "Icon",
     }
@@ -20136,8 +18028,6 @@ class TableFieldCustomIconContent(PropertyType):
 
 @dataclass
 class TableFieldCustomTextContent(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "font_configuration": "FontConfiguration",
@@ -20149,8 +18039,6 @@ class TableFieldCustomTextContent(PropertyType):
 
 @dataclass
 class TableFieldImageConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sizing_options": "SizingOptions",
     }
@@ -20160,8 +18048,6 @@ class TableFieldImageConfiguration(PropertyType):
 
 @dataclass
 class TableFieldLinkConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target": "Target",
         "content": "Content",
@@ -20173,8 +18059,6 @@ class TableFieldLinkConfiguration(PropertyType):
 
 @dataclass
 class TableFieldLinkContentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_icon_content": "CustomIconContent",
         "custom_text_content": "CustomTextContent",
@@ -20186,8 +18070,6 @@ class TableFieldLinkContentConfiguration(PropertyType):
 
 @dataclass
 class TableFieldOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_label": "CustomLabel",
         "url_styling": "URLStyling",
@@ -20205,8 +18087,6 @@ class TableFieldOption(PropertyType):
 
 @dataclass
 class TableFieldOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "order": "Order",
         "pinned_field_options": "PinnedFieldOptions",
@@ -20222,8 +18102,6 @@ class TableFieldOptions(PropertyType):
 
 @dataclass
 class TableFieldURLConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "link_configuration": "LinkConfiguration",
         "image_configuration": "ImageConfiguration",
@@ -20235,8 +18113,6 @@ class TableFieldURLConfiguration(PropertyType):
 
 @dataclass
 class TableFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_unaggregated_field_wells": "TableUnaggregatedFieldWells",
         "table_aggregated_field_wells": "TableAggregatedFieldWells",
@@ -20248,8 +18124,6 @@ class TableFieldWells(PropertyType):
 
 @dataclass
 class TableInlineVisualization(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_bars": "DataBars",
     }
@@ -20259,8 +18133,6 @@ class TableInlineVisualization(PropertyType):
 
 @dataclass
 class TableOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header_style": "HeaderStyle",
         "cell_style": "CellStyle",
@@ -20276,8 +18148,6 @@ class TableOptions(PropertyType):
 
 @dataclass
 class TablePaginatedReportOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "overflow_column_header_visibility": "OverflowColumnHeaderVisibility",
         "vertical_overflow_visibility": "VerticalOverflowVisibility",
@@ -20289,8 +18159,6 @@ class TablePaginatedReportOptions(PropertyType):
 
 @dataclass
 class TablePinnedFieldOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pinned_left_fields": "PinnedLeftFields",
     }
@@ -20300,8 +18168,6 @@ class TablePinnedFieldOptions(PropertyType):
 
 @dataclass
 class TableRowConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_color": "TextColor",
         "background_color": "BackgroundColor",
@@ -20313,8 +18179,6 @@ class TableRowConditionalFormatting(PropertyType):
 
 @dataclass
 class TableSideBorderOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "left": "Left",
         "top": "Top",
@@ -20334,8 +18198,6 @@ class TableSideBorderOptions(PropertyType):
 
 @dataclass
 class TableSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "row_sort": "RowSort",
         "pagination_configuration": "PaginationConfiguration",
@@ -20347,8 +18209,6 @@ class TableSortConfiguration(PropertyType):
 
 @dataclass
 class TableStyleTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cell_type": "CellType",
     }
@@ -20358,8 +18218,6 @@ class TableStyleTarget(PropertyType):
 
 @dataclass
 class TableUnaggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
     }
@@ -20369,8 +18227,6 @@ class TableUnaggregatedFieldWells(PropertyType):
 
 @dataclass
 class TableVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "conditional_formatting": "ConditionalFormatting",
@@ -20392,8 +18248,6 @@ class TableVisual(PropertyType):
 
 @dataclass
 class TextAreaControlDisplayOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "title_options": "TitleOptions",
         "placeholder_options": "PlaceholderOptions",
@@ -20407,8 +18261,6 @@ class TextAreaControlDisplayOptions(PropertyType):
 
 @dataclass
 class TextConditionalFormat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_color": "TextColor",
         "icon": "Icon",
@@ -20422,8 +18274,6 @@ class TextConditionalFormat(PropertyType):
 
 @dataclass
 class TextControlPlaceholderOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -20433,8 +18283,6 @@ class TextControlPlaceholderOptions(PropertyType):
 
 @dataclass
 class TextFieldControlDisplayOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "title_options": "TitleOptions",
         "placeholder_options": "PlaceholderOptions",
@@ -20448,8 +18296,6 @@ class TextFieldControlDisplayOptions(PropertyType):
 
 @dataclass
 class ThousandSeparatorOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "symbol": "Symbol",
         "visibility": "Visibility",
@@ -20463,8 +18309,6 @@ class ThousandSeparatorOptions(PropertyType):
 
 @dataclass
 class TimeBasedForecastProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "periods_backward": "PeriodsBackward",
         "periods_forward": "PeriodsForward",
@@ -20484,8 +18328,6 @@ class TimeBasedForecastProperties(PropertyType):
 
 @dataclass
 class TimeEqualityFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "rolling_date": "RollingDate",
@@ -20507,8 +18349,6 @@ class TimeEqualityFilter(PropertyType):
 
 @dataclass
 class TimeRangeDrillDownFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "range_minimum": "RangeMinimum",
@@ -20524,8 +18364,6 @@ class TimeRangeDrillDownFilter(PropertyType):
 
 @dataclass
 class TimeRangeFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "range_minimum_value": "RangeMinimumValue",
         "column": "Column",
@@ -20553,8 +18391,6 @@ class TimeRangeFilter(PropertyType):
 
 @dataclass
 class TimeRangeFilterValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rolling_date": "RollingDate",
         "static_value": "StaticValue",
@@ -20568,8 +18404,6 @@ class TimeRangeFilterValue(PropertyType):
 
 @dataclass
 class TooltipItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_tooltip_item": "FieldTooltipItem",
         "column_tooltip_item": "ColumnTooltipItem",
@@ -20581,8 +18415,6 @@ class TooltipItem(PropertyType):
 
 @dataclass
 class TooltipOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "selected_tooltip_type": "SelectedTooltipType",
         "tooltip_visibility": "TooltipVisibility",
@@ -20596,8 +18428,6 @@ class TooltipOptions(PropertyType):
 
 @dataclass
 class TopBottomFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation_sort_configurations": "AggregationSortConfigurations",
         "column": "Column",
@@ -20619,8 +18449,6 @@ class TopBottomFilter(PropertyType):
 
 @dataclass
 class TopBottomMoversComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "category": "Category",
@@ -20644,8 +18472,6 @@ class TopBottomMoversComputation(PropertyType):
 
 @dataclass
 class TopBottomRankedComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "category": "Category",
@@ -20665,8 +18491,6 @@ class TopBottomRankedComputation(PropertyType):
 
 @dataclass
 class TotalAggregationComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "computation_id": "ComputationId",
@@ -20680,8 +18504,6 @@ class TotalAggregationComputation(PropertyType):
 
 @dataclass
 class TotalAggregationFunction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "simple_total_aggregation_function": "SimpleTotalAggregationFunction",
     }
@@ -20691,8 +18513,6 @@ class TotalAggregationFunction(PropertyType):
 
 @dataclass
 class TotalAggregationOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "total_aggregation_function": "TotalAggregationFunction",
         "field_id": "FieldId",
@@ -20704,8 +18524,6 @@ class TotalAggregationOption(PropertyType):
 
 @dataclass
 class TotalOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "total_aggregation_options": "TotalAggregationOptions",
         "custom_label": "CustomLabel",
@@ -20725,8 +18543,6 @@ class TotalOptions(PropertyType):
 
 @dataclass
 class TransposedTableOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_width": "ColumnWidth",
         "column_index": "ColumnIndex",
@@ -20740,8 +18556,6 @@ class TransposedTableOption(PropertyType):
 
 @dataclass
 class TreeMapAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sizes": "Sizes",
         "colors": "Colors",
@@ -20755,8 +18569,6 @@ class TreeMapAggregatedFieldWells(PropertyType):
 
 @dataclass
 class TreeMapConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "legend": "Legend",
@@ -20784,8 +18596,6 @@ class TreeMapConfiguration(PropertyType):
 
 @dataclass
 class TreeMapFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tree_map_aggregated_field_wells": "TreeMapAggregatedFieldWells",
     }
@@ -20795,8 +18605,6 @@ class TreeMapFieldWells(PropertyType):
 
 @dataclass
 class TreeMapSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tree_map_sort": "TreeMapSort",
         "tree_map_group_items_limit_configuration": "TreeMapGroupItemsLimitConfiguration",
@@ -20808,8 +18616,6 @@ class TreeMapSortConfiguration(PropertyType):
 
 @dataclass
 class TreeMapVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -20831,8 +18637,6 @@ class TreeMapVisual(PropertyType):
 
 @dataclass
 class TrendArrowOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -20842,8 +18646,6 @@ class TrendArrowOptions(PropertyType):
 
 @dataclass
 class UnaggregatedField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "format_configuration": "FormatConfiguration",
         "column": "Column",
@@ -20857,8 +18659,6 @@ class UnaggregatedField(PropertyType):
 
 @dataclass
 class UniqueValuesComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "computation_id": "ComputationId",
@@ -20872,8 +18672,6 @@ class UniqueValuesComputation(PropertyType):
 
 @dataclass
 class ValidationStrategy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
     }
@@ -20883,8 +18681,6 @@ class ValidationStrategy(PropertyType):
 
 @dataclass
 class VisibleRangeOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "percent_range": "PercentRange",
     }
@@ -20894,8 +18690,6 @@ class VisibleRangeOptions(PropertyType):
 
 @dataclass
 class Visual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "funnel_chart_visual": "FunnelChartVisual",
         "box_plot_visual": "BoxPlotVisual",
@@ -20953,8 +18747,6 @@ class Visual(PropertyType):
 
 @dataclass
 class VisualAxisSortOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_status": "AvailabilityStatus",
     }
@@ -20964,8 +18756,6 @@ class VisualAxisSortOption(PropertyType):
 
 @dataclass
 class VisualCustomAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "trigger": "Trigger",
@@ -20983,8 +18773,6 @@ class VisualCustomAction(PropertyType):
 
 @dataclass
 class VisualCustomActionOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "navigation_operation": "NavigationOperation",
         "set_parameters_operation": "SetParametersOperation",
@@ -21000,8 +18788,6 @@ class VisualCustomActionOperation(PropertyType):
 
 @dataclass
 class VisualInteractionOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "context_menu_option": "ContextMenuOption",
         "visual_menu_option": "VisualMenuOption",
@@ -21013,8 +18799,6 @@ class VisualInteractionOptions(PropertyType):
 
 @dataclass
 class VisualMenuOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_status": "AvailabilityStatus",
     }
@@ -21024,8 +18808,6 @@ class VisualMenuOption(PropertyType):
 
 @dataclass
 class VisualPalette(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "chart_color": "ChartColor",
         "color_map": "ColorMap",
@@ -21037,8 +18819,6 @@ class VisualPalette(PropertyType):
 
 @dataclass
 class VisualSubtitleLabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
         "format_text": "FormatText",
@@ -21050,8 +18830,6 @@ class VisualSubtitleLabelOptions(PropertyType):
 
 @dataclass
 class VisualTitleLabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
         "format_text": "FormatText",
@@ -21063,8 +18841,6 @@ class VisualTitleLabelOptions(PropertyType):
 
 @dataclass
 class WaterfallChartAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "categories": "Categories",
         "breakdowns": "Breakdowns",
@@ -21078,8 +18854,6 @@ class WaterfallChartAggregatedFieldWells(PropertyType):
 
 @dataclass
 class WaterfallChartColorConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_color_configuration": "GroupColorConfiguration",
     }
@@ -21089,8 +18863,6 @@ class WaterfallChartColorConfiguration(PropertyType):
 
 @dataclass
 class WaterfallChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_axis_label_options": "CategoryAxisLabelOptions",
         "sort_configuration": "SortConfiguration",
@@ -21122,8 +18894,6 @@ class WaterfallChartConfiguration(PropertyType):
 
 @dataclass
 class WaterfallChartFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "waterfall_chart_aggregated_field_wells": "WaterfallChartAggregatedFieldWells",
     }
@@ -21133,8 +18903,6 @@ class WaterfallChartFieldWells(PropertyType):
 
 @dataclass
 class WaterfallChartGroupColorConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "negative_bar_color": "NegativeBarColor",
         "total_bar_color": "TotalBarColor",
@@ -21148,8 +18916,6 @@ class WaterfallChartGroupColorConfiguration(PropertyType):
 
 @dataclass
 class WaterfallChartOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "total_bar_label": "TotalBarLabel",
     }
@@ -21159,8 +18925,6 @@ class WaterfallChartOptions(PropertyType):
 
 @dataclass
 class WaterfallChartSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "breakdown_items_limit": "BreakdownItemsLimit",
         "category_sort": "CategorySort",
@@ -21172,8 +18936,6 @@ class WaterfallChartSortConfiguration(PropertyType):
 
 @dataclass
 class WaterfallVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -21195,8 +18957,6 @@ class WaterfallVisual(PropertyType):
 
 @dataclass
 class WhatIfPointScenario(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "date": "Date",
@@ -21208,8 +18968,6 @@ class WhatIfPointScenario(PropertyType):
 
 @dataclass
 class WhatIfRangeScenario(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start_date": "StartDate",
         "value": "Value",
@@ -21223,8 +18981,6 @@ class WhatIfRangeScenario(PropertyType):
 
 @dataclass
 class WordCloudAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_by": "GroupBy",
         "size": "Size",
@@ -21236,8 +18992,6 @@ class WordCloudAggregatedFieldWells(PropertyType):
 
 @dataclass
 class WordCloudChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "category_label_options": "CategoryLabelOptions",
@@ -21255,8 +19009,6 @@ class WordCloudChartConfiguration(PropertyType):
 
 @dataclass
 class WordCloudFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "word_cloud_aggregated_field_wells": "WordCloudAggregatedFieldWells",
     }
@@ -21266,8 +19018,6 @@ class WordCloudFieldWells(PropertyType):
 
 @dataclass
 class WordCloudOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "word_orientation": "WordOrientation",
         "word_scaling": "WordScaling",
@@ -21287,8 +19037,6 @@ class WordCloudOptions(PropertyType):
 
 @dataclass
 class WordCloudSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_items_limit": "CategoryItemsLimit",
         "category_sort": "CategorySort",
@@ -21300,8 +19048,6 @@ class WordCloudSortConfiguration(PropertyType):
 
 @dataclass
 class WordCloudVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -21323,8 +19069,6 @@ class WordCloudVisual(PropertyType):
 
 @dataclass
 class YAxisOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "y_axis": "YAxis",
     }
@@ -21451,8 +19195,6 @@ class Dashboard(CloudFormationResource):
 
 @dataclass
 class AggregateOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_by_column_names": "GroupByColumnNames",
         "alias": "Alias",
@@ -21468,8 +19210,6 @@ class AggregateOperation(PropertyType):
 
 @dataclass
 class Aggregation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation_function": "AggregationFunction",
         "new_column_name": "NewColumnName",
@@ -21483,8 +19223,6 @@ class Aggregation(PropertyType):
 
 @dataclass
 class AppendOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "appended_columns": "AppendedColumns",
         "second_source": "SecondSource",
@@ -21500,8 +19238,6 @@ class AppendOperation(PropertyType):
 
 @dataclass
 class AppendedColumn(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_name": "ColumnName",
         "new_column_id": "NewColumnId",
@@ -21513,8 +19249,6 @@ class AppendedColumn(PropertyType):
 
 @dataclass
 class CalculatedColumn(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_id": "ColumnId",
         "column_name": "ColumnName",
@@ -21528,8 +19262,6 @@ class CalculatedColumn(PropertyType):
 
 @dataclass
 class CastColumnTypeOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_name": "ColumnName",
         "sub_type": "SubType",
@@ -21545,8 +19277,6 @@ class CastColumnTypeOperation(PropertyType):
 
 @dataclass
 class CastColumnTypesOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cast_column_type_operations": "CastColumnTypeOperations",
         "alias": "Alias",
@@ -21560,8 +19290,6 @@ class CastColumnTypesOperation(PropertyType):
 
 @dataclass
 class ColumnGroup(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "geo_spatial_column_group": "GeoSpatialColumnGroup",
     }
@@ -21571,8 +19299,6 @@ class ColumnGroup(PropertyType):
 
 @dataclass
 class ColumnLevelPermissionRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_names": "ColumnNames",
         "principals": "Principals",
@@ -21584,8 +19310,6 @@ class ColumnLevelPermissionRule(PropertyType):
 
 @dataclass
 class ColumnToUnpivot(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_name": "ColumnName",
         "new_value": "NewValue",
@@ -21597,8 +19321,6 @@ class ColumnToUnpivot(PropertyType):
 
 @dataclass
 class CreateColumnsOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alias": "Alias",
         "columns": "Columns",
@@ -21612,8 +19334,6 @@ class CreateColumnsOperation(PropertyType):
 
 @dataclass
 class CustomSql(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_source_arn": "DataSourceArn",
         "sql_query": "SqlQuery",
@@ -21629,8 +19349,6 @@ class CustomSql(PropertyType):
 
 @dataclass
 class DataPrepAggregationFunction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "percentile_aggregation": "PercentileAggregation",
         "simple_aggregation": "SimpleAggregation",
@@ -21644,8 +19362,6 @@ class DataPrepAggregationFunction(PropertyType):
 
 @dataclass
 class DataPrepConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_table_map": "DestinationTableMap",
         "transform_step_map": "TransformStepMap",
@@ -21659,8 +19375,6 @@ class DataPrepConfiguration(PropertyType):
 
 @dataclass
 class DataPrepListAggregationFunction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "distinct": "Distinct",
         "input_column_name": "InputColumnName",
@@ -21674,8 +19388,6 @@ class DataPrepListAggregationFunction(PropertyType):
 
 @dataclass
 class DataPrepPercentileAggregationFunction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_column_name": "InputColumnName",
         "percentile_value": "PercentileValue",
@@ -21687,8 +19399,6 @@ class DataPrepPercentileAggregationFunction(PropertyType):
 
 @dataclass
 class DataPrepSimpleAggregationFunction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function_type": "FunctionType",
         "input_column_name": "InputColumnName",
@@ -21700,8 +19410,6 @@ class DataPrepSimpleAggregationFunction(PropertyType):
 
 @dataclass
 class DataSetColumnIdMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_column_id": "SourceColumnId",
         "target_column_id": "TargetColumnId",
@@ -21713,8 +19421,6 @@ class DataSetColumnIdMapping(PropertyType):
 
 @dataclass
 class DataSetDateComparisonFilterCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "value": "Value",
@@ -21726,8 +19432,6 @@ class DataSetDateComparisonFilterCondition(PropertyType):
 
 @dataclass
 class DataSetDateFilterCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_name": "ColumnName",
         "range_filter_condition": "RangeFilterCondition",
@@ -21741,8 +19445,6 @@ class DataSetDateFilterCondition(PropertyType):
 
 @dataclass
 class DataSetDateFilterValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "static_value": "StaticValue",
     }
@@ -21752,8 +19454,6 @@ class DataSetDateFilterValue(PropertyType):
 
 @dataclass
 class DataSetDateRangeFilterCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_maximum": "IncludeMaximum",
         "range_minimum": "RangeMinimum",
@@ -21769,8 +19469,6 @@ class DataSetDateRangeFilterCondition(PropertyType):
 
 @dataclass
 class DataSetNumericComparisonFilterCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "value": "Value",
@@ -21782,8 +19480,6 @@ class DataSetNumericComparisonFilterCondition(PropertyType):
 
 @dataclass
 class DataSetNumericFilterCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_name": "ColumnName",
         "range_filter_condition": "RangeFilterCondition",
@@ -21797,8 +19493,6 @@ class DataSetNumericFilterCondition(PropertyType):
 
 @dataclass
 class DataSetNumericFilterValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "static_value": "StaticValue",
     }
@@ -21808,8 +19502,6 @@ class DataSetNumericFilterValue(PropertyType):
 
 @dataclass
 class DataSetNumericRangeFilterCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_maximum": "IncludeMaximum",
         "range_minimum": "RangeMinimum",
@@ -21825,8 +19517,6 @@ class DataSetNumericRangeFilterCondition(PropertyType):
 
 @dataclass
 class DataSetRefreshProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "refresh_configuration": "RefreshConfiguration",
         "failure_configuration": "FailureConfiguration",
@@ -21838,8 +19528,6 @@ class DataSetRefreshProperties(PropertyType):
 
 @dataclass
 class DataSetStringComparisonFilterCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "value": "Value",
@@ -21851,8 +19539,6 @@ class DataSetStringComparisonFilterCondition(PropertyType):
 
 @dataclass
 class DataSetStringFilterCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_name": "ColumnName",
         "comparison_filter_condition": "ComparisonFilterCondition",
@@ -21866,8 +19552,6 @@ class DataSetStringFilterCondition(PropertyType):
 
 @dataclass
 class DataSetStringFilterValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "static_value": "StaticValue",
     }
@@ -21877,8 +19561,6 @@ class DataSetStringFilterValue(PropertyType):
 
 @dataclass
 class DataSetStringListFilterCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "values": "Values",
@@ -21890,8 +19572,6 @@ class DataSetStringListFilterCondition(PropertyType):
 
 @dataclass
 class DataSetStringListFilterValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "static_values": "StaticValues",
     }
@@ -21901,8 +19581,6 @@ class DataSetStringListFilterValue(PropertyType):
 
 @dataclass
 class DataSetUsageConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "disable_use_as_imported_source": "DisableUseAsImportedSource",
         "disable_use_as_direct_query_source": "DisableUseAsDirectQuerySource",
@@ -21914,8 +19592,6 @@ class DataSetUsageConfiguration(PropertyType):
 
 @dataclass
 class DatasetParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "integer_dataset_parameter": "IntegerDatasetParameter",
         "date_time_dataset_parameter": "DateTimeDatasetParameter",
@@ -21931,8 +19607,6 @@ class DatasetParameter(PropertyType):
 
 @dataclass
 class DateTimeDatasetParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_type": "ValueType",
         "time_granularity": "TimeGranularity",
@@ -21950,8 +19624,6 @@ class DateTimeDatasetParameter(PropertyType):
 
 @dataclass
 class DateTimeDatasetParameterDefaultValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "static_values": "StaticValues",
     }
@@ -21961,8 +19633,6 @@ class DateTimeDatasetParameterDefaultValues(PropertyType):
 
 @dataclass
 class DecimalDatasetParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_type": "ValueType",
         "default_values": "DefaultValues",
@@ -21978,8 +19648,6 @@ class DecimalDatasetParameter(PropertyType):
 
 @dataclass
 class DecimalDatasetParameterDefaultValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "static_values": "StaticValues",
     }
@@ -21989,8 +19657,6 @@ class DecimalDatasetParameterDefaultValues(PropertyType):
 
 @dataclass
 class DestinationTable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alias": "Alias",
         "source": "Source",
@@ -22002,8 +19668,6 @@ class DestinationTable(PropertyType):
 
 @dataclass
 class DestinationTableSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transform_operation_id": "TransformOperationId",
     }
@@ -22013,8 +19677,6 @@ class DestinationTableSource(PropertyType):
 
 @dataclass
 class FieldFolder(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "columns": "Columns",
@@ -22026,8 +19688,6 @@ class FieldFolder(PropertyType):
 
 @dataclass
 class FilterOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "date_filter_condition": "DateFilterCondition",
         "string_filter_condition": "StringFilterCondition",
@@ -22043,8 +19703,6 @@ class FilterOperation(PropertyType):
 
 @dataclass
 class FiltersOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_operations": "FilterOperations",
         "alias": "Alias",
@@ -22058,8 +19716,6 @@ class FiltersOperation(PropertyType):
 
 @dataclass
 class GeoSpatialColumnGroup(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "columns": "Columns",
         "country_code": "CountryCode",
@@ -22073,8 +19729,6 @@ class GeoSpatialColumnGroup(PropertyType):
 
 @dataclass
 class ImportTableOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alias": "Alias",
         "source": "Source",
@@ -22086,8 +19740,6 @@ class ImportTableOperation(PropertyType):
 
 @dataclass
 class ImportTableOperationSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_table_id": "SourceTableId",
         "column_id_mappings": "ColumnIdMappings",
@@ -22099,8 +19751,6 @@ class ImportTableOperationSource(PropertyType):
 
 @dataclass
 class IncrementalRefresh(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lookback_window": "LookbackWindow",
     }
@@ -22110,8 +19760,6 @@ class IncrementalRefresh(PropertyType):
 
 @dataclass
 class IngestionWaitPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "wait_for_spice_ingestion": "WaitForSpiceIngestion",
         "ingestion_wait_time_in_hours": "IngestionWaitTimeInHours",
@@ -22123,8 +19771,6 @@ class IngestionWaitPolicy(PropertyType):
 
 @dataclass
 class InputColumn(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "sub_type": "SubType",
@@ -22140,8 +19786,6 @@ class InputColumn(PropertyType):
 
 @dataclass
 class IntegerDatasetParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_type": "ValueType",
         "default_values": "DefaultValues",
@@ -22157,8 +19801,6 @@ class IntegerDatasetParameter(PropertyType):
 
 @dataclass
 class IntegerDatasetParameterDefaultValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "static_values": "StaticValues",
     }
@@ -22168,8 +19810,6 @@ class IntegerDatasetParameterDefaultValues(PropertyType):
 
 @dataclass
 class JoinOperandProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "output_column_name_overrides": "OutputColumnNameOverrides",
     }
@@ -22179,8 +19819,6 @@ class JoinOperandProperties(PropertyType):
 
 @dataclass
 class JoinOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_clause": "OnClause",
         "type_": "Type",
@@ -22202,8 +19840,6 @@ class JoinOperation(PropertyType):
 
 @dataclass
 class LookbackWindow(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_name": "ColumnName",
         "size_unit": "SizeUnit",
@@ -22217,8 +19853,6 @@ class LookbackWindow(PropertyType):
 
 @dataclass
 class OutputColumn(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "description": "Description",
@@ -22236,8 +19870,6 @@ class OutputColumn(PropertyType):
 
 @dataclass
 class OutputColumnNameOverride(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "output_column_name": "OutputColumnName",
         "source_column_name": "SourceColumnName",
@@ -22249,8 +19881,6 @@ class OutputColumnNameOverride(PropertyType):
 
 @dataclass
 class ParentDataSet(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_columns": "InputColumns",
         "data_set_arn": "DataSetArn",
@@ -22262,8 +19892,6 @@ class ParentDataSet(PropertyType):
 
 @dataclass
 class PerformanceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "unique_keys": "UniqueKeys",
     }
@@ -22273,8 +19901,6 @@ class PerformanceConfiguration(PropertyType):
 
 @dataclass
 class PhysicalTable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "saa_s_table": "SaaSTable",
         "relational_table": "RelationalTable",
@@ -22290,8 +19916,6 @@ class PhysicalTable(PropertyType):
 
 @dataclass
 class PivotConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "label_column_name": "LabelColumnName",
         "pivoted_labels": "PivotedLabels",
@@ -22303,8 +19927,6 @@ class PivotConfiguration(PropertyType):
 
 @dataclass
 class PivotOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pivot_configuration": "PivotConfiguration",
         "group_by_column_names": "GroupByColumnNames",
@@ -22322,8 +19944,6 @@ class PivotOperation(PropertyType):
 
 @dataclass
 class PivotedLabel(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "new_column_name": "NewColumnName",
         "new_column_id": "NewColumnId",
@@ -22337,8 +19957,6 @@ class PivotedLabel(PropertyType):
 
 @dataclass
 class ProjectOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alias": "Alias",
         "projected_columns": "ProjectedColumns",
@@ -22352,8 +19970,6 @@ class ProjectOperation(PropertyType):
 
 @dataclass
 class RefreshConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "incremental_refresh": "IncrementalRefresh",
     }
@@ -22363,8 +19979,6 @@ class RefreshConfiguration(PropertyType):
 
 @dataclass
 class RefreshFailureConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "email_alert": "EmailAlert",
     }
@@ -22374,8 +19988,6 @@ class RefreshFailureConfiguration(PropertyType):
 
 @dataclass
 class RefreshFailureEmailAlert(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alert_status": "AlertStatus",
     }
@@ -22385,8 +19997,6 @@ class RefreshFailureEmailAlert(PropertyType):
 
 @dataclass
 class RelationalTable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_source_arn": "DataSourceArn",
         "input_columns": "InputColumns",
@@ -22404,8 +20014,6 @@ class RelationalTable(PropertyType):
 
 @dataclass
 class RenameColumnOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "new_column_name": "NewColumnName",
         "column_name": "ColumnName",
@@ -22417,8 +20025,6 @@ class RenameColumnOperation(PropertyType):
 
 @dataclass
 class RenameColumnsOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alias": "Alias",
         "rename_column_operations": "RenameColumnOperations",
@@ -22432,8 +20038,6 @@ class RenameColumnsOperation(PropertyType):
 
 @dataclass
 class ResourcePermission(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "actions": "Actions",
         "principal": "Principal",
@@ -22445,8 +20049,6 @@ class ResourcePermission(PropertyType):
 
 @dataclass
 class RowLevelPermissionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tag_configuration": "TagConfiguration",
         "row_level_permission_data_set": "RowLevelPermissionDataSet",
@@ -22458,8 +20060,6 @@ class RowLevelPermissionConfiguration(PropertyType):
 
 @dataclass
 class RowLevelPermissionDataSet(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "format_version": "FormatVersion",
@@ -22477,8 +20077,6 @@ class RowLevelPermissionDataSet(PropertyType):
 
 @dataclass
 class RowLevelPermissionTagConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "tag_rules": "TagRules",
@@ -22492,8 +20090,6 @@ class RowLevelPermissionTagConfiguration(PropertyType):
 
 @dataclass
 class RowLevelPermissionTagRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_name": "ColumnName",
         "tag_key": "TagKey",
@@ -22509,8 +20105,6 @@ class RowLevelPermissionTagRule(PropertyType):
 
 @dataclass
 class S3Source(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_source_arn": "DataSourceArn",
         "input_columns": "InputColumns",
@@ -22524,8 +20118,6 @@ class S3Source(PropertyType):
 
 @dataclass
 class SaaSTable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_source_arn": "DataSourceArn",
         "input_columns": "InputColumns",
@@ -22539,8 +20131,6 @@ class SaaSTable(PropertyType):
 
 @dataclass
 class SemanticModelConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_map": "TableMap",
     }
@@ -22550,8 +20140,6 @@ class SemanticModelConfiguration(PropertyType):
 
 @dataclass
 class SemanticTable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alias": "Alias",
         "destination_table_id": "DestinationTableId",
@@ -22565,8 +20153,6 @@ class SemanticTable(PropertyType):
 
 @dataclass
 class SourceTable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "physical_table_id": "PhysicalTableId",
         "data_set": "DataSet",
@@ -22578,8 +20164,6 @@ class SourceTable(PropertyType):
 
 @dataclass
 class StringDatasetParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_type": "ValueType",
         "default_values": "DefaultValues",
@@ -22595,8 +20179,6 @@ class StringDatasetParameter(PropertyType):
 
 @dataclass
 class StringDatasetParameterDefaultValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "static_values": "StaticValues",
     }
@@ -22606,8 +20188,6 @@ class StringDatasetParameterDefaultValues(PropertyType):
 
 @dataclass
 class TablePathElement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id": "Id",
         "name": "Name",
@@ -22619,8 +20199,6 @@ class TablePathElement(PropertyType):
 
 @dataclass
 class TransformOperationSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transform_operation_id": "TransformOperationId",
         "column_id_mappings": "ColumnIdMappings",
@@ -22632,8 +20210,6 @@ class TransformOperationSource(PropertyType):
 
 @dataclass
 class TransformStep(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "project_step": "ProjectStep",
         "create_columns_step": "CreateColumnsStep",
@@ -22663,8 +20239,6 @@ class TransformStep(PropertyType):
 
 @dataclass
 class UniqueKey(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_names": "ColumnNames",
     }
@@ -22674,8 +20248,6 @@ class UniqueKey(PropertyType):
 
 @dataclass
 class UnpivotOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "unpivoted_label_column_name": "UnpivotedLabelColumnName",
         "columns_to_unpivot": "ColumnsToUnpivot",
@@ -22697,8 +20269,6 @@ class UnpivotOperation(PropertyType):
 
 @dataclass
 class UploadSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "contains_header": "ContainsHeader",
         "text_qualifier": "TextQualifier",
@@ -22716,8 +20286,6 @@ class UploadSettings(PropertyType):
 
 @dataclass
 class ValueColumnConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation_function": "AggregationFunction",
     }
@@ -22802,8 +20370,6 @@ class DataSet(CloudFormationResource):
 
 @dataclass
 class AmazonElasticsearchParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain": "Domain",
     }
@@ -22813,8 +20379,6 @@ class AmazonElasticsearchParameters(PropertyType):
 
 @dataclass
 class AmazonOpenSearchParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain": "Domain",
     }
@@ -22824,8 +20388,6 @@ class AmazonOpenSearchParameters(PropertyType):
 
 @dataclass
 class AthenaParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "work_group": "WorkGroup",
         "identity_center_configuration": "IdentityCenterConfiguration",
@@ -22839,8 +20401,6 @@ class AthenaParameters(PropertyType):
 
 @dataclass
 class AuroraParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "database": "Database",
@@ -22854,8 +20414,6 @@ class AuroraParameters(PropertyType):
 
 @dataclass
 class AuroraPostgreSqlParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "database": "Database",
@@ -22869,8 +20427,6 @@ class AuroraPostgreSqlParameters(PropertyType):
 
 @dataclass
 class CredentialPair(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alternate_data_source_parameters": "AlternateDataSourceParameters",
         "username": "Username",
@@ -22884,8 +20440,6 @@ class CredentialPair(PropertyType):
 
 @dataclass
 class DataSourceCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "copy_source_arn": "CopySourceArn",
@@ -22899,8 +20453,6 @@ class DataSourceCredentials(PropertyType):
 
 @dataclass
 class DataSourceErrorInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "message": "Message",
@@ -22912,8 +20464,6 @@ class DataSourceErrorInfo(PropertyType):
 
 @dataclass
 class DataSourceParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aurora_postgre_sql_parameters": "AuroraPostgreSqlParameters",
         "teradata_parameters": "TeradataParameters",
@@ -22961,8 +20511,6 @@ class DataSourceParameters(PropertyType):
 
 @dataclass
 class DatabricksParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "host": "Host",
@@ -22976,8 +20524,6 @@ class DatabricksParameters(PropertyType):
 
 @dataclass
 class IdentityCenterConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_identity_propagation": "EnableIdentityPropagation",
     }
@@ -22987,8 +20533,6 @@ class IdentityCenterConfiguration(PropertyType):
 
 @dataclass
 class ManifestFileLocation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "key": "Key",
@@ -23000,8 +20544,6 @@ class ManifestFileLocation(PropertyType):
 
 @dataclass
 class MariaDbParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "database": "Database",
@@ -23015,8 +20557,6 @@ class MariaDbParameters(PropertyType):
 
 @dataclass
 class MySqlParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "database": "Database",
@@ -23030,8 +20570,6 @@ class MySqlParameters(PropertyType):
 
 @dataclass
 class OAuthParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "token_provider_url": "TokenProviderUrl",
         "o_auth_scope": "OAuthScope",
@@ -23047,8 +20585,6 @@ class OAuthParameters(PropertyType):
 
 @dataclass
 class OracleParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "use_service_name": "UseServiceName",
         "port": "Port",
@@ -23064,8 +20600,6 @@ class OracleParameters(PropertyType):
 
 @dataclass
 class PostgreSqlParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "database": "Database",
@@ -23079,8 +20613,6 @@ class PostgreSqlParameters(PropertyType):
 
 @dataclass
 class PrestoParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "host": "Host",
@@ -23094,8 +20626,6 @@ class PrestoParameters(PropertyType):
 
 @dataclass
 class RdsParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_id": "InstanceId",
         "database": "Database",
@@ -23107,8 +20637,6 @@ class RdsParameters(PropertyType):
 
 @dataclass
 class RedshiftIAMParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_create_database_user": "AutoCreateDatabaseUser",
         "database_user": "DatabaseUser",
@@ -23124,8 +20652,6 @@ class RedshiftIAMParameters(PropertyType):
 
 @dataclass
 class RedshiftParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iam_parameters": "IAMParameters",
         "cluster_id": "ClusterId",
@@ -23145,8 +20671,6 @@ class RedshiftParameters(PropertyType):
 
 @dataclass
 class ResourcePermission(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "actions": "Actions",
         "resource": "Resource",
@@ -23160,8 +20684,6 @@ class ResourcePermission(PropertyType):
 
 @dataclass
 class S3Parameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "manifest_file_location": "ManifestFileLocation",
         "role_arn": "RoleArn",
@@ -23173,8 +20695,6 @@ class S3Parameters(PropertyType):
 
 @dataclass
 class SnowflakeParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "warehouse": "Warehouse",
         "database_access_control_role": "DatabaseAccessControlRole",
@@ -23194,8 +20714,6 @@ class SnowflakeParameters(PropertyType):
 
 @dataclass
 class SparkParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "host": "Host",
@@ -23207,8 +20725,6 @@ class SparkParameters(PropertyType):
 
 @dataclass
 class SqlServerParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "database": "Database",
@@ -23222,8 +20738,6 @@ class SqlServerParameters(PropertyType):
 
 @dataclass
 class SslProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "disable_ssl": "DisableSsl",
     }
@@ -23233,8 +20747,6 @@ class SslProperties(PropertyType):
 
 @dataclass
 class StarburstParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "database_access_control_role": "DatabaseAccessControlRole",
@@ -23256,8 +20768,6 @@ class StarburstParameters(PropertyType):
 
 @dataclass
 class TeradataParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "database": "Database",
@@ -23271,8 +20781,6 @@ class TeradataParameters(PropertyType):
 
 @dataclass
 class TrinoParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "host": "Host",
@@ -23286,8 +20794,6 @@ class TrinoParameters(PropertyType):
 
 @dataclass
 class VpcConnectionProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_connection_arn": "VpcConnectionArn",
     }
@@ -23355,8 +20861,6 @@ class DataSource(CloudFormationResource):
 
 @dataclass
 class ResourcePermission(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "actions": "Actions",
         "principal": "Principal",
@@ -23411,8 +20915,6 @@ class Folder(CloudFormationResource):
 
 @dataclass
 class RefreshOnDay(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "day_of_week": "DayOfWeek",
         "day_of_month": "DayOfMonth",
@@ -23424,8 +20926,6 @@ class RefreshOnDay(PropertyType):
 
 @dataclass
 class RefreshScheduleMap(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start_after_date_time": "StartAfterDateTime",
         "schedule_id": "ScheduleId",
@@ -23441,8 +20941,6 @@ class RefreshScheduleMap(PropertyType):
 
 @dataclass
 class ScheduleFrequency(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "time_zone": "TimeZone",
         "refresh_on_day": "RefreshOnDay",
@@ -23481,8 +20979,6 @@ class RefreshSchedule(CloudFormationResource):
 
 @dataclass
 class AggregationFunction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_aggregation_function": "AttributeAggregationFunction",
         "date_aggregation_function": "DateAggregationFunction",
@@ -23498,8 +20994,6 @@ class AggregationFunction(PropertyType):
 
 @dataclass
 class AggregationSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation_function": "AggregationFunction",
         "sort_direction": "SortDirection",
@@ -23513,8 +21007,6 @@ class AggregationSortConfiguration(PropertyType):
 
 @dataclass
 class AnalysisDefaults(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_new_sheet_configuration": "DefaultNewSheetConfiguration",
     }
@@ -23524,8 +21016,6 @@ class AnalysisDefaults(PropertyType):
 
 @dataclass
 class AnchorDateConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "anchor_option": "AnchorOption",
         "parameter_name": "ParameterName",
@@ -23537,8 +21027,6 @@ class AnchorDateConfiguration(PropertyType):
 
 @dataclass
 class ArcAxisConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "range": "Range",
         "reserve_range": "ReserveRange",
@@ -23550,8 +21038,6 @@ class ArcAxisConfiguration(PropertyType):
 
 @dataclass
 class ArcAxisDisplayRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -23563,8 +21049,6 @@ class ArcAxisDisplayRange(PropertyType):
 
 @dataclass
 class ArcConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arc_angle": "ArcAngle",
         "arc_thickness": "ArcThickness",
@@ -23576,8 +21060,6 @@ class ArcConfiguration(PropertyType):
 
 @dataclass
 class ArcOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arc_thickness": "ArcThickness",
     }
@@ -23587,8 +21069,6 @@ class ArcOptions(PropertyType):
 
 @dataclass
 class AssetOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timezone": "Timezone",
         "week_start": "WeekStart",
@@ -23600,8 +21080,6 @@ class AssetOptions(PropertyType):
 
 @dataclass
 class AttributeAggregationFunction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "simple_attribute_aggregation": "SimpleAttributeAggregation",
         "value_for_multiple_values": "ValueForMultipleValues",
@@ -23613,8 +21091,6 @@ class AttributeAggregationFunction(PropertyType):
 
 @dataclass
 class AxisDataOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "date_axis_options": "DateAxisOptions",
         "numeric_axis_options": "NumericAxisOptions",
@@ -23626,8 +21102,6 @@ class AxisDataOptions(PropertyType):
 
 @dataclass
 class AxisDisplayMinMaxRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "minimum": "Minimum",
         "maximum": "Maximum",
@@ -23639,8 +21113,6 @@ class AxisDisplayMinMaxRange(PropertyType):
 
 @dataclass
 class AxisDisplayOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_options": "DataOptions",
         "tick_label_options": "TickLabelOptions",
@@ -23660,8 +21132,6 @@ class AxisDisplayOptions(PropertyType):
 
 @dataclass
 class AxisDisplayRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_driven": "DataDriven",
         "min_max": "MinMax",
@@ -23673,8 +21143,6 @@ class AxisDisplayRange(PropertyType):
 
 @dataclass
 class AxisLabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_label": "CustomLabel",
         "apply_to": "ApplyTo",
@@ -23688,8 +21156,6 @@ class AxisLabelOptions(PropertyType):
 
 @dataclass
 class AxisLabelReferenceOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "field_id": "FieldId",
@@ -23701,8 +21167,6 @@ class AxisLabelReferenceOptions(PropertyType):
 
 @dataclass
 class AxisLinearScale(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "step_size": "StepSize",
         "step_count": "StepCount",
@@ -23714,8 +21178,6 @@ class AxisLinearScale(PropertyType):
 
 @dataclass
 class AxisLogarithmicScale(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "base": "Base",
     }
@@ -23725,8 +21187,6 @@ class AxisLogarithmicScale(PropertyType):
 
 @dataclass
 class AxisScale(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logarithmic": "Logarithmic",
         "linear": "Linear",
@@ -23738,8 +21198,6 @@ class AxisScale(PropertyType):
 
 @dataclass
 class AxisTickLabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rotation_angle": "RotationAngle",
         "label_options": "LabelOptions",
@@ -23751,8 +21209,6 @@ class AxisTickLabelOptions(PropertyType):
 
 @dataclass
 class BarChartAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "colors": "Colors",
@@ -23768,8 +21224,6 @@ class BarChartAggregatedFieldWells(PropertyType):
 
 @dataclass
 class BarChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "legend": "Legend",
@@ -23811,8 +21265,6 @@ class BarChartConfiguration(PropertyType):
 
 @dataclass
 class BarChartFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bar_chart_aggregated_field_wells": "BarChartAggregatedFieldWells",
     }
@@ -23822,8 +21274,6 @@ class BarChartFieldWells(PropertyType):
 
 @dataclass
 class BarChartSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "small_multiples_sort": "SmallMultiplesSort",
         "color_sort": "ColorSort",
@@ -23843,8 +21293,6 @@ class BarChartSortConfiguration(PropertyType):
 
 @dataclass
 class BarChartVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -23866,8 +21314,6 @@ class BarChartVisual(PropertyType):
 
 @dataclass
 class BinCountOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -23877,8 +21323,6 @@ class BinCountOptions(PropertyType):
 
 @dataclass
 class BinWidthOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bin_count_limit": "BinCountLimit",
         "value": "Value",
@@ -23890,8 +21334,6 @@ class BinWidthOptions(PropertyType):
 
 @dataclass
 class BodySectionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content": "Content",
         "style": "Style",
@@ -23909,8 +21351,6 @@ class BodySectionConfiguration(PropertyType):
 
 @dataclass
 class BodySectionContent(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "layout": "Layout",
     }
@@ -23920,8 +21360,6 @@ class BodySectionContent(PropertyType):
 
 @dataclass
 class BodySectionDynamicCategoryDimensionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "sort_by_metrics": "SortByMetrics",
@@ -23935,8 +21373,6 @@ class BodySectionDynamicCategoryDimensionConfiguration(PropertyType):
 
 @dataclass
 class BodySectionDynamicNumericDimensionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "sort_by_metrics": "SortByMetrics",
@@ -23950,8 +21386,6 @@ class BodySectionDynamicNumericDimensionConfiguration(PropertyType):
 
 @dataclass
 class BodySectionRepeatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_configurations": "DimensionConfigurations",
         "non_repeating_visuals": "NonRepeatingVisuals",
@@ -23965,8 +21399,6 @@ class BodySectionRepeatConfiguration(PropertyType):
 
 @dataclass
 class BodySectionRepeatDimensionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dynamic_numeric_dimension_configuration": "DynamicNumericDimensionConfiguration",
         "dynamic_category_dimension_configuration": "DynamicCategoryDimensionConfiguration",
@@ -23978,8 +21410,6 @@ class BodySectionRepeatDimensionConfiguration(PropertyType):
 
 @dataclass
 class BodySectionRepeatPageBreakConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "after": "After",
     }
@@ -23989,8 +21419,6 @@ class BodySectionRepeatPageBreakConfiguration(PropertyType):
 
 @dataclass
 class BoxPlotAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_by": "GroupBy",
         "values": "Values",
@@ -24002,8 +21430,6 @@ class BoxPlotAggregatedFieldWells(PropertyType):
 
 @dataclass
 class BoxPlotChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "legend": "Legend",
@@ -24035,8 +21461,6 @@ class BoxPlotChartConfiguration(PropertyType):
 
 @dataclass
 class BoxPlotFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "box_plot_aggregated_field_wells": "BoxPlotAggregatedFieldWells",
     }
@@ -24046,8 +21470,6 @@ class BoxPlotFieldWells(PropertyType):
 
 @dataclass
 class BoxPlotOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "style_options": "StyleOptions",
         "outlier_visibility": "OutlierVisibility",
@@ -24061,8 +21483,6 @@ class BoxPlotOptions(PropertyType):
 
 @dataclass
 class BoxPlotSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_sort": "CategorySort",
         "pagination_configuration": "PaginationConfiguration",
@@ -24074,8 +21494,6 @@ class BoxPlotSortConfiguration(PropertyType):
 
 @dataclass
 class BoxPlotStyleOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fill_style": "FillStyle",
     }
@@ -24085,8 +21503,6 @@ class BoxPlotStyleOptions(PropertyType):
 
 @dataclass
 class BoxPlotVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -24108,8 +21524,6 @@ class BoxPlotVisual(PropertyType):
 
 @dataclass
 class CalculatedField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "data_set_identifier": "DataSetIdentifier",
@@ -24123,8 +21537,6 @@ class CalculatedField(PropertyType):
 
 @dataclass
 class CalculatedMeasureField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "field_id": "FieldId",
@@ -24136,8 +21548,6 @@ class CalculatedMeasureField(PropertyType):
 
 @dataclass
 class CascadingControlConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_controls": "SourceControls",
     }
@@ -24147,8 +21557,6 @@ class CascadingControlConfiguration(PropertyType):
 
 @dataclass
 class CascadingControlSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_sheet_control_id": "SourceSheetControlId",
         "column_to_match": "ColumnToMatch",
@@ -24160,8 +21568,6 @@ class CascadingControlSource(PropertyType):
 
 @dataclass
 class CategoricalDimensionField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hierarchy_id": "HierarchyId",
         "format_configuration": "FormatConfiguration",
@@ -24177,8 +21583,6 @@ class CategoricalDimensionField(PropertyType):
 
 @dataclass
 class CategoricalMeasureField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation_function": "AggregationFunction",
         "format_configuration": "FormatConfiguration",
@@ -24194,8 +21598,6 @@ class CategoricalMeasureField(PropertyType):
 
 @dataclass
 class CategoryDrillDownFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "category_values": "CategoryValues",
@@ -24207,8 +21609,6 @@ class CategoryDrillDownFilter(PropertyType):
 
 @dataclass
 class CategoryFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration": "Configuration",
         "column": "Column",
@@ -24224,8 +21624,6 @@ class CategoryFilter(PropertyType):
 
 @dataclass
 class CategoryFilterConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_filter_list_configuration": "CustomFilterListConfiguration",
         "custom_filter_configuration": "CustomFilterConfiguration",
@@ -24239,8 +21637,6 @@ class CategoryFilterConfiguration(PropertyType):
 
 @dataclass
 class CategoryInnerFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration": "Configuration",
         "column": "Column",
@@ -24254,8 +21650,6 @@ class CategoryInnerFilter(PropertyType):
 
 @dataclass
 class ChartAxisLabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
         "sort_icon_visibility": "SortIconVisibility",
@@ -24269,8 +21663,6 @@ class ChartAxisLabelOptions(PropertyType):
 
 @dataclass
 class ClusterMarker(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "simple_cluster_marker": "SimpleClusterMarker",
     }
@@ -24280,8 +21672,6 @@ class ClusterMarker(PropertyType):
 
 @dataclass
 class ClusterMarkerConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_marker": "ClusterMarker",
     }
@@ -24291,8 +21681,6 @@ class ClusterMarkerConfiguration(PropertyType):
 
 @dataclass
 class ColorScale(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "colors": "Colors",
         "color_fill_type": "ColorFillType",
@@ -24306,8 +21694,6 @@ class ColorScale(PropertyType):
 
 @dataclass
 class ColorsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_colors": "CustomColors",
     }
@@ -24317,8 +21703,6 @@ class ColorsConfiguration(PropertyType):
 
 @dataclass
 class ColumnConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role": "Role",
         "format_configuration": "FormatConfiguration",
@@ -24334,8 +21718,6 @@ class ColumnConfiguration(PropertyType):
 
 @dataclass
 class ColumnGroupColumnSchema(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -24345,8 +21727,6 @@ class ColumnGroupColumnSchema(PropertyType):
 
 @dataclass
 class ColumnGroupSchema(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_group_column_schema_list": "ColumnGroupColumnSchemaList",
         "name": "Name",
@@ -24358,8 +21738,6 @@ class ColumnGroupSchema(PropertyType):
 
 @dataclass
 class ColumnHierarchy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "date_time_hierarchy": "DateTimeHierarchy",
         "explicit_hierarchy": "ExplicitHierarchy",
@@ -24373,8 +21751,6 @@ class ColumnHierarchy(PropertyType):
 
 @dataclass
 class ColumnIdentifier(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_name": "ColumnName",
         "data_set_identifier": "DataSetIdentifier",
@@ -24386,8 +21762,6 @@ class ColumnIdentifier(PropertyType):
 
 @dataclass
 class ColumnSchema(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_type": "DataType",
         "geographic_role": "GeographicRole",
@@ -24401,8 +21775,6 @@ class ColumnSchema(PropertyType):
 
 @dataclass
 class ColumnSort(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation_function": "AggregationFunction",
         "sort_by": "SortBy",
@@ -24416,8 +21788,6 @@ class ColumnSort(PropertyType):
 
 @dataclass
 class ColumnTooltipItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation": "Aggregation",
         "tooltip_target": "TooltipTarget",
@@ -24435,8 +21805,6 @@ class ColumnTooltipItem(PropertyType):
 
 @dataclass
 class ComboChartAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bar_values": "BarValues",
         "category": "Category",
@@ -24452,8 +21820,6 @@ class ComboChartAggregatedFieldWells(PropertyType):
 
 @dataclass
 class ComboChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "legend": "Legend",
@@ -24497,8 +21863,6 @@ class ComboChartConfiguration(PropertyType):
 
 @dataclass
 class ComboChartFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "combo_chart_aggregated_field_wells": "ComboChartAggregatedFieldWells",
     }
@@ -24508,8 +21872,6 @@ class ComboChartFieldWells(PropertyType):
 
 @dataclass
 class ComboChartSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "color_sort": "ColorSort",
         "color_items_limit": "ColorItemsLimit",
@@ -24525,8 +21887,6 @@ class ComboChartSortConfiguration(PropertyType):
 
 @dataclass
 class ComboChartVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -24548,8 +21908,6 @@ class ComboChartVisual(PropertyType):
 
 @dataclass
 class ComparisonConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison_method": "ComparisonMethod",
         "comparison_format": "ComparisonFormat",
@@ -24561,8 +21919,6 @@ class ComparisonConfiguration(PropertyType):
 
 @dataclass
 class ComparisonFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "number_display_format_configuration": "NumberDisplayFormatConfiguration",
         "percentage_display_format_configuration": "PercentageDisplayFormatConfiguration",
@@ -24574,8 +21930,6 @@ class ComparisonFormatConfiguration(PropertyType):
 
 @dataclass
 class Computation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "period_to_date": "PeriodToDate",
         "growth_rate": "GrowthRate",
@@ -24603,8 +21957,6 @@ class Computation(PropertyType):
 
 @dataclass
 class ConditionalFormattingColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "gradient": "Gradient",
         "solid": "Solid",
@@ -24616,8 +21968,6 @@ class ConditionalFormattingColor(PropertyType):
 
 @dataclass
 class ConditionalFormattingCustomIconCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "color": "Color",
@@ -24633,8 +21983,6 @@ class ConditionalFormattingCustomIconCondition(PropertyType):
 
 @dataclass
 class ConditionalFormattingCustomIconOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "unicode_icon": "UnicodeIcon",
         "icon": "Icon",
@@ -24646,8 +21994,6 @@ class ConditionalFormattingCustomIconOptions(PropertyType):
 
 @dataclass
 class ConditionalFormattingGradientColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "color": "Color",
@@ -24659,8 +22005,6 @@ class ConditionalFormattingGradientColor(PropertyType):
 
 @dataclass
 class ConditionalFormattingIcon(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_condition": "CustomCondition",
         "icon_set": "IconSet",
@@ -24672,8 +22016,6 @@ class ConditionalFormattingIcon(PropertyType):
 
 @dataclass
 class ConditionalFormattingIconDisplayConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "icon_display_option": "IconDisplayOption",
     }
@@ -24683,8 +22025,6 @@ class ConditionalFormattingIconDisplayConfiguration(PropertyType):
 
 @dataclass
 class ConditionalFormattingIconSet(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "icon_set_type": "IconSetType",
@@ -24696,8 +22036,6 @@ class ConditionalFormattingIconSet(PropertyType):
 
 @dataclass
 class ConditionalFormattingSolidColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "color": "Color",
@@ -24709,8 +22047,6 @@ class ConditionalFormattingSolidColor(PropertyType):
 
 @dataclass
 class ContextMenuOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_status": "AvailabilityStatus",
     }
@@ -24720,8 +22056,6 @@ class ContextMenuOption(PropertyType):
 
 @dataclass
 class ContributionAnalysisDefault(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "measure_field_id": "MeasureFieldId",
         "contributor_dimensions": "ContributorDimensions",
@@ -24733,8 +22067,6 @@ class ContributionAnalysisDefault(PropertyType):
 
 @dataclass
 class CurrencyDisplayFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "negative_value_configuration": "NegativeValueConfiguration",
         "decimal_places_configuration": "DecimalPlacesConfiguration",
@@ -24758,8 +22090,6 @@ class CurrencyDisplayFormatConfiguration(PropertyType):
 
 @dataclass
 class CustomActionFilterOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "selected_fields_configuration": "SelectedFieldsConfiguration",
         "target_visuals_configuration": "TargetVisualsConfiguration",
@@ -24771,8 +22101,6 @@ class CustomActionFilterOperation(PropertyType):
 
 @dataclass
 class CustomActionNavigationOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "local_navigation_configuration": "LocalNavigationConfiguration",
     }
@@ -24782,8 +22110,6 @@ class CustomActionNavigationOperation(PropertyType):
 
 @dataclass
 class CustomActionSetParametersOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_value_configurations": "ParameterValueConfigurations",
     }
@@ -24793,8 +22119,6 @@ class CustomActionSetParametersOperation(PropertyType):
 
 @dataclass
 class CustomActionURLOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "url_template": "URLTemplate",
         "url_target": "URLTarget",
@@ -24806,8 +22130,6 @@ class CustomActionURLOperation(PropertyType):
 
 @dataclass
 class CustomColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "color": "Color",
         "field_value": "FieldValue",
@@ -24821,8 +22143,6 @@ class CustomColor(PropertyType):
 
 @dataclass
 class CustomContentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_url": "ContentUrl",
         "content_type": "ContentType",
@@ -24838,8 +22158,6 @@ class CustomContentConfiguration(PropertyType):
 
 @dataclass
 class CustomContentVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -24861,8 +22179,6 @@ class CustomContentVisual(PropertyType):
 
 @dataclass
 class CustomFilterConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_value": "CategoryValue",
         "parameter_name": "ParameterName",
@@ -24880,8 +22196,6 @@ class CustomFilterConfiguration(PropertyType):
 
 @dataclass
 class CustomFilterListConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_values": "CategoryValues",
         "null_option": "NullOption",
@@ -24897,8 +22211,6 @@ class CustomFilterListConfiguration(PropertyType):
 
 @dataclass
 class CustomNarrativeOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "narrative": "Narrative",
     }
@@ -24908,8 +22220,6 @@ class CustomNarrativeOptions(PropertyType):
 
 @dataclass
 class CustomParameterValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "decimal_values": "DecimalValues",
         "integer_values": "IntegerValues",
@@ -24925,8 +22235,6 @@ class CustomParameterValues(PropertyType):
 
 @dataclass
 class CustomValuesConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_null_value": "IncludeNullValue",
         "custom_values": "CustomValues",
@@ -24938,8 +22246,6 @@ class CustomValuesConfiguration(PropertyType):
 
 @dataclass
 class DataBarsOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "positive_color": "PositiveColor",
         "field_id": "FieldId",
@@ -24953,8 +22259,6 @@ class DataBarsOptions(PropertyType):
 
 @dataclass
 class DataColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_value": "DataValue",
         "color": "Color",
@@ -24966,8 +22270,6 @@ class DataColor(PropertyType):
 
 @dataclass
 class DataFieldSeriesItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_id": "FieldId",
         "axis_binding": "AxisBinding",
@@ -24983,8 +22285,6 @@ class DataFieldSeriesItem(PropertyType):
 
 @dataclass
 class DataLabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_label_types": "DataLabelTypes",
         "measure_label_visibility": "MeasureLabelVisibility",
@@ -25012,8 +22312,6 @@ class DataLabelOptions(PropertyType):
 
 @dataclass
 class DataLabelType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maximum_label_type": "MaximumLabelType",
         "data_path_label_type": "DataPathLabelType",
@@ -25031,8 +22329,6 @@ class DataLabelType(PropertyType):
 
 @dataclass
 class DataPathColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "element": "Element",
         "color": "Color",
@@ -25046,8 +22342,6 @@ class DataPathColor(PropertyType):
 
 @dataclass
 class DataPathLabelType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_id": "FieldId",
         "visibility": "Visibility",
@@ -25061,8 +22355,6 @@ class DataPathLabelType(PropertyType):
 
 @dataclass
 class DataPathSort(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_paths": "SortPaths",
         "direction": "Direction",
@@ -25074,8 +22366,6 @@ class DataPathSort(PropertyType):
 
 @dataclass
 class DataPathType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pivot_table_data_path_type": "PivotTableDataPathType",
     }
@@ -25085,8 +22375,6 @@ class DataPathType(PropertyType):
 
 @dataclass
 class DataPathValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_path_type": "DataPathType",
         "field_id": "FieldId",
@@ -25100,8 +22388,6 @@ class DataPathValue(PropertyType):
 
 @dataclass
 class DataSetConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "placeholder": "Placeholder",
         "data_set_schema": "DataSetSchema",
@@ -25115,8 +22401,6 @@ class DataSetConfiguration(PropertyType):
 
 @dataclass
 class DataSetReference(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_set_arn": "DataSetArn",
         "data_set_placeholder": "DataSetPlaceholder",
@@ -25128,8 +22412,6 @@ class DataSetReference(PropertyType):
 
 @dataclass
 class DataSetSchema(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_schema_list": "ColumnSchemaList",
     }
@@ -25139,8 +22421,6 @@ class DataSetSchema(PropertyType):
 
 @dataclass
 class DateAxisOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "missing_date_visibility": "MissingDateVisibility",
     }
@@ -25150,8 +22430,6 @@ class DateAxisOptions(PropertyType):
 
 @dataclass
 class DateDimensionField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hierarchy_id": "HierarchyId",
         "format_configuration": "FormatConfiguration",
@@ -25169,8 +22447,6 @@ class DateDimensionField(PropertyType):
 
 @dataclass
 class DateMeasureField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation_function": "AggregationFunction",
         "format_configuration": "FormatConfiguration",
@@ -25186,8 +22462,6 @@ class DateMeasureField(PropertyType):
 
 @dataclass
 class DateTimeDefaultValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rolling_date": "RollingDate",
         "dynamic_value": "DynamicValue",
@@ -25201,8 +22475,6 @@ class DateTimeDefaultValues(PropertyType):
 
 @dataclass
 class DateTimeFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "numeric_format_configuration": "NumericFormatConfiguration",
         "null_value_format_configuration": "NullValueFormatConfiguration",
@@ -25216,8 +22488,6 @@ class DateTimeFormatConfiguration(PropertyType):
 
 @dataclass
 class DateTimeHierarchy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hierarchy_id": "HierarchyId",
         "drill_down_filters": "DrillDownFilters",
@@ -25229,8 +22499,6 @@ class DateTimeHierarchy(PropertyType):
 
 @dataclass
 class DateTimeParameterDeclaration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mapped_data_set_parameters": "MappedDataSetParameters",
         "default_values": "DefaultValues",
@@ -25248,8 +22516,6 @@ class DateTimeParameterDeclaration(PropertyType):
 
 @dataclass
 class DateTimePickerControlDisplayOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "title_options": "TitleOptions",
         "info_icon_label_options": "InfoIconLabelOptions",
@@ -25267,8 +22533,6 @@ class DateTimePickerControlDisplayOptions(PropertyType):
 
 @dataclass
 class DateTimeValueWhenUnsetConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_when_unset_option": "ValueWhenUnsetOption",
         "custom_value": "CustomValue",
@@ -25280,8 +22544,6 @@ class DateTimeValueWhenUnsetConfiguration(PropertyType):
 
 @dataclass
 class DecimalDefaultValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dynamic_value": "DynamicValue",
         "static_values": "StaticValues",
@@ -25293,8 +22555,6 @@ class DecimalDefaultValues(PropertyType):
 
 @dataclass
 class DecimalParameterDeclaration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mapped_data_set_parameters": "MappedDataSetParameters",
         "default_values": "DefaultValues",
@@ -25312,8 +22572,6 @@ class DecimalParameterDeclaration(PropertyType):
 
 @dataclass
 class DecimalPlacesConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "decimal_places": "DecimalPlaces",
     }
@@ -25323,8 +22581,6 @@ class DecimalPlacesConfiguration(PropertyType):
 
 @dataclass
 class DecimalValueWhenUnsetConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_when_unset_option": "ValueWhenUnsetOption",
         "custom_value": "CustomValue",
@@ -25336,8 +22592,6 @@ class DecimalValueWhenUnsetConfiguration(PropertyType):
 
 @dataclass
 class DefaultDateTimePickerControlOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "display_options": "DisplayOptions",
@@ -25351,8 +22605,6 @@ class DefaultDateTimePickerControlOptions(PropertyType):
 
 @dataclass
 class DefaultFilterControlConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "control_options": "ControlOptions",
         "title": "Title",
@@ -25364,8 +22616,6 @@ class DefaultFilterControlConfiguration(PropertyType):
 
 @dataclass
 class DefaultFilterControlOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_slider_options": "DefaultSliderOptions",
         "default_relative_date_time_options": "DefaultRelativeDateTimeOptions",
@@ -25387,8 +22637,6 @@ class DefaultFilterControlOptions(PropertyType):
 
 @dataclass
 class DefaultFilterDropDownControlOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "display_options": "DisplayOptions",
@@ -25404,8 +22652,6 @@ class DefaultFilterDropDownControlOptions(PropertyType):
 
 @dataclass
 class DefaultFilterListControlOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "display_options": "DisplayOptions",
@@ -25419,8 +22665,6 @@ class DefaultFilterListControlOptions(PropertyType):
 
 @dataclass
 class DefaultFreeFormLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "canvas_size_options": "CanvasSizeOptions",
     }
@@ -25430,8 +22674,6 @@ class DefaultFreeFormLayoutConfiguration(PropertyType):
 
 @dataclass
 class DefaultGridLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "canvas_size_options": "CanvasSizeOptions",
     }
@@ -25441,8 +22683,6 @@ class DefaultGridLayoutConfiguration(PropertyType):
 
 @dataclass
 class DefaultInteractiveLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "free_form": "FreeForm",
         "grid": "Grid",
@@ -25454,8 +22694,6 @@ class DefaultInteractiveLayoutConfiguration(PropertyType):
 
 @dataclass
 class DefaultNewSheetConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sheet_content_type": "SheetContentType",
         "interactive_layout_configuration": "InteractiveLayoutConfiguration",
@@ -25469,8 +22707,6 @@ class DefaultNewSheetConfiguration(PropertyType):
 
 @dataclass
 class DefaultPaginatedLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "section_based": "SectionBased",
     }
@@ -25480,8 +22716,6 @@ class DefaultPaginatedLayoutConfiguration(PropertyType):
 
 @dataclass
 class DefaultRelativeDateTimeControlOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "display_options": "DisplayOptions",
         "commit_mode": "CommitMode",
@@ -25493,8 +22727,6 @@ class DefaultRelativeDateTimeControlOptions(PropertyType):
 
 @dataclass
 class DefaultSectionBasedLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "canvas_size_options": "CanvasSizeOptions",
     }
@@ -25504,8 +22736,6 @@ class DefaultSectionBasedLayoutConfiguration(PropertyType):
 
 @dataclass
 class DefaultSliderControlOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "step_size": "StepSize",
@@ -25523,8 +22753,6 @@ class DefaultSliderControlOptions(PropertyType):
 
 @dataclass
 class DefaultTextAreaControlOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delimiter": "Delimiter",
         "display_options": "DisplayOptions",
@@ -25536,8 +22764,6 @@ class DefaultTextAreaControlOptions(PropertyType):
 
 @dataclass
 class DefaultTextFieldControlOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "display_options": "DisplayOptions",
     }
@@ -25547,8 +22773,6 @@ class DefaultTextFieldControlOptions(PropertyType):
 
 @dataclass
 class DestinationParameterValueConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_values_configuration": "CustomValuesConfiguration",
         "source_parameter_name": "SourceParameterName",
@@ -25566,8 +22790,6 @@ class DestinationParameterValueConfiguration(PropertyType):
 
 @dataclass
 class DimensionField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "date_dimension_field": "DateDimensionField",
         "numerical_dimension_field": "NumericalDimensionField",
@@ -25581,8 +22803,6 @@ class DimensionField(PropertyType):
 
 @dataclass
 class DonutCenterOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "label_visibility": "LabelVisibility",
     }
@@ -25592,8 +22812,6 @@ class DonutCenterOptions(PropertyType):
 
 @dataclass
 class DonutOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "donut_center_options": "DonutCenterOptions",
         "arc_options": "ArcOptions",
@@ -25605,8 +22823,6 @@ class DonutOptions(PropertyType):
 
 @dataclass
 class DrillDownFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "numeric_equality_filter": "NumericEqualityFilter",
         "time_range_filter": "TimeRangeFilter",
@@ -25620,8 +22836,6 @@ class DrillDownFilter(PropertyType):
 
 @dataclass
 class DropDownControlDisplayOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "title_options": "TitleOptions",
         "select_all_options": "SelectAllOptions",
@@ -25635,8 +22849,6 @@ class DropDownControlDisplayOptions(PropertyType):
 
 @dataclass
 class DynamicDefaultValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_name_column": "GroupNameColumn",
         "default_value_column": "DefaultValueColumn",
@@ -25650,8 +22862,6 @@ class DynamicDefaultValue(PropertyType):
 
 @dataclass
 class EmptyVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visual_id": "VisualId",
         "actions": "Actions",
@@ -25665,8 +22875,6 @@ class EmptyVisual(PropertyType):
 
 @dataclass
 class Entity(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
     }
@@ -25676,8 +22884,6 @@ class Entity(PropertyType):
 
 @dataclass
 class ExcludePeriodConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "amount": "Amount",
@@ -25691,8 +22897,6 @@ class ExcludePeriodConfiguration(PropertyType):
 
 @dataclass
 class ExplicitHierarchy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hierarchy_id": "HierarchyId",
         "drill_down_filters": "DrillDownFilters",
@@ -25706,8 +22910,6 @@ class ExplicitHierarchy(PropertyType):
 
 @dataclass
 class FieldBasedTooltip(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tooltip_fields": "TooltipFields",
         "aggregation_visibility": "AggregationVisibility",
@@ -25721,8 +22923,6 @@ class FieldBasedTooltip(PropertyType):
 
 @dataclass
 class FieldLabelType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_id": "FieldId",
         "visibility": "Visibility",
@@ -25734,8 +22934,6 @@ class FieldLabelType(PropertyType):
 
 @dataclass
 class FieldSeriesItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_id": "FieldId",
         "axis_binding": "AxisBinding",
@@ -25749,8 +22947,6 @@ class FieldSeriesItem(PropertyType):
 
 @dataclass
 class FieldSort(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_id": "FieldId",
         "direction": "Direction",
@@ -25762,8 +22958,6 @@ class FieldSort(PropertyType):
 
 @dataclass
 class FieldSortOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_sort": "FieldSort",
         "column_sort": "ColumnSort",
@@ -25775,8 +22969,6 @@ class FieldSortOptions(PropertyType):
 
 @dataclass
 class FieldTooltipItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tooltip_target": "TooltipTarget",
         "field_id": "FieldId",
@@ -25792,8 +22984,6 @@ class FieldTooltipItem(PropertyType):
 
 @dataclass
 class FilledMapAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "geospatial": "Geospatial",
@@ -25805,8 +22995,6 @@ class FilledMapAggregatedFieldWells(PropertyType):
 
 @dataclass
 class FilledMapConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "conditional_formatting_options": "ConditionalFormattingOptions",
     }
@@ -25816,8 +23004,6 @@ class FilledMapConditionalFormatting(PropertyType):
 
 @dataclass
 class FilledMapConditionalFormattingOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "shape": "Shape",
     }
@@ -25827,8 +23013,6 @@ class FilledMapConditionalFormattingOption(PropertyType):
 
 @dataclass
 class FilledMapConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "legend": "Legend",
@@ -25850,8 +23034,6 @@ class FilledMapConfiguration(PropertyType):
 
 @dataclass
 class FilledMapFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filled_map_aggregated_field_wells": "FilledMapAggregatedFieldWells",
     }
@@ -25861,8 +23043,6 @@ class FilledMapFieldWells(PropertyType):
 
 @dataclass
 class FilledMapShapeConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "format": "Format",
         "field_id": "FieldId",
@@ -25874,8 +23054,6 @@ class FilledMapShapeConditionalFormatting(PropertyType):
 
 @dataclass
 class FilledMapSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_sort": "CategorySort",
     }
@@ -25885,8 +23063,6 @@ class FilledMapSortConfiguration(PropertyType):
 
 @dataclass
 class FilledMapVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "conditional_formatting": "ConditionalFormatting",
@@ -25910,8 +23086,6 @@ class FilledMapVisual(PropertyType):
 
 @dataclass
 class Filter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "nested_filter": "NestedFilter",
         "numeric_equality_filter": "NumericEqualityFilter",
@@ -25935,8 +23109,6 @@ class Filter(PropertyType):
 
 @dataclass
 class FilterControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "slider": "Slider",
         "text_area": "TextArea",
@@ -25960,8 +23132,6 @@ class FilterControl(PropertyType):
 
 @dataclass
 class FilterCrossSheetControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_control_id": "FilterControlId",
         "cascading_control_configuration": "CascadingControlConfiguration",
@@ -25975,8 +23145,6 @@ class FilterCrossSheetControl(PropertyType):
 
 @dataclass
 class FilterDateTimePickerControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_control_id": "FilterControlId",
         "type_": "Type",
@@ -25996,8 +23164,6 @@ class FilterDateTimePickerControl(PropertyType):
 
 @dataclass
 class FilterDropDownControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_control_id": "FilterControlId",
         "type_": "Type",
@@ -26021,8 +23187,6 @@ class FilterDropDownControl(PropertyType):
 
 @dataclass
 class FilterGroup(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "filters": "Filters",
@@ -26040,8 +23204,6 @@ class FilterGroup(PropertyType):
 
 @dataclass
 class FilterListConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_values": "CategoryValues",
         "null_option": "NullOption",
@@ -26057,8 +23219,6 @@ class FilterListConfiguration(PropertyType):
 
 @dataclass
 class FilterListControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_control_id": "FilterControlId",
         "type_": "Type",
@@ -26080,8 +23240,6 @@ class FilterListControl(PropertyType):
 
 @dataclass
 class FilterOperationSelectedFieldsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "selected_columns": "SelectedColumns",
         "selected_fields": "SelectedFields",
@@ -26095,8 +23253,6 @@ class FilterOperationSelectedFieldsConfiguration(PropertyType):
 
 @dataclass
 class FilterOperationTargetVisualsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "same_sheet_target_visual_configuration": "SameSheetTargetVisualConfiguration",
     }
@@ -26106,8 +23262,6 @@ class FilterOperationTargetVisualsConfiguration(PropertyType):
 
 @dataclass
 class FilterRelativeDateTimeControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_control_id": "FilterControlId",
         "display_options": "DisplayOptions",
@@ -26125,8 +23279,6 @@ class FilterRelativeDateTimeControl(PropertyType):
 
 @dataclass
 class FilterScopeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all_sheets": "AllSheets",
         "selected_sheets": "SelectedSheets",
@@ -26138,8 +23290,6 @@ class FilterScopeConfiguration(PropertyType):
 
 @dataclass
 class FilterSelectableValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
     }
@@ -26149,8 +23299,6 @@ class FilterSelectableValues(PropertyType):
 
 @dataclass
 class FilterSliderControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_control_id": "FilterControlId",
         "type_": "Type",
@@ -26174,8 +23322,6 @@ class FilterSliderControl(PropertyType):
 
 @dataclass
 class FilterTextAreaControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_control_id": "FilterControlId",
         "delimiter": "Delimiter",
@@ -26193,8 +23339,6 @@ class FilterTextAreaControl(PropertyType):
 
 @dataclass
 class FilterTextFieldControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_control_id": "FilterControlId",
         "display_options": "DisplayOptions",
@@ -26210,8 +23354,6 @@ class FilterTextFieldControl(PropertyType):
 
 @dataclass
 class FontConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "font_family": "FontFamily",
         "font_style": "FontStyle",
@@ -26231,8 +23373,6 @@ class FontConfiguration(PropertyType):
 
 @dataclass
 class FontSize(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "relative": "Relative",
         "absolute": "Absolute",
@@ -26244,8 +23384,6 @@ class FontSize(PropertyType):
 
 @dataclass
 class FontWeight(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -26255,8 +23393,6 @@ class FontWeight(PropertyType):
 
 @dataclass
 class ForecastComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "periods_backward": "PeriodsBackward",
         "periods_forward": "PeriodsForward",
@@ -26286,8 +23422,6 @@ class ForecastComputation(PropertyType):
 
 @dataclass
 class ForecastConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "forecast_properties": "ForecastProperties",
         "scenario": "Scenario",
@@ -26299,8 +23433,6 @@ class ForecastConfiguration(PropertyType):
 
 @dataclass
 class ForecastScenario(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "what_if_range_scenario": "WhatIfRangeScenario",
         "what_if_point_scenario": "WhatIfPointScenario",
@@ -26312,8 +23444,6 @@ class ForecastScenario(PropertyType):
 
 @dataclass
 class FormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "number_format_configuration": "NumberFormatConfiguration",
         "date_time_format_configuration": "DateTimeFormatConfiguration",
@@ -26327,8 +23457,6 @@ class FormatConfiguration(PropertyType):
 
 @dataclass
 class FreeFormLayoutCanvasSizeOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "screen_canvas_size_options": "ScreenCanvasSizeOptions",
     }
@@ -26338,8 +23466,6 @@ class FreeFormLayoutCanvasSizeOptions(PropertyType):
 
 @dataclass
 class FreeFormLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "canvas_size_options": "CanvasSizeOptions",
         "elements": "Elements",
@@ -26351,8 +23477,6 @@ class FreeFormLayoutConfiguration(PropertyType):
 
 @dataclass
 class FreeFormLayoutElement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "element_type": "ElementType",
         "border_style": "BorderStyle",
@@ -26384,8 +23508,6 @@ class FreeFormLayoutElement(PropertyType):
 
 @dataclass
 class FreeFormLayoutElementBackgroundStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "color": "Color",
         "visibility": "Visibility",
@@ -26397,8 +23519,6 @@ class FreeFormLayoutElementBackgroundStyle(PropertyType):
 
 @dataclass
 class FreeFormLayoutElementBorderStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "color": "Color",
         "visibility": "Visibility",
@@ -26410,8 +23530,6 @@ class FreeFormLayoutElementBorderStyle(PropertyType):
 
 @dataclass
 class FreeFormLayoutScreenCanvasSizeOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "optimized_view_port_width": "OptimizedViewPortWidth",
     }
@@ -26421,8 +23539,6 @@ class FreeFormLayoutScreenCanvasSizeOptions(PropertyType):
 
 @dataclass
 class FreeFormSectionLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "elements": "Elements",
     }
@@ -26432,8 +23548,6 @@ class FreeFormSectionLayoutConfiguration(PropertyType):
 
 @dataclass
 class FunnelChartAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "values": "Values",
@@ -26445,8 +23559,6 @@ class FunnelChartAggregatedFieldWells(PropertyType):
 
 @dataclass
 class FunnelChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "data_label_options": "DataLabelOptions",
@@ -26470,8 +23582,6 @@ class FunnelChartConfiguration(PropertyType):
 
 @dataclass
 class FunnelChartDataLabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "measure_label_visibility": "MeasureLabelVisibility",
         "position": "Position",
@@ -26493,8 +23603,6 @@ class FunnelChartDataLabelOptions(PropertyType):
 
 @dataclass
 class FunnelChartFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "funnel_chart_aggregated_field_wells": "FunnelChartAggregatedFieldWells",
     }
@@ -26504,8 +23612,6 @@ class FunnelChartFieldWells(PropertyType):
 
 @dataclass
 class FunnelChartSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_items_limit": "CategoryItemsLimit",
         "category_sort": "CategorySort",
@@ -26517,8 +23623,6 @@ class FunnelChartSortConfiguration(PropertyType):
 
 @dataclass
 class FunnelChartVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -26540,8 +23644,6 @@ class FunnelChartVisual(PropertyType):
 
 @dataclass
 class GaugeChartArcConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "foreground_color": "ForegroundColor",
     }
@@ -26551,8 +23653,6 @@ class GaugeChartArcConditionalFormatting(PropertyType):
 
 @dataclass
 class GaugeChartColorConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "foreground_color": "ForegroundColor",
         "background_color": "BackgroundColor",
@@ -26564,8 +23664,6 @@ class GaugeChartColorConfiguration(PropertyType):
 
 @dataclass
 class GaugeChartConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "conditional_formatting_options": "ConditionalFormattingOptions",
     }
@@ -26575,8 +23673,6 @@ class GaugeChartConditionalFormatting(PropertyType):
 
 @dataclass
 class GaugeChartConditionalFormattingOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arc": "Arc",
         "primary_value": "PrimaryValue",
@@ -26588,8 +23684,6 @@ class GaugeChartConditionalFormattingOption(PropertyType):
 
 @dataclass
 class GaugeChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_labels": "DataLabels",
         "field_wells": "FieldWells",
@@ -26611,8 +23705,6 @@ class GaugeChartConfiguration(PropertyType):
 
 @dataclass
 class GaugeChartFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_values": "TargetValues",
         "values": "Values",
@@ -26624,8 +23716,6 @@ class GaugeChartFieldWells(PropertyType):
 
 @dataclass
 class GaugeChartOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arc": "Arc",
         "comparison": "Comparison",
@@ -26643,8 +23733,6 @@ class GaugeChartOptions(PropertyType):
 
 @dataclass
 class GaugeChartPrimaryValueConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_color": "TextColor",
         "icon": "Icon",
@@ -26656,8 +23744,6 @@ class GaugeChartPrimaryValueConditionalFormatting(PropertyType):
 
 @dataclass
 class GaugeChartVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "conditional_formatting": "ConditionalFormatting",
@@ -26679,8 +23765,6 @@ class GaugeChartVisual(PropertyType):
 
 @dataclass
 class GeospatialCoordinateBounds(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "west": "West",
         "south": "South",
@@ -26696,8 +23780,6 @@ class GeospatialCoordinateBounds(PropertyType):
 
 @dataclass
 class GeospatialHeatmapColorScale(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "colors": "Colors",
     }
@@ -26707,8 +23789,6 @@ class GeospatialHeatmapColorScale(PropertyType):
 
 @dataclass
 class GeospatialHeatmapConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "heatmap_color": "HeatmapColor",
     }
@@ -26718,8 +23798,6 @@ class GeospatialHeatmapConfiguration(PropertyType):
 
 @dataclass
 class GeospatialHeatmapDataColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "color": "Color",
     }
@@ -26729,8 +23807,6 @@ class GeospatialHeatmapDataColor(PropertyType):
 
 @dataclass
 class GeospatialMapAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "colors": "Colors",
         "values": "Values",
@@ -26744,8 +23820,6 @@ class GeospatialMapAggregatedFieldWells(PropertyType):
 
 @dataclass
 class GeospatialMapConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "legend": "Legend",
         "map_style_options": "MapStyleOptions",
@@ -26767,8 +23841,6 @@ class GeospatialMapConfiguration(PropertyType):
 
 @dataclass
 class GeospatialMapFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "geospatial_map_aggregated_field_wells": "GeospatialMapAggregatedFieldWells",
     }
@@ -26778,8 +23850,6 @@ class GeospatialMapFieldWells(PropertyType):
 
 @dataclass
 class GeospatialMapStyleOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "base_map_style": "BaseMapStyle",
     }
@@ -26789,8 +23859,6 @@ class GeospatialMapStyleOptions(PropertyType):
 
 @dataclass
 class GeospatialMapVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -26812,8 +23880,6 @@ class GeospatialMapVisual(PropertyType):
 
 @dataclass
 class GeospatialPointStyleOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "selected_point_style": "SelectedPointStyle",
         "cluster_marker_configuration": "ClusterMarkerConfiguration",
@@ -26827,8 +23893,6 @@ class GeospatialPointStyleOptions(PropertyType):
 
 @dataclass
 class GeospatialWindowOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bounds": "Bounds",
         "map_zoom_mode": "MapZoomMode",
@@ -26840,8 +23904,6 @@ class GeospatialWindowOptions(PropertyType):
 
 @dataclass
 class GlobalTableBorderOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uniform_border": "UniformBorder",
         "side_specific_border": "SideSpecificBorder",
@@ -26853,8 +23915,6 @@ class GlobalTableBorderOptions(PropertyType):
 
 @dataclass
 class GradientColor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stops": "Stops",
     }
@@ -26864,8 +23924,6 @@ class GradientColor(PropertyType):
 
 @dataclass
 class GradientStop(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "gradient_offset": "GradientOffset",
         "data_value": "DataValue",
@@ -26879,8 +23937,6 @@ class GradientStop(PropertyType):
 
 @dataclass
 class GridLayoutCanvasSizeOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "screen_canvas_size_options": "ScreenCanvasSizeOptions",
     }
@@ -26890,8 +23946,6 @@ class GridLayoutCanvasSizeOptions(PropertyType):
 
 @dataclass
 class GridLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "canvas_size_options": "CanvasSizeOptions",
         "elements": "Elements",
@@ -26903,8 +23957,6 @@ class GridLayoutConfiguration(PropertyType):
 
 @dataclass
 class GridLayoutElement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "element_type": "ElementType",
         "column_span": "ColumnSpan",
@@ -26924,8 +23976,6 @@ class GridLayoutElement(PropertyType):
 
 @dataclass
 class GridLayoutScreenCanvasSizeOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "optimized_view_port_width": "OptimizedViewPortWidth",
         "resize_option": "ResizeOption",
@@ -26937,8 +23987,6 @@ class GridLayoutScreenCanvasSizeOptions(PropertyType):
 
 @dataclass
 class GrowthRateComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "time": "Time",
@@ -26956,8 +24004,6 @@ class GrowthRateComputation(PropertyType):
 
 @dataclass
 class HeaderFooterSectionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "layout": "Layout",
         "style": "Style",
@@ -26971,8 +24017,6 @@ class HeaderFooterSectionConfiguration(PropertyType):
 
 @dataclass
 class HeatMapAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "columns": "Columns",
@@ -26986,8 +24030,6 @@ class HeatMapAggregatedFieldWells(PropertyType):
 
 @dataclass
 class HeatMapConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "column_label_options": "ColumnLabelOptions",
@@ -27013,8 +24055,6 @@ class HeatMapConfiguration(PropertyType):
 
 @dataclass
 class HeatMapFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "heat_map_aggregated_field_wells": "HeatMapAggregatedFieldWells",
     }
@@ -27024,8 +24064,6 @@ class HeatMapFieldWells(PropertyType):
 
 @dataclass
 class HeatMapSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "heat_map_row_sort": "HeatMapRowSort",
         "heat_map_row_items_limit_configuration": "HeatMapRowItemsLimitConfiguration",
@@ -27041,8 +24079,6 @@ class HeatMapSortConfiguration(PropertyType):
 
 @dataclass
 class HeatMapVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -27064,8 +24100,6 @@ class HeatMapVisual(PropertyType):
 
 @dataclass
 class HistogramAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
     }
@@ -27075,8 +24109,6 @@ class HistogramAggregatedFieldWells(PropertyType):
 
 @dataclass
 class HistogramBinOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bin_width": "BinWidth",
         "start_value": "StartValue",
@@ -27092,8 +24124,6 @@ class HistogramBinOptions(PropertyType):
 
 @dataclass
 class HistogramConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "y_axis_display_options": "YAxisDisplayOptions",
         "data_labels": "DataLabels",
@@ -27119,8 +24149,6 @@ class HistogramConfiguration(PropertyType):
 
 @dataclass
 class HistogramFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "histogram_aggregated_field_wells": "HistogramAggregatedFieldWells",
     }
@@ -27130,8 +24158,6 @@ class HistogramFieldWells(PropertyType):
 
 @dataclass
 class HistogramVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -27151,8 +24177,6 @@ class HistogramVisual(PropertyType):
 
 @dataclass
 class ImageCustomAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "trigger": "Trigger",
@@ -27170,8 +24194,6 @@ class ImageCustomAction(PropertyType):
 
 @dataclass
 class ImageCustomActionOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "navigation_operation": "NavigationOperation",
         "set_parameters_operation": "SetParametersOperation",
@@ -27185,8 +24207,6 @@ class ImageCustomActionOperation(PropertyType):
 
 @dataclass
 class ImageInteractionOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "image_menu_option": "ImageMenuOption",
     }
@@ -27196,8 +24216,6 @@ class ImageInteractionOptions(PropertyType):
 
 @dataclass
 class ImageMenuOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_status": "AvailabilityStatus",
     }
@@ -27207,8 +24225,6 @@ class ImageMenuOption(PropertyType):
 
 @dataclass
 class InnerFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_inner_filter": "CategoryInnerFilter",
     }
@@ -27218,8 +24234,6 @@ class InnerFilter(PropertyType):
 
 @dataclass
 class InsightConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "computations": "Computations",
         "custom_narrative": "CustomNarrative",
@@ -27233,8 +24247,6 @@ class InsightConfiguration(PropertyType):
 
 @dataclass
 class InsightVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -27256,8 +24268,6 @@ class InsightVisual(PropertyType):
 
 @dataclass
 class IntegerDefaultValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dynamic_value": "DynamicValue",
         "static_values": "StaticValues",
@@ -27269,8 +24279,6 @@ class IntegerDefaultValues(PropertyType):
 
 @dataclass
 class IntegerParameterDeclaration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mapped_data_set_parameters": "MappedDataSetParameters",
         "default_values": "DefaultValues",
@@ -27288,8 +24296,6 @@ class IntegerParameterDeclaration(PropertyType):
 
 @dataclass
 class IntegerValueWhenUnsetConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_when_unset_option": "ValueWhenUnsetOption",
         "custom_value": "CustomValue",
@@ -27301,8 +24307,6 @@ class IntegerValueWhenUnsetConfiguration(PropertyType):
 
 @dataclass
 class ItemsLimitConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "items_limit": "ItemsLimit",
         "other_categories": "OtherCategories",
@@ -27314,8 +24318,6 @@ class ItemsLimitConfiguration(PropertyType):
 
 @dataclass
 class KPIActualValueConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_color": "TextColor",
         "icon": "Icon",
@@ -27327,8 +24329,6 @@ class KPIActualValueConditionalFormatting(PropertyType):
 
 @dataclass
 class KPIComparisonValueConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_color": "TextColor",
         "icon": "Icon",
@@ -27340,8 +24340,6 @@ class KPIComparisonValueConditionalFormatting(PropertyType):
 
 @dataclass
 class KPIConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "conditional_formatting_options": "ConditionalFormattingOptions",
     }
@@ -27351,8 +24349,6 @@ class KPIConditionalFormatting(PropertyType):
 
 @dataclass
 class KPIConditionalFormattingOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "primary_value": "PrimaryValue",
         "actual_value": "ActualValue",
@@ -27368,8 +24364,6 @@ class KPIConditionalFormattingOption(PropertyType):
 
 @dataclass
 class KPIConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "kpi_options": "KPIOptions",
@@ -27385,8 +24379,6 @@ class KPIConfiguration(PropertyType):
 
 @dataclass
 class KPIFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_values": "TargetValues",
         "trend_groups": "TrendGroups",
@@ -27400,8 +24392,6 @@ class KPIFieldWells(PropertyType):
 
 @dataclass
 class KPIOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secondary_value_font_configuration": "SecondaryValueFontConfiguration",
         "visual_layout_options": "VisualLayoutOptions",
@@ -27427,8 +24417,6 @@ class KPIOptions(PropertyType):
 
 @dataclass
 class KPIPrimaryValueConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_color": "TextColor",
         "icon": "Icon",
@@ -27440,8 +24428,6 @@ class KPIPrimaryValueConditionalFormatting(PropertyType):
 
 @dataclass
 class KPIProgressBarConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "foreground_color": "ForegroundColor",
     }
@@ -27451,8 +24437,6 @@ class KPIProgressBarConditionalFormatting(PropertyType):
 
 @dataclass
 class KPISortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "trend_group_sort": "TrendGroupSort",
     }
@@ -27462,8 +24446,6 @@ class KPISortConfiguration(PropertyType):
 
 @dataclass
 class KPISparklineOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "color": "Color",
@@ -27479,8 +24461,6 @@ class KPISparklineOptions(PropertyType):
 
 @dataclass
 class KPIVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "conditional_formatting": "ConditionalFormatting",
@@ -27504,8 +24484,6 @@ class KPIVisual(PropertyType):
 
 @dataclass
 class KPIVisualLayoutOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "standard_layout": "StandardLayout",
     }
@@ -27515,8 +24493,6 @@ class KPIVisualLayoutOptions(PropertyType):
 
 @dataclass
 class KPIVisualStandardLayout(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -27526,8 +24502,6 @@ class KPIVisualStandardLayout(PropertyType):
 
 @dataclass
 class LabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_label": "CustomLabel",
         "visibility": "Visibility",
@@ -27541,8 +24515,6 @@ class LabelOptions(PropertyType):
 
 @dataclass
 class Layout(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration": "Configuration",
     }
@@ -27552,8 +24524,6 @@ class Layout(PropertyType):
 
 @dataclass
 class LayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "grid_layout": "GridLayout",
         "free_form_layout": "FreeFormLayout",
@@ -27567,8 +24537,6 @@ class LayoutConfiguration(PropertyType):
 
 @dataclass
 class LegendOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "position": "Position",
         "value_font_configuration": "ValueFontConfiguration",
@@ -27588,8 +24556,6 @@ class LegendOptions(PropertyType):
 
 @dataclass
 class LineChartAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "colors": "Colors",
@@ -27605,8 +24571,6 @@ class LineChartAggregatedFieldWells(PropertyType):
 
 @dataclass
 class LineChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "legend": "Legend",
@@ -27656,8 +24620,6 @@ class LineChartConfiguration(PropertyType):
 
 @dataclass
 class LineChartDefaultSeriesSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "line_style_settings": "LineStyleSettings",
         "axis_binding": "AxisBinding",
@@ -27671,8 +24633,6 @@ class LineChartDefaultSeriesSettings(PropertyType):
 
 @dataclass
 class LineChartFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "line_chart_aggregated_field_wells": "LineChartAggregatedFieldWells",
     }
@@ -27682,8 +24642,6 @@ class LineChartFieldWells(PropertyType):
 
 @dataclass
 class LineChartLineStyleSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "line_interpolation": "LineInterpolation",
         "line_style": "LineStyle",
@@ -27699,8 +24657,6 @@ class LineChartLineStyleSettings(PropertyType):
 
 @dataclass
 class LineChartMarkerStyleSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "marker_shape": "MarkerShape",
         "marker_size": "MarkerSize",
@@ -27716,8 +24672,6 @@ class LineChartMarkerStyleSettings(PropertyType):
 
 @dataclass
 class LineChartSeriesSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "line_style_settings": "LineStyleSettings",
         "marker_style_settings": "MarkerStyleSettings",
@@ -27729,8 +24683,6 @@ class LineChartSeriesSettings(PropertyType):
 
 @dataclass
 class LineChartSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_items_limit_configuration": "CategoryItemsLimitConfiguration",
         "color_items_limit_configuration": "ColorItemsLimitConfiguration",
@@ -27748,8 +24700,6 @@ class LineChartSortConfiguration(PropertyType):
 
 @dataclass
 class LineChartVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -27771,8 +24721,6 @@ class LineChartVisual(PropertyType):
 
 @dataclass
 class LineSeriesAxisDisplayOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "missing_data_configurations": "MissingDataConfigurations",
         "axis_options": "AxisOptions",
@@ -27784,8 +24732,6 @@ class LineSeriesAxisDisplayOptions(PropertyType):
 
 @dataclass
 class ListControlDisplayOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "title_options": "TitleOptions",
         "search_options": "SearchOptions",
@@ -27801,8 +24747,6 @@ class ListControlDisplayOptions(PropertyType):
 
 @dataclass
 class ListControlSearchOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -27812,8 +24756,6 @@ class ListControlSearchOptions(PropertyType):
 
 @dataclass
 class ListControlSelectAllOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -27823,8 +24765,6 @@ class ListControlSelectAllOptions(PropertyType):
 
 @dataclass
 class LoadingAnimation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -27834,8 +24774,6 @@ class LoadingAnimation(PropertyType):
 
 @dataclass
 class LocalNavigationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_sheet_id": "TargetSheetId",
     }
@@ -27845,8 +24783,6 @@ class LocalNavigationConfiguration(PropertyType):
 
 @dataclass
 class LongFormatText(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rich_text": "RichText",
         "plain_text": "PlainText",
@@ -27858,8 +24794,6 @@ class LongFormatText(PropertyType):
 
 @dataclass
 class MappedDataSetParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_set_parameter_name": "DataSetParameterName",
         "data_set_identifier": "DataSetIdentifier",
@@ -27871,8 +24805,6 @@ class MappedDataSetParameter(PropertyType):
 
 @dataclass
 class MaximumLabelType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -27882,8 +24814,6 @@ class MaximumLabelType(PropertyType):
 
 @dataclass
 class MaximumMinimumComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -27901,8 +24831,6 @@ class MaximumMinimumComputation(PropertyType):
 
 @dataclass
 class MeasureField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "date_measure_field": "DateMeasureField",
         "numerical_measure_field": "NumericalMeasureField",
@@ -27918,8 +24846,6 @@ class MeasureField(PropertyType):
 
 @dataclass
 class MetricComparisonComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_value": "TargetValue",
         "time": "Time",
@@ -27937,8 +24863,6 @@ class MetricComparisonComputation(PropertyType):
 
 @dataclass
 class MinimumLabelType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -27948,8 +24872,6 @@ class MinimumLabelType(PropertyType):
 
 @dataclass
 class MissingDataConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "treatment_option": "TreatmentOption",
     }
@@ -27959,8 +24881,6 @@ class MissingDataConfiguration(PropertyType):
 
 @dataclass
 class NegativeValueConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "display_mode": "DisplayMode",
     }
@@ -27970,8 +24890,6 @@ class NegativeValueConfiguration(PropertyType):
 
 @dataclass
 class NestedFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "inner_filter": "InnerFilter",
@@ -27987,8 +24905,6 @@ class NestedFilter(PropertyType):
 
 @dataclass
 class NullValueFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "null_string": "NullString",
     }
@@ -27998,8 +24914,6 @@ class NullValueFormatConfiguration(PropertyType):
 
 @dataclass
 class NumberDisplayFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "negative_value_configuration": "NegativeValueConfiguration",
         "decimal_places_configuration": "DecimalPlacesConfiguration",
@@ -28021,8 +24935,6 @@ class NumberDisplayFormatConfiguration(PropertyType):
 
 @dataclass
 class NumberFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "format_configuration": "FormatConfiguration",
     }
@@ -28032,8 +24944,6 @@ class NumberFormatConfiguration(PropertyType):
 
 @dataclass
 class NumericAxisOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scale": "Scale",
         "range": "Range",
@@ -28045,8 +24955,6 @@ class NumericAxisOptions(PropertyType):
 
 @dataclass
 class NumericEqualityDrillDownFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "value": "Value",
@@ -28058,8 +24966,6 @@ class NumericEqualityDrillDownFilter(PropertyType):
 
 @dataclass
 class NumericEqualityFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation_function": "AggregationFunction",
         "column": "Column",
@@ -28085,8 +24991,6 @@ class NumericEqualityFilter(PropertyType):
 
 @dataclass
 class NumericFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "number_display_format_configuration": "NumberDisplayFormatConfiguration",
         "currency_display_format_configuration": "CurrencyDisplayFormatConfiguration",
@@ -28100,8 +25004,6 @@ class NumericFormatConfiguration(PropertyType):
 
 @dataclass
 class NumericRangeFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation_function": "AggregationFunction",
         "column": "Column",
@@ -28129,8 +25031,6 @@ class NumericRangeFilter(PropertyType):
 
 @dataclass
 class NumericRangeFilterValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "static_value": "StaticValue",
         "parameter": "Parameter",
@@ -28142,8 +25042,6 @@ class NumericRangeFilterValue(PropertyType):
 
 @dataclass
 class NumericSeparatorConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "decimal_separator": "DecimalSeparator",
         "thousands_separator": "ThousandsSeparator",
@@ -28155,8 +25053,6 @@ class NumericSeparatorConfiguration(PropertyType):
 
 @dataclass
 class NumericalAggregationFunction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "percentile_aggregation": "PercentileAggregation",
         "simple_numerical_aggregation": "SimpleNumericalAggregation",
@@ -28168,8 +25064,6 @@ class NumericalAggregationFunction(PropertyType):
 
 @dataclass
 class NumericalDimensionField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hierarchy_id": "HierarchyId",
         "format_configuration": "FormatConfiguration",
@@ -28185,8 +25079,6 @@ class NumericalDimensionField(PropertyType):
 
 @dataclass
 class NumericalMeasureField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation_function": "AggregationFunction",
         "format_configuration": "FormatConfiguration",
@@ -28202,8 +25094,6 @@ class NumericalMeasureField(PropertyType):
 
 @dataclass
 class PaginationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "page_size": "PageSize",
         "page_number": "PageNumber",
@@ -28215,8 +25105,6 @@ class PaginationConfiguration(PropertyType):
 
 @dataclass
 class PanelConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "border_thickness": "BorderThickness",
         "border_style": "BorderStyle",
@@ -28242,8 +25130,6 @@ class PanelConfiguration(PropertyType):
 
 @dataclass
 class PanelTitleOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
         "font_configuration": "FontConfiguration",
@@ -28257,8 +25143,6 @@ class PanelTitleOptions(PropertyType):
 
 @dataclass
 class ParameterControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "slider": "Slider",
         "text_area": "TextArea",
@@ -28278,8 +25162,6 @@ class ParameterControl(PropertyType):
 
 @dataclass
 class ParameterDateTimePickerControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_control_id": "ParameterControlId",
         "display_options": "DisplayOptions",
@@ -28295,8 +25177,6 @@ class ParameterDateTimePickerControl(PropertyType):
 
 @dataclass
 class ParameterDeclaration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "string_parameter_declaration": "StringParameterDeclaration",
         "date_time_parameter_declaration": "DateTimeParameterDeclaration",
@@ -28312,8 +25192,6 @@ class ParameterDeclaration(PropertyType):
 
 @dataclass
 class ParameterDropDownControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_control_id": "ParameterControlId",
         "type_": "Type",
@@ -28337,8 +25215,6 @@ class ParameterDropDownControl(PropertyType):
 
 @dataclass
 class ParameterListControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_control_id": "ParameterControlId",
         "type_": "Type",
@@ -28360,8 +25236,6 @@ class ParameterListControl(PropertyType):
 
 @dataclass
 class ParameterSelectableValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "link_to_data_set_column": "LinkToDataSetColumn",
         "values": "Values",
@@ -28373,8 +25247,6 @@ class ParameterSelectableValues(PropertyType):
 
 @dataclass
 class ParameterSliderControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_control_id": "ParameterControlId",
         "step_size": "StepSize",
@@ -28396,8 +25268,6 @@ class ParameterSliderControl(PropertyType):
 
 @dataclass
 class ParameterTextAreaControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_control_id": "ParameterControlId",
         "delimiter": "Delimiter",
@@ -28415,8 +25285,6 @@ class ParameterTextAreaControl(PropertyType):
 
 @dataclass
 class ParameterTextFieldControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_control_id": "ParameterControlId",
         "display_options": "DisplayOptions",
@@ -28432,8 +25300,6 @@ class ParameterTextFieldControl(PropertyType):
 
 @dataclass
 class PercentVisibleRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "from_": "From",
         "to": "To",
@@ -28445,8 +25311,6 @@ class PercentVisibleRange(PropertyType):
 
 @dataclass
 class PercentageDisplayFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "negative_value_configuration": "NegativeValueConfiguration",
         "decimal_places_configuration": "DecimalPlacesConfiguration",
@@ -28466,8 +25330,6 @@ class PercentageDisplayFormatConfiguration(PropertyType):
 
 @dataclass
 class PercentileAggregation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "percentile_value": "PercentileValue",
     }
@@ -28477,8 +25339,6 @@ class PercentileAggregation(PropertyType):
 
 @dataclass
 class PeriodOverPeriodComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "time": "Time",
@@ -28494,8 +25354,6 @@ class PeriodOverPeriodComputation(PropertyType):
 
 @dataclass
 class PeriodToDateComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "period_time_granularity": "PeriodTimeGranularity",
         "value": "Value",
@@ -28513,8 +25371,6 @@ class PeriodToDateComputation(PropertyType):
 
 @dataclass
 class PieChartAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "values": "Values",
@@ -28528,8 +25384,6 @@ class PieChartAggregatedFieldWells(PropertyType):
 
 @dataclass
 class PieChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "legend": "Legend",
@@ -28561,8 +25415,6 @@ class PieChartConfiguration(PropertyType):
 
 @dataclass
 class PieChartFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pie_chart_aggregated_field_wells": "PieChartAggregatedFieldWells",
     }
@@ -28572,8 +25424,6 @@ class PieChartFieldWells(PropertyType):
 
 @dataclass
 class PieChartSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "small_multiples_sort": "SmallMultiplesSort",
         "category_items_limit": "CategoryItemsLimit",
@@ -28589,8 +25439,6 @@ class PieChartSortConfiguration(PropertyType):
 
 @dataclass
 class PieChartVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -28612,8 +25460,6 @@ class PieChartVisual(PropertyType):
 
 @dataclass
 class PivotFieldSortOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_by": "SortBy",
         "field_id": "FieldId",
@@ -28625,8 +25471,6 @@ class PivotFieldSortOptions(PropertyType):
 
 @dataclass
 class PivotTableAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "columns": "Columns",
@@ -28640,8 +25484,6 @@ class PivotTableAggregatedFieldWells(PropertyType):
 
 @dataclass
 class PivotTableCellConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scope": "Scope",
         "scopes": "Scopes",
@@ -28657,8 +25499,6 @@ class PivotTableCellConditionalFormatting(PropertyType):
 
 @dataclass
 class PivotTableConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "conditional_formatting_options": "ConditionalFormattingOptions",
     }
@@ -28668,8 +25508,6 @@ class PivotTableConditionalFormatting(PropertyType):
 
 @dataclass
 class PivotTableConditionalFormattingOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cell": "Cell",
     }
@@ -28679,8 +25517,6 @@ class PivotTableConditionalFormattingOption(PropertyType):
 
 @dataclass
 class PivotTableConditionalFormattingScope(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role": "Role",
     }
@@ -28690,8 +25526,6 @@ class PivotTableConditionalFormattingScope(PropertyType):
 
 @dataclass
 class PivotTableConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "paginated_report_options": "PaginatedReportOptions",
@@ -28713,8 +25547,6 @@ class PivotTableConfiguration(PropertyType):
 
 @dataclass
 class PivotTableDataPathOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_path_list": "DataPathList",
         "width": "Width",
@@ -28726,8 +25558,6 @@ class PivotTableDataPathOption(PropertyType):
 
 @dataclass
 class PivotTableFieldCollapseStateOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target": "Target",
         "state": "State",
@@ -28739,8 +25569,6 @@ class PivotTableFieldCollapseStateOption(PropertyType):
 
 @dataclass
 class PivotTableFieldCollapseStateTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_id": "FieldId",
         "field_data_path_values": "FieldDataPathValues",
@@ -28752,8 +25580,6 @@ class PivotTableFieldCollapseStateTarget(PropertyType):
 
 @dataclass
 class PivotTableFieldOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_label": "CustomLabel",
         "field_id": "FieldId",
@@ -28767,8 +25593,6 @@ class PivotTableFieldOption(PropertyType):
 
 @dataclass
 class PivotTableFieldOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "collapse_state_options": "CollapseStateOptions",
         "data_path_options": "DataPathOptions",
@@ -28782,8 +25606,6 @@ class PivotTableFieldOptions(PropertyType):
 
 @dataclass
 class PivotTableFieldSubtotalOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_id": "FieldId",
     }
@@ -28793,8 +25615,6 @@ class PivotTableFieldSubtotalOptions(PropertyType):
 
 @dataclass
 class PivotTableFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pivot_table_aggregated_field_wells": "PivotTableAggregatedFieldWells",
     }
@@ -28804,8 +25624,6 @@ class PivotTableFieldWells(PropertyType):
 
 @dataclass
 class PivotTableOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "row_field_names_style": "RowFieldNamesStyle",
         "row_header_style": "RowHeaderStyle",
@@ -28839,8 +25657,6 @@ class PivotTableOptions(PropertyType):
 
 @dataclass
 class PivotTablePaginatedReportOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "overflow_column_header_visibility": "OverflowColumnHeaderVisibility",
         "vertical_overflow_visibility": "VerticalOverflowVisibility",
@@ -28852,8 +25668,6 @@ class PivotTablePaginatedReportOptions(PropertyType):
 
 @dataclass
 class PivotTableRowsLabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_label": "CustomLabel",
         "visibility": "Visibility",
@@ -28865,8 +25679,6 @@ class PivotTableRowsLabelOptions(PropertyType):
 
 @dataclass
 class PivotTableSortBy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field": "Field",
         "data_path": "DataPath",
@@ -28880,8 +25692,6 @@ class PivotTableSortBy(PropertyType):
 
 @dataclass
 class PivotTableSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_sort_options": "FieldSortOptions",
     }
@@ -28891,8 +25701,6 @@ class PivotTableSortConfiguration(PropertyType):
 
 @dataclass
 class PivotTableTotalOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_subtotal_options": "ColumnSubtotalOptions",
         "row_subtotal_options": "RowSubtotalOptions",
@@ -28908,8 +25716,6 @@ class PivotTableTotalOptions(PropertyType):
 
 @dataclass
 class PivotTableVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "conditional_formatting": "ConditionalFormatting",
@@ -28931,8 +25737,6 @@ class PivotTableVisual(PropertyType):
 
 @dataclass
 class PivotTotalOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "total_aggregation_options": "TotalAggregationOptions",
         "custom_label": "CustomLabel",
@@ -28956,8 +25760,6 @@ class PivotTotalOptions(PropertyType):
 
 @dataclass
 class PluginVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "plugin_arn": "PluginArn",
@@ -28977,8 +25779,6 @@ class PluginVisual(PropertyType):
 
 @dataclass
 class PluginVisualConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "visual_options": "VisualOptions",
@@ -28992,8 +25792,6 @@ class PluginVisualConfiguration(PropertyType):
 
 @dataclass
 class PluginVisualFieldWell(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "unaggregated": "Unaggregated",
         "axis_name": "AxisName",
@@ -29009,8 +25807,6 @@ class PluginVisualFieldWell(PropertyType):
 
 @dataclass
 class PluginVisualItemsLimitConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "items_limit": "ItemsLimit",
     }
@@ -29020,8 +25816,6 @@ class PluginVisualItemsLimitConfiguration(PropertyType):
 
 @dataclass
 class PluginVisualOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visual_properties": "VisualProperties",
     }
@@ -29031,8 +25825,6 @@ class PluginVisualOptions(PropertyType):
 
 @dataclass
 class PluginVisualProperty(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -29044,8 +25836,6 @@ class PluginVisualProperty(PropertyType):
 
 @dataclass
 class PluginVisualSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "plugin_visual_table_query_sort": "PluginVisualTableQuerySort",
     }
@@ -29055,8 +25845,6 @@ class PluginVisualSortConfiguration(PropertyType):
 
 @dataclass
 class PluginVisualTableQuerySort(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "items_limit_configuration": "ItemsLimitConfiguration",
         "row_sort": "RowSort",
@@ -29068,8 +25856,6 @@ class PluginVisualTableQuerySort(PropertyType):
 
 @dataclass
 class PredefinedHierarchy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hierarchy_id": "HierarchyId",
         "drill_down_filters": "DrillDownFilters",
@@ -29083,8 +25869,6 @@ class PredefinedHierarchy(PropertyType):
 
 @dataclass
 class ProgressBarOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -29094,8 +25878,6 @@ class ProgressBarOptions(PropertyType):
 
 @dataclass
 class QueryExecutionOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "query_execution_mode": "QueryExecutionMode",
     }
@@ -29105,8 +25887,6 @@ class QueryExecutionOptions(PropertyType):
 
 @dataclass
 class RadarChartAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "color": "Color",
@@ -29120,8 +25900,6 @@ class RadarChartAggregatedFieldWells(PropertyType):
 
 @dataclass
 class RadarChartAreaStyleSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -29131,8 +25909,6 @@ class RadarChartAreaStyleSettings(PropertyType):
 
 @dataclass
 class RadarChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "legend": "Legend",
@@ -29172,8 +25948,6 @@ class RadarChartConfiguration(PropertyType):
 
 @dataclass
 class RadarChartFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "radar_chart_aggregated_field_wells": "RadarChartAggregatedFieldWells",
     }
@@ -29183,8 +25957,6 @@ class RadarChartFieldWells(PropertyType):
 
 @dataclass
 class RadarChartSeriesSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "area_style_settings": "AreaStyleSettings",
     }
@@ -29194,8 +25966,6 @@ class RadarChartSeriesSettings(PropertyType):
 
 @dataclass
 class RadarChartSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "color_sort": "ColorSort",
         "color_items_limit": "ColorItemsLimit",
@@ -29211,8 +25981,6 @@ class RadarChartSortConfiguration(PropertyType):
 
 @dataclass
 class RadarChartVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -29234,8 +26002,6 @@ class RadarChartVisual(PropertyType):
 
 @dataclass
 class RangeEndsLabelType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -29245,8 +26011,6 @@ class RangeEndsLabelType(PropertyType):
 
 @dataclass
 class ReferenceLine(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "data_configuration": "DataConfiguration",
@@ -29262,8 +26026,6 @@ class ReferenceLine(PropertyType):
 
 @dataclass
 class ReferenceLineCustomLabelConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_label": "CustomLabel",
     }
@@ -29273,8 +26035,6 @@ class ReferenceLineCustomLabelConfiguration(PropertyType):
 
 @dataclass
 class ReferenceLineDataConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dynamic_configuration": "DynamicConfiguration",
         "axis_binding": "AxisBinding",
@@ -29290,8 +26050,6 @@ class ReferenceLineDataConfiguration(PropertyType):
 
 @dataclass
 class ReferenceLineDynamicDataConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "measure_aggregation_function": "MeasureAggregationFunction",
@@ -29305,8 +26063,6 @@ class ReferenceLineDynamicDataConfiguration(PropertyType):
 
 @dataclass
 class ReferenceLineLabelConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "horizontal_position": "HorizontalPosition",
         "value_label_configuration": "ValueLabelConfiguration",
@@ -29326,8 +26082,6 @@ class ReferenceLineLabelConfiguration(PropertyType):
 
 @dataclass
 class ReferenceLineStaticDataConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -29337,8 +26091,6 @@ class ReferenceLineStaticDataConfiguration(PropertyType):
 
 @dataclass
 class ReferenceLineStyleConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pattern": "Pattern",
         "color": "Color",
@@ -29350,8 +26102,6 @@ class ReferenceLineStyleConfiguration(PropertyType):
 
 @dataclass
 class ReferenceLineValueLabelConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "format_configuration": "FormatConfiguration",
         "relative_position": "RelativePosition",
@@ -29363,8 +26113,6 @@ class ReferenceLineValueLabelConfiguration(PropertyType):
 
 @dataclass
 class RelativeDateTimeControlDisplayOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "title_options": "TitleOptions",
         "info_icon_label_options": "InfoIconLabelOptions",
@@ -29378,8 +26126,6 @@ class RelativeDateTimeControlDisplayOptions(PropertyType):
 
 @dataclass
 class RelativeDatesFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "relative_date_value": "RelativeDateValue",
         "column": "Column",
@@ -29409,8 +26155,6 @@ class RelativeDatesFilter(PropertyType):
 
 @dataclass
 class ResourcePermission(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "actions": "Actions",
         "principal": "Principal",
@@ -29422,8 +26166,6 @@ class ResourcePermission(PropertyType):
 
 @dataclass
 class RollingDateConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "data_set_identifier": "DataSetIdentifier",
@@ -29435,8 +26177,6 @@ class RollingDateConfiguration(PropertyType):
 
 @dataclass
 class RowAlternateColorOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "use_primary_background_color": "UsePrimaryBackgroundColor",
@@ -29450,8 +26190,6 @@ class RowAlternateColorOptions(PropertyType):
 
 @dataclass
 class SameSheetTargetVisualConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_visual_options": "TargetVisualOptions",
         "target_visuals": "TargetVisuals",
@@ -29463,8 +26201,6 @@ class SameSheetTargetVisualConfiguration(PropertyType):
 
 @dataclass
 class SankeyDiagramAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "source": "Source",
@@ -29478,8 +26214,6 @@ class SankeyDiagramAggregatedFieldWells(PropertyType):
 
 @dataclass
 class SankeyDiagramChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "data_labels": "DataLabels",
@@ -29495,8 +26229,6 @@ class SankeyDiagramChartConfiguration(PropertyType):
 
 @dataclass
 class SankeyDiagramFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sankey_diagram_aggregated_field_wells": "SankeyDiagramAggregatedFieldWells",
     }
@@ -29506,8 +26238,6 @@ class SankeyDiagramFieldWells(PropertyType):
 
 @dataclass
 class SankeyDiagramSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "weight_sort": "WeightSort",
         "source_items_limit": "SourceItemsLimit",
@@ -29521,8 +26251,6 @@ class SankeyDiagramSortConfiguration(PropertyType):
 
 @dataclass
 class SankeyDiagramVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -29542,8 +26270,6 @@ class SankeyDiagramVisual(PropertyType):
 
 @dataclass
 class ScatterPlotCategoricallyAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "size": "Size",
@@ -29561,8 +26287,6 @@ class ScatterPlotCategoricallyAggregatedFieldWells(PropertyType):
 
 @dataclass
 class ScatterPlotConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "y_axis_label_options": "YAxisLabelOptions",
         "sort_configuration": "SortConfiguration",
@@ -29592,8 +26316,6 @@ class ScatterPlotConfiguration(PropertyType):
 
 @dataclass
 class ScatterPlotFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scatter_plot_unaggregated_field_wells": "ScatterPlotUnaggregatedFieldWells",
         "scatter_plot_categorically_aggregated_field_wells": "ScatterPlotCategoricallyAggregatedFieldWells",
@@ -29605,8 +26327,6 @@ class ScatterPlotFieldWells(PropertyType):
 
 @dataclass
 class ScatterPlotSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scatter_plot_limit_configuration": "ScatterPlotLimitConfiguration",
     }
@@ -29616,8 +26336,6 @@ class ScatterPlotSortConfiguration(PropertyType):
 
 @dataclass
 class ScatterPlotUnaggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "size": "Size",
@@ -29635,8 +26353,6 @@ class ScatterPlotUnaggregatedFieldWells(PropertyType):
 
 @dataclass
 class ScatterPlotVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -29658,8 +26374,6 @@ class ScatterPlotVisual(PropertyType):
 
 @dataclass
 class ScrollBarOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visible_range": "VisibleRange",
         "visibility": "Visibility",
@@ -29671,8 +26385,6 @@ class ScrollBarOptions(PropertyType):
 
 @dataclass
 class SecondaryValueOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -29682,8 +26394,6 @@ class SecondaryValueOptions(PropertyType):
 
 @dataclass
 class SectionAfterPageBreak(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
     }
@@ -29693,8 +26403,6 @@ class SectionAfterPageBreak(PropertyType):
 
 @dataclass
 class SectionBasedLayoutCanvasSizeOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "paper_canvas_size_options": "PaperCanvasSizeOptions",
     }
@@ -29704,8 +26412,6 @@ class SectionBasedLayoutCanvasSizeOptions(PropertyType):
 
 @dataclass
 class SectionBasedLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "canvas_size_options": "CanvasSizeOptions",
         "footer_sections": "FooterSections",
@@ -29721,8 +26427,6 @@ class SectionBasedLayoutConfiguration(PropertyType):
 
 @dataclass
 class SectionBasedLayoutPaperCanvasSizeOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "paper_margin": "PaperMargin",
         "paper_size": "PaperSize",
@@ -29736,8 +26440,6 @@ class SectionBasedLayoutPaperCanvasSizeOptions(PropertyType):
 
 @dataclass
 class SectionLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "free_form_layout": "FreeFormLayout",
     }
@@ -29747,8 +26449,6 @@ class SectionLayoutConfiguration(PropertyType):
 
 @dataclass
 class SectionPageBreakConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "after": "After",
     }
@@ -29758,8 +26458,6 @@ class SectionPageBreakConfiguration(PropertyType):
 
 @dataclass
 class SectionStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "padding": "Padding",
         "height": "Height",
@@ -29771,8 +26469,6 @@ class SectionStyle(PropertyType):
 
 @dataclass
 class SelectedSheetsFilterScopeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sheet_visual_scoping_configurations": "SheetVisualScopingConfigurations",
     }
@@ -29782,8 +26478,6 @@ class SelectedSheetsFilterScopeConfiguration(PropertyType):
 
 @dataclass
 class SeriesItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_series_item": "FieldSeriesItem",
         "data_field_series_item": "DataFieldSeriesItem",
@@ -29795,8 +26489,6 @@ class SeriesItem(PropertyType):
 
 @dataclass
 class SetParameterValueConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_parameter_name": "DestinationParameterName",
         "value": "Value",
@@ -29808,8 +26500,6 @@ class SetParameterValueConfiguration(PropertyType):
 
 @dataclass
 class ShapeConditionalFormat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "background_color": "BackgroundColor",
     }
@@ -29819,8 +26509,6 @@ class ShapeConditionalFormat(PropertyType):
 
 @dataclass
 class Sheet(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sheet_id": "SheetId",
         "name": "Name",
@@ -29832,8 +26520,6 @@ class Sheet(PropertyType):
 
 @dataclass
 class SheetControlInfoIconLabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
         "info_icon_text": "InfoIconText",
@@ -29845,8 +26531,6 @@ class SheetControlInfoIconLabelOptions(PropertyType):
 
 @dataclass
 class SheetControlLayout(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration": "Configuration",
     }
@@ -29856,8 +26540,6 @@ class SheetControlLayout(PropertyType):
 
 @dataclass
 class SheetControlLayoutConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "grid_layout": "GridLayout",
     }
@@ -29867,8 +26549,6 @@ class SheetControlLayoutConfiguration(PropertyType):
 
 @dataclass
 class SheetDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "parameter_controls": "ParameterControls",
@@ -29900,8 +26580,6 @@ class SheetDefinition(PropertyType):
 
 @dataclass
 class SheetElementConfigurationOverrides(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -29911,8 +26589,6 @@ class SheetElementConfigurationOverrides(PropertyType):
 
 @dataclass
 class SheetElementRenderingRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "configuration_overrides": "ConfigurationOverrides",
@@ -29924,8 +26600,6 @@ class SheetElementRenderingRule(PropertyType):
 
 @dataclass
 class SheetImage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "actions": "Actions",
         "sheet_image_id": "SheetImageId",
@@ -29947,8 +26621,6 @@ class SheetImage(PropertyType):
 
 @dataclass
 class SheetImageScalingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scaling_type": "ScalingType",
     }
@@ -29958,8 +26630,6 @@ class SheetImageScalingConfiguration(PropertyType):
 
 @dataclass
 class SheetImageSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sheet_image_static_file_source": "SheetImageStaticFileSource",
     }
@@ -29969,8 +26639,6 @@ class SheetImageSource(PropertyType):
 
 @dataclass
 class SheetImageStaticFileSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "static_file_id": "StaticFileId",
     }
@@ -29980,8 +26648,6 @@ class SheetImageStaticFileSource(PropertyType):
 
 @dataclass
 class SheetImageTooltipConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
         "tooltip_text": "TooltipText",
@@ -29993,8 +26659,6 @@ class SheetImageTooltipConfiguration(PropertyType):
 
 @dataclass
 class SheetImageTooltipText(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "plain_text": "PlainText",
     }
@@ -30004,8 +26668,6 @@ class SheetImageTooltipText(PropertyType):
 
 @dataclass
 class SheetTextBox(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sheet_text_box_id": "SheetTextBoxId",
         "content": "Content",
@@ -30017,8 +26679,6 @@ class SheetTextBox(PropertyType):
 
 @dataclass
 class SheetVisualScopingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scope": "Scope",
         "sheet_id": "SheetId",
@@ -30032,8 +26692,6 @@ class SheetVisualScopingConfiguration(PropertyType):
 
 @dataclass
 class ShortFormatText(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rich_text": "RichText",
         "plain_text": "PlainText",
@@ -30045,8 +26703,6 @@ class ShortFormatText(PropertyType):
 
 @dataclass
 class SimpleClusterMarker(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "color": "Color",
     }
@@ -30056,8 +26712,6 @@ class SimpleClusterMarker(PropertyType):
 
 @dataclass
 class SingleAxisOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "y_axis_options": "YAxisOptions",
     }
@@ -30067,8 +26721,6 @@ class SingleAxisOptions(PropertyType):
 
 @dataclass
 class SliderControlDisplayOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "title_options": "TitleOptions",
         "info_icon_label_options": "InfoIconLabelOptions",
@@ -30080,8 +26732,6 @@ class SliderControlDisplayOptions(PropertyType):
 
 @dataclass
 class SmallMultiplesAxisProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "placement": "Placement",
         "scale": "Scale",
@@ -30093,8 +26743,6 @@ class SmallMultiplesAxisProperties(PropertyType):
 
 @dataclass
 class SmallMultiplesOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_visible_rows": "MaxVisibleRows",
         "panel_configuration": "PanelConfiguration",
@@ -30112,8 +26760,6 @@ class SmallMultiplesOptions(PropertyType):
 
 @dataclass
 class Spacing(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "left": "Left",
         "top": "Top",
@@ -30129,8 +26775,6 @@ class Spacing(PropertyType):
 
 @dataclass
 class StringDefaultValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dynamic_value": "DynamicValue",
         "static_values": "StaticValues",
@@ -30142,8 +26786,6 @@ class StringDefaultValues(PropertyType):
 
 @dataclass
 class StringFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "numeric_format_configuration": "NumericFormatConfiguration",
         "null_value_format_configuration": "NullValueFormatConfiguration",
@@ -30155,8 +26797,6 @@ class StringFormatConfiguration(PropertyType):
 
 @dataclass
 class StringParameterDeclaration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mapped_data_set_parameters": "MappedDataSetParameters",
         "default_values": "DefaultValues",
@@ -30174,8 +26814,6 @@ class StringParameterDeclaration(PropertyType):
 
 @dataclass
 class StringValueWhenUnsetConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_when_unset_option": "ValueWhenUnsetOption",
         "custom_value": "CustomValue",
@@ -30187,8 +26825,6 @@ class StringValueWhenUnsetConfiguration(PropertyType):
 
 @dataclass
 class SubtotalOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_label": "CustomLabel",
         "field_level_options": "FieldLevelOptions",
@@ -30212,8 +26848,6 @@ class SubtotalOptions(PropertyType):
 
 @dataclass
 class TableAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_by": "GroupBy",
         "values": "Values",
@@ -30225,8 +26859,6 @@ class TableAggregatedFieldWells(PropertyType):
 
 @dataclass
 class TableBorderOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "thickness": "Thickness",
         "color": "Color",
@@ -30240,8 +26872,6 @@ class TableBorderOptions(PropertyType):
 
 @dataclass
 class TableCellConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_id": "FieldId",
         "text_format": "TextFormat",
@@ -30253,8 +26883,6 @@ class TableCellConditionalFormatting(PropertyType):
 
 @dataclass
 class TableCellImageSizingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_cell_image_scaling_configuration": "TableCellImageScalingConfiguration",
     }
@@ -30264,8 +26892,6 @@ class TableCellImageSizingConfiguration(PropertyType):
 
 @dataclass
 class TableCellStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vertical_text_alignment": "VerticalTextAlignment",
         "visibility": "Visibility",
@@ -30289,8 +26915,6 @@ class TableCellStyle(PropertyType):
 
 @dataclass
 class TableConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "conditional_formatting_options": "ConditionalFormattingOptions",
     }
@@ -30300,8 +26924,6 @@ class TableConditionalFormatting(PropertyType):
 
 @dataclass
 class TableConditionalFormattingOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "row": "Row",
         "cell": "Cell",
@@ -30313,8 +26935,6 @@ class TableConditionalFormattingOption(PropertyType):
 
 @dataclass
 class TableConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "paginated_report_options": "PaginatedReportOptions",
@@ -30338,8 +26958,6 @@ class TableConfiguration(PropertyType):
 
 @dataclass
 class TableFieldCustomIconContent(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "icon": "Icon",
     }
@@ -30349,8 +26967,6 @@ class TableFieldCustomIconContent(PropertyType):
 
 @dataclass
 class TableFieldCustomTextContent(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "font_configuration": "FontConfiguration",
@@ -30362,8 +26978,6 @@ class TableFieldCustomTextContent(PropertyType):
 
 @dataclass
 class TableFieldImageConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sizing_options": "SizingOptions",
     }
@@ -30373,8 +26987,6 @@ class TableFieldImageConfiguration(PropertyType):
 
 @dataclass
 class TableFieldLinkConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target": "Target",
         "content": "Content",
@@ -30386,8 +26998,6 @@ class TableFieldLinkConfiguration(PropertyType):
 
 @dataclass
 class TableFieldLinkContentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_icon_content": "CustomIconContent",
         "custom_text_content": "CustomTextContent",
@@ -30399,8 +27009,6 @@ class TableFieldLinkContentConfiguration(PropertyType):
 
 @dataclass
 class TableFieldOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_label": "CustomLabel",
         "url_styling": "URLStyling",
@@ -30418,8 +27026,6 @@ class TableFieldOption(PropertyType):
 
 @dataclass
 class TableFieldOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "order": "Order",
         "pinned_field_options": "PinnedFieldOptions",
@@ -30435,8 +27041,6 @@ class TableFieldOptions(PropertyType):
 
 @dataclass
 class TableFieldURLConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "link_configuration": "LinkConfiguration",
         "image_configuration": "ImageConfiguration",
@@ -30448,8 +27052,6 @@ class TableFieldURLConfiguration(PropertyType):
 
 @dataclass
 class TableFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_unaggregated_field_wells": "TableUnaggregatedFieldWells",
         "table_aggregated_field_wells": "TableAggregatedFieldWells",
@@ -30461,8 +27063,6 @@ class TableFieldWells(PropertyType):
 
 @dataclass
 class TableInlineVisualization(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_bars": "DataBars",
     }
@@ -30472,8 +27072,6 @@ class TableInlineVisualization(PropertyType):
 
 @dataclass
 class TableOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header_style": "HeaderStyle",
         "cell_style": "CellStyle",
@@ -30489,8 +27087,6 @@ class TableOptions(PropertyType):
 
 @dataclass
 class TablePaginatedReportOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "overflow_column_header_visibility": "OverflowColumnHeaderVisibility",
         "vertical_overflow_visibility": "VerticalOverflowVisibility",
@@ -30502,8 +27098,6 @@ class TablePaginatedReportOptions(PropertyType):
 
 @dataclass
 class TablePinnedFieldOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pinned_left_fields": "PinnedLeftFields",
     }
@@ -30513,8 +27107,6 @@ class TablePinnedFieldOptions(PropertyType):
 
 @dataclass
 class TableRowConditionalFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_color": "TextColor",
         "background_color": "BackgroundColor",
@@ -30526,8 +27118,6 @@ class TableRowConditionalFormatting(PropertyType):
 
 @dataclass
 class TableSideBorderOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "left": "Left",
         "top": "Top",
@@ -30547,8 +27137,6 @@ class TableSideBorderOptions(PropertyType):
 
 @dataclass
 class TableSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "row_sort": "RowSort",
         "pagination_configuration": "PaginationConfiguration",
@@ -30560,8 +27148,6 @@ class TableSortConfiguration(PropertyType):
 
 @dataclass
 class TableStyleTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cell_type": "CellType",
     }
@@ -30571,8 +27157,6 @@ class TableStyleTarget(PropertyType):
 
 @dataclass
 class TableUnaggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
     }
@@ -30582,8 +27166,6 @@ class TableUnaggregatedFieldWells(PropertyType):
 
 @dataclass
 class TableVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "conditional_formatting": "ConditionalFormatting",
@@ -30605,8 +27187,6 @@ class TableVisual(PropertyType):
 
 @dataclass
 class TemplateError(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "message": "Message",
@@ -30620,8 +27200,6 @@ class TemplateError(PropertyType):
 
 @dataclass
 class TemplateSourceAnalysis(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_set_references": "DataSetReferences",
         "arn": "Arn",
@@ -30633,8 +27211,6 @@ class TemplateSourceAnalysis(PropertyType):
 
 @dataclass
 class TemplateSourceEntity(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_analysis": "SourceAnalysis",
         "source_template": "SourceTemplate",
@@ -30646,8 +27222,6 @@ class TemplateSourceEntity(PropertyType):
 
 @dataclass
 class TemplateSourceTemplate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -30657,8 +27231,6 @@ class TemplateSourceTemplate(PropertyType):
 
 @dataclass
 class TemplateVersion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "errors": "Errors",
@@ -30684,8 +27256,6 @@ class TemplateVersion(PropertyType):
 
 @dataclass
 class TemplateVersionDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "options": "Options",
         "filter_groups": "FilterGroups",
@@ -30711,8 +27281,6 @@ class TemplateVersionDefinition(PropertyType):
 
 @dataclass
 class TextAreaControlDisplayOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "title_options": "TitleOptions",
         "placeholder_options": "PlaceholderOptions",
@@ -30726,8 +27294,6 @@ class TextAreaControlDisplayOptions(PropertyType):
 
 @dataclass
 class TextConditionalFormat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_color": "TextColor",
         "icon": "Icon",
@@ -30741,8 +27307,6 @@ class TextConditionalFormat(PropertyType):
 
 @dataclass
 class TextControlPlaceholderOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -30752,8 +27316,6 @@ class TextControlPlaceholderOptions(PropertyType):
 
 @dataclass
 class TextFieldControlDisplayOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "title_options": "TitleOptions",
         "placeholder_options": "PlaceholderOptions",
@@ -30767,8 +27329,6 @@ class TextFieldControlDisplayOptions(PropertyType):
 
 @dataclass
 class ThousandSeparatorOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "symbol": "Symbol",
         "visibility": "Visibility",
@@ -30782,8 +27342,6 @@ class ThousandSeparatorOptions(PropertyType):
 
 @dataclass
 class TimeBasedForecastProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "periods_backward": "PeriodsBackward",
         "periods_forward": "PeriodsForward",
@@ -30803,8 +27361,6 @@ class TimeBasedForecastProperties(PropertyType):
 
 @dataclass
 class TimeEqualityFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "rolling_date": "RollingDate",
@@ -30826,8 +27382,6 @@ class TimeEqualityFilter(PropertyType):
 
 @dataclass
 class TimeRangeDrillDownFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "range_minimum": "RangeMinimum",
@@ -30843,8 +27397,6 @@ class TimeRangeDrillDownFilter(PropertyType):
 
 @dataclass
 class TimeRangeFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "range_minimum_value": "RangeMinimumValue",
         "column": "Column",
@@ -30872,8 +27424,6 @@ class TimeRangeFilter(PropertyType):
 
 @dataclass
 class TimeRangeFilterValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rolling_date": "RollingDate",
         "static_value": "StaticValue",
@@ -30887,8 +27437,6 @@ class TimeRangeFilterValue(PropertyType):
 
 @dataclass
 class TooltipItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_tooltip_item": "FieldTooltipItem",
         "column_tooltip_item": "ColumnTooltipItem",
@@ -30900,8 +27448,6 @@ class TooltipItem(PropertyType):
 
 @dataclass
 class TooltipOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "selected_tooltip_type": "SelectedTooltipType",
         "tooltip_visibility": "TooltipVisibility",
@@ -30915,8 +27461,6 @@ class TooltipOptions(PropertyType):
 
 @dataclass
 class TopBottomFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation_sort_configurations": "AggregationSortConfigurations",
         "column": "Column",
@@ -30938,8 +27482,6 @@ class TopBottomFilter(PropertyType):
 
 @dataclass
 class TopBottomMoversComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "category": "Category",
@@ -30963,8 +27505,6 @@ class TopBottomMoversComputation(PropertyType):
 
 @dataclass
 class TopBottomRankedComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "category": "Category",
@@ -30984,8 +27524,6 @@ class TopBottomRankedComputation(PropertyType):
 
 @dataclass
 class TotalAggregationComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "computation_id": "ComputationId",
@@ -30999,8 +27537,6 @@ class TotalAggregationComputation(PropertyType):
 
 @dataclass
 class TotalAggregationFunction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "simple_total_aggregation_function": "SimpleTotalAggregationFunction",
     }
@@ -31010,8 +27546,6 @@ class TotalAggregationFunction(PropertyType):
 
 @dataclass
 class TotalAggregationOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "total_aggregation_function": "TotalAggregationFunction",
         "field_id": "FieldId",
@@ -31023,8 +27557,6 @@ class TotalAggregationOption(PropertyType):
 
 @dataclass
 class TotalOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "total_aggregation_options": "TotalAggregationOptions",
         "custom_label": "CustomLabel",
@@ -31044,8 +27576,6 @@ class TotalOptions(PropertyType):
 
 @dataclass
 class TransposedTableOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_width": "ColumnWidth",
         "column_index": "ColumnIndex",
@@ -31059,8 +27589,6 @@ class TransposedTableOption(PropertyType):
 
 @dataclass
 class TreeMapAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sizes": "Sizes",
         "colors": "Colors",
@@ -31074,8 +27602,6 @@ class TreeMapAggregatedFieldWells(PropertyType):
 
 @dataclass
 class TreeMapConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "legend": "Legend",
@@ -31103,8 +27629,6 @@ class TreeMapConfiguration(PropertyType):
 
 @dataclass
 class TreeMapFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tree_map_aggregated_field_wells": "TreeMapAggregatedFieldWells",
     }
@@ -31114,8 +27638,6 @@ class TreeMapFieldWells(PropertyType):
 
 @dataclass
 class TreeMapSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tree_map_sort": "TreeMapSort",
         "tree_map_group_items_limit_configuration": "TreeMapGroupItemsLimitConfiguration",
@@ -31127,8 +27649,6 @@ class TreeMapSortConfiguration(PropertyType):
 
 @dataclass
 class TreeMapVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -31150,8 +27670,6 @@ class TreeMapVisual(PropertyType):
 
 @dataclass
 class TrendArrowOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
     }
@@ -31161,8 +27679,6 @@ class TrendArrowOptions(PropertyType):
 
 @dataclass
 class UnaggregatedField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "format_configuration": "FormatConfiguration",
         "column": "Column",
@@ -31176,8 +27692,6 @@ class UnaggregatedField(PropertyType):
 
 @dataclass
 class UniqueValuesComputation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "computation_id": "ComputationId",
@@ -31191,8 +27705,6 @@ class UniqueValuesComputation(PropertyType):
 
 @dataclass
 class ValidationStrategy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
     }
@@ -31202,8 +27714,6 @@ class ValidationStrategy(PropertyType):
 
 @dataclass
 class VisibleRangeOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "percent_range": "PercentRange",
     }
@@ -31213,8 +27723,6 @@ class VisibleRangeOptions(PropertyType):
 
 @dataclass
 class Visual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "funnel_chart_visual": "FunnelChartVisual",
         "filled_map_visual": "FilledMapVisual",
@@ -31270,8 +27778,6 @@ class Visual(PropertyType):
 
 @dataclass
 class VisualCustomAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "trigger": "Trigger",
@@ -31289,8 +27795,6 @@ class VisualCustomAction(PropertyType):
 
 @dataclass
 class VisualCustomActionOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "navigation_operation": "NavigationOperation",
         "set_parameters_operation": "SetParametersOperation",
@@ -31306,8 +27810,6 @@ class VisualCustomActionOperation(PropertyType):
 
 @dataclass
 class VisualInteractionOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "context_menu_option": "ContextMenuOption",
         "visual_menu_option": "VisualMenuOption",
@@ -31319,8 +27821,6 @@ class VisualInteractionOptions(PropertyType):
 
 @dataclass
 class VisualMenuOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_status": "AvailabilityStatus",
     }
@@ -31330,8 +27830,6 @@ class VisualMenuOption(PropertyType):
 
 @dataclass
 class VisualPalette(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "chart_color": "ChartColor",
         "color_map": "ColorMap",
@@ -31343,8 +27841,6 @@ class VisualPalette(PropertyType):
 
 @dataclass
 class VisualSubtitleLabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
         "format_text": "FormatText",
@@ -31356,8 +27852,6 @@ class VisualSubtitleLabelOptions(PropertyType):
 
 @dataclass
 class VisualTitleLabelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "visibility": "Visibility",
         "format_text": "FormatText",
@@ -31369,8 +27863,6 @@ class VisualTitleLabelOptions(PropertyType):
 
 @dataclass
 class WaterfallChartAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "categories": "Categories",
         "breakdowns": "Breakdowns",
@@ -31384,8 +27876,6 @@ class WaterfallChartAggregatedFieldWells(PropertyType):
 
 @dataclass
 class WaterfallChartColorConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_color_configuration": "GroupColorConfiguration",
     }
@@ -31395,8 +27885,6 @@ class WaterfallChartColorConfiguration(PropertyType):
 
 @dataclass
 class WaterfallChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_axis_label_options": "CategoryAxisLabelOptions",
         "sort_configuration": "SortConfiguration",
@@ -31428,8 +27916,6 @@ class WaterfallChartConfiguration(PropertyType):
 
 @dataclass
 class WaterfallChartFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "waterfall_chart_aggregated_field_wells": "WaterfallChartAggregatedFieldWells",
     }
@@ -31439,8 +27925,6 @@ class WaterfallChartFieldWells(PropertyType):
 
 @dataclass
 class WaterfallChartGroupColorConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "negative_bar_color": "NegativeBarColor",
         "total_bar_color": "TotalBarColor",
@@ -31454,8 +27938,6 @@ class WaterfallChartGroupColorConfiguration(PropertyType):
 
 @dataclass
 class WaterfallChartOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "total_bar_label": "TotalBarLabel",
     }
@@ -31465,8 +27947,6 @@ class WaterfallChartOptions(PropertyType):
 
 @dataclass
 class WaterfallChartSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "breakdown_items_limit": "BreakdownItemsLimit",
         "category_sort": "CategorySort",
@@ -31478,8 +27958,6 @@ class WaterfallChartSortConfiguration(PropertyType):
 
 @dataclass
 class WaterfallVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -31501,8 +27979,6 @@ class WaterfallVisual(PropertyType):
 
 @dataclass
 class WhatIfPointScenario(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "date": "Date",
@@ -31514,8 +27990,6 @@ class WhatIfPointScenario(PropertyType):
 
 @dataclass
 class WhatIfRangeScenario(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start_date": "StartDate",
         "value": "Value",
@@ -31529,8 +28003,6 @@ class WhatIfRangeScenario(PropertyType):
 
 @dataclass
 class WordCloudAggregatedFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_by": "GroupBy",
         "size": "Size",
@@ -31542,8 +28014,6 @@ class WordCloudAggregatedFieldWells(PropertyType):
 
 @dataclass
 class WordCloudChartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sort_configuration": "SortConfiguration",
         "category_label_options": "CategoryLabelOptions",
@@ -31561,8 +28031,6 @@ class WordCloudChartConfiguration(PropertyType):
 
 @dataclass
 class WordCloudFieldWells(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "word_cloud_aggregated_field_wells": "WordCloudAggregatedFieldWells",
     }
@@ -31572,8 +28040,6 @@ class WordCloudFieldWells(PropertyType):
 
 @dataclass
 class WordCloudOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "word_orientation": "WordOrientation",
         "word_scaling": "WordScaling",
@@ -31593,8 +28059,6 @@ class WordCloudOptions(PropertyType):
 
 @dataclass
 class WordCloudSortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_items_limit": "CategoryItemsLimit",
         "category_sort": "CategorySort",
@@ -31606,8 +28070,6 @@ class WordCloudSortConfiguration(PropertyType):
 
 @dataclass
 class WordCloudVisual(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "visual_id": "VisualId",
@@ -31629,8 +28091,6 @@ class WordCloudVisual(PropertyType):
 
 @dataclass
 class YAxisOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "y_axis": "YAxis",
     }
@@ -31735,8 +28195,6 @@ class Template(CloudFormationResource):
 
 @dataclass
 class BorderStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "show": "Show",
     }
@@ -31746,8 +28204,6 @@ class BorderStyle(PropertyType):
 
 @dataclass
 class DataColorPalette(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "empty_fill_color": "EmptyFillColor",
         "colors": "Colors",
@@ -31761,8 +28217,6 @@ class DataColorPalette(PropertyType):
 
 @dataclass
 class Font(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "font_family": "FontFamily",
     }
@@ -31772,8 +28226,6 @@ class Font(PropertyType):
 
 @dataclass
 class GutterStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "show": "Show",
     }
@@ -31783,8 +28235,6 @@ class GutterStyle(PropertyType):
 
 @dataclass
 class MarginStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "show": "Show",
     }
@@ -31794,8 +28244,6 @@ class MarginStyle(PropertyType):
 
 @dataclass
 class ResourcePermission(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "actions": "Actions",
         "principal": "Principal",
@@ -31807,8 +28255,6 @@ class ResourcePermission(PropertyType):
 
 @dataclass
 class SheetStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tile_layout": "TileLayout",
         "tile": "Tile",
@@ -31820,8 +28266,6 @@ class SheetStyle(PropertyType):
 
 @dataclass
 class ThemeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_color_palette": "DataColorPalette",
         "ui_color_palette": "UIColorPalette",
@@ -31837,8 +28281,6 @@ class ThemeConfiguration(PropertyType):
 
 @dataclass
 class ThemeError(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "message": "Message",
@@ -31850,8 +28292,6 @@ class ThemeError(PropertyType):
 
 @dataclass
 class ThemeVersion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "errors": "Errors",
@@ -31875,8 +28315,6 @@ class ThemeVersion(PropertyType):
 
 @dataclass
 class TileLayoutStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "gutter": "Gutter",
         "margin": "Margin",
@@ -31888,8 +28326,6 @@ class TileLayoutStyle(PropertyType):
 
 @dataclass
 class TileStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "border": "Border",
     }
@@ -31899,8 +28335,6 @@ class TileStyle(PropertyType):
 
 @dataclass
 class Typography(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "font_families": "FontFamilies",
     }
@@ -31910,8 +28344,6 @@ class Typography(PropertyType):
 
 @dataclass
 class UIColorPalette(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "warning": "Warning",
         "accent": "Accent",
@@ -32064,8 +28496,6 @@ class Theme(CloudFormationResource):
 
 @dataclass
 class CellValueSynonym(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "synonyms": "Synonyms",
         "cell_value": "CellValue",
@@ -32077,8 +28507,6 @@ class CellValueSynonym(PropertyType):
 
 @dataclass
 class CollectiveConstant(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_list": "ValueList",
     }
@@ -32088,8 +28516,6 @@ class CollectiveConstant(PropertyType):
 
 @dataclass
 class ComparativeOrder(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "specifed_order": "SpecifedOrder",
         "use_ordering": "UseOrdering",
@@ -32103,8 +28529,6 @@ class ComparativeOrder(PropertyType):
 
 @dataclass
 class CustomInstructions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_instructions_string": "CustomInstructionsString",
     }
@@ -32114,8 +28538,6 @@ class CustomInstructions(PropertyType):
 
 @dataclass
 class DataAggregation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dataset_row_date_granularity": "DatasetRowDateGranularity",
         "default_date_column_name": "DefaultDateColumnName",
@@ -32127,8 +28549,6 @@ class DataAggregation(PropertyType):
 
 @dataclass
 class DatasetMetadata(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dataset_arn": "DatasetArn",
         "filters": "Filters",
@@ -32152,8 +28572,6 @@ class DatasetMetadata(PropertyType):
 
 @dataclass
 class DefaultFormatting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "display_format_options": "DisplayFormatOptions",
         "display_format": "DisplayFormat",
@@ -32165,8 +28583,6 @@ class DefaultFormatting(PropertyType):
 
 @dataclass
 class DisplayFormatOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "decimal_separator": "DecimalSeparator",
         "fraction_digits": "FractionDigits",
@@ -32198,8 +28614,6 @@ class DisplayFormatOptions(PropertyType):
 
 @dataclass
 class NamedEntityDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "property_name": "PropertyName",
         "property_usage": "PropertyUsage",
@@ -32217,8 +28631,6 @@ class NamedEntityDefinition(PropertyType):
 
 @dataclass
 class NamedEntityDefinitionMetric(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation": "Aggregation",
         "aggregation_function_parameters": "AggregationFunctionParameters",
@@ -32230,8 +28642,6 @@ class NamedEntityDefinitionMetric(PropertyType):
 
 @dataclass
 class NegativeFormat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "suffix": "Suffix",
         "prefix": "Prefix",
@@ -32243,8 +28653,6 @@ class NegativeFormat(PropertyType):
 
 @dataclass
 class RangeConstant(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "minimum": "Minimum",
         "maximum": "Maximum",
@@ -32256,8 +28664,6 @@ class RangeConstant(PropertyType):
 
 @dataclass
 class SemanticEntityType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_name": "TypeName",
         "type_parameters": "TypeParameters",
@@ -32271,8 +28677,6 @@ class SemanticEntityType(PropertyType):
 
 @dataclass
 class SemanticType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "truthy_cell_value_synonyms": "TruthyCellValueSynonyms",
         "type_name": "TypeName",
@@ -32294,8 +28698,6 @@ class SemanticType(PropertyType):
 
 @dataclass
 class TopicCalculatedField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "semantic_type": "SemanticType",
         "not_allowed_aggregations": "NotAllowedAggregations",
@@ -32337,8 +28739,6 @@ class TopicCalculatedField(PropertyType):
 
 @dataclass
 class TopicCategoryFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category_filter_type": "CategoryFilterType",
         "category_filter_function": "CategoryFilterFunction",
@@ -32354,8 +28754,6 @@ class TopicCategoryFilter(PropertyType):
 
 @dataclass
 class TopicCategoryFilterConstant(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "singular_constant": "SingularConstant",
         "constant_type": "ConstantType",
@@ -32369,8 +28767,6 @@ class TopicCategoryFilterConstant(PropertyType):
 
 @dataclass
 class TopicColumn(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "semantic_type": "SemanticType",
         "not_allowed_aggregations": "NotAllowedAggregations",
@@ -32412,8 +28808,6 @@ class TopicColumn(PropertyType):
 
 @dataclass
 class TopicConfigOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "q_business_insights_enabled": "QBusinessInsightsEnabled",
     }
@@ -32423,8 +28817,6 @@ class TopicConfigOptions(PropertyType):
 
 @dataclass
 class TopicDateRangeFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inclusive": "Inclusive",
         "constant": "Constant",
@@ -32436,8 +28828,6 @@ class TopicDateRangeFilter(PropertyType):
 
 @dataclass
 class TopicFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_class": "FilterClass",
         "filter_synonyms": "FilterSynonyms",
@@ -32467,8 +28857,6 @@ class TopicFilter(PropertyType):
 
 @dataclass
 class TopicNamedEntity(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entity_synonyms": "EntitySynonyms",
         "entity_name": "EntityName",
@@ -32486,8 +28874,6 @@ class TopicNamedEntity(PropertyType):
 
 @dataclass
 class TopicNumericEqualityFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation": "Aggregation",
         "constant": "Constant",
@@ -32499,8 +28885,6 @@ class TopicNumericEqualityFilter(PropertyType):
 
 @dataclass
 class TopicNumericRangeFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation": "Aggregation",
         "inclusive": "Inclusive",
@@ -32514,8 +28898,6 @@ class TopicNumericRangeFilter(PropertyType):
 
 @dataclass
 class TopicRangeFilterConstant(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "constant_type": "ConstantType",
         "range_constant": "RangeConstant",
@@ -32527,8 +28909,6 @@ class TopicRangeFilterConstant(PropertyType):
 
 @dataclass
 class TopicRelativeDateFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "relative_date_filter_function": "RelativeDateFilterFunction",
         "constant": "Constant",
@@ -32542,8 +28922,6 @@ class TopicRelativeDateFilter(PropertyType):
 
 @dataclass
 class TopicSingularFilterConstant(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "singular_constant": "SingularConstant",
         "constant_type": "ConstantType",
@@ -32592,8 +28970,6 @@ class Topic(CloudFormationResource):
 
 @dataclass
 class NetworkInterface(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qui"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "availability_zone": "AvailabilityZone",

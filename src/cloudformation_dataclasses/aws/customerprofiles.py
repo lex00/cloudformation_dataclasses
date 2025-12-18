@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CustomerProfiles
@@ -27,8 +27,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AttributeDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "attributes": "Attributes",
@@ -40,8 +38,6 @@ class AttributeDetails(PropertyType):
 
 @dataclass
 class AttributeItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -51,8 +47,6 @@ class AttributeItem(PropertyType):
 
 @dataclass
 class Conditions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "range": "Range",
         "object_count": "ObjectCount",
@@ -66,8 +60,6 @@ class Conditions(PropertyType):
 
 @dataclass
 class Range(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_range": "ValueRange",
         "timestamp_source": "TimestampSource",
@@ -85,8 +77,6 @@ class Range(PropertyType):
 
 @dataclass
 class Readiness(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message": "Message",
         "progress_percentage": "ProgressPercentage",
@@ -98,8 +88,6 @@ class Readiness(PropertyType):
 
 @dataclass
 class Threshold(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "value": "Value",
@@ -111,8 +99,6 @@ class Threshold(PropertyType):
 
 @dataclass
 class ValueRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start": "Start",
         "end": "End",
@@ -184,8 +170,6 @@ class CalculatedAttributeDefinition(CloudFormationResource):
 
 @dataclass
 class AttributeTypesSelector(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address": "Address",
         "attribute_matching_model": "AttributeMatchingModel",
@@ -201,8 +185,6 @@ class AttributeTypesSelector(PropertyType):
 
 @dataclass
 class AutoMerging(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "consolidation": "Consolidation",
         "enabled": "Enabled",
@@ -218,8 +200,6 @@ class AutoMerging(PropertyType):
 
 @dataclass
 class ConflictResolution(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "conflict_resolving_model": "ConflictResolvingModel",
         "source_name": "SourceName",
@@ -231,8 +211,6 @@ class ConflictResolution(PropertyType):
 
 @dataclass
 class Consolidation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "matching_attributes_list": "MatchingAttributesList",
     }
@@ -242,8 +220,6 @@ class Consolidation(PropertyType):
 
 @dataclass
 class DataStore(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "readiness": "Readiness",
         "enabled": "Enabled",
@@ -255,8 +231,6 @@ class DataStore(PropertyType):
 
 @dataclass
 class DomainStats(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metering_profile_count": "MeteringProfileCount",
         "profile_count": "ProfileCount",
@@ -272,8 +246,6 @@ class DomainStats(PropertyType):
 
 @dataclass
 class ExportingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_exporting": "S3Exporting",
     }
@@ -283,8 +255,6 @@ class ExportingConfig(PropertyType):
 
 @dataclass
 class JobSchedule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "day_of_the_week": "DayOfTheWeek",
         "time": "Time",
@@ -296,8 +266,6 @@ class JobSchedule(PropertyType):
 
 @dataclass
 class Matching(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_merging": "AutoMerging",
         "job_schedule": "JobSchedule",
@@ -313,8 +281,6 @@ class Matching(PropertyType):
 
 @dataclass
 class MatchingRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule": "Rule",
     }
@@ -324,8 +290,6 @@ class MatchingRule(PropertyType):
 
 @dataclass
 class Readiness(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message": "Message",
         "progress_percentage": "ProgressPercentage",
@@ -337,8 +301,6 @@ class Readiness(PropertyType):
 
 @dataclass
 class RuleBasedMatching(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "max_allowed_rule_level_for_merging": "MaxAllowedRuleLevelForMerging",
@@ -362,8 +324,6 @@ class RuleBasedMatching(PropertyType):
 
 @dataclass
 class S3ExportingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_bucket_name": "S3BucketName",
         "s3_key_name": "S3KeyName",
@@ -458,8 +418,6 @@ class Domain(CloudFormationResource):
 
 @dataclass
 class DestinationDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "uri": "Uri",
@@ -521,8 +479,6 @@ class EventStream(CloudFormationResource):
 
 @dataclass
 class EventTriggerCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_trigger_dimensions": "EventTriggerDimensions",
         "logical_operator": "LogicalOperator",
@@ -534,8 +490,6 @@ class EventTriggerCondition(PropertyType):
 
 @dataclass
 class EventTriggerDimension(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object_attributes": "ObjectAttributes",
     }
@@ -545,8 +499,6 @@ class EventTriggerDimension(PropertyType):
 
 @dataclass
 class EventTriggerLimits(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "periods": "Periods",
         "event_expiration": "EventExpiration",
@@ -558,8 +510,6 @@ class EventTriggerLimits(PropertyType):
 
 @dataclass
 class ObjectAttribute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison_operator": "ComparisonOperator",
         "values": "Values",
@@ -575,8 +525,6 @@ class ObjectAttribute(PropertyType):
 
 @dataclass
 class Period(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_invocations_per_profile": "MaxInvocationsPerProfile",
         "value": "Value",
@@ -630,8 +578,6 @@ class EventTrigger(CloudFormationResource):
 
 @dataclass
 class ConnectorOperator(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
         "service_now": "ServiceNow",
@@ -649,8 +595,6 @@ class ConnectorOperator(PropertyType):
 
 @dataclass
 class FlowDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "tasks": "Tasks",
@@ -670,8 +614,6 @@ class FlowDefinition(PropertyType):
 
 @dataclass
 class IncrementalPullConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "datetime_type_field_name": "DatetimeTypeFieldName",
     }
@@ -681,8 +623,6 @@ class IncrementalPullConfig(PropertyType):
 
 @dataclass
 class MarketoSourceProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }
@@ -692,8 +632,6 @@ class MarketoSourceProperties(PropertyType):
 
 @dataclass
 class ObjectTypeMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -705,8 +643,6 @@ class ObjectTypeMapping(PropertyType):
 
 @dataclass
 class S3SourceProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "bucket_prefix": "BucketPrefix",
@@ -718,8 +654,6 @@ class S3SourceProperties(PropertyType):
 
 @dataclass
 class SalesforceSourceProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_deleted_records": "IncludeDeletedRecords",
         "object": "Object",
@@ -733,8 +667,6 @@ class SalesforceSourceProperties(PropertyType):
 
 @dataclass
 class ScheduledTriggerProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schedule_end_time": "ScheduleEndTime",
         "timezone": "Timezone",
@@ -756,8 +688,6 @@ class ScheduledTriggerProperties(PropertyType):
 
 @dataclass
 class ServiceNowSourceProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }
@@ -767,8 +697,6 @@ class ServiceNowSourceProperties(PropertyType):
 
 @dataclass
 class SourceConnectorProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
         "service_now": "ServiceNow",
@@ -786,8 +714,6 @@ class SourceConnectorProperties(PropertyType):
 
 @dataclass
 class SourceFlowConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connector_profile_name": "ConnectorProfileName",
         "source_connector_properties": "SourceConnectorProperties",
@@ -803,8 +729,6 @@ class SourceFlowConfig(PropertyType):
 
 @dataclass
 class Task(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_fields": "SourceFields",
         "destination_field": "DestinationField",
@@ -822,8 +746,6 @@ class Task(PropertyType):
 
 @dataclass
 class TaskPropertiesMap(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator_property_key": "OperatorPropertyKey",
         "property": "Property",
@@ -835,8 +757,6 @@ class TaskPropertiesMap(PropertyType):
 
 @dataclass
 class TriggerConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "trigger_type": "TriggerType",
         "trigger_properties": "TriggerProperties",
@@ -848,8 +768,6 @@ class TriggerConfig(PropertyType):
 
 @dataclass
 class TriggerProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scheduled": "Scheduled",
     }
@@ -859,8 +777,6 @@ class TriggerProperties(PropertyType):
 
 @dataclass
 class ZendeskSourceProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }
@@ -906,8 +822,6 @@ class Integration(CloudFormationResource):
 
 @dataclass
 class FieldMap(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
         "object_type_field": "ObjectTypeField",
@@ -919,8 +833,6 @@ class FieldMap(PropertyType):
 
 @dataclass
 class KeyMap(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object_type_key_list": "ObjectTypeKeyList",
         "name": "Name",
@@ -932,8 +844,6 @@ class KeyMap(PropertyType):
 
 @dataclass
 class ObjectTypeField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target": "Target",
         "content_type": "ContentType",
@@ -947,8 +857,6 @@ class ObjectTypeField(PropertyType):
 
 @dataclass
 class ObjectTypeKey(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_names": "FieldNames",
         "standard_identifiers": "StandardIdentifiers",
@@ -1011,8 +919,6 @@ class ObjectType(CloudFormationResource):
 
 @dataclass
 class AddressDimension(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
         "country": "Country",
@@ -1032,8 +938,6 @@ class AddressDimension(PropertyType):
 
 @dataclass
 class AttributeDimension(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_type": "DimensionType",
         "values": "Values",
@@ -1045,8 +949,6 @@ class AttributeDimension(PropertyType):
 
 @dataclass
 class CalculatedAttributeDimension(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_type": "DimensionType",
         "values": "Values",
@@ -1060,8 +962,6 @@ class CalculatedAttributeDimension(PropertyType):
 
 @dataclass
 class ConditionOverrides(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "range": "Range",
     }
@@ -1071,8 +971,6 @@ class ConditionOverrides(PropertyType):
 
 @dataclass
 class DateDimension(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_type": "DimensionType",
         "values": "Values",
@@ -1084,8 +982,6 @@ class DateDimension(PropertyType):
 
 @dataclass
 class Dimension(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "calculated_attributes": "CalculatedAttributes",
         "profile_attributes": "ProfileAttributes",
@@ -1097,8 +993,6 @@ class Dimension(PropertyType):
 
 @dataclass
 class ExtraLengthValueProfileDimension(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_type": "DimensionType",
         "values": "Values",
@@ -1110,8 +1004,6 @@ class ExtraLengthValueProfileDimension(PropertyType):
 
 @dataclass
 class Group(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "source_type": "SourceType",
@@ -1127,8 +1019,6 @@ class Group(PropertyType):
 
 @dataclass
 class ProfileAttributes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "additional_information": "AdditionalInformation",
         "profile_type": "ProfileType",
@@ -1180,8 +1070,6 @@ class ProfileAttributes(PropertyType):
 
 @dataclass
 class ProfileDimension(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_type": "DimensionType",
         "values": "Values",
@@ -1193,8 +1081,6 @@ class ProfileDimension(PropertyType):
 
 @dataclass
 class ProfileTypeDimension(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_type": "DimensionType",
         "values": "Values",
@@ -1206,8 +1092,6 @@ class ProfileTypeDimension(PropertyType):
 
 @dataclass
 class RangeOverride(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start": "Start",
         "end": "End",
@@ -1221,8 +1105,6 @@ class RangeOverride(PropertyType):
 
 @dataclass
 class SegmentGroup(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "groups": "Groups",
         "include": "Include",
@@ -1234,8 +1116,6 @@ class SegmentGroup(PropertyType):
 
 @dataclass
 class SourceSegment(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cus"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "segment_definition_name": "SegmentDefinitionName",
     }

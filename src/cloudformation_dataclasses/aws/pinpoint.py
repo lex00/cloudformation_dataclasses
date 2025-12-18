@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Pinpoint
@@ -592,8 +592,6 @@ class App(CloudFormationResource):
 
 @dataclass
 class CampaignHook(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
         "web_url": "WebUrl",
@@ -607,8 +605,6 @@ class CampaignHook(PropertyType):
 
 @dataclass
 class Limits(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "daily": "Daily",
         "maximum_duration": "MaximumDuration",
@@ -624,8 +620,6 @@ class Limits(PropertyType):
 
 @dataclass
 class QuietTime(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start": "Start",
         "end": "End",
@@ -677,8 +671,6 @@ class BaiduChannel(CloudFormationResource):
 
 @dataclass
 class AttributeDimension(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_type": "AttributeType",
         "values": "Values",
@@ -690,8 +682,6 @@ class AttributeDimension(PropertyType):
 
 @dataclass
 class CampaignCustomMessage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data": "Data",
     }
@@ -701,8 +691,6 @@ class CampaignCustomMessage(PropertyType):
 
 @dataclass
 class CampaignEmailMessage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "from_address": "FromAddress",
         "html_body": "HtmlBody",
@@ -718,8 +706,6 @@ class CampaignEmailMessage(PropertyType):
 
 @dataclass
 class CampaignEventFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_type": "FilterType",
         "dimensions": "Dimensions",
@@ -731,8 +717,6 @@ class CampaignEventFilter(PropertyType):
 
 @dataclass
 class CampaignHook(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
         "web_url": "WebUrl",
@@ -746,8 +730,6 @@ class CampaignHook(PropertyType):
 
 @dataclass
 class CampaignInAppMessage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_config": "CustomConfig",
         "layout": "Layout",
@@ -761,8 +743,6 @@ class CampaignInAppMessage(PropertyType):
 
 @dataclass
 class CampaignSmsMessage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entity_id": "EntityId",
         "origination_number": "OriginationNumber",
@@ -782,8 +762,6 @@ class CampaignSmsMessage(PropertyType):
 
 @dataclass
 class CustomDeliveryConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_uri": "DeliveryUri",
         "endpoint_types": "EndpointTypes",
@@ -795,8 +773,6 @@ class CustomDeliveryConfiguration(PropertyType):
 
 @dataclass
 class DefaultButtonConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "button_action": "ButtonAction",
         "border_radius": "BorderRadius",
@@ -816,8 +792,6 @@ class DefaultButtonConfiguration(PropertyType):
 
 @dataclass
 class EventDimensions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metrics": "Metrics",
         "event_type": "EventType",
@@ -831,8 +805,6 @@ class EventDimensions(PropertyType):
 
 @dataclass
 class InAppMessageBodyConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alignment": "Alignment",
         "text_color": "TextColor",
@@ -846,8 +818,6 @@ class InAppMessageBodyConfig(PropertyType):
 
 @dataclass
 class InAppMessageButton(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "web": "Web",
         "default_config": "DefaultConfig",
@@ -863,8 +833,6 @@ class InAppMessageButton(PropertyType):
 
 @dataclass
 class InAppMessageContent(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "body_config": "BodyConfig",
         "secondary_btn": "SecondaryBtn",
@@ -884,8 +852,6 @@ class InAppMessageContent(PropertyType):
 
 @dataclass
 class InAppMessageHeaderConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alignment": "Alignment",
         "header": "Header",
@@ -899,8 +865,6 @@ class InAppMessageHeaderConfig(PropertyType):
 
 @dataclass
 class Limits(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "daily": "Daily",
         "maximum_duration": "MaximumDuration",
@@ -918,8 +882,6 @@ class Limits(PropertyType):
 
 @dataclass
 class Message(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "json_body": "JsonBody",
         "action": "Action",
@@ -951,8 +913,6 @@ class Message(PropertyType):
 
 @dataclass
 class MessageConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "apns_message": "APNSMessage",
         "baidu_message": "BaiduMessage",
@@ -978,8 +938,6 @@ class MessageConfiguration(PropertyType):
 
 @dataclass
 class MetricDimension(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison_operator": "ComparisonOperator",
         "value": "Value",
@@ -991,8 +949,6 @@ class MetricDimension(PropertyType):
 
 @dataclass
 class OverrideButtonConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "button_action": "ButtonAction",
         "link": "Link",
@@ -1004,8 +960,6 @@ class OverrideButtonConfiguration(PropertyType):
 
 @dataclass
 class QuietTime(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start": "Start",
         "end": "End",
@@ -1017,8 +971,6 @@ class QuietTime(PropertyType):
 
 @dataclass
 class Schedule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "time_zone": "TimeZone",
         "quiet_time": "QuietTime",
@@ -1040,8 +992,6 @@ class Schedule(PropertyType):
 
 @dataclass
 class SetDimension(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_type": "DimensionType",
         "values": "Values",
@@ -1053,8 +1003,6 @@ class SetDimension(PropertyType):
 
 @dataclass
 class Template(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
         "name": "Name",
@@ -1066,8 +1014,6 @@ class Template(PropertyType):
 
 @dataclass
 class TemplateConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sms_template": "SMSTemplate",
         "email_template": "EmailTemplate",
@@ -1083,8 +1029,6 @@ class TemplateConfiguration(PropertyType):
 
 @dataclass
 class WriteTreatmentResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "treatment_description": "TreatmentDescription",
         "message_configuration": "MessageConfiguration",
@@ -1258,8 +1202,6 @@ class GCMChannel(CloudFormationResource):
 
 @dataclass
 class BodyConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alignment": "Alignment",
         "text_color": "TextColor",
@@ -1273,8 +1215,6 @@ class BodyConfig(PropertyType):
 
 @dataclass
 class ButtonConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "web": "Web",
         "default_config": "DefaultConfig",
@@ -1290,8 +1230,6 @@ class ButtonConfig(PropertyType):
 
 @dataclass
 class DefaultButtonConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "border_radius": "BorderRadius",
         "button_action": "ButtonAction",
@@ -1311,8 +1249,6 @@ class DefaultButtonConfiguration(PropertyType):
 
 @dataclass
 class HeaderConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alignment": "Alignment",
         "header": "Header",
@@ -1326,8 +1262,6 @@ class HeaderConfig(PropertyType):
 
 @dataclass
 class InAppMessageContent(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "body_config": "BodyConfig",
         "secondary_btn": "SecondaryBtn",
@@ -1347,8 +1281,6 @@ class InAppMessageContent(PropertyType):
 
 @dataclass
 class OverrideButtonConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "button_action": "ButtonAction",
         "link": "Link",
@@ -1389,8 +1321,6 @@ class InAppTemplate(CloudFormationResource):
 
 @dataclass
 class APNSPushNotificationTemplate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "media_url": "MediaUrl",
@@ -1410,8 +1340,6 @@ class APNSPushNotificationTemplate(PropertyType):
 
 @dataclass
 class AndroidPushNotificationTemplate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "image_url": "ImageUrl",
@@ -1435,8 +1363,6 @@ class AndroidPushNotificationTemplate(PropertyType):
 
 @dataclass
 class DefaultPushNotificationTemplate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "title": "Title",
@@ -1508,8 +1434,6 @@ class SMSChannel(CloudFormationResource):
 
 @dataclass
 class AttributeDimension(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_type": "AttributeType",
         "values": "Values",
@@ -1521,8 +1445,6 @@ class AttributeDimension(PropertyType):
 
 @dataclass
 class Behavior(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "recency": "Recency",
     }
@@ -1532,8 +1454,6 @@ class Behavior(PropertyType):
 
 @dataclass
 class Coordinates(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "latitude": "Latitude",
         "longitude": "Longitude",
@@ -1545,8 +1465,6 @@ class Coordinates(PropertyType):
 
 @dataclass
 class Demographic(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "app_version": "AppVersion",
         "device_type": "DeviceType",
@@ -1566,8 +1484,6 @@ class Demographic(PropertyType):
 
 @dataclass
 class GPSPoint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "range_in_kilometers": "RangeInKilometers",
         "coordinates": "Coordinates",
@@ -1579,8 +1495,6 @@ class GPSPoint(PropertyType):
 
 @dataclass
 class Groups(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "source_type": "SourceType",
@@ -1596,8 +1510,6 @@ class Groups(PropertyType):
 
 @dataclass
 class Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "gps_point": "GPSPoint",
         "country": "Country",
@@ -1609,8 +1521,6 @@ class Location(PropertyType):
 
 @dataclass
 class Recency(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration": "Duration",
         "recency_type": "RecencyType",
@@ -1622,8 +1532,6 @@ class Recency(PropertyType):
 
 @dataclass
 class SegmentDimensions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "demographic": "Demographic",
         "metrics": "Metrics",
@@ -1643,8 +1551,6 @@ class SegmentDimensions(PropertyType):
 
 @dataclass
 class SegmentGroups(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "groups": "Groups",
         "include": "Include",
@@ -1656,8 +1562,6 @@ class SegmentGroups(PropertyType):
 
 @dataclass
 class SetDimension(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_type": "DimensionType",
         "values": "Values",
@@ -1669,8 +1573,6 @@ class SetDimension(PropertyType):
 
 @dataclass
 class SourceSegments(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
         "id": "Id",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:35
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service VerifiedPermissions
@@ -119,8 +119,6 @@ STRICT = ValidationMode.STRICT
 
 @dataclass
 class CognitoGroupConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ver"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_entity_type": "GroupEntityType",
     }
@@ -130,8 +128,6 @@ class CognitoGroupConfiguration(PropertyType):
 
 @dataclass
 class CognitoUserPoolConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ver"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_pool_arn": "UserPoolArn",
         "group_configuration": "GroupConfiguration",
@@ -145,8 +141,6 @@ class CognitoUserPoolConfiguration(PropertyType):
 
 @dataclass
 class IdentitySourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ver"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cognito_user_pool_configuration": "CognitoUserPoolConfiguration",
         "open_id_connect_configuration": "OpenIdConnectConfiguration",
@@ -158,8 +152,6 @@ class IdentitySourceConfiguration(PropertyType):
 
 @dataclass
 class OpenIdConnectAccessTokenConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ver"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audiences": "Audiences",
         "principal_id_claim": "PrincipalIdClaim",
@@ -171,8 +163,6 @@ class OpenIdConnectAccessTokenConfiguration(PropertyType):
 
 @dataclass
 class OpenIdConnectConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ver"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "issuer": "Issuer",
         "token_selection": "TokenSelection",
@@ -188,8 +178,6 @@ class OpenIdConnectConfiguration(PropertyType):
 
 @dataclass
 class OpenIdConnectGroupConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ver"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_entity_type": "GroupEntityType",
         "group_claim": "GroupClaim",
@@ -201,8 +189,6 @@ class OpenIdConnectGroupConfiguration(PropertyType):
 
 @dataclass
 class OpenIdConnectIdentityTokenConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ver"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_ids": "ClientIds",
         "principal_id_claim": "PrincipalIdClaim",
@@ -214,8 +200,6 @@ class OpenIdConnectIdentityTokenConfiguration(PropertyType):
 
 @dataclass
 class OpenIdConnectTokenSelection(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ver"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_token_only": "AccessTokenOnly",
         "identity_token_only": "IdentityTokenOnly",
@@ -250,8 +234,6 @@ class IdentitySource(CloudFormationResource):
 
 @dataclass
 class EntityIdentifier(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ver"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entity_type": "EntityType",
         "entity_id": "EntityId",
@@ -263,8 +245,6 @@ class EntityIdentifier(PropertyType):
 
 @dataclass
 class PolicyDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ver"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "static": "Static",
         "template_linked": "TemplateLinked",
@@ -276,8 +256,6 @@ class PolicyDefinition(PropertyType):
 
 @dataclass
 class StaticPolicyDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ver"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "statement": "Statement",
@@ -289,8 +267,6 @@ class StaticPolicyDefinition(PropertyType):
 
 @dataclass
 class TemplateLinkedPolicyDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ver"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource": "Resource",
         "policy_template_id": "PolicyTemplateId",
@@ -330,8 +306,6 @@ class Policy(CloudFormationResource):
 
 @dataclass
 class DeletionProtection(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ver"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
     }
@@ -341,8 +315,6 @@ class DeletionProtection(PropertyType):
 
 @dataclass
 class SchemaDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ver"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cedar_json": "CedarJson",
         "cedar_format": "CedarFormat",
@@ -354,8 +326,6 @@ class SchemaDefinition(PropertyType):
 
 @dataclass
 class ValidationSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ver"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
     }

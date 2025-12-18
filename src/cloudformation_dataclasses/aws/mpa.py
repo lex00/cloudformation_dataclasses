@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MPA
@@ -235,8 +235,6 @@ CONFIGURATION_CHANGED = SessionStatusCode.CONFIGURATION_CHANGED
 
 @dataclass
 class ApprovalStrategy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mpa"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mof_n": "MofN",
     }
@@ -246,8 +244,6 @@ class ApprovalStrategy(PropertyType):
 
 @dataclass
 class Approver(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mpa"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "primary_identity_status": "PrimaryIdentityStatus",
         "primary_identity_source_arn": "PrimaryIdentitySourceArn",
@@ -265,8 +261,6 @@ class Approver(PropertyType):
 
 @dataclass
 class MofNApprovalStrategy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mpa"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_approvals_required": "MinApprovalsRequired",
     }
@@ -276,8 +270,6 @@ class MofNApprovalStrategy(PropertyType):
 
 @dataclass
 class Policy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mpa"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_arn": "PolicyArn",
     }
@@ -356,8 +348,6 @@ class ApprovalTeam(CloudFormationResource):
 
 @dataclass
 class IamIdentityCenter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mpa"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "approval_portal_url": "ApprovalPortalUrl",
         "instance_arn": "InstanceArn",
@@ -371,8 +361,6 @@ class IamIdentityCenter(PropertyType):
 
 @dataclass
 class IdentitySourceParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mpa"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iam_identity_center": "IamIdentityCenter",
     }

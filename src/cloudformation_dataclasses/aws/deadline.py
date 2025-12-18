@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Deadline
@@ -793,8 +793,6 @@ class Farm(CloudFormationResource):
 
 @dataclass
 class AcceleratorCapabilities(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dea"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "selections": "Selections",
         "count": "Count",
@@ -806,8 +804,6 @@ class AcceleratorCapabilities(PropertyType):
 
 @dataclass
 class AcceleratorCountRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dea"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -819,8 +815,6 @@ class AcceleratorCountRange(PropertyType):
 
 @dataclass
 class AcceleratorSelection(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dea"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "runtime": "Runtime",
         "name": "Name",
@@ -832,8 +826,6 @@ class AcceleratorSelection(PropertyType):
 
 @dataclass
 class AcceleratorTotalMemoryMiBRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dea"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -845,8 +837,6 @@ class AcceleratorTotalMemoryMiBRange(PropertyType):
 
 @dataclass
 class CustomerManagedFleetConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dea"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_profile_id": "StorageProfileId",
         "mode": "Mode",
@@ -862,8 +852,6 @@ class CustomerManagedFleetConfiguration(PropertyType):
 
 @dataclass
 class CustomerManagedWorkerCapabilities(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dea"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_attributes": "CustomAttributes",
         "accelerator_count": "AcceleratorCount",
@@ -889,8 +877,6 @@ class CustomerManagedWorkerCapabilities(PropertyType):
 
 @dataclass
 class Ec2EbsVolume(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dea"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "size_gi_b": "SizeGiB",
         "throughput_mi_b": "ThroughputMiB",
@@ -904,8 +890,6 @@ class Ec2EbsVolume(PropertyType):
 
 @dataclass
 class FleetAmountCapability(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dea"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -919,8 +903,6 @@ class FleetAmountCapability(PropertyType):
 
 @dataclass
 class FleetAttributeCapability(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dea"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "name": "Name",
@@ -932,8 +914,6 @@ class FleetAttributeCapability(PropertyType):
 
 @dataclass
 class FleetCapabilities(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dea"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "amounts": "Amounts",
         "attributes": "Attributes",
@@ -945,8 +925,6 @@ class FleetCapabilities(PropertyType):
 
 @dataclass
 class FleetConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dea"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_managed_ec2": "ServiceManagedEc2",
         "customer_managed": "CustomerManaged",
@@ -958,8 +936,6 @@ class FleetConfiguration(PropertyType):
 
 @dataclass
 class HostConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dea"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "script_timeout_seconds": "ScriptTimeoutSeconds",
         "script_body": "ScriptBody",
@@ -971,8 +947,6 @@ class HostConfiguration(PropertyType):
 
 @dataclass
 class MemoryMiBRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dea"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -984,8 +958,6 @@ class MemoryMiBRange(PropertyType):
 
 @dataclass
 class ServiceManagedEc2FleetConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dea"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_profile_id": "StorageProfileId",
         "instance_market_options": "InstanceMarketOptions",
@@ -1001,8 +973,6 @@ class ServiceManagedEc2FleetConfiguration(PropertyType):
 
 @dataclass
 class ServiceManagedEc2InstanceCapabilities(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dea"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allowed_instance_types": "AllowedInstanceTypes",
         "custom_attributes": "CustomAttributes",
@@ -1030,8 +1000,6 @@ class ServiceManagedEc2InstanceCapabilities(PropertyType):
 
 @dataclass
 class ServiceManagedEc2InstanceMarketOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dea"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -1041,8 +1009,6 @@ class ServiceManagedEc2InstanceMarketOptions(PropertyType):
 
 @dataclass
 class VCpuCountRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dea"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -1054,8 +1020,6 @@ class VCpuCountRange(PropertyType):
 
 @dataclass
 class VpcConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dea"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_configuration_arns": "ResourceConfigurationArns",
     }
@@ -1290,8 +1254,6 @@ class Monitor(CloudFormationResource):
 
 @dataclass
 class JobAttachmentSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dea"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "root_prefix": "RootPrefix",
         "s3_bucket_name": "S3BucketName",
@@ -1303,8 +1265,6 @@ class JobAttachmentSettings(PropertyType):
 
 @dataclass
 class JobRunAsUser(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dea"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "run_as": "RunAs",
         "posix": "Posix",
@@ -1318,8 +1278,6 @@ class JobRunAsUser(PropertyType):
 
 @dataclass
 class PosixUser(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dea"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group": "Group",
         "user": "User",
@@ -1331,8 +1289,6 @@ class PosixUser(PropertyType):
 
 @dataclass
 class WindowsUser(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dea"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user": "User",
         "password_arn": "PasswordArn",
@@ -1452,8 +1408,6 @@ class QueueLimitAssociation(CloudFormationResource):
 
 @dataclass
 class FileSystemLocation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dea"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "type_": "Type",

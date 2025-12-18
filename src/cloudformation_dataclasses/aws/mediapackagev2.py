@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MediaPackageV2
@@ -517,8 +517,6 @@ INVALID_ARN = ValidationExceptionType.INVALID_ARN
 
 @dataclass
 class IngestEndpoint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id": "Id",
         "url": "Url",
@@ -530,8 +528,6 @@ class IngestEndpoint(PropertyType):
 
 @dataclass
 class InputSwitchConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "preferred_input": "PreferredInput",
         "mqcs_input_switching": "MQCSInputSwitching",
@@ -543,8 +539,6 @@ class InputSwitchConfiguration(PropertyType):
 
 @dataclass
 class OutputHeaderConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "publish_mqcs": "PublishMQCS",
     }
@@ -660,8 +654,6 @@ class ChannelPolicy(CloudFormationResource):
 
 @dataclass
 class DashBaseUrl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_location": "ServiceLocation",
         "dvb_weight": "DvbWeight",
@@ -677,8 +669,6 @@ class DashBaseUrl(PropertyType):
 
 @dataclass
 class DashDvbFontDownload(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "font_family": "FontFamily",
         "url": "Url",
@@ -692,8 +682,6 @@ class DashDvbFontDownload(PropertyType):
 
 @dataclass
 class DashDvbMetricsReporting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "reporting_url": "ReportingUrl",
         "probability": "Probability",
@@ -705,8 +693,6 @@ class DashDvbMetricsReporting(PropertyType):
 
 @dataclass
 class DashDvbSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "font_download": "FontDownload",
         "error_metrics": "ErrorMetrics",
@@ -718,8 +704,6 @@ class DashDvbSettings(PropertyType):
 
 @dataclass
 class DashManifestConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "manifest_window_seconds": "ManifestWindowSeconds",
         "drm_signaling": "DrmSignaling",
@@ -761,8 +745,6 @@ class DashManifestConfiguration(PropertyType):
 
 @dataclass
 class DashProgramInformation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "copyright": "Copyright",
         "language_code": "LanguageCode",
@@ -780,8 +762,6 @@ class DashProgramInformation(PropertyType):
 
 @dataclass
 class DashSubtitleConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ttml_configuration": "TtmlConfiguration",
     }
@@ -791,8 +771,6 @@ class DashSubtitleConfiguration(PropertyType):
 
 @dataclass
 class DashTtmlConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ttml_profile": "TtmlProfile",
     }
@@ -802,8 +780,6 @@ class DashTtmlConfiguration(PropertyType):
 
 @dataclass
 class DashUtcTiming(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timing_mode": "TimingMode",
         "timing_source": "TimingSource",
@@ -815,8 +791,6 @@ class DashUtcTiming(PropertyType):
 
 @dataclass
 class Encryption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_rotation_interval_seconds": "KeyRotationIntervalSeconds",
         "cmaf_exclude_segment_drm_metadata": "CmafExcludeSegmentDrmMetadata",
@@ -834,8 +808,6 @@ class Encryption(PropertyType):
 
 @dataclass
 class EncryptionContractConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "preset_speke20_audio": "PresetSpeke20Audio",
         "preset_speke20_video": "PresetSpeke20Video",
@@ -847,8 +819,6 @@ class EncryptionContractConfiguration(PropertyType):
 
 @dataclass
 class EncryptionMethod(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ism_encryption_method": "IsmEncryptionMethod",
         "cmaf_encryption_method": "CmafEncryptionMethod",
@@ -862,8 +832,6 @@ class EncryptionMethod(PropertyType):
 
 @dataclass
 class FilterConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start": "Start",
         "end": "End",
@@ -881,8 +849,6 @@ class FilterConfiguration(PropertyType):
 
 @dataclass
 class ForceEndpointErrorConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "endpoint_error_conditions": "EndpointErrorConditions",
     }
@@ -892,8 +858,6 @@ class ForceEndpointErrorConfiguration(PropertyType):
 
 @dataclass
 class HlsManifestConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "manifest_window_seconds": "ManifestWindowSeconds",
         "manifest_name": "ManifestName",
@@ -919,8 +883,6 @@ class HlsManifestConfiguration(PropertyType):
 
 @dataclass
 class LowLatencyHlsManifestConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "manifest_window_seconds": "ManifestWindowSeconds",
         "manifest_name": "ManifestName",
@@ -946,8 +908,6 @@ class LowLatencyHlsManifestConfiguration(PropertyType):
 
 @dataclass
 class MssManifestConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "manifest_window_seconds": "ManifestWindowSeconds",
         "manifest_name": "ManifestName",
@@ -963,8 +923,6 @@ class MssManifestConfiguration(PropertyType):
 
 @dataclass
 class Scte(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scte_filter": "ScteFilter",
     }
@@ -974,8 +932,6 @@ class Scte(PropertyType):
 
 @dataclass
 class ScteDash(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ad_marker_dash": "AdMarkerDash",
     }
@@ -985,8 +941,6 @@ class ScteDash(PropertyType):
 
 @dataclass
 class ScteHls(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ad_marker_hls": "AdMarkerHls",
     }
@@ -996,8 +950,6 @@ class ScteHls(PropertyType):
 
 @dataclass
 class Segment(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "segment_name": "SegmentName",
         "ts_use_audio_rendition_group": "TsUseAudioRenditionGroup",
@@ -1019,8 +971,6 @@ class Segment(PropertyType):
 
 @dataclass
 class SpekeKeyProvider(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "drm_systems": "DrmSystems",
         "resource_id": "ResourceId",
@@ -1038,8 +988,6 @@ class SpekeKeyProvider(PropertyType):
 
 @dataclass
 class StartTag(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "precise": "Precise",
         "time_offset": "TimeOffset",
@@ -1124,8 +1072,6 @@ class OriginEndpoint(CloudFormationResource):
 
 @dataclass
 class CdnAuthConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secrets_role_arn": "SecretsRoleArn",
         "cdn_identifier_secret_arns": "CdnIdentifierSecretArns",

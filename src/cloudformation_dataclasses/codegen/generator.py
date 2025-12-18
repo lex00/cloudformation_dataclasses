@@ -211,12 +211,6 @@ def generate_property_type_class(
     lines.append(f"{indent}@dataclass")
     lines.append(f"{indent}class {simple_name}(PropertyType):")
 
-    # Docstring
-    if prop_type.documentation:
-        doc = prop_type.documentation.split("\n")[0][:80]  # First line, truncated
-        lines.append(f'{indent}    """{doc}"""')
-        lines.append("")
-
     # Generate properties
     if not prop_type.properties:
         lines.append(f"{indent}    pass")

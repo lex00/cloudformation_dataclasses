@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service B2BI
@@ -915,8 +915,6 @@ VERSION_5010_HIPAA = X12Version.VERSION_5010_HIPAA
 
 @dataclass
 class CapabilityConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "edi": "Edi",
     }
@@ -926,8 +924,6 @@ class CapabilityConfiguration(PropertyType):
 
 @dataclass
 class EdiConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "input_location": "InputLocation",
@@ -945,8 +941,6 @@ class EdiConfiguration(PropertyType):
 
 @dataclass
 class EdiType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "x12_details": "X12Details",
     }
@@ -956,8 +950,6 @@ class EdiType(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "key": "Key",
@@ -969,8 +961,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class X12Details(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
         "transaction_set": "TransactionSet",
@@ -1024,8 +1014,6 @@ class Capability(CloudFormationResource):
 
 @dataclass
 class CapabilityOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inbound_edi": "InboundEdi",
         "outbound_edi": "OutboundEdi",
@@ -1037,8 +1025,6 @@ class CapabilityOptions(PropertyType):
 
 @dataclass
 class InboundEdiOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "x12": "X12",
     }
@@ -1048,8 +1034,6 @@ class InboundEdiOptions(PropertyType):
 
 @dataclass
 class OutboundEdiOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "x12": "X12",
     }
@@ -1059,8 +1043,6 @@ class OutboundEdiOptions(PropertyType):
 
 @dataclass
 class WrapOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "line_length": "LineLength",
         "wrap_by": "WrapBy",
@@ -1074,8 +1056,6 @@ class WrapOptions(PropertyType):
 
 @dataclass
 class X12AcknowledgmentOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "technical_acknowledgment": "TechnicalAcknowledgment",
         "functional_acknowledgment": "FunctionalAcknowledgment",
@@ -1087,8 +1067,6 @@ class X12AcknowledgmentOptions(PropertyType):
 
 @dataclass
 class X12ControlNumbers(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "starting_functional_group_control_number": "StartingFunctionalGroupControlNumber",
         "starting_interchange_control_number": "StartingInterchangeControlNumber",
@@ -1102,8 +1080,6 @@ class X12ControlNumbers(PropertyType):
 
 @dataclass
 class X12Delimiters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "segment_terminator": "SegmentTerminator",
         "component_separator": "ComponentSeparator",
@@ -1117,8 +1093,6 @@ class X12Delimiters(PropertyType):
 
 @dataclass
 class X12Envelope(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "wrap_options": "WrapOptions",
         "common": "Common",
@@ -1130,8 +1104,6 @@ class X12Envelope(PropertyType):
 
 @dataclass
 class X12FunctionalGroupHeaders(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_sender_code": "ApplicationSenderCode",
         "application_receiver_code": "ApplicationReceiverCode",
@@ -1145,8 +1117,6 @@ class X12FunctionalGroupHeaders(PropertyType):
 
 @dataclass
 class X12InboundEdiOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "acknowledgment_options": "AcknowledgmentOptions",
     }
@@ -1156,8 +1126,6 @@ class X12InboundEdiOptions(PropertyType):
 
 @dataclass
 class X12InterchangeControlHeaders(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "receiver_id": "ReceiverId",
         "acknowledgment_requested_code": "AcknowledgmentRequestedCode",
@@ -1179,8 +1147,6 @@ class X12InterchangeControlHeaders(PropertyType):
 
 @dataclass
 class X12OutboundEdiHeaders(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delimiters": "Delimiters",
         "control_numbers": "ControlNumbers",
@@ -1300,8 +1266,6 @@ class Profile(CloudFormationResource):
 
 @dataclass
 class AdvancedOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "x12": "X12",
     }
@@ -1311,8 +1275,6 @@ class AdvancedOptions(PropertyType):
 
 @dataclass
 class FormatOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "x12": "X12",
     }
@@ -1322,8 +1284,6 @@ class FormatOptions(PropertyType):
 
 @dataclass
 class InputConversion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "advanced_options": "AdvancedOptions",
         "format_options": "FormatOptions",
@@ -1337,8 +1297,6 @@ class InputConversion(PropertyType):
 
 @dataclass
 class Mapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "template_language": "TemplateLanguage",
         "template": "Template",
@@ -1350,8 +1308,6 @@ class Mapping(PropertyType):
 
 @dataclass
 class OutputConversion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "advanced_options": "AdvancedOptions",
         "to_format": "ToFormat",
@@ -1365,8 +1321,6 @@ class OutputConversion(PropertyType):
 
 @dataclass
 class SampleDocumentKeys(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input": "Input",
         "output": "Output",
@@ -1378,8 +1332,6 @@ class SampleDocumentKeys(PropertyType):
 
 @dataclass
 class SampleDocuments(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "keys": "Keys",
@@ -1391,8 +1343,6 @@ class SampleDocuments(PropertyType):
 
 @dataclass
 class X12AdvancedOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "validation_options": "ValidationOptions",
         "split_options": "SplitOptions",
@@ -1404,8 +1354,6 @@ class X12AdvancedOptions(PropertyType):
 
 @dataclass
 class X12CodeListValidationRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "codes_to_add": "CodesToAdd",
         "codes_to_remove": "CodesToRemove",
@@ -1419,8 +1367,6 @@ class X12CodeListValidationRule(PropertyType):
 
 @dataclass
 class X12Details(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
         "transaction_set": "TransactionSet",
@@ -1432,8 +1378,6 @@ class X12Details(PropertyType):
 
 @dataclass
 class X12ElementLengthValidationRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_length": "MinLength",
         "max_length": "MaxLength",
@@ -1447,8 +1391,6 @@ class X12ElementLengthValidationRule(PropertyType):
 
 @dataclass
 class X12ElementRequirementValidationRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "requirement": "Requirement",
         "element_position": "ElementPosition",
@@ -1460,8 +1402,6 @@ class X12ElementRequirementValidationRule(PropertyType):
 
 @dataclass
 class X12SplitOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "split_by": "SplitBy",
     }
@@ -1471,8 +1411,6 @@ class X12SplitOptions(PropertyType):
 
 @dataclass
 class X12ValidationOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "validation_rules": "ValidationRules",
     }
@@ -1482,8 +1420,6 @@ class X12ValidationOptions(PropertyType):
 
 @dataclass
 class X12ValidationRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2b"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "element_requirement_validation_rule": "ElementRequirementValidationRule",
         "code_list_validation_rule": "CodeListValidationRule",

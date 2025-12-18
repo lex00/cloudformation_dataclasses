@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:35
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Wisdom
@@ -252,8 +252,6 @@ LOW = RelevanceLevel.LOW
 
 @dataclass
 class AIAgentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "manual_search_ai_agent_configuration": "ManualSearchAIAgentConfiguration",
         "email_overview_ai_agent_configuration": "EmailOverviewAIAgentConfiguration",
@@ -273,8 +271,6 @@ class AIAgentConfiguration(PropertyType):
 
 @dataclass
 class AnswerRecommendationAIAgentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "locale": "Locale",
         "answer_generation_ai_prompt_id": "AnswerGenerationAIPromptId",
@@ -294,8 +290,6 @@ class AnswerRecommendationAIAgentConfiguration(PropertyType):
 
 @dataclass
 class AssociationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "association_type": "AssociationType",
         "association_configuration_data": "AssociationConfigurationData",
@@ -309,8 +303,6 @@ class AssociationConfiguration(PropertyType):
 
 @dataclass
 class AssociationConfigurationData(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "knowledge_base_association_configuration_data": "KnowledgeBaseAssociationConfigurationData",
     }
@@ -320,8 +312,6 @@ class AssociationConfigurationData(PropertyType):
 
 @dataclass
 class EmailGenerativeAnswerAIAgentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "email_generative_answer_ai_prompt_id": "EmailGenerativeAnswerAIPromptId",
         "locale": "Locale",
@@ -337,8 +327,6 @@ class EmailGenerativeAnswerAIAgentConfiguration(PropertyType):
 
 @dataclass
 class EmailOverviewAIAgentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "locale": "Locale",
         "email_overview_ai_prompt_id": "EmailOverviewAIPromptId",
@@ -350,8 +338,6 @@ class EmailOverviewAIAgentConfiguration(PropertyType):
 
 @dataclass
 class EmailResponseAIAgentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "locale": "Locale",
         "email_response_ai_prompt_id": "EmailResponseAIPromptId",
@@ -367,8 +353,6 @@ class EmailResponseAIAgentConfiguration(PropertyType):
 
 @dataclass
 class KnowledgeBaseAssociationConfigurationData(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_results": "MaxResults",
         "content_tag_filter": "ContentTagFilter",
@@ -382,8 +366,6 @@ class KnowledgeBaseAssociationConfigurationData(PropertyType):
 
 @dataclass
 class ManualSearchAIAgentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "locale": "Locale",
         "answer_generation_ai_prompt_id": "AnswerGenerationAIPromptId",
@@ -399,8 +381,6 @@ class ManualSearchAIAgentConfiguration(PropertyType):
 
 @dataclass
 class OrCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "and_conditions": "AndConditions",
         "tag_condition": "TagCondition",
@@ -412,8 +392,6 @@ class OrCondition(PropertyType):
 
 @dataclass
 class SelfServiceAIAgentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "self_service_ai_guardrail_id": "SelfServiceAIGuardrailId",
         "self_service_pre_processing_ai_prompt_id": "SelfServicePreProcessingAIPromptId",
@@ -429,8 +407,6 @@ class SelfServiceAIAgentConfiguration(PropertyType):
 
 @dataclass
 class TagCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -442,8 +418,6 @@ class TagCondition(PropertyType):
 
 @dataclass
 class TagFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "or_conditions": "OrConditions",
         "and_conditions": "AndConditions",
@@ -539,8 +513,6 @@ class AIAgentVersion(CloudFormationResource):
 
 @dataclass
 class AIGuardrailContentPolicyConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filters_config": "FiltersConfig",
     }
@@ -550,8 +522,6 @@ class AIGuardrailContentPolicyConfig(PropertyType):
 
 @dataclass
 class AIGuardrailContextualGroundingPolicyConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filters_config": "FiltersConfig",
     }
@@ -561,8 +531,6 @@ class AIGuardrailContextualGroundingPolicyConfig(PropertyType):
 
 @dataclass
 class AIGuardrailSensitiveInformationPolicyConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "regexes_config": "RegexesConfig",
         "pii_entities_config": "PiiEntitiesConfig",
@@ -574,8 +542,6 @@ class AIGuardrailSensitiveInformationPolicyConfig(PropertyType):
 
 @dataclass
 class AIGuardrailTopicPolicyConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topics_config": "TopicsConfig",
     }
@@ -585,8 +551,6 @@ class AIGuardrailTopicPolicyConfig(PropertyType):
 
 @dataclass
 class AIGuardrailWordPolicyConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "managed_word_lists_config": "ManagedWordListsConfig",
         "words_config": "WordsConfig",
@@ -598,8 +562,6 @@ class AIGuardrailWordPolicyConfig(PropertyType):
 
 @dataclass
 class GuardrailContentFilterConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "output_strength": "OutputStrength",
         "type_": "Type",
@@ -613,8 +575,6 @@ class GuardrailContentFilterConfig(PropertyType):
 
 @dataclass
 class GuardrailContextualGroundingFilterConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "threshold": "Threshold",
@@ -626,8 +586,6 @@ class GuardrailContextualGroundingFilterConfig(PropertyType):
 
 @dataclass
 class GuardrailManagedWordsConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -637,8 +595,6 @@ class GuardrailManagedWordsConfig(PropertyType):
 
 @dataclass
 class GuardrailPiiEntityConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "action": "Action",
@@ -650,8 +606,6 @@ class GuardrailPiiEntityConfig(PropertyType):
 
 @dataclass
 class GuardrailRegexConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pattern": "Pattern",
         "action": "Action",
@@ -667,8 +621,6 @@ class GuardrailRegexConfig(PropertyType):
 
 @dataclass
 class GuardrailTopicConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "definition": "Definition",
@@ -684,8 +636,6 @@ class GuardrailTopicConfig(PropertyType):
 
 @dataclass
 class GuardrailWordConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text": "Text",
     }
@@ -782,8 +732,6 @@ class AIGuardrailVersion(CloudFormationResource):
 
 @dataclass
 class AIPromptTemplateConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_full_ai_prompt_edit_template_configuration": "TextFullAIPromptEditTemplateConfiguration",
     }
@@ -793,8 +741,6 @@ class AIPromptTemplateConfiguration(PropertyType):
 
 @dataclass
 class TextFullAIPromptEditTemplateConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text": "Text",
     }
@@ -892,8 +838,6 @@ class AIPromptVersion(CloudFormationResource):
 
 @dataclass
 class ServerSideEncryptionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
     }
@@ -935,8 +879,6 @@ class Assistant(CloudFormationResource):
 
 @dataclass
 class AssociationData(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "knowledge_base_id": "KnowledgeBaseId",
     }
@@ -981,8 +923,6 @@ class AssistantAssociation(CloudFormationResource):
 
 @dataclass
 class AppIntegrationsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object_fields": "ObjectFields",
         "app_integration_arn": "AppIntegrationArn",
@@ -994,8 +934,6 @@ class AppIntegrationsConfiguration(PropertyType):
 
 @dataclass
 class BedrockFoundationModelConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_arn": "ModelArn",
         "parsing_prompt": "ParsingPrompt",
@@ -1007,8 +945,6 @@ class BedrockFoundationModelConfiguration(PropertyType):
 
 @dataclass
 class ChunkingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "chunking_strategy": "ChunkingStrategy",
         "fixed_size_chunking_configuration": "FixedSizeChunkingConfiguration",
@@ -1024,8 +960,6 @@ class ChunkingConfiguration(PropertyType):
 
 @dataclass
 class CrawlerLimits(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rate_limit": "RateLimit",
     }
@@ -1035,8 +969,6 @@ class CrawlerLimits(PropertyType):
 
 @dataclass
 class FixedSizeChunkingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "overlap_percentage": "OverlapPercentage",
         "max_tokens": "MaxTokens",
@@ -1048,8 +980,6 @@ class FixedSizeChunkingConfiguration(PropertyType):
 
 @dataclass
 class HierarchicalChunkingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "overlap_tokens": "OverlapTokens",
         "level_configurations": "LevelConfigurations",
@@ -1061,8 +991,6 @@ class HierarchicalChunkingConfiguration(PropertyType):
 
 @dataclass
 class HierarchicalChunkingLevelConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_tokens": "MaxTokens",
     }
@@ -1072,8 +1000,6 @@ class HierarchicalChunkingLevelConfiguration(PropertyType):
 
 @dataclass
 class ManagedSourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "web_crawler_configuration": "WebCrawlerConfiguration",
     }
@@ -1083,8 +1009,6 @@ class ManagedSourceConfiguration(PropertyType):
 
 @dataclass
 class ParsingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bedrock_foundation_model_configuration": "BedrockFoundationModelConfiguration",
         "parsing_strategy": "ParsingStrategy",
@@ -1096,8 +1020,6 @@ class ParsingConfiguration(PropertyType):
 
 @dataclass
 class ParsingPrompt(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parsing_prompt_text": "ParsingPromptText",
     }
@@ -1107,8 +1029,6 @@ class ParsingPrompt(PropertyType):
 
 @dataclass
 class RenderingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "template_uri": "TemplateUri",
     }
@@ -1118,8 +1038,6 @@ class RenderingConfiguration(PropertyType):
 
 @dataclass
 class SeedUrl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "url": "Url",
     }
@@ -1129,8 +1047,6 @@ class SeedUrl(PropertyType):
 
 @dataclass
 class SemanticChunkingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "buffer_size": "BufferSize",
         "max_tokens": "MaxTokens",
@@ -1144,8 +1060,6 @@ class SemanticChunkingConfiguration(PropertyType):
 
 @dataclass
 class ServerSideEncryptionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
     }
@@ -1155,8 +1069,6 @@ class ServerSideEncryptionConfiguration(PropertyType):
 
 @dataclass
 class SourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "app_integrations": "AppIntegrations",
         "managed_source_configuration": "ManagedSourceConfiguration",
@@ -1168,8 +1080,6 @@ class SourceConfiguration(PropertyType):
 
 @dataclass
 class UrlConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "seed_urls": "SeedUrls",
     }
@@ -1179,8 +1089,6 @@ class UrlConfiguration(PropertyType):
 
 @dataclass
 class VectorIngestionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parsing_configuration": "ParsingConfiguration",
         "chunking_configuration": "ChunkingConfiguration",
@@ -1192,8 +1100,6 @@ class VectorIngestionConfiguration(PropertyType):
 
 @dataclass
 class WebCrawlerConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "url_configuration": "UrlConfiguration",
         "inclusion_filters": "InclusionFilters",
@@ -1249,8 +1155,6 @@ class KnowledgeBase(CloudFormationResource):
 
 @dataclass
 class AgentAttributes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "first_name": "FirstName",
         "last_name": "LastName",
@@ -1262,8 +1166,6 @@ class AgentAttributes(PropertyType):
 
 @dataclass
 class Content(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "email_message_template_content": "EmailMessageTemplateContent",
         "sms_message_template_content": "SmsMessageTemplateContent",
@@ -1275,8 +1177,6 @@ class Content(PropertyType):
 
 @dataclass
 class CustomerProfileAttributes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "profile_id": "ProfileId",
         "billing_city": "BillingCity",
@@ -1400,8 +1300,6 @@ class CustomerProfileAttributes(PropertyType):
 
 @dataclass
 class EmailMessageTemplateContent(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "headers": "Headers",
         "body": "Body",
@@ -1415,8 +1313,6 @@ class EmailMessageTemplateContent(PropertyType):
 
 @dataclass
 class EmailMessageTemplateContentBody(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "plain_text": "PlainText",
         "html": "Html",
@@ -1428,8 +1324,6 @@ class EmailMessageTemplateContentBody(PropertyType):
 
 @dataclass
 class EmailMessageTemplateHeader(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -1441,8 +1335,6 @@ class EmailMessageTemplateHeader(PropertyType):
 
 @dataclass
 class GroupingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "criteria": "Criteria",
@@ -1454,8 +1346,6 @@ class GroupingConfiguration(PropertyType):
 
 @dataclass
 class MessageTemplateAttachment(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attachment_name": "AttachmentName",
         "s3_presigned_url": "S3PresignedUrl",
@@ -1469,8 +1359,6 @@ class MessageTemplateAttachment(PropertyType):
 
 @dataclass
 class MessageTemplateAttributes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "system_attributes": "SystemAttributes",
         "custom_attributes": "CustomAttributes",
@@ -1486,8 +1374,6 @@ class MessageTemplateAttributes(PropertyType):
 
 @dataclass
 class MessageTemplateBodyContentProvider(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content": "Content",
     }
@@ -1497,8 +1383,6 @@ class MessageTemplateBodyContentProvider(PropertyType):
 
 @dataclass
 class SmsMessageTemplateContent(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "body": "Body",
     }
@@ -1508,8 +1392,6 @@ class SmsMessageTemplateContent(PropertyType):
 
 @dataclass
 class SmsMessageTemplateContentBody(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "plain_text": "PlainText",
     }
@@ -1519,8 +1401,6 @@ class SmsMessageTemplateContentBody(PropertyType):
 
 @dataclass
 class SystemAttributes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "customer_endpoint": "CustomerEndpoint",
         "system_endpoint": "SystemEndpoint",
@@ -1534,8 +1414,6 @@ class SystemAttributes(PropertyType):
 
 @dataclass
 class SystemEndpointAttributes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address": "Address",
     }
@@ -1618,8 +1496,6 @@ class MessageTemplateVersion(CloudFormationResource):
 
 @dataclass
 class GroupingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "criteria": "Criteria",
@@ -1631,8 +1507,6 @@ class GroupingConfiguration(PropertyType):
 
 @dataclass
 class QuickResponseContentProvider(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content": "Content",
     }
@@ -1642,8 +1516,6 @@ class QuickResponseContentProvider(PropertyType):
 
 @dataclass
 class QuickResponseContents(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "plain_text": "PlainText",
         "markdown": "Markdown",

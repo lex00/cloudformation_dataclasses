@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Omics
@@ -627,8 +627,6 @@ READY2RUN = WorkflowType.READY2RUN
 
 @dataclass
 class ReferenceItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "reference_arn": "ReferenceArn",
     }
@@ -638,8 +636,6 @@ class ReferenceItem(PropertyType):
 
 @dataclass
 class SseConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "key_arn": "KeyArn",
@@ -651,8 +647,6 @@ class SseConfig(PropertyType):
 
 @dataclass
 class StoreOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tsv_store_options": "TsvStoreOptions",
     }
@@ -662,8 +656,6 @@ class StoreOptions(PropertyType):
 
 @dataclass
 class TsvStoreOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schema": "Schema",
         "format_to_header": "FormatToHeader",
@@ -738,8 +730,6 @@ class AnnotationStore(CloudFormationResource):
 
 @dataclass
 class SseConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "key_arn": "KeyArn",
@@ -825,8 +815,6 @@ class RunGroup(CloudFormationResource):
 
 @dataclass
 class SseConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "key_arn": "KeyArn",
@@ -908,8 +896,6 @@ class SequenceStore(CloudFormationResource):
 
 @dataclass
 class ReferenceItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "reference_arn": "ReferenceArn",
     }
@@ -919,8 +905,6 @@ class ReferenceItem(PropertyType):
 
 @dataclass
 class SseConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "key_arn": "KeyArn",
@@ -989,8 +973,6 @@ class VariantStore(CloudFormationResource):
 
 @dataclass
 class ContainerRegistryMap(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "registry_mappings": "RegistryMappings",
         "image_mappings": "ImageMappings",
@@ -1002,8 +984,6 @@ class ContainerRegistryMap(PropertyType):
 
 @dataclass
 class DefinitionRepository(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_reference": "sourceReference",
         "full_repository_id": "fullRepositoryId",
@@ -1019,8 +999,6 @@ class DefinitionRepository(PropertyType):
 
 @dataclass
 class ImageMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_image": "SourceImage",
         "destination_image": "DestinationImage",
@@ -1032,8 +1010,6 @@ class ImageMapping(PropertyType):
 
 @dataclass
 class RegistryMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "upstream_registry_url": "UpstreamRegistryUrl",
         "ecr_account_id": "EcrAccountId",
@@ -1049,8 +1025,6 @@ class RegistryMapping(PropertyType):
 
 @dataclass
 class SourceReference(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "type",
         "value": "value",
@@ -1062,8 +1036,6 @@ class SourceReference(PropertyType):
 
 @dataclass
 class WorkflowParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "optional": "Optional",
@@ -1153,8 +1125,6 @@ class Workflow(CloudFormationResource):
 
 @dataclass
 class ContainerRegistryMap(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "registry_mappings": "RegistryMappings",
         "image_mappings": "ImageMappings",
@@ -1166,8 +1136,6 @@ class ContainerRegistryMap(PropertyType):
 
 @dataclass
 class DefinitionRepository(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_reference": "sourceReference",
         "full_repository_id": "fullRepositoryId",
@@ -1183,8 +1151,6 @@ class DefinitionRepository(PropertyType):
 
 @dataclass
 class ImageMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_image": "SourceImage",
         "destination_image": "DestinationImage",
@@ -1196,8 +1162,6 @@ class ImageMapping(PropertyType):
 
 @dataclass
 class RegistryMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "upstream_registry_url": "UpstreamRegistryUrl",
         "ecr_account_id": "EcrAccountId",
@@ -1213,8 +1177,6 @@ class RegistryMapping(PropertyType):
 
 @dataclass
 class SourceReference(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "type",
         "value": "value",
@@ -1226,8 +1188,6 @@ class SourceReference(PropertyType):
 
 @dataclass
 class WorkflowParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "optional": "Optional",

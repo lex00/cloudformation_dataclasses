@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:35
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Timestream
@@ -171,8 +171,6 @@ class Database(CloudFormationResource):
 
 @dataclass
 class LogDeliveryConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_configuration": "S3Configuration",
     }
@@ -182,8 +180,6 @@ class LogDeliveryConfiguration(PropertyType):
 
 @dataclass
 class S3Configuration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "enabled": "Enabled",
@@ -276,8 +272,6 @@ class InfluxDBInstance(CloudFormationResource):
 
 @dataclass
 class DimensionMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_value_type": "DimensionValueType",
         "name": "Name",
@@ -289,8 +283,6 @@ class DimensionMapping(PropertyType):
 
 @dataclass
 class ErrorReportConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_configuration": "S3Configuration",
     }
@@ -300,8 +292,6 @@ class ErrorReportConfiguration(PropertyType):
 
 @dataclass
 class MixedMeasureMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "measure_name": "MeasureName",
         "source_column": "SourceColumn",
@@ -319,8 +309,6 @@ class MixedMeasureMapping(PropertyType):
 
 @dataclass
 class MultiMeasureAttributeMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_column": "SourceColumn",
         "target_multi_measure_attribute_name": "TargetMultiMeasureAttributeName",
@@ -334,8 +322,6 @@ class MultiMeasureAttributeMapping(PropertyType):
 
 @dataclass
 class MultiMeasureMappings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_multi_measure_name": "TargetMultiMeasureName",
         "multi_measure_attribute_mappings": "MultiMeasureAttributeMappings",
@@ -347,8 +333,6 @@ class MultiMeasureMappings(PropertyType):
 
 @dataclass
 class NotificationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sns_configuration": "SnsConfiguration",
     }
@@ -358,8 +342,6 @@ class NotificationConfiguration(PropertyType):
 
 @dataclass
 class S3Configuration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "object_key_prefix": "ObjectKeyPrefix",
@@ -373,8 +355,6 @@ class S3Configuration(PropertyType):
 
 @dataclass
 class ScheduleConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schedule_expression": "ScheduleExpression",
     }
@@ -384,8 +364,6 @@ class ScheduleConfiguration(PropertyType):
 
 @dataclass
 class SnsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topic_arn": "TopicArn",
     }
@@ -395,8 +373,6 @@ class SnsConfiguration(PropertyType):
 
 @dataclass
 class TargetConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timestream_configuration": "TimestreamConfiguration",
     }
@@ -406,8 +382,6 @@ class TargetConfiguration(PropertyType):
 
 @dataclass
 class TimestreamConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "time_column": "TimeColumn",
         "table_name": "TableName",
@@ -506,8 +480,6 @@ class ScheduledQuery(CloudFormationResource):
 
 @dataclass
 class MagneticStoreRejectedDataLocation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_configuration": "S3Configuration",
     }
@@ -517,8 +489,6 @@ class MagneticStoreRejectedDataLocation(PropertyType):
 
 @dataclass
 class MagneticStoreWriteProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_magnetic_store_writes": "EnableMagneticStoreWrites",
         "magnetic_store_rejected_data_location": "MagneticStoreRejectedDataLocation",
@@ -530,8 +500,6 @@ class MagneticStoreWriteProperties(PropertyType):
 
 @dataclass
 class PartitionKey(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "enforcement_in_record": "EnforcementInRecord",
@@ -545,8 +513,6 @@ class PartitionKey(PropertyType):
 
 @dataclass
 class RetentionProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "magnetic_store_retention_period_in_days": "MagneticStoreRetentionPeriodInDays",
         "memory_store_retention_period_in_hours": "MemoryStoreRetentionPeriodInHours",
@@ -558,8 +524,6 @@ class RetentionProperties(PropertyType):
 
 @dataclass
 class S3Configuration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "kms_key_id": "KmsKeyId",
@@ -575,8 +539,6 @@ class S3Configuration(PropertyType):
 
 @dataclass
 class Schema(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "composite_partition_key": "CompositePartitionKey",
     }

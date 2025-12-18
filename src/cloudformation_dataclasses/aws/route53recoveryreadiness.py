@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Route53RecoveryReadiness
@@ -121,8 +121,6 @@ class RecoveryGroup(CloudFormationResource):
 
 @dataclass
 class DNSTargetResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_resource": "TargetResource",
         "record_type": "RecordType",
@@ -140,8 +138,6 @@ class DNSTargetResource(PropertyType):
 
 @dataclass
 class NLBResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -151,8 +147,6 @@ class NLBResource(PropertyType):
 
 @dataclass
 class R53ResourceRecord(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_name": "DomainName",
         "record_set_id": "RecordSetId",
@@ -164,8 +158,6 @@ class R53ResourceRecord(PropertyType):
 
 @dataclass
 class Resource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceArn",
         "dns_target_resource": "DnsTargetResource",
@@ -181,8 +173,6 @@ class Resource(PropertyType):
 
 @dataclass
 class TargetResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "r53_resource": "R53Resource",
         "nlb_resource": "NLBResource",

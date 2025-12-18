@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:45
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AppTest
@@ -27,8 +27,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Batch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "batch_job_name": "BatchJobName",
         "export_data_set_names": "ExportDataSetNames",
@@ -42,8 +40,6 @@ class Batch(PropertyType):
 
 @dataclass
 class CloudFormationAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action_type": "ActionType",
         "resource": "Resource",
@@ -55,8 +51,6 @@ class CloudFormationAction(PropertyType):
 
 @dataclass
 class CompareAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input": "Input",
         "output": "Output",
@@ -68,8 +62,6 @@ class CompareAction(PropertyType):
 
 @dataclass
 class DataSet(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ccsid": "Ccsid",
         "type_": "Type",
@@ -87,8 +79,6 @@ class DataSet(PropertyType):
 
 @dataclass
 class DatabaseCDC(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_metadata": "SourceMetadata",
         "target_metadata": "TargetMetadata",
@@ -100,8 +90,6 @@ class DatabaseCDC(PropertyType):
 
 @dataclass
 class FileMetadata(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "database_cdc": "DatabaseCDC",
         "data_sets": "DataSets",
@@ -113,8 +101,6 @@ class FileMetadata(PropertyType):
 
 @dataclass
 class Input(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file": "File",
     }
@@ -124,8 +110,6 @@ class Input(PropertyType):
 
 @dataclass
 class InputFile(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_location": "SourceLocation",
         "target_location": "TargetLocation",
@@ -139,8 +123,6 @@ class InputFile(PropertyType):
 
 @dataclass
 class M2ManagedActionProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "import_data_set_location": "ImportDataSetLocation",
         "force_stop": "ForceStop",
@@ -152,8 +134,6 @@ class M2ManagedActionProperties(PropertyType):
 
 @dataclass
 class M2ManagedApplicationAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action_type": "ActionType",
         "resource": "Resource",
@@ -167,8 +147,6 @@ class M2ManagedApplicationAction(PropertyType):
 
 @dataclass
 class M2NonManagedApplicationAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action_type": "ActionType",
         "resource": "Resource",
@@ -180,8 +158,6 @@ class M2NonManagedApplicationAction(PropertyType):
 
 @dataclass
 class MainframeAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action_type": "ActionType",
         "resource": "Resource",
@@ -195,8 +171,6 @@ class MainframeAction(PropertyType):
 
 @dataclass
 class MainframeActionProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dms_task_arn": "DmsTaskArn",
     }
@@ -206,8 +180,6 @@ class MainframeActionProperties(PropertyType):
 
 @dataclass
 class MainframeActionType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "batch": "Batch",
         "tn3270": "Tn3270",
@@ -219,8 +191,6 @@ class MainframeActionType(PropertyType):
 
 @dataclass
 class Output(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file": "File",
     }
@@ -230,8 +200,6 @@ class Output(PropertyType):
 
 @dataclass
 class OutputFile(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file_location": "FileLocation",
     }
@@ -241,8 +209,6 @@ class OutputFile(PropertyType):
 
 @dataclass
 class ResourceAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_formation_action": "CloudFormationAction",
         "m2_managed_application_action": "M2ManagedApplicationAction",
@@ -256,8 +222,6 @@ class ResourceAction(PropertyType):
 
 @dataclass
 class Script(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "script_location": "ScriptLocation",
@@ -269,8 +233,6 @@ class Script(PropertyType):
 
 @dataclass
 class SourceDatabaseMetadata(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "capture_tool": "CaptureTool",
@@ -282,8 +244,6 @@ class SourceDatabaseMetadata(PropertyType):
 
 @dataclass
 class Step(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "description": "Description",
@@ -297,8 +257,6 @@ class Step(PropertyType):
 
 @dataclass
 class StepAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compare_action": "CompareAction",
         "mainframe_action": "MainframeAction",
@@ -312,8 +270,6 @@ class StepAction(PropertyType):
 
 @dataclass
 class TN3270(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "script": "Script",
         "export_data_set_names": "ExportDataSetNames",
@@ -325,8 +281,6 @@ class TN3270(PropertyType):
 
 @dataclass
 class TargetDatabaseMetadata(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "capture_tool": "CaptureTool",
@@ -338,8 +292,6 @@ class TargetDatabaseMetadata(PropertyType):
 
 @dataclass
 class TestCaseLatestVersion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "version": "Version",

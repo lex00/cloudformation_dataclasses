@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service RUM
@@ -94,8 +94,6 @@ HTTP = Telemetry.HTTP
 
 @dataclass
 class AppMonitorConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_destinations": "MetricDestinations",
         "included_pages": "IncludedPages",
@@ -123,8 +121,6 @@ class AppMonitorConfiguration(PropertyType):
 
 @dataclass
 class CustomEvents(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
     }
@@ -134,8 +130,6 @@ class CustomEvents(PropertyType):
 
 @dataclass
 class DeobfuscationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "java_script_source_maps": "JavaScriptSourceMaps",
     }
@@ -145,8 +139,6 @@ class DeobfuscationConfiguration(PropertyType):
 
 @dataclass
 class JavaScriptSourceMaps(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "s3_uri": "S3Uri",
@@ -158,8 +150,6 @@ class JavaScriptSourceMaps(PropertyType):
 
 @dataclass
 class MetricDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_pattern": "EventPattern",
         "value_key": "ValueKey",
@@ -179,8 +169,6 @@ class MetricDefinition(PropertyType):
 
 @dataclass
 class MetricDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "iam_role_arn": "IamRoleArn",
@@ -196,8 +184,6 @@ class MetricDestination(PropertyType):
 
 @dataclass
 class ResourcePolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_revision_id": "PolicyRevisionId",
         "policy_document": "PolicyDocument",

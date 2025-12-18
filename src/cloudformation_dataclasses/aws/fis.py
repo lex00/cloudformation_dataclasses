@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service FIS
@@ -140,8 +140,6 @@ ENGAGED = SafetyLeverStatusInput.ENGAGED
 
 @dataclass
 class CloudWatchDashboard(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dashboard_identifier": "DashboardIdentifier",
     }
@@ -151,8 +149,6 @@ class CloudWatchDashboard(PropertyType):
 
 @dataclass
 class CloudWatchLogsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group_arn": "LogGroupArn",
     }
@@ -162,8 +158,6 @@ class CloudWatchLogsConfiguration(PropertyType):
 
 @dataclass
 class DataSources(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_dashboards": "CloudWatchDashboards",
     }
@@ -173,8 +167,6 @@ class DataSources(PropertyType):
 
 @dataclass
 class ExperimentReportS3Configuration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "prefix": "Prefix",
@@ -186,8 +178,6 @@ class ExperimentReportS3Configuration(PropertyType):
 
 @dataclass
 class ExperimentTemplateAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action_id": "ActionId",
         "description": "Description",
@@ -205,8 +195,6 @@ class ExperimentTemplateAction(PropertyType):
 
 @dataclass
 class ExperimentTemplateExperimentOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "empty_target_resolution_mode": "EmptyTargetResolutionMode",
         "account_targeting": "AccountTargeting",
@@ -218,8 +206,6 @@ class ExperimentTemplateExperimentOptions(PropertyType):
 
 @dataclass
 class ExperimentTemplateExperimentReportConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_sources": "DataSources",
         "post_experiment_duration": "PostExperimentDuration",
@@ -235,8 +221,6 @@ class ExperimentTemplateExperimentReportConfiguration(PropertyType):
 
 @dataclass
 class ExperimentTemplateLogConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_configuration": "S3Configuration",
         "log_schema_version": "LogSchemaVersion",
@@ -250,8 +234,6 @@ class ExperimentTemplateLogConfiguration(PropertyType):
 
 @dataclass
 class ExperimentTemplateStopCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "source": "Source",
@@ -263,8 +245,6 @@ class ExperimentTemplateStopCondition(PropertyType):
 
 @dataclass
 class ExperimentTemplateTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filters": "Filters",
         "parameters": "Parameters",
@@ -284,8 +264,6 @@ class ExperimentTemplateTarget(PropertyType):
 
 @dataclass
 class ExperimentTemplateTargetFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "values": "Values",
@@ -297,8 +275,6 @@ class ExperimentTemplateTargetFilter(PropertyType):
 
 @dataclass
 class Outputs(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "experiment_report_s3_configuration": "ExperimentReportS3Configuration",
     }
@@ -308,8 +284,6 @@ class Outputs(PropertyType):
 
 @dataclass
 class S3Configuration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "prefix": "Prefix",

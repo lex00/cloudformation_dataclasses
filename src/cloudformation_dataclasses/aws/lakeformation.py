@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service LakeFormation
@@ -253,8 +253,6 @@ READ_ONLY = TransactionType.READ_ONLY
 
 @dataclass
 class ColumnWildcard(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "excluded_column_names": "ExcludedColumnNames",
     }
@@ -264,8 +262,6 @@ class ColumnWildcard(PropertyType):
 
 @dataclass
 class RowFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all_rows_wildcard": "AllRowsWildcard",
         "filter_expression": "FilterExpression",
@@ -302,29 +298,21 @@ class DataCellsFilter(CloudFormationResource):
 
 @dataclass
 class Admins(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     pass
 
 
 @dataclass
 class CreateDatabaseDefaultPermissions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     pass
 
 
 @dataclass
 class CreateTableDefaultPermissions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     pass
 
 
 @dataclass
 class DataLakePrincipal(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_lake_principal_identifier": "DataLakePrincipalIdentifier",
     }
@@ -334,15 +322,11 @@ class DataLakePrincipal(PropertyType):
 
 @dataclass
 class ExternalDataFilteringAllowList(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     pass
 
 
 @dataclass
 class PrincipalPermissions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "permissions": "Permissions",
         "principal": "Principal",
@@ -354,8 +338,6 @@ class PrincipalPermissions(PropertyType):
 
 @dataclass
 class ReadOnlyAdmins(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     pass
 
 
@@ -394,8 +376,6 @@ class DataLakeSettings(CloudFormationResource):
 
 @dataclass
 class ColumnWildcard(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "excluded_column_names": "ExcludedColumnNames",
     }
@@ -405,8 +385,6 @@ class ColumnWildcard(PropertyType):
 
 @dataclass
 class DataLakePrincipal(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_lake_principal_identifier": "DataLakePrincipalIdentifier",
     }
@@ -416,8 +394,6 @@ class DataLakePrincipal(PropertyType):
 
 @dataclass
 class DataLocationResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_resource": "S3Resource",
         "catalog_id": "CatalogId",
@@ -429,8 +405,6 @@ class DataLocationResource(PropertyType):
 
 @dataclass
 class DatabaseResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "catalog_id": "CatalogId",
         "name": "Name",
@@ -442,8 +416,6 @@ class DatabaseResource(PropertyType):
 
 @dataclass
 class Resource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_resource": "TableResource",
         "database_resource": "DatabaseResource",
@@ -459,8 +431,6 @@ class Resource(PropertyType):
 
 @dataclass
 class TableResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "database_name": "DatabaseName",
         "catalog_id": "CatalogId",
@@ -476,15 +446,11 @@ class TableResource(PropertyType):
 
 @dataclass
 class TableWildcard(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     pass
 
 
 @dataclass
 class TableWithColumnsResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_names": "ColumnNames",
         "database_name": "DatabaseName",
@@ -521,8 +487,6 @@ class Permissions(CloudFormationResource):
 
 @dataclass
 class ColumnWildcard(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "excluded_column_names": "ExcludedColumnNames",
     }
@@ -532,8 +496,6 @@ class ColumnWildcard(PropertyType):
 
 @dataclass
 class DataCellsFilterResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "database_name": "DatabaseName",
@@ -549,8 +511,6 @@ class DataCellsFilterResource(PropertyType):
 
 @dataclass
 class DataLakePrincipal(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_lake_principal_identifier": "DataLakePrincipalIdentifier",
     }
@@ -560,8 +520,6 @@ class DataLakePrincipal(PropertyType):
 
 @dataclass
 class DataLocationResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceArn",
         "catalog_id": "CatalogId",
@@ -573,8 +531,6 @@ class DataLocationResource(PropertyType):
 
 @dataclass
 class DatabaseResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "catalog_id": "CatalogId",
         "name": "Name",
@@ -586,8 +542,6 @@ class DatabaseResource(PropertyType):
 
 @dataclass
 class LFTag(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tag_key": "TagKey",
         "tag_values": "TagValues",
@@ -599,8 +553,6 @@ class LFTag(PropertyType):
 
 @dataclass
 class LFTagKeyResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tag_key": "TagKey",
         "catalog_id": "CatalogId",
@@ -614,8 +566,6 @@ class LFTagKeyResource(PropertyType):
 
 @dataclass
 class LFTagPolicyResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "resource_type": "ResourceType",
@@ -629,8 +579,6 @@ class LFTagPolicyResource(PropertyType):
 
 @dataclass
 class Resource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lf_tag": "LFTag",
         "table": "Table",
@@ -654,8 +602,6 @@ class Resource(PropertyType):
 
 @dataclass
 class TableResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "database_name": "DatabaseName",
         "catalog_id": "CatalogId",
@@ -671,8 +617,6 @@ class TableResource(PropertyType):
 
 @dataclass
 class TableWithColumnsResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_names": "ColumnNames",
         "database_name": "DatabaseName",
@@ -760,8 +704,6 @@ class Tag(CloudFormationResource):
 
 @dataclass
 class DatabaseResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "catalog_id": "CatalogId",
         "name": "Name",
@@ -773,8 +715,6 @@ class DatabaseResource(PropertyType):
 
 @dataclass
 class LFTagPair(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tag_key": "TagKey",
         "catalog_id": "CatalogId",
@@ -788,8 +728,6 @@ class LFTagPair(PropertyType):
 
 @dataclass
 class Resource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table": "Table",
         "table_with_columns": "TableWithColumns",
@@ -805,8 +743,6 @@ class Resource(PropertyType):
 
 @dataclass
 class TableResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "database_name": "DatabaseName",
         "catalog_id": "CatalogId",
@@ -822,8 +758,6 @@ class TableResource(PropertyType):
 
 @dataclass
 class TableWithColumnsResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lak"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_names": "ColumnNames",
         "database_name": "DatabaseName",

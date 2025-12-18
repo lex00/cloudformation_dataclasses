@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:35
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service WorkSpaces
@@ -1030,8 +1030,6 @@ UPDATING = WorkspacesPoolState.UPDATING
 
 @dataclass
 class ConnectionAliasAssociation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "associated_account_id": "AssociatedAccountId",
         "resource_id": "ResourceId",
@@ -1078,8 +1076,6 @@ class ConnectionAlias(CloudFormationResource):
 
 @dataclass
 class WorkspaceProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compute_type_name": "ComputeTypeName",
         "root_volume_size_gib": "RootVolumeSizeGib",
@@ -1124,8 +1120,6 @@ class Workspace(CloudFormationResource):
 
 @dataclass
 class ApplicationSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "settings_group": "SettingsGroup",
@@ -1137,8 +1131,6 @@ class ApplicationSettings(PropertyType):
 
 @dataclass
 class Capacity(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "desired_user_sessions": "DesiredUserSessions",
     }
@@ -1148,8 +1140,6 @@ class Capacity(PropertyType):
 
 @dataclass
 class TimeoutSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_user_duration_in_seconds": "MaxUserDurationInSeconds",
         "idle_disconnect_timeout_in_seconds": "IdleDisconnectTimeoutInSeconds",

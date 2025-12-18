@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service NetworkFirewall
@@ -473,8 +473,6 @@ REJECTED = TransitGatewayAttachmentStatus.REJECTED
 
 @dataclass
 class AvailabilityZoneMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_zone": "AvailabilityZone",
     }
@@ -484,8 +482,6 @@ class AvailabilityZoneMapping(PropertyType):
 
 @dataclass
 class SubnetMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IPAddressType",
         "subnet_id": "SubnetId",
@@ -555,8 +551,6 @@ class Firewall(CloudFormationResource):
 
 @dataclass
 class ActionDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "publish_metric_action": "PublishMetricAction",
     }
@@ -566,8 +560,6 @@ class ActionDefinition(PropertyType):
 
 @dataclass
 class CustomAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action_name": "ActionName",
         "action_definition": "ActionDefinition",
@@ -579,8 +571,6 @@ class CustomAction(PropertyType):
 
 @dataclass
 class Dimension(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -590,8 +580,6 @@ class Dimension(PropertyType):
 
 @dataclass
 class FirewallPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stateless_rule_group_references": "StatelessRuleGroupReferences",
         "stateful_rule_group_references": "StatefulRuleGroupReferences",
@@ -619,8 +607,6 @@ class FirewallPolicy(PropertyType):
 
 @dataclass
 class FlowTimeouts(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tcp_idle_timeout_seconds": "TcpIdleTimeoutSeconds",
     }
@@ -630,8 +616,6 @@ class FlowTimeouts(PropertyType):
 
 @dataclass
 class IPSet(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "definition": "Definition",
     }
@@ -641,8 +625,6 @@ class IPSet(PropertyType):
 
 @dataclass
 class PolicyVariables(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule_variables": "RuleVariables",
     }
@@ -652,8 +634,6 @@ class PolicyVariables(PropertyType):
 
 @dataclass
 class PublishMetricAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimensions": "Dimensions",
     }
@@ -663,8 +643,6 @@ class PublishMetricAction(PropertyType):
 
 @dataclass
 class StatefulEngineOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stream_exception_policy": "StreamExceptionPolicy",
         "flow_timeouts": "FlowTimeouts",
@@ -678,8 +656,6 @@ class StatefulEngineOptions(PropertyType):
 
 @dataclass
 class StatefulRuleGroupOverride(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
     }
@@ -689,8 +665,6 @@ class StatefulRuleGroupOverride(PropertyType):
 
 @dataclass
 class StatefulRuleGroupReference(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceArn",
         "priority": "Priority",
@@ -706,8 +680,6 @@ class StatefulRuleGroupReference(PropertyType):
 
 @dataclass
 class StatelessRuleGroupReference(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceArn",
         "priority": "Priority",
@@ -749,8 +721,6 @@ class FirewallPolicy(CloudFormationResource):
 
 @dataclass
 class LogDestinationConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_type": "LogType",
         "log_destination": "LogDestination",
@@ -764,8 +734,6 @@ class LogDestinationConfig(PropertyType):
 
 @dataclass
 class LoggingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_destination_configs": "LogDestinationConfigs",
     }
@@ -794,8 +762,6 @@ class LoggingConfiguration(CloudFormationResource):
 
 @dataclass
 class ActionDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "publish_metric_action": "PublishMetricAction",
     }
@@ -805,8 +771,6 @@ class ActionDefinition(PropertyType):
 
 @dataclass
 class Address(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address_definition": "AddressDefinition",
     }
@@ -816,8 +780,6 @@ class Address(PropertyType):
 
 @dataclass
 class CustomAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action_name": "ActionName",
         "action_definition": "ActionDefinition",
@@ -829,8 +791,6 @@ class CustomAction(PropertyType):
 
 @dataclass
 class Dimension(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -840,8 +800,6 @@ class Dimension(PropertyType):
 
 @dataclass
 class Header(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "protocol": "Protocol",
@@ -861,8 +819,6 @@ class Header(PropertyType):
 
 @dataclass
 class IPSet(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "definition": "Definition",
     }
@@ -872,8 +828,6 @@ class IPSet(PropertyType):
 
 @dataclass
 class IPSetReference(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "reference_arn": "ReferenceArn",
     }
@@ -883,8 +837,6 @@ class IPSetReference(PropertyType):
 
 @dataclass
 class MatchAttributes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "protocols": "Protocols",
         "tcp_flags": "TCPFlags",
@@ -904,8 +856,6 @@ class MatchAttributes(PropertyType):
 
 @dataclass
 class PortRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "from_port": "FromPort",
         "to_port": "ToPort",
@@ -917,8 +867,6 @@ class PortRange(PropertyType):
 
 @dataclass
 class PortSet(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "definition": "Definition",
     }
@@ -928,8 +876,6 @@ class PortSet(PropertyType):
 
 @dataclass
 class PublishMetricAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimensions": "Dimensions",
     }
@@ -939,8 +885,6 @@ class PublishMetricAction(PropertyType):
 
 @dataclass
 class ReferenceSets(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_set_references": "IPSetReferences",
     }
@@ -950,8 +894,6 @@ class ReferenceSets(PropertyType):
 
 @dataclass
 class RuleDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "actions": "Actions",
         "match_attributes": "MatchAttributes",
@@ -963,8 +905,6 @@ class RuleDefinition(PropertyType):
 
 @dataclass
 class RuleGroup(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stateful_rule_options": "StatefulRuleOptions",
         "reference_sets": "ReferenceSets",
@@ -980,8 +920,6 @@ class RuleGroup(PropertyType):
 
 @dataclass
 class RuleOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "keyword": "Keyword",
         "settings": "Settings",
@@ -993,8 +931,6 @@ class RuleOption(PropertyType):
 
 @dataclass
 class RuleVariables(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port_sets": "PortSets",
         "ip_sets": "IPSets",
@@ -1006,8 +942,6 @@ class RuleVariables(PropertyType):
 
 @dataclass
 class RulesSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stateless_rules_and_custom_actions": "StatelessRulesAndCustomActions",
         "stateful_rules": "StatefulRules",
@@ -1023,8 +957,6 @@ class RulesSource(PropertyType):
 
 @dataclass
 class RulesSourceList(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "generated_rules_type": "GeneratedRulesType",
         "target_types": "TargetTypes",
@@ -1038,8 +970,6 @@ class RulesSourceList(PropertyType):
 
 @dataclass
 class StatefulRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "header": "Header",
@@ -1053,8 +983,6 @@ class StatefulRule(PropertyType):
 
 @dataclass
 class StatefulRuleOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule_order": "RuleOrder",
     }
@@ -1064,8 +992,6 @@ class StatefulRuleOptions(PropertyType):
 
 @dataclass
 class StatelessRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "priority": "Priority",
         "rule_definition": "RuleDefinition",
@@ -1077,8 +1003,6 @@ class StatelessRule(PropertyType):
 
 @dataclass
 class StatelessRulesAndCustomActions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stateless_rules": "StatelessRules",
         "custom_actions": "CustomActions",
@@ -1090,8 +1014,6 @@ class StatelessRulesAndCustomActions(PropertyType):
 
 @dataclass
 class SummaryConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule_options": "RuleOptions",
     }
@@ -1101,8 +1023,6 @@ class SummaryConfiguration(PropertyType):
 
 @dataclass
 class TCPFlagField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "flags": "Flags",
         "masks": "Masks",
@@ -1150,8 +1070,6 @@ class RuleGroup(CloudFormationResource):
 
 @dataclass
 class Address(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address_definition": "AddressDefinition",
     }
@@ -1161,8 +1079,6 @@ class Address(PropertyType):
 
 @dataclass
 class CheckCertificateRevocationStatus(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "unknown_status_action": "UnknownStatusAction",
         "revoked_status_action": "RevokedStatusAction",
@@ -1174,8 +1090,6 @@ class CheckCertificateRevocationStatus(PropertyType):
 
 @dataclass
 class PortRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "from_port": "FromPort",
         "to_port": "ToPort",
@@ -1187,8 +1101,6 @@ class PortRange(PropertyType):
 
 @dataclass
 class ServerCertificate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceArn",
     }
@@ -1198,8 +1110,6 @@ class ServerCertificate(PropertyType):
 
 @dataclass
 class ServerCertificateConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_authority_arn": "CertificateAuthorityArn",
         "check_certificate_revocation_status": "CheckCertificateRevocationStatus",
@@ -1215,8 +1125,6 @@ class ServerCertificateConfiguration(PropertyType):
 
 @dataclass
 class ServerCertificateScope(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "protocols": "Protocols",
         "destination_ports": "DestinationPorts",
@@ -1234,8 +1142,6 @@ class ServerCertificateScope(PropertyType):
 
 @dataclass
 class TLSInspectionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "server_certificate_configurations": "ServerCertificateConfigurations",
     }
@@ -1275,8 +1181,6 @@ class TLSInspectionConfiguration(CloudFormationResource):
 
 @dataclass
 class SubnetMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IPAddressType",
         "subnet_id": "SubnetId",

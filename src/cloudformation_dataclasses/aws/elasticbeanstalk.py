@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ElasticBeanstalk
@@ -307,8 +307,6 @@ WARNING = ValidationSeverity.WARNING
 
 @dataclass
 class ApplicationResourceLifecycleConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_role": "ServiceRole",
         "version_lifecycle_config": "VersionLifecycleConfig",
@@ -320,8 +318,6 @@ class ApplicationResourceLifecycleConfig(PropertyType):
 
 @dataclass
 class ApplicationVersionLifecycleConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_count_rule": "MaxCountRule",
         "max_age_rule": "MaxAgeRule",
@@ -333,8 +329,6 @@ class ApplicationVersionLifecycleConfig(PropertyType):
 
 @dataclass
 class MaxAgeRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delete_source_from_s3": "DeleteSourceFromS3",
         "max_age_in_days": "MaxAgeInDays",
@@ -348,8 +342,6 @@ class MaxAgeRule(PropertyType):
 
 @dataclass
 class MaxCountRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delete_source_from_s3": "DeleteSourceFromS3",
         "enabled": "Enabled",
@@ -380,8 +372,6 @@ class Application(CloudFormationResource):
 
 @dataclass
 class SourceBundle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_bucket": "S3Bucket",
         "s3_key": "S3Key",
@@ -416,8 +406,6 @@ class ApplicationVersion(CloudFormationResource):
 
 @dataclass
 class ConfigurationOptionSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_name": "ResourceName",
         "value": "Value",
@@ -433,8 +421,6 @@ class ConfigurationOptionSetting(PropertyType):
 
 @dataclass
 class SourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_name": "ApplicationName",
         "template_name": "TemplateName",
@@ -477,8 +463,6 @@ class ConfigurationTemplate(CloudFormationResource):
 
 @dataclass
 class OptionSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_name": "ResourceName",
         "value": "Value",
@@ -494,8 +478,6 @@ class OptionSetting(PropertyType):
 
 @dataclass
 class Tier(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "version": "Version",

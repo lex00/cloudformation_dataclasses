@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Connect
@@ -2713,8 +2713,6 @@ class ContactFlowVersion(CloudFormationResource):
 
 @dataclass
 class LockVersion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_table": "DataTable",
     }
@@ -2780,8 +2778,6 @@ class DataTable(CloudFormationResource):
 
 @dataclass
 class Enum(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "strict": "Strict",
         "values": "Values",
@@ -2793,8 +2789,6 @@ class Enum(PropertyType):
 
 @dataclass
 class LockVersion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_table": "DataTable",
         "attribute": "Attribute",
@@ -2806,8 +2800,6 @@ class LockVersion(PropertyType):
 
 @dataclass
 class Validation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclusive_minimum": "ExclusiveMinimum",
         "enum": "Enum",
@@ -2891,8 +2883,6 @@ class DataTableAttribute(CloudFormationResource):
 
 @dataclass
 class DataTableRecord(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "primary_values": "PrimaryValues",
         "values": "Values",
@@ -2904,8 +2894,6 @@ class DataTableRecord(PropertyType):
 
 @dataclass
 class Value(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_value": "AttributeValue",
         "attribute_id": "AttributeId",
@@ -2940,8 +2928,6 @@ class DataTableRecord(CloudFormationResource):
 
 @dataclass
 class AliasConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "email_address_arn": "EmailAddressArn",
     }
@@ -2980,8 +2966,6 @@ class EmailAddress(CloudFormationResource):
 
 @dataclass
 class AutoEvaluationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -2991,8 +2975,6 @@ class AutoEvaluationConfiguration(PropertyType):
 
 @dataclass
 class AutomaticFailConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_section": "TargetSection",
     }
@@ -3002,8 +2984,6 @@ class AutomaticFailConfiguration(PropertyType):
 
 @dataclass
 class EvaluationFormBaseItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "section": "Section",
     }
@@ -3013,8 +2993,6 @@ class EvaluationFormBaseItem(PropertyType):
 
 @dataclass
 class EvaluationFormItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "question": "Question",
         "section": "Section",
@@ -3026,8 +3004,6 @@ class EvaluationFormItem(PropertyType):
 
 @dataclass
 class EvaluationFormItemEnablementCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "operands": "Operands",
@@ -3039,8 +3015,6 @@ class EvaluationFormItemEnablementCondition(PropertyType):
 
 @dataclass
 class EvaluationFormItemEnablementConditionOperand(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
     }
@@ -3050,8 +3024,6 @@ class EvaluationFormItemEnablementConditionOperand(PropertyType):
 
 @dataclass
 class EvaluationFormItemEnablementConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "action": "Action",
@@ -3065,8 +3037,6 @@ class EvaluationFormItemEnablementConfiguration(PropertyType):
 
 @dataclass
 class EvaluationFormItemEnablementExpression(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "source": "Source",
@@ -3080,8 +3050,6 @@ class EvaluationFormItemEnablementExpression(PropertyType):
 
 @dataclass
 class EvaluationFormItemEnablementSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "ref_id": "RefId",
@@ -3093,8 +3061,6 @@ class EvaluationFormItemEnablementSource(PropertyType):
 
 @dataclass
 class EvaluationFormItemEnablementSourceValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "ref_id": "RefId",
@@ -3106,8 +3072,6 @@ class EvaluationFormItemEnablementSourceValue(PropertyType):
 
 @dataclass
 class EvaluationFormLanguageConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "form_language": "FormLanguage",
     }
@@ -3117,8 +3081,6 @@ class EvaluationFormLanguageConfiguration(PropertyType):
 
 @dataclass
 class EvaluationFormMultiSelectQuestionAutomation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "options": "Options",
         "answer_source": "AnswerSource",
@@ -3132,8 +3094,6 @@ class EvaluationFormMultiSelectQuestionAutomation(PropertyType):
 
 @dataclass
 class EvaluationFormMultiSelectQuestionAutomationOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule_category": "RuleCategory",
     }
@@ -3143,8 +3103,6 @@ class EvaluationFormMultiSelectQuestionAutomationOption(PropertyType):
 
 @dataclass
 class EvaluationFormMultiSelectQuestionOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text": "Text",
         "ref_id": "RefId",
@@ -3156,8 +3114,6 @@ class EvaluationFormMultiSelectQuestionOption(PropertyType):
 
 @dataclass
 class EvaluationFormMultiSelectQuestionProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "display_as": "DisplayAs",
         "options": "Options",
@@ -3171,8 +3127,6 @@ class EvaluationFormMultiSelectQuestionProperties(PropertyType):
 
 @dataclass
 class EvaluationFormNumericQuestionAutomation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "answer_source": "AnswerSource",
         "property_value": "PropertyValue",
@@ -3184,8 +3138,6 @@ class EvaluationFormNumericQuestionAutomation(PropertyType):
 
 @dataclass
 class EvaluationFormNumericQuestionOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "score": "Score",
         "automatic_fail_configuration": "AutomaticFailConfiguration",
@@ -3203,8 +3155,6 @@ class EvaluationFormNumericQuestionOption(PropertyType):
 
 @dataclass
 class EvaluationFormNumericQuestionProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "options": "Options",
         "automation": "Automation",
@@ -3220,8 +3170,6 @@ class EvaluationFormNumericQuestionProperties(PropertyType):
 
 @dataclass
 class EvaluationFormQuestion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "not_applicable_enabled": "NotApplicableEnabled",
         "enablement": "Enablement",
@@ -3245,8 +3193,6 @@ class EvaluationFormQuestion(PropertyType):
 
 @dataclass
 class EvaluationFormQuestionAutomationAnswerSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_type": "SourceType",
     }
@@ -3256,8 +3202,6 @@ class EvaluationFormQuestionAutomationAnswerSource(PropertyType):
 
 @dataclass
 class EvaluationFormQuestionTypeProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "numeric": "Numeric",
         "single_select": "SingleSelect",
@@ -3273,8 +3217,6 @@ class EvaluationFormQuestionTypeProperties(PropertyType):
 
 @dataclass
 class EvaluationFormSection(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "title": "Title",
         "instructions": "Instructions",
@@ -3292,8 +3234,6 @@ class EvaluationFormSection(PropertyType):
 
 @dataclass
 class EvaluationFormSingleSelectQuestionAutomation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "options": "Options",
         "answer_source": "AnswerSource",
@@ -3307,8 +3247,6 @@ class EvaluationFormSingleSelectQuestionAutomation(PropertyType):
 
 @dataclass
 class EvaluationFormSingleSelectQuestionAutomationOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule_category": "RuleCategory",
     }
@@ -3318,8 +3256,6 @@ class EvaluationFormSingleSelectQuestionAutomationOption(PropertyType):
 
 @dataclass
 class EvaluationFormSingleSelectQuestionOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "score": "Score",
         "automatic_fail_configuration": "AutomaticFailConfiguration",
@@ -3337,8 +3273,6 @@ class EvaluationFormSingleSelectQuestionOption(PropertyType):
 
 @dataclass
 class EvaluationFormSingleSelectQuestionProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "display_as": "DisplayAs",
         "options": "Options",
@@ -3352,8 +3286,6 @@ class EvaluationFormSingleSelectQuestionProperties(PropertyType):
 
 @dataclass
 class EvaluationFormTargetConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "contact_interaction_type": "ContactInteractionType",
     }
@@ -3363,8 +3295,6 @@ class EvaluationFormTargetConfiguration(PropertyType):
 
 @dataclass
 class EvaluationFormTextQuestionAutomation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "answer_source": "AnswerSource",
     }
@@ -3374,8 +3304,6 @@ class EvaluationFormTextQuestionAutomation(PropertyType):
 
 @dataclass
 class EvaluationFormTextQuestionProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "automation": "Automation",
     }
@@ -3385,8 +3313,6 @@ class EvaluationFormTextQuestionProperties(PropertyType):
 
 @dataclass
 class MultiSelectQuestionRuleCategoryAutomation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "category": "Category",
@@ -3400,8 +3326,6 @@ class MultiSelectQuestionRuleCategoryAutomation(PropertyType):
 
 @dataclass
 class NumericQuestionPropertyValueAutomation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "label": "Label",
     }
@@ -3411,8 +3335,6 @@ class NumericQuestionPropertyValueAutomation(PropertyType):
 
 @dataclass
 class ScoringStrategy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "mode": "Mode",
@@ -3424,8 +3346,6 @@ class ScoringStrategy(PropertyType):
 
 @dataclass
 class SingleSelectQuestionRuleCategoryAutomation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "category": "Category",
@@ -3476,8 +3396,6 @@ class EvaluationForm(CloudFormationResource):
 
 @dataclass
 class HoursOfOperationConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "end_time": "EndTime",
         "start_time": "StartTime",
@@ -3491,8 +3409,6 @@ class HoursOfOperationConfig(PropertyType):
 
 @dataclass
 class HoursOfOperationOverride(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hours_of_operation_override_id": "HoursOfOperationOverrideId",
         "override_config": "OverrideConfig",
@@ -3512,8 +3428,6 @@ class HoursOfOperationOverride(PropertyType):
 
 @dataclass
 class HoursOfOperationOverrideConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "end_time": "EndTime",
         "start_time": "StartTime",
@@ -3527,8 +3441,6 @@ class HoursOfOperationOverrideConfig(PropertyType):
 
 @dataclass
 class HoursOfOperationTimeSlice(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hours": "Hours",
         "minutes": "Minutes",
@@ -3540,8 +3452,6 @@ class HoursOfOperationTimeSlice(PropertyType):
 
 @dataclass
 class OverrideTimeSlice(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hours": "Hours",
         "minutes": "Minutes",
@@ -3584,8 +3494,6 @@ class HoursOfOperation(CloudFormationResource):
 
 @dataclass
 class Attributes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inbound_calls": "InboundCalls",
         "enhanced_contact_monitoring": "EnhancedContactMonitoring",
@@ -3664,8 +3572,6 @@ class Instance(CloudFormationResource):
 
 @dataclass
 class EncryptionConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_type": "EncryptionType",
         "key_id": "KeyId",
@@ -3677,8 +3583,6 @@ class EncryptionConfig(PropertyType):
 
 @dataclass
 class KinesisFirehoseConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "firehose_arn": "FirehoseArn",
     }
@@ -3688,8 +3592,6 @@ class KinesisFirehoseConfig(PropertyType):
 
 @dataclass
 class KinesisStreamConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stream_arn": "StreamArn",
     }
@@ -3699,8 +3601,6 @@ class KinesisStreamConfig(PropertyType):
 
 @dataclass
 class KinesisVideoStreamConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prefix": "Prefix",
         "retention_period_hours": "RetentionPeriodHours",
@@ -3714,8 +3614,6 @@ class KinesisVideoStreamConfig(PropertyType):
 
 @dataclass
 class S3Config(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "bucket_prefix": "BucketPrefix",
@@ -3819,8 +3717,6 @@ class PhoneNumber(CloudFormationResource):
 
 @dataclass
 class AttributeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_value_validation_on_association": "EnableValueValidationOnAssociation",
         "is_read_only": "IsReadOnly",
@@ -3832,8 +3728,6 @@ class AttributeConfiguration(PropertyType):
 
 @dataclass
 class Values(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "string_list": "StringList",
     }
@@ -3902,8 +3796,6 @@ class Prompt(CloudFormationResource):
 
 @dataclass
 class OutboundCallerConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "outbound_caller_id_number_arn": "OutboundCallerIdNumberArn",
         "outbound_flow_arn": "OutboundFlowArn",
@@ -3917,8 +3809,6 @@ class OutboundCallerConfig(PropertyType):
 
 @dataclass
 class OutboundEmailConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "outbound_email_address_id": "OutboundEmailAddressId",
     }
@@ -3970,8 +3860,6 @@ class Queue(CloudFormationResource):
 
 @dataclass
 class PhoneNumberQuickConnectConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "phone_number": "PhoneNumber",
     }
@@ -3981,8 +3869,6 @@ class PhoneNumberQuickConnectConfig(PropertyType):
 
 @dataclass
 class QueueQuickConnectConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "contact_flow_arn": "ContactFlowArn",
         "queue_arn": "QueueArn",
@@ -3994,8 +3880,6 @@ class QueueQuickConnectConfig(PropertyType):
 
 @dataclass
 class QuickConnectConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "queue_config": "QueueConfig",
         "phone_config": "PhoneConfig",
@@ -4011,8 +3895,6 @@ class QuickConnectConfig(PropertyType):
 
 @dataclass
 class UserQuickConnectConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_arn": "UserArn",
         "contact_flow_arn": "ContactFlowArn",
@@ -4056,8 +3938,6 @@ class QuickConnect(CloudFormationResource):
 
 @dataclass
 class CrossChannelBehavior(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "behavior_type": "BehaviorType",
     }
@@ -4067,8 +3947,6 @@ class CrossChannelBehavior(PropertyType):
 
 @dataclass
 class MediaConcurrency(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "concurrency": "Concurrency",
         "channel": "Channel",
@@ -4082,8 +3960,6 @@ class MediaConcurrency(PropertyType):
 
 @dataclass
 class RoutingProfileManualAssignmentQueueConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "queue_reference": "QueueReference",
     }
@@ -4093,8 +3969,6 @@ class RoutingProfileManualAssignmentQueueConfig(PropertyType):
 
 @dataclass
 class RoutingProfileQueueConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "priority": "Priority",
         "queue_reference": "QueueReference",
@@ -4108,8 +3982,6 @@ class RoutingProfileQueueConfig(PropertyType):
 
 @dataclass
 class RoutingProfileQueueReference(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channel": "Channel",
         "queue_arn": "QueueArn",
@@ -4156,8 +4028,6 @@ class RoutingProfile(CloudFormationResource):
 
 @dataclass
 class Actions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_bridge_actions": "EventBridgeActions",
         "update_case_actions": "UpdateCaseActions",
@@ -4181,8 +4051,6 @@ class Actions(PropertyType):
 
 @dataclass
 class CreateCaseAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fields": "Fields",
         "template_id": "TemplateId",
@@ -4194,8 +4062,6 @@ class CreateCaseAction(PropertyType):
 
 @dataclass
 class EventBridgeAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -4205,8 +4071,6 @@ class EventBridgeAction(PropertyType):
 
 @dataclass
 class Field(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "id": "Id",
@@ -4218,8 +4082,6 @@ class Field(PropertyType):
 
 @dataclass
 class FieldValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "double_value": "DoubleValue",
         "boolean_value": "BooleanValue",
@@ -4235,8 +4097,6 @@ class FieldValue(PropertyType):
 
 @dataclass
 class NotificationRecipientType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_tags": "UserTags",
         "user_arns": "UserArns",
@@ -4248,8 +4108,6 @@ class NotificationRecipientType(PropertyType):
 
 @dataclass
 class Reference(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -4261,8 +4119,6 @@ class Reference(PropertyType):
 
 @dataclass
 class RuleTriggerEventSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "integration_association_arn": "IntegrationAssociationArn",
         "event_source_name": "EventSourceName",
@@ -4274,8 +4130,6 @@ class RuleTriggerEventSource(PropertyType):
 
 @dataclass
 class SendNotificationAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_method": "DeliveryMethod",
         "content_type": "ContentType",
@@ -4293,8 +4147,6 @@ class SendNotificationAction(PropertyType):
 
 @dataclass
 class SubmitAutoEvaluationAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "evaluation_form_arn": "EvaluationFormArn",
     }
@@ -4304,8 +4156,6 @@ class SubmitAutoEvaluationAction(PropertyType):
 
 @dataclass
 class TaskAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "references": "References",
@@ -4321,8 +4171,6 @@ class TaskAction(PropertyType):
 
 @dataclass
 class UpdateCaseAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fields": "Fields",
     }
@@ -4384,8 +4232,6 @@ class SecurityKey(CloudFormationResource):
 
 @dataclass
 class Application(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_permissions": "ApplicationPermissions",
         "namespace": "Namespace",
@@ -4397,8 +4243,6 @@ class Application(PropertyType):
 
 @dataclass
 class DataTableAccessControlConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "primary_attribute_access_control_configuration": "PrimaryAttributeAccessControlConfiguration",
     }
@@ -4408,8 +4252,6 @@ class DataTableAccessControlConfiguration(PropertyType):
 
 @dataclass
 class GranularAccessControlConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_table_access_control_configuration": "DataTableAccessControlConfiguration",
     }
@@ -4419,8 +4261,6 @@ class GranularAccessControlConfiguration(PropertyType):
 
 @dataclass
 class PrimaryAttributeAccessControlConfigurationItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "primary_attribute_values": "PrimaryAttributeValues",
     }
@@ -4430,8 +4270,6 @@ class PrimaryAttributeAccessControlConfigurationItem(PropertyType):
 
 @dataclass
 class PrimaryAttributeValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "attribute_name": "AttributeName",
@@ -4494,8 +4332,6 @@ class SecurityProfile(CloudFormationResource):
 
 @dataclass
 class Constraints(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "read_only_fields": "ReadOnlyFields",
         "invisible_fields": "InvisibleFields",
@@ -4509,8 +4345,6 @@ class Constraints(PropertyType):
 
 @dataclass
 class DefaultFieldValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_value": "DefaultValue",
         "id": "Id",
@@ -4522,8 +4356,6 @@ class DefaultFieldValue(PropertyType):
 
 @dataclass
 class Field(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "description": "Description",
@@ -4539,8 +4371,6 @@ class Field(PropertyType):
 
 @dataclass
 class FieldIdentifier(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -4550,8 +4380,6 @@ class FieldIdentifier(PropertyType):
 
 @dataclass
 class InvisibleFieldInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id": "Id",
     }
@@ -4561,8 +4389,6 @@ class InvisibleFieldInfo(PropertyType):
 
 @dataclass
 class ReadOnlyFieldInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id": "Id",
     }
@@ -4572,8 +4398,6 @@ class ReadOnlyFieldInfo(PropertyType):
 
 @dataclass
 class RequiredFieldInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id": "Id",
     }
@@ -4657,8 +4481,6 @@ class TrafficDistributionGroup(CloudFormationResource):
 
 @dataclass
 class UserIdentityInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "email": "Email",
         "first_name": "FirstName",
@@ -4676,8 +4498,6 @@ class UserIdentityInfo(PropertyType):
 
 @dataclass
 class UserPhoneConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_accept": "AutoAccept",
         "phone_type": "PhoneType",
@@ -4695,8 +4515,6 @@ class UserPhoneConfig(PropertyType):
 
 @dataclass
 class UserProficiency(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_value": "AttributeValue",
         "attribute_name": "AttributeName",
@@ -4774,8 +4592,6 @@ class UserHierarchyGroup(CloudFormationResource):
 
 @dataclass
 class LevelFive(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hierarchy_level_id": "HierarchyLevelId",
         "hierarchy_level_arn": "HierarchyLevelArn",
@@ -4789,8 +4605,6 @@ class LevelFive(PropertyType):
 
 @dataclass
 class LevelFour(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hierarchy_level_id": "HierarchyLevelId",
         "hierarchy_level_arn": "HierarchyLevelArn",
@@ -4804,8 +4618,6 @@ class LevelFour(PropertyType):
 
 @dataclass
 class LevelOne(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hierarchy_level_id": "HierarchyLevelId",
         "hierarchy_level_arn": "HierarchyLevelArn",
@@ -4819,8 +4631,6 @@ class LevelOne(PropertyType):
 
 @dataclass
 class LevelThree(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hierarchy_level_id": "HierarchyLevelId",
         "hierarchy_level_arn": "HierarchyLevelArn",
@@ -4834,8 +4644,6 @@ class LevelThree(PropertyType):
 
 @dataclass
 class LevelTwo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hierarchy_level_id": "HierarchyLevelId",
         "hierarchy_level_arn": "HierarchyLevelArn",
@@ -4849,8 +4657,6 @@ class LevelTwo(PropertyType):
 
 @dataclass
 class UserHierarchyStructure(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "level_three": "LevelThree",
         "level_two": "LevelTwo",
@@ -4956,8 +4762,6 @@ class ViewVersion(CloudFormationResource):
 
 @dataclass
 class FontFamily(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default": "Default",
     }
@@ -4967,8 +4771,6 @@ class FontFamily(PropertyType):
 
 @dataclass
 class MediaItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "source": "Source",
@@ -4980,8 +4782,6 @@ class MediaItem(PropertyType):
 
 @dataclass
 class PaletteCanvas(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_background": "ContainerBackground",
         "active_background": "ActiveBackground",
@@ -4995,8 +4795,6 @@ class PaletteCanvas(PropertyType):
 
 @dataclass
 class PaletteHeader(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "background": "Background",
         "text": "Text",
@@ -5012,8 +4810,6 @@ class PaletteHeader(PropertyType):
 
 @dataclass
 class PaletteNavigation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_background_hover": "TextBackgroundHover",
         "background": "Background",
@@ -5035,8 +4831,6 @@ class PaletteNavigation(PropertyType):
 
 @dataclass
 class PalettePrimary(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "active": "Active",
         "default": "Default",
@@ -5050,8 +4844,6 @@ class PalettePrimary(PropertyType):
 
 @dataclass
 class WorkspacePage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceArn",
         "page": "Page",
@@ -5067,8 +4859,6 @@ class WorkspacePage(PropertyType):
 
 @dataclass
 class WorkspaceTheme(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "light": "Light",
         "dark": "Dark",
@@ -5080,8 +4870,6 @@ class WorkspaceTheme(PropertyType):
 
 @dataclass
 class WorkspaceThemeConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "palette": "Palette",
         "typography": "Typography",
@@ -5093,8 +4881,6 @@ class WorkspaceThemeConfig(PropertyType):
 
 @dataclass
 class WorkspaceThemePalette(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "navigation": "Navigation",
         "header": "Header",
@@ -5110,8 +4896,6 @@ class WorkspaceThemePalette(PropertyType):
 
 @dataclass
 class WorkspaceThemeTypography(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "font_family": "FontFamily",
     }

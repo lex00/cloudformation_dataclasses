@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Bedrock
@@ -853,8 +853,6 @@ BEDROCK_RERANKING_MODEL = VectorSearchRerankingConfigurationType.BEDROCK_RERANKI
 
 @dataclass
 class APISchema(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
         "payload": "Payload",
@@ -866,8 +864,6 @@ class APISchema(PropertyType):
 
 @dataclass
 class ActionGroupExecutor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_control": "CustomControl",
         "lambda_": "Lambda",
@@ -879,8 +875,6 @@ class ActionGroupExecutor(PropertyType):
 
 @dataclass
 class AgentActionGroup(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "api_schema": "ApiSchema",
@@ -904,8 +898,6 @@ class AgentActionGroup(PropertyType):
 
 @dataclass
 class AgentCollaborator(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "agent_descriptor": "AgentDescriptor",
         "collaboration_instruction": "CollaborationInstruction",
@@ -921,8 +913,6 @@ class AgentCollaborator(PropertyType):
 
 @dataclass
 class AgentDescriptor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alias_arn": "AliasArn",
     }
@@ -932,8 +922,6 @@ class AgentDescriptor(PropertyType):
 
 @dataclass
 class AgentKnowledgeBase(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "knowledge_base_state": "KnowledgeBaseState",
@@ -947,8 +935,6 @@ class AgentKnowledgeBase(PropertyType):
 
 @dataclass
 class CustomOrchestration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "executor": "Executor",
     }
@@ -958,8 +944,6 @@ class CustomOrchestration(PropertyType):
 
 @dataclass
 class Function(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "parameters": "Parameters",
@@ -975,8 +959,6 @@ class Function(PropertyType):
 
 @dataclass
 class FunctionSchema(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "functions": "Functions",
     }
@@ -986,8 +968,6 @@ class FunctionSchema(PropertyType):
 
 @dataclass
 class GuardrailConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "guardrail_identifier": "GuardrailIdentifier",
         "guardrail_version": "GuardrailVersion",
@@ -999,8 +979,6 @@ class GuardrailConfiguration(PropertyType):
 
 @dataclass
 class InferenceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "top_k": "TopK",
         "temperature": "Temperature",
@@ -1018,8 +996,6 @@ class InferenceConfiguration(PropertyType):
 
 @dataclass
 class MemoryConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "session_summary_configuration": "SessionSummaryConfiguration",
         "enabled_memory_types": "EnabledMemoryTypes",
@@ -1033,8 +1009,6 @@ class MemoryConfiguration(PropertyType):
 
 @dataclass
 class OrchestrationExecutor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_": "Lambda",
     }
@@ -1044,8 +1018,6 @@ class OrchestrationExecutor(PropertyType):
 
 @dataclass
 class ParameterDetail(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "description": "Description",
@@ -1059,8 +1031,6 @@ class ParameterDetail(PropertyType):
 
 @dataclass
 class PromptConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prompt_type": "PromptType",
         "prompt_state": "PromptState",
@@ -1084,8 +1054,6 @@ class PromptConfiguration(PropertyType):
 
 @dataclass
 class PromptOverrideConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prompt_configurations": "PromptConfigurations",
         "override_lambda": "OverrideLambda",
@@ -1097,8 +1065,6 @@ class PromptOverrideConfiguration(PropertyType):
 
 @dataclass
 class S3Identifier(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_bucket_name": "S3BucketName",
         "s3_object_key": "S3ObjectKey",
@@ -1110,8 +1076,6 @@ class S3Identifier(PropertyType):
 
 @dataclass
 class SessionSummaryConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_recent_sessions": "MaxRecentSessions",
     }
@@ -1218,8 +1182,6 @@ class Agent(CloudFormationResource):
 
 @dataclass
 class AgentAliasHistoryEvent(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start_date": "StartDate",
         "routing_configuration": "RoutingConfiguration",
@@ -1233,8 +1195,6 @@ class AgentAliasHistoryEvent(PropertyType):
 
 @dataclass
 class AgentAliasRoutingConfigurationListItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "agent_version": "AgentVersion",
     }
@@ -1296,8 +1256,6 @@ class AgentAlias(CloudFormationResource):
 
 @dataclass
 class InferenceProfileModel(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_arn": "ModelArn",
     }
@@ -1307,8 +1265,6 @@ class InferenceProfileModel(PropertyType):
 
 @dataclass
 class InferenceProfileModelSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "copy_from": "CopyFrom",
     }
@@ -1378,8 +1334,6 @@ class ApplicationInferenceProfile(CloudFormationResource):
 
 @dataclass
 class PolicyDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "variables": "Variables",
         "types": "Types",
@@ -1395,8 +1349,6 @@ class PolicyDefinition(PropertyType):
 
 @dataclass
 class PolicyDefinitionRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alternate_expression": "AlternateExpression",
         "expression": "Expression",
@@ -1410,8 +1362,6 @@ class PolicyDefinitionRule(PropertyType):
 
 @dataclass
 class PolicyDefinitionType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "values": "Values",
@@ -1425,8 +1375,6 @@ class PolicyDefinitionType(PropertyType):
 
 @dataclass
 class PolicyDefinitionTypeValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "value": "Value",
@@ -1438,8 +1386,6 @@ class PolicyDefinitionTypeValue(PropertyType):
 
 @dataclass
 class PolicyDefinitionVariable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "description": "Description",
@@ -1609,8 +1555,6 @@ class Blueprint(CloudFormationResource):
 
 @dataclass
 class AudioExtractionCategory(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "types": "Types",
         "state": "State",
@@ -1624,8 +1568,6 @@ class AudioExtractionCategory(PropertyType):
 
 @dataclass
 class AudioExtractionCategoryTypeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transcript": "Transcript",
     }
@@ -1635,8 +1577,6 @@ class AudioExtractionCategoryTypeConfiguration(PropertyType):
 
 @dataclass
 class AudioLanguageConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "identify_multiple_languages": "IdentifyMultipleLanguages",
         "generative_output_language": "GenerativeOutputLanguage",
@@ -1650,8 +1590,6 @@ class AudioLanguageConfiguration(PropertyType):
 
 @dataclass
 class AudioOverrideConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sensitive_data_configuration": "SensitiveDataConfiguration",
         "language_configuration": "LanguageConfiguration",
@@ -1665,8 +1603,6 @@ class AudioOverrideConfiguration(PropertyType):
 
 @dataclass
 class AudioStandardExtraction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
     }
@@ -1676,8 +1612,6 @@ class AudioStandardExtraction(PropertyType):
 
 @dataclass
 class AudioStandardGenerativeField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "types": "Types",
         "state": "State",
@@ -1689,8 +1623,6 @@ class AudioStandardGenerativeField(PropertyType):
 
 @dataclass
 class AudioStandardOutputConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "generative_field": "GenerativeField",
         "extraction": "Extraction",
@@ -1702,8 +1634,6 @@ class AudioStandardOutputConfiguration(PropertyType):
 
 @dataclass
 class BlueprintItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "blueprint_version": "BlueprintVersion",
         "blueprint_stage": "BlueprintStage",
@@ -1717,8 +1647,6 @@ class BlueprintItem(PropertyType):
 
 @dataclass
 class ChannelLabelingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
     }
@@ -1728,8 +1656,6 @@ class ChannelLabelingConfiguration(PropertyType):
 
 @dataclass
 class CustomOutputConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "blueprints": "Blueprints",
     }
@@ -1739,8 +1665,6 @@ class CustomOutputConfiguration(PropertyType):
 
 @dataclass
 class DocumentBoundingBox(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
     }
@@ -1750,8 +1674,6 @@ class DocumentBoundingBox(PropertyType):
 
 @dataclass
 class DocumentExtractionGranularity(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "types": "Types",
     }
@@ -1761,8 +1683,6 @@ class DocumentExtractionGranularity(PropertyType):
 
 @dataclass
 class DocumentOutputAdditionalFileFormat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
     }
@@ -1772,8 +1692,6 @@ class DocumentOutputAdditionalFileFormat(PropertyType):
 
 @dataclass
 class DocumentOutputFormat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_format": "TextFormat",
         "additional_file_format": "AdditionalFileFormat",
@@ -1785,8 +1703,6 @@ class DocumentOutputFormat(PropertyType):
 
 @dataclass
 class DocumentOutputTextFormat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "types": "Types",
     }
@@ -1796,8 +1712,6 @@ class DocumentOutputTextFormat(PropertyType):
 
 @dataclass
 class DocumentOverrideConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sensitive_data_configuration": "SensitiveDataConfiguration",
         "splitter": "Splitter",
@@ -1811,8 +1725,6 @@ class DocumentOverrideConfiguration(PropertyType):
 
 @dataclass
 class DocumentStandardExtraction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bounding_box": "BoundingBox",
         "granularity": "Granularity",
@@ -1824,8 +1736,6 @@ class DocumentStandardExtraction(PropertyType):
 
 @dataclass
 class DocumentStandardGenerativeField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
     }
@@ -1835,8 +1745,6 @@ class DocumentStandardGenerativeField(PropertyType):
 
 @dataclass
 class DocumentStandardOutputConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "output_format": "OutputFormat",
         "generative_field": "GenerativeField",
@@ -1850,8 +1758,6 @@ class DocumentStandardOutputConfiguration(PropertyType):
 
 @dataclass
 class ImageBoundingBox(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
     }
@@ -1861,8 +1767,6 @@ class ImageBoundingBox(PropertyType):
 
 @dataclass
 class ImageExtractionCategory(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "types": "Types",
         "state": "State",
@@ -1874,8 +1778,6 @@ class ImageExtractionCategory(PropertyType):
 
 @dataclass
 class ImageOverrideConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sensitive_data_configuration": "SensitiveDataConfiguration",
         "modality_processing": "ModalityProcessing",
@@ -1887,8 +1789,6 @@ class ImageOverrideConfiguration(PropertyType):
 
 @dataclass
 class ImageStandardExtraction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "bounding_box": "BoundingBox",
@@ -1900,8 +1800,6 @@ class ImageStandardExtraction(PropertyType):
 
 @dataclass
 class ImageStandardGenerativeField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "types": "Types",
         "state": "State",
@@ -1913,8 +1811,6 @@ class ImageStandardGenerativeField(PropertyType):
 
 @dataclass
 class ImageStandardOutputConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "generative_field": "GenerativeField",
         "extraction": "Extraction",
@@ -1926,8 +1822,6 @@ class ImageStandardOutputConfiguration(PropertyType):
 
 @dataclass
 class ModalityProcessingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
     }
@@ -1937,8 +1831,6 @@ class ModalityProcessingConfiguration(PropertyType):
 
 @dataclass
 class ModalityRoutingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mp4": "mp4",
         "mov": "mov",
@@ -1954,8 +1846,6 @@ class ModalityRoutingConfiguration(PropertyType):
 
 @dataclass
 class OverrideConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "video": "Video",
         "modality_routing": "ModalityRouting",
@@ -1973,8 +1863,6 @@ class OverrideConfiguration(PropertyType):
 
 @dataclass
 class PIIEntitiesConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pii_entity_types": "PiiEntityTypes",
         "redaction_mask_mode": "RedactionMaskMode",
@@ -1986,8 +1874,6 @@ class PIIEntitiesConfiguration(PropertyType):
 
 @dataclass
 class SensitiveDataConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "detection_mode": "DetectionMode",
         "pii_entities_configuration": "PiiEntitiesConfiguration",
@@ -2001,8 +1887,6 @@ class SensitiveDataConfiguration(PropertyType):
 
 @dataclass
 class SpeakerLabelingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
     }
@@ -2012,8 +1896,6 @@ class SpeakerLabelingConfiguration(PropertyType):
 
 @dataclass
 class SplitterConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
     }
@@ -2023,8 +1905,6 @@ class SplitterConfiguration(PropertyType):
 
 @dataclass
 class StandardOutputConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "video": "Video",
         "document": "Document",
@@ -2040,8 +1920,6 @@ class StandardOutputConfiguration(PropertyType):
 
 @dataclass
 class TranscriptConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channel_labeling": "ChannelLabeling",
         "speaker_labeling": "SpeakerLabeling",
@@ -2053,8 +1931,6 @@ class TranscriptConfiguration(PropertyType):
 
 @dataclass
 class VideoBoundingBox(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
     }
@@ -2064,8 +1940,6 @@ class VideoBoundingBox(PropertyType):
 
 @dataclass
 class VideoExtractionCategory(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "types": "Types",
         "state": "State",
@@ -2077,8 +1951,6 @@ class VideoExtractionCategory(PropertyType):
 
 @dataclass
 class VideoOverrideConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sensitive_data_configuration": "SensitiveDataConfiguration",
         "modality_processing": "ModalityProcessing",
@@ -2090,8 +1962,6 @@ class VideoOverrideConfiguration(PropertyType):
 
 @dataclass
 class VideoStandardExtraction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "category": "Category",
         "bounding_box": "BoundingBox",
@@ -2103,8 +1973,6 @@ class VideoStandardExtraction(PropertyType):
 
 @dataclass
 class VideoStandardGenerativeField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "types": "Types",
         "state": "State",
@@ -2116,8 +1984,6 @@ class VideoStandardGenerativeField(PropertyType):
 
 @dataclass
 class VideoStandardOutputConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "generative_field": "GenerativeField",
         "extraction": "Extraction",
@@ -2184,8 +2050,6 @@ class DataAutomationProject(CloudFormationResource):
 
 @dataclass
 class BedrockDataAutomationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parsing_modality": "ParsingModality",
     }
@@ -2195,8 +2059,6 @@ class BedrockDataAutomationConfiguration(PropertyType):
 
 @dataclass
 class BedrockFoundationModelConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_arn": "ModelArn",
         "parsing_modality": "ParsingModality",
@@ -2210,8 +2072,6 @@ class BedrockFoundationModelConfiguration(PropertyType):
 
 @dataclass
 class BedrockFoundationModelContextEnrichmentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enrichment_strategy_configuration": "EnrichmentStrategyConfiguration",
         "model_arn": "ModelArn",
@@ -2223,8 +2083,6 @@ class BedrockFoundationModelContextEnrichmentConfiguration(PropertyType):
 
 @dataclass
 class ChunkingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "chunking_strategy": "ChunkingStrategy",
         "fixed_size_chunking_configuration": "FixedSizeChunkingConfiguration",
@@ -2240,8 +2098,6 @@ class ChunkingConfiguration(PropertyType):
 
 @dataclass
 class ConfluenceCrawlerConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_configuration": "FilterConfiguration",
     }
@@ -2251,8 +2107,6 @@ class ConfluenceCrawlerConfiguration(PropertyType):
 
 @dataclass
 class ConfluenceDataSourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_configuration": "SourceConfiguration",
         "crawler_configuration": "CrawlerConfiguration",
@@ -2264,8 +2118,6 @@ class ConfluenceDataSourceConfiguration(PropertyType):
 
 @dataclass
 class ConfluenceSourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "host_url": "HostUrl",
         "host_type": "HostType",
@@ -2281,8 +2133,6 @@ class ConfluenceSourceConfiguration(PropertyType):
 
 @dataclass
 class ContextEnrichmentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "bedrock_foundation_model_configuration": "BedrockFoundationModelConfiguration",
@@ -2294,8 +2144,6 @@ class ContextEnrichmentConfiguration(PropertyType):
 
 @dataclass
 class CrawlFilterConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "pattern_object_filter": "PatternObjectFilter",
@@ -2307,8 +2155,6 @@ class CrawlFilterConfiguration(PropertyType):
 
 @dataclass
 class CustomTransformationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "intermediate_storage": "IntermediateStorage",
         "transformations": "Transformations",
@@ -2320,8 +2166,6 @@ class CustomTransformationConfiguration(PropertyType):
 
 @dataclass
 class DataSourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "s3_configuration": "S3Configuration",
@@ -2341,8 +2185,6 @@ class DataSourceConfiguration(PropertyType):
 
 @dataclass
 class EnrichmentStrategyConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "method": "Method",
     }
@@ -2352,8 +2194,6 @@ class EnrichmentStrategyConfiguration(PropertyType):
 
 @dataclass
 class FixedSizeChunkingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "overlap_percentage": "OverlapPercentage",
         "max_tokens": "MaxTokens",
@@ -2365,8 +2205,6 @@ class FixedSizeChunkingConfiguration(PropertyType):
 
 @dataclass
 class HierarchicalChunkingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "overlap_tokens": "OverlapTokens",
         "level_configurations": "LevelConfigurations",
@@ -2378,8 +2216,6 @@ class HierarchicalChunkingConfiguration(PropertyType):
 
 @dataclass
 class HierarchicalChunkingLevelConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_tokens": "MaxTokens",
     }
@@ -2389,8 +2225,6 @@ class HierarchicalChunkingLevelConfiguration(PropertyType):
 
 @dataclass
 class IntermediateStorage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_location": "S3Location",
     }
@@ -2400,8 +2234,6 @@ class IntermediateStorage(PropertyType):
 
 @dataclass
 class ParsingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bedrock_data_automation_configuration": "BedrockDataAutomationConfiguration",
         "bedrock_foundation_model_configuration": "BedrockFoundationModelConfiguration",
@@ -2415,8 +2247,6 @@ class ParsingConfiguration(PropertyType):
 
 @dataclass
 class ParsingPrompt(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parsing_prompt_text": "ParsingPromptText",
     }
@@ -2426,8 +2256,6 @@ class ParsingPrompt(PropertyType):
 
 @dataclass
 class PatternObjectFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object_type": "ObjectType",
         "inclusion_filters": "InclusionFilters",
@@ -2441,8 +2269,6 @@ class PatternObjectFilter(PropertyType):
 
 @dataclass
 class PatternObjectFilterConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filters": "Filters",
     }
@@ -2452,8 +2278,6 @@ class PatternObjectFilterConfiguration(PropertyType):
 
 @dataclass
 class S3DataSourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_arn": "BucketArn",
         "bucket_owner_account_id": "BucketOwnerAccountId",
@@ -2467,8 +2291,6 @@ class S3DataSourceConfiguration(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uri": "URI",
     }
@@ -2478,8 +2300,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class SalesforceCrawlerConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_configuration": "FilterConfiguration",
     }
@@ -2489,8 +2309,6 @@ class SalesforceCrawlerConfiguration(PropertyType):
 
 @dataclass
 class SalesforceDataSourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_configuration": "SourceConfiguration",
         "crawler_configuration": "CrawlerConfiguration",
@@ -2502,8 +2320,6 @@ class SalesforceDataSourceConfiguration(PropertyType):
 
 @dataclass
 class SalesforceSourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "host_url": "HostUrl",
         "auth_type": "AuthType",
@@ -2517,8 +2333,6 @@ class SalesforceSourceConfiguration(PropertyType):
 
 @dataclass
 class SeedUrl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "url": "Url",
     }
@@ -2528,8 +2342,6 @@ class SeedUrl(PropertyType):
 
 @dataclass
 class SemanticChunkingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "buffer_size": "BufferSize",
         "max_tokens": "MaxTokens",
@@ -2543,8 +2355,6 @@ class SemanticChunkingConfiguration(PropertyType):
 
 @dataclass
 class ServerSideEncryptionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
     }
@@ -2554,8 +2364,6 @@ class ServerSideEncryptionConfiguration(PropertyType):
 
 @dataclass
 class SharePointCrawlerConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_configuration": "FilterConfiguration",
     }
@@ -2565,8 +2373,6 @@ class SharePointCrawlerConfiguration(PropertyType):
 
 @dataclass
 class SharePointDataSourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_configuration": "SourceConfiguration",
         "crawler_configuration": "CrawlerConfiguration",
@@ -2578,8 +2384,6 @@ class SharePointDataSourceConfiguration(PropertyType):
 
 @dataclass
 class SharePointSourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "site_urls": "SiteUrls",
         "host_type": "HostType",
@@ -2599,8 +2403,6 @@ class SharePointSourceConfiguration(PropertyType):
 
 @dataclass
 class Transformation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "step_to_apply": "StepToApply",
         "transformation_function": "TransformationFunction",
@@ -2612,8 +2414,6 @@ class Transformation(PropertyType):
 
 @dataclass
 class TransformationFunction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transformation_lambda_configuration": "TransformationLambdaConfiguration",
     }
@@ -2623,8 +2423,6 @@ class TransformationFunction(PropertyType):
 
 @dataclass
 class TransformationLambdaConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_arn": "LambdaArn",
     }
@@ -2634,8 +2432,6 @@ class TransformationLambdaConfiguration(PropertyType):
 
 @dataclass
 class UrlConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "seed_urls": "SeedUrls",
     }
@@ -2645,8 +2441,6 @@ class UrlConfiguration(PropertyType):
 
 @dataclass
 class VectorIngestionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parsing_configuration": "ParsingConfiguration",
         "context_enrichment_configuration": "ContextEnrichmentConfiguration",
@@ -2662,8 +2456,6 @@ class VectorIngestionConfiguration(PropertyType):
 
 @dataclass
 class WebCrawlerConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inclusion_filters": "InclusionFilters",
         "user_agent_header": "UserAgentHeader",
@@ -2683,8 +2475,6 @@ class WebCrawlerConfiguration(PropertyType):
 
 @dataclass
 class WebCrawlerLimits(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rate_limit": "RateLimit",
         "max_pages": "MaxPages",
@@ -2696,8 +2486,6 @@ class WebCrawlerLimits(PropertyType):
 
 @dataclass
 class WebDataSourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_configuration": "SourceConfiguration",
         "crawler_configuration": "CrawlerConfiguration",
@@ -2709,8 +2497,6 @@ class WebDataSourceConfiguration(PropertyType):
 
 @dataclass
 class WebSourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "url_configuration": "UrlConfiguration",
     }
@@ -2776,8 +2562,6 @@ class DataSource(CloudFormationResource):
 
 @dataclass
 class AgentFlowNodeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "agent_alias_arn": "AgentAliasArn",
     }
@@ -2787,8 +2571,6 @@ class AgentFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class ConditionFlowNodeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "conditions": "Conditions",
     }
@@ -2798,8 +2580,6 @@ class ConditionFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class FieldForReranking(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_name": "FieldName",
     }
@@ -2809,8 +2589,6 @@ class FieldForReranking(PropertyType):
 
 @dataclass
 class FlowCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "name": "Name",
@@ -2822,8 +2600,6 @@ class FlowCondition(PropertyType):
 
 @dataclass
 class FlowConditionalConnectionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
     }
@@ -2833,8 +2609,6 @@ class FlowConditionalConnectionConfiguration(PropertyType):
 
 @dataclass
 class FlowConnection(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "target": "Target",
@@ -2852,8 +2626,6 @@ class FlowConnection(PropertyType):
 
 @dataclass
 class FlowConnectionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data": "Data",
         "conditional": "Conditional",
@@ -2865,8 +2637,6 @@ class FlowConnectionConfiguration(PropertyType):
 
 @dataclass
 class FlowDataConnectionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_output": "SourceOutput",
         "target_input": "TargetInput",
@@ -2878,8 +2648,6 @@ class FlowDataConnectionConfiguration(PropertyType):
 
 @dataclass
 class FlowDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connections": "Connections",
         "nodes": "Nodes",
@@ -2891,8 +2659,6 @@ class FlowDefinition(PropertyType):
 
 @dataclass
 class FlowNode(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "configuration": "Configuration",
@@ -2910,8 +2676,6 @@ class FlowNode(PropertyType):
 
 @dataclass
 class FlowNodeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "retrieval": "Retrieval",
@@ -2951,8 +2715,6 @@ class FlowNodeConfiguration(PropertyType):
 
 @dataclass
 class FlowNodeInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "category": "Category",
@@ -2968,8 +2730,6 @@ class FlowNodeInput(PropertyType):
 
 @dataclass
 class FlowNodeOutput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "name": "Name",
@@ -2981,8 +2741,6 @@ class FlowNodeOutput(PropertyType):
 
 @dataclass
 class FlowValidation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message": "Message",
     }
@@ -2992,8 +2750,6 @@ class FlowValidation(PropertyType):
 
 @dataclass
 class GuardrailConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "guardrail_identifier": "GuardrailIdentifier",
         "guardrail_version": "GuardrailVersion",
@@ -3005,8 +2761,6 @@ class GuardrailConfiguration(PropertyType):
 
 @dataclass
 class InlineCodeFlowNodeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "language": "Language",
         "code": "Code",
@@ -3018,8 +2772,6 @@ class InlineCodeFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class KnowledgeBaseFlowNodeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "orchestration_configuration": "OrchestrationConfiguration",
         "guardrail_configuration": "GuardrailConfiguration",
@@ -3043,8 +2795,6 @@ class KnowledgeBaseFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class KnowledgeBaseOrchestrationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inference_config": "InferenceConfig",
         "additional_model_request_fields": "AdditionalModelRequestFields",
@@ -3060,8 +2810,6 @@ class KnowledgeBaseOrchestrationConfiguration(PropertyType):
 
 @dataclass
 class KnowledgeBasePromptTemplate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_prompt_template": "TextPromptTemplate",
     }
@@ -3071,8 +2819,6 @@ class KnowledgeBasePromptTemplate(PropertyType):
 
 @dataclass
 class LambdaFunctionFlowNodeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_arn": "LambdaArn",
     }
@@ -3082,8 +2828,6 @@ class LambdaFunctionFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class LexFlowNodeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bot_alias_arn": "BotAliasArn",
         "locale_id": "LocaleId",
@@ -3095,8 +2839,6 @@ class LexFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class LoopControllerFlowNodeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "continue_condition": "ContinueCondition",
         "max_iterations": "MaxIterations",
@@ -3108,8 +2850,6 @@ class LoopControllerFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class LoopFlowNodeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "definition": "Definition",
     }
@@ -3119,8 +2859,6 @@ class LoopFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class MetadataConfigurationForReranking(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "selective_mode_configuration": "SelectiveModeConfiguration",
         "selection_mode": "SelectionMode",
@@ -3132,8 +2870,6 @@ class MetadataConfigurationForReranking(PropertyType):
 
 @dataclass
 class PerformanceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "latency": "Latency",
     }
@@ -3143,8 +2879,6 @@ class PerformanceConfiguration(PropertyType):
 
 @dataclass
 class PromptFlowNodeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "guardrail_configuration": "GuardrailConfiguration",
         "source_configuration": "SourceConfiguration",
@@ -3156,8 +2890,6 @@ class PromptFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class PromptFlowNodeInlineConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inference_configuration": "InferenceConfiguration",
         "template_configuration": "TemplateConfiguration",
@@ -3173,8 +2905,6 @@ class PromptFlowNodeInlineConfiguration(PropertyType):
 
 @dataclass
 class PromptFlowNodeResourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prompt_arn": "PromptArn",
     }
@@ -3184,8 +2914,6 @@ class PromptFlowNodeResourceConfiguration(PropertyType):
 
 @dataclass
 class PromptFlowNodeSourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource": "Resource",
         "inline": "Inline",
@@ -3197,8 +2925,6 @@ class PromptFlowNodeSourceConfiguration(PropertyType):
 
 @dataclass
 class PromptInferenceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text": "Text",
     }
@@ -3208,8 +2934,6 @@ class PromptInferenceConfiguration(PropertyType):
 
 @dataclass
 class PromptInputVariable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -3219,8 +2943,6 @@ class PromptInputVariable(PropertyType):
 
 @dataclass
 class PromptModelInferenceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "temperature": "Temperature",
         "stop_sequences": "StopSequences",
@@ -3236,8 +2958,6 @@ class PromptModelInferenceConfiguration(PropertyType):
 
 @dataclass
 class PromptTemplateConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text": "Text",
     }
@@ -3247,8 +2967,6 @@ class PromptTemplateConfiguration(PropertyType):
 
 @dataclass
 class RerankingMetadataSelectiveModeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fields_to_include": "FieldsToInclude",
         "fields_to_exclude": "FieldsToExclude",
@@ -3260,8 +2978,6 @@ class RerankingMetadataSelectiveModeConfiguration(PropertyType):
 
 @dataclass
 class RetrievalFlowNodeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_configuration": "ServiceConfiguration",
     }
@@ -3271,8 +2987,6 @@ class RetrievalFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class RetrievalFlowNodeS3Configuration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
     }
@@ -3282,8 +2996,6 @@ class RetrievalFlowNodeS3Configuration(PropertyType):
 
 @dataclass
 class RetrievalFlowNodeServiceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
     }
@@ -3293,8 +3005,6 @@ class RetrievalFlowNodeServiceConfiguration(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "version": "Version",
@@ -3308,8 +3018,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class StorageFlowNodeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_configuration": "ServiceConfiguration",
     }
@@ -3319,8 +3027,6 @@ class StorageFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class StorageFlowNodeS3Configuration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
     }
@@ -3330,8 +3036,6 @@ class StorageFlowNodeS3Configuration(PropertyType):
 
 @dataclass
 class StorageFlowNodeServiceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
     }
@@ -3341,8 +3045,6 @@ class StorageFlowNodeServiceConfiguration(PropertyType):
 
 @dataclass
 class TextPromptTemplateConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_variables": "InputVariables",
         "text": "Text",
@@ -3354,8 +3056,6 @@ class TextPromptTemplateConfiguration(PropertyType):
 
 @dataclass
 class VectorSearchBedrockRerankingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "number_of_reranked_results": "NumberOfRerankedResults",
         "metadata_configuration": "MetadataConfiguration",
@@ -3369,8 +3069,6 @@ class VectorSearchBedrockRerankingConfiguration(PropertyType):
 
 @dataclass
 class VectorSearchBedrockRerankingModelConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_arn": "ModelArn",
         "additional_model_request_fields": "AdditionalModelRequestFields",
@@ -3382,8 +3080,6 @@ class VectorSearchBedrockRerankingModelConfiguration(PropertyType):
 
 @dataclass
 class VectorSearchRerankingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "bedrock_reranking_configuration": "BedrockRerankingConfiguration",
@@ -3462,8 +3158,6 @@ class Flow(CloudFormationResource):
 
 @dataclass
 class FlowAliasConcurrencyConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "max_concurrency": "MaxConcurrency",
@@ -3475,8 +3169,6 @@ class FlowAliasConcurrencyConfiguration(PropertyType):
 
 @dataclass
 class FlowAliasRoutingConfigurationListItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "flow_version": "FlowVersion",
     }
@@ -3535,8 +3227,6 @@ class FlowAlias(CloudFormationResource):
 
 @dataclass
 class AgentFlowNodeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "agent_alias_arn": "AgentAliasArn",
     }
@@ -3546,8 +3236,6 @@ class AgentFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class ConditionFlowNodeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "conditions": "Conditions",
     }
@@ -3557,8 +3245,6 @@ class ConditionFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class FieldForReranking(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_name": "FieldName",
     }
@@ -3568,8 +3254,6 @@ class FieldForReranking(PropertyType):
 
 @dataclass
 class FlowCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "name": "Name",
@@ -3581,8 +3265,6 @@ class FlowCondition(PropertyType):
 
 @dataclass
 class FlowConditionalConnectionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
     }
@@ -3592,8 +3274,6 @@ class FlowConditionalConnectionConfiguration(PropertyType):
 
 @dataclass
 class FlowConnection(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "target": "Target",
@@ -3611,8 +3291,6 @@ class FlowConnection(PropertyType):
 
 @dataclass
 class FlowConnectionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data": "Data",
         "conditional": "Conditional",
@@ -3624,8 +3302,6 @@ class FlowConnectionConfiguration(PropertyType):
 
 @dataclass
 class FlowDataConnectionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_output": "SourceOutput",
         "target_input": "TargetInput",
@@ -3637,8 +3313,6 @@ class FlowDataConnectionConfiguration(PropertyType):
 
 @dataclass
 class FlowDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connections": "Connections",
         "nodes": "Nodes",
@@ -3650,8 +3324,6 @@ class FlowDefinition(PropertyType):
 
 @dataclass
 class FlowNode(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "configuration": "Configuration",
@@ -3669,8 +3341,6 @@ class FlowNode(PropertyType):
 
 @dataclass
 class FlowNodeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "retrieval": "Retrieval",
@@ -3710,8 +3380,6 @@ class FlowNodeConfiguration(PropertyType):
 
 @dataclass
 class FlowNodeInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "expression": "Expression",
@@ -3725,8 +3393,6 @@ class FlowNodeInput(PropertyType):
 
 @dataclass
 class FlowNodeOutput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "name": "Name",
@@ -3738,8 +3404,6 @@ class FlowNodeOutput(PropertyType):
 
 @dataclass
 class GuardrailConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "guardrail_identifier": "GuardrailIdentifier",
         "guardrail_version": "GuardrailVersion",
@@ -3751,8 +3415,6 @@ class GuardrailConfiguration(PropertyType):
 
 @dataclass
 class InlineCodeFlowNodeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "language": "Language",
         "code": "Code",
@@ -3764,8 +3426,6 @@ class InlineCodeFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class KnowledgeBaseFlowNodeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "orchestration_configuration": "OrchestrationConfiguration",
         "guardrail_configuration": "GuardrailConfiguration",
@@ -3789,8 +3449,6 @@ class KnowledgeBaseFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class KnowledgeBaseOrchestrationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inference_config": "InferenceConfig",
         "additional_model_request_fields": "AdditionalModelRequestFields",
@@ -3806,8 +3464,6 @@ class KnowledgeBaseOrchestrationConfiguration(PropertyType):
 
 @dataclass
 class KnowledgeBasePromptTemplate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_prompt_template": "TextPromptTemplate",
     }
@@ -3817,8 +3473,6 @@ class KnowledgeBasePromptTemplate(PropertyType):
 
 @dataclass
 class LambdaFunctionFlowNodeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_arn": "LambdaArn",
     }
@@ -3828,8 +3482,6 @@ class LambdaFunctionFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class LexFlowNodeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bot_alias_arn": "BotAliasArn",
         "locale_id": "LocaleId",
@@ -3841,8 +3493,6 @@ class LexFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class LoopControllerFlowNodeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "continue_condition": "ContinueCondition",
         "max_iterations": "MaxIterations",
@@ -3854,8 +3504,6 @@ class LoopControllerFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class LoopFlowNodeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "definition": "Definition",
     }
@@ -3865,8 +3513,6 @@ class LoopFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class MetadataConfigurationForReranking(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "selective_mode_configuration": "SelectiveModeConfiguration",
         "selection_mode": "SelectionMode",
@@ -3878,8 +3524,6 @@ class MetadataConfigurationForReranking(PropertyType):
 
 @dataclass
 class PerformanceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "latency": "Latency",
     }
@@ -3889,8 +3533,6 @@ class PerformanceConfiguration(PropertyType):
 
 @dataclass
 class PromptFlowNodeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "guardrail_configuration": "GuardrailConfiguration",
         "source_configuration": "SourceConfiguration",
@@ -3902,8 +3544,6 @@ class PromptFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class PromptFlowNodeInlineConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inference_configuration": "InferenceConfiguration",
         "template_configuration": "TemplateConfiguration",
@@ -3919,8 +3559,6 @@ class PromptFlowNodeInlineConfiguration(PropertyType):
 
 @dataclass
 class PromptFlowNodeResourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prompt_arn": "PromptArn",
     }
@@ -3930,8 +3568,6 @@ class PromptFlowNodeResourceConfiguration(PropertyType):
 
 @dataclass
 class PromptFlowNodeSourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource": "Resource",
         "inline": "Inline",
@@ -3943,8 +3579,6 @@ class PromptFlowNodeSourceConfiguration(PropertyType):
 
 @dataclass
 class PromptInferenceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text": "Text",
     }
@@ -3954,8 +3588,6 @@ class PromptInferenceConfiguration(PropertyType):
 
 @dataclass
 class PromptInputVariable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -3965,8 +3597,6 @@ class PromptInputVariable(PropertyType):
 
 @dataclass
 class PromptModelInferenceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "temperature": "Temperature",
         "stop_sequences": "StopSequences",
@@ -3982,8 +3612,6 @@ class PromptModelInferenceConfiguration(PropertyType):
 
 @dataclass
 class PromptTemplateConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text": "Text",
     }
@@ -3993,8 +3621,6 @@ class PromptTemplateConfiguration(PropertyType):
 
 @dataclass
 class RerankingMetadataSelectiveModeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fields_to_include": "FieldsToInclude",
         "fields_to_exclude": "FieldsToExclude",
@@ -4006,8 +3632,6 @@ class RerankingMetadataSelectiveModeConfiguration(PropertyType):
 
 @dataclass
 class RetrievalFlowNodeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_configuration": "ServiceConfiguration",
     }
@@ -4017,8 +3641,6 @@ class RetrievalFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class RetrievalFlowNodeS3Configuration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
     }
@@ -4028,8 +3650,6 @@ class RetrievalFlowNodeS3Configuration(PropertyType):
 
 @dataclass
 class RetrievalFlowNodeServiceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
     }
@@ -4039,8 +3659,6 @@ class RetrievalFlowNodeServiceConfiguration(PropertyType):
 
 @dataclass
 class StorageFlowNodeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_configuration": "ServiceConfiguration",
     }
@@ -4050,8 +3668,6 @@ class StorageFlowNodeConfiguration(PropertyType):
 
 @dataclass
 class StorageFlowNodeS3Configuration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
     }
@@ -4061,8 +3677,6 @@ class StorageFlowNodeS3Configuration(PropertyType):
 
 @dataclass
 class StorageFlowNodeServiceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
     }
@@ -4072,8 +3686,6 @@ class StorageFlowNodeServiceConfiguration(PropertyType):
 
 @dataclass
 class TextPromptTemplateConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_variables": "InputVariables",
         "text": "Text",
@@ -4085,8 +3697,6 @@ class TextPromptTemplateConfiguration(PropertyType):
 
 @dataclass
 class VectorSearchBedrockRerankingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "number_of_reranked_results": "NumberOfRerankedResults",
         "metadata_configuration": "MetadataConfiguration",
@@ -4100,8 +3710,6 @@ class VectorSearchBedrockRerankingConfiguration(PropertyType):
 
 @dataclass
 class VectorSearchBedrockRerankingModelConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_arn": "ModelArn",
         "additional_model_request_fields": "AdditionalModelRequestFields",
@@ -4113,8 +3721,6 @@ class VectorSearchBedrockRerankingModelConfiguration(PropertyType):
 
 @dataclass
 class VectorSearchRerankingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "bedrock_reranking_configuration": "BedrockRerankingConfiguration",
@@ -4192,8 +3798,6 @@ class FlowVersion(CloudFormationResource):
 
 @dataclass
 class AutomatedReasoningPolicyConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policies": "Policies",
         "confidence_threshold": "ConfidenceThreshold",
@@ -4205,8 +3809,6 @@ class AutomatedReasoningPolicyConfig(PropertyType):
 
 @dataclass
 class ContentFilterConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "output_strength": "OutputStrength",
         "type_": "Type",
@@ -4232,8 +3834,6 @@ class ContentFilterConfig(PropertyType):
 
 @dataclass
 class ContentFiltersTierConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tier_name": "TierName",
     }
@@ -4243,8 +3843,6 @@ class ContentFiltersTierConfig(PropertyType):
 
 @dataclass
 class ContentPolicyConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_filters_tier_config": "ContentFiltersTierConfig",
         "filters_config": "FiltersConfig",
@@ -4256,8 +3854,6 @@ class ContentPolicyConfig(PropertyType):
 
 @dataclass
 class ContextualGroundingFilterConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "action": "Action",
@@ -4273,8 +3869,6 @@ class ContextualGroundingFilterConfig(PropertyType):
 
 @dataclass
 class ContextualGroundingPolicyConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filters_config": "FiltersConfig",
     }
@@ -4284,8 +3878,6 @@ class ContextualGroundingPolicyConfig(PropertyType):
 
 @dataclass
 class GuardrailCrossRegionConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "guardrail_profile_arn": "GuardrailProfileArn",
     }
@@ -4295,8 +3887,6 @@ class GuardrailCrossRegionConfig(PropertyType):
 
 @dataclass
 class ManagedWordsConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "input_enabled": "InputEnabled",
@@ -4314,8 +3904,6 @@ class ManagedWordsConfig(PropertyType):
 
 @dataclass
 class PiiEntityConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "action": "Action",
@@ -4335,8 +3923,6 @@ class PiiEntityConfig(PropertyType):
 
 @dataclass
 class RegexConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pattern": "Pattern",
         "action": "Action",
@@ -4360,8 +3946,6 @@ class RegexConfig(PropertyType):
 
 @dataclass
 class SensitiveInformationPolicyConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "regexes_config": "RegexesConfig",
         "pii_entities_config": "PiiEntitiesConfig",
@@ -4373,8 +3957,6 @@ class SensitiveInformationPolicyConfig(PropertyType):
 
 @dataclass
 class TopicConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "input_enabled": "InputEnabled",
@@ -4398,8 +3980,6 @@ class TopicConfig(PropertyType):
 
 @dataclass
 class TopicPolicyConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topics_tier_config": "TopicsTierConfig",
         "topics_config": "TopicsConfig",
@@ -4411,8 +3991,6 @@ class TopicPolicyConfig(PropertyType):
 
 @dataclass
 class TopicsTierConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tier_name": "TierName",
     }
@@ -4422,8 +4000,6 @@ class TopicsTierConfig(PropertyType):
 
 @dataclass
 class WordConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_enabled": "InputEnabled",
         "input_action": "InputAction",
@@ -4441,8 +4017,6 @@ class WordConfig(PropertyType):
 
 @dataclass
 class WordPolicyConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "managed_word_lists_config": "ManagedWordListsConfig",
         "words_config": "WordsConfig",
@@ -4563,8 +4137,6 @@ class GuardrailVersion(CloudFormationResource):
 
 @dataclass
 class PromptRouterTargetModel(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_arn": "ModelArn",
     }
@@ -4574,8 +4146,6 @@ class PromptRouterTargetModel(PropertyType):
 
 @dataclass
 class RoutingCriteria(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "response_quality_difference": "ResponseQualityDifference",
     }
@@ -4634,8 +4204,6 @@ class IntelligentPromptRouter(CloudFormationResource):
 
 @dataclass
 class AudioConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "segmentation_configuration": "SegmentationConfiguration",
     }
@@ -4645,8 +4213,6 @@ class AudioConfiguration(PropertyType):
 
 @dataclass
 class AudioSegmentationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fixed_length_duration": "FixedLengthDuration",
     }
@@ -4656,8 +4222,6 @@ class AudioSegmentationConfiguration(PropertyType):
 
 @dataclass
 class BedrockEmbeddingModelConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "embedding_data_type": "EmbeddingDataType",
         "video": "Video",
@@ -4673,8 +4237,6 @@ class BedrockEmbeddingModelConfiguration(PropertyType):
 
 @dataclass
 class CuratedQuery(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "natural_language": "NaturalLanguage",
         "sql": "Sql",
@@ -4686,8 +4248,6 @@ class CuratedQuery(PropertyType):
 
 @dataclass
 class EmbeddingModelConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bedrock_embedding_model_configuration": "BedrockEmbeddingModelConfiguration",
     }
@@ -4697,8 +4257,6 @@ class EmbeddingModelConfiguration(PropertyType):
 
 @dataclass
 class KendraKnowledgeBaseConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kendra_index_arn": "KendraIndexArn",
     }
@@ -4708,8 +4266,6 @@ class KendraKnowledgeBaseConfiguration(PropertyType):
 
 @dataclass
 class KnowledgeBaseConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "sql_knowledge_base_configuration": "SqlKnowledgeBaseConfiguration",
@@ -4725,8 +4281,6 @@ class KnowledgeBaseConfiguration(PropertyType):
 
 @dataclass
 class MongoDbAtlasConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "endpoint": "Endpoint",
         "collection_name": "CollectionName",
@@ -4750,8 +4304,6 @@ class MongoDbAtlasConfiguration(PropertyType):
 
 @dataclass
 class MongoDbAtlasFieldMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vector_field": "VectorField",
         "text_field": "TextField",
@@ -4765,8 +4317,6 @@ class MongoDbAtlasFieldMapping(PropertyType):
 
 @dataclass
 class NeptuneAnalyticsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "graph_arn": "GraphArn",
         "field_mapping": "FieldMapping",
@@ -4778,8 +4328,6 @@ class NeptuneAnalyticsConfiguration(PropertyType):
 
 @dataclass
 class NeptuneAnalyticsFieldMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_field": "TextField",
         "metadata_field": "MetadataField",
@@ -4791,8 +4339,6 @@ class NeptuneAnalyticsFieldMapping(PropertyType):
 
 @dataclass
 class OpenSearchManagedClusterConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_endpoint": "DomainEndpoint",
         "vector_index_name": "VectorIndexName",
@@ -4808,8 +4354,6 @@ class OpenSearchManagedClusterConfiguration(PropertyType):
 
 @dataclass
 class OpenSearchManagedClusterFieldMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vector_field": "VectorField",
         "text_field": "TextField",
@@ -4823,8 +4367,6 @@ class OpenSearchManagedClusterFieldMapping(PropertyType):
 
 @dataclass
 class OpenSearchServerlessConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "collection_arn": "CollectionArn",
         "vector_index_name": "VectorIndexName",
@@ -4838,8 +4380,6 @@ class OpenSearchServerlessConfiguration(PropertyType):
 
 @dataclass
 class OpenSearchServerlessFieldMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vector_field": "VectorField",
         "text_field": "TextField",
@@ -4853,8 +4393,6 @@ class OpenSearchServerlessFieldMapping(PropertyType):
 
 @dataclass
 class PineconeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_mapping": "FieldMapping",
         "credentials_secret_arn": "CredentialsSecretArn",
@@ -4870,8 +4408,6 @@ class PineconeConfiguration(PropertyType):
 
 @dataclass
 class PineconeFieldMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_field": "TextField",
         "metadata_field": "MetadataField",
@@ -4883,8 +4419,6 @@ class PineconeFieldMapping(PropertyType):
 
 @dataclass
 class QueryGenerationColumn(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "inclusion": "Inclusion",
@@ -4898,8 +4432,6 @@ class QueryGenerationColumn(PropertyType):
 
 @dataclass
 class QueryGenerationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "generation_context": "GenerationContext",
         "execution_timeout_seconds": "ExecutionTimeoutSeconds",
@@ -4911,8 +4443,6 @@ class QueryGenerationConfiguration(PropertyType):
 
 @dataclass
 class QueryGenerationContext(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "curated_queries": "CuratedQueries",
         "tables": "Tables",
@@ -4924,8 +4454,6 @@ class QueryGenerationContext(PropertyType):
 
 @dataclass
 class QueryGenerationTable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "inclusion": "Inclusion",
@@ -4941,8 +4469,6 @@ class QueryGenerationTable(PropertyType):
 
 @dataclass
 class RdsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceArn",
         "table_name": "TableName",
@@ -4960,8 +4486,6 @@ class RdsConfiguration(PropertyType):
 
 @dataclass
 class RdsFieldMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "primary_key_field": "PrimaryKeyField",
         "vector_field": "VectorField",
@@ -4979,8 +4503,6 @@ class RdsFieldMapping(PropertyType):
 
 @dataclass
 class RedshiftConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "query_engine_configuration": "QueryEngineConfiguration",
         "storage_configurations": "StorageConfigurations",
@@ -4994,8 +4516,6 @@ class RedshiftConfiguration(PropertyType):
 
 @dataclass
 class RedshiftProvisionedAuthConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "database_user": "DatabaseUser",
@@ -5009,8 +4529,6 @@ class RedshiftProvisionedAuthConfiguration(PropertyType):
 
 @dataclass
 class RedshiftProvisionedConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auth_configuration": "AuthConfiguration",
         "cluster_identifier": "ClusterIdentifier",
@@ -5022,8 +4540,6 @@ class RedshiftProvisionedConfiguration(PropertyType):
 
 @dataclass
 class RedshiftQueryEngineAwsDataCatalogStorageConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_names": "TableNames",
     }
@@ -5033,8 +4549,6 @@ class RedshiftQueryEngineAwsDataCatalogStorageConfiguration(PropertyType):
 
 @dataclass
 class RedshiftQueryEngineConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "provisioned_configuration": "ProvisionedConfiguration",
@@ -5048,8 +4562,6 @@ class RedshiftQueryEngineConfiguration(PropertyType):
 
 @dataclass
 class RedshiftQueryEngineRedshiftStorageConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "database_name": "DatabaseName",
     }
@@ -5059,8 +4571,6 @@ class RedshiftQueryEngineRedshiftStorageConfiguration(PropertyType):
 
 @dataclass
 class RedshiftQueryEngineStorageConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "redshift_configuration": "RedshiftConfiguration",
@@ -5074,8 +4584,6 @@ class RedshiftQueryEngineStorageConfiguration(PropertyType):
 
 @dataclass
 class RedshiftServerlessAuthConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "username_password_secret_arn": "UsernamePasswordSecretArn",
@@ -5087,8 +4595,6 @@ class RedshiftServerlessAuthConfiguration(PropertyType):
 
 @dataclass
 class RedshiftServerlessConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "workgroup_arn": "WorkgroupArn",
         "auth_configuration": "AuthConfiguration",
@@ -5100,8 +4606,6 @@ class RedshiftServerlessConfiguration(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uri": "URI",
     }
@@ -5111,8 +4615,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class S3VectorsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "index_name": "IndexName",
         "vector_bucket_arn": "VectorBucketArn",
@@ -5126,8 +4628,6 @@ class S3VectorsConfiguration(PropertyType):
 
 @dataclass
 class SqlKnowledgeBaseConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "redshift_configuration": "RedshiftConfiguration",
@@ -5139,8 +4639,6 @@ class SqlKnowledgeBaseConfiguration(PropertyType):
 
 @dataclass
 class StorageConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_vectors_configuration": "S3VectorsConfiguration",
         "opensearch_managed_cluster_configuration": "OpensearchManagedClusterConfiguration",
@@ -5164,8 +4662,6 @@ class StorageConfiguration(PropertyType):
 
 @dataclass
 class SupplementalDataStorageConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "supplemental_data_storage_locations": "SupplementalDataStorageLocations",
     }
@@ -5175,8 +4671,6 @@ class SupplementalDataStorageConfiguration(PropertyType):
 
 @dataclass
 class SupplementalDataStorageLocation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "supplemental_data_storage_location_type": "SupplementalDataStorageLocationType",
         "s3_location": "S3Location",
@@ -5188,8 +4682,6 @@ class SupplementalDataStorageLocation(PropertyType):
 
 @dataclass
 class VectorKnowledgeBaseConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "embedding_model_configuration": "EmbeddingModelConfiguration",
         "embedding_model_arn": "EmbeddingModelArn",
@@ -5203,8 +4695,6 @@ class VectorKnowledgeBaseConfiguration(PropertyType):
 
 @dataclass
 class VideoConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "segmentation_configuration": "SegmentationConfiguration",
     }
@@ -5214,8 +4704,6 @@ class VideoConfiguration(PropertyType):
 
 @dataclass
 class VideoSegmentationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fixed_length_duration": "FixedLengthDuration",
     }
@@ -5279,8 +4767,6 @@ class KnowledgeBase(CloudFormationResource):
 
 @dataclass
 class CachePointBlock(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -5290,8 +4776,6 @@ class CachePointBlock(PropertyType):
 
 @dataclass
 class ChatPromptTemplateConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "messages": "Messages",
         "input_variables": "InputVariables",
@@ -5307,8 +4791,6 @@ class ChatPromptTemplateConfiguration(PropertyType):
 
 @dataclass
 class ContentBlock(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cache_point": "CachePoint",
         "text": "Text",
@@ -5320,8 +4802,6 @@ class ContentBlock(PropertyType):
 
 @dataclass
 class Message(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role": "Role",
         "content": "Content",
@@ -5333,8 +4813,6 @@ class Message(PropertyType):
 
 @dataclass
 class PromptAgentResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "agent_identifier": "AgentIdentifier",
     }
@@ -5344,8 +4822,6 @@ class PromptAgentResource(PropertyType):
 
 @dataclass
 class PromptGenAiResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "agent": "Agent",
     }
@@ -5355,8 +4831,6 @@ class PromptGenAiResource(PropertyType):
 
 @dataclass
 class PromptInferenceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text": "Text",
     }
@@ -5366,8 +4840,6 @@ class PromptInferenceConfiguration(PropertyType):
 
 @dataclass
 class PromptInputVariable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -5377,8 +4849,6 @@ class PromptInputVariable(PropertyType):
 
 @dataclass
 class PromptMetadataEntry(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -5390,8 +4860,6 @@ class PromptMetadataEntry(PropertyType):
 
 @dataclass
 class PromptModelInferenceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "temperature": "Temperature",
         "stop_sequences": "StopSequences",
@@ -5407,8 +4875,6 @@ class PromptModelInferenceConfiguration(PropertyType):
 
 @dataclass
 class PromptTemplateConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "chat": "Chat",
         "text": "Text",
@@ -5420,8 +4886,6 @@ class PromptTemplateConfiguration(PropertyType):
 
 @dataclass
 class PromptVariant(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "additional_model_request_fields": "AdditionalModelRequestFields",
         "inference_configuration": "InferenceConfiguration",
@@ -5445,8 +4909,6 @@ class PromptVariant(PropertyType):
 
 @dataclass
 class SpecificToolChoice(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -5456,8 +4918,6 @@ class SpecificToolChoice(PropertyType):
 
 @dataclass
 class SystemContentBlock(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cache_point": "CachePoint",
         "text": "Text",
@@ -5469,8 +4929,6 @@ class SystemContentBlock(PropertyType):
 
 @dataclass
 class TextPromptTemplateConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_variables": "InputVariables",
         "text_s3_location": "TextS3Location",
@@ -5486,8 +4944,6 @@ class TextPromptTemplateConfiguration(PropertyType):
 
 @dataclass
 class TextS3Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "version": "Version",
@@ -5501,8 +4957,6 @@ class TextS3Location(PropertyType):
 
 @dataclass
 class Tool(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cache_point": "CachePoint",
         "tool_spec": "ToolSpec",
@@ -5514,8 +4968,6 @@ class Tool(PropertyType):
 
 @dataclass
 class ToolChoice(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto": "Auto",
         "any": "Any",
@@ -5529,8 +4981,6 @@ class ToolChoice(PropertyType):
 
 @dataclass
 class ToolConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tool_choice": "ToolChoice",
         "tools": "Tools",
@@ -5542,8 +4992,6 @@ class ToolConfiguration(PropertyType):
 
 @dataclass
 class ToolInputSchema(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "json": "Json",
     }
@@ -5553,8 +5001,6 @@ class ToolInputSchema(PropertyType):
 
 @dataclass
 class ToolSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "input_schema": "InputSchema",
@@ -5617,8 +5063,6 @@ class Prompt(CloudFormationResource):
 
 @dataclass
 class CachePointBlock(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -5628,8 +5072,6 @@ class CachePointBlock(PropertyType):
 
 @dataclass
 class ChatPromptTemplateConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "messages": "Messages",
         "input_variables": "InputVariables",
@@ -5645,8 +5087,6 @@ class ChatPromptTemplateConfiguration(PropertyType):
 
 @dataclass
 class ContentBlock(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cache_point": "CachePoint",
         "text": "Text",
@@ -5658,8 +5098,6 @@ class ContentBlock(PropertyType):
 
 @dataclass
 class Message(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role": "Role",
         "content": "Content",
@@ -5671,8 +5109,6 @@ class Message(PropertyType):
 
 @dataclass
 class PromptAgentResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "agent_identifier": "AgentIdentifier",
     }
@@ -5682,8 +5118,6 @@ class PromptAgentResource(PropertyType):
 
 @dataclass
 class PromptGenAiResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "agent": "Agent",
     }
@@ -5693,8 +5127,6 @@ class PromptGenAiResource(PropertyType):
 
 @dataclass
 class PromptInferenceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text": "Text",
     }
@@ -5704,8 +5136,6 @@ class PromptInferenceConfiguration(PropertyType):
 
 @dataclass
 class PromptInputVariable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -5715,8 +5145,6 @@ class PromptInputVariable(PropertyType):
 
 @dataclass
 class PromptMetadataEntry(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -5728,8 +5156,6 @@ class PromptMetadataEntry(PropertyType):
 
 @dataclass
 class PromptModelInferenceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "temperature": "Temperature",
         "stop_sequences": "StopSequences",
@@ -5745,8 +5171,6 @@ class PromptModelInferenceConfiguration(PropertyType):
 
 @dataclass
 class PromptTemplateConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "chat": "Chat",
         "text": "Text",
@@ -5758,8 +5182,6 @@ class PromptTemplateConfiguration(PropertyType):
 
 @dataclass
 class PromptVariant(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "additional_model_request_fields": "AdditionalModelRequestFields",
         "inference_configuration": "InferenceConfiguration",
@@ -5783,8 +5205,6 @@ class PromptVariant(PropertyType):
 
 @dataclass
 class SpecificToolChoice(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -5794,8 +5214,6 @@ class SpecificToolChoice(PropertyType):
 
 @dataclass
 class SystemContentBlock(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cache_point": "CachePoint",
         "text": "Text",
@@ -5807,8 +5225,6 @@ class SystemContentBlock(PropertyType):
 
 @dataclass
 class TextPromptTemplateConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_variables": "InputVariables",
         "cache_point": "CachePoint",
@@ -5822,8 +5238,6 @@ class TextPromptTemplateConfiguration(PropertyType):
 
 @dataclass
 class Tool(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cache_point": "CachePoint",
         "tool_spec": "ToolSpec",
@@ -5835,8 +5249,6 @@ class Tool(PropertyType):
 
 @dataclass
 class ToolChoice(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto": "Auto",
         "any": "Any",
@@ -5850,8 +5262,6 @@ class ToolChoice(PropertyType):
 
 @dataclass
 class ToolConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tool_choice": "ToolChoice",
         "tools": "Tools",
@@ -5863,8 +5273,6 @@ class ToolConfiguration(PropertyType):
 
 @dataclass
 class ToolInputSchema(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "json": "Json",
     }
@@ -5874,8 +5282,6 @@ class ToolInputSchema(PropertyType):
 
 @dataclass
 class ToolSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "input_schema": "InputSchema",

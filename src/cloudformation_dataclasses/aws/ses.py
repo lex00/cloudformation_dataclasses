@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SES
@@ -244,8 +244,6 @@ NOTSTARTED = VerificationStatus.NOTSTARTED
 
 @dataclass
 class DashboardOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "engagement_metrics": "EngagementMetrics",
     }
@@ -255,8 +253,6 @@ class DashboardOptions(PropertyType):
 
 @dataclass
 class DeliveryOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_delivery_seconds": "MaxDeliverySeconds",
         "sending_pool_name": "SendingPoolName",
@@ -270,8 +266,6 @@ class DeliveryOptions(PropertyType):
 
 @dataclass
 class GuardianOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "optimized_shared_delivery": "OptimizedSharedDelivery",
     }
@@ -281,8 +275,6 @@ class GuardianOptions(PropertyType):
 
 @dataclass
 class ReputationOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "reputation_metrics_enabled": "ReputationMetricsEnabled",
     }
@@ -292,8 +284,6 @@ class ReputationOptions(PropertyType):
 
 @dataclass
 class SendingOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sending_enabled": "SendingEnabled",
     }
@@ -303,8 +293,6 @@ class SendingOptions(PropertyType):
 
 @dataclass
 class SuppressionOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "suppressed_reasons": "SuppressedReasons",
     }
@@ -314,8 +302,6 @@ class SuppressionOptions(PropertyType):
 
 @dataclass
 class TrackingOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "https_policy": "HttpsPolicy",
         "custom_redirect_domain": "CustomRedirectDomain",
@@ -327,8 +313,6 @@ class TrackingOptions(PropertyType):
 
 @dataclass
 class VdmOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dashboard_options": "DashboardOptions",
         "guardian_options": "GuardianOptions",
@@ -367,8 +351,6 @@ class ConfigurationSet(CloudFormationResource):
 
 @dataclass
 class CloudWatchDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_configurations": "DimensionConfigurations",
     }
@@ -378,8 +360,6 @@ class CloudWatchDestination(PropertyType):
 
 @dataclass
 class DimensionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_value_source": "DimensionValueSource",
         "default_dimension_value": "DefaultDimensionValue",
@@ -393,8 +373,6 @@ class DimensionConfiguration(PropertyType):
 
 @dataclass
 class EventBridgeDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_bus_arn": "EventBusArn",
     }
@@ -404,8 +382,6 @@ class EventBridgeDestination(PropertyType):
 
 @dataclass
 class EventDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sns_destination": "SnsDestination",
         "cloud_watch_destination": "CloudWatchDestination",
@@ -427,8 +403,6 @@ class EventDestination(PropertyType):
 
 @dataclass
 class KinesisFirehoseDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iam_role_arn": "IAMRoleARN",
         "delivery_stream_arn": "DeliveryStreamARN",
@@ -440,8 +414,6 @@ class KinesisFirehoseDestination(PropertyType):
 
 @dataclass
 class SnsDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topic_arn": "TopicARN",
     }
@@ -472,8 +444,6 @@ class ConfigurationSetEventDestination(CloudFormationResource):
 
 @dataclass
 class Topic(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "display_name": "DisplayName",
@@ -525,8 +495,6 @@ class DedicatedIpPool(CloudFormationResource):
 
 @dataclass
 class ConfigurationSetAttributes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration_set_name": "ConfigurationSetName",
     }
@@ -536,8 +504,6 @@ class ConfigurationSetAttributes(PropertyType):
 
 @dataclass
 class DkimAttributes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "signing_enabled": "SigningEnabled",
     }
@@ -547,8 +513,6 @@ class DkimAttributes(PropertyType):
 
 @dataclass
 class DkimSigningAttributes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_signing_private_key": "DomainSigningPrivateKey",
         "domain_signing_selector": "DomainSigningSelector",
@@ -562,8 +526,6 @@ class DkimSigningAttributes(PropertyType):
 
 @dataclass
 class FeedbackAttributes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "email_forwarding_enabled": "EmailForwardingEnabled",
     }
@@ -573,8 +535,6 @@ class FeedbackAttributes(PropertyType):
 
 @dataclass
 class MailFromAttributes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mail_from_domain": "MailFromDomain",
         "behavior_on_mx_failure": "BehaviorOnMxFailure",
@@ -725,8 +685,6 @@ class MailManagerAddressList(CloudFormationResource):
 
 @dataclass
 class ArchiveRetention(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "retention_period": "RetentionPeriod",
     }
@@ -771,8 +729,6 @@ class MailManagerArchive(CloudFormationResource):
 
 @dataclass
 class IngressPointConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "smtp_password": "SmtpPassword",
@@ -784,8 +740,6 @@ class IngressPointConfiguration(PropertyType):
 
 @dataclass
 class NetworkConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "public_network_configuration": "PublicNetworkConfiguration",
         "private_network_configuration": "PrivateNetworkConfiguration",
@@ -797,8 +751,6 @@ class NetworkConfiguration(PropertyType):
 
 @dataclass
 class PrivateNetworkConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_endpoint_id": "VpcEndpointId",
     }
@@ -808,8 +760,6 @@ class PrivateNetworkConfiguration(PropertyType):
 
 @dataclass
 class PublicNetworkConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_type": "IpType",
     }
@@ -867,8 +817,6 @@ class MailManagerIngressPoint(CloudFormationResource):
 
 @dataclass
 class RelayAuthentication(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "no_authentication": "NoAuthentication",
@@ -912,8 +860,6 @@ class MailManagerRelay(CloudFormationResource):
 
 @dataclass
 class AddHeaderAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header_value": "HeaderValue",
         "header_name": "HeaderName",
@@ -925,8 +871,6 @@ class AddHeaderAction(PropertyType):
 
 @dataclass
 class Analysis(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "analyzer": "Analyzer",
         "result_field": "ResultField",
@@ -938,8 +882,6 @@ class Analysis(PropertyType):
 
 @dataclass
 class ArchiveAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_archive": "TargetArchive",
         "action_failure_policy": "ActionFailurePolicy",
@@ -951,8 +893,6 @@ class ArchiveAction(PropertyType):
 
 @dataclass
 class DeliverToMailboxAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mailbox_arn": "MailboxArn",
         "action_failure_policy": "ActionFailurePolicy",
@@ -966,8 +906,6 @@ class DeliverToMailboxAction(PropertyType):
 
 @dataclass
 class DeliverToQBusinessAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "index_id": "IndexId",
         "action_failure_policy": "ActionFailurePolicy",
@@ -983,8 +921,6 @@ class DeliverToQBusinessAction(PropertyType):
 
 @dataclass
 class RelayAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "relay": "Relay",
         "mail_from": "MailFrom",
@@ -998,8 +934,6 @@ class RelayAction(PropertyType):
 
 @dataclass
 class ReplaceRecipientAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "replace_with": "ReplaceWith",
     }
@@ -1009,8 +943,6 @@ class ReplaceRecipientAction(PropertyType):
 
 @dataclass
 class Rule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "actions": "Actions",
         "conditions": "Conditions",
@@ -1026,8 +958,6 @@ class Rule(PropertyType):
 
 @dataclass
 class RuleAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "add_header": "AddHeader",
         "relay": "Relay",
@@ -1055,8 +985,6 @@ class RuleAction(PropertyType):
 
 @dataclass
 class RuleBooleanExpression(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "evaluate": "Evaluate",
@@ -1068,8 +996,6 @@ class RuleBooleanExpression(PropertyType):
 
 @dataclass
 class RuleBooleanToEvaluate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_in_address_list": "IsInAddressList",
         "attribute": "Attribute",
@@ -1083,8 +1009,6 @@ class RuleBooleanToEvaluate(PropertyType):
 
 @dataclass
 class RuleCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "boolean_expression": "BooleanExpression",
         "verdict_expression": "VerdictExpression",
@@ -1104,8 +1028,6 @@ class RuleCondition(PropertyType):
 
 @dataclass
 class RuleDmarcExpression(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "values": "Values",
@@ -1117,8 +1039,6 @@ class RuleDmarcExpression(PropertyType):
 
 @dataclass
 class RuleIpExpression(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "evaluate": "Evaluate",
@@ -1132,8 +1052,6 @@ class RuleIpExpression(PropertyType):
 
 @dataclass
 class RuleIpToEvaluate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute": "Attribute",
     }
@@ -1143,8 +1061,6 @@ class RuleIpToEvaluate(PropertyType):
 
 @dataclass
 class RuleIsInAddressList(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute": "Attribute",
         "address_lists": "AddressLists",
@@ -1156,8 +1072,6 @@ class RuleIsInAddressList(PropertyType):
 
 @dataclass
 class RuleNumberExpression(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "evaluate": "Evaluate",
@@ -1171,8 +1085,6 @@ class RuleNumberExpression(PropertyType):
 
 @dataclass
 class RuleNumberToEvaluate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute": "Attribute",
     }
@@ -1182,8 +1094,6 @@ class RuleNumberToEvaluate(PropertyType):
 
 @dataclass
 class RuleStringExpression(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "evaluate": "Evaluate",
@@ -1197,8 +1107,6 @@ class RuleStringExpression(PropertyType):
 
 @dataclass
 class RuleStringToEvaluate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute": "Attribute",
         "mime_header_attribute": "MimeHeaderAttribute",
@@ -1212,8 +1120,6 @@ class RuleStringToEvaluate(PropertyType):
 
 @dataclass
 class RuleVerdictExpression(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "evaluate": "Evaluate",
@@ -1227,8 +1133,6 @@ class RuleVerdictExpression(PropertyType):
 
 @dataclass
 class RuleVerdictToEvaluate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute": "Attribute",
         "analysis": "Analysis",
@@ -1240,8 +1144,6 @@ class RuleVerdictToEvaluate(PropertyType):
 
 @dataclass
 class S3Action(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_sse_kms_key_id": "S3SseKmsKeyId",
         "s3_bucket": "S3Bucket",
@@ -1259,8 +1161,6 @@ class S3Action(PropertyType):
 
 @dataclass
 class SendAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action_failure_policy": "ActionFailurePolicy",
         "role_arn": "RoleArn",
@@ -1272,8 +1172,6 @@ class SendAction(PropertyType):
 
 @dataclass
 class SnsAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topic_arn": "TopicArn",
         "encoding": "Encoding",
@@ -1319,8 +1217,6 @@ class MailManagerRuleSet(CloudFormationResource):
 
 @dataclass
 class IngressAnalysis(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "analyzer": "Analyzer",
         "result_field": "ResultField",
@@ -1332,8 +1228,6 @@ class IngressAnalysis(PropertyType):
 
 @dataclass
 class IngressBooleanExpression(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "evaluate": "Evaluate",
@@ -1345,8 +1239,6 @@ class IngressBooleanExpression(PropertyType):
 
 @dataclass
 class IngressBooleanToEvaluate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_in_address_list": "IsInAddressList",
         "analysis": "Analysis",
@@ -1358,8 +1250,6 @@ class IngressBooleanToEvaluate(PropertyType):
 
 @dataclass
 class IngressIpToEvaluate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute": "Attribute",
     }
@@ -1369,8 +1259,6 @@ class IngressIpToEvaluate(PropertyType):
 
 @dataclass
 class IngressIpv4Expression(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "evaluate": "Evaluate",
@@ -1384,8 +1272,6 @@ class IngressIpv4Expression(PropertyType):
 
 @dataclass
 class IngressIpv6Expression(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "evaluate": "Evaluate",
@@ -1399,8 +1285,6 @@ class IngressIpv6Expression(PropertyType):
 
 @dataclass
 class IngressIpv6ToEvaluate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute": "Attribute",
     }
@@ -1410,8 +1294,6 @@ class IngressIpv6ToEvaluate(PropertyType):
 
 @dataclass
 class IngressIsInAddressList(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute": "Attribute",
         "address_lists": "AddressLists",
@@ -1423,8 +1305,6 @@ class IngressIsInAddressList(PropertyType):
 
 @dataclass
 class IngressStringExpression(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "evaluate": "Evaluate",
@@ -1438,8 +1318,6 @@ class IngressStringExpression(PropertyType):
 
 @dataclass
 class IngressStringToEvaluate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute": "Attribute",
         "analysis": "Analysis",
@@ -1451,8 +1329,6 @@ class IngressStringToEvaluate(PropertyType):
 
 @dataclass
 class IngressTlsProtocolExpression(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "evaluate": "Evaluate",
@@ -1466,8 +1342,6 @@ class IngressTlsProtocolExpression(PropertyType):
 
 @dataclass
 class IngressTlsProtocolToEvaluate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute": "Attribute",
     }
@@ -1477,8 +1351,6 @@ class IngressTlsProtocolToEvaluate(PropertyType):
 
 @dataclass
 class PolicyCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ipv6_expression": "Ipv6Expression",
         "boolean_expression": "BooleanExpression",
@@ -1496,8 +1368,6 @@ class PolicyCondition(PropertyType):
 
 @dataclass
 class PolicyStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "conditions": "Conditions",
@@ -1541,8 +1411,6 @@ class MailManagerTrafficPolicy(CloudFormationResource):
 
 @dataclass
 class Details(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "route_details": "RouteDetails",
     }
@@ -1552,8 +1420,6 @@ class Details(PropertyType):
 
 @dataclass
 class RouteDetailsItems(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region": "Region",
     }
@@ -1580,8 +1446,6 @@ class MultiRegionEndpoint(CloudFormationResource):
 
 @dataclass
 class Filter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_filter": "IpFilter",
         "name": "Name",
@@ -1593,8 +1457,6 @@ class Filter(PropertyType):
 
 @dataclass
 class IpFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
         "cidr": "Cidr",
@@ -1619,8 +1481,6 @@ class ReceiptFilter(CloudFormationResource):
 
 @dataclass
 class Action(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connect_action": "ConnectAction",
         "bounce_action": "BounceAction",
@@ -1644,8 +1504,6 @@ class Action(PropertyType):
 
 @dataclass
 class AddHeaderAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header_value": "HeaderValue",
         "header_name": "HeaderName",
@@ -1657,8 +1515,6 @@ class AddHeaderAction(PropertyType):
 
 @dataclass
 class BounceAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sender": "Sender",
         "smtp_reply_code": "SmtpReplyCode",
@@ -1676,8 +1532,6 @@ class BounceAction(PropertyType):
 
 @dataclass
 class ConnectAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_arn": "InstanceARN",
         "iam_role_arn": "IAMRoleARN",
@@ -1689,8 +1543,6 @@ class ConnectAction(PropertyType):
 
 @dataclass
 class LambdaAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function_arn": "FunctionArn",
         "topic_arn": "TopicArn",
@@ -1704,8 +1556,6 @@ class LambdaAction(PropertyType):
 
 @dataclass
 class Rule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scan_enabled": "ScanEnabled",
         "recipients": "Recipients",
@@ -1725,8 +1575,6 @@ class Rule(PropertyType):
 
 @dataclass
 class S3Action(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "kms_key_arn": "KmsKeyArn",
@@ -1744,8 +1592,6 @@ class S3Action(PropertyType):
 
 @dataclass
 class SNSAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topic_arn": "TopicArn",
         "encoding": "Encoding",
@@ -1757,8 +1603,6 @@ class SNSAction(PropertyType):
 
 @dataclass
 class StopAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scope": "Scope",
         "topic_arn": "TopicArn",
@@ -1770,8 +1614,6 @@ class StopAction(PropertyType):
 
 @dataclass
 class WorkmailAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topic_arn": "TopicArn",
         "organization_arn": "OrganizationArn",
@@ -1813,8 +1655,6 @@ class ReceiptRuleSet(CloudFormationResource):
 
 @dataclass
 class Template(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "html_part": "HtmlPart",
         "text_part": "TextPart",
@@ -1849,8 +1689,6 @@ class Template(CloudFormationResource):
 
 @dataclass
 class DashboardAttributes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "engagement_metrics": "EngagementMetrics",
     }
@@ -1860,8 +1698,6 @@ class DashboardAttributes(PropertyType):
 
 @dataclass
 class GuardianAttributes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "optimized_shared_delivery": "OptimizedSharedDelivery",
     }

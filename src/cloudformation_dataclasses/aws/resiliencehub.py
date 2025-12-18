@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ResilienceHub
@@ -553,8 +553,6 @@ REGION = TestType.REGION
 
 @dataclass
 class EventSubscription(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-res"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_type": "EventType",
         "sns_topic_arn": "SnsTopicArn",
@@ -568,8 +566,6 @@ class EventSubscription(PropertyType):
 
 @dataclass
 class PermissionModel(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-res"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "cross_account_role_arns": "CrossAccountRoleArns",
@@ -583,8 +579,6 @@ class PermissionModel(PropertyType):
 
 @dataclass
 class PhysicalResourceId(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-res"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "identifier": "Identifier",
@@ -600,8 +594,6 @@ class PhysicalResourceId(PropertyType):
 
 @dataclass
 class ResourceMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-res"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mapping_type": "MappingType",
         "logical_stack_name": "LogicalStackName",
@@ -661,8 +653,6 @@ class App(CloudFormationResource):
 
 @dataclass
 class FailurePolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-res"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rpo_in_secs": "RpoInSecs",
         "rto_in_secs": "RtoInSecs",
@@ -674,8 +664,6 @@ class FailurePolicy(PropertyType):
 
 @dataclass
 class PolicyMap(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-res"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "az": "AZ",
         "region": "Region",

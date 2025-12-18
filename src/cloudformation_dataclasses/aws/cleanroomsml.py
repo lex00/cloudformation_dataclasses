@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CleanRoomsML
@@ -860,8 +860,6 @@ CR_4X = WorkerComputeType.CR_4X
 
 @dataclass
 class ColumnSchema(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_name": "ColumnName",
         "column_types": "ColumnTypes",
@@ -873,8 +871,6 @@ class ColumnSchema(PropertyType):
 
 @dataclass
 class DataSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "glue_data_source": "GlueDataSource",
     }
@@ -884,8 +880,6 @@ class DataSource(PropertyType):
 
 @dataclass
 class Dataset(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "input_config": "InputConfig",
@@ -897,8 +891,6 @@ class Dataset(PropertyType):
 
 @dataclass
 class DatasetInputConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schema": "Schema",
         "data_source": "DataSource",
@@ -910,8 +902,6 @@ class DatasetInputConfig(PropertyType):
 
 @dataclass
 class GlueDataSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "database_name": "DatabaseName",

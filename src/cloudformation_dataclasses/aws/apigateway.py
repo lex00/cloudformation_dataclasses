@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:45
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ApiGateway
@@ -417,8 +417,6 @@ class Account(CloudFormationResource):
 
 @dataclass
 class StageKey(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stage_name": "StageName",
         "rest_api_id": "RestApiId",
@@ -567,8 +565,6 @@ class ClientCertificate(CloudFormationResource):
 
 @dataclass
 class AccessLogSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "format": "Format",
         "destination_arn": "DestinationArn",
@@ -580,8 +576,6 @@ class AccessLogSetting(PropertyType):
 
 @dataclass
 class CanarySetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stage_variable_overrides": "StageVariableOverrides",
         "percent_traffic": "PercentTraffic",
@@ -595,8 +589,6 @@ class CanarySetting(PropertyType):
 
 @dataclass
 class DeploymentCanarySettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stage_variable_overrides": "StageVariableOverrides",
         "percent_traffic": "PercentTraffic",
@@ -610,8 +602,6 @@ class DeploymentCanarySettings(PropertyType):
 
 @dataclass
 class MethodSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cache_ttl_in_seconds": "CacheTtlInSeconds",
         "logging_level": "LoggingLevel",
@@ -639,8 +629,6 @@ class MethodSetting(PropertyType):
 
 @dataclass
 class StageDescription(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cache_ttl_in_seconds": "CacheTtlInSeconds",
         "description": "Description",
@@ -713,8 +701,6 @@ class Deployment(CloudFormationResource):
 
 @dataclass
 class Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "type_": "Type",
@@ -772,8 +758,6 @@ class DocumentationVersion(CloudFormationResource):
 
 @dataclass
 class EndpointConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IpAddressType",
         "types": "Types",
@@ -785,8 +769,6 @@ class EndpointConfiguration(PropertyType):
 
 @dataclass
 class MutualTlsAuthentication(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "truststore_version": "TruststoreVersion",
         "truststore_uri": "TruststoreUri",
@@ -880,8 +862,6 @@ class DomainNameAccessAssociation(CloudFormationResource):
 
 @dataclass
 class EndpointConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IpAddressType",
         "types": "Types",
@@ -958,8 +938,6 @@ class GatewayResponse(CloudFormationResource):
 
 @dataclass
 class Integration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cache_namespace": "CacheNamespace",
         "connection_type": "ConnectionType",
@@ -999,8 +977,6 @@ class Integration(PropertyType):
 
 @dataclass
 class IntegrationResponse(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "response_templates": "ResponseTemplates",
         "selection_pattern": "SelectionPattern",
@@ -1018,8 +994,6 @@ class IntegrationResponse(PropertyType):
 
 @dataclass
 class MethodResponse(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "response_parameters": "ResponseParameters",
         "status_code": "StatusCode",
@@ -1139,8 +1113,6 @@ class Resource(CloudFormationResource):
 
 @dataclass
 class EndpointConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IpAddressType",
         "types": "Types",
@@ -1154,8 +1126,6 @@ class EndpointConfiguration(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "e_tag": "ETag",
@@ -1227,8 +1197,6 @@ class RestApi(CloudFormationResource):
 
 @dataclass
 class AccessLogSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "format": "Format",
         "destination_arn": "DestinationArn",
@@ -1240,8 +1208,6 @@ class AccessLogSetting(PropertyType):
 
 @dataclass
 class CanarySetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "deployment_id": "DeploymentId",
         "stage_variable_overrides": "StageVariableOverrides",
@@ -1257,8 +1223,6 @@ class CanarySetting(PropertyType):
 
 @dataclass
 class MethodSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cache_ttl_in_seconds": "CacheTtlInSeconds",
         "logging_level": "LoggingLevel",
@@ -1325,8 +1289,6 @@ class Stage(CloudFormationResource):
 
 @dataclass
 class ApiStage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stage": "Stage",
         "api_id": "ApiId",
@@ -1340,8 +1302,6 @@ class ApiStage(PropertyType):
 
 @dataclass
 class QuotaSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "period": "Period",
         "limit": "Limit",
@@ -1355,8 +1315,6 @@ class QuotaSettings(PropertyType):
 
 @dataclass
 class ThrottleSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "burst_limit": "BurstLimit",
         "rate_limit": "RateLimit",

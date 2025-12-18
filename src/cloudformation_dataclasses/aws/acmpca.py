@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:29
+  Generated: 2025-12-17 21:53:45
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ACMPCA
@@ -278,8 +278,6 @@ YEARS = ValidityPeriodType.YEARS
 
 @dataclass
 class ApiPassthrough(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "extensions": "Extensions",
         "subject": "Subject",
@@ -291,8 +289,6 @@ class ApiPassthrough(PropertyType):
 
 @dataclass
 class CustomAttribute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "object_identifier": "ObjectIdentifier",
@@ -304,8 +300,6 @@ class CustomAttribute(PropertyType):
 
 @dataclass
 class CustomExtension(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "critical": "Critical",
@@ -319,8 +313,6 @@ class CustomExtension(PropertyType):
 
 @dataclass
 class EdiPartyName(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "party_name": "PartyName",
         "name_assigner": "NameAssigner",
@@ -332,8 +324,6 @@ class EdiPartyName(PropertyType):
 
 @dataclass
 class ExtendedKeyUsage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "extended_key_usage_type": "ExtendedKeyUsageType",
         "extended_key_usage_object_identifier": "ExtendedKeyUsageObjectIdentifier",
@@ -345,8 +335,6 @@ class ExtendedKeyUsage(PropertyType):
 
 @dataclass
 class Extensions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_extensions": "CustomExtensions",
         "certificate_policies": "CertificatePolicies",
@@ -364,8 +352,6 @@ class Extensions(PropertyType):
 
 @dataclass
 class GeneralName(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uniform_resource_identifier": "UniformResourceIdentifier",
         "dns_name": "DnsName",
@@ -389,8 +375,6 @@ class GeneralName(PropertyType):
 
 @dataclass
 class KeyUsage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_encipherment": "KeyEncipherment",
         "data_encipherment": "DataEncipherment",
@@ -416,8 +400,6 @@ class KeyUsage(PropertyType):
 
 @dataclass
 class OtherName(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_id": "TypeId",
         "value": "Value",
@@ -429,8 +411,6 @@ class OtherName(PropertyType):
 
 @dataclass
 class PolicyInformation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cert_policy_id": "CertPolicyId",
         "policy_qualifiers": "PolicyQualifiers",
@@ -442,8 +422,6 @@ class PolicyInformation(PropertyType):
 
 @dataclass
 class PolicyQualifierInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "qualifier": "Qualifier",
         "policy_qualifier_id": "PolicyQualifierId",
@@ -455,8 +433,6 @@ class PolicyQualifierInfo(PropertyType):
 
 @dataclass
 class Qualifier(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cps_uri": "CpsUri",
     }
@@ -466,8 +442,6 @@ class Qualifier(PropertyType):
 
 @dataclass
 class Subject(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "organization": "Organization",
         "organizational_unit": "OrganizationalUnit",
@@ -505,8 +479,6 @@ class Subject(PropertyType):
 
 @dataclass
 class Validity(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -554,8 +526,6 @@ class Certificate(CloudFormationResource):
 
 @dataclass
 class AccessDescription(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_method": "AccessMethod",
         "access_location": "AccessLocation",
@@ -567,8 +537,6 @@ class AccessDescription(PropertyType):
 
 @dataclass
 class AccessMethod(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_object_identifier": "CustomObjectIdentifier",
         "access_method_type": "AccessMethodType",
@@ -580,8 +548,6 @@ class AccessMethod(PropertyType):
 
 @dataclass
 class CrlConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "crl_distribution_point_extension_configuration": "CrlDistributionPointExtensionConfiguration",
         "custom_cname": "CustomCname",
@@ -605,8 +571,6 @@ class CrlConfiguration(PropertyType):
 
 @dataclass
 class CrlDistributionPointExtensionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "omit_extension": "OmitExtension",
     }
@@ -616,8 +580,6 @@ class CrlDistributionPointExtensionConfiguration(PropertyType):
 
 @dataclass
 class CsrExtensions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_usage": "KeyUsage",
         "subject_information_access": "SubjectInformationAccess",
@@ -629,8 +591,6 @@ class CsrExtensions(PropertyType):
 
 @dataclass
 class CustomAttribute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "object_identifier": "ObjectIdentifier",
@@ -642,8 +602,6 @@ class CustomAttribute(PropertyType):
 
 @dataclass
 class EdiPartyName(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "party_name": "PartyName",
         "name_assigner": "NameAssigner",
@@ -655,8 +613,6 @@ class EdiPartyName(PropertyType):
 
 @dataclass
 class GeneralName(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uniform_resource_identifier": "UniformResourceIdentifier",
         "dns_name": "DnsName",
@@ -680,8 +636,6 @@ class GeneralName(PropertyType):
 
 @dataclass
 class KeyUsage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_encipherment": "KeyEncipherment",
         "data_encipherment": "DataEncipherment",
@@ -707,8 +661,6 @@ class KeyUsage(PropertyType):
 
 @dataclass
 class OcspConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ocsp_custom_cname": "OcspCustomCname",
         "enabled": "Enabled",
@@ -720,8 +672,6 @@ class OcspConfiguration(PropertyType):
 
 @dataclass
 class OtherName(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_id": "TypeId",
         "value": "Value",
@@ -733,8 +683,6 @@ class OtherName(PropertyType):
 
 @dataclass
 class RevocationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ocsp_configuration": "OcspConfiguration",
         "crl_configuration": "CrlConfiguration",
@@ -746,8 +694,6 @@ class RevocationConfiguration(PropertyType):
 
 @dataclass
 class Subject(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "organization": "Organization",
         "organizational_unit": "OrganizationalUnit",

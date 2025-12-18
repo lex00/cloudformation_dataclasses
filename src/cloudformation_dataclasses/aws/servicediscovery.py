@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ServiceDiscovery
@@ -265,8 +265,6 @@ class Instance(CloudFormationResource):
 
 @dataclass
 class PrivateDnsPropertiesMutable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ser"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "soa": "SOA",
     }
@@ -276,8 +274,6 @@ class PrivateDnsPropertiesMutable(PropertyType):
 
 @dataclass
 class Properties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ser"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dns_properties": "DnsProperties",
     }
@@ -287,8 +283,6 @@ class Properties(PropertyType):
 
 @dataclass
 class SOA(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ser"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ttl": "TTL",
     }
@@ -335,8 +329,6 @@ class PrivateDnsNamespace(CloudFormationResource):
 
 @dataclass
 class Properties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ser"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dns_properties": "DnsProperties",
     }
@@ -346,8 +338,6 @@ class Properties(PropertyType):
 
 @dataclass
 class PublicDnsPropertiesMutable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ser"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "soa": "SOA",
     }
@@ -357,8 +347,6 @@ class PublicDnsPropertiesMutable(PropertyType):
 
 @dataclass
 class SOA(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ser"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ttl": "TTL",
     }
@@ -403,8 +391,6 @@ class PublicDnsNamespace(CloudFormationResource):
 
 @dataclass
 class DnsConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ser"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dns_records": "DnsRecords",
         "routing_policy": "RoutingPolicy",
@@ -418,8 +404,6 @@ class DnsConfig(PropertyType):
 
 @dataclass
 class DnsRecord(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ser"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "ttl": "TTL",
@@ -431,8 +415,6 @@ class DnsRecord(PropertyType):
 
 @dataclass
 class HealthCheckConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ser"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "resource_path": "ResourcePath",
@@ -446,8 +428,6 @@ class HealthCheckConfig(PropertyType):
 
 @dataclass
 class HealthCheckCustomConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ser"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "failure_threshold": "FailureThreshold",
     }

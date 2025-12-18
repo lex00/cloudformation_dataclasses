@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Lex
@@ -298,8 +298,6 @@ MISSED = StatusType.MISSED
 
 @dataclass
 class AdvancedRecognitionSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audio_recognition_strategy": "AudioRecognitionStrategy",
     }
@@ -309,8 +307,6 @@ class AdvancedRecognitionSetting(PropertyType):
 
 @dataclass
 class AllowedInputTypes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allow_dtmf_input": "AllowDTMFInput",
         "allow_audio_input": "AllowAudioInput",
@@ -322,8 +318,6 @@ class AllowedInputTypes(PropertyType):
 
 @dataclass
 class AudioAndDTMFInputSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dtmf_specification": "DTMFSpecification",
         "audio_specification": "AudioSpecification",
@@ -337,8 +331,6 @@ class AudioAndDTMFInputSpecification(PropertyType):
 
 @dataclass
 class AudioLogDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_bucket": "S3Bucket",
     }
@@ -348,8 +340,6 @@ class AudioLogDestination(PropertyType):
 
 @dataclass
 class AudioLogSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "enabled": "Enabled",
@@ -361,8 +351,6 @@ class AudioLogSetting(PropertyType):
 
 @dataclass
 class AudioSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "end_timeout_ms": "EndTimeoutMs",
         "max_length_ms": "MaxLengthMs",
@@ -374,8 +362,6 @@ class AudioSpecification(PropertyType):
 
 @dataclass
 class BKBExactResponseFields(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "answer_field": "AnswerField",
     }
@@ -385,8 +371,6 @@ class BKBExactResponseFields(PropertyType):
 
 @dataclass
 class BedrockAgentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bedrock_agent_id": "BedrockAgentId",
         "bedrock_agent_alias_id": "BedrockAgentAliasId",
@@ -398,8 +382,6 @@ class BedrockAgentConfiguration(PropertyType):
 
 @dataclass
 class BedrockAgentIntentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bedrock_agent_configuration": "BedrockAgentConfiguration",
         "bedrock_agent_intent_knowledge_base_configuration": "BedrockAgentIntentKnowledgeBaseConfiguration",
@@ -411,8 +393,6 @@ class BedrockAgentIntentConfiguration(PropertyType):
 
 @dataclass
 class BedrockAgentIntentKnowledgeBaseConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bedrock_model_configuration": "BedrockModelConfiguration",
         "bedrock_knowledge_base_arn": "BedrockKnowledgeBaseArn",
@@ -424,8 +404,6 @@ class BedrockAgentIntentKnowledgeBaseConfiguration(PropertyType):
 
 @dataclass
 class BedrockGuardrailConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bedrock_guardrail_version": "BedrockGuardrailVersion",
         "bedrock_guardrail_identifier": "BedrockGuardrailIdentifier",
@@ -437,8 +415,6 @@ class BedrockGuardrailConfiguration(PropertyType):
 
 @dataclass
 class BedrockKnowledgeStoreConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bkb_exact_response_fields": "BKBExactResponseFields",
         "exact_response": "ExactResponse",
@@ -452,8 +428,6 @@ class BedrockKnowledgeStoreConfiguration(PropertyType):
 
 @dataclass
 class BedrockModelSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_arn": "ModelArn",
         "bedrock_trace_status": "BedrockTraceStatus",
@@ -469,8 +443,6 @@ class BedrockModelSpecification(PropertyType):
 
 @dataclass
 class BotAliasLocaleSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "code_hook_specification": "CodeHookSpecification",
         "enabled": "Enabled",
@@ -482,8 +454,6 @@ class BotAliasLocaleSettings(PropertyType):
 
 @dataclass
 class BotAliasLocaleSettingsItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "locale_id": "LocaleId",
         "bot_alias_locale_setting": "BotAliasLocaleSetting",
@@ -495,8 +465,6 @@ class BotAliasLocaleSettingsItem(PropertyType):
 
 @dataclass
 class BotLocale(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "nlu_confidence_threshold": "NluConfidenceThreshold",
         "locale_id": "LocaleId",
@@ -520,8 +488,6 @@ class BotLocale(PropertyType):
 
 @dataclass
 class BuildtimeSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "descriptive_bot_builder_specification": "DescriptiveBotBuilderSpecification",
         "sample_utterance_generation_specification": "SampleUtteranceGenerationSpecification",
@@ -533,8 +499,6 @@ class BuildtimeSettings(PropertyType):
 
 @dataclass
 class Button(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "text": "Text",
@@ -546,8 +510,6 @@ class Button(PropertyType):
 
 @dataclass
 class CloudWatchLogGroupLogDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_log_group_arn": "CloudWatchLogGroupArn",
         "log_prefix": "LogPrefix",
@@ -559,8 +521,6 @@ class CloudWatchLogGroupLogDestination(PropertyType):
 
 @dataclass
 class CodeHookSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_code_hook": "LambdaCodeHook",
     }
@@ -570,8 +530,6 @@ class CodeHookSpecification(PropertyType):
 
 @dataclass
 class CompositeSlotTypeSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sub_slots": "SubSlots",
     }
@@ -581,8 +539,6 @@ class CompositeSlotTypeSetting(PropertyType):
 
 @dataclass
 class Condition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression_string": "ExpressionString",
     }
@@ -592,8 +548,6 @@ class Condition(PropertyType):
 
 @dataclass
 class ConditionalBranch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "response": "Response",
@@ -609,8 +563,6 @@ class ConditionalBranch(PropertyType):
 
 @dataclass
 class ConditionalSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_branch": "DefaultBranch",
         "is_active": "IsActive",
@@ -624,8 +576,6 @@ class ConditionalSpecification(PropertyType):
 
 @dataclass
 class ConversationLogSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_log_settings": "TextLogSettings",
         "audio_log_settings": "AudioLogSettings",
@@ -637,8 +587,6 @@ class ConversationLogSettings(PropertyType):
 
 @dataclass
 class CustomPayload(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -648,8 +596,6 @@ class CustomPayload(PropertyType):
 
 @dataclass
 class CustomVocabulary(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_vocabulary_items": "CustomVocabularyItems",
     }
@@ -659,8 +605,6 @@ class CustomVocabulary(PropertyType):
 
 @dataclass
 class CustomVocabularyItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "display_as": "DisplayAs",
         "phrase": "Phrase",
@@ -674,8 +618,6 @@ class CustomVocabularyItem(PropertyType):
 
 @dataclass
 class DTMFSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "deletion_character": "DeletionCharacter",
         "end_timeout_ms": "EndTimeoutMs",
@@ -691,8 +633,6 @@ class DTMFSpecification(PropertyType):
 
 @dataclass
 class DataPrivacy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "child_directed": "ChildDirected",
     }
@@ -702,8 +642,6 @@ class DataPrivacy(PropertyType):
 
 @dataclass
 class DataSourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bedrock_knowledge_store_configuration": "BedrockKnowledgeStoreConfiguration",
         "kendra_configuration": "KendraConfiguration",
@@ -717,8 +655,6 @@ class DataSourceConfiguration(PropertyType):
 
 @dataclass
 class DefaultConditionalBranch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "response": "Response",
         "next_step": "NextStep",
@@ -730,8 +666,6 @@ class DefaultConditionalBranch(PropertyType):
 
 @dataclass
 class DescriptiveBotBuilderSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "bedrock_model_specification": "BedrockModelSpecification",
@@ -743,8 +677,6 @@ class DescriptiveBotBuilderSpecification(PropertyType):
 
 @dataclass
 class DialogAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "slot_to_elicit": "SlotToElicit",
@@ -758,8 +690,6 @@ class DialogAction(PropertyType):
 
 @dataclass
 class DialogCodeHookInvocationSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_code_hook_invocation": "EnableCodeHookInvocation",
         "invocation_label": "InvocationLabel",
@@ -775,8 +705,6 @@ class DialogCodeHookInvocationSetting(PropertyType):
 
 @dataclass
 class DialogCodeHookSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -786,8 +714,6 @@ class DialogCodeHookSetting(PropertyType):
 
 @dataclass
 class DialogState(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dialog_action": "DialogAction",
         "session_attributes": "SessionAttributes",
@@ -801,8 +727,6 @@ class DialogState(PropertyType):
 
 @dataclass
 class ElicitationCodeHookInvocationSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_code_hook_invocation": "EnableCodeHookInvocation",
         "invocation_label": "InvocationLabel",
@@ -814,8 +738,6 @@ class ElicitationCodeHookInvocationSetting(PropertyType):
 
 @dataclass
 class ErrorLogSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -825,8 +747,6 @@ class ErrorLogSettings(PropertyType):
 
 @dataclass
 class ExactResponseFields(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "question_field": "QuestionField",
         "answer_field": "AnswerField",
@@ -838,8 +758,6 @@ class ExactResponseFields(PropertyType):
 
 @dataclass
 class ExternalSourceSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "grammar_slot_type_setting": "GrammarSlotTypeSetting",
     }
@@ -849,8 +767,6 @@ class ExternalSourceSetting(PropertyType):
 
 @dataclass
 class FulfillmentCodeHookSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "post_fulfillment_status_specification": "PostFulfillmentStatusSpecification",
         "fulfillment_updates_specification": "FulfillmentUpdatesSpecification",
@@ -866,8 +782,6 @@ class FulfillmentCodeHookSetting(PropertyType):
 
 @dataclass
 class FulfillmentStartResponseSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delay_in_seconds": "DelayInSeconds",
         "message_groups": "MessageGroups",
@@ -881,8 +795,6 @@ class FulfillmentStartResponseSpecification(PropertyType):
 
 @dataclass
 class FulfillmentUpdateResponseSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message_groups": "MessageGroups",
         "allow_interrupt": "AllowInterrupt",
@@ -896,8 +808,6 @@ class FulfillmentUpdateResponseSpecification(PropertyType):
 
 @dataclass
 class FulfillmentUpdatesSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "update_response": "UpdateResponse",
         "active": "Active",
@@ -913,8 +823,6 @@ class FulfillmentUpdatesSpecification(PropertyType):
 
 @dataclass
 class GenerativeAISettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "runtime_settings": "RuntimeSettings",
         "buildtime_settings": "BuildtimeSettings",
@@ -926,8 +834,6 @@ class GenerativeAISettings(PropertyType):
 
 @dataclass
 class GrammarSlotTypeSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source": "Source",
     }
@@ -937,8 +843,6 @@ class GrammarSlotTypeSetting(PropertyType):
 
 @dataclass
 class GrammarSlotTypeSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
         "s3_bucket_name": "S3BucketName",
@@ -952,8 +856,6 @@ class GrammarSlotTypeSource(PropertyType):
 
 @dataclass
 class ImageResponseCard(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subtitle": "Subtitle",
         "title": "Title",
@@ -969,8 +871,6 @@ class ImageResponseCard(PropertyType):
 
 @dataclass
 class InitialResponseSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "code_hook": "CodeHook",
         "initial_response": "InitialResponse",
@@ -986,8 +886,6 @@ class InitialResponseSetting(PropertyType):
 
 @dataclass
 class InputContext(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -997,8 +895,6 @@ class InputContext(PropertyType):
 
 @dataclass
 class Intent(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "q_in_connect_intent_configuration": "QInConnectIntentConfiguration",
         "description": "Description",
@@ -1040,8 +936,6 @@ class Intent(PropertyType):
 
 @dataclass
 class IntentClosingSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_active": "IsActive",
         "closing_response": "ClosingResponse",
@@ -1057,8 +951,6 @@ class IntentClosingSetting(PropertyType):
 
 @dataclass
 class IntentConfirmationSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prompt_specification": "PromptSpecification",
         "confirmation_response": "ConfirmationResponse",
@@ -1092,8 +984,6 @@ class IntentConfirmationSetting(PropertyType):
 
 @dataclass
 class IntentOverride(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "slots": "Slots",
         "name": "Name",
@@ -1105,8 +995,6 @@ class IntentOverride(PropertyType):
 
 @dataclass
 class KendraConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "query_filter_string": "QueryFilterString",
         "query_filter_string_enabled": "QueryFilterStringEnabled",
@@ -1120,8 +1008,6 @@ class KendraConfiguration(PropertyType):
 
 @dataclass
 class LambdaCodeHook(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_arn": "LambdaArn",
         "code_hook_interface_version": "CodeHookInterfaceVersion",
@@ -1133,8 +1019,6 @@ class LambdaCodeHook(PropertyType):
 
 @dataclass
 class Message(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_payload": "CustomPayload",
         "image_response_card": "ImageResponseCard",
@@ -1150,8 +1034,6 @@ class Message(PropertyType):
 
 @dataclass
 class MessageGroup(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message": "Message",
         "variations": "Variations",
@@ -1163,8 +1045,6 @@ class MessageGroup(PropertyType):
 
 @dataclass
 class MultipleValuesSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allow_multiple_values": "AllowMultipleValues",
     }
@@ -1174,8 +1054,6 @@ class MultipleValuesSetting(PropertyType):
 
 @dataclass
 class NluImprovementSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -1185,8 +1063,6 @@ class NluImprovementSpecification(PropertyType):
 
 @dataclass
 class ObfuscationSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "obfuscation_setting_type": "ObfuscationSettingType",
     }
@@ -1196,8 +1072,6 @@ class ObfuscationSetting(PropertyType):
 
 @dataclass
 class OpensearchConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "index_name": "IndexName",
         "domain_endpoint": "DomainEndpoint",
@@ -1215,8 +1089,6 @@ class OpensearchConfiguration(PropertyType):
 
 @dataclass
 class OutputContext(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "turns_to_live": "TurnsToLive",
         "time_to_live_in_seconds": "TimeToLiveInSeconds",
@@ -1230,8 +1102,6 @@ class OutputContext(PropertyType):
 
 @dataclass
 class PlainTextMessage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -1241,8 +1111,6 @@ class PlainTextMessage(PropertyType):
 
 @dataclass
 class PostDialogCodeHookInvocationSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "success_response": "SuccessResponse",
         "failure_conditional": "FailureConditional",
@@ -1268,8 +1136,6 @@ class PostDialogCodeHookInvocationSpecification(PropertyType):
 
 @dataclass
 class PostFulfillmentStatusSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "success_response": "SuccessResponse",
         "failure_conditional": "FailureConditional",
@@ -1295,8 +1161,6 @@ class PostFulfillmentStatusSpecification(PropertyType):
 
 @dataclass
 class PromptAttemptSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_input_specification": "TextInputSpecification",
         "allow_interrupt": "AllowInterrupt",
@@ -1312,8 +1176,6 @@ class PromptAttemptSpecification(PropertyType):
 
 @dataclass
 class PromptSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_retries": "MaxRetries",
         "message_groups_list": "MessageGroupsList",
@@ -1331,8 +1193,6 @@ class PromptSpecification(PropertyType):
 
 @dataclass
 class QInConnectAssistantConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "assistant_arn": "AssistantArn",
     }
@@ -1342,8 +1202,6 @@ class QInConnectAssistantConfiguration(PropertyType):
 
 @dataclass
 class QInConnectIntentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "q_in_connect_assistant_configuration": "QInConnectAssistantConfiguration",
     }
@@ -1353,8 +1211,6 @@ class QInConnectIntentConfiguration(PropertyType):
 
 @dataclass
 class QnAIntentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bedrock_model_configuration": "BedrockModelConfiguration",
         "data_source_configuration": "DataSourceConfiguration",
@@ -1366,8 +1222,6 @@ class QnAIntentConfiguration(PropertyType):
 
 @dataclass
 class QnAKendraConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "query_filter_string": "QueryFilterString",
         "query_filter_string_enabled": "QueryFilterStringEnabled",
@@ -1383,8 +1237,6 @@ class QnAKendraConfiguration(PropertyType):
 
 @dataclass
 class Replication(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "replica_regions": "ReplicaRegions",
     }
@@ -1394,8 +1246,6 @@ class Replication(PropertyType):
 
 @dataclass
 class ResponseSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message_groups_list": "MessageGroupsList",
         "allow_interrupt": "AllowInterrupt",
@@ -1407,8 +1257,6 @@ class ResponseSpecification(PropertyType):
 
 @dataclass
 class RuntimeSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "slot_resolution_improvement_specification": "SlotResolutionImprovementSpecification",
         "nlu_improvement_specification": "NluImprovementSpecification",
@@ -1420,8 +1268,6 @@ class RuntimeSettings(PropertyType):
 
 @dataclass
 class S3BucketLogDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
         "log_prefix": "LogPrefix",
@@ -1435,8 +1281,6 @@ class S3BucketLogDestination(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_object_version": "S3ObjectVersion",
         "s3_bucket": "S3Bucket",
@@ -1450,8 +1294,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class SSMLMessage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -1461,8 +1303,6 @@ class SSMLMessage(PropertyType):
 
 @dataclass
 class SampleUtterance(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "utterance": "Utterance",
     }
@@ -1472,8 +1312,6 @@ class SampleUtterance(PropertyType):
 
 @dataclass
 class SampleUtteranceGenerationSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "bedrock_model_specification": "BedrockModelSpecification",
@@ -1485,8 +1323,6 @@ class SampleUtteranceGenerationSpecification(PropertyType):
 
 @dataclass
 class SampleValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -1496,8 +1332,6 @@ class SampleValue(PropertyType):
 
 @dataclass
 class SentimentAnalysisSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "detect_sentiment": "DetectSentiment",
     }
@@ -1507,8 +1341,6 @@ class SentimentAnalysisSettings(PropertyType):
 
 @dataclass
 class SessionAttribute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -1520,8 +1352,6 @@ class SessionAttribute(PropertyType):
 
 @dataclass
 class Slot(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "slot_type_name": "SlotTypeName",
@@ -1543,8 +1373,6 @@ class Slot(PropertyType):
 
 @dataclass
 class SlotCaptureSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capture_conditional": "CaptureConditional",
         "failure_conditional": "FailureConditional",
@@ -1568,8 +1396,6 @@ class SlotCaptureSetting(PropertyType):
 
 @dataclass
 class SlotDefaultValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_value": "DefaultValue",
     }
@@ -1579,8 +1405,6 @@ class SlotDefaultValue(PropertyType):
 
 @dataclass
 class SlotDefaultValueSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_value_list": "DefaultValueList",
     }
@@ -1590,8 +1414,6 @@ class SlotDefaultValueSpecification(PropertyType):
 
 @dataclass
 class SlotPriority(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "priority": "Priority",
         "slot_name": "SlotName",
@@ -1603,8 +1425,6 @@ class SlotPriority(PropertyType):
 
 @dataclass
 class SlotResolutionImprovementSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "bedrock_model_specification": "BedrockModelSpecification",
@@ -1616,8 +1436,6 @@ class SlotResolutionImprovementSpecification(PropertyType):
 
 @dataclass
 class SlotType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "slot_type_values": "SlotTypeValues",
         "description": "Description",
@@ -1639,8 +1457,6 @@ class SlotType(PropertyType):
 
 @dataclass
 class SlotTypeValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "synonyms": "Synonyms",
         "sample_value": "SampleValue",
@@ -1652,8 +1468,6 @@ class SlotTypeValue(PropertyType):
 
 @dataclass
 class SlotValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interpreted_value": "InterpretedValue",
     }
@@ -1663,8 +1477,6 @@ class SlotValue(PropertyType):
 
 @dataclass
 class SlotValueElicitationSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prompt_specification": "PromptSpecification",
         "wait_and_continue_specification": "WaitAndContinueSpecification",
@@ -1684,8 +1496,6 @@ class SlotValueElicitationSetting(PropertyType):
 
 @dataclass
 class SlotValueOverride(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "shape": "Shape",
         "value": "Value",
@@ -1699,8 +1509,6 @@ class SlotValueOverride(PropertyType):
 
 @dataclass
 class SlotValueOverrideMap(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "slot_name": "SlotName",
         "slot_value_override": "SlotValueOverride",
@@ -1712,8 +1520,6 @@ class SlotValueOverrideMap(PropertyType):
 
 @dataclass
 class SlotValueRegexFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pattern": "Pattern",
     }
@@ -1723,8 +1529,6 @@ class SlotValueRegexFilter(PropertyType):
 
 @dataclass
 class SlotValueSelectionSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "advanced_recognition_setting": "AdvancedRecognitionSetting",
         "regex_filter": "RegexFilter",
@@ -1738,8 +1542,6 @@ class SlotValueSelectionSetting(PropertyType):
 
 @dataclass
 class Specifications(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_elicitation_setting": "ValueElicitationSetting",
         "slot_type_id": "SlotTypeId",
@@ -1751,8 +1553,6 @@ class Specifications(PropertyType):
 
 @dataclass
 class StillWaitingResponseSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message_groups_list": "MessageGroupsList",
         "timeout_in_seconds": "TimeoutInSeconds",
@@ -1768,8 +1568,6 @@ class StillWaitingResponseSpecification(PropertyType):
 
 @dataclass
 class SubSlotSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "slot_specifications": "SlotSpecifications",
@@ -1781,8 +1579,6 @@ class SubSlotSetting(PropertyType):
 
 @dataclass
 class SubSlotTypeComposition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "slot_type_id": "SlotTypeId",
         "name": "Name",
@@ -1794,8 +1590,6 @@ class SubSlotTypeComposition(PropertyType):
 
 @dataclass
 class SubSlotValueElicitationSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prompt_specification": "PromptSpecification",
         "wait_and_continue_specification": "WaitAndContinueSpecification",
@@ -1811,8 +1605,6 @@ class SubSlotValueElicitationSetting(PropertyType):
 
 @dataclass
 class TestBotAliasSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "bot_alias_locale_settings": "BotAliasLocaleSettings",
@@ -1828,8 +1620,6 @@ class TestBotAliasSettings(PropertyType):
 
 @dataclass
 class TextInputSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start_timeout_ms": "StartTimeoutMs",
     }
@@ -1839,8 +1629,6 @@ class TextInputSpecification(PropertyType):
 
 @dataclass
 class TextLogDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch": "CloudWatch",
     }
@@ -1850,8 +1638,6 @@ class TextLogDestination(PropertyType):
 
 @dataclass
 class TextLogSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "enabled": "Enabled",
@@ -1863,8 +1649,6 @@ class TextLogSetting(PropertyType):
 
 @dataclass
 class VoiceSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "voice_id": "VoiceId",
         "engine": "Engine",
@@ -1876,8 +1660,6 @@ class VoiceSettings(PropertyType):
 
 @dataclass
 class WaitAndContinueSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "waiting_response": "WaitingResponse",
         "still_waiting_response": "StillWaitingResponse",
@@ -1941,8 +1723,6 @@ class Bot(CloudFormationResource):
 
 @dataclass
 class AudioLogDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_bucket": "S3Bucket",
     }
@@ -1952,8 +1732,6 @@ class AudioLogDestination(PropertyType):
 
 @dataclass
 class AudioLogSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "enabled": "Enabled",
@@ -1965,8 +1743,6 @@ class AudioLogSetting(PropertyType):
 
 @dataclass
 class BotAliasLocaleSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "code_hook_specification": "CodeHookSpecification",
         "enabled": "Enabled",
@@ -1978,8 +1754,6 @@ class BotAliasLocaleSettings(PropertyType):
 
 @dataclass
 class BotAliasLocaleSettingsItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "locale_id": "LocaleId",
         "bot_alias_locale_setting": "BotAliasLocaleSetting",
@@ -1991,8 +1765,6 @@ class BotAliasLocaleSettingsItem(PropertyType):
 
 @dataclass
 class CloudWatchLogGroupLogDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_log_group_arn": "CloudWatchLogGroupArn",
         "log_prefix": "LogPrefix",
@@ -2004,8 +1776,6 @@ class CloudWatchLogGroupLogDestination(PropertyType):
 
 @dataclass
 class CodeHookSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_code_hook": "LambdaCodeHook",
     }
@@ -2015,8 +1785,6 @@ class CodeHookSpecification(PropertyType):
 
 @dataclass
 class ConversationLogSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_log_settings": "TextLogSettings",
         "audio_log_settings": "AudioLogSettings",
@@ -2028,8 +1796,6 @@ class ConversationLogSettings(PropertyType):
 
 @dataclass
 class LambdaCodeHook(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_arn": "LambdaArn",
         "code_hook_interface_version": "CodeHookInterfaceVersion",
@@ -2041,8 +1807,6 @@ class LambdaCodeHook(PropertyType):
 
 @dataclass
 class S3BucketLogDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
         "log_prefix": "LogPrefix",
@@ -2056,8 +1820,6 @@ class S3BucketLogDestination(PropertyType):
 
 @dataclass
 class SentimentAnalysisSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "detect_sentiment": "DetectSentiment",
     }
@@ -2067,8 +1829,6 @@ class SentimentAnalysisSettings(PropertyType):
 
 @dataclass
 class TextLogDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch": "CloudWatch",
     }
@@ -2078,8 +1838,6 @@ class TextLogDestination(PropertyType):
 
 @dataclass
 class TextLogSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "enabled": "Enabled",
@@ -2134,8 +1892,6 @@ class BotAlias(CloudFormationResource):
 
 @dataclass
 class BotVersionLocaleDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_bot_version": "SourceBotVersion",
     }
@@ -2145,8 +1901,6 @@ class BotVersionLocaleDetails(PropertyType):
 
 @dataclass
 class BotVersionLocaleSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "locale_id": "LocaleId",
         "bot_version_locale_details": "BotVersionLocaleDetails",

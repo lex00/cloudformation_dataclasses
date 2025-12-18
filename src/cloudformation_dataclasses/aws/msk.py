@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MSK
@@ -257,8 +257,6 @@ class BatchScramSecret(CloudFormationResource):
 
 @dataclass
 class BrokerLogs(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
         "firehose": "Firehose",
@@ -272,8 +270,6 @@ class BrokerLogs(PropertyType):
 
 @dataclass
 class BrokerNodeGroupInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "client_subnets": "ClientSubnets",
@@ -293,8 +289,6 @@ class BrokerNodeGroupInfo(PropertyType):
 
 @dataclass
 class ClientAuthentication(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sasl": "Sasl",
         "unauthenticated": "Unauthenticated",
@@ -308,8 +302,6 @@ class ClientAuthentication(PropertyType):
 
 @dataclass
 class CloudWatchLogs(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group": "LogGroup",
         "enabled": "Enabled",
@@ -321,8 +313,6 @@ class CloudWatchLogs(PropertyType):
 
 @dataclass
 class ConfigurationInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "revision": "Revision",
         "arn": "Arn",
@@ -334,8 +324,6 @@ class ConfigurationInfo(PropertyType):
 
 @dataclass
 class ConnectivityInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_type": "NetworkType",
         "vpc_connectivity": "VpcConnectivity",
@@ -349,8 +337,6 @@ class ConnectivityInfo(PropertyType):
 
 @dataclass
 class EBSStorageInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "provisioned_throughput": "ProvisionedThroughput",
         "volume_size": "VolumeSize",
@@ -362,8 +348,6 @@ class EBSStorageInfo(PropertyType):
 
 @dataclass
 class EncryptionAtRest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_volume_kms_key_id": "DataVolumeKMSKeyId",
     }
@@ -373,8 +357,6 @@ class EncryptionAtRest(PropertyType):
 
 @dataclass
 class EncryptionInTransit(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_broker": "ClientBroker",
         "in_cluster": "InCluster",
@@ -386,8 +368,6 @@ class EncryptionInTransit(PropertyType):
 
 @dataclass
 class EncryptionInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_at_rest": "EncryptionAtRest",
         "encryption_in_transit": "EncryptionInTransit",
@@ -399,8 +379,6 @@ class EncryptionInfo(PropertyType):
 
 @dataclass
 class Firehose(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_stream": "DeliveryStream",
         "enabled": "Enabled",
@@ -412,8 +390,6 @@ class Firehose(PropertyType):
 
 @dataclass
 class Iam(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -423,8 +399,6 @@ class Iam(PropertyType):
 
 @dataclass
 class JmxExporter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled_in_broker": "EnabledInBroker",
     }
@@ -434,8 +408,6 @@ class JmxExporter(PropertyType):
 
 @dataclass
 class LoggingInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "broker_logs": "BrokerLogs",
     }
@@ -445,8 +417,6 @@ class LoggingInfo(PropertyType):
 
 @dataclass
 class NodeExporter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled_in_broker": "EnabledInBroker",
     }
@@ -456,8 +426,6 @@ class NodeExporter(PropertyType):
 
 @dataclass
 class OpenMonitoring(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prometheus": "Prometheus",
     }
@@ -467,8 +435,6 @@ class OpenMonitoring(PropertyType):
 
 @dataclass
 class Prometheus(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "jmx_exporter": "JmxExporter",
         "node_exporter": "NodeExporter",
@@ -480,8 +446,6 @@ class Prometheus(PropertyType):
 
 @dataclass
 class ProvisionedThroughput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "volume_throughput": "VolumeThroughput",
         "enabled": "Enabled",
@@ -493,8 +457,6 @@ class ProvisionedThroughput(PropertyType):
 
 @dataclass
 class PublicAccess(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -504,8 +466,6 @@ class PublicAccess(PropertyType):
 
 @dataclass
 class Rebalancing(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
     }
@@ -515,8 +475,6 @@ class Rebalancing(PropertyType):
 
 @dataclass
 class S3(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "enabled": "Enabled",
@@ -530,8 +488,6 @@ class S3(PropertyType):
 
 @dataclass
 class Sasl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iam": "Iam",
         "scram": "Scram",
@@ -543,8 +499,6 @@ class Sasl(PropertyType):
 
 @dataclass
 class Scram(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -554,8 +508,6 @@ class Scram(PropertyType):
 
 @dataclass
 class StorageInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ebs_storage_info": "EBSStorageInfo",
     }
@@ -565,8 +517,6 @@ class StorageInfo(PropertyType):
 
 @dataclass
 class Tls(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "certificate_authority_arn_list": "CertificateAuthorityArnList",
@@ -578,8 +528,6 @@ class Tls(PropertyType):
 
 @dataclass
 class Unauthenticated(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -589,8 +537,6 @@ class Unauthenticated(PropertyType):
 
 @dataclass
 class VpcConnectivity(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_authentication": "ClientAuthentication",
     }
@@ -600,8 +546,6 @@ class VpcConnectivity(PropertyType):
 
 @dataclass
 class VpcConnectivityClientAuthentication(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sasl": "Sasl",
         "tls": "Tls",
@@ -613,8 +557,6 @@ class VpcConnectivityClientAuthentication(PropertyType):
 
 @dataclass
 class VpcConnectivityIam(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -624,8 +566,6 @@ class VpcConnectivityIam(PropertyType):
 
 @dataclass
 class VpcConnectivitySasl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iam": "Iam",
         "scram": "Scram",
@@ -637,8 +577,6 @@ class VpcConnectivitySasl(PropertyType):
 
 @dataclass
 class VpcConnectivityScram(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -648,8 +586,6 @@ class VpcConnectivityScram(PropertyType):
 
 @dataclass
 class VpcConnectivityTls(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -728,8 +664,6 @@ class ClusterPolicy(CloudFormationResource):
 
 @dataclass
 class LatestRevision(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "revision": "Revision",
@@ -785,8 +719,6 @@ class Configuration(CloudFormationResource):
 
 @dataclass
 class AmazonMskCluster(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "msk_cluster_arn": "MskClusterArn",
     }
@@ -796,8 +728,6 @@ class AmazonMskCluster(PropertyType):
 
 @dataclass
 class ConsumerGroupReplication(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "consumer_groups_to_replicate": "ConsumerGroupsToReplicate",
         "consumer_groups_to_exclude": "ConsumerGroupsToExclude",
@@ -813,8 +743,6 @@ class ConsumerGroupReplication(PropertyType):
 
 @dataclass
 class KafkaCluster(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_config": "VpcConfig",
         "amazon_msk_cluster": "AmazonMskCluster",
@@ -826,8 +754,6 @@ class KafkaCluster(PropertyType):
 
 @dataclass
 class KafkaClusterClientVpcConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_group_ids": "SecurityGroupIds",
         "subnet_ids": "SubnetIds",
@@ -839,8 +765,6 @@ class KafkaClusterClientVpcConfig(PropertyType):
 
 @dataclass
 class ReplicationInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_compression_type": "TargetCompressionType",
         "topic_replication": "TopicReplication",
@@ -858,8 +782,6 @@ class ReplicationInfo(PropertyType):
 
 @dataclass
 class ReplicationStartingPosition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -869,8 +791,6 @@ class ReplicationStartingPosition(PropertyType):
 
 @dataclass
 class ReplicationTopicNameConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -880,8 +800,6 @@ class ReplicationTopicNameConfiguration(PropertyType):
 
 @dataclass
 class TopicReplication(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "starting_position": "StartingPosition",
         "topics_to_replicate": "TopicsToReplicate",
@@ -937,8 +855,6 @@ class Replicator(CloudFormationResource):
 
 @dataclass
 class ClientAuthentication(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sasl": "Sasl",
     }
@@ -948,8 +864,6 @@ class ClientAuthentication(PropertyType):
 
 @dataclass
 class Iam(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -959,8 +873,6 @@ class Iam(PropertyType):
 
 @dataclass
 class Sasl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iam": "Iam",
     }
@@ -970,8 +882,6 @@ class Sasl(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "subnet_ids": "SubnetIds",

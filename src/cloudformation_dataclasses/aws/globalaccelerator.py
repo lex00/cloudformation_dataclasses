@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service GlobalAccelerator
@@ -202,8 +202,6 @@ class Accelerator(CloudFormationResource):
 
 @dataclass
 class Resource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr": "Cidr",
         "endpoint_id": "EndpointId",
@@ -242,8 +240,6 @@ class CrossAccountAttachment(CloudFormationResource):
 
 @dataclass
 class EndpointConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attachment_arn": "AttachmentArn",
         "endpoint_id": "EndpointId",
@@ -259,8 +255,6 @@ class EndpointConfiguration(PropertyType):
 
 @dataclass
 class PortOverride(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "listener_port": "ListenerPort",
         "endpoint_port": "EndpointPort",
@@ -309,8 +303,6 @@ class EndpointGroup(CloudFormationResource):
 
 @dataclass
 class PortRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "from_port": "FromPort",
         "to_port": "ToPort",

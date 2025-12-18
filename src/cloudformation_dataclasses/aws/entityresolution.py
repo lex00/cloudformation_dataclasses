@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service EntityResolution
@@ -235,8 +235,6 @@ DENY = StatementEffect.DENY
 
 @dataclass
 class IdMappingIncrementalRunConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ent"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "incremental_run_type": "IncrementalRunType",
     }
@@ -246,8 +244,6 @@ class IdMappingIncrementalRunConfig(PropertyType):
 
 @dataclass
 class IdMappingRuleBasedProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ent"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_matching_model": "AttributeMatchingModel",
         "rule_definition_type": "RuleDefinitionType",
@@ -263,8 +259,6 @@ class IdMappingRuleBasedProperties(PropertyType):
 
 @dataclass
 class IdMappingTechniques(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ent"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule_based_properties": "RuleBasedProperties",
         "provider_properties": "ProviderProperties",
@@ -280,8 +274,6 @@ class IdMappingTechniques(PropertyType):
 
 @dataclass
 class IdMappingWorkflowInputSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ent"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "input_source_arn": "InputSourceARN",
@@ -295,8 +287,6 @@ class IdMappingWorkflowInputSource(PropertyType):
 
 @dataclass
 class IdMappingWorkflowOutputSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ent"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_arn": "KMSArn",
         "output_s3_path": "OutputS3Path",
@@ -308,8 +298,6 @@ class IdMappingWorkflowOutputSource(PropertyType):
 
 @dataclass
 class IntermediateSourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ent"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "intermediate_s3_path": "IntermediateS3Path",
     }
@@ -319,8 +307,6 @@ class IntermediateSourceConfiguration(PropertyType):
 
 @dataclass
 class ProviderProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ent"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "intermediate_source_configuration": "IntermediateSourceConfiguration",
         "provider_service_arn": "ProviderServiceArn",
@@ -334,8 +320,6 @@ class ProviderProperties(PropertyType):
 
 @dataclass
 class Rule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ent"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "matching_keys": "MatchingKeys",
         "rule_name": "RuleName",
@@ -390,8 +374,6 @@ class IdMappingWorkflow(CloudFormationResource):
 
 @dataclass
 class IdNamespaceIdMappingWorkflowProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ent"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule_based_properties": "RuleBasedProperties",
         "provider_properties": "ProviderProperties",
@@ -405,8 +387,6 @@ class IdNamespaceIdMappingWorkflowProperties(PropertyType):
 
 @dataclass
 class IdNamespaceInputSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ent"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_source_arn": "InputSourceARN",
         "schema_name": "SchemaName",
@@ -418,8 +398,6 @@ class IdNamespaceInputSource(PropertyType):
 
 @dataclass
 class NamespaceProviderProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ent"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "provider_service_arn": "ProviderServiceArn",
         "provider_configuration": "ProviderConfiguration",
@@ -431,8 +409,6 @@ class NamespaceProviderProperties(PropertyType):
 
 @dataclass
 class NamespaceRuleBasedProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ent"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_matching_model": "AttributeMatchingModel",
         "rule_definition_types": "RuleDefinitionTypes",
@@ -448,8 +424,6 @@ class NamespaceRuleBasedProperties(PropertyType):
 
 @dataclass
 class Rule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ent"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "matching_keys": "MatchingKeys",
         "rule_name": "RuleName",
@@ -502,8 +476,6 @@ class IdNamespace(CloudFormationResource):
 
 @dataclass
 class IncrementalRunConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ent"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "incremental_run_type": "IncrementalRunType",
     }
@@ -513,8 +485,6 @@ class IncrementalRunConfig(PropertyType):
 
 @dataclass
 class InputSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ent"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "apply_normalization": "ApplyNormalization",
         "input_source_arn": "InputSourceARN",
@@ -528,8 +498,6 @@ class InputSource(PropertyType):
 
 @dataclass
 class IntermediateSourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ent"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "intermediate_s3_path": "IntermediateS3Path",
     }
@@ -539,8 +507,6 @@ class IntermediateSourceConfiguration(PropertyType):
 
 @dataclass
 class OutputAttribute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ent"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hashed": "Hashed",
         "name": "Name",
@@ -552,8 +518,6 @@ class OutputAttribute(PropertyType):
 
 @dataclass
 class OutputSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ent"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_arn": "KMSArn",
         "output_s3_path": "OutputS3Path",
@@ -569,8 +533,6 @@ class OutputSource(PropertyType):
 
 @dataclass
 class ProviderProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ent"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "intermediate_source_configuration": "IntermediateSourceConfiguration",
         "provider_service_arn": "ProviderServiceArn",
@@ -584,8 +546,6 @@ class ProviderProperties(PropertyType):
 
 @dataclass
 class ResolutionTechniques(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ent"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule_based_properties": "RuleBasedProperties",
         "provider_properties": "ProviderProperties",
@@ -601,8 +561,6 @@ class ResolutionTechniques(PropertyType):
 
 @dataclass
 class Rule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ent"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "matching_keys": "MatchingKeys",
         "rule_name": "RuleName",
@@ -614,8 +572,6 @@ class Rule(PropertyType):
 
 @dataclass
 class RuleBasedProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ent"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_matching_model": "AttributeMatchingModel",
         "match_purpose": "MatchPurpose",
@@ -629,8 +585,6 @@ class RuleBasedProperties(PropertyType):
 
 @dataclass
 class RuleCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ent"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "rule_name": "RuleName",
@@ -642,8 +596,6 @@ class RuleCondition(PropertyType):
 
 @dataclass
 class RuleConditionProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ent"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rules": "Rules",
     }
@@ -719,8 +671,6 @@ class PolicyStatement(CloudFormationResource):
 
 @dataclass
 class SchemaInputAttribute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ent"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_name": "GroupName",
         "type_": "Type",

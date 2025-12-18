@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:45
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AppSync
@@ -426,8 +426,6 @@ JSON = TypeDefinitionFormat.JSON
 
 @dataclass
 class AuthMode(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auth_type": "AuthType",
     }
@@ -437,8 +435,6 @@ class AuthMode(PropertyType):
 
 @dataclass
 class AuthProvider(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "open_id_connect_config": "OpenIDConnectConfig",
         "cognito_config": "CognitoConfig",
@@ -454,8 +450,6 @@ class AuthProvider(PropertyType):
 
 @dataclass
 class CognitoConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "app_id_client_regex": "AppIdClientRegex",
         "user_pool_id": "UserPoolId",
@@ -469,8 +463,6 @@ class CognitoConfig(PropertyType):
 
 @dataclass
 class DnsMap(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "http": "Http",
         "realtime": "Realtime",
@@ -482,8 +474,6 @@ class DnsMap(PropertyType):
 
 @dataclass
 class EventConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auth_providers": "AuthProviders",
         "connection_auth_modes": "ConnectionAuthModes",
@@ -501,8 +491,6 @@ class EventConfig(PropertyType):
 
 @dataclass
 class EventLogConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_logs_role_arn": "CloudWatchLogsRoleArn",
         "log_level": "LogLevel",
@@ -514,8 +502,6 @@ class EventLogConfig(PropertyType):
 
 @dataclass
 class LambdaAuthorizerConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "identity_validation_expression": "IdentityValidationExpression",
         "authorizer_uri": "AuthorizerUri",
@@ -529,8 +515,6 @@ class LambdaAuthorizerConfig(PropertyType):
 
 @dataclass
 class OpenIDConnectConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "issuer": "Issuer",
         "client_id": "ClientId",
@@ -646,8 +630,6 @@ class ApiKey(CloudFormationResource):
 
 @dataclass
 class AuthMode(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auth_type": "AuthType",
     }
@@ -657,8 +639,6 @@ class AuthMode(PropertyType):
 
 @dataclass
 class HandlerConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "integration": "Integration",
         "behavior": "Behavior",
@@ -670,8 +650,6 @@ class HandlerConfig(PropertyType):
 
 @dataclass
 class HandlerConfigs(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_publish": "OnPublish",
         "on_subscribe": "OnSubscribe",
@@ -683,8 +661,6 @@ class HandlerConfigs(PropertyType):
 
 @dataclass
 class Integration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_source_name": "DataSourceName",
         "lambda_config": "LambdaConfig",
@@ -696,8 +672,6 @@ class Integration(PropertyType):
 
 @dataclass
 class LambdaConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "invoke_type": "InvokeType",
     }
@@ -740,8 +714,6 @@ class ChannelNamespace(CloudFormationResource):
 
 @dataclass
 class AuthorizationConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_iam_config": "AwsIamConfig",
         "authorization_type": "AuthorizationType",
@@ -753,8 +725,6 @@ class AuthorizationConfig(PropertyType):
 
 @dataclass
 class AwsIamConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "signing_region": "SigningRegion",
         "signing_service_name": "SigningServiceName",
@@ -766,8 +736,6 @@ class AwsIamConfig(PropertyType):
 
 @dataclass
 class DeltaSyncConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "base_table_ttl": "BaseTableTTL",
         "delta_sync_table_ttl": "DeltaSyncTableTTL",
@@ -781,8 +749,6 @@ class DeltaSyncConfig(PropertyType):
 
 @dataclass
 class DynamoDBConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "aws_region": "AwsRegion",
@@ -800,8 +766,6 @@ class DynamoDBConfig(PropertyType):
 
 @dataclass
 class EventBridgeConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_bus_arn": "EventBusArn",
     }
@@ -811,8 +775,6 @@ class EventBridgeConfig(PropertyType):
 
 @dataclass
 class HttpConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "endpoint": "Endpoint",
         "authorization_config": "AuthorizationConfig",
@@ -824,8 +786,6 @@ class HttpConfig(PropertyType):
 
 @dataclass
 class LambdaConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_function_arn": "LambdaFunctionArn",
     }
@@ -835,8 +795,6 @@ class LambdaConfig(PropertyType):
 
 @dataclass
 class OpenSearchServiceConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_region": "AwsRegion",
         "endpoint": "Endpoint",
@@ -848,8 +806,6 @@ class OpenSearchServiceConfig(PropertyType):
 
 @dataclass
 class RdsHttpEndpointConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_region": "AwsRegion",
         "schema": "Schema",
@@ -867,8 +823,6 @@ class RdsHttpEndpointConfig(PropertyType):
 
 @dataclass
 class RelationalDatabaseConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rds_http_endpoint_config": "RdsHttpEndpointConfig",
         "relational_database_source_type": "RelationalDatabaseSourceType",
@@ -987,8 +941,6 @@ class DomainNameApiAssociation(CloudFormationResource):
 
 @dataclass
 class AppSyncRuntime(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "runtime_version": "RuntimeVersion",
         "name": "Name",
@@ -1000,8 +952,6 @@ class AppSyncRuntime(PropertyType):
 
 @dataclass
 class LambdaConflictHandlerConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_conflict_handler_arn": "LambdaConflictHandlerArn",
     }
@@ -1011,8 +961,6 @@ class LambdaConflictHandlerConfig(PropertyType):
 
 @dataclass
 class SyncConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "conflict_handler": "ConflictHandler",
         "conflict_detection": "ConflictDetection",
@@ -1086,8 +1034,6 @@ class FunctionConfiguration(CloudFormationResource):
 
 @dataclass
 class AdditionalAuthenticationProvider(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "open_id_connect_config": "OpenIDConnectConfig",
         "lambda_authorizer_config": "LambdaAuthorizerConfig",
@@ -1103,8 +1049,6 @@ class AdditionalAuthenticationProvider(PropertyType):
 
 @dataclass
 class CognitoUserPoolConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "app_id_client_regex": "AppIdClientRegex",
         "user_pool_id": "UserPoolId",
@@ -1118,8 +1062,6 @@ class CognitoUserPoolConfig(PropertyType):
 
 @dataclass
 class EnhancedMetricsConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operation_level_metrics_config": "OperationLevelMetricsConfig",
         "resolver_level_metrics_behavior": "ResolverLevelMetricsBehavior",
@@ -1133,8 +1075,6 @@ class EnhancedMetricsConfig(PropertyType):
 
 @dataclass
 class LambdaAuthorizerConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "identity_validation_expression": "IdentityValidationExpression",
         "authorizer_uri": "AuthorizerUri",
@@ -1148,8 +1088,6 @@ class LambdaAuthorizerConfig(PropertyType):
 
 @dataclass
 class LogConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_logs_role_arn": "CloudWatchLogsRoleArn",
         "exclude_verbose_content": "ExcludeVerboseContent",
@@ -1163,8 +1101,6 @@ class LogConfig(PropertyType):
 
 @dataclass
 class OpenIDConnectConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "issuer": "Issuer",
         "client_id": "ClientId",
@@ -1180,8 +1116,6 @@ class OpenIDConnectConfig(PropertyType):
 
 @dataclass
 class UserPoolConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "app_id_client_regex": "AppIdClientRegex",
         "user_pool_id": "UserPoolId",
@@ -1297,8 +1231,6 @@ class GraphQLSchema(CloudFormationResource):
 
 @dataclass
 class AppSyncRuntime(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "runtime_version": "RuntimeVersion",
         "name": "Name",
@@ -1310,8 +1242,6 @@ class AppSyncRuntime(PropertyType):
 
 @dataclass
 class CachingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "caching_keys": "CachingKeys",
         "ttl": "Ttl",
@@ -1323,8 +1253,6 @@ class CachingConfig(PropertyType):
 
 @dataclass
 class LambdaConflictHandlerConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_conflict_handler_arn": "LambdaConflictHandlerArn",
     }
@@ -1334,8 +1262,6 @@ class LambdaConflictHandlerConfig(PropertyType):
 
 @dataclass
 class PipelineConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "functions": "Functions",
     }
@@ -1345,8 +1271,6 @@ class PipelineConfig(PropertyType):
 
 @dataclass
 class SyncConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "conflict_handler": "ConflictHandler",
         "conflict_detection": "ConflictDetection",
@@ -1421,8 +1345,6 @@ class Resolver(CloudFormationResource):
 
 @dataclass
 class SourceApiAssociationConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "merge_type": "MergeType",
     }

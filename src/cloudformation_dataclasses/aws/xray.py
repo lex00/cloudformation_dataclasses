@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:35
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service XRay
@@ -132,8 +132,6 @@ ACTIVE = TraceSegmentDestinationStatus.ACTIVE
 
 @dataclass
 class InsightsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "notifications_enabled": "NotificationsEnabled",
         "insights_enabled": "InsightsEnabled",
@@ -187,8 +185,6 @@ class ResourcePolicy(CloudFormationResource):
 
 @dataclass
 class SamplingRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "priority": "Priority",
         "reservoir_size": "ReservoirSize",

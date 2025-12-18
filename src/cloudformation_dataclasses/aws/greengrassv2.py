@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service GreengrassV2
@@ -276,8 +276,6 @@ DELETED = VendorGuidance.DELETED
 
 @dataclass
 class ComponentDependencyRequirement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version_requirement": "VersionRequirement",
         "dependency_type": "DependencyType",
@@ -289,8 +287,6 @@ class ComponentDependencyRequirement(PropertyType):
 
 @dataclass
 class ComponentPlatform(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attributes": "Attributes",
         "name": "Name",
@@ -302,8 +298,6 @@ class ComponentPlatform(PropertyType):
 
 @dataclass
 class LambdaContainerParams(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "volumes": "Volumes",
         "mount_ro_sysfs": "MountROSysfs",
@@ -319,8 +313,6 @@ class LambdaContainerParams(PropertyType):
 
 @dataclass
 class LambdaDeviceMount(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "add_group_owner": "AddGroupOwner",
@@ -334,8 +326,6 @@ class LambdaDeviceMount(PropertyType):
 
 @dataclass
 class LambdaEventSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "topic": "Topic",
@@ -347,8 +337,6 @@ class LambdaEventSource(PropertyType):
 
 @dataclass
 class LambdaExecutionParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_instances_count": "MaxInstancesCount",
         "timeout_in_seconds": "TimeoutInSeconds",
@@ -378,8 +366,6 @@ class LambdaExecutionParameters(PropertyType):
 
 @dataclass
 class LambdaFunctionRecipeSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "component_dependencies": "ComponentDependencies",
         "component_lambda_parameters": "ComponentLambdaParameters",
@@ -399,8 +385,6 @@ class LambdaFunctionRecipeSource(PropertyType):
 
 @dataclass
 class LambdaLinuxProcessParams(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "isolation_mode": "IsolationMode",
         "container_params": "ContainerParams",
@@ -412,8 +396,6 @@ class LambdaLinuxProcessParams(PropertyType):
 
 @dataclass
 class LambdaVolumeMount(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_path": "SourcePath",
         "destination_path": "DestinationPath",
@@ -462,8 +444,6 @@ class ComponentVersion(CloudFormationResource):
 
 @dataclass
 class ComponentConfigurationUpdate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "merge": "Merge",
         "reset": "Reset",
@@ -475,8 +455,6 @@ class ComponentConfigurationUpdate(PropertyType):
 
 @dataclass
 class ComponentDeploymentSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "run_with": "RunWith",
         "configuration_update": "ConfigurationUpdate",
@@ -490,8 +468,6 @@ class ComponentDeploymentSpecification(PropertyType):
 
 @dataclass
 class ComponentRunWith(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "windows_user": "WindowsUser",
         "system_resource_limits": "SystemResourceLimits",
@@ -505,8 +481,6 @@ class ComponentRunWith(PropertyType):
 
 @dataclass
 class DeploymentComponentUpdatePolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "timeout_in_seconds": "TimeoutInSeconds",
@@ -518,8 +492,6 @@ class DeploymentComponentUpdatePolicy(PropertyType):
 
 @dataclass
 class DeploymentConfigurationValidationPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timeout_in_seconds": "TimeoutInSeconds",
     }
@@ -529,8 +501,6 @@ class DeploymentConfigurationValidationPolicy(PropertyType):
 
 @dataclass
 class DeploymentIoTJobConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "job_executions_rollout_config": "JobExecutionsRolloutConfig",
         "timeout_config": "TimeoutConfig",
@@ -544,8 +514,6 @@ class DeploymentIoTJobConfiguration(PropertyType):
 
 @dataclass
 class DeploymentPolicies(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "component_update_policy": "ComponentUpdatePolicy",
         "configuration_validation_policy": "ConfigurationValidationPolicy",
@@ -559,8 +527,6 @@ class DeploymentPolicies(PropertyType):
 
 @dataclass
 class IoTJobAbortConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "criteria_list": "CriteriaList",
     }
@@ -570,8 +536,6 @@ class IoTJobAbortConfig(PropertyType):
 
 @dataclass
 class IoTJobAbortCriteria(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "failure_type": "FailureType",
         "action": "Action",
@@ -587,8 +551,6 @@ class IoTJobAbortCriteria(PropertyType):
 
 @dataclass
 class IoTJobExecutionsRolloutConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maximum_per_minute": "MaximumPerMinute",
         "exponential_rate": "ExponentialRate",
@@ -600,8 +562,6 @@ class IoTJobExecutionsRolloutConfig(PropertyType):
 
 @dataclass
 class IoTJobExponentialRolloutRate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rate_increase_criteria": "RateIncreaseCriteria",
         "base_rate_per_minute": "BaseRatePerMinute",
@@ -615,8 +575,6 @@ class IoTJobExponentialRolloutRate(PropertyType):
 
 @dataclass
 class IoTJobRateIncreaseCriteria(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "number_of_succeeded_things": "NumberOfSucceededThings",
         "number_of_notified_things": "NumberOfNotifiedThings",
@@ -628,8 +586,6 @@ class IoTJobRateIncreaseCriteria(PropertyType):
 
 @dataclass
 class IoTJobTimeoutConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "in_progress_timeout_in_minutes": "InProgressTimeoutInMinutes",
     }
@@ -639,8 +595,6 @@ class IoTJobTimeoutConfig(PropertyType):
 
 @dataclass
 class SystemResourceLimits(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "memory": "Memory",
         "cpus": "Cpus",

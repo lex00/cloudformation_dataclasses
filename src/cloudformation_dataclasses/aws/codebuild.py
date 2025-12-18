@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CodeBuild
@@ -731,8 +731,6 @@ DELETING = WebhookStatus.DELETING
 
 @dataclass
 class ComputeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "disk": "disk",
         "memory": "memory",
@@ -750,8 +748,6 @@ class ComputeConfiguration(PropertyType):
 
 @dataclass
 class FleetProxyRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "effect": "Effect",
@@ -765,8 +761,6 @@ class FleetProxyRule(PropertyType):
 
 @dataclass
 class ProxyConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_behavior": "DefaultBehavior",
         "ordered_proxy_rules": "OrderedProxyRules",
@@ -778,8 +772,6 @@ class ProxyConfiguration(PropertyType):
 
 @dataclass
 class ScalingConfigurationInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_tracking_scaling_configs": "TargetTrackingScalingConfigs",
         "scaling_type": "ScalingType",
@@ -793,8 +785,6 @@ class ScalingConfigurationInput(PropertyType):
 
 @dataclass
 class TargetTrackingScalingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_value": "TargetValue",
         "metric_type": "MetricType",
@@ -806,8 +796,6 @@ class TargetTrackingScalingConfiguration(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnets": "Subnets",
         "vpc_id": "VpcId",
@@ -862,8 +850,6 @@ class Fleet(CloudFormationResource):
 
 @dataclass
 class Artifacts(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "type_": "Type",
@@ -889,8 +875,6 @@ class Artifacts(PropertyType):
 
 @dataclass
 class BatchRestrictions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compute_types_allowed": "ComputeTypesAllowed",
         "maximum_builds_allowed": "MaximumBuildsAllowed",
@@ -902,8 +886,6 @@ class BatchRestrictions(PropertyType):
 
 @dataclass
 class BuildStatusConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "context": "Context",
         "target_url": "TargetUrl",
@@ -915,8 +897,6 @@ class BuildStatusConfig(PropertyType):
 
 @dataclass
 class CloudWatchLogsConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "group_name": "GroupName",
@@ -930,8 +910,6 @@ class CloudWatchLogsConfig(PropertyType):
 
 @dataclass
 class DockerServer(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compute_type": "ComputeType",
         "security_group_ids": "SecurityGroupIds",
@@ -943,8 +921,6 @@ class DockerServer(PropertyType):
 
 @dataclass
 class Environment(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "environment_variables": "EnvironmentVariables",
@@ -972,8 +948,6 @@ class Environment(PropertyType):
 
 @dataclass
 class EnvironmentVariable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -987,15 +961,11 @@ class EnvironmentVariable(PropertyType):
 
 @dataclass
 class FilterGroup(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     pass
 
 
 @dataclass
 class GitSubmodulesConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fetch_submodules": "FetchSubmodules",
     }
@@ -1005,8 +975,6 @@ class GitSubmodulesConfig(PropertyType):
 
 @dataclass
 class LogsConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_logs": "CloudWatchLogs",
         "s3_logs": "S3Logs",
@@ -1018,8 +986,6 @@ class LogsConfig(PropertyType):
 
 @dataclass
 class ProjectBuildBatchConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "combine_artifacts": "CombineArtifacts",
         "service_role": "ServiceRole",
@@ -1037,8 +1003,6 @@ class ProjectBuildBatchConfig(PropertyType):
 
 @dataclass
 class ProjectCache(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "modes": "Modes",
         "type_": "Type",
@@ -1054,8 +1018,6 @@ class ProjectCache(PropertyType):
 
 @dataclass
 class ProjectFileSystemLocation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mount_point": "MountPoint",
         "type_": "Type",
@@ -1073,8 +1035,6 @@ class ProjectFileSystemLocation(PropertyType):
 
 @dataclass
 class ProjectFleet(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fleet_arn": "FleetArn",
     }
@@ -1084,8 +1044,6 @@ class ProjectFleet(PropertyType):
 
 @dataclass
 class ProjectSourceVersion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_identifier": "SourceIdentifier",
         "source_version": "SourceVersion",
@@ -1097,8 +1055,6 @@ class ProjectSourceVersion(PropertyType):
 
 @dataclass
 class ProjectTriggers(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_groups": "FilterGroups",
         "build_type": "BuildType",
@@ -1116,8 +1072,6 @@ class ProjectTriggers(PropertyType):
 
 @dataclass
 class PullRequestBuildPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "requires_comment_approval": "RequiresCommentApproval",
         "approver_roles": "ApproverRoles",
@@ -1129,8 +1083,6 @@ class PullRequestBuildPolicy(PropertyType):
 
 @dataclass
 class RegistryCredential(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "credential": "Credential",
         "credential_provider": "CredentialProvider",
@@ -1142,8 +1094,6 @@ class RegistryCredential(PropertyType):
 
 @dataclass
 class S3LogsConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "encryption_disabled": "EncryptionDisabled",
@@ -1157,8 +1107,6 @@ class S3LogsConfig(PropertyType):
 
 @dataclass
 class ScopeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scope": "Scope",
         "domain": "Domain",
@@ -1172,8 +1120,6 @@ class ScopeConfiguration(PropertyType):
 
 @dataclass
 class Source(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "report_build_status": "ReportBuildStatus",
@@ -1201,8 +1147,6 @@ class Source(PropertyType):
 
 @dataclass
 class SourceAuth(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "resource": "Resource",
@@ -1214,8 +1158,6 @@ class SourceAuth(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnets": "Subnets",
         "vpc_id": "VpcId",
@@ -1229,8 +1171,6 @@ class VpcConfig(PropertyType):
 
 @dataclass
 class WebhookFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pattern": "Pattern",
         "type_": "Type",
@@ -1311,8 +1251,6 @@ class Project(CloudFormationResource):
 
 @dataclass
 class ReportExportConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_destination": "S3Destination",
         "export_config_type": "ExportConfigType",
@@ -1324,8 +1262,6 @@ class ReportExportConfig(PropertyType):
 
 @dataclass
 class S3ReportExportConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "bucket": "Bucket",

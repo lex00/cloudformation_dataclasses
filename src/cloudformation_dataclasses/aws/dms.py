@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DMS
@@ -500,8 +500,6 @@ class Certificate(CloudFormationResource):
 
 @dataclass
 class DataMigrationSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "selection_rules": "SelectionRules",
         "cloudwatch_logs_enabled": "CloudwatchLogsEnabled",
@@ -515,8 +513,6 @@ class DataMigrationSettings(PropertyType):
 
 @dataclass
 class SourceDataSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cdc_start_time": "CDCStartTime",
         "cdc_stop_time": "CDCStopTime",
@@ -570,8 +566,6 @@ class DataMigration(CloudFormationResource):
 
 @dataclass
 class DocDbSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ssl_mode": "SslMode",
         "server_name": "ServerName",
@@ -589,8 +583,6 @@ class DocDbSettings(PropertyType):
 
 @dataclass
 class IbmDb2LuwSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ssl_mode": "SslMode",
         "server_name": "ServerName",
@@ -608,8 +600,6 @@ class IbmDb2LuwSettings(PropertyType):
 
 @dataclass
 class IbmDb2zOsSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ssl_mode": "SslMode",
         "server_name": "ServerName",
@@ -627,8 +617,6 @@ class IbmDb2zOsSettings(PropertyType):
 
 @dataclass
 class MariaDbSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ssl_mode": "SslMode",
         "server_name": "ServerName",
@@ -644,8 +632,6 @@ class MariaDbSettings(PropertyType):
 
 @dataclass
 class MicrosoftSqlServerSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ssl_mode": "SslMode",
         "server_name": "ServerName",
@@ -663,8 +649,6 @@ class MicrosoftSqlServerSettings(PropertyType):
 
 @dataclass
 class MongoDbSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auth_source": "AuthSource",
         "auth_mechanism": "AuthMechanism",
@@ -688,8 +672,6 @@ class MongoDbSettings(PropertyType):
 
 @dataclass
 class MySqlSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ssl_mode": "SslMode",
         "server_name": "ServerName",
@@ -705,8 +687,6 @@ class MySqlSettings(PropertyType):
 
 @dataclass
 class OracleSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secrets_manager_oracle_asm_access_role_arn": "SecretsManagerOracleAsmAccessRoleArn",
         "secrets_manager_oracle_asm_secret_id": "SecretsManagerOracleAsmSecretId",
@@ -734,8 +714,6 @@ class OracleSettings(PropertyType):
 
 @dataclass
 class PostgreSqlSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ssl_mode": "SslMode",
         "server_name": "ServerName",
@@ -753,8 +731,6 @@ class PostgreSqlSettings(PropertyType):
 
 @dataclass
 class RedshiftSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "server_name": "ServerName",
         "port": "Port",
@@ -768,8 +744,6 @@ class RedshiftSettings(PropertyType):
 
 @dataclass
 class Settings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maria_db_settings": "MariaDbSettings",
         "oracle_settings": "OracleSettings",
@@ -833,8 +807,6 @@ class DataProvider(CloudFormationResource):
 
 @dataclass
 class DocDbSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "docs_to_investigate": "DocsToInvestigate",
         "extract_doc_id": "ExtractDocId",
@@ -852,8 +824,6 @@ class DocDbSettings(PropertyType):
 
 @dataclass
 class DynamoDbSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_access_role_arn": "ServiceAccessRoleArn",
     }
@@ -863,8 +833,6 @@ class DynamoDbSettings(PropertyType):
 
 @dataclass
 class ElasticsearchSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "endpoint_uri": "EndpointUri",
         "full_load_error_percentage": "FullLoadErrorPercentage",
@@ -880,8 +848,6 @@ class ElasticsearchSettings(PropertyType):
 
 @dataclass
 class GcpMySQLSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "after_connect_script": "AfterConnectScript",
         "port": "Port",
@@ -915,8 +881,6 @@ class GcpMySQLSettings(PropertyType):
 
 @dataclass
 class IbmDb2Settings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "load_timeout": "LoadTimeout",
         "set_data_capture_changes": "SetDataCaptureChanges",
@@ -942,8 +906,6 @@ class IbmDb2Settings(PropertyType):
 
 @dataclass
 class KafkaSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "broker": "Broker",
         "sasl_password": "SaslPassword",
@@ -987,8 +949,6 @@ class KafkaSettings(PropertyType):
 
 @dataclass
 class KinesisSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message_format": "MessageFormat",
         "include_transaction_details": "IncludeTransactionDetails",
@@ -1016,8 +976,6 @@ class KinesisSettings(PropertyType):
 
 @dataclass
 class MicrosoftSqlServerSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "read_backup_only": "ReadBackupOnly",
         "tlog_access_mode": "TlogAccessMode",
@@ -1059,8 +1017,6 @@ class MicrosoftSqlServerSettings(PropertyType):
 
 @dataclass
 class MongoDbSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "extract_doc_id": "ExtractDocId",
@@ -1094,8 +1050,6 @@ class MongoDbSettings(PropertyType):
 
 @dataclass
 class MySqlSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "server_timezone": "ServerTimezone",
         "events_poll_interval": "EventsPollInterval",
@@ -1121,8 +1075,6 @@ class MySqlSettings(PropertyType):
 
 @dataclass
 class NeptuneSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_retry_count": "MaxRetryCount",
         "max_file_size": "MaxFileSize",
@@ -1144,8 +1096,6 @@ class NeptuneSettings(PropertyType):
 
 @dataclass
 class OracleSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "asm_password": "AsmPassword",
         "direct_path_parallel_load": "DirectPathParallelLoad",
@@ -1223,8 +1173,6 @@ class OracleSettings(PropertyType):
 
 @dataclass
 class PostgreSqlSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "plugin_name": "PluginName",
         "map_boolean_as_boolean": "MapBooleanAsBoolean",
@@ -1264,8 +1212,6 @@ class PostgreSqlSettings(PropertyType):
 
 @dataclass
 class RedisSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ssl_security_protocol": "SslSecurityProtocol",
         "auth_user_name": "AuthUserName",
@@ -1287,8 +1233,6 @@ class RedisSettings(PropertyType):
 
 @dataclass
 class RedshiftSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_timeout": "ConnectionTimeout",
         "map_boolean_as_boolean": "MapBooleanAsBoolean",
@@ -1348,8 +1292,6 @@ class RedshiftSettings(PropertyType):
 
 @dataclass
 class S3Settings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timestamp_column_name": "TimestampColumnName",
         "enable_statistics": "EnableStatistics",
@@ -1439,8 +1381,6 @@ class S3Settings(PropertyType):
 
 @dataclass
 class SybaseSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secrets_manager_secret_id": "SecretsManagerSecretId",
         "secrets_manager_access_role_arn": "SecretsManagerAccessRoleArn",
@@ -1598,8 +1538,6 @@ class InstanceProfile(CloudFormationResource):
 
 @dataclass
 class DataProviderDescriptor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_provider_name": "DataProviderName",
         "data_provider_arn": "DataProviderArn",
@@ -1617,8 +1555,6 @@ class DataProviderDescriptor(PropertyType):
 
 @dataclass
 class SchemaConversionApplicationAttributes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_bucket_path": "S3BucketPath",
         "s3_bucket_role_arn": "S3BucketRoleArn",
@@ -1669,8 +1605,6 @@ class MigrationProject(CloudFormationResource):
 
 @dataclass
 class ComputeConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dns_name_servers": "DnsNameServers",
         "kms_key_id": "KmsKeyId",

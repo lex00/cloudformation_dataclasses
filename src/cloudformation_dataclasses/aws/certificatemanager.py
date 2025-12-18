@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CertificateManager
@@ -297,8 +297,6 @@ HTTP = ValidationMethod.HTTP
 
 @dataclass
 class ExpiryEventsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cer"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "days_before_expiry": "DaysBeforeExpiry",
     }
@@ -327,8 +325,6 @@ class Account(CloudFormationResource):
 
 @dataclass
 class DomainValidationOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cer"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_name": "DomainName",
         "hosted_zone_id": "HostedZoneId",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Glue
@@ -2027,8 +2027,6 @@ ERROR = WorkflowRunStatus.ERROR
 
 @dataclass
 class CsvClassifier(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "contains_custom_datatype": "ContainsCustomDatatype",
         "quote_symbol": "QuoteSymbol",
@@ -2054,8 +2052,6 @@ class CsvClassifier(PropertyType):
 
 @dataclass
 class GrokClassifier(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_patterns": "CustomPatterns",
         "grok_pattern": "GrokPattern",
@@ -2071,8 +2067,6 @@ class GrokClassifier(PropertyType):
 
 @dataclass
 class JsonClassifier(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "json_path": "JsonPath",
         "name": "Name",
@@ -2084,8 +2078,6 @@ class JsonClassifier(PropertyType):
 
 @dataclass
 class XMLClassifier(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "row_tag": "RowTag",
         "classification": "Classification",
@@ -2118,8 +2110,6 @@ class Classifier(CloudFormationResource):
 
 @dataclass
 class AuthenticationConfigurationInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "kms_key_arn": "KmsKeyArn",
@@ -2139,8 +2129,6 @@ class AuthenticationConfigurationInput(PropertyType):
 
 @dataclass
 class AuthorizationCodeProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authorization_code": "AuthorizationCode",
         "redirect_uri": "RedirectUri",
@@ -2152,8 +2140,6 @@ class AuthorizationCodeProperties(PropertyType):
 
 @dataclass
 class BasicAuthenticationCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "username": "Username",
         "password": "Password",
@@ -2165,8 +2151,6 @@ class BasicAuthenticationCredentials(PropertyType):
 
 @dataclass
 class ConnectionInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authentication_configuration": "AuthenticationConfiguration",
         "python_properties": "PythonProperties",
@@ -2198,8 +2182,6 @@ class ConnectionInput(PropertyType):
 
 @dataclass
 class OAuth2ClientApplication(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_managed_client_application_reference": "AWSManagedClientApplicationReference",
         "user_managed_client_application_client_id": "UserManagedClientApplicationClientId",
@@ -2211,8 +2193,6 @@ class OAuth2ClientApplication(PropertyType):
 
 @dataclass
 class OAuth2Credentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_managed_client_application_client_secret": "UserManagedClientApplicationClientSecret",
         "jwt_token": "JwtToken",
@@ -2228,8 +2208,6 @@ class OAuth2Credentials(PropertyType):
 
 @dataclass
 class OAuth2PropertiesInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authorization_code_properties": "AuthorizationCodeProperties",
         "o_auth2_client_application": "OAuth2ClientApplication",
@@ -2249,8 +2227,6 @@ class OAuth2PropertiesInput(PropertyType):
 
 @dataclass
 class PhysicalConnectionRequirements(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_zone": "AvailabilityZone",
         "security_group_id_list": "SecurityGroupIdList",
@@ -2279,8 +2255,6 @@ class Connection(CloudFormationResource):
 
 @dataclass
 class CatalogTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_name": "ConnectionName",
         "database_name": "DatabaseName",
@@ -2298,8 +2272,6 @@ class CatalogTarget(PropertyType):
 
 @dataclass
 class DeltaTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_name": "ConnectionName",
         "create_native_delta_table": "CreateNativeDeltaTable",
@@ -2315,8 +2287,6 @@ class DeltaTarget(PropertyType):
 
 @dataclass
 class DynamoDBTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "scan_rate": "ScanRate",
@@ -2330,8 +2300,6 @@ class DynamoDBTarget(PropertyType):
 
 @dataclass
 class HudiTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_name": "ConnectionName",
         "exclusions": "Exclusions",
@@ -2347,8 +2315,6 @@ class HudiTarget(PropertyType):
 
 @dataclass
 class IcebergTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_name": "ConnectionName",
         "exclusions": "Exclusions",
@@ -2364,8 +2330,6 @@ class IcebergTarget(PropertyType):
 
 @dataclass
 class JdbcTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_name": "ConnectionName",
         "path": "Path",
@@ -2381,8 +2345,6 @@ class JdbcTarget(PropertyType):
 
 @dataclass
 class LakeFormationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account_id": "AccountId",
         "use_lake_formation_credentials": "UseLakeFormationCredentials",
@@ -2394,8 +2356,6 @@ class LakeFormationConfiguration(PropertyType):
 
 @dataclass
 class MongoDBTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_name": "ConnectionName",
         "path": "Path",
@@ -2407,8 +2367,6 @@ class MongoDBTarget(PropertyType):
 
 @dataclass
 class RecrawlPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "recrawl_behavior": "RecrawlBehavior",
     }
@@ -2418,8 +2376,6 @@ class RecrawlPolicy(PropertyType):
 
 @dataclass
 class S3Target(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_name": "ConnectionName",
         "path": "Path",
@@ -2439,8 +2395,6 @@ class S3Target(PropertyType):
 
 @dataclass
 class Schedule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schedule_expression": "ScheduleExpression",
     }
@@ -2450,8 +2404,6 @@ class Schedule(PropertyType):
 
 @dataclass
 class SchemaChangePolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "update_behavior": "UpdateBehavior",
         "delete_behavior": "DeleteBehavior",
@@ -2463,8 +2415,6 @@ class SchemaChangePolicy(PropertyType):
 
 @dataclass
 class Targets(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hudi_targets": "HudiTargets",
         "s3_targets": "S3Targets",
@@ -2546,8 +2496,6 @@ class CustomEntityType(CloudFormationResource):
 
 @dataclass
 class ConnectionPasswordEncryption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "return_connection_password_encrypted": "ReturnConnectionPasswordEncrypted",
         "kms_key_id": "KmsKeyId",
@@ -2559,8 +2507,6 @@ class ConnectionPasswordEncryption(PropertyType):
 
 @dataclass
 class DataCatalogEncryptionSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_password_encryption": "ConnectionPasswordEncryption",
         "encryption_at_rest": "EncryptionAtRest",
@@ -2572,8 +2518,6 @@ class DataCatalogEncryptionSettings(PropertyType):
 
 @dataclass
 class EncryptionAtRest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "catalog_encryption_mode": "CatalogEncryptionMode",
         "catalog_encryption_service_role": "CatalogEncryptionServiceRole",
@@ -2602,8 +2546,6 @@ class DataCatalogEncryptionSettings(CloudFormationResource):
 
 @dataclass
 class DataQualityTargetTable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "database_name": "DatabaseName",
@@ -2638,8 +2580,6 @@ class DataQualityRuleset(CloudFormationResource):
 
 @dataclass
 class DataLakePrincipal(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_lake_principal_identifier": "DataLakePrincipalIdentifier",
     }
@@ -2649,8 +2589,6 @@ class DataLakePrincipal(PropertyType):
 
 @dataclass
 class DatabaseIdentifier(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "database_name": "DatabaseName",
         "region": "Region",
@@ -2664,8 +2602,6 @@ class DatabaseIdentifier(PropertyType):
 
 @dataclass
 class DatabaseInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "location_uri": "LocationUri",
         "create_table_default_permissions": "CreateTableDefaultPermissions",
@@ -2687,8 +2623,6 @@ class DatabaseInput(PropertyType):
 
 @dataclass
 class FederatedDatabase(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_name": "ConnectionName",
         "identifier": "Identifier",
@@ -2700,8 +2634,6 @@ class FederatedDatabase(PropertyType):
 
 @dataclass
 class PrincipalPrivileges(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "permissions": "Permissions",
         "principal": "Principal",
@@ -2799,8 +2731,6 @@ class IdentityCenterConfiguration(CloudFormationResource):
 
 @dataclass
 class IntegrationConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "continuous_sync": "ContinuousSync",
         "refresh_interval": "RefreshInterval",
@@ -2859,8 +2789,6 @@ class Integration(CloudFormationResource):
 
 @dataclass
 class SourceProcessingProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role_arn": "RoleArn",
     }
@@ -2870,8 +2798,6 @@ class SourceProcessingProperties(PropertyType):
 
 @dataclass
 class TargetProcessingProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_name": "ConnectionName",
         "kms_arn": "KmsArn",
@@ -2912,8 +2838,6 @@ class IntegrationResourceProperty(CloudFormationResource):
 
 @dataclass
 class ConnectionsList(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connections": "Connections",
     }
@@ -2923,8 +2847,6 @@ class ConnectionsList(PropertyType):
 
 @dataclass
 class ExecutionProperty(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_concurrent_runs": "MaxConcurrentRuns",
     }
@@ -2934,8 +2856,6 @@ class ExecutionProperty(PropertyType):
 
 @dataclass
 class JobCommand(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "runtime": "Runtime",
         "python_version": "PythonVersion",
@@ -2951,8 +2871,6 @@ class JobCommand(PropertyType):
 
 @dataclass
 class NotificationProperty(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "notify_delay_after": "NotifyDelayAfter",
     }
@@ -3019,8 +2937,6 @@ class Job(CloudFormationResource):
 
 @dataclass
 class FindMatchesParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "precision_recall_tradeoff": "PrecisionRecallTradeoff",
         "enforce_provided_labels": "EnforceProvidedLabels",
@@ -3036,8 +2952,6 @@ class FindMatchesParameters(PropertyType):
 
 @dataclass
 class GlueTables(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_name": "ConnectionName",
         "table_name": "TableName",
@@ -3053,8 +2967,6 @@ class GlueTables(PropertyType):
 
 @dataclass
 class InputRecordTables(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "glue_tables": "GlueTables",
     }
@@ -3064,8 +2976,6 @@ class InputRecordTables(PropertyType):
 
 @dataclass
 class MLUserDataEncryption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ml_user_data_encryption_mode": "MLUserDataEncryptionMode",
         "kms_key_id": "KmsKeyId",
@@ -3077,8 +2987,6 @@ class MLUserDataEncryption(PropertyType):
 
 @dataclass
 class TransformEncryption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ml_user_data_encryption": "MLUserDataEncryption",
         "task_run_security_configuration_name": "TaskRunSecurityConfigurationName",
@@ -3090,8 +2998,6 @@ class TransformEncryption(PropertyType):
 
 @dataclass
 class TransformParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transform_type": "TransformType",
         "find_matches_parameters": "FindMatchesParameters",
@@ -3140,8 +3046,6 @@ class MLTransform(CloudFormationResource):
 
 @dataclass
 class Column(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comment": "Comment",
         "type_": "Type",
@@ -3155,8 +3059,6 @@ class Column(PropertyType):
 
 @dataclass
 class Order(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "sort_order": "SortOrder",
@@ -3168,8 +3070,6 @@ class Order(PropertyType):
 
 @dataclass
 class PartitionInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameters": "Parameters",
         "storage_descriptor": "StorageDescriptor",
@@ -3183,8 +3083,6 @@ class PartitionInput(PropertyType):
 
 @dataclass
 class SchemaId(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "registry_name": "RegistryName",
         "schema_name": "SchemaName",
@@ -3198,8 +3096,6 @@ class SchemaId(PropertyType):
 
 @dataclass
 class SchemaReference(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schema_version_id": "SchemaVersionId",
         "schema_id": "SchemaId",
@@ -3213,8 +3109,6 @@ class SchemaReference(PropertyType):
 
 @dataclass
 class SerdeInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameters": "Parameters",
         "serialization_library": "SerializationLibrary",
@@ -3228,8 +3122,6 @@ class SerdeInfo(PropertyType):
 
 @dataclass
 class SkewedInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "skewed_column_names": "SkewedColumnNames",
         "skewed_column_values": "SkewedColumnValues",
@@ -3243,8 +3135,6 @@ class SkewedInfo(PropertyType):
 
 @dataclass
 class StorageDescriptor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stored_as_sub_directories": "StoredAsSubDirectories",
         "parameters": "Parameters",
@@ -3320,8 +3210,6 @@ class Registry(CloudFormationResource):
 
 @dataclass
 class Registry(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
         "name": "Name",
@@ -3333,8 +3221,6 @@ class Registry(PropertyType):
 
 @dataclass
 class SchemaVersion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_latest": "IsLatest",
         "version_number": "VersionNumber",
@@ -3384,8 +3270,6 @@ class Schema(CloudFormationResource):
 
 @dataclass
 class Schema(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "registry_name": "RegistryName",
         "schema_arn": "SchemaArn",
@@ -3437,8 +3321,6 @@ class SchemaVersionMetadata(CloudFormationResource):
 
 @dataclass
 class CloudWatchEncryption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
         "cloud_watch_encryption_mode": "CloudWatchEncryptionMode",
@@ -3450,8 +3332,6 @@ class CloudWatchEncryption(PropertyType):
 
 @dataclass
 class EncryptionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_encryptions": "S3Encryptions",
         "cloud_watch_encryption": "CloudWatchEncryption",
@@ -3465,8 +3345,6 @@ class EncryptionConfiguration(PropertyType):
 
 @dataclass
 class JobBookmarksEncryption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
         "job_bookmarks_encryption_mode": "JobBookmarksEncryptionMode",
@@ -3478,8 +3356,6 @@ class JobBookmarksEncryption(PropertyType):
 
 @dataclass
 class S3Encryption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
         "s3_encryption_mode": "S3EncryptionMode",
@@ -3491,8 +3367,6 @@ class S3Encryption(PropertyType):
 
 @dataclass
 class S3Encryptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     pass
 
 
@@ -3513,8 +3387,6 @@ class SecurityConfiguration(CloudFormationResource):
 
 @dataclass
 class Column(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comment": "Comment",
         "type_": "Type",
@@ -3528,8 +3400,6 @@ class Column(PropertyType):
 
 @dataclass
 class IcebergInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metadata_operation": "MetadataOperation",
         "version": "Version",
@@ -3541,15 +3411,11 @@ class IcebergInput(PropertyType):
 
 @dataclass
 class MetadataOperation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     pass
 
 
 @dataclass
 class OpenTableFormatInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iceberg_input": "IcebergInput",
     }
@@ -3559,8 +3425,6 @@ class OpenTableFormatInput(PropertyType):
 
 @dataclass
 class Order(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column": "Column",
         "sort_order": "SortOrder",
@@ -3572,8 +3436,6 @@ class Order(PropertyType):
 
 @dataclass
 class SchemaId(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "registry_name": "RegistryName",
         "schema_name": "SchemaName",
@@ -3587,8 +3449,6 @@ class SchemaId(PropertyType):
 
 @dataclass
 class SchemaReference(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schema_version_id": "SchemaVersionId",
         "schema_id": "SchemaId",
@@ -3602,8 +3462,6 @@ class SchemaReference(PropertyType):
 
 @dataclass
 class SerdeInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameters": "Parameters",
         "serialization_library": "SerializationLibrary",
@@ -3617,8 +3475,6 @@ class SerdeInfo(PropertyType):
 
 @dataclass
 class SkewedInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "skewed_column_names": "SkewedColumnNames",
         "skewed_column_values": "SkewedColumnValues",
@@ -3632,8 +3488,6 @@ class SkewedInfo(PropertyType):
 
 @dataclass
 class StorageDescriptor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stored_as_sub_directories": "StoredAsSubDirectories",
         "parameters": "Parameters",
@@ -3667,8 +3521,6 @@ class StorageDescriptor(PropertyType):
 
 @dataclass
 class TableIdentifier(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "database_name": "DatabaseName",
         "region": "Region",
@@ -3684,8 +3536,6 @@ class TableIdentifier(PropertyType):
 
 @dataclass
 class TableInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "owner": "Owner",
         "view_original_text": "ViewOriginalText",
@@ -3734,8 +3584,6 @@ class Table(CloudFormationResource):
 
 @dataclass
 class IcebergConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "orphan_file_retention_period_in_days": "OrphanFileRetentionPeriodInDays",
         "location": "Location",
@@ -3747,8 +3595,6 @@ class IcebergConfiguration(PropertyType):
 
 @dataclass
 class IcebergRetentionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "clean_expired_files": "CleanExpiredFiles",
         "snapshot_retention_period_in_days": "SnapshotRetentionPeriodInDays",
@@ -3762,8 +3608,6 @@ class IcebergRetentionConfiguration(PropertyType):
 
 @dataclass
 class OrphanFileDeletionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iceberg_configuration": "IcebergConfiguration",
     }
@@ -3773,8 +3617,6 @@ class OrphanFileDeletionConfiguration(PropertyType):
 
 @dataclass
 class RetentionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iceberg_configuration": "IcebergConfiguration",
     }
@@ -3784,8 +3626,6 @@ class RetentionConfiguration(PropertyType):
 
 @dataclass
 class TableOptimizerConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "retention_configuration": "RetentionConfiguration",
         "orphan_file_deletion_configuration": "OrphanFileDeletionConfiguration",
@@ -3803,8 +3643,6 @@ class TableOptimizerConfiguration(PropertyType):
 
 @dataclass
 class VpcConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "glue_connection_name": "GlueConnectionName",
     }
@@ -3835,8 +3673,6 @@ class TableOptimizer(CloudFormationResource):
 
 @dataclass
 class Action(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "notification_property": "NotificationProperty",
         "crawler_name": "CrawlerName",
@@ -3856,8 +3692,6 @@ class Action(PropertyType):
 
 @dataclass
 class Condition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "crawler_name": "CrawlerName",
         "state": "State",
@@ -3875,8 +3709,6 @@ class Condition(PropertyType):
 
 @dataclass
 class EventBatchingCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "batch_size": "BatchSize",
         "batch_window": "BatchWindow",
@@ -3888,8 +3720,6 @@ class EventBatchingCondition(PropertyType):
 
 @dataclass
 class NotificationProperty(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "notify_delay_after": "NotifyDelayAfter",
     }
@@ -3899,8 +3729,6 @@ class NotificationProperty(PropertyType):
 
 @dataclass
 class Predicate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logical": "Logical",
         "conditions": "Conditions",
@@ -3943,8 +3771,6 @@ class Trigger(CloudFormationResource):
 
 @dataclass
 class ConfigurationObject(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_value": "DefaultValue",
         "allowed_values": "AllowedValues",
@@ -3960,8 +3786,6 @@ class ConfigurationObject(PropertyType):
 
 @dataclass
 class ProfileConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "job_configuration": "JobConfiguration",
         "session_configuration": "SessionConfiguration",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SecurityLake
@@ -129,8 +129,6 @@ class AwsLogSource(CloudFormationResource):
 
 @dataclass
 class EncryptionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
     }
@@ -140,8 +138,6 @@ class EncryptionConfiguration(PropertyType):
 
 @dataclass
 class Expiration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "days": "Days",
     }
@@ -151,8 +147,6 @@ class Expiration(PropertyType):
 
 @dataclass
 class LifecycleConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transitions": "Transitions",
         "expiration": "Expiration",
@@ -164,8 +158,6 @@ class LifecycleConfiguration(PropertyType):
 
 @dataclass
 class ReplicationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "regions": "Regions",
         "role_arn": "RoleArn",
@@ -177,8 +169,6 @@ class ReplicationConfiguration(PropertyType):
 
 @dataclass
 class Transitions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_class": "StorageClass",
         "days": "Days",
@@ -222,8 +212,6 @@ class DataLake(CloudFormationResource):
 
 @dataclass
 class AwsLogSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_name": "SourceName",
         "source_version": "SourceVersion",
@@ -235,8 +223,6 @@ class AwsLogSource(PropertyType):
 
 @dataclass
 class CustomLogSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_name": "SourceName",
         "source_version": "SourceVersion",
@@ -248,8 +234,6 @@ class CustomLogSource(PropertyType):
 
 @dataclass
 class Source(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_log_source": "AwsLogSource",
         "custom_log_source": "CustomLogSource",
@@ -261,8 +245,6 @@ class Source(PropertyType):
 
 @dataclass
 class SubscriberIdentity(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "external_id": "ExternalId",
         "principal": "Principal",
@@ -325,8 +307,6 @@ class Subscriber(CloudFormationResource):
 
 @dataclass
 class HttpsNotificationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "endpoint": "Endpoint",
         "target_role_arn": "TargetRoleArn",
@@ -344,8 +324,6 @@ class HttpsNotificationConfiguration(PropertyType):
 
 @dataclass
 class NotificationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "https_notification_configuration": "HttpsNotificationConfiguration",
         "sqs_notification_configuration": "SqsNotificationConfiguration",

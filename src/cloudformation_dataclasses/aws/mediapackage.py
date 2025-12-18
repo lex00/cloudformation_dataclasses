@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MediaPackage
@@ -236,8 +236,6 @@ ADS = __PeriodTriggersElement.ADS
 
 @dataclass
 class EgressEndpoint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "packaging_configuration_id": "PackagingConfigurationId",
         "url": "Url",
@@ -285,8 +283,6 @@ class Asset(CloudFormationResource):
 
 @dataclass
 class HlsIngest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ingest_endpoints": "ingestEndpoints",
     }
@@ -296,8 +292,6 @@ class HlsIngest(PropertyType):
 
 @dataclass
 class IngestEndpoint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "username": "Username",
         "id": "Id",
@@ -313,8 +307,6 @@ class IngestEndpoint(PropertyType):
 
 @dataclass
 class LogConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group_name": "LogGroupName",
     }
@@ -353,8 +345,6 @@ class Channel(CloudFormationResource):
 
 @dataclass
 class Authorization(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secrets_role_arn": "SecretsRoleArn",
         "cdn_identifier_secret": "CdnIdentifierSecret",
@@ -366,8 +356,6 @@ class Authorization(PropertyType):
 
 @dataclass
 class CmafEncryption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_rotation_interval_seconds": "KeyRotationIntervalSeconds",
         "speke_key_provider": "SpekeKeyProvider",
@@ -383,8 +371,6 @@ class CmafEncryption(PropertyType):
 
 @dataclass
 class CmafPackage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "segment_prefix": "SegmentPrefix",
         "stream_selection": "StreamSelection",
@@ -402,8 +388,6 @@ class CmafPackage(PropertyType):
 
 @dataclass
 class DashEncryption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_rotation_interval_seconds": "KeyRotationIntervalSeconds",
         "speke_key_provider": "SpekeKeyProvider",
@@ -415,8 +399,6 @@ class DashEncryption(PropertyType):
 
 @dataclass
 class DashPackage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "manifest_window_seconds": "ManifestWindowSeconds",
         "ads_on_delivery_restrictions": "AdsOnDeliveryRestrictions",
@@ -456,15 +438,11 @@ class DashPackage(PropertyType):
 
 @dataclass
 class EncryptionContractConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     pass
 
 
 @dataclass
 class HlsEncryption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_rotation_interval_seconds": "KeyRotationIntervalSeconds",
         "repeat_ext_x_key": "RepeatExtXKey",
@@ -482,8 +460,6 @@ class HlsEncryption(PropertyType):
 
 @dataclass
 class HlsManifest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ads_on_delivery_restrictions": "AdsOnDeliveryRestrictions",
         "manifest_name": "ManifestName",
@@ -511,8 +487,6 @@ class HlsManifest(PropertyType):
 
 @dataclass
 class HlsPackage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ads_on_delivery_restrictions": "AdsOnDeliveryRestrictions",
         "ad_markers": "AdMarkers",
@@ -544,8 +518,6 @@ class HlsPackage(PropertyType):
 
 @dataclass
 class MssEncryption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "speke_key_provider": "SpekeKeyProvider",
     }
@@ -555,8 +527,6 @@ class MssEncryption(PropertyType):
 
 @dataclass
 class MssPackage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "manifest_window_seconds": "ManifestWindowSeconds",
         "stream_selection": "StreamSelection",
@@ -572,8 +542,6 @@ class MssPackage(PropertyType):
 
 @dataclass
 class SpekeKeyProvider(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_id": "ResourceId",
         "system_ids": "SystemIds",
@@ -593,8 +561,6 @@ class SpekeKeyProvider(PropertyType):
 
 @dataclass
 class StreamSelection(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_video_bits_per_second": "MinVideoBitsPerSecond",
         "stream_order": "StreamOrder",
@@ -658,8 +624,6 @@ class OriginEndpoint(CloudFormationResource):
 
 @dataclass
 class CmafEncryption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "speke_key_provider": "SpekeKeyProvider",
     }
@@ -669,8 +633,6 @@ class CmafEncryption(PropertyType):
 
 @dataclass
 class CmafPackage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "segment_duration_seconds": "SegmentDurationSeconds",
         "encryption": "Encryption",
@@ -686,8 +648,6 @@ class CmafPackage(PropertyType):
 
 @dataclass
 class DashEncryption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "speke_key_provider": "SpekeKeyProvider",
     }
@@ -697,8 +657,6 @@ class DashEncryption(PropertyType):
 
 @dataclass
 class DashManifest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scte_markers_source": "ScteMarkersSource",
         "manifest_name": "ManifestName",
@@ -718,8 +676,6 @@ class DashManifest(PropertyType):
 
 @dataclass
 class DashPackage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "period_triggers": "PeriodTriggers",
         "include_iframe_only_stream": "IncludeIframeOnlyStream",
@@ -741,8 +697,6 @@ class DashPackage(PropertyType):
 
 @dataclass
 class EncryptionContractConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "preset_speke20_audio": "PresetSpeke20Audio",
         "preset_speke20_video": "PresetSpeke20Video",
@@ -754,8 +708,6 @@ class EncryptionContractConfiguration(PropertyType):
 
 @dataclass
 class HlsEncryption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "constant_initialization_vector": "ConstantInitializationVector",
         "speke_key_provider": "SpekeKeyProvider",
@@ -769,8 +721,6 @@ class HlsEncryption(PropertyType):
 
 @dataclass
 class HlsManifest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ad_markers": "AdMarkers",
         "manifest_name": "ManifestName",
@@ -790,8 +740,6 @@ class HlsManifest(PropertyType):
 
 @dataclass
 class HlsPackage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "use_audio_rendition_group": "UseAudioRenditionGroup",
         "segment_duration_seconds": "SegmentDurationSeconds",
@@ -809,8 +757,6 @@ class HlsPackage(PropertyType):
 
 @dataclass
 class MssEncryption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "speke_key_provider": "SpekeKeyProvider",
     }
@@ -820,8 +766,6 @@ class MssEncryption(PropertyType):
 
 @dataclass
 class MssManifest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "manifest_name": "ManifestName",
         "stream_selection": "StreamSelection",
@@ -833,8 +777,6 @@ class MssManifest(PropertyType):
 
 @dataclass
 class MssPackage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mss_manifests": "MssManifests",
         "segment_duration_seconds": "SegmentDurationSeconds",
@@ -848,8 +790,6 @@ class MssPackage(PropertyType):
 
 @dataclass
 class SpekeKeyProvider(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "system_ids": "SystemIds",
         "encryption_contract_configuration": "EncryptionContractConfiguration",
@@ -865,8 +805,6 @@ class SpekeKeyProvider(PropertyType):
 
 @dataclass
 class StreamSelection(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_video_bits_per_second": "MinVideoBitsPerSecond",
         "stream_order": "StreamOrder",
@@ -911,8 +849,6 @@ class PackagingConfiguration(CloudFormationResource):
 
 @dataclass
 class Authorization(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secrets_role_arn": "SecretsRoleArn",
         "cdn_identifier_secret": "CdnIdentifierSecret",
@@ -924,8 +860,6 @@ class Authorization(PropertyType):
 
 @dataclass
 class LogConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group_name": "LogGroupName",
     }

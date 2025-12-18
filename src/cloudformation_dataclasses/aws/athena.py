@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:45
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Athena
@@ -307,8 +307,6 @@ DISABLED = WorkGroupState.DISABLED
 
 @dataclass
 class CapacityAssignment(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ath"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "workgroup_names": "WorkgroupNames",
     }
@@ -318,8 +316,6 @@ class CapacityAssignment(PropertyType):
 
 @dataclass
 class CapacityAssignmentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ath"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_assignments": "CapacityAssignments",
     }
@@ -447,8 +443,6 @@ class PreparedStatement(CloudFormationResource):
 
 @dataclass
 class AclConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ath"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_acl_option": "S3AclOption",
     }
@@ -458,8 +452,6 @@ class AclConfiguration(PropertyType):
 
 @dataclass
 class Classification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ath"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "properties": "Properties",
         "name": "Name",
@@ -471,8 +463,6 @@ class Classification(PropertyType):
 
 @dataclass
 class CloudWatchLoggingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ath"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group": "LogGroup",
         "enabled": "Enabled",
@@ -488,8 +478,6 @@ class CloudWatchLoggingConfiguration(PropertyType):
 
 @dataclass
 class CustomerContentEncryptionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ath"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key": "KmsKey",
     }
@@ -499,8 +487,6 @@ class CustomerContentEncryptionConfiguration(PropertyType):
 
 @dataclass
 class EncryptionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ath"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_option": "EncryptionOption",
         "kms_key": "KmsKey",
@@ -512,8 +498,6 @@ class EncryptionConfiguration(PropertyType):
 
 @dataclass
 class EngineConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ath"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "spark_properties": "SparkProperties",
         "classifications": "Classifications",
@@ -533,8 +517,6 @@ class EngineConfiguration(PropertyType):
 
 @dataclass
 class EngineVersion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ath"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "selected_engine_version": "SelectedEngineVersion",
         "effective_engine_version": "EffectiveEngineVersion",
@@ -546,8 +528,6 @@ class EngineVersion(PropertyType):
 
 @dataclass
 class ManagedLoggingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ath"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "kms_key": "KmsKey",
@@ -559,8 +539,6 @@ class ManagedLoggingConfiguration(PropertyType):
 
 @dataclass
 class ManagedQueryResultsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ath"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_configuration": "EncryptionConfiguration",
         "enabled": "Enabled",
@@ -572,8 +550,6 @@ class ManagedQueryResultsConfiguration(PropertyType):
 
 @dataclass
 class ManagedStorageEncryptionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ath"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key": "KmsKey",
     }
@@ -583,8 +559,6 @@ class ManagedStorageEncryptionConfiguration(PropertyType):
 
 @dataclass
 class MonitoringConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ath"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_logging_configuration": "S3LoggingConfiguration",
         "managed_logging_configuration": "ManagedLoggingConfiguration",
@@ -598,8 +572,6 @@ class MonitoringConfiguration(PropertyType):
 
 @dataclass
 class ResultConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ath"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_configuration": "EncryptionConfiguration",
         "output_location": "OutputLocation",
@@ -615,8 +587,6 @@ class ResultConfiguration(PropertyType):
 
 @dataclass
 class S3LoggingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ath"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_location": "LogLocation",
         "enabled": "Enabled",
@@ -630,8 +600,6 @@ class S3LoggingConfiguration(PropertyType):
 
 @dataclass
 class WorkGroupConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ath"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enforce_work_group_configuration": "EnforceWorkGroupConfiguration",
         "engine_version": "EngineVersion",

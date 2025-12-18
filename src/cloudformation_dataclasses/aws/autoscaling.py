@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:45
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AutoScaling
@@ -455,8 +455,6 @@ PENDINGDELETE = WarmPoolStatus.PENDINGDELETE
 
 @dataclass
 class AcceleratorCountRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -468,8 +466,6 @@ class AcceleratorCountRequest(PropertyType):
 
 @dataclass
 class AcceleratorTotalMemoryMiBRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -481,8 +477,6 @@ class AcceleratorTotalMemoryMiBRequest(PropertyType):
 
 @dataclass
 class AvailabilityZoneDistribution(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_distribution_strategy": "CapacityDistributionStrategy",
     }
@@ -492,8 +486,6 @@ class AvailabilityZoneDistribution(PropertyType):
 
 @dataclass
 class AvailabilityZoneImpairmentPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "zonal_shift_enabled": "ZonalShiftEnabled",
         "impaired_zone_health_check_behavior": "ImpairedZoneHealthCheckBehavior",
@@ -505,8 +497,6 @@ class AvailabilityZoneImpairmentPolicy(PropertyType):
 
 @dataclass
 class BaselineEbsBandwidthMbpsRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -518,8 +508,6 @@ class BaselineEbsBandwidthMbpsRequest(PropertyType):
 
 @dataclass
 class BaselinePerformanceFactorsRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cpu": "Cpu",
     }
@@ -529,8 +517,6 @@ class BaselinePerformanceFactorsRequest(PropertyType):
 
 @dataclass
 class CapacityReservationSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_reservation_preference": "CapacityReservationPreference",
         "capacity_reservation_target": "CapacityReservationTarget",
@@ -542,8 +528,6 @@ class CapacityReservationSpecification(PropertyType):
 
 @dataclass
 class CapacityReservationTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_reservation_ids": "CapacityReservationIds",
         "capacity_reservation_resource_group_arns": "CapacityReservationResourceGroupArns",
@@ -555,8 +539,6 @@ class CapacityReservationTarget(PropertyType):
 
 @dataclass
 class CpuPerformanceFactorRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "references": "References",
     }
@@ -566,8 +548,6 @@ class CpuPerformanceFactorRequest(PropertyType):
 
 @dataclass
 class InstanceMaintenancePolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_healthy_percentage": "MaxHealthyPercentage",
         "min_healthy_percentage": "MinHealthyPercentage",
@@ -579,8 +559,6 @@ class InstanceMaintenancePolicy(PropertyType):
 
 @dataclass
 class InstanceRequirements(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_generations": "InstanceGenerations",
         "accelerator_types": "AcceleratorTypes",
@@ -638,8 +616,6 @@ class InstanceRequirements(PropertyType):
 
 @dataclass
 class InstancesDistribution(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_demand_allocation_strategy": "OnDemandAllocationStrategy",
         "on_demand_base_capacity": "OnDemandBaseCapacity",
@@ -659,8 +635,6 @@ class InstancesDistribution(PropertyType):
 
 @dataclass
 class LaunchTemplate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "launch_template_specification": "LaunchTemplateSpecification",
         "overrides": "Overrides",
@@ -672,8 +646,6 @@ class LaunchTemplate(PropertyType):
 
 @dataclass
 class LaunchTemplateOverrides(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "launch_template_specification": "LaunchTemplateSpecification",
         "weighted_capacity": "WeightedCapacity",
@@ -689,8 +661,6 @@ class LaunchTemplateOverrides(PropertyType):
 
 @dataclass
 class LaunchTemplateSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "launch_template_name": "LaunchTemplateName",
         "version": "Version",
@@ -704,8 +674,6 @@ class LaunchTemplateSpecification(PropertyType):
 
 @dataclass
 class LifecycleHookSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lifecycle_hook_name": "LifecycleHookName",
         "lifecycle_transition": "LifecycleTransition",
@@ -727,8 +695,6 @@ class LifecycleHookSpecification(PropertyType):
 
 @dataclass
 class MemoryGiBPerVCpuRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -740,8 +706,6 @@ class MemoryGiBPerVCpuRequest(PropertyType):
 
 @dataclass
 class MemoryMiBRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -753,8 +717,6 @@ class MemoryMiBRequest(PropertyType):
 
 @dataclass
 class MetricsCollection(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metrics": "Metrics",
         "granularity": "Granularity",
@@ -766,8 +728,6 @@ class MetricsCollection(PropertyType):
 
 @dataclass
 class MixedInstancesPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instances_distribution": "InstancesDistribution",
         "launch_template": "LaunchTemplate",
@@ -779,8 +739,6 @@ class MixedInstancesPolicy(PropertyType):
 
 @dataclass
 class NetworkBandwidthGbpsRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -792,8 +750,6 @@ class NetworkBandwidthGbpsRequest(PropertyType):
 
 @dataclass
 class NetworkInterfaceCountRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -805,8 +761,6 @@ class NetworkInterfaceCountRequest(PropertyType):
 
 @dataclass
 class NotificationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topic_arn": "TopicARN",
         "notification_types": "NotificationTypes",
@@ -818,8 +772,6 @@ class NotificationConfiguration(PropertyType):
 
 @dataclass
 class PerformanceFactorReferenceRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_family": "InstanceFamily",
     }
@@ -829,8 +781,6 @@ class PerformanceFactorReferenceRequest(PropertyType):
 
 @dataclass
 class TagProperty(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -844,8 +794,6 @@ class TagProperty(PropertyType):
 
 @dataclass
 class TotalLocalStorageGBRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -857,8 +805,6 @@ class TotalLocalStorageGBRequest(PropertyType):
 
 @dataclass
 class TrafficSourceIdentifier(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "identifier": "Identifier",
@@ -870,8 +816,6 @@ class TrafficSourceIdentifier(PropertyType):
 
 @dataclass
 class VCpuCountRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -968,8 +912,6 @@ class AutoScalingGroup(CloudFormationResource):
 
 @dataclass
 class BlockDevice(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "snapshot_id": "SnapshotId",
         "volume_type": "VolumeType",
@@ -991,8 +933,6 @@ class BlockDevice(PropertyType):
 
 @dataclass
 class BlockDeviceMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ebs": "Ebs",
         "no_device": "NoDevice",
@@ -1008,8 +948,6 @@ class BlockDeviceMapping(PropertyType):
 
 @dataclass
 class MetadataOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "http_put_response_hop_limit": "HttpPutResponseHopLimit",
         "http_tokens": "HttpTokens",
@@ -1099,8 +1037,6 @@ class LifecycleHook(CloudFormationResource):
 
 @dataclass
 class CustomizedMetricSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "metrics": "Metrics",
@@ -1122,8 +1058,6 @@ class CustomizedMetricSpecification(PropertyType):
 
 @dataclass
 class Metric(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "dimensions": "Dimensions",
@@ -1137,8 +1071,6 @@ class Metric(PropertyType):
 
 @dataclass
 class MetricDataQuery(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "return_data": "ReturnData",
         "expression": "Expression",
@@ -1156,8 +1088,6 @@ class MetricDataQuery(PropertyType):
 
 @dataclass
 class MetricDimension(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -1169,8 +1099,6 @@ class MetricDimension(PropertyType):
 
 @dataclass
 class MetricStat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stat": "Stat",
         "metric": "Metric",
@@ -1184,8 +1112,6 @@ class MetricStat(PropertyType):
 
 @dataclass
 class PredefinedMetricSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "predefined_metric_type": "PredefinedMetricType",
         "resource_label": "ResourceLabel",
@@ -1197,8 +1123,6 @@ class PredefinedMetricSpecification(PropertyType):
 
 @dataclass
 class PredictiveScalingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_capacity_breach_behavior": "MaxCapacityBreachBehavior",
         "max_capacity_buffer": "MaxCapacityBuffer",
@@ -1216,8 +1140,6 @@ class PredictiveScalingConfiguration(PropertyType):
 
 @dataclass
 class PredictiveScalingCustomizedCapacityMetric(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_data_queries": "MetricDataQueries",
     }
@@ -1227,8 +1149,6 @@ class PredictiveScalingCustomizedCapacityMetric(PropertyType):
 
 @dataclass
 class PredictiveScalingCustomizedLoadMetric(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_data_queries": "MetricDataQueries",
     }
@@ -1238,8 +1158,6 @@ class PredictiveScalingCustomizedLoadMetric(PropertyType):
 
 @dataclass
 class PredictiveScalingCustomizedScalingMetric(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_data_queries": "MetricDataQueries",
     }
@@ -1249,8 +1167,6 @@ class PredictiveScalingCustomizedScalingMetric(PropertyType):
 
 @dataclass
 class PredictiveScalingMetricSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "customized_load_metric_specification": "CustomizedLoadMetricSpecification",
         "predefined_load_metric_specification": "PredefinedLoadMetricSpecification",
@@ -1272,8 +1188,6 @@ class PredictiveScalingMetricSpecification(PropertyType):
 
 @dataclass
 class PredictiveScalingPredefinedLoadMetric(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "predefined_metric_type": "PredefinedMetricType",
         "resource_label": "ResourceLabel",
@@ -1285,8 +1199,6 @@ class PredictiveScalingPredefinedLoadMetric(PropertyType):
 
 @dataclass
 class PredictiveScalingPredefinedMetricPair(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "predefined_metric_type": "PredefinedMetricType",
         "resource_label": "ResourceLabel",
@@ -1298,8 +1210,6 @@ class PredictiveScalingPredefinedMetricPair(PropertyType):
 
 @dataclass
 class PredictiveScalingPredefinedScalingMetric(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "predefined_metric_type": "PredefinedMetricType",
         "resource_label": "ResourceLabel",
@@ -1311,8 +1221,6 @@ class PredictiveScalingPredefinedScalingMetric(PropertyType):
 
 @dataclass
 class StepAdjustment(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_interval_upper_bound": "MetricIntervalUpperBound",
         "metric_interval_lower_bound": "MetricIntervalLowerBound",
@@ -1326,8 +1234,6 @@ class StepAdjustment(PropertyType):
 
 @dataclass
 class TargetTrackingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_value": "TargetValue",
         "customized_metric_specification": "CustomizedMetricSpecification",
@@ -1343,8 +1249,6 @@ class TargetTrackingConfiguration(PropertyType):
 
 @dataclass
 class TargetTrackingMetricDataQuery(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "return_data": "ReturnData",
         "expression": "Expression",
@@ -1364,8 +1268,6 @@ class TargetTrackingMetricDataQuery(PropertyType):
 
 @dataclass
 class TargetTrackingMetricStat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stat": "Stat",
         "period": "Period",
@@ -1458,8 +1360,6 @@ class ScheduledAction(CloudFormationResource):
 
 @dataclass
 class InstanceReusePolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "reuse_on_scale_in": "ReuseOnScaleIn",
     }

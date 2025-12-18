@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:45
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AmazonMQ
@@ -152,8 +152,6 @@ INVALID_ATTRIBUTE_VALUE_REMOVED = SanitizationWarningReason.INVALID_ATTRIBUTE_VA
 
 @dataclass
 class ConfigurationId(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ama"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "revision": "Revision",
         "id": "Id",
@@ -165,8 +163,6 @@ class ConfigurationId(PropertyType):
 
 @dataclass
 class EncryptionOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ama"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
         "use_aws_owned_key": "UseAwsOwnedKey",
@@ -178,8 +174,6 @@ class EncryptionOptions(PropertyType):
 
 @dataclass
 class LdapServerMetadata(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ama"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hosts": "Hosts",
         "user_role_name": "UserRoleName",
@@ -209,8 +203,6 @@ class LdapServerMetadata(PropertyType):
 
 @dataclass
 class LogList(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ama"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audit": "Audit",
         "general": "General",
@@ -222,8 +214,6 @@ class LogList(PropertyType):
 
 @dataclass
 class MaintenanceWindow(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ama"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "day_of_week": "DayOfWeek",
         "time_of_day": "TimeOfDay",
@@ -237,8 +227,6 @@ class MaintenanceWindow(PropertyType):
 
 @dataclass
 class TagsEntry(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ama"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -250,8 +238,6 @@ class TagsEntry(PropertyType):
 
 @dataclass
 class User(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ama"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "replication_user": "ReplicationUser",
         "username": "Username",
@@ -381,8 +367,6 @@ class Broker(CloudFormationResource):
 
 @dataclass
 class TagsEntry(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ama"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -435,8 +419,6 @@ class Configuration(CloudFormationResource):
 
 @dataclass
 class ConfigurationId(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ama"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "revision": "Revision",
         "id": "Id",

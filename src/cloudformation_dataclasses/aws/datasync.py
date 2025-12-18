@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DataSync
@@ -535,8 +535,6 @@ class Agent(CloudFormationResource):
 
 @dataclass
 class AzureBlobSasConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "azure_blob_sas_token": "AzureBlobSasToken",
     }
@@ -546,8 +544,6 @@ class AzureBlobSasConfiguration(PropertyType):
 
 @dataclass
 class CmkSecretConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "kms_key_arn": "KmsKeyArn",
@@ -559,8 +555,6 @@ class CmkSecretConfig(PropertyType):
 
 @dataclass
 class CustomSecretConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "secret_access_role_arn": "SecretAccessRoleArn",
@@ -572,8 +566,6 @@ class CustomSecretConfig(PropertyType):
 
 @dataclass
 class ManagedSecretConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
     }
@@ -640,8 +632,6 @@ class LocationAzureBlob(CloudFormationResource):
 
 @dataclass
 class Ec2Config(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnet_arn": "SubnetArn",
         "security_group_arns": "SecurityGroupArns",
@@ -719,8 +709,6 @@ class LocationFSxLustre(CloudFormationResource):
 
 @dataclass
 class NFS(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mount_options": "MountOptions",
     }
@@ -730,8 +718,6 @@ class NFS(PropertyType):
 
 @dataclass
 class NfsMountOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
     }
@@ -741,8 +727,6 @@ class NfsMountOptions(PropertyType):
 
 @dataclass
 class Protocol(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "smb": "SMB",
         "nfs": "NFS",
@@ -754,8 +738,6 @@ class Protocol(PropertyType):
 
 @dataclass
 class SMB(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user": "User",
         "domain": "Domain",
@@ -771,8 +753,6 @@ class SMB(PropertyType):
 
 @dataclass
 class SmbMountOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
     }
@@ -819,8 +799,6 @@ class LocationFSxONTAP(CloudFormationResource):
 
 @dataclass
 class MountOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
     }
@@ -830,8 +808,6 @@ class MountOptions(PropertyType):
 
 @dataclass
 class NFS(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mount_options": "MountOptions",
     }
@@ -841,8 +817,6 @@ class NFS(PropertyType):
 
 @dataclass
 class Protocol(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "nfs": "NFS",
     }
@@ -920,8 +894,6 @@ class LocationFSxWindows(CloudFormationResource):
 
 @dataclass
 class NameNode(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "hostname": "Hostname",
@@ -933,8 +905,6 @@ class NameNode(PropertyType):
 
 @dataclass
 class QopConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rpc_protection": "RpcProtection",
         "data_transfer_protection": "DataTransferProtection",
@@ -994,8 +964,6 @@ class LocationHDFS(CloudFormationResource):
 
 @dataclass
 class MountOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
     }
@@ -1005,8 +973,6 @@ class MountOptions(PropertyType):
 
 @dataclass
 class OnPremConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "agent_arns": "AgentArns",
     }
@@ -1048,8 +1014,6 @@ class LocationNFS(CloudFormationResource):
 
 @dataclass
 class CmkSecretConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "kms_key_arn": "KmsKeyArn",
@@ -1061,8 +1025,6 @@ class CmkSecretConfig(PropertyType):
 
 @dataclass
 class CustomSecretConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "secret_access_role_arn": "SecretAccessRoleArn",
@@ -1074,8 +1036,6 @@ class CustomSecretConfig(PropertyType):
 
 @dataclass
 class ManagedSecretConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
     }
@@ -1146,8 +1106,6 @@ class LocationObjectStorage(CloudFormationResource):
 
 @dataclass
 class S3Config(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_access_role_arn": "BucketAccessRoleArn",
     }
@@ -1189,8 +1147,6 @@ class LocationS3(CloudFormationResource):
 
 @dataclass
 class CmkSecretConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "kms_key_arn": "KmsKeyArn",
@@ -1202,8 +1158,6 @@ class CmkSecretConfig(PropertyType):
 
 @dataclass
 class CustomSecretConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "secret_access_role_arn": "SecretAccessRoleArn",
@@ -1215,8 +1169,6 @@ class CustomSecretConfig(PropertyType):
 
 @dataclass
 class ManagedSecretConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
     }
@@ -1226,8 +1178,6 @@ class ManagedSecretConfig(PropertyType):
 
 @dataclass
 class MountOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
     }
@@ -1304,8 +1254,6 @@ class LocationSMB(CloudFormationResource):
 
 @dataclass
 class Deleted(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "report_level": "ReportLevel",
     }
@@ -1315,8 +1263,6 @@ class Deleted(PropertyType):
 
 @dataclass
 class Destination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
     }
@@ -1326,8 +1272,6 @@ class Destination(PropertyType):
 
 @dataclass
 class FilterRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_type": "FilterType",
         "value": "Value",
@@ -1339,8 +1283,6 @@ class FilterRule(PropertyType):
 
 @dataclass
 class ManifestConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "format": "Format",
@@ -1354,8 +1296,6 @@ class ManifestConfig(PropertyType):
 
 @dataclass
 class ManifestConfigSourceS3(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_bucket_arn": "S3BucketArn",
         "bucket_access_role_arn": "BucketAccessRoleArn",
@@ -1371,8 +1311,6 @@ class ManifestConfigSourceS3(PropertyType):
 
 @dataclass
 class Options(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "verify_mode": "VerifyMode",
         "gid": "Gid",
@@ -1410,8 +1348,6 @@ class Options(PropertyType):
 
 @dataclass
 class Overrides(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "verified": "Verified",
         "skipped": "Skipped",
@@ -1427,8 +1363,6 @@ class Overrides(PropertyType):
 
 @dataclass
 class Skipped(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "report_level": "ReportLevel",
     }
@@ -1438,8 +1372,6 @@ class Skipped(PropertyType):
 
 @dataclass
 class Source(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
     }
@@ -1449,8 +1381,6 @@ class Source(PropertyType):
 
 @dataclass
 class TaskReportConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "report_level": "ReportLevel",
@@ -1468,8 +1398,6 @@ class TaskReportConfig(PropertyType):
 
 @dataclass
 class TaskReportConfigDestinationS3(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subdirectory": "Subdirectory",
         "s3_bucket_arn": "S3BucketArn",
@@ -1483,8 +1411,6 @@ class TaskReportConfigDestinationS3(PropertyType):
 
 @dataclass
 class TaskSchedule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "schedule_expression": "ScheduleExpression",
@@ -1496,8 +1422,6 @@ class TaskSchedule(PropertyType):
 
 @dataclass
 class Transferred(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "report_level": "ReportLevel",
     }
@@ -1507,8 +1431,6 @@ class Transferred(PropertyType):
 
 @dataclass
 class Verified(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "report_level": "ReportLevel",
     }

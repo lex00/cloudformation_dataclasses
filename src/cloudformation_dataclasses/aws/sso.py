@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SSO
@@ -234,8 +234,6 @@ KMS_DISABLEDEXCEPTION = ValidationExceptionReason.KMS_DISABLEDEXCEPTION
 
 @dataclass
 class PortalOptionsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sign_in_options": "SignInOptions",
         "visibility": "Visibility",
@@ -247,8 +245,6 @@ class PortalOptionsConfiguration(PropertyType):
 
 @dataclass
 class SignInOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "origin": "Origin",
         "application_url": "ApplicationUrl",
@@ -367,8 +363,6 @@ class Instance(CloudFormationResource):
 
 @dataclass
 class AccessControlAttribute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -380,8 +374,6 @@ class AccessControlAttribute(PropertyType):
 
 @dataclass
 class AccessControlAttributeValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source": "Source",
     }
@@ -406,8 +398,6 @@ class InstanceAccessControlAttributeConfiguration(CloudFormationResource):
 
 @dataclass
 class CustomerManagedPolicyReference(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "name": "Name",
@@ -419,8 +409,6 @@ class CustomerManagedPolicyReference(PropertyType):
 
 @dataclass
 class PermissionsBoundary(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "customer_managed_policy_reference": "CustomerManagedPolicyReference",
         "managed_policy_arn": "ManagedPolicyArn",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DataBrew
@@ -267,8 +267,6 @@ CHECK_ALL = ValidationMode.CHECK_ALL
 
 @dataclass
 class CsvOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delimiter": "Delimiter",
         "header_row": "HeaderRow",
@@ -280,8 +278,6 @@ class CsvOptions(PropertyType):
 
 @dataclass
 class DataCatalogInputDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "temp_directory": "TempDirectory",
@@ -297,8 +293,6 @@ class DataCatalogInputDefinition(PropertyType):
 
 @dataclass
 class DatabaseInputDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "temp_directory": "TempDirectory",
         "query_string": "QueryString",
@@ -314,8 +308,6 @@ class DatabaseInputDefinition(PropertyType):
 
 @dataclass
 class DatasetParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "datetime_options": "DatetimeOptions",
@@ -333,8 +325,6 @@ class DatasetParameter(PropertyType):
 
 @dataclass
 class DatetimeOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "locale_code": "LocaleCode",
         "format": "Format",
@@ -348,8 +338,6 @@ class DatetimeOptions(PropertyType):
 
 @dataclass
 class ExcelOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header_row": "HeaderRow",
         "sheet_names": "SheetNames",
@@ -363,8 +351,6 @@ class ExcelOptions(PropertyType):
 
 @dataclass
 class FilesLimit(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "order": "Order",
         "ordered_by": "OrderedBy",
@@ -378,8 +364,6 @@ class FilesLimit(PropertyType):
 
 @dataclass
 class FilterExpression(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "values_map": "ValuesMap",
@@ -391,8 +375,6 @@ class FilterExpression(PropertyType):
 
 @dataclass
 class FilterValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "value_reference": "ValueReference",
@@ -404,8 +386,6 @@ class FilterValue(PropertyType):
 
 @dataclass
 class FormatOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "excel": "Excel",
         "csv": "Csv",
@@ -419,8 +399,6 @@ class FormatOptions(PropertyType):
 
 @dataclass
 class Input(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "database_input_definition": "DatabaseInputDefinition",
         "s3_input_definition": "S3InputDefinition",
@@ -436,8 +414,6 @@ class Input(PropertyType):
 
 @dataclass
 class JsonOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "multi_line": "MultiLine",
     }
@@ -447,8 +423,6 @@ class JsonOptions(PropertyType):
 
 @dataclass
 class Metadata(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_arn": "SourceArn",
     }
@@ -458,8 +432,6 @@ class Metadata(PropertyType):
 
 @dataclass
 class PathOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameters": "Parameters",
         "last_modified_date_condition": "LastModifiedDateCondition",
@@ -473,8 +445,6 @@ class PathOptions(PropertyType):
 
 @dataclass
 class PathParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path_parameter_name": "PathParameterName",
         "dataset_parameter": "DatasetParameter",
@@ -486,8 +456,6 @@ class PathParameter(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "bucket_owner": "BucketOwner",
@@ -526,8 +494,6 @@ class Dataset(CloudFormationResource):
 
 @dataclass
 class AllowedStatistics(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "statistics": "Statistics",
     }
@@ -537,8 +503,6 @@ class AllowedStatistics(PropertyType):
 
 @dataclass
 class ColumnSelector(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "regex": "Regex",
         "name": "Name",
@@ -550,8 +514,6 @@ class ColumnSelector(PropertyType):
 
 @dataclass
 class ColumnStatisticsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "statistics": "Statistics",
         "selectors": "Selectors",
@@ -563,8 +525,6 @@ class ColumnStatisticsConfiguration(PropertyType):
 
 @dataclass
 class CsvOutputOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delimiter": "Delimiter",
     }
@@ -574,8 +534,6 @@ class CsvOutputOptions(PropertyType):
 
 @dataclass
 class DataCatalogOutput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "overwrite": "Overwrite",
@@ -595,8 +553,6 @@ class DataCatalogOutput(PropertyType):
 
 @dataclass
 class DatabaseOutput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "database_output_mode": "DatabaseOutputMode",
         "database_options": "DatabaseOptions",
@@ -610,8 +566,6 @@ class DatabaseOutput(PropertyType):
 
 @dataclass
 class DatabaseTableOutputOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "temp_directory": "TempDirectory",
         "table_name": "TableName",
@@ -623,8 +577,6 @@ class DatabaseTableOutputOptions(PropertyType):
 
 @dataclass
 class EntityDetectorConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entity_types": "EntityTypes",
         "allowed_statistics": "AllowedStatistics",
@@ -636,8 +588,6 @@ class EntityDetectorConfiguration(PropertyType):
 
 @dataclass
 class JobSample(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "size": "Size",
         "mode": "Mode",
@@ -649,8 +599,6 @@ class JobSample(PropertyType):
 
 @dataclass
 class Output(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "overwrite": "Overwrite",
         "format": "Format",
@@ -672,8 +620,6 @@ class Output(PropertyType):
 
 @dataclass
 class OutputFormatOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "csv": "Csv",
     }
@@ -683,8 +629,6 @@ class OutputFormatOptions(PropertyType):
 
 @dataclass
 class OutputLocation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "bucket_owner": "BucketOwner",
@@ -698,8 +642,6 @@ class OutputLocation(PropertyType):
 
 @dataclass
 class ProfileConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "profile_columns": "ProfileColumns",
         "dataset_statistics_configuration": "DatasetStatisticsConfiguration",
@@ -715,8 +657,6 @@ class ProfileConfiguration(PropertyType):
 
 @dataclass
 class Recipe(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
         "name": "Name",
@@ -728,8 +668,6 @@ class Recipe(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "bucket_owner": "BucketOwner",
@@ -743,8 +681,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class S3TableOutputOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "location": "Location",
     }
@@ -754,8 +690,6 @@ class S3TableOutputOptions(PropertyType):
 
 @dataclass
 class StatisticOverride(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameters": "Parameters",
         "statistic": "Statistic",
@@ -767,8 +701,6 @@ class StatisticOverride(PropertyType):
 
 @dataclass
 class StatisticsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "included_statistics": "IncludedStatistics",
         "overrides": "Overrides",
@@ -780,8 +712,6 @@ class StatisticsConfiguration(PropertyType):
 
 @dataclass
 class ValidationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ruleset_arn": "RulesetArn",
         "validation_mode": "ValidationMode",
@@ -844,8 +774,6 @@ class Job(CloudFormationResource):
 
 @dataclass
 class Sample(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "size": "Size",
@@ -880,8 +808,6 @@ class Project(CloudFormationResource):
 
 @dataclass
 class Action(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameters": "Parameters",
         "operation": "Operation",
@@ -893,8 +819,6 @@ class Action(PropertyType):
 
 @dataclass
 class ConditionExpression(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "value": "Value",
@@ -908,8 +832,6 @@ class ConditionExpression(PropertyType):
 
 @dataclass
 class DataCatalogInputDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "temp_directory": "TempDirectory",
@@ -925,8 +847,6 @@ class DataCatalogInputDefinition(PropertyType):
 
 @dataclass
 class Input(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_input_definition": "S3InputDefinition",
         "data_catalog_input_definition": "DataCatalogInputDefinition",
@@ -938,8 +858,6 @@ class Input(PropertyType):
 
 @dataclass
 class RecipeParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ignore_case": "IgnoreCase",
         "pattern_options": "PatternOptions",
@@ -1149,8 +1067,6 @@ class RecipeParameters(PropertyType):
 
 @dataclass
 class RecipeStep(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "condition_expressions": "ConditionExpressions",
@@ -1162,8 +1078,6 @@ class RecipeStep(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "key": "Key",
@@ -1175,8 +1089,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class SecondaryInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_input_definition": "S3InputDefinition",
         "data_catalog_input_definition": "DataCatalogInputDefinition",
@@ -1207,8 +1119,6 @@ class Recipe(CloudFormationResource):
 
 @dataclass
 class ColumnSelector(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "regex": "Regex",
         "name": "Name",
@@ -1220,8 +1130,6 @@ class ColumnSelector(PropertyType):
 
 @dataclass
 class Rule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_selectors": "ColumnSelectors",
         "disabled": "Disabled",
@@ -1241,8 +1149,6 @@ class Rule(PropertyType):
 
 @dataclass
 class SubstitutionValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "value_reference": "ValueReference",
@@ -1254,8 +1160,6 @@ class SubstitutionValue(PropertyType):
 
 @dataclass
 class Threshold(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",

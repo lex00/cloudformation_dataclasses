@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SSM
@@ -1480,8 +1480,6 @@ CANCEL = StopType.CANCEL
 
 @dataclass
 class InstanceAssociationOutputLocation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_location": "S3Location",
     }
@@ -1491,8 +1489,6 @@ class InstanceAssociationOutputLocation(PropertyType):
 
 @dataclass
 class S3OutputLocation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "output_s3_key_prefix": "OutputS3KeyPrefix",
         "output_s3_region": "OutputS3Region",
@@ -1506,8 +1502,6 @@ class S3OutputLocation(PropertyType):
 
 @dataclass
 class Target(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "key": "Key",
@@ -1570,8 +1564,6 @@ class Association(CloudFormationResource):
 
 @dataclass
 class AttachmentsSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "key": "Key",
@@ -1585,8 +1577,6 @@ class AttachmentsSource(PropertyType):
 
 @dataclass
 class DocumentRequires(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
         "name": "Name",
@@ -1662,8 +1652,6 @@ class MaintenanceWindow(CloudFormationResource):
 
 @dataclass
 class Targets(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "key": "Key",
@@ -1698,8 +1686,6 @@ class MaintenanceWindowTarget(CloudFormationResource):
 
 @dataclass
 class CloudWatchOutputConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_output_enabled": "CloudWatchOutputEnabled",
         "cloud_watch_log_group_name": "CloudWatchLogGroupName",
@@ -1711,8 +1697,6 @@ class CloudWatchOutputConfig(PropertyType):
 
 @dataclass
 class LoggingInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_bucket": "S3Bucket",
         "region": "Region",
@@ -1726,8 +1710,6 @@ class LoggingInfo(PropertyType):
 
 @dataclass
 class MaintenanceWindowAutomationParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameters": "Parameters",
         "document_version": "DocumentVersion",
@@ -1739,8 +1721,6 @@ class MaintenanceWindowAutomationParameters(PropertyType):
 
 @dataclass
 class MaintenanceWindowLambdaParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_context": "ClientContext",
         "qualifier": "Qualifier",
@@ -1754,8 +1734,6 @@ class MaintenanceWindowLambdaParameters(PropertyType):
 
 @dataclass
 class MaintenanceWindowRunCommandParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timeout_seconds": "TimeoutSeconds",
         "comment": "Comment",
@@ -1785,8 +1763,6 @@ class MaintenanceWindowRunCommandParameters(PropertyType):
 
 @dataclass
 class MaintenanceWindowStepFunctionsParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input": "Input",
         "name": "Name",
@@ -1798,8 +1774,6 @@ class MaintenanceWindowStepFunctionsParameters(PropertyType):
 
 @dataclass
 class NotificationConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "notification_arn": "NotificationArn",
         "notification_type": "NotificationType",
@@ -1813,8 +1787,6 @@ class NotificationConfig(PropertyType):
 
 @dataclass
 class Target(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "key": "Key",
@@ -1826,8 +1798,6 @@ class Target(PropertyType):
 
 @dataclass
 class TaskInvocationParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maintenance_window_run_command_parameters": "MaintenanceWindowRunCommandParameters",
         "maintenance_window_automation_parameters": "MaintenanceWindowAutomationParameters",
@@ -1922,8 +1892,6 @@ class Parameter(CloudFormationResource):
 
 @dataclass
 class PatchFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "key": "Key",
@@ -1935,8 +1903,6 @@ class PatchFilter(PropertyType):
 
 @dataclass
 class PatchFilterGroup(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "patch_filters": "PatchFilters",
     }
@@ -1946,8 +1912,6 @@ class PatchFilterGroup(PropertyType):
 
 @dataclass
 class PatchSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "products": "Products",
         "configuration": "Configuration",
@@ -1961,8 +1925,6 @@ class PatchSource(PropertyType):
 
 @dataclass
 class Rule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "approve_until_date": "ApproveUntilDate",
         "enable_non_security": "EnableNonSecurity",
@@ -1980,8 +1942,6 @@ class Rule(PropertyType):
 
 @dataclass
 class RuleGroup(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "patch_rules": "PatchRules",
     }
@@ -2038,8 +1998,6 @@ class PatchBaseline(CloudFormationResource):
 
 @dataclass
 class AwsOrganizationsSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "organization_source_type": "OrganizationSourceType",
         "organizational_units": "OrganizationalUnits",
@@ -2051,8 +2009,6 @@ class AwsOrganizationsSource(PropertyType):
 
 @dataclass
 class S3Destination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KMSKeyArn",
         "bucket_name": "BucketName",
@@ -2070,8 +2026,6 @@ class S3Destination(PropertyType):
 
 @dataclass
 class SyncSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_type": "SourceType",
         "aws_organizations_source": "AwsOrganizationsSource",

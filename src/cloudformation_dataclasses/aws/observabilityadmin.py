@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ObservabilityAdmin
@@ -292,8 +292,6 @@ WAF_LOGS = WAFLogType.WAF_LOGS
 
 @dataclass
 class CentralizationRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "source": "Source",
@@ -305,8 +303,6 @@ class CentralizationRule(PropertyType):
 
 @dataclass
 class CentralizationRuleDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account": "Account",
         "destination_logs_configuration": "DestinationLogsConfiguration",
@@ -320,8 +316,6 @@ class CentralizationRuleDestination(PropertyType):
 
 @dataclass
 class CentralizationRuleSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scope": "Scope",
         "source_logs_configuration": "SourceLogsConfiguration",
@@ -335,8 +329,6 @@ class CentralizationRuleSource(PropertyType):
 
 @dataclass
 class DestinationLogsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logs_encryption_configuration": "LogsEncryptionConfiguration",
         "backup_configuration": "BackupConfiguration",
@@ -348,8 +340,6 @@ class DestinationLogsConfiguration(PropertyType):
 
 @dataclass
 class LogsBackupConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
         "region": "Region",
@@ -361,8 +351,6 @@ class LogsBackupConfiguration(PropertyType):
 
 @dataclass
 class LogsEncryptionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
         "encryption_strategy": "EncryptionStrategy",
@@ -376,8 +364,6 @@ class LogsEncryptionConfiguration(PropertyType):
 
 @dataclass
 class SourceLogsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encrypted_log_group_strategy": "EncryptedLogGroupStrategy",
         "log_group_selection_criteria": "LogGroupSelectionCriteria",
@@ -412,8 +398,6 @@ class OrganizationCentralizationRule(CloudFormationResource):
 
 @dataclass
 class ActionCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
     }
@@ -423,8 +407,6 @@ class ActionCondition(PropertyType):
 
 @dataclass
 class AdvancedEventSelector(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_selectors": "FieldSelectors",
         "name": "Name",
@@ -436,8 +418,6 @@ class AdvancedEventSelector(PropertyType):
 
 @dataclass
 class AdvancedFieldSelector(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field": "Field",
         "equals": "Equals",
@@ -459,8 +439,6 @@ class AdvancedFieldSelector(PropertyType):
 
 @dataclass
 class CloudtrailParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "advanced_event_selectors": "AdvancedEventSelectors",
     }
@@ -470,8 +448,6 @@ class CloudtrailParameters(PropertyType):
 
 @dataclass
 class Condition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "label_name_condition": "LabelNameCondition",
         "action_condition": "ActionCondition",
@@ -483,8 +459,6 @@ class Condition(PropertyType):
 
 @dataclass
 class ELBLoadBalancerLoggingParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_delimiter": "FieldDelimiter",
         "output_format": "OutputFormat",
@@ -496,8 +470,6 @@ class ELBLoadBalancerLoggingParameters(PropertyType):
 
 @dataclass
 class FieldToMatch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uri_path": "UriPath",
         "query_string": "QueryString",
@@ -513,8 +485,6 @@ class FieldToMatch(PropertyType):
 
 @dataclass
 class Filter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "requirement": "Requirement",
         "behavior": "Behavior",
@@ -528,8 +498,6 @@ class Filter(PropertyType):
 
 @dataclass
 class LabelNameCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "label_name": "LabelName",
     }
@@ -539,8 +507,6 @@ class LabelNameCondition(PropertyType):
 
 @dataclass
 class LoggingFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filters": "Filters",
         "default_behavior": "DefaultBehavior",
@@ -552,8 +518,6 @@ class LoggingFilter(PropertyType):
 
 @dataclass
 class SingleHeader(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -563,8 +527,6 @@ class SingleHeader(PropertyType):
 
 @dataclass
 class TelemetryDestinationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "retention_in_days": "RetentionInDays",
         "destination_pattern": "DestinationPattern",
@@ -586,8 +548,6 @@ class TelemetryDestinationConfiguration(PropertyType):
 
 @dataclass
 class TelemetryRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "telemetry_source_types": "TelemetrySourceTypes",
         "destination_configuration": "DestinationConfiguration",
@@ -607,8 +567,6 @@ class TelemetryRule(PropertyType):
 
 @dataclass
 class VPCFlowLogParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_format": "LogFormat",
         "max_aggregation_interval": "MaxAggregationInterval",
@@ -622,8 +580,6 @@ class VPCFlowLogParameters(PropertyType):
 
 @dataclass
 class WAFLoggingParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "redacted_fields": "RedactedFields",
         "logging_filter": "LoggingFilter",
@@ -660,8 +616,6 @@ class OrganizationTelemetryRule(CloudFormationResource):
 
 @dataclass
 class EncryptionConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
         "sse_algorithm": "SseAlgorithm",
@@ -673,8 +627,6 @@ class EncryptionConfig(PropertyType):
 
 @dataclass
 class LogSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "identifier": "Identifier",
@@ -713,8 +665,6 @@ class S3TableIntegration(CloudFormationResource):
 
 @dataclass
 class TelemetryPipeline(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "last_update_time_stamp": "LastUpdateTimeStamp",
@@ -738,8 +688,6 @@ class TelemetryPipeline(PropertyType):
 
 @dataclass
 class TelemetryPipelineConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "body": "Body",
     }
@@ -749,8 +697,6 @@ class TelemetryPipelineConfiguration(PropertyType):
 
 @dataclass
 class TelemetryPipelineStatusReason(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
     }
@@ -858,8 +804,6 @@ class TelemetryPipelines(CloudFormationResource):
 
 @dataclass
 class ActionCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
     }
@@ -869,8 +813,6 @@ class ActionCondition(PropertyType):
 
 @dataclass
 class AdvancedEventSelector(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_selectors": "FieldSelectors",
         "name": "Name",
@@ -882,8 +824,6 @@ class AdvancedEventSelector(PropertyType):
 
 @dataclass
 class AdvancedFieldSelector(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field": "Field",
         "equals": "Equals",
@@ -905,8 +845,6 @@ class AdvancedFieldSelector(PropertyType):
 
 @dataclass
 class CloudtrailParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "advanced_event_selectors": "AdvancedEventSelectors",
     }
@@ -916,8 +854,6 @@ class CloudtrailParameters(PropertyType):
 
 @dataclass
 class Condition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "label_name_condition": "LabelNameCondition",
         "action_condition": "ActionCondition",
@@ -929,8 +865,6 @@ class Condition(PropertyType):
 
 @dataclass
 class ELBLoadBalancerLoggingParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_delimiter": "FieldDelimiter",
         "output_format": "OutputFormat",
@@ -942,8 +876,6 @@ class ELBLoadBalancerLoggingParameters(PropertyType):
 
 @dataclass
 class FieldToMatch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uri_path": "UriPath",
         "query_string": "QueryString",
@@ -959,8 +891,6 @@ class FieldToMatch(PropertyType):
 
 @dataclass
 class Filter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "requirement": "Requirement",
         "behavior": "Behavior",
@@ -974,8 +904,6 @@ class Filter(PropertyType):
 
 @dataclass
 class LabelNameCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "label_name": "LabelName",
     }
@@ -985,8 +913,6 @@ class LabelNameCondition(PropertyType):
 
 @dataclass
 class LogDeliveryParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_types": "LogTypes",
     }
@@ -996,8 +922,6 @@ class LogDeliveryParameters(PropertyType):
 
 @dataclass
 class LoggingFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filters": "Filters",
         "default_behavior": "DefaultBehavior",
@@ -1009,8 +933,6 @@ class LoggingFilter(PropertyType):
 
 @dataclass
 class SingleHeader(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -1020,8 +942,6 @@ class SingleHeader(PropertyType):
 
 @dataclass
 class TelemetryDestinationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "retention_in_days": "RetentionInDays",
         "destination_pattern": "DestinationPattern",
@@ -1045,8 +965,6 @@ class TelemetryDestinationConfiguration(PropertyType):
 
 @dataclass
 class TelemetryRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "telemetry_source_types": "TelemetrySourceTypes",
         "destination_configuration": "DestinationConfiguration",
@@ -1064,8 +982,6 @@ class TelemetryRule(PropertyType):
 
 @dataclass
 class VPCFlowLogParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_format": "LogFormat",
         "max_aggregation_interval": "MaxAggregationInterval",
@@ -1079,8 +995,6 @@ class VPCFlowLogParameters(PropertyType):
 
 @dataclass
 class WAFLoggingParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-obs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "redacted_fields": "RedactedFields",
         "logging_filter": "LoggingFilter",

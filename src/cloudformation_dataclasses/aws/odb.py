@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ODB
@@ -329,8 +329,6 @@ SERVICENETWORK = VpcEndpointType.SERVICENETWORK
 
 @dataclass
 class MaintenanceWindow(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "days_of_week": "DaysOfWeek",
         "preference": "Preference",
@@ -534,8 +532,6 @@ class CloudAutonomousVmCluster(CloudFormationResource):
 
 @dataclass
 class CustomerContact(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "email": "Email",
     }
@@ -545,8 +541,6 @@ class CustomerContact(PropertyType):
 
 @dataclass
 class MaintenanceWindow(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_action_timeout_in_mins": "CustomActionTimeoutInMins",
         "days_of_week": "DaysOfWeek",
@@ -711,8 +705,6 @@ class CloudExadataInfrastructure(CloudFormationResource):
 
 @dataclass
 class DataCollectionOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_incident_logs_enabled": "IsIncidentLogsEnabled",
         "is_diagnostics_events_enabled": "IsDiagnosticsEventsEnabled",
@@ -726,8 +718,6 @@ class DataCollectionOptions(PropertyType):
 
 @dataclass
 class DbNode(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "host_ip_id": "HostIpId",
@@ -896,8 +886,6 @@ class CloudVmCluster(CloudFormationResource):
 
 @dataclass
 class ManagedS3BackupAccess(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "ipv4_addresses": "Ipv4Addresses",
@@ -909,8 +897,6 @@ class ManagedS3BackupAccess(PropertyType):
 
 @dataclass
 class ManagedServices(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "managed_services_ipv4_cidrs": "ManagedServicesIpv4Cidrs",
         "resource_gateway_arn": "ResourceGatewayArn",
@@ -932,8 +918,6 @@ class ManagedServices(PropertyType):
 
 @dataclass
 class S3Access(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "ipv4_addresses": "Ipv4Addresses",
@@ -949,8 +933,6 @@ class S3Access(PropertyType):
 
 @dataclass
 class ServiceNetworkEndpoint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_endpoint_type": "VpcEndpointType",
         "vpc_endpoint_id": "VpcEndpointId",
@@ -962,8 +944,6 @@ class ServiceNetworkEndpoint(PropertyType):
 
 @dataclass
 class ZeroEtlAccess(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "cidr": "Cidr",

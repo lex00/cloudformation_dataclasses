@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DataZone
@@ -1278,8 +1278,6 @@ SSO_USER = UserType.SSO_USER
 
 @dataclass
 class AmazonQPropertiesInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_enabled": "IsEnabled",
         "profile_arn": "ProfileArn",
@@ -1293,8 +1291,6 @@ class AmazonQPropertiesInput(PropertyType):
 
 @dataclass
 class AthenaPropertiesInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "workgroup_name": "WorkgroupName",
     }
@@ -1304,8 +1300,6 @@ class AthenaPropertiesInput(PropertyType):
 
 @dataclass
 class AuthenticationConfigurationInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "kms_key_arn": "KmsKeyArn",
@@ -1325,8 +1319,6 @@ class AuthenticationConfigurationInput(PropertyType):
 
 @dataclass
 class AuthorizationCodeProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authorization_code": "AuthorizationCode",
         "redirect_uri": "RedirectUri",
@@ -1338,8 +1330,6 @@ class AuthorizationCodeProperties(PropertyType):
 
 @dataclass
 class AwsLocation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_region": "AwsRegion",
         "access_role": "AccessRole",
@@ -1355,8 +1345,6 @@ class AwsLocation(PropertyType):
 
 @dataclass
 class BasicAuthenticationCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_name": "UserName",
         "password": "Password",
@@ -1368,8 +1356,6 @@ class BasicAuthenticationCredentials(PropertyType):
 
 @dataclass
 class ConnectionPropertiesInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "amazon_q_properties": "AmazonQProperties",
         "iam_properties": "IamProperties",
@@ -1397,8 +1383,6 @@ class ConnectionPropertiesInput(PropertyType):
 
 @dataclass
 class GlueConnectionInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "python_properties": "PythonProperties",
         "authentication_configuration": "AuthenticationConfiguration",
@@ -1430,8 +1414,6 @@ class GlueConnectionInput(PropertyType):
 
 @dataclass
 class GlueOAuth2Credentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_managed_client_application_client_secret": "UserManagedClientApplicationClientSecret",
         "jwt_token": "JwtToken",
@@ -1447,8 +1429,6 @@ class GlueOAuth2Credentials(PropertyType):
 
 @dataclass
 class GluePropertiesInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "glue_connection_input": "GlueConnectionInput",
     }
@@ -1458,8 +1438,6 @@ class GluePropertiesInput(PropertyType):
 
 @dataclass
 class HyperPodPropertiesInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_name": "ClusterName",
     }
@@ -1469,8 +1447,6 @@ class HyperPodPropertiesInput(PropertyType):
 
 @dataclass
 class IamPropertiesInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "glue_lineage_sync_enabled": "GlueLineageSyncEnabled",
     }
@@ -1480,8 +1456,6 @@ class IamPropertiesInput(PropertyType):
 
 @dataclass
 class LineageSyncSchedule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schedule": "Schedule",
     }
@@ -1491,8 +1465,6 @@ class LineageSyncSchedule(PropertyType):
 
 @dataclass
 class MlflowPropertiesInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tracking_server_arn": "TrackingServerArn",
     }
@@ -1502,8 +1474,6 @@ class MlflowPropertiesInput(PropertyType):
 
 @dataclass
 class OAuth2ClientApplication(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_managed_client_application_reference": "AWSManagedClientApplicationReference",
         "user_managed_client_application_client_id": "UserManagedClientApplicationClientId",
@@ -1515,8 +1485,6 @@ class OAuth2ClientApplication(PropertyType):
 
 @dataclass
 class OAuth2Properties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authorization_code_properties": "AuthorizationCodeProperties",
         "o_auth2_client_application": "OAuth2ClientApplication",
@@ -1536,8 +1504,6 @@ class OAuth2Properties(PropertyType):
 
 @dataclass
 class PhysicalConnectionRequirements(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnet_id_list": "SubnetIdList",
         "availability_zone": "AvailabilityZone",
@@ -1553,8 +1519,6 @@ class PhysicalConnectionRequirements(PropertyType):
 
 @dataclass
 class RedshiftCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "username_password": "UsernamePassword",
@@ -1566,8 +1530,6 @@ class RedshiftCredentials(PropertyType):
 
 @dataclass
 class RedshiftLineageSyncConfigurationInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schedule": "Schedule",
         "enabled": "Enabled",
@@ -1579,8 +1541,6 @@ class RedshiftLineageSyncConfigurationInput(PropertyType):
 
 @dataclass
 class RedshiftPropertiesInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage": "Storage",
         "port": "Port",
@@ -1600,8 +1560,6 @@ class RedshiftPropertiesInput(PropertyType):
 
 @dataclass
 class RedshiftStorageProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_name": "ClusterName",
         "workgroup_name": "WorkgroupName",
@@ -1613,8 +1571,6 @@ class RedshiftStorageProperties(PropertyType):
 
 @dataclass
 class S3PropertiesInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_uri": "S3Uri",
         "s3_access_grant_location_id": "S3AccessGrantLocationId",
@@ -1626,8 +1582,6 @@ class S3PropertiesInput(PropertyType):
 
 @dataclass
 class SparkEmrPropertiesInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compute_arn": "ComputeArn",
         "trusted_certificates_s3_uri": "TrustedCertificatesS3Uri",
@@ -1651,8 +1605,6 @@ class SparkEmrPropertiesInput(PropertyType):
 
 @dataclass
 class SparkGlueArgs(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection": "Connection",
     }
@@ -1662,8 +1614,6 @@ class SparkGlueArgs(PropertyType):
 
 @dataclass
 class SparkGluePropertiesInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "worker_type": "WorkerType",
         "additional_args": "AdditionalArgs",
@@ -1687,8 +1637,6 @@ class SparkGluePropertiesInput(PropertyType):
 
 @dataclass
 class UsernamePassword(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "username": "Username",
         "password": "Password",
@@ -1765,8 +1713,6 @@ class Connection(CloudFormationResource):
 
 @dataclass
 class DataSourceConfigurationInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "redshift_run_configuration": "RedshiftRunConfiguration",
         "glue_run_configuration": "GlueRunConfiguration",
@@ -1780,8 +1726,6 @@ class DataSourceConfigurationInput(PropertyType):
 
 @dataclass
 class FilterExpression(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "expression": "Expression",
@@ -1793,8 +1737,6 @@ class FilterExpression(PropertyType):
 
 @dataclass
 class FormInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_identifier": "TypeIdentifier",
         "type_revision": "TypeRevision",
@@ -1810,8 +1752,6 @@ class FormInput(PropertyType):
 
 @dataclass
 class GlueRunConfigurationInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_access_role": "DataAccessRole",
         "auto_import_data_quality_result": "AutoImportDataQualityResult",
@@ -1827,8 +1767,6 @@ class GlueRunConfigurationInput(PropertyType):
 
 @dataclass
 class RecommendationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_business_name_generation": "EnableBusinessNameGeneration",
     }
@@ -1838,8 +1776,6 @@ class RecommendationConfiguration(PropertyType):
 
 @dataclass
 class RedshiftClusterStorage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_name": "ClusterName",
     }
@@ -1849,8 +1785,6 @@ class RedshiftClusterStorage(PropertyType):
 
 @dataclass
 class RedshiftCredentialConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_manager_arn": "SecretManagerArn",
     }
@@ -1860,8 +1794,6 @@ class RedshiftCredentialConfiguration(PropertyType):
 
 @dataclass
 class RedshiftRunConfigurationInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_access_role": "DataAccessRole",
         "relational_filter_configurations": "RelationalFilterConfigurations",
@@ -1877,8 +1809,6 @@ class RedshiftRunConfigurationInput(PropertyType):
 
 @dataclass
 class RedshiftServerlessStorage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "workgroup_name": "WorkgroupName",
     }
@@ -1888,8 +1818,6 @@ class RedshiftServerlessStorage(PropertyType):
 
 @dataclass
 class RedshiftStorage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "redshift_cluster_source": "RedshiftClusterSource",
         "redshift_serverless_source": "RedshiftServerlessSource",
@@ -1901,8 +1829,6 @@ class RedshiftStorage(PropertyType):
 
 @dataclass
 class RelationalFilterConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_expressions": "FilterExpressions",
         "database_name": "DatabaseName",
@@ -1916,8 +1842,6 @@ class RelationalFilterConfiguration(PropertyType):
 
 @dataclass
 class SageMakerRunConfigurationInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tracking_assets": "TrackingAssets",
     }
@@ -1927,8 +1851,6 @@ class SageMakerRunConfigurationInput(PropertyType):
 
 @dataclass
 class ScheduleConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timezone": "Timezone",
         "schedule": "Schedule",
@@ -2033,8 +1955,6 @@ class DataSource(CloudFormationResource):
 
 @dataclass
 class SingleSignOn(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "user_assignment": "UserAssignment",
@@ -2166,8 +2086,6 @@ class DomainUnit(CloudFormationResource):
 
 @dataclass
 class EnvironmentParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -2271,8 +2189,6 @@ class Environment(CloudFormationResource):
 
 @dataclass
 class AwsConsoleLinkParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uri": "Uri",
     }
@@ -2321,8 +2237,6 @@ class EnvironmentActions(CloudFormationResource):
 
 @dataclass
 class LakeFormationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "location_registration_exclude_s3_locations": "LocationRegistrationExcludeS3Locations",
         "location_registration_role": "LocationRegistrationRole",
@@ -2334,8 +2248,6 @@ class LakeFormationConfiguration(PropertyType):
 
 @dataclass
 class ProvisioningConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lake_formation_configuration": "LakeFormationConfiguration",
     }
@@ -2345,8 +2257,6 @@ class ProvisioningConfiguration(PropertyType):
 
 @dataclass
 class RegionalParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameters": "Parameters",
         "region": "Region",
@@ -2406,8 +2316,6 @@ class EnvironmentBlueprintConfiguration(CloudFormationResource):
 
 @dataclass
 class EnvironmentParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -2482,8 +2390,6 @@ class EnvironmentProfile(CloudFormationResource):
 
 @dataclass
 class Model(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "smithy": "Smithy",
     }
@@ -2580,8 +2486,6 @@ class GroupProfile(CloudFormationResource):
 
 @dataclass
 class OwnerGroupProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_identifier": "GroupIdentifier",
     }
@@ -2591,8 +2495,6 @@ class OwnerGroupProperties(PropertyType):
 
 @dataclass
 class OwnerProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group": "Group",
         "user": "User",
@@ -2604,8 +2506,6 @@ class OwnerProperties(PropertyType):
 
 @dataclass
 class OwnerUserProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_identifier": "UserIdentifier",
     }
@@ -2645,8 +2545,6 @@ class Owner(CloudFormationResource):
 
 @dataclass
 class AddToProjectMemberPoolPolicyGrantDetail(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_child_domain_units": "IncludeChildDomainUnits",
     }
@@ -2656,8 +2554,6 @@ class AddToProjectMemberPoolPolicyGrantDetail(PropertyType):
 
 @dataclass
 class CreateAssetTypePolicyGrantDetail(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_child_domain_units": "IncludeChildDomainUnits",
     }
@@ -2667,8 +2563,6 @@ class CreateAssetTypePolicyGrantDetail(PropertyType):
 
 @dataclass
 class CreateDomainUnitPolicyGrantDetail(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_child_domain_units": "IncludeChildDomainUnits",
     }
@@ -2678,8 +2572,6 @@ class CreateDomainUnitPolicyGrantDetail(PropertyType):
 
 @dataclass
 class CreateEnvironmentProfilePolicyGrantDetail(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_unit_id": "DomainUnitId",
     }
@@ -2689,8 +2581,6 @@ class CreateEnvironmentProfilePolicyGrantDetail(PropertyType):
 
 @dataclass
 class CreateFormTypePolicyGrantDetail(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_child_domain_units": "IncludeChildDomainUnits",
     }
@@ -2700,8 +2590,6 @@ class CreateFormTypePolicyGrantDetail(PropertyType):
 
 @dataclass
 class CreateGlossaryPolicyGrantDetail(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_child_domain_units": "IncludeChildDomainUnits",
     }
@@ -2711,8 +2599,6 @@ class CreateGlossaryPolicyGrantDetail(PropertyType):
 
 @dataclass
 class CreateProjectFromProjectProfilePolicyGrantDetail(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "project_profiles": "ProjectProfiles",
         "include_child_domain_units": "IncludeChildDomainUnits",
@@ -2724,8 +2610,6 @@ class CreateProjectFromProjectProfilePolicyGrantDetail(PropertyType):
 
 @dataclass
 class CreateProjectPolicyGrantDetail(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_child_domain_units": "IncludeChildDomainUnits",
     }
@@ -2735,8 +2619,6 @@ class CreateProjectPolicyGrantDetail(PropertyType):
 
 @dataclass
 class DomainUnitFilterForProject(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_unit": "DomainUnit",
         "include_child_domain_units": "IncludeChildDomainUnits",
@@ -2748,8 +2630,6 @@ class DomainUnitFilterForProject(PropertyType):
 
 @dataclass
 class DomainUnitGrantFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all_domain_units_grant_filter": "AllDomainUnitsGrantFilter",
     }
@@ -2759,8 +2639,6 @@ class DomainUnitGrantFilter(PropertyType):
 
 @dataclass
 class DomainUnitPolicyGrantPrincipal(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_unit_grant_filter": "DomainUnitGrantFilter",
         "domain_unit_designation": "DomainUnitDesignation",
@@ -2774,8 +2652,6 @@ class DomainUnitPolicyGrantPrincipal(PropertyType):
 
 @dataclass
 class GroupPolicyGrantPrincipal(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_identifier": "GroupIdentifier",
     }
@@ -2785,8 +2661,6 @@ class GroupPolicyGrantPrincipal(PropertyType):
 
 @dataclass
 class OverrideDomainUnitOwnersPolicyGrantDetail(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_child_domain_units": "IncludeChildDomainUnits",
     }
@@ -2796,8 +2670,6 @@ class OverrideDomainUnitOwnersPolicyGrantDetail(PropertyType):
 
 @dataclass
 class OverrideProjectOwnersPolicyGrantDetail(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_child_domain_units": "IncludeChildDomainUnits",
     }
@@ -2807,8 +2679,6 @@ class OverrideProjectOwnersPolicyGrantDetail(PropertyType):
 
 @dataclass
 class PolicyGrantDetail(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "create_environment_from_blueprint": "CreateEnvironmentFromBlueprint",
         "create_glossary": "CreateGlossary",
@@ -2842,8 +2712,6 @@ class PolicyGrantDetail(PropertyType):
 
 @dataclass
 class PolicyGrantPrincipal(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group": "Group",
         "project": "Project",
@@ -2859,8 +2727,6 @@ class PolicyGrantPrincipal(PropertyType):
 
 @dataclass
 class ProjectGrantFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_unit_filter": "DomainUnitFilter",
     }
@@ -2870,8 +2736,6 @@ class ProjectGrantFilter(PropertyType):
 
 @dataclass
 class ProjectPolicyGrantPrincipal(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "project_identifier": "ProjectIdentifier",
         "project_designation": "ProjectDesignation",
@@ -2885,8 +2749,6 @@ class ProjectPolicyGrantPrincipal(PropertyType):
 
 @dataclass
 class UserPolicyGrantPrincipal(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all_users_grant_filter": "AllUsersGrantFilter",
         "user_identifier": "UserIdentifier",
@@ -2937,8 +2799,6 @@ class PolicyGrant(CloudFormationResource):
 
 @dataclass
 class EnvironmentConfigurationUserParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "environment_id": "EnvironmentId",
         "environment_parameters": "EnvironmentParameters",
@@ -2952,8 +2812,6 @@ class EnvironmentConfigurationUserParameter(PropertyType):
 
 @dataclass
 class EnvironmentParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -3023,8 +2881,6 @@ class Project(CloudFormationResource):
 
 @dataclass
 class Member(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_identifier": "UserIdentifier",
         "group_identifier": "GroupIdentifier",
@@ -3066,8 +2922,6 @@ class ProjectMembership(CloudFormationResource):
 
 @dataclass
 class AwsAccount(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_account_id": "AwsAccountId",
     }
@@ -3077,8 +2931,6 @@ class AwsAccount(PropertyType):
 
 @dataclass
 class EnvironmentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "environment_configuration_id": "EnvironmentConfigurationId",
@@ -3104,8 +2956,6 @@ class EnvironmentConfiguration(PropertyType):
 
 @dataclass
 class EnvironmentConfigurationParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_editable": "IsEditable",
         "value": "Value",
@@ -3119,8 +2969,6 @@ class EnvironmentConfigurationParameter(PropertyType):
 
 @dataclass
 class EnvironmentConfigurationParametersDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_overrides": "ParameterOverrides",
         "resolved_parameters": "ResolvedParameters",
@@ -3134,8 +2982,6 @@ class EnvironmentConfigurationParametersDetails(PropertyType):
 
 @dataclass
 class Region(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region_name": "RegionName",
     }
@@ -3204,8 +3050,6 @@ class ProjectProfile(CloudFormationResource):
 
 @dataclass
 class SubscriptionTargetForm(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content": "Content",
         "form_name": "FormName",
@@ -3287,8 +3131,6 @@ class SubscriptionTarget(CloudFormationResource):
 
 @dataclass
 class IamUserProfileDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -3298,8 +3140,6 @@ class IamUserProfileDetails(PropertyType):
 
 @dataclass
 class SsoUserProfileDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "username": "Username",
         "first_name": "FirstName",
@@ -3313,8 +3153,6 @@ class SsoUserProfileDetails(PropertyType):
 
 @dataclass
 class UserProfileDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iam": "Iam",
         "sso": "Sso",

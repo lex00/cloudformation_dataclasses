@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SSMContacts
@@ -139,8 +139,6 @@ OTHER = ValidationExceptionReason.OTHER
 
 @dataclass
 class ChannelTargetInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "retry_interval_in_minutes": "RetryIntervalInMinutes",
         "channel_id": "ChannelId",
@@ -152,8 +150,6 @@ class ChannelTargetInfo(PropertyType):
 
 @dataclass
 class ContactTargetInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "contact_id": "ContactId",
         "is_essential": "IsEssential",
@@ -165,8 +161,6 @@ class ContactTargetInfo(PropertyType):
 
 @dataclass
 class Stage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration_in_minutes": "DurationInMinutes",
         "rotation_ids": "RotationIds",
@@ -180,8 +174,6 @@ class Stage(PropertyType):
 
 @dataclass
 class Targets(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channel_target_info": "ChannelTargetInfo",
         "contact_target_info": "ContactTargetInfo",
@@ -247,8 +239,6 @@ class ContactChannel(CloudFormationResource):
 
 @dataclass
 class ChannelTargetInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "retry_interval_in_minutes": "RetryIntervalInMinutes",
         "channel_id": "ChannelId",
@@ -260,8 +250,6 @@ class ChannelTargetInfo(PropertyType):
 
 @dataclass
 class ContactTargetInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "contact_id": "ContactId",
         "is_essential": "IsEssential",
@@ -273,8 +261,6 @@ class ContactTargetInfo(PropertyType):
 
 @dataclass
 class Stage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration_in_minutes": "DurationInMinutes",
         "targets": "Targets",
@@ -286,8 +272,6 @@ class Stage(PropertyType):
 
 @dataclass
 class Targets(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channel_target_info": "ChannelTargetInfo",
         "contact_target_info": "ContactTargetInfo",
@@ -322,8 +306,6 @@ class Plan(CloudFormationResource):
 
 @dataclass
 class CoverageTime(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "end_time": "EndTime",
         "start_time": "StartTime",
@@ -335,8 +317,6 @@ class CoverageTime(PropertyType):
 
 @dataclass
 class MonthlySetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "day_of_month": "DayOfMonth",
         "hand_off_time": "HandOffTime",
@@ -348,8 +328,6 @@ class MonthlySetting(PropertyType):
 
 @dataclass
 class RecurrenceSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "daily_settings": "DailySettings",
         "number_of_on_calls": "NumberOfOnCalls",
@@ -369,8 +347,6 @@ class RecurrenceSettings(PropertyType):
 
 @dataclass
 class ShiftCoverage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "day_of_week": "DayOfWeek",
         "coverage_times": "CoverageTimes",
@@ -382,8 +358,6 @@ class ShiftCoverage(PropertyType):
 
 @dataclass
 class WeeklySetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "day_of_week": "DayOfWeek",
         "hand_off_time": "HandOffTime",

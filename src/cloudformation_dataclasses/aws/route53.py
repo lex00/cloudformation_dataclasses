@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Route53
@@ -550,8 +550,6 @@ EUSC_DE_EAST_1 = VPCRegion.EUSC_DE_EAST_1
 
 @dataclass
 class Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr_list": "CidrList",
         "location_name": "LocationName",
@@ -602,8 +600,6 @@ class DNSSEC(CloudFormationResource):
 
 @dataclass
 class AlarmIdentifier(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region": "Region",
         "name": "Name",
@@ -615,8 +611,6 @@ class AlarmIdentifier(PropertyType):
 
 @dataclass
 class HealthCheckConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_sni": "EnableSNI",
         "child_health_checks": "ChildHealthChecks",
@@ -658,8 +652,6 @@ class HealthCheckConfig(PropertyType):
 
 @dataclass
 class HealthCheckTag(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -692,8 +684,6 @@ class HealthCheck(CloudFormationResource):
 
 @dataclass
 class HostedZoneConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comment": "Comment",
     }
@@ -703,8 +693,6 @@ class HostedZoneConfig(PropertyType):
 
 @dataclass
 class HostedZoneFeatures(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_accelerated_recovery": "EnableAcceleratedRecovery",
     }
@@ -714,8 +702,6 @@ class HostedZoneFeatures(PropertyType):
 
 @dataclass
 class HostedZoneTag(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -727,8 +713,6 @@ class HostedZoneTag(PropertyType):
 
 @dataclass
 class QueryLoggingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_logs_log_group_arn": "CloudWatchLogsLogGroupArn",
     }
@@ -738,8 +722,6 @@ class QueryLoggingConfig(PropertyType):
 
 @dataclass
 class VPC(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_region": "VPCRegion",
         "vpc_id": "VPCId",
@@ -804,8 +786,6 @@ class KeySigningKey(CloudFormationResource):
 
 @dataclass
 class AliasTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dns_name": "DNSName",
         "evaluate_target_health": "EvaluateTargetHealth",
@@ -819,8 +799,6 @@ class AliasTarget(PropertyType):
 
 @dataclass
 class CidrRoutingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "collection_id": "CollectionId",
         "location_name": "LocationName",
@@ -832,8 +810,6 @@ class CidrRoutingConfig(PropertyType):
 
 @dataclass
 class Coordinates(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "latitude": "Latitude",
         "longitude": "Longitude",
@@ -845,8 +821,6 @@ class Coordinates(PropertyType):
 
 @dataclass
 class GeoLocation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "continent_code": "ContinentCode",
         "country_code": "CountryCode",
@@ -860,8 +834,6 @@ class GeoLocation(PropertyType):
 
 @dataclass
 class GeoProximityLocation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_region": "AWSRegion",
         "bias": "Bias",
@@ -922,8 +894,6 @@ class RecordSet(CloudFormationResource):
 
 @dataclass
 class AliasTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dns_name": "DNSName",
         "evaluate_target_health": "EvaluateTargetHealth",
@@ -937,8 +907,6 @@ class AliasTarget(PropertyType):
 
 @dataclass
 class CidrRoutingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "collection_id": "CollectionId",
         "location_name": "LocationName",
@@ -950,8 +918,6 @@ class CidrRoutingConfig(PropertyType):
 
 @dataclass
 class Coordinates(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "latitude": "Latitude",
         "longitude": "Longitude",
@@ -963,8 +929,6 @@ class Coordinates(PropertyType):
 
 @dataclass
 class GeoLocation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "continent_code": "ContinentCode",
         "country_code": "CountryCode",
@@ -978,8 +942,6 @@ class GeoLocation(PropertyType):
 
 @dataclass
 class GeoProximityLocation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_region": "AWSRegion",
         "bias": "Bias",
@@ -995,8 +957,6 @@ class GeoProximityLocation(PropertyType):
 
 @dataclass
 class RecordSet(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alias_target": "AliasTarget",
         "cidr_routing_config": "CidrRoutingConfig",

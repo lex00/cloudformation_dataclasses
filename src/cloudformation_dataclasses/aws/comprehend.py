@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Comprehend
@@ -604,8 +604,6 @@ VIOLENCE_OR_THREAT = ToxicContentType.VIOLENCE_OR_THREAT
 
 @dataclass
 class AugmentedManifestsListItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-com"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_uri": "S3Uri",
         "attribute_names": "AttributeNames",
@@ -619,8 +617,6 @@ class AugmentedManifestsListItem(PropertyType):
 
 @dataclass
 class DocumentClassifierDocuments(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-com"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_uri": "S3Uri",
         "test_s3_uri": "TestS3Uri",
@@ -632,8 +628,6 @@ class DocumentClassifierDocuments(PropertyType):
 
 @dataclass
 class DocumentClassifierInputDataConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-com"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "document_reader_config": "DocumentReaderConfig",
         "s3_uri": "S3Uri",
@@ -657,8 +651,6 @@ class DocumentClassifierInputDataConfig(PropertyType):
 
 @dataclass
 class DocumentClassifierOutputDataConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-com"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
         "s3_uri": "S3Uri",
@@ -670,8 +662,6 @@ class DocumentClassifierOutputDataConfig(PropertyType):
 
 @dataclass
 class DocumentReaderConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-com"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "feature_types": "FeatureTypes",
         "document_read_mode": "DocumentReadMode",
@@ -685,8 +675,6 @@ class DocumentReaderConfig(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-com"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnets": "Subnets",
         "security_group_ids": "SecurityGroupIds",
@@ -739,8 +727,6 @@ class DocumentClassifier(CloudFormationResource):
 
 @dataclass
 class DataSecurityConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-com"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_config": "VpcConfig",
         "volume_kms_key_id": "VolumeKmsKeyId",
@@ -756,8 +742,6 @@ class DataSecurityConfig(PropertyType):
 
 @dataclass
 class DocumentClassificationConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-com"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
         "labels": "Labels",
@@ -769,8 +753,6 @@ class DocumentClassificationConfig(PropertyType):
 
 @dataclass
 class EntityRecognitionConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-com"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entity_types": "EntityTypes",
     }
@@ -780,8 +762,6 @@ class EntityRecognitionConfig(PropertyType):
 
 @dataclass
 class EntityTypesListItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-com"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -791,8 +771,6 @@ class EntityTypesListItem(PropertyType):
 
 @dataclass
 class TaskConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-com"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "language_code": "LanguageCode",
         "document_classification_config": "DocumentClassificationConfig",
@@ -806,8 +784,6 @@ class TaskConfig(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-com"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnets": "Subnets",
         "security_group_ids": "SecurityGroupIds",

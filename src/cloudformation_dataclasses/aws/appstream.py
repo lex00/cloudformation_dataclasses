@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:45
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AppStream
@@ -620,8 +620,6 @@ SHARED = VisibilityType.SHARED
 
 @dataclass
 class S3Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_bucket": "S3Bucket",
         "s3_key": "S3Key",
@@ -633,8 +631,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class ScriptDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timeout_in_seconds": "TimeoutInSeconds",
         "script_s3_location": "ScriptS3Location",
@@ -688,8 +684,6 @@ class AppBlock(CloudFormationResource):
 
 @dataclass
 class AccessEndpoint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "endpoint_type": "EndpointType",
         "vpce_id": "VpceId",
@@ -701,8 +695,6 @@ class AccessEndpoint(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_group_ids": "SecurityGroupIds",
         "subnet_ids": "SubnetIds",
@@ -758,8 +750,6 @@ class AppBlockBuilder(CloudFormationResource):
 
 @dataclass
 class S3Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_bucket": "S3Bucket",
         "s3_key": "S3Key",
@@ -849,8 +839,6 @@ class ApplicationFleetAssociation(CloudFormationResource):
 
 @dataclass
 class CertificateBasedAuthProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "certificate_authority_arn": "CertificateAuthorityArn",
@@ -862,8 +850,6 @@ class CertificateBasedAuthProperties(PropertyType):
 
 @dataclass
 class ServiceAccountCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account_name": "AccountName",
         "account_password": "AccountPassword",
@@ -894,8 +880,6 @@ class DirectoryConfig(CloudFormationResource):
 
 @dataclass
 class Attribute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -939,8 +923,6 @@ class Entitlement(CloudFormationResource):
 
 @dataclass
 class ComputeCapacity(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "desired_instances": "DesiredInstances",
         "desired_sessions": "DesiredSessions",
@@ -952,8 +934,6 @@ class ComputeCapacity(PropertyType):
 
 @dataclass
 class DomainJoinInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "organizational_unit_distinguished_name": "OrganizationalUnitDistinguishedName",
         "directory_name": "DirectoryName",
@@ -965,8 +945,6 @@ class DomainJoinInfo(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_bucket": "S3Bucket",
         "s3_key": "S3Key",
@@ -978,8 +956,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnet_ids": "SubnetIds",
         "security_group_ids": "SecurityGroupIds",
@@ -1046,8 +1022,6 @@ class Fleet(CloudFormationResource):
 
 @dataclass
 class AccessEndpoint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "endpoint_type": "EndpointType",
         "vpce_id": "VpceId",
@@ -1059,8 +1033,6 @@ class AccessEndpoint(PropertyType):
 
 @dataclass
 class DomainJoinInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "organizational_unit_distinguished_name": "OrganizationalUnitDistinguishedName",
         "directory_name": "DirectoryName",
@@ -1072,8 +1044,6 @@ class DomainJoinInfo(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_group_ids": "SecurityGroupIds",
         "subnet_ids": "SubnetIds",
@@ -1128,8 +1098,6 @@ class ImageBuilder(CloudFormationResource):
 
 @dataclass
 class AccessEndpoint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "endpoint_type": "EndpointType",
         "vpce_id": "VpceId",
@@ -1141,8 +1109,6 @@ class AccessEndpoint(PropertyType):
 
 @dataclass
 class ApplicationSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "settings_group": "SettingsGroup",
         "enabled": "Enabled",
@@ -1154,8 +1120,6 @@ class ApplicationSettings(PropertyType):
 
 @dataclass
 class StorageConnector(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domains": "Domains",
         "resource_identifier": "ResourceIdentifier",
@@ -1169,8 +1133,6 @@ class StorageConnector(PropertyType):
 
 @dataclass
 class StreamingExperienceSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "preferred_protocol": "PreferredProtocol",
     }
@@ -1180,8 +1142,6 @@ class StreamingExperienceSettings(PropertyType):
 
 @dataclass
 class UserSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "maximum_length": "MaximumLength",

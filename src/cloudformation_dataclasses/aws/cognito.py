@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Cognito
@@ -646,8 +646,6 @@ ERROR = VerifySoftwareTokenResponseType.ERROR
 
 @dataclass
 class CognitoIdentityProvider(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "server_side_token_check": "ServerSideTokenCheck",
         "provider_name": "ProviderName",
@@ -661,8 +659,6 @@ class CognitoIdentityProvider(PropertyType):
 
 @dataclass
 class CognitoStreams(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "streaming_status": "StreamingStatus",
         "stream_name": "StreamName",
@@ -676,8 +672,6 @@ class CognitoStreams(PropertyType):
 
 @dataclass
 class PushSync(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_arns": "ApplicationArns",
         "role_arn": "RoleArn",
@@ -754,8 +748,6 @@ class IdentityPoolPrincipalTag(CloudFormationResource):
 
 @dataclass
 class MappingRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match_type": "MatchType",
         "value": "Value",
@@ -771,8 +763,6 @@ class MappingRule(PropertyType):
 
 @dataclass
 class RoleMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "ambiguous_role_resolution": "AmbiguousRoleResolution",
@@ -788,8 +778,6 @@ class RoleMapping(PropertyType):
 
 @dataclass
 class RulesConfigurationType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rules": "Rules",
     }
@@ -822,8 +810,6 @@ class IdentityPoolRoleAttachment(CloudFormationResource):
 
 @dataclass
 class CloudWatchLogsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group_arn": "LogGroupArn",
     }
@@ -833,8 +819,6 @@ class CloudWatchLogsConfiguration(PropertyType):
 
 @dataclass
 class FirehoseConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stream_arn": "StreamArn",
     }
@@ -844,8 +828,6 @@ class FirehoseConfiguration(PropertyType):
 
 @dataclass
 class LogConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "firehose_configuration": "FirehoseConfiguration",
         "event_source": "EventSource",
@@ -863,8 +845,6 @@ class LogConfiguration(PropertyType):
 
 @dataclass
 class S3Configuration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_arn": "BucketArn",
     }
@@ -895,8 +875,6 @@ class LogDeliveryConfiguration(CloudFormationResource):
 
 @dataclass
 class AssetType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "extension": "Extension",
         "bytes": "Bytes",
@@ -972,8 +950,6 @@ class Terms(CloudFormationResource):
 
 @dataclass
 class AccountRecoverySetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "recovery_mechanisms": "RecoveryMechanisms",
     }
@@ -983,8 +959,6 @@ class AccountRecoverySetting(PropertyType):
 
 @dataclass
 class AdminCreateUserConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "invite_message_template": "InviteMessageTemplate",
         "unused_account_validity_days": "UnusedAccountValidityDays",
@@ -998,8 +972,6 @@ class AdminCreateUserConfig(PropertyType):
 
 @dataclass
 class AdvancedSecurityAdditionalFlows(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_auth_mode": "CustomAuthMode",
     }
@@ -1009,8 +981,6 @@ class AdvancedSecurityAdditionalFlows(PropertyType):
 
 @dataclass
 class CustomEmailSender(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_arn": "LambdaArn",
         "lambda_version": "LambdaVersion",
@@ -1022,8 +992,6 @@ class CustomEmailSender(PropertyType):
 
 @dataclass
 class CustomSMSSender(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_arn": "LambdaArn",
         "lambda_version": "LambdaVersion",
@@ -1035,8 +1003,6 @@ class CustomSMSSender(PropertyType):
 
 @dataclass
 class DeviceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "device_only_remembered_on_user_prompt": "DeviceOnlyRememberedOnUserPrompt",
         "challenge_required_on_new_device": "ChallengeRequiredOnNewDevice",
@@ -1048,8 +1014,6 @@ class DeviceConfiguration(PropertyType):
 
 @dataclass
 class EmailConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "reply_to_email_address": "ReplyToEmailAddress",
         "configuration_set": "ConfigurationSet",
@@ -1067,8 +1031,6 @@ class EmailConfiguration(PropertyType):
 
 @dataclass
 class InviteMessageTemplate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "email_message": "EmailMessage",
         "sms_message": "SMSMessage",
@@ -1082,8 +1044,6 @@ class InviteMessageTemplate(PropertyType):
 
 @dataclass
 class LambdaConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "create_auth_challenge": "CreateAuthChallenge",
         "pre_sign_up": "PreSignUp",
@@ -1119,8 +1079,6 @@ class LambdaConfig(PropertyType):
 
 @dataclass
 class NumberAttributeConstraints(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_value": "MinValue",
         "max_value": "MaxValue",
@@ -1132,8 +1090,6 @@ class NumberAttributeConstraints(PropertyType):
 
 @dataclass
 class PasswordPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "require_numbers": "RequireNumbers",
         "minimum_length": "MinimumLength",
@@ -1155,8 +1111,6 @@ class PasswordPolicy(PropertyType):
 
 @dataclass
 class Policies(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "password_policy": "PasswordPolicy",
         "sign_in_policy": "SignInPolicy",
@@ -1168,8 +1122,6 @@ class Policies(PropertyType):
 
 @dataclass
 class PreTokenGenerationConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_arn": "LambdaArn",
         "lambda_version": "LambdaVersion",
@@ -1181,8 +1133,6 @@ class PreTokenGenerationConfig(PropertyType):
 
 @dataclass
 class RecoveryOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "priority": "Priority",
         "name": "Name",
@@ -1194,8 +1144,6 @@ class RecoveryOption(PropertyType):
 
 @dataclass
 class SchemaAttribute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "developer_only_attribute": "DeveloperOnlyAttribute",
         "mutable": "Mutable",
@@ -1217,8 +1165,6 @@ class SchemaAttribute(PropertyType):
 
 @dataclass
 class SignInPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allowed_first_auth_factors": "AllowedFirstAuthFactors",
     }
@@ -1228,8 +1174,6 @@ class SignInPolicy(PropertyType):
 
 @dataclass
 class SmsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sns_region": "SnsRegion",
         "external_id": "ExternalId",
@@ -1243,8 +1187,6 @@ class SmsConfiguration(PropertyType):
 
 @dataclass
 class StringAttributeConstraints(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_length": "MinLength",
         "max_length": "MaxLength",
@@ -1256,8 +1198,6 @@ class StringAttributeConstraints(PropertyType):
 
 @dataclass
 class UserAttributeUpdateSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attributes_require_verification_before_update": "AttributesRequireVerificationBeforeUpdate",
     }
@@ -1267,8 +1207,6 @@ class UserAttributeUpdateSettings(PropertyType):
 
 @dataclass
 class UserPoolAddOns(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "advanced_security_additional_flows": "AdvancedSecurityAdditionalFlows",
         "advanced_security_mode": "AdvancedSecurityMode",
@@ -1280,8 +1218,6 @@ class UserPoolAddOns(PropertyType):
 
 @dataclass
 class UsernameConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "case_sensitive": "CaseSensitive",
     }
@@ -1291,8 +1227,6 @@ class UsernameConfiguration(PropertyType):
 
 @dataclass
 class VerificationMessageTemplate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "email_message_by_link": "EmailMessageByLink",
         "email_message": "EmailMessage",
@@ -1402,8 +1336,6 @@ class UserPool(CloudFormationResource):
 
 @dataclass
 class AnalyticsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_arn": "ApplicationArn",
         "user_data_shared": "UserDataShared",
@@ -1421,8 +1353,6 @@ class AnalyticsConfiguration(PropertyType):
 
 @dataclass
 class RefreshTokenRotation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "retry_grace_period_seconds": "RetryGracePeriodSeconds",
         "feature": "Feature",
@@ -1434,8 +1364,6 @@ class RefreshTokenRotation(PropertyType):
 
 @dataclass
 class TokenValidityUnits(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id_token": "IdToken",
         "refresh_token": "RefreshToken",
@@ -1522,8 +1450,6 @@ class UserPoolClient(CloudFormationResource):
 
 @dataclass
 class CustomDomainConfigType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_arn": "CertificateArn",
     }
@@ -1602,8 +1528,6 @@ class UserPoolIdentityProvider(CloudFormationResource):
 
 @dataclass
 class ResourceServerScopeType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scope_name": "ScopeName",
         "scope_description": "ScopeDescription",
@@ -1634,8 +1558,6 @@ class UserPoolResourceServer(CloudFormationResource):
 
 @dataclass
 class AccountTakeoverActionType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "notify": "Notify",
         "event_action": "EventAction",
@@ -1647,8 +1569,6 @@ class AccountTakeoverActionType(PropertyType):
 
 @dataclass
 class AccountTakeoverActionsType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "high_action": "HighAction",
         "low_action": "LowAction",
@@ -1662,8 +1582,6 @@ class AccountTakeoverActionsType(PropertyType):
 
 @dataclass
 class AccountTakeoverRiskConfigurationType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "actions": "Actions",
         "notify_configuration": "NotifyConfiguration",
@@ -1675,8 +1593,6 @@ class AccountTakeoverRiskConfigurationType(PropertyType):
 
 @dataclass
 class CompromisedCredentialsActionsType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_action": "EventAction",
     }
@@ -1686,8 +1602,6 @@ class CompromisedCredentialsActionsType(PropertyType):
 
 @dataclass
 class CompromisedCredentialsRiskConfigurationType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "actions": "Actions",
         "event_filter": "EventFilter",
@@ -1699,8 +1613,6 @@ class CompromisedCredentialsRiskConfigurationType(PropertyType):
 
 @dataclass
 class NotifyConfigurationType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "block_email": "BlockEmail",
         "reply_to": "ReplyTo",
@@ -1720,8 +1632,6 @@ class NotifyConfigurationType(PropertyType):
 
 @dataclass
 class NotifyEmailType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_body": "TextBody",
         "html_body": "HtmlBody",
@@ -1735,8 +1645,6 @@ class NotifyEmailType(PropertyType):
 
 @dataclass
 class RiskExceptionConfigurationType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "blocked_ip_range_list": "BlockedIPRangeList",
         "skipped_ip_range_list": "SkippedIPRangeList",
@@ -1786,8 +1694,6 @@ class UserPoolUICustomizationAttachment(CloudFormationResource):
 
 @dataclass
 class AttributeType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cog"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service EFS
@@ -203,8 +203,6 @@ AFTER_1_ACCESS = TransitionToPrimaryStorageClassRules.AFTER_1_ACCESS
 
 @dataclass
 class AccessPointTag(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -216,8 +214,6 @@ class AccessPointTag(PropertyType):
 
 @dataclass
 class CreationInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "owner_gid": "OwnerGid",
         "owner_uid": "OwnerUid",
@@ -231,8 +227,6 @@ class CreationInfo(PropertyType):
 
 @dataclass
 class PosixUser(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uid": "Uid",
         "secondary_gids": "SecondaryGids",
@@ -246,8 +240,6 @@ class PosixUser(PropertyType):
 
 @dataclass
 class RootDirectory(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "creation_info": "CreationInfo",
@@ -291,8 +283,6 @@ class AccessPoint(CloudFormationResource):
 
 @dataclass
 class BackupPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
     }
@@ -302,8 +292,6 @@ class BackupPolicy(PropertyType):
 
 @dataclass
 class ElasticFileSystemTag(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -315,8 +303,6 @@ class ElasticFileSystemTag(PropertyType):
 
 @dataclass
 class FileSystemProtection(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "replication_overwrite_protection": "ReplicationOverwriteProtection",
     }
@@ -326,8 +312,6 @@ class FileSystemProtection(PropertyType):
 
 @dataclass
 class LifecyclePolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transition_to_ia": "TransitionToIA",
         "transition_to_primary_storage_class": "TransitionToPrimaryStorageClass",
@@ -341,8 +325,6 @@ class LifecyclePolicy(PropertyType):
 
 @dataclass
 class ReplicationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destinations": "Destinations",
     }
@@ -352,8 +334,6 @@ class ReplicationConfiguration(PropertyType):
 
 @dataclass
 class ReplicationDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "kms_key_id": "KmsKeyId",

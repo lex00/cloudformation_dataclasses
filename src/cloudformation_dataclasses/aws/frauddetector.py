@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service FraudDetector
@@ -202,8 +202,6 @@ AUTO = UnlabeledEventsTreatment.AUTO
 
 @dataclass
 class EntityType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "created_time": "CreatedTime",
@@ -225,8 +223,6 @@ class EntityType(PropertyType):
 
 @dataclass
 class EventType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entity_types": "EntityTypes",
         "description": "Description",
@@ -254,8 +250,6 @@ class EventType(PropertyType):
 
 @dataclass
 class EventVariable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_value": "DefaultValue",
         "description": "Description",
@@ -285,8 +279,6 @@ class EventVariable(PropertyType):
 
 @dataclass
 class Label(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "created_time": "CreatedTime",
@@ -308,8 +300,6 @@ class Label(PropertyType):
 
 @dataclass
 class Model(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -319,8 +309,6 @@ class Model(PropertyType):
 
 @dataclass
 class Outcome(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "created_time": "CreatedTime",
@@ -342,8 +330,6 @@ class Outcome(PropertyType):
 
 @dataclass
 class Rule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "created_time": "CreatedTime",
@@ -469,8 +455,6 @@ class EntityType(CloudFormationResource):
 
 @dataclass
 class EntityType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "created_time": "CreatedTime",
@@ -492,8 +476,6 @@ class EntityType(PropertyType):
 
 @dataclass
 class EventVariable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_value": "DefaultValue",
         "description": "Description",
@@ -523,8 +505,6 @@ class EventVariable(PropertyType):
 
 @dataclass
 class Label(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "created_time": "CreatedTime",

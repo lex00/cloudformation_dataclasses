@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MediaConnect
@@ -693,8 +693,6 @@ DISABLED = ThumbnailState.DISABLED
 
 @dataclass
 class BridgeFlowSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "flow_vpc_interface_attachment": "FlowVpcInterfaceAttachment",
         "flow_arn": "FlowArn",
@@ -708,8 +706,6 @@ class BridgeFlowSource(PropertyType):
 
 @dataclass
 class BridgeNetworkOutput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_name": "NetworkName",
         "port": "Port",
@@ -729,8 +725,6 @@ class BridgeNetworkOutput(PropertyType):
 
 @dataclass
 class BridgeNetworkSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "multicast_source_settings": "MulticastSourceSettings",
         "network_name": "NetworkName",
@@ -750,8 +744,6 @@ class BridgeNetworkSource(PropertyType):
 
 @dataclass
 class BridgeOutput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_output": "NetworkOutput",
     }
@@ -761,8 +753,6 @@ class BridgeOutput(PropertyType):
 
 @dataclass
 class BridgeSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_source": "NetworkSource",
         "flow_source": "FlowSource",
@@ -774,8 +764,6 @@ class BridgeSource(PropertyType):
 
 @dataclass
 class EgressGatewayBridge(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_bitrate": "MaxBitrate",
     }
@@ -785,8 +773,6 @@ class EgressGatewayBridge(PropertyType):
 
 @dataclass
 class FailoverConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
         "source_priority": "SourcePriority",
@@ -800,8 +786,6 @@ class FailoverConfig(PropertyType):
 
 @dataclass
 class IngressGatewayBridge(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_outputs": "MaxOutputs",
         "max_bitrate": "MaxBitrate",
@@ -813,8 +797,6 @@ class IngressGatewayBridge(PropertyType):
 
 @dataclass
 class MulticastSourceSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "multicast_source_ip": "MulticastSourceIp",
     }
@@ -824,8 +806,6 @@ class MulticastSourceSettings(PropertyType):
 
 @dataclass
 class SourcePriority(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "primary_source": "PrimarySource",
     }
@@ -835,8 +815,6 @@ class SourcePriority(PropertyType):
 
 @dataclass
 class VpcInterfaceAttachment(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_interface_name": "VpcInterfaceName",
     }
@@ -882,8 +860,6 @@ class Bridge(CloudFormationResource):
 
 @dataclass
 class BridgeNetworkOutput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_name": "NetworkName",
         "port": "Port",
@@ -918,8 +894,6 @@ class BridgeOutput(CloudFormationResource):
 
 @dataclass
 class BridgeFlowSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "flow_vpc_interface_attachment": "FlowVpcInterfaceAttachment",
         "flow_arn": "FlowArn",
@@ -931,8 +905,6 @@ class BridgeFlowSource(PropertyType):
 
 @dataclass
 class BridgeNetworkSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "multicast_source_settings": "MulticastSourceSettings",
         "network_name": "NetworkName",
@@ -950,8 +922,6 @@ class BridgeNetworkSource(PropertyType):
 
 @dataclass
 class MulticastSourceSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "multicast_source_ip": "MulticastSourceIp",
     }
@@ -961,8 +931,6 @@ class MulticastSourceSettings(PropertyType):
 
 @dataclass
 class VpcInterfaceAttachment(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_interface_name": "VpcInterfaceName",
     }
@@ -991,8 +959,6 @@ class BridgeSource(CloudFormationResource):
 
 @dataclass
 class AudioMonitoringSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "silent_audio": "SilentAudio",
     }
@@ -1002,8 +968,6 @@ class AudioMonitoringSetting(PropertyType):
 
 @dataclass
 class BlackFrames(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
         "threshold_seconds": "ThresholdSeconds",
@@ -1015,8 +979,6 @@ class BlackFrames(PropertyType):
 
 @dataclass
 class Encryption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "key_type": "KeyType",
@@ -1042,8 +1004,6 @@ class Encryption(PropertyType):
 
 @dataclass
 class FailoverConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
         "source_priority": "SourcePriority",
@@ -1059,8 +1019,6 @@ class FailoverConfig(PropertyType):
 
 @dataclass
 class FlowTransitEncryption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_key_type": "EncryptionKeyType",
         "encryption_key_configuration": "EncryptionKeyConfiguration",
@@ -1072,8 +1030,6 @@ class FlowTransitEncryption(PropertyType):
 
 @dataclass
 class FlowTransitEncryptionKeyConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secrets_manager": "SecretsManager",
         "automatic": "Automatic",
@@ -1085,8 +1041,6 @@ class FlowTransitEncryptionKeyConfiguration(PropertyType):
 
 @dataclass
 class Fmtp(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "par": "Par",
         "scan_mode": "ScanMode",
@@ -1108,8 +1062,6 @@ class Fmtp(PropertyType):
 
 @dataclass
 class FrozenFrames(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
         "threshold_seconds": "ThresholdSeconds",
@@ -1121,8 +1073,6 @@ class FrozenFrames(PropertyType):
 
 @dataclass
 class GatewayBridgeSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bridge_arn": "BridgeArn",
         "vpc_interface_attachment": "VpcInterfaceAttachment",
@@ -1134,8 +1084,6 @@ class GatewayBridgeSource(PropertyType):
 
 @dataclass
 class InputConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_port": "InputPort",
         "interface": "Interface",
@@ -1147,8 +1095,6 @@ class InputConfiguration(PropertyType):
 
 @dataclass
 class Interface(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -1158,8 +1104,6 @@ class Interface(PropertyType):
 
 @dataclass
 class Maintenance(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maintenance_day": "MaintenanceDay",
         "maintenance_start_hour": "MaintenanceStartHour",
@@ -1171,8 +1115,6 @@ class Maintenance(PropertyType):
 
 @dataclass
 class MediaStream(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "media_stream_type": "MediaStreamType",
         "media_stream_id": "MediaStreamId",
@@ -1196,8 +1138,6 @@ class MediaStream(PropertyType):
 
 @dataclass
 class MediaStreamAttributes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fmtp": "Fmtp",
         "lang": "Lang",
@@ -1209,8 +1149,6 @@ class MediaStreamAttributes(PropertyType):
 
 @dataclass
 class MediaStreamSourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "media_stream_name": "MediaStreamName",
         "input_configurations": "InputConfigurations",
@@ -1224,8 +1162,6 @@ class MediaStreamSourceConfiguration(PropertyType):
 
 @dataclass
 class NdiConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ndi_state": "NdiState",
         "machine_name": "MachineName",
@@ -1239,8 +1175,6 @@ class NdiConfig(PropertyType):
 
 @dataclass
 class NdiDiscoveryServerConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "discovery_server_address": "DiscoveryServerAddress",
         "discovery_server_port": "DiscoveryServerPort",
@@ -1254,8 +1188,6 @@ class NdiDiscoveryServerConfig(PropertyType):
 
 @dataclass
 class SecretsManagerEncryptionKeyConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "role_arn": "RoleArn",
@@ -1267,8 +1199,6 @@ class SecretsManagerEncryptionKeyConfiguration(PropertyType):
 
 @dataclass
 class SilentAudio(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
         "threshold_seconds": "ThresholdSeconds",
@@ -1280,8 +1210,6 @@ class SilentAudio(PropertyType):
 
 @dataclass
 class Source(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ingest_ip": "IngestIp",
         "max_sync_buffer": "MaxSyncBuffer",
@@ -1337,8 +1265,6 @@ class Source(PropertyType):
 
 @dataclass
 class SourceMonitoringConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_quality_analysis_state": "ContentQualityAnalysisState",
         "audio_monitoring_settings": "AudioMonitoringSettings",
@@ -1354,8 +1280,6 @@ class SourceMonitoringConfig(PropertyType):
 
 @dataclass
 class SourcePriority(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "primary_source": "PrimarySource",
     }
@@ -1365,8 +1289,6 @@ class SourcePriority(PropertyType):
 
 @dataclass
 class VideoMonitoringSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "black_frames": "BlackFrames",
         "frozen_frames": "FrozenFrames",
@@ -1378,8 +1300,6 @@ class VideoMonitoringSetting(PropertyType):
 
 @dataclass
 class VpcInterface(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_interface_type": "NetworkInterfaceType",
         "network_interface_ids": "NetworkInterfaceIds",
@@ -1399,8 +1319,6 @@ class VpcInterface(PropertyType):
 
 @dataclass
 class VpcInterfaceAttachment(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_interface_name": "VpcInterfaceName",
     }
@@ -1477,8 +1395,6 @@ class Flow(CloudFormationResource):
 
 @dataclass
 class Encryption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "key_type": "KeyType",
@@ -1535,8 +1451,6 @@ class FlowEntitlement(CloudFormationResource):
 
 @dataclass
 class DestinationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_ip": "DestinationIp",
         "destination_port": "DestinationPort",
@@ -1550,8 +1464,6 @@ class DestinationConfiguration(PropertyType):
 
 @dataclass
 class EncodingParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encoder_profile": "EncoderProfile",
         "compression_factor": "CompressionFactor",
@@ -1563,8 +1475,6 @@ class EncodingParameters(PropertyType):
 
 @dataclass
 class Encryption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "key_type": "KeyType",
@@ -1580,8 +1490,6 @@ class Encryption(PropertyType):
 
 @dataclass
 class FlowTransitEncryption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_key_type": "EncryptionKeyType",
         "encryption_key_configuration": "EncryptionKeyConfiguration",
@@ -1593,8 +1501,6 @@ class FlowTransitEncryption(PropertyType):
 
 @dataclass
 class FlowTransitEncryptionKeyConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secrets_manager": "SecretsManager",
         "automatic": "Automatic",
@@ -1606,8 +1512,6 @@ class FlowTransitEncryptionKeyConfiguration(PropertyType):
 
 @dataclass
 class Interface(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -1617,8 +1521,6 @@ class Interface(PropertyType):
 
 @dataclass
 class MediaStreamOutputConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encoding_parameters": "EncodingParameters",
         "media_stream_name": "MediaStreamName",
@@ -1634,8 +1536,6 @@ class MediaStreamOutputConfiguration(PropertyType):
 
 @dataclass
 class SecretsManagerEncryptionKeyConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "role_arn": "RoleArn",
@@ -1647,8 +1547,6 @@ class SecretsManagerEncryptionKeyConfiguration(PropertyType):
 
 @dataclass
 class VpcInterfaceAttachment(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_interface_name": "VpcInterfaceName",
     }
@@ -1715,8 +1613,6 @@ class FlowOutput(CloudFormationResource):
 
 @dataclass
 class Encryption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "key_type": "KeyType",
@@ -1742,8 +1638,6 @@ class Encryption(PropertyType):
 
 @dataclass
 class GatewayBridgeSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bridge_arn": "BridgeArn",
         "vpc_interface_attachment": "VpcInterfaceAttachment",
@@ -1755,8 +1649,6 @@ class GatewayBridgeSource(PropertyType):
 
 @dataclass
 class VpcInterfaceAttachment(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_interface_name": "VpcInterfaceName",
     }
@@ -1856,8 +1748,6 @@ class FlowVpcInterface(CloudFormationResource):
 
 @dataclass
 class GatewayNetwork(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr_block": "CidrBlock",
         "name": "Name",
@@ -1897,8 +1787,6 @@ class Gateway(CloudFormationResource):
 
 @dataclass
 class FailoverRouterInputConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_interface_arn": "NetworkInterfaceArn",
         "source_priority_mode": "SourcePriorityMode",
@@ -1914,8 +1802,6 @@ class FailoverRouterInputConfiguration(PropertyType):
 
 @dataclass
 class FailoverRouterInputProtocolConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "srt_caller": "SrtCaller",
         "srt_listener": "SrtListener",
@@ -1931,8 +1817,6 @@ class FailoverRouterInputProtocolConfiguration(PropertyType):
 
 @dataclass
 class FlowTransitEncryption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_key_type": "EncryptionKeyType",
         "encryption_key_configuration": "EncryptionKeyConfiguration",
@@ -1944,8 +1828,6 @@ class FlowTransitEncryption(PropertyType):
 
 @dataclass
 class FlowTransitEncryptionKeyConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secrets_manager": "SecretsManager",
         "automatic": "Automatic",
@@ -1957,8 +1839,6 @@ class FlowTransitEncryptionKeyConfiguration(PropertyType):
 
 @dataclass
 class MaintenanceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default": "Default",
         "preferred_day_time": "PreferredDayTime",
@@ -1970,8 +1850,6 @@ class MaintenanceConfiguration(PropertyType):
 
 @dataclass
 class MediaConnectFlowRouterInputConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "flow_output_arn": "FlowOutputArn",
         "source_transit_decryption": "SourceTransitDecryption",
@@ -1985,8 +1863,6 @@ class MediaConnectFlowRouterInputConfiguration(PropertyType):
 
 @dataclass
 class MergeRouterInputConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "merge_recovery_window_milliseconds": "MergeRecoveryWindowMilliseconds",
         "network_interface_arn": "NetworkInterfaceArn",
@@ -2000,8 +1876,6 @@ class MergeRouterInputConfiguration(PropertyType):
 
 @dataclass
 class MergeRouterInputProtocolConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rist": "Rist",
         "rtp": "Rtp",
@@ -2013,8 +1887,6 @@ class MergeRouterInputProtocolConfiguration(PropertyType):
 
 @dataclass
 class PreferredDayTimeMaintenanceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "time": "Time",
         "day": "Day",
@@ -2026,8 +1898,6 @@ class PreferredDayTimeMaintenanceConfiguration(PropertyType):
 
 @dataclass
 class RistRouterInputConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "recovery_latency_milliseconds": "RecoveryLatencyMilliseconds",
@@ -2039,8 +1909,6 @@ class RistRouterInputConfiguration(PropertyType):
 
 @dataclass
 class RouterInputConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "media_connect_flow": "MediaConnectFlow",
         "failover": "Failover",
@@ -2056,8 +1924,6 @@ class RouterInputConfiguration(PropertyType):
 
 @dataclass
 class RouterInputProtocolConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "srt_caller": "SrtCaller",
         "srt_listener": "SrtListener",
@@ -2073,8 +1939,6 @@ class RouterInputProtocolConfiguration(PropertyType):
 
 @dataclass
 class RouterInputTransitEncryption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_key_type": "EncryptionKeyType",
         "encryption_key_configuration": "EncryptionKeyConfiguration",
@@ -2086,8 +1950,6 @@ class RouterInputTransitEncryption(PropertyType):
 
 @dataclass
 class RouterInputTransitEncryptionKeyConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secrets_manager": "SecretsManager",
         "automatic": "Automatic",
@@ -2099,8 +1961,6 @@ class RouterInputTransitEncryptionKeyConfiguration(PropertyType):
 
 @dataclass
 class RtpRouterInputConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "forward_error_correction": "ForwardErrorCorrection",
         "port": "Port",
@@ -2112,8 +1972,6 @@ class RtpRouterInputConfiguration(PropertyType):
 
 @dataclass
 class SecretsManagerEncryptionKeyConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "role_arn": "RoleArn",
@@ -2125,8 +1983,6 @@ class SecretsManagerEncryptionKeyConfiguration(PropertyType):
 
 @dataclass
 class SrtCallerRouterInputConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_address": "SourceAddress",
         "stream_id": "StreamId",
@@ -2144,8 +2000,6 @@ class SrtCallerRouterInputConfiguration(PropertyType):
 
 @dataclass
 class SrtDecryptionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_key": "EncryptionKey",
     }
@@ -2155,8 +2009,6 @@ class SrtDecryptionConfiguration(PropertyType):
 
 @dataclass
 class SrtListenerRouterInputConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "decryption_configuration": "DecryptionConfiguration",
@@ -2170,8 +2022,6 @@ class SrtListenerRouterInputConfiguration(PropertyType):
 
 @dataclass
 class StandardRouterInputConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "protocol_configuration": "ProtocolConfiguration",
         "network_interface_arn": "NetworkInterfaceArn",
@@ -2262,8 +2112,6 @@ class RouterInput(CloudFormationResource):
 
 @dataclass
 class PublicRouterNetworkInterfaceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allow_rules": "AllowRules",
     }
@@ -2273,8 +2121,6 @@ class PublicRouterNetworkInterfaceConfiguration(PropertyType):
 
 @dataclass
 class PublicRouterNetworkInterfaceRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr": "Cidr",
     }
@@ -2284,8 +2130,6 @@ class PublicRouterNetworkInterfaceRule(PropertyType):
 
 @dataclass
 class RouterNetworkInterfaceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc": "Vpc",
         "public": "Public",
@@ -2297,8 +2141,6 @@ class RouterNetworkInterfaceConfiguration(PropertyType):
 
 @dataclass
 class VpcRouterNetworkInterfaceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnet_id": "SubnetId",
         "security_group_ids": "SecurityGroupIds",
@@ -2370,8 +2212,6 @@ class RouterNetworkInterface(CloudFormationResource):
 
 @dataclass
 class FlowTransitEncryption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_key_type": "EncryptionKeyType",
         "encryption_key_configuration": "EncryptionKeyConfiguration",
@@ -2383,8 +2223,6 @@ class FlowTransitEncryption(PropertyType):
 
 @dataclass
 class FlowTransitEncryptionKeyConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secrets_manager": "SecretsManager",
         "automatic": "Automatic",
@@ -2396,8 +2234,6 @@ class FlowTransitEncryptionKeyConfiguration(PropertyType):
 
 @dataclass
 class MaintenanceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default": "Default",
         "preferred_day_time": "PreferredDayTime",
@@ -2409,8 +2245,6 @@ class MaintenanceConfiguration(PropertyType):
 
 @dataclass
 class MediaConnectFlowRouterOutputConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "flow_source_arn": "FlowSourceArn",
         "flow_arn": "FlowArn",
@@ -2424,8 +2258,6 @@ class MediaConnectFlowRouterOutputConfiguration(PropertyType):
 
 @dataclass
 class MediaLiveInputRouterOutputConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "media_live_input_arn": "MediaLiveInputArn",
         "media_live_pipeline_id": "MediaLivePipelineId",
@@ -2439,8 +2271,6 @@ class MediaLiveInputRouterOutputConfiguration(PropertyType):
 
 @dataclass
 class MediaLiveTransitEncryption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_key_type": "EncryptionKeyType",
         "encryption_key_configuration": "EncryptionKeyConfiguration",
@@ -2452,8 +2282,6 @@ class MediaLiveTransitEncryption(PropertyType):
 
 @dataclass
 class MediaLiveTransitEncryptionKeyConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secrets_manager": "SecretsManager",
         "automatic": "Automatic",
@@ -2465,8 +2293,6 @@ class MediaLiveTransitEncryptionKeyConfiguration(PropertyType):
 
 @dataclass
 class PreferredDayTimeMaintenanceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "time": "Time",
         "day": "Day",
@@ -2478,8 +2304,6 @@ class PreferredDayTimeMaintenanceConfiguration(PropertyType):
 
 @dataclass
 class RistRouterOutputConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_port": "DestinationPort",
         "destination_address": "DestinationAddress",
@@ -2491,8 +2315,6 @@ class RistRouterOutputConfiguration(PropertyType):
 
 @dataclass
 class RouterOutputConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "media_live_input": "MediaLiveInput",
         "media_connect_flow": "MediaConnectFlow",
@@ -2506,8 +2328,6 @@ class RouterOutputConfiguration(PropertyType):
 
 @dataclass
 class RouterOutputProtocolConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "srt_caller": "SrtCaller",
         "srt_listener": "SrtListener",
@@ -2523,8 +2343,6 @@ class RouterOutputProtocolConfiguration(PropertyType):
 
 @dataclass
 class RtpRouterOutputConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "forward_error_correction": "ForwardErrorCorrection",
         "destination_port": "DestinationPort",
@@ -2538,8 +2356,6 @@ class RtpRouterOutputConfiguration(PropertyType):
 
 @dataclass
 class SecretsManagerEncryptionKeyConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "role_arn": "RoleArn",
@@ -2551,8 +2367,6 @@ class SecretsManagerEncryptionKeyConfiguration(PropertyType):
 
 @dataclass
 class SrtCallerRouterOutputConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stream_id": "StreamId",
         "encryption_configuration": "EncryptionConfiguration",
@@ -2570,8 +2384,6 @@ class SrtCallerRouterOutputConfiguration(PropertyType):
 
 @dataclass
 class SrtEncryptionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_key": "EncryptionKey",
     }
@@ -2581,8 +2393,6 @@ class SrtEncryptionConfiguration(PropertyType):
 
 @dataclass
 class SrtListenerRouterOutputConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_configuration": "EncryptionConfiguration",
         "port": "Port",
@@ -2596,8 +2406,6 @@ class SrtListenerRouterOutputConfiguration(PropertyType):
 
 @dataclass
 class StandardRouterOutputConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "protocol_configuration": "ProtocolConfiguration",
         "network_interface_arn": "NetworkInterfaceArn",

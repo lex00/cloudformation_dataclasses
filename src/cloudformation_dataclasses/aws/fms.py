@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service FMS
@@ -393,8 +393,6 @@ class NotificationChannel(CloudFormationResource):
 
 @dataclass
 class IEMap(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account": "ACCOUNT",
         "orgunit": "ORGUNIT",
@@ -406,8 +404,6 @@ class IEMap(PropertyType):
 
 @dataclass
 class IcmpTypeCode(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "code": "Code",
@@ -419,8 +415,6 @@ class IcmpTypeCode(PropertyType):
 
 @dataclass
 class NetworkAclCommonPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_acl_entry_set": "NetworkAclEntrySet",
     }
@@ -430,8 +424,6 @@ class NetworkAclCommonPolicy(PropertyType):
 
 @dataclass
 class NetworkAclEntry(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port_range": "PortRange",
         "icmp_type_code": "IcmpTypeCode",
@@ -453,8 +445,6 @@ class NetworkAclEntry(PropertyType):
 
 @dataclass
 class NetworkAclEntrySet(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "last_entries": "LastEntries",
         "force_remediate_for_first_entries": "ForceRemediateForFirstEntries",
@@ -470,8 +460,6 @@ class NetworkAclEntrySet(PropertyType):
 
 @dataclass
 class NetworkFirewallPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "firewall_deployment_model": "FirewallDeploymentModel",
     }
@@ -481,8 +469,6 @@ class NetworkFirewallPolicy(PropertyType):
 
 @dataclass
 class PolicyOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_firewall_policy": "NetworkFirewallPolicy",
         "network_acl_common_policy": "NetworkAclCommonPolicy",
@@ -496,8 +482,6 @@ class PolicyOption(PropertyType):
 
 @dataclass
 class PolicyTag(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -509,8 +493,6 @@ class PolicyTag(PropertyType):
 
 @dataclass
 class PortRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "from_": "From",
         "to": "To",
@@ -522,8 +504,6 @@ class PortRange(PropertyType):
 
 @dataclass
 class ResourceTag(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -535,8 +515,6 @@ class ResourceTag(PropertyType):
 
 @dataclass
 class SecurityServicePolicyData(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "managed_service_data": "ManagedServiceData",
         "type_": "Type",
@@ -550,8 +528,6 @@ class SecurityServicePolicyData(PropertyType):
 
 @dataclass
 class ThirdPartyFirewallPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "firewall_deployment_model": "FirewallDeploymentModel",
     }

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IoTFleetWise
@@ -499,8 +499,6 @@ READY_FOR_CHECKIN = VehicleState.READY_FOR_CHECKIN
 
 @dataclass
 class CollectionScheme(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "time_based_collection_scheme": "TimeBasedCollectionScheme",
         "condition_based_collection_scheme": "ConditionBasedCollectionScheme",
@@ -512,8 +510,6 @@ class CollectionScheme(PropertyType):
 
 @dataclass
 class ConditionBasedCollectionScheme(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "minimum_trigger_interval_ms": "MinimumTriggerIntervalMs",
         "expression": "Expression",
@@ -529,8 +525,6 @@ class ConditionBasedCollectionScheme(PropertyType):
 
 @dataclass
 class ConditionBasedSignalFetchConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition_expression": "ConditionExpression",
         "trigger_mode": "TriggerMode",
@@ -542,8 +536,6 @@ class ConditionBasedSignalFetchConfig(PropertyType):
 
 @dataclass
 class DataDestinationConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_config": "S3Config",
         "mqtt_topic_config": "MqttTopicConfig",
@@ -557,8 +549,6 @@ class DataDestinationConfig(PropertyType):
 
 @dataclass
 class DataPartition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "upload_options": "UploadOptions",
         "storage_options": "StorageOptions",
@@ -572,8 +562,6 @@ class DataPartition(PropertyType):
 
 @dataclass
 class DataPartitionStorageOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maximum_size": "MaximumSize",
         "storage_location": "StorageLocation",
@@ -587,8 +575,6 @@ class DataPartitionStorageOptions(PropertyType):
 
 @dataclass
 class DataPartitionUploadOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
         "condition_language_version": "ConditionLanguageVersion",
@@ -600,8 +586,6 @@ class DataPartitionUploadOptions(PropertyType):
 
 @dataclass
 class MqttTopicConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "execution_role_arn": "ExecutionRoleArn",
         "mqtt_topic_arn": "MqttTopicArn",
@@ -613,8 +597,6 @@ class MqttTopicConfig(PropertyType):
 
 @dataclass
 class S3Config(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_arn": "BucketArn",
         "data_format": "DataFormat",
@@ -630,8 +612,6 @@ class S3Config(PropertyType):
 
 @dataclass
 class SignalFetchConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition_based": "ConditionBased",
         "time_based": "TimeBased",
@@ -643,8 +623,6 @@ class SignalFetchConfig(PropertyType):
 
 @dataclass
 class SignalFetchInformation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "actions": "Actions",
         "fully_qualified_name": "FullyQualifiedName",
@@ -660,8 +638,6 @@ class SignalFetchInformation(PropertyType):
 
 @dataclass
 class SignalInformation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_sample_count": "MaxSampleCount",
         "data_partition_id": "DataPartitionId",
@@ -677,8 +653,6 @@ class SignalInformation(PropertyType):
 
 @dataclass
 class StorageMaximumSize(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "unit": "Unit",
@@ -690,8 +664,6 @@ class StorageMaximumSize(PropertyType):
 
 @dataclass
 class StorageMinimumTimeToLive(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "unit": "Unit",
@@ -703,8 +675,6 @@ class StorageMinimumTimeToLive(PropertyType):
 
 @dataclass
 class TimeBasedCollectionScheme(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "period_ms": "PeriodMs",
     }
@@ -714,8 +684,6 @@ class TimeBasedCollectionScheme(PropertyType):
 
 @dataclass
 class TimeBasedSignalFetchConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "execution_frequency_ms": "ExecutionFrequencyMs",
     }
@@ -725,8 +693,6 @@ class TimeBasedSignalFetchConfig(PropertyType):
 
 @dataclass
 class TimestreamConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "execution_role_arn": "ExecutionRoleArn",
         "timestream_table_arn": "TimestreamTableArn",
@@ -808,8 +774,6 @@ class Campaign(CloudFormationResource):
 
 @dataclass
 class CanInterface(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "protocol_name": "ProtocolName",
         "protocol_version": "ProtocolVersion",
@@ -823,8 +787,6 @@ class CanInterface(PropertyType):
 
 @dataclass
 class CanSignal(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_big_endian": "IsBigEndian",
         "length": "Length",
@@ -850,8 +812,6 @@ class CanSignal(PropertyType):
 
 @dataclass
 class CustomDecodingInterface(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -861,8 +821,6 @@ class CustomDecodingInterface(PropertyType):
 
 @dataclass
 class CustomDecodingSignal(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id": "Id",
     }
@@ -872,8 +830,6 @@ class CustomDecodingSignal(PropertyType):
 
 @dataclass
 class NetworkInterfacesItems(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "can_interface": "CanInterface",
@@ -891,8 +847,6 @@ class NetworkInterfacesItems(PropertyType):
 
 @dataclass
 class ObdInterface(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "has_transmission_ecu": "HasTransmissionEcu",
         "pid_request_interval_seconds": "PidRequestIntervalSeconds",
@@ -914,8 +868,6 @@ class ObdInterface(PropertyType):
 
 @dataclass
 class ObdSignal(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bit_right_shift": "BitRightShift",
         "bit_mask_length": "BitMaskLength",
@@ -945,8 +897,6 @@ class ObdSignal(PropertyType):
 
 @dataclass
 class SignalDecodersItems(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "obd_signal": "ObdSignal",
@@ -1083,8 +1033,6 @@ class ModelManifest(CloudFormationResource):
 
 @dataclass
 class Actuator(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "allowed_values": "AllowedValues",
@@ -1108,8 +1056,6 @@ class Actuator(PropertyType):
 
 @dataclass
 class Attribute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_value": "DefaultValue",
         "description": "Description",
@@ -1135,8 +1081,6 @@ class Attribute(PropertyType):
 
 @dataclass
 class Branch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "fully_qualified_name": "FullyQualifiedName",
@@ -1148,8 +1092,6 @@ class Branch(PropertyType):
 
 @dataclass
 class Node(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute": "Attribute",
         "branch": "Branch",
@@ -1165,8 +1107,6 @@ class Node(PropertyType):
 
 @dataclass
 class NodeCounts(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "total_actuators": "TotalActuators",
         "total_nodes": "TotalNodes",
@@ -1184,8 +1124,6 @@ class NodeCounts(PropertyType):
 
 @dataclass
 class Sensor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "allowed_values": "AllowedValues",
@@ -1315,8 +1253,6 @@ class StateTemplate(CloudFormationResource):
 
 @dataclass
 class PeriodicStateTemplateUpdateStrategy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state_template_update_rate": "StateTemplateUpdateRate",
     }
@@ -1326,8 +1262,6 @@ class PeriodicStateTemplateUpdateStrategy(PropertyType):
 
 @dataclass
 class StateTemplateAssociation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "identifier": "Identifier",
         "state_template_update_strategy": "StateTemplateUpdateStrategy",
@@ -1339,8 +1273,6 @@ class StateTemplateAssociation(PropertyType):
 
 @dataclass
 class StateTemplateUpdateStrategy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_change": "OnChange",
         "periodic": "Periodic",
@@ -1352,8 +1284,6 @@ class StateTemplateUpdateStrategy(PropertyType):
 
 @dataclass
 class TimePeriod(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "unit": "Unit",

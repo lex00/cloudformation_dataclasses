@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IoTAnalytics
@@ -125,8 +125,6 @@ FAILED = ReprocessingStatus.FAILED
 
 @dataclass
 class ChannelStorage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "customer_managed_s3": "CustomerManagedS3",
         "service_managed_s3": "ServiceManagedS3",
@@ -138,8 +136,6 @@ class ChannelStorage(PropertyType):
 
 @dataclass
 class CustomerManagedS3(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "role_arn": "RoleArn",
@@ -153,8 +149,6 @@ class CustomerManagedS3(PropertyType):
 
 @dataclass
 class RetentionPeriod(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "number_of_days": "NumberOfDays",
         "unlimited": "Unlimited",
@@ -191,8 +185,6 @@ class Channel(CloudFormationResource):
 
 @dataclass
 class Action(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action_name": "ActionName",
         "container_action": "ContainerAction",
@@ -206,8 +198,6 @@ class Action(PropertyType):
 
 @dataclass
 class ContainerAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "variables": "Variables",
         "execution_role_arn": "ExecutionRoleArn",
@@ -223,8 +213,6 @@ class ContainerAction(PropertyType):
 
 @dataclass
 class DatasetContentDeliveryRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "entry_name": "EntryName",
@@ -236,8 +224,6 @@ class DatasetContentDeliveryRule(PropertyType):
 
 @dataclass
 class DatasetContentDeliveryRuleDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iot_events_destination_configuration": "IotEventsDestinationConfiguration",
         "s3_destination_configuration": "S3DestinationConfiguration",
@@ -249,8 +235,6 @@ class DatasetContentDeliveryRuleDestination(PropertyType):
 
 @dataclass
 class DatasetContentVersionValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dataset_name": "DatasetName",
     }
@@ -260,8 +244,6 @@ class DatasetContentVersionValue(PropertyType):
 
 @dataclass
 class DeltaTime(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "time_expression": "TimeExpression",
         "offset_seconds": "OffsetSeconds",
@@ -273,8 +255,6 @@ class DeltaTime(PropertyType):
 
 @dataclass
 class DeltaTimeSessionWindowConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timeout_in_minutes": "TimeoutInMinutes",
     }
@@ -284,8 +264,6 @@ class DeltaTimeSessionWindowConfiguration(PropertyType):
 
 @dataclass
 class Filter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delta_time": "DeltaTime",
     }
@@ -295,8 +273,6 @@ class Filter(PropertyType):
 
 @dataclass
 class GlueConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "database_name": "DatabaseName",
@@ -308,8 +284,6 @@ class GlueConfiguration(PropertyType):
 
 @dataclass
 class IotEventsDestinationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_name": "InputName",
         "role_arn": "RoleArn",
@@ -321,8 +295,6 @@ class IotEventsDestinationConfiguration(PropertyType):
 
 @dataclass
 class LateDataRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule_configuration": "RuleConfiguration",
         "rule_name": "RuleName",
@@ -334,8 +306,6 @@ class LateDataRule(PropertyType):
 
 @dataclass
 class LateDataRuleConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delta_time_session_window_configuration": "DeltaTimeSessionWindowConfiguration",
     }
@@ -345,8 +315,6 @@ class LateDataRuleConfiguration(PropertyType):
 
 @dataclass
 class OutputFileUriValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file_name": "FileName",
     }
@@ -356,8 +324,6 @@ class OutputFileUriValue(PropertyType):
 
 @dataclass
 class QueryAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filters": "Filters",
         "sql_query": "SqlQuery",
@@ -369,8 +335,6 @@ class QueryAction(PropertyType):
 
 @dataclass
 class ResourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "volume_size_in_gb": "VolumeSizeInGB",
         "compute_type": "ComputeType",
@@ -382,8 +346,6 @@ class ResourceConfiguration(PropertyType):
 
 @dataclass
 class RetentionPeriod(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "number_of_days": "NumberOfDays",
         "unlimited": "Unlimited",
@@ -395,8 +357,6 @@ class RetentionPeriod(PropertyType):
 
 @dataclass
 class S3DestinationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "glue_configuration": "GlueConfiguration",
         "bucket": "Bucket",
@@ -412,8 +372,6 @@ class S3DestinationConfiguration(PropertyType):
 
 @dataclass
 class Schedule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schedule_expression": "ScheduleExpression",
     }
@@ -423,8 +381,6 @@ class Schedule(PropertyType):
 
 @dataclass
 class Trigger(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schedule": "Schedule",
         "triggering_dataset": "TriggeringDataset",
@@ -436,8 +392,6 @@ class Trigger(PropertyType):
 
 @dataclass
 class TriggeringDataset(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dataset_name": "DatasetName",
     }
@@ -447,8 +401,6 @@ class TriggeringDataset(PropertyType):
 
 @dataclass
 class Variable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dataset_content_version_value": "DatasetContentVersionValue",
         "double_value": "DoubleValue",
@@ -466,8 +418,6 @@ class Variable(PropertyType):
 
 @dataclass
 class VersioningConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_versions": "MaxVersions",
         "unlimited": "Unlimited",
@@ -512,8 +462,6 @@ class Dataset(CloudFormationResource):
 
 @dataclass
 class Column(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "name": "Name",
@@ -525,8 +473,6 @@ class Column(PropertyType):
 
 @dataclass
 class CustomerManagedS3(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "role_arn": "RoleArn",
@@ -540,8 +486,6 @@ class CustomerManagedS3(PropertyType):
 
 @dataclass
 class CustomerManagedS3Storage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "key_prefix": "KeyPrefix",
@@ -553,8 +497,6 @@ class CustomerManagedS3Storage(PropertyType):
 
 @dataclass
 class DatastorePartition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "partition": "Partition",
         "timestamp_partition": "TimestampPartition",
@@ -566,8 +508,6 @@ class DatastorePartition(PropertyType):
 
 @dataclass
 class DatastorePartitions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "partitions": "Partitions",
     }
@@ -577,8 +517,6 @@ class DatastorePartitions(PropertyType):
 
 @dataclass
 class DatastoreStorage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "customer_managed_s3": "CustomerManagedS3",
         "service_managed_s3": "ServiceManagedS3",
@@ -592,8 +530,6 @@ class DatastoreStorage(PropertyType):
 
 @dataclass
 class FileFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parquet_configuration": "ParquetConfiguration",
         "json_configuration": "JsonConfiguration",
@@ -605,8 +541,6 @@ class FileFormatConfiguration(PropertyType):
 
 @dataclass
 class IotSiteWiseMultiLayerStorage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "customer_managed_s3_storage": "CustomerManagedS3Storage",
     }
@@ -616,8 +550,6 @@ class IotSiteWiseMultiLayerStorage(PropertyType):
 
 @dataclass
 class ParquetConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schema_definition": "SchemaDefinition",
     }
@@ -627,8 +559,6 @@ class ParquetConfiguration(PropertyType):
 
 @dataclass
 class Partition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_name": "AttributeName",
     }
@@ -638,8 +568,6 @@ class Partition(PropertyType):
 
 @dataclass
 class RetentionPeriod(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "number_of_days": "NumberOfDays",
         "unlimited": "Unlimited",
@@ -651,8 +579,6 @@ class RetentionPeriod(PropertyType):
 
 @dataclass
 class SchemaDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "columns": "Columns",
     }
@@ -662,8 +588,6 @@ class SchemaDefinition(PropertyType):
 
 @dataclass
 class TimestampPartition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_name": "AttributeName",
         "timestamp_format": "TimestampFormat",
@@ -704,8 +628,6 @@ class Datastore(CloudFormationResource):
 
 @dataclass
 class Activity(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "select_attributes": "SelectAttributes",
         "datastore": "Datastore",
@@ -733,8 +655,6 @@ class Activity(PropertyType):
 
 @dataclass
 class AddAttributes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "next": "Next",
         "attributes": "Attributes",
@@ -748,8 +668,6 @@ class AddAttributes(PropertyType):
 
 @dataclass
 class Channel(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channel_name": "ChannelName",
         "next": "Next",
@@ -763,8 +681,6 @@ class Channel(PropertyType):
 
 @dataclass
 class Datastore(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "datastore_name": "DatastoreName",
         "name": "Name",
@@ -776,8 +692,6 @@ class Datastore(PropertyType):
 
 @dataclass
 class DeviceRegistryEnrich(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute": "Attribute",
         "next": "Next",
@@ -795,8 +709,6 @@ class DeviceRegistryEnrich(PropertyType):
 
 @dataclass
 class DeviceShadowEnrich(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute": "Attribute",
         "next": "Next",
@@ -814,8 +726,6 @@ class DeviceShadowEnrich(PropertyType):
 
 @dataclass
 class Filter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter": "Filter",
         "next": "Next",
@@ -829,8 +739,6 @@ class Filter(PropertyType):
 
 @dataclass
 class Lambda(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "batch_size": "BatchSize",
         "next": "Next",
@@ -846,8 +754,6 @@ class Lambda(PropertyType):
 
 @dataclass
 class Math(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute": "Attribute",
         "next": "Next",
@@ -863,8 +769,6 @@ class Math(PropertyType):
 
 @dataclass
 class RemoveAttributes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "next": "Next",
         "attributes": "Attributes",
@@ -878,8 +782,6 @@ class RemoveAttributes(PropertyType):
 
 @dataclass
 class SelectAttributes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "next": "Next",
         "attributes": "Attributes",

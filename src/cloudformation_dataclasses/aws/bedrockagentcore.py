@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service BedrockAgentCore
@@ -27,8 +27,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class BrowserNetworkConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_config": "VpcConfig",
         "network_mode": "NetworkMode",
@@ -40,8 +38,6 @@ class BrowserNetworkConfiguration(PropertyType):
 
 @dataclass
 class BrowserSigning(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -51,8 +47,6 @@ class BrowserSigning(PropertyType):
 
 @dataclass
 class RecordingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "s3_location": "S3Location",
@@ -64,8 +58,6 @@ class RecordingConfig(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "prefix": "Prefix",
@@ -77,8 +69,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "subnets": "Subnets",
@@ -146,8 +136,6 @@ class BrowserCustom(CloudFormationResource):
 
 @dataclass
 class CodeInterpreterNetworkConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_config": "VpcConfig",
         "network_mode": "NetworkMode",
@@ -159,8 +147,6 @@ class CodeInterpreterNetworkConfiguration(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "subnets": "Subnets",
@@ -224,8 +210,6 @@ class CodeInterpreterCustom(CloudFormationResource):
 
 @dataclass
 class AuthorizerConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_jwt_authorizer": "CustomJWTAuthorizer",
     }
@@ -235,8 +219,6 @@ class AuthorizerConfiguration(PropertyType):
 
 @dataclass
 class CustomJWTAuthorizerConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "discovery_url": "DiscoveryUrl",
         "allowed_audience": "AllowedAudience",
@@ -250,8 +232,6 @@ class CustomJWTAuthorizerConfiguration(PropertyType):
 
 @dataclass
 class GatewayProtocolConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mcp": "Mcp",
     }
@@ -261,8 +241,6 @@ class GatewayProtocolConfiguration(PropertyType):
 
 @dataclass
 class MCPGatewayConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "supported_versions": "SupportedVersions",
         "instructions": "Instructions",
@@ -276,8 +254,6 @@ class MCPGatewayConfiguration(PropertyType):
 
 @dataclass
 class WorkloadIdentityDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "workload_identity_arn": "WorkloadIdentityArn",
     }
@@ -364,8 +340,6 @@ class Gateway(CloudFormationResource):
 
 @dataclass
 class ApiKeyCredentialProvider(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "provider_arn": "ProviderArn",
         "credential_location": "CredentialLocation",
@@ -381,8 +355,6 @@ class ApiKeyCredentialProvider(PropertyType):
 
 @dataclass
 class ApiSchemaConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
         "inline_payload": "InlinePayload",
@@ -394,8 +366,6 @@ class ApiSchemaConfiguration(PropertyType):
 
 @dataclass
 class CredentialProvider(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "oauth_credential_provider": "OauthCredentialProvider",
         "api_key_credential_provider": "ApiKeyCredentialProvider",
@@ -407,8 +377,6 @@ class CredentialProvider(PropertyType):
 
 @dataclass
 class CredentialProviderConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "credential_provider": "CredentialProvider",
         "credential_provider_type": "CredentialProviderType",
@@ -420,8 +388,6 @@ class CredentialProviderConfiguration(PropertyType):
 
 @dataclass
 class McpLambdaTargetConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_arn": "LambdaArn",
         "tool_schema": "ToolSchema",
@@ -433,8 +399,6 @@ class McpLambdaTargetConfiguration(PropertyType):
 
 @dataclass
 class McpServerTargetConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "endpoint": "Endpoint",
     }
@@ -444,8 +408,6 @@ class McpServerTargetConfiguration(PropertyType):
 
 @dataclass
 class McpTargetConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mcp_server": "McpServer",
         "open_api_schema": "OpenApiSchema",
@@ -461,8 +423,6 @@ class McpTargetConfiguration(PropertyType):
 
 @dataclass
 class OAuthCredentialProvider(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "provider_arn": "ProviderArn",
         "scopes": "Scopes",
@@ -476,8 +436,6 @@ class OAuthCredentialProvider(PropertyType):
 
 @dataclass
 class S3Configuration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_owner_account_id": "BucketOwnerAccountId",
         "uri": "Uri",
@@ -489,8 +447,6 @@ class S3Configuration(PropertyType):
 
 @dataclass
 class SchemaDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "description": "Description",
@@ -508,8 +464,6 @@ class SchemaDefinition(PropertyType):
 
 @dataclass
 class TargetConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mcp": "Mcp",
     }
@@ -519,8 +473,6 @@ class TargetConfiguration(PropertyType):
 
 @dataclass
 class ToolDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "output_schema": "OutputSchema",
         "description": "Description",
@@ -536,8 +488,6 @@ class ToolDefinition(PropertyType):
 
 @dataclass
 class ToolSchema(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
         "inline_payload": "InlinePayload",
@@ -606,8 +556,6 @@ class GatewayTarget(CloudFormationResource):
 
 @dataclass
 class CustomConfigurationInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "summary_override": "SummaryOverride",
         "user_preference_override": "UserPreferenceOverride",
@@ -623,8 +571,6 @@ class CustomConfigurationInput(PropertyType):
 
 @dataclass
 class CustomMemoryStrategy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "namespaces": "Namespaces",
@@ -650,8 +596,6 @@ class CustomMemoryStrategy(PropertyType):
 
 @dataclass
 class InvocationConfigurationInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topic_arn": "TopicArn",
         "payload_delivery_bucket_name": "PayloadDeliveryBucketName",
@@ -663,8 +607,6 @@ class InvocationConfigurationInput(PropertyType):
 
 @dataclass
 class MemoryStrategy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "summary_memory_strategy": "SummaryMemoryStrategy",
         "custom_memory_strategy": "CustomMemoryStrategy",
@@ -680,8 +622,6 @@ class MemoryStrategy(PropertyType):
 
 @dataclass
 class MessageBasedTriggerInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message_count": "MessageCount",
     }
@@ -691,8 +631,6 @@ class MessageBasedTriggerInput(PropertyType):
 
 @dataclass
 class SelfManagedConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "trigger_conditions": "TriggerConditions",
         "invocation_configuration": "InvocationConfiguration",
@@ -706,8 +644,6 @@ class SelfManagedConfiguration(PropertyType):
 
 @dataclass
 class SemanticMemoryStrategy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "namespaces": "Namespaces",
@@ -731,8 +667,6 @@ class SemanticMemoryStrategy(PropertyType):
 
 @dataclass
 class SemanticOverride(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "consolidation": "Consolidation",
         "extraction": "Extraction",
@@ -744,8 +678,6 @@ class SemanticOverride(PropertyType):
 
 @dataclass
 class SemanticOverrideConsolidationConfigurationInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "append_to_prompt": "AppendToPrompt",
         "model_id": "ModelId",
@@ -757,8 +689,6 @@ class SemanticOverrideConsolidationConfigurationInput(PropertyType):
 
 @dataclass
 class SemanticOverrideExtractionConfigurationInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "append_to_prompt": "AppendToPrompt",
         "model_id": "ModelId",
@@ -770,8 +700,6 @@ class SemanticOverrideExtractionConfigurationInput(PropertyType):
 
 @dataclass
 class SummaryMemoryStrategy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "namespaces": "Namespaces",
@@ -795,8 +723,6 @@ class SummaryMemoryStrategy(PropertyType):
 
 @dataclass
 class SummaryOverride(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "consolidation": "Consolidation",
     }
@@ -806,8 +732,6 @@ class SummaryOverride(PropertyType):
 
 @dataclass
 class SummaryOverrideConsolidationConfigurationInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "append_to_prompt": "AppendToPrompt",
         "model_id": "ModelId",
@@ -819,8 +743,6 @@ class SummaryOverrideConsolidationConfigurationInput(PropertyType):
 
 @dataclass
 class TimeBasedTriggerInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "idle_session_timeout": "IdleSessionTimeout",
     }
@@ -830,8 +752,6 @@ class TimeBasedTriggerInput(PropertyType):
 
 @dataclass
 class TokenBasedTriggerInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "token_count": "TokenCount",
     }
@@ -841,8 +761,6 @@ class TokenBasedTriggerInput(PropertyType):
 
 @dataclass
 class TriggerConditionInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message_based_trigger": "MessageBasedTrigger",
         "token_based_trigger": "TokenBasedTrigger",
@@ -856,8 +774,6 @@ class TriggerConditionInput(PropertyType):
 
 @dataclass
 class UserPreferenceMemoryStrategy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "namespaces": "Namespaces",
@@ -881,8 +797,6 @@ class UserPreferenceMemoryStrategy(PropertyType):
 
 @dataclass
 class UserPreferenceOverride(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "consolidation": "Consolidation",
         "extraction": "Extraction",
@@ -894,8 +808,6 @@ class UserPreferenceOverride(PropertyType):
 
 @dataclass
 class UserPreferenceOverrideConsolidationConfigurationInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "append_to_prompt": "AppendToPrompt",
         "model_id": "ModelId",
@@ -907,8 +819,6 @@ class UserPreferenceOverrideConsolidationConfigurationInput(PropertyType):
 
 @dataclass
 class UserPreferenceOverrideExtractionConfigurationInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "append_to_prompt": "AppendToPrompt",
         "model_id": "ModelId",
@@ -976,8 +886,6 @@ class Memory(CloudFormationResource):
 
 @dataclass
 class AgentRuntimeArtifact(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "code_configuration": "CodeConfiguration",
         "container_configuration": "ContainerConfiguration",
@@ -989,8 +897,6 @@ class AgentRuntimeArtifact(PropertyType):
 
 @dataclass
 class AuthorizerConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_jwt_authorizer": "CustomJWTAuthorizer",
     }
@@ -1000,8 +906,6 @@ class AuthorizerConfiguration(PropertyType):
 
 @dataclass
 class Code(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
     }
@@ -1011,8 +915,6 @@ class Code(PropertyType):
 
 @dataclass
 class CodeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "runtime": "Runtime",
         "entry_point": "EntryPoint",
@@ -1026,8 +928,6 @@ class CodeConfiguration(PropertyType):
 
 @dataclass
 class ContainerConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_uri": "ContainerUri",
     }
@@ -1037,8 +937,6 @@ class ContainerConfiguration(PropertyType):
 
 @dataclass
 class CustomJWTAuthorizerConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "discovery_url": "DiscoveryUrl",
         "allowed_audience": "AllowedAudience",
@@ -1052,8 +950,6 @@ class CustomJWTAuthorizerConfiguration(PropertyType):
 
 @dataclass
 class LifecycleConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_lifetime": "MaxLifetime",
         "idle_runtime_session_timeout": "IdleRuntimeSessionTimeout",
@@ -1065,8 +961,6 @@ class LifecycleConfiguration(PropertyType):
 
 @dataclass
 class NetworkConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_mode_config": "NetworkModeConfig",
         "network_mode": "NetworkMode",
@@ -1078,8 +972,6 @@ class NetworkConfiguration(PropertyType):
 
 @dataclass
 class RequestHeaderConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "request_header_allowlist": "RequestHeaderAllowlist",
     }
@@ -1089,8 +981,6 @@ class RequestHeaderConfiguration(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version_id": "VersionId",
         "bucket": "Bucket",
@@ -1104,8 +994,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "subnets": "Subnets",
@@ -1117,8 +1005,6 @@ class VpcConfig(PropertyType):
 
 @dataclass
 class WorkloadIdentityDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bed"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "workload_identity_arn": "WorkloadIdentityArn",
     }

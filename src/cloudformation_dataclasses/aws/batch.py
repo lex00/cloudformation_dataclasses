@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Batch
@@ -390,8 +390,6 @@ EKS_NODEADM = UserdataType.EKS_NODEADM
 
 @dataclass
 class ComputeResources(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "spot_iam_fleet_role": "SpotIamFleetRole",
         "maxv_cpus": "MaxvCpus",
@@ -435,8 +433,6 @@ class ComputeResources(PropertyType):
 
 @dataclass
 class Ec2ConfigurationObject(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "image_id_override": "ImageIdOverride",
         "image_kubernetes_version": "ImageKubernetesVersion",
@@ -450,8 +446,6 @@ class Ec2ConfigurationObject(PropertyType):
 
 @dataclass
 class EksConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "eks_cluster_arn": "EksClusterArn",
         "kubernetes_namespace": "KubernetesNamespace",
@@ -463,8 +457,6 @@ class EksConfiguration(PropertyType):
 
 @dataclass
 class LaunchTemplateSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "userdata_type": "UserdataType",
         "launch_template_name": "LaunchTemplateName",
@@ -482,8 +474,6 @@ class LaunchTemplateSpecification(PropertyType):
 
 @dataclass
 class LaunchTemplateSpecificationOverride(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_instance_types": "TargetInstanceTypes",
         "userdata_type": "UserdataType",
@@ -501,8 +491,6 @@ class LaunchTemplateSpecificationOverride(PropertyType):
 
 @dataclass
 class UpdatePolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "job_execution_timeout_minutes": "JobExecutionTimeoutMinutes",
         "terminate_jobs_on_update": "TerminateJobsOnUpdate",
@@ -593,8 +581,6 @@ class ConsumableResource(CloudFormationResource):
 
 @dataclass
 class ConsumableResourceProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "consumable_resource_list": "ConsumableResourceList",
     }
@@ -604,8 +590,6 @@ class ConsumableResourceProperties(PropertyType):
 
 @dataclass
 class ConsumableResourceRequirement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "consumable_resource": "ConsumableResource",
         "quantity": "Quantity",
@@ -617,8 +601,6 @@ class ConsumableResourceRequirement(PropertyType):
 
 @dataclass
 class ContainerProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "repository_credentials": "RepositoryCredentials",
         "user": "User",
@@ -672,8 +654,6 @@ class ContainerProperties(PropertyType):
 
 @dataclass
 class Device(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "host_path": "HostPath",
         "permissions": "Permissions",
@@ -687,8 +667,6 @@ class Device(PropertyType):
 
 @dataclass
 class EFSAuthorizationConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iam": "Iam",
         "access_point_id": "AccessPointId",
@@ -700,8 +678,6 @@ class EFSAuthorizationConfig(PropertyType):
 
 @dataclass
 class EFSVolumeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transit_encryption": "TransitEncryption",
         "authorization_config": "AuthorizationConfig",
@@ -719,8 +695,6 @@ class EFSVolumeConfiguration(PropertyType):
 
 @dataclass
 class EcsProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "task_properties": "TaskProperties",
     }
@@ -730,8 +704,6 @@ class EcsProperties(PropertyType):
 
 @dataclass
 class EcsTaskProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "platform_version": "PlatformVersion",
         "execution_role_arn": "ExecutionRoleArn",
@@ -761,8 +733,6 @@ class EcsTaskProperties(PropertyType):
 
 @dataclass
 class EksContainer(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "args": "Args",
         "volume_mounts": "VolumeMounts",
@@ -788,8 +758,6 @@ class EksContainer(PropertyType):
 
 @dataclass
 class EksContainerEnvironmentVariable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -801,8 +769,6 @@ class EksContainerEnvironmentVariable(PropertyType):
 
 @dataclass
 class EksContainerResourceRequirements(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "limits": "Limits",
         "requests": "Requests",
@@ -814,8 +780,6 @@ class EksContainerResourceRequirements(PropertyType):
 
 @dataclass
 class EksContainerSecurityContext(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "run_as_user": "RunAsUser",
         "allow_privilege_escalation": "AllowPrivilegeEscalation",
@@ -835,8 +799,6 @@ class EksContainerSecurityContext(PropertyType):
 
 @dataclass
 class EksContainerVolumeMount(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mount_path": "MountPath",
         "read_only": "ReadOnly",
@@ -852,8 +814,6 @@ class EksContainerVolumeMount(PropertyType):
 
 @dataclass
 class EksEmptyDir(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "medium": "Medium",
         "size_limit": "SizeLimit",
@@ -865,8 +825,6 @@ class EksEmptyDir(PropertyType):
 
 @dataclass
 class EksHostPath(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
     }
@@ -876,8 +834,6 @@ class EksHostPath(PropertyType):
 
 @dataclass
 class EksMetadata(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "annotations": "Annotations",
         "labels": "Labels",
@@ -891,8 +847,6 @@ class EksMetadata(PropertyType):
 
 @dataclass
 class EksPersistentVolumeClaim(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "read_only": "ReadOnly",
         "claim_name": "ClaimName",
@@ -904,8 +858,6 @@ class EksPersistentVolumeClaim(PropertyType):
 
 @dataclass
 class EksPodProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "init_containers": "InitContainers",
         "volumes": "Volumes",
@@ -931,8 +883,6 @@ class EksPodProperties(PropertyType):
 
 @dataclass
 class EksProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pod_properties": "PodProperties",
     }
@@ -942,8 +892,6 @@ class EksProperties(PropertyType):
 
 @dataclass
 class EksSecret(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_name": "SecretName",
         "optional": "Optional",
@@ -955,8 +903,6 @@ class EksSecret(PropertyType):
 
 @dataclass
 class EksVolume(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret": "Secret",
         "empty_dir": "EmptyDir",
@@ -974,8 +920,6 @@ class EksVolume(PropertyType):
 
 @dataclass
 class Environment(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -987,8 +931,6 @@ class Environment(PropertyType):
 
 @dataclass
 class EphemeralStorage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "size_in_gi_b": "SizeInGiB",
     }
@@ -998,8 +940,6 @@ class EphemeralStorage(PropertyType):
 
 @dataclass
 class EvaluateOnExit(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "on_exit_code": "OnExitCode",
@@ -1015,8 +955,6 @@ class EvaluateOnExit(PropertyType):
 
 @dataclass
 class FargatePlatformConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "platform_version": "PlatformVersion",
     }
@@ -1026,8 +964,6 @@ class FargatePlatformConfiguration(PropertyType):
 
 @dataclass
 class FirelensConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "options": "Options",
         "type_": "Type",
@@ -1039,8 +975,6 @@ class FirelensConfiguration(PropertyType):
 
 @dataclass
 class Host(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_path": "SourcePath",
     }
@@ -1050,8 +984,6 @@ class Host(PropertyType):
 
 @dataclass
 class ImagePullSecret(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -1061,8 +993,6 @@ class ImagePullSecret(PropertyType):
 
 @dataclass
 class JobTimeout(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attempt_duration_seconds": "AttemptDurationSeconds",
     }
@@ -1072,8 +1002,6 @@ class JobTimeout(PropertyType):
 
 @dataclass
 class LinuxParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "swappiness": "Swappiness",
         "tmpfs": "Tmpfs",
@@ -1093,8 +1021,6 @@ class LinuxParameters(PropertyType):
 
 @dataclass
 class LogConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_options": "SecretOptions",
         "options": "Options",
@@ -1108,8 +1034,6 @@ class LogConfiguration(PropertyType):
 
 @dataclass
 class MountPoint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "read_only": "ReadOnly",
         "source_volume": "SourceVolume",
@@ -1123,8 +1047,6 @@ class MountPoint(PropertyType):
 
 @dataclass
 class MultiNodeContainerProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "repository_credentials": "RepositoryCredentials",
         "user": "User",
@@ -1176,8 +1098,6 @@ class MultiNodeContainerProperties(PropertyType):
 
 @dataclass
 class MultiNodeEcsProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "task_properties": "TaskProperties",
     }
@@ -1187,8 +1107,6 @@ class MultiNodeEcsProperties(PropertyType):
 
 @dataclass
 class MultiNodeEcsTaskProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "execution_role_arn": "ExecutionRoleArn",
         "task_role_arn": "TaskRoleArn",
@@ -1210,8 +1128,6 @@ class MultiNodeEcsTaskProperties(PropertyType):
 
 @dataclass
 class NetworkConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "assign_public_ip": "AssignPublicIp",
     }
@@ -1221,8 +1137,6 @@ class NetworkConfiguration(PropertyType):
 
 @dataclass
 class NodeProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "main_node": "MainNode",
         "node_range_properties": "NodeRangeProperties",
@@ -1236,8 +1150,6 @@ class NodeProperties(PropertyType):
 
 @dataclass
 class NodeRangeProperty(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container": "Container",
         "target_nodes": "TargetNodes",
@@ -1257,8 +1169,6 @@ class NodeRangeProperty(PropertyType):
 
 @dataclass
 class RepositoryCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "credentials_parameter": "CredentialsParameter",
     }
@@ -1268,8 +1178,6 @@ class RepositoryCredentials(PropertyType):
 
 @dataclass
 class ResourceRequirement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -1281,8 +1189,6 @@ class ResourceRequirement(PropertyType):
 
 @dataclass
 class ResourceRetentionPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "skip_deregister_on_update": "SkipDeregisterOnUpdate",
     }
@@ -1292,8 +1198,6 @@ class ResourceRetentionPolicy(PropertyType):
 
 @dataclass
 class RetryStrategy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "evaluate_on_exit": "EvaluateOnExit",
         "attempts": "Attempts",
@@ -1305,8 +1209,6 @@ class RetryStrategy(PropertyType):
 
 @dataclass
 class RuntimePlatform(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operating_system_family": "OperatingSystemFamily",
         "cpu_architecture": "CpuArchitecture",
@@ -1318,8 +1220,6 @@ class RuntimePlatform(PropertyType):
 
 @dataclass
 class Secret(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_from": "ValueFrom",
         "name": "Name",
@@ -1331,8 +1231,6 @@ class Secret(PropertyType):
 
 @dataclass
 class TaskContainerDependency(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "container_name": "ContainerName",
@@ -1344,8 +1242,6 @@ class TaskContainerDependency(PropertyType):
 
 @dataclass
 class TaskContainerProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "repository_credentials": "RepositoryCredentials",
         "user": "User",
@@ -1387,8 +1283,6 @@ class TaskContainerProperties(PropertyType):
 
 @dataclass
 class Tmpfs(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "size": "Size",
         "container_path": "ContainerPath",
@@ -1402,8 +1296,6 @@ class Tmpfs(PropertyType):
 
 @dataclass
 class Ulimit(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "soft_limit": "SoftLimit",
         "hard_limit": "HardLimit",
@@ -1417,8 +1309,6 @@ class Ulimit(PropertyType):
 
 @dataclass
 class Volume(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "host": "Host",
         "efs_volume_configuration": "EfsVolumeConfiguration",
@@ -1479,8 +1369,6 @@ class JobDefinition(CloudFormationResource):
 
 @dataclass
 class ComputeEnvironmentOrder(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compute_environment": "ComputeEnvironment",
         "order": "Order",
@@ -1492,8 +1380,6 @@ class ComputeEnvironmentOrder(PropertyType):
 
 @dataclass
 class JobStateTimeLimitAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "max_time_seconds": "MaxTimeSeconds",
@@ -1509,8 +1395,6 @@ class JobStateTimeLimitAction(PropertyType):
 
 @dataclass
 class ServiceEnvironmentOrder(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "order": "Order",
         "service_environment": "ServiceEnvironment",
@@ -1557,8 +1441,6 @@ class JobQueue(CloudFormationResource):
 
 @dataclass
 class FairsharePolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "share_distribution": "ShareDistribution",
         "share_decay_seconds": "ShareDecaySeconds",
@@ -1572,8 +1454,6 @@ class FairsharePolicy(PropertyType):
 
 @dataclass
 class ShareAttributes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "weight_factor": "WeightFactor",
         "share_identifier": "ShareIdentifier",
@@ -1608,8 +1488,6 @@ class SchedulingPolicy(CloudFormationResource):
 
 @dataclass
 class CapacityLimit(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bat"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_unit": "CapacityUnit",
         "max_capacity": "MaxCapacity",

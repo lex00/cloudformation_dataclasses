@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service PaymentCryptography
@@ -42,8 +42,6 @@ class Alias(CloudFormationResource):
 
 @dataclass
 class KeyAttributes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pay"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_class": "KeyClass",
         "key_usage": "KeyUsage",
@@ -59,8 +57,6 @@ class KeyAttributes(PropertyType):
 
 @dataclass
 class KeyModesOfUse(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pay"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "unwrap": "Unwrap",
         "wrap": "Wrap",
@@ -86,8 +82,6 @@ class KeyModesOfUse(PropertyType):
 
 @dataclass
 class ReplicationStatusType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pay"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "status_message": "StatusMessage",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Pipes
@@ -301,8 +301,6 @@ TIMESTAMP_FORMAT = TimeFieldType.TIMESTAMP_FORMAT
 
 @dataclass
 class AwsVpcConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "subnets": "Subnets",
@@ -316,8 +314,6 @@ class AwsVpcConfiguration(PropertyType):
 
 @dataclass
 class BatchArrayProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "size": "Size",
     }
@@ -327,8 +323,6 @@ class BatchArrayProperties(PropertyType):
 
 @dataclass
 class BatchContainerOverrides(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "command": "Command",
         "environment": "Environment",
@@ -344,8 +338,6 @@ class BatchContainerOverrides(PropertyType):
 
 @dataclass
 class BatchEnvironmentVariable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -357,8 +349,6 @@ class BatchEnvironmentVariable(PropertyType):
 
 @dataclass
 class BatchJobDependency(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "job_id": "JobId",
@@ -370,8 +360,6 @@ class BatchJobDependency(PropertyType):
 
 @dataclass
 class BatchResourceRequirement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -383,8 +371,6 @@ class BatchResourceRequirement(PropertyType):
 
 @dataclass
 class BatchRetryStrategy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attempts": "Attempts",
     }
@@ -394,8 +380,6 @@ class BatchRetryStrategy(PropertyType):
 
 @dataclass
 class CapacityProviderStrategyItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_provider": "CapacityProvider",
         "weight": "Weight",
@@ -409,8 +393,6 @@ class CapacityProviderStrategyItem(PropertyType):
 
 @dataclass
 class CloudwatchLogsLogDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group_arn": "LogGroupArn",
     }
@@ -420,8 +402,6 @@ class CloudwatchLogsLogDestination(PropertyType):
 
 @dataclass
 class DeadLetterConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -431,8 +411,6 @@ class DeadLetterConfig(PropertyType):
 
 @dataclass
 class DimensionMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_value_type": "DimensionValueType",
         "dimension_value": "DimensionValue",
@@ -446,8 +424,6 @@ class DimensionMapping(PropertyType):
 
 @dataclass
 class EcsContainerOverride(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "memory_reservation": "MemoryReservation",
         "command": "Command",
@@ -471,8 +447,6 @@ class EcsContainerOverride(PropertyType):
 
 @dataclass
 class EcsEnvironmentFile(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -484,8 +458,6 @@ class EcsEnvironmentFile(PropertyType):
 
 @dataclass
 class EcsEnvironmentVariable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -497,8 +469,6 @@ class EcsEnvironmentVariable(PropertyType):
 
 @dataclass
 class EcsEphemeralStorage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "size_in_gi_b": "SizeInGiB",
     }
@@ -508,8 +478,6 @@ class EcsEphemeralStorage(PropertyType):
 
 @dataclass
 class EcsInferenceAcceleratorOverride(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "device_type": "DeviceType",
         "device_name": "DeviceName",
@@ -521,8 +489,6 @@ class EcsInferenceAcceleratorOverride(PropertyType):
 
 @dataclass
 class EcsResourceRequirement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -534,8 +500,6 @@ class EcsResourceRequirement(PropertyType):
 
 @dataclass
 class EcsTaskOverride(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "execution_role_arn": "ExecutionRoleArn",
         "task_role_arn": "TaskRoleArn",
@@ -557,8 +521,6 @@ class EcsTaskOverride(PropertyType):
 
 @dataclass
 class Filter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pattern": "Pattern",
     }
@@ -568,8 +530,6 @@ class Filter(PropertyType):
 
 @dataclass
 class FilterCriteria(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filters": "Filters",
     }
@@ -579,8 +539,6 @@ class FilterCriteria(PropertyType):
 
 @dataclass
 class FirehoseLogDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_stream_arn": "DeliveryStreamArn",
     }
@@ -590,8 +548,6 @@ class FirehoseLogDestination(PropertyType):
 
 @dataclass
 class MQBrokerAccessCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "basic_auth": "BasicAuth",
     }
@@ -601,8 +557,6 @@ class MQBrokerAccessCredentials(PropertyType):
 
 @dataclass
 class MSKAccessCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_certificate_tls_auth": "ClientCertificateTlsAuth",
         "sasl_scram512_auth": "SaslScram512Auth",
@@ -614,8 +568,6 @@ class MSKAccessCredentials(PropertyType):
 
 @dataclass
 class MultiMeasureAttributeMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "multi_measure_attribute_name": "MultiMeasureAttributeName",
         "measure_value_type": "MeasureValueType",
@@ -629,8 +581,6 @@ class MultiMeasureAttributeMapping(PropertyType):
 
 @dataclass
 class MultiMeasureMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "multi_measure_name": "MultiMeasureName",
         "multi_measure_attribute_mappings": "MultiMeasureAttributeMappings",
@@ -642,8 +592,6 @@ class MultiMeasureMapping(PropertyType):
 
 @dataclass
 class NetworkConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "awsvpc_configuration": "AwsvpcConfiguration",
     }
@@ -653,8 +601,6 @@ class NetworkConfiguration(PropertyType):
 
 @dataclass
 class PipeEnrichmentHttpParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path_parameter_values": "PathParameterValues",
         "header_parameters": "HeaderParameters",
@@ -668,8 +614,6 @@ class PipeEnrichmentHttpParameters(PropertyType):
 
 @dataclass
 class PipeEnrichmentParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "http_parameters": "HttpParameters",
         "input_template": "InputTemplate",
@@ -681,8 +625,6 @@ class PipeEnrichmentParameters(PropertyType):
 
 @dataclass
 class PipeLogConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "firehose_log_destination": "FirehoseLogDestination",
         "cloudwatch_logs_log_destination": "CloudwatchLogsLogDestination",
@@ -700,8 +642,6 @@ class PipeLogConfiguration(PropertyType):
 
 @dataclass
 class PipeSourceActiveMQBrokerParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "batch_size": "BatchSize",
         "queue_name": "QueueName",
@@ -717,8 +657,6 @@ class PipeSourceActiveMQBrokerParameters(PropertyType):
 
 @dataclass
 class PipeSourceDynamoDBStreamParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "starting_position": "StartingPosition",
         "batch_size": "BatchSize",
@@ -742,8 +680,6 @@ class PipeSourceDynamoDBStreamParameters(PropertyType):
 
 @dataclass
 class PipeSourceKinesisStreamParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "starting_position": "StartingPosition",
         "batch_size": "BatchSize",
@@ -769,8 +705,6 @@ class PipeSourceKinesisStreamParameters(PropertyType):
 
 @dataclass
 class PipeSourceManagedStreamingKafkaParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "starting_position": "StartingPosition",
         "batch_size": "BatchSize",
@@ -790,8 +724,6 @@ class PipeSourceManagedStreamingKafkaParameters(PropertyType):
 
 @dataclass
 class PipeSourceParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "managed_streaming_kafka_parameters": "ManagedStreamingKafkaParameters",
         "dynamo_db_stream_parameters": "DynamoDBStreamParameters",
@@ -815,8 +747,6 @@ class PipeSourceParameters(PropertyType):
 
 @dataclass
 class PipeSourceRabbitMQBrokerParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "batch_size": "BatchSize",
         "virtual_host": "VirtualHost",
@@ -834,8 +764,6 @@ class PipeSourceRabbitMQBrokerParameters(PropertyType):
 
 @dataclass
 class PipeSourceSelfManagedKafkaParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "starting_position": "StartingPosition",
         "batch_size": "BatchSize",
@@ -861,8 +789,6 @@ class PipeSourceSelfManagedKafkaParameters(PropertyType):
 
 @dataclass
 class PipeSourceSqsQueueParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "batch_size": "BatchSize",
         "maximum_batching_window_in_seconds": "MaximumBatchingWindowInSeconds",
@@ -874,8 +800,6 @@ class PipeSourceSqsQueueParameters(PropertyType):
 
 @dataclass
 class PipeTargetBatchJobParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "depends_on": "DependsOn",
         "parameters": "Parameters",
@@ -897,8 +821,6 @@ class PipeTargetBatchJobParameters(PropertyType):
 
 @dataclass
 class PipeTargetCloudWatchLogsParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_stream_name": "LogStreamName",
         "timestamp": "Timestamp",
@@ -910,8 +832,6 @@ class PipeTargetCloudWatchLogsParameters(PropertyType):
 
 @dataclass
 class PipeTargetEcsTaskParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "platform_version": "PlatformVersion",
         "group": "Group",
@@ -949,8 +869,6 @@ class PipeTargetEcsTaskParameters(PropertyType):
 
 @dataclass
 class PipeTargetEventBridgeEventBusParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "detail_type": "DetailType",
         "endpoint_id": "EndpointId",
@@ -968,8 +886,6 @@ class PipeTargetEventBridgeEventBusParameters(PropertyType):
 
 @dataclass
 class PipeTargetHttpParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path_parameter_values": "PathParameterValues",
         "header_parameters": "HeaderParameters",
@@ -983,8 +899,6 @@ class PipeTargetHttpParameters(PropertyType):
 
 @dataclass
 class PipeTargetKinesisStreamParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "partition_key": "PartitionKey",
     }
@@ -994,8 +908,6 @@ class PipeTargetKinesisStreamParameters(PropertyType):
 
 @dataclass
 class PipeTargetLambdaFunctionParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "invocation_type": "InvocationType",
     }
@@ -1005,8 +917,6 @@ class PipeTargetLambdaFunctionParameters(PropertyType):
 
 @dataclass
 class PipeTargetParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "step_function_state_machine_parameters": "StepFunctionStateMachineParameters",
         "http_parameters": "HttpParameters",
@@ -1040,8 +950,6 @@ class PipeTargetParameters(PropertyType):
 
 @dataclass
 class PipeTargetRedshiftDataParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "statement_name": "StatementName",
         "sqls": "Sqls",
@@ -1061,8 +969,6 @@ class PipeTargetRedshiftDataParameters(PropertyType):
 
 @dataclass
 class PipeTargetSageMakerPipelineParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pipeline_parameter_list": "PipelineParameterList",
     }
@@ -1072,8 +978,6 @@ class PipeTargetSageMakerPipelineParameters(PropertyType):
 
 @dataclass
 class PipeTargetSqsQueueParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message_group_id": "MessageGroupId",
         "message_deduplication_id": "MessageDeduplicationId",
@@ -1085,8 +989,6 @@ class PipeTargetSqsQueueParameters(PropertyType):
 
 @dataclass
 class PipeTargetStateMachineParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "invocation_type": "InvocationType",
     }
@@ -1096,8 +998,6 @@ class PipeTargetStateMachineParameters(PropertyType):
 
 @dataclass
 class PipeTargetTimestreamParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version_value": "VersionValue",
         "dimension_mappings": "DimensionMappings",
@@ -1121,8 +1021,6 @@ class PipeTargetTimestreamParameters(PropertyType):
 
 @dataclass
 class PlacementConstraint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "expression": "Expression",
@@ -1134,8 +1032,6 @@ class PlacementConstraint(PropertyType):
 
 @dataclass
 class PlacementStrategy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field": "Field",
         "type_": "Type",
@@ -1147,8 +1043,6 @@ class PlacementStrategy(PropertyType):
 
 @dataclass
 class S3LogDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "output_format": "OutputFormat",
@@ -1164,8 +1058,6 @@ class S3LogDestination(PropertyType):
 
 @dataclass
 class SageMakerPipelineParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -1177,8 +1069,6 @@ class SageMakerPipelineParameter(PropertyType):
 
 @dataclass
 class SelfManagedKafkaAccessConfigurationCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "basic_auth": "BasicAuth",
         "sasl_scram256_auth": "SaslScram256Auth",
@@ -1194,8 +1084,6 @@ class SelfManagedKafkaAccessConfigurationCredentials(PropertyType):
 
 @dataclass
 class SelfManagedKafkaAccessConfigurationVpc(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnets": "Subnets",
         "security_group": "SecurityGroup",
@@ -1207,8 +1095,6 @@ class SelfManagedKafkaAccessConfigurationVpc(PropertyType):
 
 @dataclass
 class SingleMeasureMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pip"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "measure_name": "MeasureName",
         "measure_value_type": "MeasureValueType",

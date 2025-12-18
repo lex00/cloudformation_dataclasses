@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DynamoDB
@@ -558,8 +558,6 @@ ACTIVE = WitnessStatus.ACTIVE
 
 @dataclass
 class AttributeDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_type": "AttributeType",
         "attribute_name": "AttributeName",
@@ -571,8 +569,6 @@ class AttributeDefinition(PropertyType):
 
 @dataclass
 class CapacityAutoScalingSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_capacity": "MinCapacity",
         "seed_capacity": "SeedCapacity",
@@ -588,8 +584,6 @@ class CapacityAutoScalingSettings(PropertyType):
 
 @dataclass
 class ContributorInsightsSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
         "enabled": "Enabled",
@@ -601,8 +595,6 @@ class ContributorInsightsSpecification(PropertyType):
 
 @dataclass
 class GlobalSecondaryIndex(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "index_name": "IndexName",
         "projection": "Projection",
@@ -622,8 +614,6 @@ class GlobalSecondaryIndex(PropertyType):
 
 @dataclass
 class GlobalTableWitness(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region": "Region",
     }
@@ -633,8 +623,6 @@ class GlobalTableWitness(PropertyType):
 
 @dataclass
 class KeySchema(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_type": "KeyType",
         "attribute_name": "AttributeName",
@@ -646,8 +634,6 @@ class KeySchema(PropertyType):
 
 @dataclass
 class KinesisStreamSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "approximate_creation_date_time_precision": "ApproximateCreationDateTimePrecision",
         "stream_arn": "StreamArn",
@@ -659,8 +645,6 @@ class KinesisStreamSpecification(PropertyType):
 
 @dataclass
 class LocalSecondaryIndex(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "index_name": "IndexName",
         "projection": "Projection",
@@ -674,8 +658,6 @@ class LocalSecondaryIndex(PropertyType):
 
 @dataclass
 class PointInTimeRecoverySpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "point_in_time_recovery_enabled": "PointInTimeRecoveryEnabled",
         "recovery_period_in_days": "RecoveryPeriodInDays",
@@ -687,8 +669,6 @@ class PointInTimeRecoverySpecification(PropertyType):
 
 @dataclass
 class Projection(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "projection_type": "ProjectionType",
         "non_key_attributes": "NonKeyAttributes",
@@ -700,8 +680,6 @@ class Projection(PropertyType):
 
 @dataclass
 class ReadOnDemandThroughputSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_read_request_units": "MaxReadRequestUnits",
     }
@@ -711,8 +689,6 @@ class ReadOnDemandThroughputSettings(PropertyType):
 
 @dataclass
 class ReadProvisionedThroughputSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "read_capacity_units": "ReadCapacityUnits",
         "read_capacity_auto_scaling_settings": "ReadCapacityAutoScalingSettings",
@@ -724,8 +700,6 @@ class ReadProvisionedThroughputSettings(PropertyType):
 
 @dataclass
 class ReplicaGlobalSecondaryIndexSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "index_name": "IndexName",
         "contributor_insights_specification": "ContributorInsightsSpecification",
@@ -741,8 +715,6 @@ class ReplicaGlobalSecondaryIndexSpecification(PropertyType):
 
 @dataclass
 class ReplicaSSESpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_master_key_id": "KMSMasterKeyId",
     }
@@ -752,8 +724,6 @@ class ReplicaSSESpecification(PropertyType):
 
 @dataclass
 class ReplicaSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sse_specification": "SSESpecification",
         "kinesis_stream_specification": "KinesisStreamSpecification",
@@ -787,8 +757,6 @@ class ReplicaSpecification(PropertyType):
 
 @dataclass
 class ReplicaStreamSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_policy": "ResourcePolicy",
     }
@@ -798,8 +766,6 @@ class ReplicaStreamSpecification(PropertyType):
 
 @dataclass
 class ResourcePolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_document": "PolicyDocument",
     }
@@ -809,8 +775,6 @@ class ResourcePolicy(PropertyType):
 
 @dataclass
 class SSESpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sse_enabled": "SSEEnabled",
         "sse_type": "SSEType",
@@ -822,8 +786,6 @@ class SSESpecification(PropertyType):
 
 @dataclass
 class StreamSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stream_view_type": "StreamViewType",
     }
@@ -833,8 +795,6 @@ class StreamSpecification(PropertyType):
 
 @dataclass
 class TargetTrackingScalingPolicyConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scale_out_cooldown": "ScaleOutCooldown",
         "target_value": "TargetValue",
@@ -850,8 +810,6 @@ class TargetTrackingScalingPolicyConfiguration(PropertyType):
 
 @dataclass
 class TimeToLiveSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "attribute_name": "AttributeName",
@@ -863,8 +821,6 @@ class TimeToLiveSpecification(PropertyType):
 
 @dataclass
 class WarmThroughput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "read_units_per_second": "ReadUnitsPerSecond",
         "write_units_per_second": "WriteUnitsPerSecond",
@@ -876,8 +832,6 @@ class WarmThroughput(PropertyType):
 
 @dataclass
 class WriteOnDemandThroughputSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_write_request_units": "MaxWriteRequestUnits",
     }
@@ -887,8 +841,6 @@ class WriteOnDemandThroughputSettings(PropertyType):
 
 @dataclass
 class WriteProvisionedThroughputSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "write_capacity_auto_scaling_settings": "WriteCapacityAutoScalingSettings",
     }
@@ -955,8 +907,6 @@ class GlobalTable(CloudFormationResource):
 
 @dataclass
 class AttributeDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_type": "AttributeType",
         "attribute_name": "AttributeName",
@@ -968,8 +918,6 @@ class AttributeDefinition(PropertyType):
 
 @dataclass
 class ContributorInsightsSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
         "enabled": "Enabled",
@@ -981,8 +929,6 @@ class ContributorInsightsSpecification(PropertyType):
 
 @dataclass
 class Csv(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delimiter": "Delimiter",
         "header_list": "HeaderList",
@@ -994,8 +940,6 @@ class Csv(PropertyType):
 
 @dataclass
 class GlobalSecondaryIndex(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "index_name": "IndexName",
         "on_demand_throughput": "OnDemandThroughput",
@@ -1017,8 +961,6 @@ class GlobalSecondaryIndex(PropertyType):
 
 @dataclass
 class ImportSourceSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_bucket_source": "S3BucketSource",
         "input_format": "InputFormat",
@@ -1034,8 +976,6 @@ class ImportSourceSpecification(PropertyType):
 
 @dataclass
 class InputFormatOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "csv": "Csv",
     }
@@ -1045,8 +985,6 @@ class InputFormatOptions(PropertyType):
 
 @dataclass
 class KeySchema(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_type": "KeyType",
         "attribute_name": "AttributeName",
@@ -1058,8 +996,6 @@ class KeySchema(PropertyType):
 
 @dataclass
 class KinesisStreamSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "approximate_creation_date_time_precision": "ApproximateCreationDateTimePrecision",
         "stream_arn": "StreamArn",
@@ -1071,8 +1007,6 @@ class KinesisStreamSpecification(PropertyType):
 
 @dataclass
 class LocalSecondaryIndex(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "index_name": "IndexName",
         "projection": "Projection",
@@ -1086,8 +1020,6 @@ class LocalSecondaryIndex(PropertyType):
 
 @dataclass
 class OnDemandThroughput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_read_request_units": "MaxReadRequestUnits",
         "max_write_request_units": "MaxWriteRequestUnits",
@@ -1099,8 +1031,6 @@ class OnDemandThroughput(PropertyType):
 
 @dataclass
 class PointInTimeRecoverySpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "point_in_time_recovery_enabled": "PointInTimeRecoveryEnabled",
         "recovery_period_in_days": "RecoveryPeriodInDays",
@@ -1112,8 +1042,6 @@ class PointInTimeRecoverySpecification(PropertyType):
 
 @dataclass
 class Projection(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "non_key_attributes": "NonKeyAttributes",
         "projection_type": "ProjectionType",
@@ -1125,8 +1053,6 @@ class Projection(PropertyType):
 
 @dataclass
 class ProvisionedThroughput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "write_capacity_units": "WriteCapacityUnits",
         "read_capacity_units": "ReadCapacityUnits",
@@ -1138,8 +1064,6 @@ class ProvisionedThroughput(PropertyType):
 
 @dataclass
 class ResourcePolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_document": "PolicyDocument",
     }
@@ -1149,8 +1073,6 @@ class ResourcePolicy(PropertyType):
 
 @dataclass
 class S3BucketSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_bucket": "S3Bucket",
         "s3_key_prefix": "S3KeyPrefix",
@@ -1164,8 +1086,6 @@ class S3BucketSource(PropertyType):
 
 @dataclass
 class SSESpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sse_enabled": "SSEEnabled",
         "sse_type": "SSEType",
@@ -1179,8 +1099,6 @@ class SSESpecification(PropertyType):
 
 @dataclass
 class StreamSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stream_view_type": "StreamViewType",
         "resource_policy": "ResourcePolicy",
@@ -1192,8 +1110,6 @@ class StreamSpecification(PropertyType):
 
 @dataclass
 class TimeToLiveSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "attribute_name": "AttributeName",
@@ -1205,8 +1121,6 @@ class TimeToLiveSpecification(PropertyType):
 
 @dataclass
 class WarmThroughput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dyn"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "read_units_per_second": "ReadUnitsPerSecond",
         "write_units_per_second": "WriteUnitsPerSecond",

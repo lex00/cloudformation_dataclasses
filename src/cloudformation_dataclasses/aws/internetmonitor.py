@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service InternetMonitor
@@ -172,8 +172,6 @@ INTERNET = TriangulationEventType.INTERNET
 
 @dataclass
 class HealthEventsConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-int"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_local_health_events_config": "AvailabilityLocalHealthEventsConfig",
         "performance_score_threshold": "PerformanceScoreThreshold",
@@ -189,8 +187,6 @@ class HealthEventsConfig(PropertyType):
 
 @dataclass
 class InternetMeasurementsLogDelivery(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-int"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_config": "S3Config",
     }
@@ -200,8 +196,6 @@ class InternetMeasurementsLogDelivery(PropertyType):
 
 @dataclass
 class LocalHealthEventsConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-int"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "health_score_threshold": "HealthScoreThreshold",
@@ -215,8 +209,6 @@ class LocalHealthEventsConfig(PropertyType):
 
 @dataclass
 class S3Config(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-int"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "log_delivery_status": "LogDeliveryStatus",

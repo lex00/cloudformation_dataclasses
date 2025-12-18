@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SecurityHub
@@ -1113,8 +1113,6 @@ class AggregatorV2(CloudFormationResource):
 
 @dataclass
 class AutomationRulesAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "finding_fields_update": "FindingFieldsUpdate",
@@ -1126,8 +1124,6 @@ class AutomationRulesAction(PropertyType):
 
 @dataclass
 class AutomationRulesFindingFieldsUpdate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "types": "Types",
         "confidence": "Confidence",
@@ -1153,8 +1149,6 @@ class AutomationRulesFindingFieldsUpdate(PropertyType):
 
 @dataclass
 class AutomationRulesFindingFilters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "product_arn": "ProductArn",
         "source_url": "SourceUrl",
@@ -1232,8 +1226,6 @@ class AutomationRulesFindingFilters(PropertyType):
 
 @dataclass
 class DateFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "date_range": "DateRange",
         "start": "Start",
@@ -1247,8 +1239,6 @@ class DateFilter(PropertyType):
 
 @dataclass
 class DateRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "unit": "Unit",
@@ -1260,8 +1250,6 @@ class DateRange(PropertyType):
 
 @dataclass
 class MapFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison": "Comparison",
         "value": "Value",
@@ -1275,8 +1263,6 @@ class MapFilter(PropertyType):
 
 @dataclass
 class NoteUpdate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "updated_by": "UpdatedBy",
         "text": "Text",
@@ -1288,8 +1274,6 @@ class NoteUpdate(PropertyType):
 
 @dataclass
 class NumberFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "gte": "Gte",
         "eq": "Eq",
@@ -1303,8 +1287,6 @@ class NumberFilter(PropertyType):
 
 @dataclass
 class RelatedFinding(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "product_arn": "ProductArn",
         "id": "Id",
@@ -1316,8 +1298,6 @@ class RelatedFinding(PropertyType):
 
 @dataclass
 class SeverityUpdate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "normalized": "Normalized",
         "label": "Label",
@@ -1331,8 +1311,6 @@ class SeverityUpdate(PropertyType):
 
 @dataclass
 class StringFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison": "Comparison",
         "value": "Value",
@@ -1344,8 +1322,6 @@ class StringFilter(PropertyType):
 
 @dataclass
 class WorkflowUpdate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
     }
@@ -1403,8 +1379,6 @@ class AutomationRule(CloudFormationResource):
 
 @dataclass
 class AutomationRulesActionV2(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "external_integration_configuration": "ExternalIntegrationConfiguration",
@@ -1418,8 +1392,6 @@ class AutomationRulesActionV2(PropertyType):
 
 @dataclass
 class AutomationRulesFindingFieldsUpdateV2(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comment": "Comment",
         "status_id": "StatusId",
@@ -1433,8 +1405,6 @@ class AutomationRulesFindingFieldsUpdateV2(PropertyType):
 
 @dataclass
 class BooleanFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -1444,8 +1414,6 @@ class BooleanFilter(PropertyType):
 
 @dataclass
 class CompositeFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "string_filters": "StringFilters",
@@ -1465,8 +1433,6 @@ class CompositeFilter(PropertyType):
 
 @dataclass
 class Criteria(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ocsf_finding_criteria": "OcsfFindingCriteria",
     }
@@ -1476,8 +1442,6 @@ class Criteria(PropertyType):
 
 @dataclass
 class DateFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "date_range": "DateRange",
         "start": "Start",
@@ -1491,8 +1455,6 @@ class DateFilter(PropertyType):
 
 @dataclass
 class DateRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "unit": "Unit",
@@ -1504,8 +1466,6 @@ class DateRange(PropertyType):
 
 @dataclass
 class ExternalIntegrationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connector_arn": "ConnectorArn",
     }
@@ -1515,8 +1475,6 @@ class ExternalIntegrationConfiguration(PropertyType):
 
 @dataclass
 class MapFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison": "Comparison",
         "value": "Value",
@@ -1530,8 +1488,6 @@ class MapFilter(PropertyType):
 
 @dataclass
 class NumberFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "gte": "Gte",
         "eq": "Eq",
@@ -1545,8 +1501,6 @@ class NumberFilter(PropertyType):
 
 @dataclass
 class OcsfBooleanFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter": "Filter",
         "field_name": "FieldName",
@@ -1558,8 +1512,6 @@ class OcsfBooleanFilter(PropertyType):
 
 @dataclass
 class OcsfDateFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter": "Filter",
         "field_name": "FieldName",
@@ -1571,8 +1523,6 @@ class OcsfDateFilter(PropertyType):
 
 @dataclass
 class OcsfFindingFilters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "composite_filters": "CompositeFilters",
         "composite_operator": "CompositeOperator",
@@ -1584,8 +1534,6 @@ class OcsfFindingFilters(PropertyType):
 
 @dataclass
 class OcsfMapFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter": "Filter",
         "field_name": "FieldName",
@@ -1597,8 +1545,6 @@ class OcsfMapFilter(PropertyType):
 
 @dataclass
 class OcsfNumberFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter": "Filter",
         "field_name": "FieldName",
@@ -1610,8 +1556,6 @@ class OcsfNumberFilter(PropertyType):
 
 @dataclass
 class OcsfStringFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter": "Filter",
         "field_name": "FieldName",
@@ -1623,8 +1567,6 @@ class OcsfStringFilter(PropertyType):
 
 @dataclass
 class StringFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison": "Comparison",
         "value": "Value",
@@ -1682,8 +1624,6 @@ class AutomationRuleV2(CloudFormationResource):
 
 @dataclass
 class ParameterConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_type": "ValueType",
         "value": "Value",
@@ -1695,8 +1635,6 @@ class ParameterConfiguration(PropertyType):
 
 @dataclass
 class ParameterValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enum": "Enum",
         "integer": "Integer",
@@ -1720,8 +1658,6 @@ class ParameterValue(PropertyType):
 
 @dataclass
 class Policy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_hub": "SecurityHub",
     }
@@ -1731,8 +1667,6 @@ class Policy(PropertyType):
 
 @dataclass
 class SecurityControlCustomParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_control_id": "SecurityControlId",
         "parameters": "Parameters",
@@ -1744,8 +1678,6 @@ class SecurityControlCustomParameter(PropertyType):
 
 @dataclass
 class SecurityControlsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "disabled_security_control_identifiers": "DisabledSecurityControlIdentifiers",
         "enabled_security_control_identifiers": "EnabledSecurityControlIdentifiers",
@@ -1759,8 +1691,6 @@ class SecurityControlsConfiguration(PropertyType):
 
 @dataclass
 class SecurityHubPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled_standard_identifiers": "EnabledStandardIdentifiers",
         "service_enabled": "ServiceEnabled",
@@ -1819,8 +1749,6 @@ class ConfigurationPolicy(CloudFormationResource):
 
 @dataclass
 class JiraCloud(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "project_key": "ProjectKey",
         "auth_status": "AuthStatus",
@@ -1838,8 +1766,6 @@ class JiraCloud(PropertyType):
 
 @dataclass
 class Provider(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_now": "ServiceNow",
         "jira_cloud": "JiraCloud",
@@ -1851,8 +1777,6 @@ class Provider(PropertyType):
 
 @dataclass
 class ServiceNow(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_name": "InstanceName",
         "secret_arn": "SecretArn",
@@ -2052,8 +1976,6 @@ class HubV2(CloudFormationResource):
 
 @dataclass
 class AwsSecurityFindingFilters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_aws_ec2_instance_iam_instance_profile_arn": "ResourceAwsEc2InstanceIamInstanceProfileArn",
         "source_url": "SourceUrl",
@@ -2261,8 +2183,6 @@ class AwsSecurityFindingFilters(PropertyType):
 
 @dataclass
 class BooleanFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -2272,8 +2192,6 @@ class BooleanFilter(PropertyType):
 
 @dataclass
 class DateFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "date_range": "DateRange",
         "start": "Start",
@@ -2287,8 +2205,6 @@ class DateFilter(PropertyType):
 
 @dataclass
 class DateRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "unit": "Unit",
@@ -2300,8 +2216,6 @@ class DateRange(PropertyType):
 
 @dataclass
 class IpFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr": "Cidr",
     }
@@ -2311,8 +2225,6 @@ class IpFilter(PropertyType):
 
 @dataclass
 class MapFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison": "Comparison",
         "value": "Value",
@@ -2326,8 +2238,6 @@ class MapFilter(PropertyType):
 
 @dataclass
 class NumberFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "gte": "Gte",
         "eq": "Eq",
@@ -2341,8 +2251,6 @@ class NumberFilter(PropertyType):
 
 @dataclass
 class StringFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison": "Comparison",
         "value": "Value",
@@ -2477,8 +2385,6 @@ class ProductSubscription(CloudFormationResource):
 
 @dataclass
 class ParameterConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_type": "ValueType",
         "value": "Value",
@@ -2490,8 +2396,6 @@ class ParameterConfiguration(PropertyType):
 
 @dataclass
 class ParameterValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enum": "Enum",
         "integer": "Integer",
@@ -2534,8 +2438,6 @@ class SecurityControl(CloudFormationResource):
 
 @dataclass
 class StandardsControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "standards_control_arn": "StandardsControlArn",
         "reason": "Reason",

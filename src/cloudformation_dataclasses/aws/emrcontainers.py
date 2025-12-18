@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service EMRContainers
@@ -27,8 +27,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ContainerInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "eks_info": "EksInfo",
     }
@@ -38,8 +36,6 @@ class ContainerInfo(PropertyType):
 
 @dataclass
 class ContainerProvider(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "id": "Id",
@@ -53,8 +49,6 @@ class ContainerProvider(PropertyType):
 
 @dataclass
 class EksInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "namespace": "Namespace",
     }

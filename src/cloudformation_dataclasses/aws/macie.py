@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Macie
@@ -778,8 +778,6 @@ AWSSERVICE = UserIdentityType.AWSSERVICE
 
 @dataclass
 class Criteria(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mac"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "regex": "Regex",
         "s3_words_list": "S3WordsList",
@@ -791,8 +789,6 @@ class Criteria(PropertyType):
 
 @dataclass
 class S3WordsList(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mac"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "object_key": "ObjectKey",
@@ -875,8 +871,6 @@ class CustomDataIdentifier(CloudFormationResource):
 
 @dataclass
 class CriterionAdditionalProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mac"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lt": "lt",
         "gte": "gte",
@@ -896,8 +890,6 @@ class CriterionAdditionalProperties(PropertyType):
 
 @dataclass
 class FindingCriteria(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mac"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "criterion": "Criterion",
     }

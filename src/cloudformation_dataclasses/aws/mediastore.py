@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MediaStore
@@ -67,8 +67,6 @@ HEAD = MethodName.HEAD
 
 @dataclass
 class CorsRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allowed_methods": "AllowedMethods",
         "allowed_origins": "AllowedOrigins",
@@ -86,8 +84,6 @@ class CorsRule(PropertyType):
 
 @dataclass
 class MetricPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_level_metrics": "ContainerLevelMetrics",
         "metric_policy_rules": "MetricPolicyRules",
@@ -99,8 +95,6 @@ class MetricPolicy(PropertyType):
 
 @dataclass
 class MetricPolicyRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-med"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object_group": "ObjectGroup",
         "object_group_name": "ObjectGroupName",

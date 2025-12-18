@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service PCAConnectorAD
@@ -27,8 +27,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class VpcInformation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IpAddressType",
         "security_group_ids": "SecurityGroupIds",
@@ -101,8 +99,6 @@ class ServicePrincipalName(CloudFormationResource):
 
 @dataclass
 class ApplicationPolicies(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policies": "Policies",
         "critical": "Critical",
@@ -114,8 +110,6 @@ class ApplicationPolicies(PropertyType):
 
 @dataclass
 class ApplicationPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_type": "PolicyType",
         "policy_object_identifier": "PolicyObjectIdentifier",
@@ -127,8 +121,6 @@ class ApplicationPolicy(PropertyType):
 
 @dataclass
 class CertificateValidity(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "validity_period": "ValidityPeriod",
         "renewal_period": "RenewalPeriod",
@@ -140,8 +132,6 @@ class CertificateValidity(PropertyType):
 
 @dataclass
 class EnrollmentFlagsV2(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "no_security_extension": "NoSecurityExtension",
         "include_symmetric_algorithms": "IncludeSymmetricAlgorithms",
@@ -159,8 +149,6 @@ class EnrollmentFlagsV2(PropertyType):
 
 @dataclass
 class EnrollmentFlagsV3(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "no_security_extension": "NoSecurityExtension",
         "include_symmetric_algorithms": "IncludeSymmetricAlgorithms",
@@ -178,8 +166,6 @@ class EnrollmentFlagsV3(PropertyType):
 
 @dataclass
 class EnrollmentFlagsV4(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "no_security_extension": "NoSecurityExtension",
         "include_symmetric_algorithms": "IncludeSymmetricAlgorithms",
@@ -197,8 +183,6 @@ class EnrollmentFlagsV4(PropertyType):
 
 @dataclass
 class ExtensionsV2(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_policies": "ApplicationPolicies",
         "key_usage": "KeyUsage",
@@ -210,8 +194,6 @@ class ExtensionsV2(PropertyType):
 
 @dataclass
 class ExtensionsV3(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_policies": "ApplicationPolicies",
         "key_usage": "KeyUsage",
@@ -223,8 +205,6 @@ class ExtensionsV3(PropertyType):
 
 @dataclass
 class ExtensionsV4(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_policies": "ApplicationPolicies",
         "key_usage": "KeyUsage",
@@ -236,8 +216,6 @@ class ExtensionsV4(PropertyType):
 
 @dataclass
 class GeneralFlagsV2(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_enrollment": "AutoEnrollment",
         "machine_type": "MachineType",
@@ -249,8 +227,6 @@ class GeneralFlagsV2(PropertyType):
 
 @dataclass
 class GeneralFlagsV3(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_enrollment": "AutoEnrollment",
         "machine_type": "MachineType",
@@ -262,8 +238,6 @@ class GeneralFlagsV3(PropertyType):
 
 @dataclass
 class GeneralFlagsV4(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_enrollment": "AutoEnrollment",
         "machine_type": "MachineType",
@@ -275,8 +249,6 @@ class GeneralFlagsV4(PropertyType):
 
 @dataclass
 class KeyUsage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "critical": "Critical",
         "usage_flags": "UsageFlags",
@@ -288,8 +260,6 @@ class KeyUsage(PropertyType):
 
 @dataclass
 class KeyUsageFlags(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_encipherment": "KeyEncipherment",
         "data_encipherment": "DataEncipherment",
@@ -307,8 +277,6 @@ class KeyUsageFlags(PropertyType):
 
 @dataclass
 class KeyUsageProperty(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "property_flags": "PropertyFlags",
         "property_type": "PropertyType",
@@ -320,8 +288,6 @@ class KeyUsageProperty(PropertyType):
 
 @dataclass
 class KeyUsagePropertyFlags(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "decrypt": "Decrypt",
         "sign": "Sign",
@@ -335,8 +301,6 @@ class KeyUsagePropertyFlags(PropertyType):
 
 @dataclass
 class PrivateKeyAttributesV2(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "minimal_key_length": "MinimalKeyLength",
         "key_spec": "KeySpec",
@@ -350,8 +314,6 @@ class PrivateKeyAttributesV2(PropertyType):
 
 @dataclass
 class PrivateKeyAttributesV3(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "minimal_key_length": "MinimalKeyLength",
         "key_spec": "KeySpec",
@@ -369,8 +331,6 @@ class PrivateKeyAttributesV3(PropertyType):
 
 @dataclass
 class PrivateKeyAttributesV4(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "minimal_key_length": "MinimalKeyLength",
         "key_spec": "KeySpec",
@@ -388,8 +348,6 @@ class PrivateKeyAttributesV4(PropertyType):
 
 @dataclass
 class PrivateKeyFlagsV2(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exportable_key": "ExportableKey",
         "strong_key_protection_required": "StrongKeyProtectionRequired",
@@ -403,8 +361,6 @@ class PrivateKeyFlagsV2(PropertyType):
 
 @dataclass
 class PrivateKeyFlagsV3(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "require_alternate_signature_algorithm": "RequireAlternateSignatureAlgorithm",
         "exportable_key": "ExportableKey",
@@ -420,8 +376,6 @@ class PrivateKeyFlagsV3(PropertyType):
 
 @dataclass
 class PrivateKeyFlagsV4(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "require_alternate_signature_algorithm": "RequireAlternateSignatureAlgorithm",
         "exportable_key": "ExportableKey",
@@ -441,8 +395,6 @@ class PrivateKeyFlagsV4(PropertyType):
 
 @dataclass
 class SubjectNameFlagsV2(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "san_require_email": "SanRequireEmail",
         "san_require_dns": "SanRequireDns",
@@ -470,8 +422,6 @@ class SubjectNameFlagsV2(PropertyType):
 
 @dataclass
 class SubjectNameFlagsV3(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "san_require_email": "SanRequireEmail",
         "san_require_dns": "SanRequireDns",
@@ -499,8 +449,6 @@ class SubjectNameFlagsV3(PropertyType):
 
 @dataclass
 class SubjectNameFlagsV4(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "san_require_email": "SanRequireEmail",
         "san_require_dns": "SanRequireDns",
@@ -528,8 +476,6 @@ class SubjectNameFlagsV4(PropertyType):
 
 @dataclass
 class TemplateDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "template_v4": "TemplateV4",
         "template_v3": "TemplateV3",
@@ -543,8 +489,6 @@ class TemplateDefinition(PropertyType):
 
 @dataclass
 class TemplateV2(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subject_name_flags": "SubjectNameFlags",
         "superseded_templates": "SupersededTemplates",
@@ -568,8 +512,6 @@ class TemplateV2(PropertyType):
 
 @dataclass
 class TemplateV3(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subject_name_flags": "SubjectNameFlags",
         "superseded_templates": "SupersededTemplates",
@@ -595,8 +537,6 @@ class TemplateV3(PropertyType):
 
 @dataclass
 class TemplateV4(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subject_name_flags": "SubjectNameFlags",
         "superseded_templates": "SupersededTemplates",
@@ -622,8 +562,6 @@ class TemplateV4(PropertyType):
 
 @dataclass
 class ValidityPeriod(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "period_type": "PeriodType",
         "period": "Period",
@@ -662,8 +600,6 @@ class Template(CloudFormationResource):
 
 @dataclass
 class AccessRights(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pca"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enroll": "Enroll",
         "auto_enroll": "AutoEnroll",

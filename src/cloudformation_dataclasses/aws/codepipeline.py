@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CodePipeline
@@ -433,8 +433,6 @@ UNAUTHENTICATED = WebhookAuthenticationType.UNAUTHENTICATED
 
 @dataclass
 class ArtifactDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "minimum_count": "MinimumCount",
         "maximum_count": "MaximumCount",
@@ -446,8 +444,6 @@ class ArtifactDetails(PropertyType):
 
 @dataclass
 class ConfigurationProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret": "Secret",
         "type_": "Type",
@@ -469,8 +465,6 @@ class ConfigurationProperties(PropertyType):
 
 @dataclass
 class Settings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entity_url_template": "EntityUrlTemplate",
         "execution_url_template": "ExecutionUrlTemplate",
@@ -519,8 +513,6 @@ class CustomActionType(CloudFormationResource):
 
 @dataclass
 class ActionDeclaration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action_type_id": "ActionTypeId",
         "configuration": "Configuration",
@@ -554,8 +546,6 @@ class ActionDeclaration(PropertyType):
 
 @dataclass
 class ActionTypeId(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "owner": "Owner",
         "category": "Category",
@@ -571,8 +561,6 @@ class ActionTypeId(PropertyType):
 
 @dataclass
 class ArtifactStore(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "encryption_key": "EncryptionKey",
@@ -586,8 +574,6 @@ class ArtifactStore(PropertyType):
 
 @dataclass
 class ArtifactStoreMap(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "artifact_store": "ArtifactStore",
         "region": "Region",
@@ -599,8 +585,6 @@ class ArtifactStoreMap(PropertyType):
 
 @dataclass
 class BeforeEntryConditions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "conditions": "Conditions",
     }
@@ -610,8 +594,6 @@ class BeforeEntryConditions(PropertyType):
 
 @dataclass
 class BlockerDeclaration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "name": "Name",
@@ -623,8 +605,6 @@ class BlockerDeclaration(PropertyType):
 
 @dataclass
 class Condition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rules": "Rules",
         "result": "Result",
@@ -636,8 +616,6 @@ class Condition(PropertyType):
 
 @dataclass
 class EncryptionKey(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "id": "Id",
@@ -649,8 +627,6 @@ class EncryptionKey(PropertyType):
 
 @dataclass
 class EnvironmentVariable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -664,8 +640,6 @@ class EnvironmentVariable(PropertyType):
 
 @dataclass
 class FailureConditions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "retry_configuration": "RetryConfiguration",
         "conditions": "Conditions",
@@ -679,8 +653,6 @@ class FailureConditions(PropertyType):
 
 @dataclass
 class GitBranchFilterCriteria(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "includes": "Includes",
         "excludes": "Excludes",
@@ -692,8 +664,6 @@ class GitBranchFilterCriteria(PropertyType):
 
 @dataclass
 class GitConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pull_request": "PullRequest",
         "push": "Push",
@@ -707,8 +677,6 @@ class GitConfiguration(PropertyType):
 
 @dataclass
 class GitFilePathFilterCriteria(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "includes": "Includes",
         "excludes": "Excludes",
@@ -720,8 +688,6 @@ class GitFilePathFilterCriteria(PropertyType):
 
 @dataclass
 class GitPullRequestFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file_paths": "FilePaths",
         "events": "Events",
@@ -735,8 +701,6 @@ class GitPullRequestFilter(PropertyType):
 
 @dataclass
 class GitPushFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file_paths": "FilePaths",
         "branches": "Branches",
@@ -750,8 +714,6 @@ class GitPushFilter(PropertyType):
 
 @dataclass
 class GitTagFilterCriteria(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "includes": "Includes",
         "excludes": "Excludes",
@@ -763,8 +725,6 @@ class GitTagFilterCriteria(PropertyType):
 
 @dataclass
 class InputArtifact(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -774,8 +734,6 @@ class InputArtifact(PropertyType):
 
 @dataclass
 class OutputArtifact(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "files": "Files",
         "name": "Name",
@@ -787,8 +745,6 @@ class OutputArtifact(PropertyType):
 
 @dataclass
 class PipelineTriggerDeclaration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "git_configuration": "GitConfiguration",
         "provider_type": "ProviderType",
@@ -800,8 +756,6 @@ class PipelineTriggerDeclaration(PropertyType):
 
 @dataclass
 class RetryConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "retry_mode": "RetryMode",
     }
@@ -811,8 +765,6 @@ class RetryConfiguration(PropertyType):
 
 @dataclass
 class RuleDeclaration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule_type_id": "RuleTypeId",
         "configuration": "Configuration",
@@ -834,8 +786,6 @@ class RuleDeclaration(PropertyType):
 
 @dataclass
 class RuleTypeId(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "owner": "Owner",
         "category": "Category",
@@ -851,8 +801,6 @@ class RuleTypeId(PropertyType):
 
 @dataclass
 class StageDeclaration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "blockers": "Blockers",
         "actions": "Actions",
@@ -872,8 +820,6 @@ class StageDeclaration(PropertyType):
 
 @dataclass
 class StageTransition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stage_name": "StageName",
         "reason": "Reason",
@@ -885,8 +831,6 @@ class StageTransition(PropertyType):
 
 @dataclass
 class SuccessConditions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "conditions": "Conditions",
     }
@@ -896,8 +840,6 @@ class SuccessConditions(PropertyType):
 
 @dataclass
 class VariableDeclaration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_value": "DefaultValue",
         "description": "Description",
@@ -952,8 +894,6 @@ class Pipeline(CloudFormationResource):
 
 @dataclass
 class WebhookAuthConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allowed_ip_range": "AllowedIPRange",
         "secret_token": "SecretToken",
@@ -965,8 +905,6 @@ class WebhookAuthConfiguration(PropertyType):
 
 @dataclass
 class WebhookFilterRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "json_path": "JsonPath",
         "match_equals": "MatchEquals",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Forecast
@@ -251,8 +251,6 @@ SPECIFIC = TimeSeriesGranularity.SPECIFIC
 
 @dataclass
 class AttributesItems(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-for"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_type": "AttributeType",
         "attribute_name": "AttributeName",
@@ -264,8 +262,6 @@ class AttributesItems(PropertyType):
 
 @dataclass
 class EncryptionConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-for"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
         "role_arn": "RoleArn",
@@ -277,8 +273,6 @@ class EncryptionConfig(PropertyType):
 
 @dataclass
 class Schema(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-for"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attributes": "Attributes",
     }
@@ -288,8 +282,6 @@ class Schema(PropertyType):
 
 @dataclass
 class TagsItems(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-for"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",

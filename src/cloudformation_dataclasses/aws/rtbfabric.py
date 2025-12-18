@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service RTBFabric
@@ -158,8 +158,6 @@ PENDING_RESTORATION = ResponderGatewayStatus.PENDING_RESTORATION
 
 @dataclass
 class ApplicationLogs(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "link_application_log_sampling": "LinkApplicationLogSampling",
     }
@@ -169,8 +167,6 @@ class ApplicationLogs(PropertyType):
 
 @dataclass
 class LinkApplicationLogSampling(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_log": "FilterLog",
         "error_log": "ErrorLog",
@@ -182,8 +178,6 @@ class LinkApplicationLogSampling(PropertyType):
 
 @dataclass
 class LinkAttributes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "responder_error_masking": "ResponderErrorMasking",
         "customer_provided_id": "CustomerProvidedId",
@@ -195,8 +189,6 @@ class LinkAttributes(PropertyType):
 
 @dataclass
 class LinkLogSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_logs": "ApplicationLogs",
     }
@@ -206,8 +198,6 @@ class LinkLogSettings(PropertyType):
 
 @dataclass
 class ResponderErrorMaskingForHttpCode(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "http_code": "HttpCode",
         "action": "Action",
@@ -268,8 +258,6 @@ class InboundExternalLink(CloudFormationResource):
 
 @dataclass
 class Action(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "no_bid": "NoBid",
         "header_tag": "HeaderTag",
@@ -281,8 +269,6 @@ class Action(PropertyType):
 
 @dataclass
 class ApplicationLogs(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "link_application_log_sampling": "LinkApplicationLogSampling",
     }
@@ -292,8 +278,6 @@ class ApplicationLogs(PropertyType):
 
 @dataclass
 class Filter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "criteria": "Criteria",
     }
@@ -303,8 +287,6 @@ class Filter(PropertyType):
 
 @dataclass
 class FilterCriterion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "values": "Values",
@@ -316,8 +298,6 @@ class FilterCriterion(PropertyType):
 
 @dataclass
 class HeaderTagAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -329,8 +309,6 @@ class HeaderTagAction(PropertyType):
 
 @dataclass
 class LinkApplicationLogSampling(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_log": "FilterLog",
         "error_log": "ErrorLog",
@@ -342,8 +320,6 @@ class LinkApplicationLogSampling(PropertyType):
 
 @dataclass
 class LinkAttributes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "responder_error_masking": "ResponderErrorMasking",
         "customer_provided_id": "CustomerProvidedId",
@@ -355,8 +331,6 @@ class LinkAttributes(PropertyType):
 
 @dataclass
 class LinkLogSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_logs": "ApplicationLogs",
     }
@@ -366,8 +340,6 @@ class LinkLogSettings(PropertyType):
 
 @dataclass
 class ModuleConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "depends_on": "DependsOn",
         "version": "Version",
@@ -383,8 +355,6 @@ class ModuleConfiguration(PropertyType):
 
 @dataclass
 class ModuleParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "no_bid": "NoBid",
         "open_rtb_attribute": "OpenRtbAttribute",
@@ -396,8 +366,6 @@ class ModuleParameters(PropertyType):
 
 @dataclass
 class NoBidAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "no_bid_reason_code": "NoBidReasonCode",
     }
@@ -407,8 +375,6 @@ class NoBidAction(PropertyType):
 
 @dataclass
 class NoBidModuleParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pass_through_percentage": "PassThroughPercentage",
         "reason_code": "ReasonCode",
@@ -422,8 +388,6 @@ class NoBidModuleParameters(PropertyType):
 
 @dataclass
 class OpenRtbAttributeModuleParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_type": "FilterType",
         "action": "Action",
@@ -439,8 +403,6 @@ class OpenRtbAttributeModuleParameters(PropertyType):
 
 @dataclass
 class ResponderErrorMaskingForHttpCode(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "http_code": "HttpCode",
         "action": "Action",
@@ -512,8 +474,6 @@ class Link(CloudFormationResource):
 
 @dataclass
 class ApplicationLogs(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "link_application_log_sampling": "LinkApplicationLogSampling",
     }
@@ -523,8 +483,6 @@ class ApplicationLogs(PropertyType):
 
 @dataclass
 class LinkApplicationLogSampling(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_log": "FilterLog",
         "error_log": "ErrorLog",
@@ -536,8 +494,6 @@ class LinkApplicationLogSampling(PropertyType):
 
 @dataclass
 class LinkAttributes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "responder_error_masking": "ResponderErrorMasking",
         "customer_provided_id": "CustomerProvidedId",
@@ -549,8 +505,6 @@ class LinkAttributes(PropertyType):
 
 @dataclass
 class LinkLogSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_logs": "ApplicationLogs",
     }
@@ -560,8 +514,6 @@ class LinkLogSettings(PropertyType):
 
 @dataclass
 class ResponderErrorMaskingForHttpCode(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "http_code": "HttpCode",
         "action": "Action",
@@ -686,8 +638,6 @@ class RequesterGateway(CloudFormationResource):
 
 @dataclass
 class AutoScalingGroupsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_scaling_group_name_list": "AutoScalingGroupNameList",
         "role_arn": "RoleArn",
@@ -699,8 +649,6 @@ class AutoScalingGroupsConfiguration(PropertyType):
 
 @dataclass
 class EksEndpointsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_api_server_ca_certificate_chain": "ClusterApiServerCaCertificateChain",
         "endpoints_resource_name": "EndpointsResourceName",
@@ -720,8 +668,6 @@ class EksEndpointsConfiguration(PropertyType):
 
 @dataclass
 class ManagedEndpointConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "eks_endpoints_configuration": "EksEndpointsConfiguration",
         "auto_scaling_groups_configuration": "AutoScalingGroupsConfiguration",
@@ -733,8 +679,6 @@ class ManagedEndpointConfiguration(PropertyType):
 
 @dataclass
 class TrustStoreConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtb"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_authority_certificates": "CertificateAuthorityCertificates",
     }

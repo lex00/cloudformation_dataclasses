@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Location
@@ -196,8 +196,6 @@ POUNDS = VehicleWeightUnit.POUNDS
 
 @dataclass
 class AndroidApp(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-loc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_fingerprint": "CertificateFingerprint",
         "package": "Package",
@@ -209,8 +207,6 @@ class AndroidApp(PropertyType):
 
 @dataclass
 class ApiKeyRestrictions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-loc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allow_actions": "AllowActions",
         "allow_resources": "AllowResources",
@@ -228,8 +224,6 @@ class ApiKeyRestrictions(PropertyType):
 
 @dataclass
 class AppleApp(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-loc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bundle_id": "BundleId",
     }
@@ -327,8 +321,6 @@ class GeofenceCollection(CloudFormationResource):
 
 @dataclass
 class MapConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-loc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "political_view": "PoliticalView",
         "style": "Style",
@@ -384,8 +376,6 @@ class Map(CloudFormationResource):
 
 @dataclass
 class DataSourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-loc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "intended_use": "IntendedUse",
     }

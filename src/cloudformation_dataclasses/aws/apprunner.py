@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:45
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AppRunner
@@ -314,8 +314,6 @@ class AutoScalingConfiguration(CloudFormationResource):
 
 @dataclass
 class TraceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vendor": "Vendor",
     }
@@ -358,8 +356,6 @@ class ObservabilityConfiguration(CloudFormationResource):
 
 @dataclass
 class AuthenticationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_role_arn": "AccessRoleArn",
         "connection_arn": "ConnectionArn",
@@ -371,8 +367,6 @@ class AuthenticationConfiguration(PropertyType):
 
 @dataclass
 class CodeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration_source": "ConfigurationSource",
         "code_configuration_values": "CodeConfigurationValues",
@@ -384,8 +378,6 @@ class CodeConfiguration(PropertyType):
 
 @dataclass
 class CodeConfigurationValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "runtime_environment_secrets": "RuntimeEnvironmentSecrets",
         "runtime": "Runtime",
@@ -405,8 +397,6 @@ class CodeConfigurationValues(PropertyType):
 
 @dataclass
 class CodeRepository(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_code_version": "SourceCodeVersion",
         "code_configuration": "CodeConfiguration",
@@ -422,8 +412,6 @@ class CodeRepository(PropertyType):
 
 @dataclass
 class EgressConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_connector_arn": "VpcConnectorArn",
         "egress_type": "EgressType",
@@ -435,8 +423,6 @@ class EgressConfiguration(PropertyType):
 
 @dataclass
 class EncryptionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key": "KmsKey",
     }
@@ -446,8 +432,6 @@ class EncryptionConfiguration(PropertyType):
 
 @dataclass
 class HealthCheckConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "unhealthy_threshold": "UnhealthyThreshold",
@@ -467,8 +451,6 @@ class HealthCheckConfiguration(PropertyType):
 
 @dataclass
 class ImageConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "runtime_environment_secrets": "RuntimeEnvironmentSecrets",
         "start_command": "StartCommand",
@@ -484,8 +466,6 @@ class ImageConfiguration(PropertyType):
 
 @dataclass
 class ImageRepository(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "image_identifier": "ImageIdentifier",
         "image_configuration": "ImageConfiguration",
@@ -499,8 +479,6 @@ class ImageRepository(PropertyType):
 
 @dataclass
 class IngressConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_publicly_accessible": "IsPubliclyAccessible",
     }
@@ -510,8 +488,6 @@ class IngressConfiguration(PropertyType):
 
 @dataclass
 class InstanceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_role_arn": "InstanceRoleArn",
         "memory": "Memory",
@@ -525,8 +501,6 @@ class InstanceConfiguration(PropertyType):
 
 @dataclass
 class KeyValuePair(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -538,8 +512,6 @@ class KeyValuePair(PropertyType):
 
 @dataclass
 class NetworkConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_address_type": "IpAddressType",
         "egress_configuration": "EgressConfiguration",
@@ -553,8 +525,6 @@ class NetworkConfiguration(PropertyType):
 
 @dataclass
 class ServiceObservabilityConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "observability_enabled": "ObservabilityEnabled",
         "observability_configuration_arn": "ObservabilityConfigurationArn",
@@ -566,8 +536,6 @@ class ServiceObservabilityConfiguration(PropertyType):
 
 @dataclass
 class SourceCodeVersion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -579,8 +547,6 @@ class SourceCodeVersion(PropertyType):
 
 @dataclass
 class SourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authentication_configuration": "AuthenticationConfiguration",
         "code_repository": "CodeRepository",
@@ -676,8 +642,6 @@ class VpcConnector(CloudFormationResource):
 
 @dataclass
 class IngressVpcConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_id": "VpcId",
         "vpc_endpoint_id": "VpcEndpointId",

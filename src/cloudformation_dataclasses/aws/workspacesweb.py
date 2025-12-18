@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:35
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service WorkSpacesWeb
@@ -27,8 +27,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class WebContentFilteringPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "blocked_urls": "BlockedUrls",
         "allowed_urls": "AllowedUrls",
@@ -74,8 +72,6 @@ class BrowserSettings(CloudFormationResource):
 
 @dataclass
 class CustomPattern(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "keyword_regex": "KeywordRegex",
         "pattern_description": "PatternDescription",
@@ -91,8 +87,6 @@ class CustomPattern(PropertyType):
 
 @dataclass
 class InlineRedactionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inline_redaction_patterns": "InlineRedactionPatterns",
         "global_confidence_level": "GlobalConfidenceLevel",
@@ -108,8 +102,6 @@ class InlineRedactionConfiguration(PropertyType):
 
 @dataclass
 class InlineRedactionPattern(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enforced_urls": "EnforcedUrls",
         "confidence_level": "ConfidenceLevel",
@@ -129,8 +121,6 @@ class InlineRedactionPattern(PropertyType):
 
 @dataclass
 class RedactionPlaceHolder(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "redaction_place_holder_type": "RedactionPlaceHolderType",
         "redaction_place_holder_text": "RedactionPlaceHolderText",
@@ -208,8 +198,6 @@ class IdentityProvider(CloudFormationResource):
 
 @dataclass
 class IpRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_range": "IpRange",
         "description": "Description",
@@ -372,8 +360,6 @@ class Portal(CloudFormationResource):
 
 @dataclass
 class EventFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all": "All",
         "include": "Include",
@@ -385,8 +371,6 @@ class EventFilter(PropertyType):
 
 @dataclass
 class LogConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
     }
@@ -396,8 +380,6 @@ class LogConfiguration(PropertyType):
 
 @dataclass
 class S3LogConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "folder_structure": "FolderStructure",
@@ -506,8 +488,6 @@ class UserAccessLoggingSettings(CloudFormationResource):
 
 @dataclass
 class CookieSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "domain": "Domain",
@@ -521,8 +501,6 @@ class CookieSpecification(PropertyType):
 
 @dataclass
 class CookieSynchronizationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "blocklist": "Blocklist",
         "allowlist": "Allowlist",
@@ -534,8 +512,6 @@ class CookieSynchronizationConfiguration(PropertyType):
 
 @dataclass
 class ToolbarConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "toolbar_type": "ToolbarType",
         "hidden_toolbar_items": "HiddenToolbarItems",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:35
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service WorkspacesInstances
@@ -27,8 +27,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class TagSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_type": "ResourceType",
         "tags": "Tags",
@@ -94,8 +92,6 @@ class VolumeAssociation(CloudFormationResource):
 
 @dataclass
 class BlockDeviceMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ebs": "Ebs",
         "no_device": "NoDevice",
@@ -111,8 +107,6 @@ class BlockDeviceMapping(PropertyType):
 
 @dataclass
 class CapacityReservationSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_reservation_preference": "CapacityReservationPreference",
         "capacity_reservation_target": "CapacityReservationTarget",
@@ -124,8 +118,6 @@ class CapacityReservationSpecification(PropertyType):
 
 @dataclass
 class CapacityReservationTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_reservation_resource_group_arn": "CapacityReservationResourceGroupArn",
         "capacity_reservation_id": "CapacityReservationId",
@@ -137,8 +129,6 @@ class CapacityReservationTarget(PropertyType):
 
 @dataclass
 class CpuOptionsRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "threads_per_core": "ThreadsPerCore",
         "core_count": "CoreCount",
@@ -150,8 +140,6 @@ class CpuOptionsRequest(PropertyType):
 
 @dataclass
 class CreditSpecificationRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cpu_credits": "CpuCredits",
     }
@@ -161,8 +149,6 @@ class CreditSpecificationRequest(PropertyType):
 
 @dataclass
 class EC2ManagedInstance(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_id": "InstanceId",
     }
@@ -172,8 +158,6 @@ class EC2ManagedInstance(PropertyType):
 
 @dataclass
 class EbsBlockDevice(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "volume_type": "VolumeType",
         "kms_key_id": "KmsKeyId",
@@ -193,8 +177,6 @@ class EbsBlockDevice(PropertyType):
 
 @dataclass
 class EnclaveOptionsRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -204,8 +186,6 @@ class EnclaveOptionsRequest(PropertyType):
 
 @dataclass
 class HibernationOptionsRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configured": "Configured",
     }
@@ -215,8 +195,6 @@ class HibernationOptionsRequest(PropertyType):
 
 @dataclass
 class IamInstanceProfileSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
         "name": "Name",
@@ -228,8 +206,6 @@ class IamInstanceProfileSpecification(PropertyType):
 
 @dataclass
 class InstanceMaintenanceOptionsRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_recovery": "AutoRecovery",
     }
@@ -239,8 +215,6 @@ class InstanceMaintenanceOptionsRequest(PropertyType):
 
 @dataclass
 class InstanceMarketOptionsRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "spot_options": "SpotOptions",
         "market_type": "MarketType",
@@ -252,8 +226,6 @@ class InstanceMarketOptionsRequest(PropertyType):
 
 @dataclass
 class InstanceMetadataOptionsRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "http_put_response_hop_limit": "HttpPutResponseHopLimit",
         "http_protocol_ipv6": "HttpProtocolIpv6",
@@ -271,8 +243,6 @@ class InstanceMetadataOptionsRequest(PropertyType):
 
 @dataclass
 class InstanceNetworkInterfaceSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "device_index": "DeviceIndex",
@@ -288,8 +258,6 @@ class InstanceNetworkInterfaceSpecification(PropertyType):
 
 @dataclass
 class InstanceNetworkPerformanceOptionsRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bandwidth_weighting": "BandwidthWeighting",
     }
@@ -299,8 +267,6 @@ class InstanceNetworkPerformanceOptionsRequest(PropertyType):
 
 @dataclass
 class LicenseConfigurationRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "license_configuration_arn": "LicenseConfigurationArn",
     }
@@ -310,8 +276,6 @@ class LicenseConfigurationRequest(PropertyType):
 
 @dataclass
 class ManagedInstance(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_performance_options": "NetworkPerformanceOptions",
         "tag_specifications": "TagSpecifications",
@@ -371,8 +335,6 @@ class ManagedInstance(PropertyType):
 
 @dataclass
 class Placement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_name": "GroupName",
         "tenancy": "Tenancy",
@@ -390,8 +352,6 @@ class Placement(PropertyType):
 
 @dataclass
 class PrivateDnsNameOptionsRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_resource_name_dns_a_record": "EnableResourceNameDnsARecord",
         "hostname_type": "HostnameType",
@@ -405,8 +365,6 @@ class PrivateDnsNameOptionsRequest(PropertyType):
 
 @dataclass
 class RunInstancesMonitoringEnabled(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -416,8 +374,6 @@ class RunInstancesMonitoringEnabled(PropertyType):
 
 @dataclass
 class SpotMarketOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "valid_until_utc": "ValidUntilUtc",
         "spot_instance_type": "SpotInstanceType",
@@ -433,8 +389,6 @@ class SpotMarketOptions(PropertyType):
 
 @dataclass
 class TagSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wor"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_type": "ResourceType",
         "tags": "Tags",

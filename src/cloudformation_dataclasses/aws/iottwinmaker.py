@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IoTTwinMaker
@@ -313,8 +313,6 @@ OVERWRITTEN = UpdateReason.OVERWRITTEN
 
 @dataclass
 class CompositeComponentType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "component_type_id": "ComponentTypeId",
     }
@@ -324,8 +322,6 @@ class CompositeComponentType(PropertyType):
 
 @dataclass
 class DataConnector(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_native": "IsNative",
         "lambda_": "Lambda",
@@ -337,8 +333,6 @@ class DataConnector(PropertyType):
 
 @dataclass
 class DataType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "allowed_values": "AllowedValues",
@@ -356,8 +350,6 @@ class DataType(PropertyType):
 
 @dataclass
 class DataValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "double_value": "DoubleValue",
         "expression": "Expression",
@@ -383,8 +375,6 @@ class DataValue(PropertyType):
 
 @dataclass
 class Error(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message": "Message",
         "code": "Code",
@@ -396,8 +386,6 @@ class Error(PropertyType):
 
 @dataclass
 class Function(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scope": "Scope",
         "required_properties": "RequiredProperties",
@@ -411,8 +399,6 @@ class Function(PropertyType):
 
 @dataclass
 class LambdaFunction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -422,8 +408,6 @@ class LambdaFunction(PropertyType):
 
 @dataclass
 class PropertyDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_value": "DefaultValue",
         "is_external_id": "IsExternalId",
@@ -445,8 +429,6 @@ class PropertyDefinition(PropertyType):
 
 @dataclass
 class PropertyGroup(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_type": "GroupType",
         "property_names": "PropertyNames",
@@ -458,8 +440,6 @@ class PropertyGroup(PropertyType):
 
 @dataclass
 class Relationship(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "relationship_type": "RelationshipType",
         "target_component_type_id": "TargetComponentTypeId",
@@ -471,8 +451,6 @@ class Relationship(PropertyType):
 
 @dataclass
 class RelationshipValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_component_name": "TargetComponentName",
         "target_entity_id": "TargetEntityId",
@@ -484,8 +462,6 @@ class RelationshipValue(PropertyType):
 
 @dataclass
 class Status(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
         "error": "Error",
@@ -579,8 +555,6 @@ class ComponentType(CloudFormationResource):
 
 @dataclass
 class Component(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "description": "Description",
@@ -602,8 +576,6 @@ class Component(PropertyType):
 
 @dataclass
 class CompositeComponent(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "component_path": "ComponentPath",
@@ -625,8 +597,6 @@ class CompositeComponent(PropertyType):
 
 @dataclass
 class DataType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "allowed_values": "AllowedValues",
@@ -644,8 +614,6 @@ class DataType(PropertyType):
 
 @dataclass
 class DataValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "double_value": "DoubleValue",
         "expression": "Expression",
@@ -671,8 +639,6 @@ class DataValue(PropertyType):
 
 @dataclass
 class Definition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_value": "DefaultValue",
         "is_imported": "IsImported",
@@ -700,8 +666,6 @@ class Definition(PropertyType):
 
 @dataclass
 class Error(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message": "Message",
         "code": "Code",
@@ -713,8 +677,6 @@ class Error(PropertyType):
 
 @dataclass
 class Property(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "definition": "Definition",
         "value": "Value",
@@ -726,8 +688,6 @@ class Property(PropertyType):
 
 @dataclass
 class PropertyGroup(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_type": "GroupType",
         "property_names": "PropertyNames",
@@ -739,8 +699,6 @@ class PropertyGroup(PropertyType):
 
 @dataclass
 class Relationship(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "relationship_type": "RelationshipType",
         "target_component_type_id": "TargetComponentTypeId",
@@ -752,8 +710,6 @@ class Relationship(PropertyType):
 
 @dataclass
 class RelationshipValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_component_name": "TargetComponentName",
         "target_entity_id": "TargetEntityId",
@@ -765,8 +721,6 @@ class RelationshipValue(PropertyType):
 
 @dataclass
 class Status(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
         "error": "Error",

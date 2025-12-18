@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:35
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Transfer
@@ -457,8 +457,6 @@ DECRYPT = WorkflowStepType.DECRYPT
 
 @dataclass
 class CustomDirectories(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "failed_files_directory": "FailedFilesDirectory",
         "temporary_files_directory": "TemporaryFilesDirectory",
@@ -583,8 +581,6 @@ class Certificate(CloudFormationResource):
 
 @dataclass
 class As2Config(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compression": "Compression",
         "message_subject": "MessageSubject",
@@ -612,8 +608,6 @@ class As2Config(PropertyType):
 
 @dataclass
 class ConnectorEgressConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_lattice": "VpcLattice",
     }
@@ -623,8 +617,6 @@ class ConnectorEgressConfig(PropertyType):
 
 @dataclass
 class ConnectorVpcLatticeEgressConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_configuration_arn": "ResourceConfigurationArn",
         "port_number": "PortNumber",
@@ -636,8 +628,6 @@ class ConnectorVpcLatticeEgressConfig(PropertyType):
 
 @dataclass
 class SftpConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "trusted_host_keys": "TrustedHostKeys",
         "user_secret_id": "UserSecretId",
@@ -736,8 +726,6 @@ class Profile(CloudFormationResource):
 
 @dataclass
 class EndpointDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address_allocation_ids": "AddressAllocationIds",
         "vpc_id": "VpcId",
@@ -755,8 +743,6 @@ class EndpointDetails(PropertyType):
 
 @dataclass
 class IdentityProviderDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function": "Function",
         "directory_id": "DirectoryId",
@@ -774,8 +760,6 @@ class IdentityProviderDetails(PropertyType):
 
 @dataclass
 class ProtocolDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "as2_transports": "As2Transports",
         "passive_ip": "PassiveIp",
@@ -791,8 +775,6 @@ class ProtocolDetails(PropertyType):
 
 @dataclass
 class S3StorageOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "directory_listing_optimization": "DirectoryListingOptimization",
     }
@@ -802,8 +784,6 @@ class S3StorageOptions(PropertyType):
 
 @dataclass
 class WorkflowDetail(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "workflow_id": "WorkflowId",
         "execution_role": "ExecutionRole",
@@ -815,8 +795,6 @@ class WorkflowDetail(PropertyType):
 
 @dataclass
 class WorkflowDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_upload": "OnUpload",
         "on_partial_upload": "OnPartialUpload",
@@ -894,8 +872,6 @@ class Server(CloudFormationResource):
 
 @dataclass
 class HomeDirectoryMapEntry(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entry": "Entry",
         "target": "Target",
@@ -909,8 +885,6 @@ class HomeDirectoryMapEntry(PropertyType):
 
 @dataclass
 class PosixProfile(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uid": "Uid",
         "secondary_gids": "SecondaryGids",
@@ -971,8 +945,6 @@ class User(CloudFormationResource):
 
 @dataclass
 class IdentityProviderDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role": "Role",
         "application_arn": "ApplicationArn",
@@ -986,8 +958,6 @@ class IdentityProviderDetails(PropertyType):
 
 @dataclass
 class WebAppCustomization(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "favicon_file": "FaviconFile",
         "title": "Title",
@@ -1001,8 +971,6 @@ class WebAppCustomization(PropertyType):
 
 @dataclass
 class WebAppUnits(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "provisioned": "Provisioned",
     }
@@ -1051,8 +1019,6 @@ class WebApp(CloudFormationResource):
 
 @dataclass
 class CopyStepDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_file_location": "DestinationFileLocation",
         "source_file_location": "SourceFileLocation",
@@ -1068,8 +1034,6 @@ class CopyStepDetails(PropertyType):
 
 @dataclass
 class CustomStepDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timeout_seconds": "TimeoutSeconds",
         "target": "Target",
@@ -1085,8 +1049,6 @@ class CustomStepDetails(PropertyType):
 
 @dataclass
 class DecryptStepDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_file_location": "DestinationFileLocation",
         "type_": "Type",
@@ -1104,8 +1066,6 @@ class DecryptStepDetails(PropertyType):
 
 @dataclass
 class DeleteStepDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_file_location": "SourceFileLocation",
         "name": "Name",
@@ -1117,8 +1077,6 @@ class DeleteStepDetails(PropertyType):
 
 @dataclass
 class EfsInputFileLocation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "file_system_id": "FileSystemId",
@@ -1130,8 +1088,6 @@ class EfsInputFileLocation(PropertyType):
 
 @dataclass
 class InputFileLocation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "efs_file_location": "EfsFileLocation",
         "s3_file_location": "S3FileLocation",
@@ -1143,8 +1099,6 @@ class InputFileLocation(PropertyType):
 
 @dataclass
 class S3FileLocation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_file_location": "S3FileLocation",
     }
@@ -1154,8 +1108,6 @@ class S3FileLocation(PropertyType):
 
 @dataclass
 class S3InputFileLocation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "key": "Key",
@@ -1167,8 +1119,6 @@ class S3InputFileLocation(PropertyType):
 
 @dataclass
 class S3Tag(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -1180,8 +1130,6 @@ class S3Tag(PropertyType):
 
 @dataclass
 class TagStepDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_file_location": "SourceFileLocation",
         "tags": "Tags",
@@ -1195,8 +1143,6 @@ class TagStepDetails(PropertyType):
 
 @dataclass
 class WorkflowStep(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_step_details": "CustomStepDetails",
         "copy_step_details": "CopyStepDetails",

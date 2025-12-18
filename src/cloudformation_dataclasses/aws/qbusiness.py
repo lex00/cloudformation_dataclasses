@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service QBusiness
@@ -780,8 +780,6 @@ PENDING_AUTH_CONFIG = WebExperienceStatus.PENDING_AUTH_CONFIG
 
 @dataclass
 class AttachmentsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attachments_control_mode": "AttachmentsControlMode",
     }
@@ -791,8 +789,6 @@ class AttachmentsConfiguration(PropertyType):
 
 @dataclass
 class AutoSubscriptionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_subscription_type": "DefaultSubscriptionType",
         "auto_subscribe": "AutoSubscribe",
@@ -804,8 +800,6 @@ class AutoSubscriptionConfiguration(PropertyType):
 
 @dataclass
 class EncryptionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
     }
@@ -815,8 +809,6 @@ class EncryptionConfiguration(PropertyType):
 
 @dataclass
 class PersonalizationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "personalization_control_mode": "PersonalizationControlMode",
     }
@@ -826,8 +818,6 @@ class PersonalizationConfiguration(PropertyType):
 
 @dataclass
 class QAppsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "q_apps_control_mode": "QAppsControlMode",
     }
@@ -837,8 +827,6 @@ class QAppsConfiguration(PropertyType):
 
 @dataclass
 class QuickSightConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_namespace": "ClientNamespace",
     }
@@ -918,8 +906,6 @@ class Application(CloudFormationResource):
 
 @dataclass
 class ActionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "filter_configuration": "FilterConfiguration",
@@ -931,8 +917,6 @@ class ActionConfiguration(PropertyType):
 
 @dataclass
 class ActionFilterConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "document_attribute_filter": "DocumentAttributeFilter",
     }
@@ -942,8 +926,6 @@ class ActionFilterConfiguration(PropertyType):
 
 @dataclass
 class AttributeFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "contains_any": "ContainsAny",
         "less_than": "LessThan",
@@ -971,8 +953,6 @@ class AttributeFilter(PropertyType):
 
 @dataclass
 class DataAccessorAuthenticationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "idc_trusted_token_issuer_configuration": "IdcTrustedTokenIssuerConfiguration",
     }
@@ -982,8 +962,6 @@ class DataAccessorAuthenticationConfiguration(PropertyType):
 
 @dataclass
 class DataAccessorAuthenticationDetail(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authentication_configuration": "AuthenticationConfiguration",
         "external_ids": "ExternalIds",
@@ -997,8 +975,6 @@ class DataAccessorAuthenticationDetail(PropertyType):
 
 @dataclass
 class DataAccessorIdcTrustedTokenIssuerConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "idc_trusted_token_issuer_arn": "IdcTrustedTokenIssuerArn",
     }
@@ -1008,8 +984,6 @@ class DataAccessorIdcTrustedTokenIssuerConfiguration(PropertyType):
 
 @dataclass
 class DocumentAttribute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -1021,8 +995,6 @@ class DocumentAttribute(PropertyType):
 
 @dataclass
 class DocumentAttributeValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "date_value": "DateValue",
         "long_value": "LongValue",
@@ -1087,8 +1059,6 @@ class DataAccessor(CloudFormationResource):
 
 @dataclass
 class AudioExtractionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audio_extraction_status": "AudioExtractionStatus",
     }
@@ -1098,8 +1068,6 @@ class AudioExtractionConfiguration(PropertyType):
 
 @dataclass
 class DataSourceVpcConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnet_ids": "SubnetIds",
         "security_group_ids": "SecurityGroupIds",
@@ -1111,8 +1079,6 @@ class DataSourceVpcConfiguration(PropertyType):
 
 @dataclass
 class DocumentAttributeCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "value": "Value",
@@ -1126,8 +1092,6 @@ class DocumentAttributeCondition(PropertyType):
 
 @dataclass
 class DocumentAttributeTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "attribute_value_operator": "AttributeValueOperator",
@@ -1141,8 +1105,6 @@ class DocumentAttributeTarget(PropertyType):
 
 @dataclass
 class DocumentAttributeValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "date_value": "DateValue",
         "long_value": "LongValue",
@@ -1158,8 +1120,6 @@ class DocumentAttributeValue(PropertyType):
 
 @dataclass
 class DocumentEnrichmentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inline_configurations": "InlineConfigurations",
         "pre_extraction_hook_configuration": "PreExtractionHookConfiguration",
@@ -1173,8 +1133,6 @@ class DocumentEnrichmentConfiguration(PropertyType):
 
 @dataclass
 class HookConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_arn": "LambdaArn",
         "invocation_condition": "InvocationCondition",
@@ -1190,8 +1148,6 @@ class HookConfiguration(PropertyType):
 
 @dataclass
 class ImageExtractionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "image_extraction_status": "ImageExtractionStatus",
     }
@@ -1201,8 +1157,6 @@ class ImageExtractionConfiguration(PropertyType):
 
 @dataclass
 class InlineDocumentEnrichmentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "target": "Target",
@@ -1216,8 +1170,6 @@ class InlineDocumentEnrichmentConfiguration(PropertyType):
 
 @dataclass
 class MediaExtractionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "video_extraction_configuration": "VideoExtractionConfiguration",
         "audio_extraction_configuration": "AudioExtractionConfiguration",
@@ -1231,8 +1183,6 @@ class MediaExtractionConfiguration(PropertyType):
 
 @dataclass
 class VideoExtractionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "video_extraction_status": "VideoExtractionStatus",
     }
@@ -1306,8 +1256,6 @@ class DataSource(CloudFormationResource):
 
 @dataclass
 class DocumentAttributeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "search": "Search",
@@ -1321,8 +1269,6 @@ class DocumentAttributeConfiguration(PropertyType):
 
 @dataclass
 class IndexCapacityConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "units": "Units",
     }
@@ -1332,8 +1278,6 @@ class IndexCapacityConfiguration(PropertyType):
 
 @dataclass
 class IndexStatistics(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_document_statistics": "TextDocumentStatistics",
     }
@@ -1343,8 +1287,6 @@ class IndexStatistics(PropertyType):
 
 @dataclass
 class TextDocumentStatistics(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "indexed_text_bytes": "IndexedTextBytes",
         "indexed_text_document_count": "IndexedTextDocumentCount",
@@ -1427,8 +1369,6 @@ class Index(CloudFormationResource):
 
 @dataclass
 class Condition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition_operator": "ConditionOperator",
         "condition_values": "ConditionValues",
@@ -1463,8 +1403,6 @@ class Permission(CloudFormationResource):
 
 @dataclass
 class APISchema(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
         "payload": "Payload",
@@ -1476,8 +1414,6 @@ class APISchema(PropertyType):
 
 @dataclass
 class BasicAuthConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "role_arn": "RoleArn",
@@ -1489,8 +1425,6 @@ class BasicAuthConfiguration(PropertyType):
 
 @dataclass
 class CustomPluginConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "api_schema": "ApiSchema",
@@ -1504,8 +1438,6 @@ class CustomPluginConfiguration(PropertyType):
 
 @dataclass
 class OAuth2ClientCredentialConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "authorization_url": "AuthorizationUrl",
@@ -1521,8 +1453,6 @@ class OAuth2ClientCredentialConfiguration(PropertyType):
 
 @dataclass
 class PluginAuthConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "no_auth_configuration": "NoAuthConfiguration",
         "basic_auth_configuration": "BasicAuthConfiguration",
@@ -1536,8 +1466,6 @@ class PluginAuthConfiguration(PropertyType):
 
 @dataclass
 class S3(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "key": "Key",
@@ -1602,8 +1530,6 @@ class Plugin(CloudFormationResource):
 
 @dataclass
 class KendraIndexConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "index_id": "IndexId",
     }
@@ -1613,8 +1539,6 @@ class KendraIndexConfiguration(PropertyType):
 
 @dataclass
 class NativeIndexConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "index_id": "IndexId",
     }
@@ -1624,8 +1548,6 @@ class NativeIndexConfiguration(PropertyType):
 
 @dataclass
 class RetrieverConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kendra_index_configuration": "KendraIndexConfiguration",
         "native_index_configuration": "NativeIndexConfiguration",
@@ -1686,8 +1608,6 @@ class Retriever(CloudFormationResource):
 
 @dataclass
 class BrowserExtensionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled_browser_extensions": "EnabledBrowserExtensions",
     }
@@ -1697,8 +1617,6 @@ class BrowserExtensionConfiguration(PropertyType):
 
 @dataclass
 class CustomizationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "favicon_url": "FaviconUrl",
         "font_url": "FontUrl",
@@ -1714,8 +1632,6 @@ class CustomizationConfiguration(PropertyType):
 
 @dataclass
 class IdentityProviderConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "open_id_connect_configuration": "OpenIDConnectConfiguration",
         "saml_configuration": "SamlConfiguration",
@@ -1727,8 +1643,6 @@ class IdentityProviderConfiguration(PropertyType):
 
 @dataclass
 class OpenIDConnectProviderConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secrets_arn": "SecretsArn",
         "secrets_role": "SecretsRole",
@@ -1740,8 +1654,6 @@ class OpenIDConnectProviderConfiguration(PropertyType):
 
 @dataclass
 class SamlProviderConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbu"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authentication_url": "AuthenticationUrl",
     }

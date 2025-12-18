@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service S3ObjectLambda
@@ -904,8 +904,6 @@ GROUP = Type.GROUP
 
 @dataclass
 class Alias(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3o"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "value": "Value",
@@ -917,8 +915,6 @@ class Alias(PropertyType):
 
 @dataclass
 class AwsLambda(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3o"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function_arn": "FunctionArn",
         "function_payload": "FunctionPayload",
@@ -930,8 +926,6 @@ class AwsLambda(PropertyType):
 
 @dataclass
 class ContentTransformation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3o"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_lambda": "AwsLambda",
     }
@@ -941,8 +935,6 @@ class ContentTransformation(PropertyType):
 
 @dataclass
 class ObjectLambdaConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3o"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "supporting_access_point": "SupportingAccessPoint",
         "transformation_configurations": "TransformationConfigurations",
@@ -958,8 +950,6 @@ class ObjectLambdaConfiguration(PropertyType):
 
 @dataclass
 class PublicAccessBlockConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3o"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "restrict_public_buckets": "RestrictPublicBuckets",
         "block_public_policy": "BlockPublicPolicy",
@@ -975,8 +965,6 @@ class PublicAccessBlockConfiguration(PropertyType):
 
 @dataclass
 class TransformationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3o"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "actions": "Actions",
         "content_transformation": "ContentTransformation",

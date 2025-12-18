@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:45
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ApplicationInsights
@@ -27,8 +27,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class Alarm(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alarm_name": "AlarmName",
         "severity": "Severity",
@@ -40,8 +38,6 @@ class Alarm(PropertyType):
 
 @dataclass
 class AlarmMetric(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alarm_metric_name": "AlarmMetricName",
     }
@@ -51,8 +47,6 @@ class AlarmMetric(PropertyType):
 
 @dataclass
 class ComponentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sub_component_type_configurations": "SubComponentTypeConfigurations",
         "configuration_details": "ConfigurationDetails",
@@ -64,8 +58,6 @@ class ComponentConfiguration(PropertyType):
 
 @dataclass
 class ComponentMonitoringSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_component_configuration": "CustomComponentConfiguration",
         "tier": "Tier",
@@ -85,8 +77,6 @@ class ComponentMonitoringSetting(PropertyType):
 
 @dataclass
 class ConfigurationDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "net_weaver_prometheus_exporter": "NetWeaverPrometheusExporter",
         "windows_events": "WindowsEvents",
@@ -114,8 +104,6 @@ class ConfigurationDetails(PropertyType):
 
 @dataclass
 class CustomComponent(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_list": "ResourceList",
         "component_name": "ComponentName",
@@ -127,8 +115,6 @@ class CustomComponent(PropertyType):
 
 @dataclass
 class HAClusterPrometheusExporter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prometheus_port": "PrometheusPort",
     }
@@ -138,8 +124,6 @@ class HAClusterPrometheusExporter(PropertyType):
 
 @dataclass
 class HANAPrometheusExporter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hana_port": "HANAPort",
         "prometheus_port": "PrometheusPort",
@@ -157,8 +141,6 @@ class HANAPrometheusExporter(PropertyType):
 
 @dataclass
 class JMXPrometheusExporter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prometheus_port": "PrometheusPort",
         "jmxurl": "JMXURL",
@@ -172,8 +154,6 @@ class JMXPrometheusExporter(PropertyType):
 
 @dataclass
 class Log(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_type": "LogType",
         "encoding": "Encoding",
@@ -191,8 +171,6 @@ class Log(PropertyType):
 
 @dataclass
 class LogPattern(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pattern": "Pattern",
         "rank": "Rank",
@@ -206,8 +184,6 @@ class LogPattern(PropertyType):
 
 @dataclass
 class LogPatternSet(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pattern_set_name": "PatternSetName",
         "log_patterns": "LogPatterns",
@@ -219,8 +195,6 @@ class LogPatternSet(PropertyType):
 
 @dataclass
 class NetWeaverPrometheusExporter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prometheus_port": "PrometheusPort",
         "instance_numbers": "InstanceNumbers",
@@ -234,8 +208,6 @@ class NetWeaverPrometheusExporter(PropertyType):
 
 @dataclass
 class Process(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "process_name": "ProcessName",
         "alarm_metrics": "AlarmMetrics",
@@ -247,8 +219,6 @@ class Process(PropertyType):
 
 @dataclass
 class SQLServerPrometheusExporter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prometheus_port": "PrometheusPort",
         "sql_secret_name": "SQLSecretName",
@@ -260,8 +230,6 @@ class SQLServerPrometheusExporter(PropertyType):
 
 @dataclass
 class SubComponentConfigurationDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "windows_events": "WindowsEvents",
         "alarm_metrics": "AlarmMetrics",
@@ -277,8 +245,6 @@ class SubComponentConfigurationDetails(PropertyType):
 
 @dataclass
 class SubComponentTypeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sub_component_type": "SubComponentType",
         "sub_component_configuration_details": "SubComponentConfigurationDetails",
@@ -290,8 +256,6 @@ class SubComponentTypeConfiguration(PropertyType):
 
 @dataclass
 class WindowsEvent(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_levels": "EventLevels",
         "log_group_name": "LogGroupName",

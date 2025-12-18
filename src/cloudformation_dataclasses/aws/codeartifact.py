@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CodeArtifact
@@ -275,8 +275,6 @@ class Domain(CloudFormationResource):
 
 @dataclass
 class OriginConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "restrictions": "Restrictions",
     }
@@ -286,8 +284,6 @@ class OriginConfiguration(PropertyType):
 
 @dataclass
 class RestrictionType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "repositories": "Repositories",
         "restriction_mode": "RestrictionMode",
@@ -299,8 +295,6 @@ class RestrictionType(PropertyType):
 
 @dataclass
 class Restrictions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "external_upstream": "ExternalUpstream",
         "publish": "Publish",

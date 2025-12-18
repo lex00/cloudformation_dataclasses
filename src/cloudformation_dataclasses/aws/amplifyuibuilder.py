@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:45
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AmplifyUIBuilder
@@ -205,8 +205,6 @@ FIGMA = TokenProviders.FIGMA
 
 @dataclass
 class ActionParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "anchor": "Anchor",
@@ -232,8 +230,6 @@ class ActionParameters(PropertyType):
 
 @dataclass
 class ComponentBindingPropertiesValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_value": "DefaultValue",
         "type_": "Type",
@@ -247,8 +243,6 @@ class ComponentBindingPropertiesValue(PropertyType):
 
 @dataclass
 class ComponentBindingPropertiesValueProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field": "Field",
         "default_value": "DefaultValue",
@@ -272,8 +266,6 @@ class ComponentBindingPropertiesValueProperties(PropertyType):
 
 @dataclass
 class ComponentChild(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "component_type": "ComponentType",
         "events": "Events",
@@ -293,8 +285,6 @@ class ComponentChild(PropertyType):
 
 @dataclass
 class ComponentConditionProperty(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "field": "Field",
@@ -316,8 +306,6 @@ class ComponentConditionProperty(PropertyType):
 
 @dataclass
 class ComponentDataConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model": "Model",
         "sort": "Sort",
@@ -333,8 +321,6 @@ class ComponentDataConfiguration(PropertyType):
 
 @dataclass
 class ComponentEvent(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "parameters": "Parameters",
@@ -348,8 +334,6 @@ class ComponentEvent(PropertyType):
 
 @dataclass
 class ComponentProperty(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "user_attribute": "UserAttribute",
@@ -387,8 +371,6 @@ class ComponentProperty(PropertyType):
 
 @dataclass
 class ComponentPropertyBindingProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field": "Field",
         "property": "Property",
@@ -400,8 +382,6 @@ class ComponentPropertyBindingProperties(PropertyType):
 
 @dataclass
 class ComponentVariant(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "variant_values": "VariantValues",
         "overrides": "Overrides",
@@ -413,8 +393,6 @@ class ComponentVariant(PropertyType):
 
 @dataclass
 class FormBindingElement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "element": "Element",
         "property": "Property",
@@ -426,8 +404,6 @@ class FormBindingElement(PropertyType):
 
 @dataclass
 class MutationActionSetStateParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "set": "Set",
         "component_name": "ComponentName",
@@ -441,8 +417,6 @@ class MutationActionSetStateParameter(PropertyType):
 
 @dataclass
 class Predicate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "field": "Field",
@@ -462,8 +436,6 @@ class Predicate(PropertyType):
 
 @dataclass
 class SortProperty(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field": "Field",
         "direction": "Direction",
@@ -530,8 +502,6 @@ class Component(CloudFormationResource):
 
 @dataclass
 class FieldConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "validations": "Validations",
         "input_type": "InputType",
@@ -549,8 +519,6 @@ class FieldConfig(PropertyType):
 
 @dataclass
 class FieldInputConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "read_only": "ReadOnly",
         "placeholder": "Placeholder",
@@ -590,8 +558,6 @@ class FieldInputConfig(PropertyType):
 
 @dataclass
 class FieldPosition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "below": "Below",
         "right_of": "RightOf",
@@ -605,8 +571,6 @@ class FieldPosition(PropertyType):
 
 @dataclass
 class FieldValidationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "validation_message": "ValidationMessage",
@@ -622,8 +586,6 @@ class FieldValidationConfiguration(PropertyType):
 
 @dataclass
 class FileUploaderFieldConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_resumable": "IsResumable",
         "show_thumbnails": "ShowThumbnails",
@@ -643,8 +605,6 @@ class FileUploaderFieldConfig(PropertyType):
 
 @dataclass
 class FormButton(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "position": "Position",
         "children": "Children",
@@ -658,8 +618,6 @@ class FormButton(PropertyType):
 
 @dataclass
 class FormCTA(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "position": "Position",
         "cancel": "Cancel",
@@ -675,8 +633,6 @@ class FormCTA(PropertyType):
 
 @dataclass
 class FormDataTypeConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_source_type": "DataSourceType",
         "data_type_name": "DataTypeName",
@@ -688,8 +644,6 @@ class FormDataTypeConfig(PropertyType):
 
 @dataclass
 class FormInputBindingPropertiesValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "binding_properties": "BindingProperties",
@@ -701,8 +655,6 @@ class FormInputBindingPropertiesValue(PropertyType):
 
 @dataclass
 class FormInputBindingPropertiesValueProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model": "Model",
     }
@@ -712,8 +664,6 @@ class FormInputBindingPropertiesValueProperties(PropertyType):
 
 @dataclass
 class FormInputValueProperty(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "concat": "Concat",
         "binding_properties": "BindingProperties",
@@ -727,8 +677,6 @@ class FormInputValueProperty(PropertyType):
 
 @dataclass
 class FormInputValuePropertyBindingProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field": "Field",
         "property": "Property",
@@ -740,8 +688,6 @@ class FormInputValuePropertyBindingProperties(PropertyType):
 
 @dataclass
 class FormStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vertical_gap": "VerticalGap",
         "outer_padding": "OuterPadding",
@@ -755,8 +701,6 @@ class FormStyle(PropertyType):
 
 @dataclass
 class FormStyleConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "token_reference": "TokenReference",
@@ -768,8 +712,6 @@ class FormStyleConfig(PropertyType):
 
 @dataclass
 class SectionalElement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "position": "Position",
@@ -789,8 +731,6 @@ class SectionalElement(PropertyType):
 
 @dataclass
 class ValueMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "display_value": "DisplayValue",
         "value": "Value",
@@ -802,8 +742,6 @@ class ValueMapping(PropertyType):
 
 @dataclass
 class ValueMappings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "binding_properties": "BindingProperties",
         "values": "Values",
@@ -856,8 +794,6 @@ class Form(CloudFormationResource):
 
 @dataclass
 class ThemeValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "children": "Children",
@@ -869,8 +805,6 @@ class ThemeValue(PropertyType):
 
 @dataclass
 class ThemeValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",

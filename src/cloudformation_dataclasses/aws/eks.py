@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service EKS
@@ -786,8 +786,6 @@ ACTIVE = configStatus.ACTIVE
 
 @dataclass
 class AccessPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_arn": "PolicyArn",
         "access_scope": "AccessScope",
@@ -799,8 +797,6 @@ class AccessPolicy(PropertyType):
 
 @dataclass
 class AccessScope(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "namespaces": "Namespaces",
         "type_": "Type",
@@ -843,8 +839,6 @@ class AccessEntry(CloudFormationResource):
 
 @dataclass
 class NamespaceConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "namespace": "Namespace",
     }
@@ -854,8 +848,6 @@ class NamespaceConfig(PropertyType):
 
 @dataclass
 class PodIdentityAssociation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_account": "ServiceAccount",
         "role_arn": "RoleArn",
@@ -904,8 +896,6 @@ class Addon(CloudFormationResource):
 
 @dataclass
 class ArgoCd(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "server_url": "ServerUrl",
         "network_access": "NetworkAccess",
@@ -923,8 +913,6 @@ class ArgoCd(PropertyType):
 
 @dataclass
 class ArgoCdRoleMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role": "Role",
         "identities": "Identities",
@@ -936,8 +924,6 @@ class ArgoCdRoleMapping(PropertyType):
 
 @dataclass
 class AwsIdc(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "idc_region": "IdcRegion",
         "idc_managed_application_arn": "IdcManagedApplicationArn",
@@ -951,8 +937,6 @@ class AwsIdc(PropertyType):
 
 @dataclass
 class CapabilityConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "argo_cd": "ArgoCd",
     }
@@ -962,8 +946,6 @@ class CapabilityConfiguration(PropertyType):
 
 @dataclass
 class NetworkAccess(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpce_ids": "VpceIds",
     }
@@ -973,8 +955,6 @@ class NetworkAccess(PropertyType):
 
 @dataclass
 class SsoIdentity(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "id": "Id",
@@ -1047,8 +1027,6 @@ class Capability(CloudFormationResource):
 
 @dataclass
 class AccessConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authentication_mode": "AuthenticationMode",
         "bootstrap_cluster_creator_admin_permissions": "BootstrapClusterCreatorAdminPermissions",
@@ -1060,8 +1038,6 @@ class AccessConfig(PropertyType):
 
 @dataclass
 class BlockStorage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -1071,8 +1047,6 @@ class BlockStorage(PropertyType):
 
 @dataclass
 class ClusterLogging(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled_types": "EnabledTypes",
     }
@@ -1082,8 +1056,6 @@ class ClusterLogging(PropertyType):
 
 @dataclass
 class ComputeConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "node_pools": "NodePools",
         "node_role_arn": "NodeRoleArn",
@@ -1097,8 +1069,6 @@ class ComputeConfig(PropertyType):
 
 @dataclass
 class ControlPlanePlacement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_name": "GroupName",
     }
@@ -1108,8 +1078,6 @@ class ControlPlanePlacement(PropertyType):
 
 @dataclass
 class ControlPlaneScalingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tier": "Tier",
     }
@@ -1119,8 +1087,6 @@ class ControlPlaneScalingConfig(PropertyType):
 
 @dataclass
 class ElasticLoadBalancing(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -1130,8 +1096,6 @@ class ElasticLoadBalancing(PropertyType):
 
 @dataclass
 class EncryptionConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resources": "Resources",
         "provider": "Provider",
@@ -1143,8 +1107,6 @@ class EncryptionConfig(PropertyType):
 
 @dataclass
 class KubernetesNetworkConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_ipv4_cidr": "ServiceIpv4Cidr",
         "service_ipv6_cidr": "ServiceIpv6Cidr",
@@ -1160,8 +1122,6 @@ class KubernetesNetworkConfig(PropertyType):
 
 @dataclass
 class Logging(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_logging": "ClusterLogging",
     }
@@ -1171,8 +1131,6 @@ class Logging(PropertyType):
 
 @dataclass
 class LoggingTypeConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -1182,8 +1140,6 @@ class LoggingTypeConfig(PropertyType):
 
 @dataclass
 class OutpostConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "outpost_arns": "OutpostArns",
         "control_plane_placement": "ControlPlanePlacement",
@@ -1197,8 +1153,6 @@ class OutpostConfig(PropertyType):
 
 @dataclass
 class Provider(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_arn": "KeyArn",
     }
@@ -1208,8 +1162,6 @@ class Provider(PropertyType):
 
 @dataclass
 class RemoteNetworkConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "remote_node_networks": "RemoteNodeNetworks",
         "remote_pod_networks": "RemotePodNetworks",
@@ -1221,8 +1173,6 @@ class RemoteNetworkConfig(PropertyType):
 
 @dataclass
 class RemoteNodeNetwork(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidrs": "Cidrs",
     }
@@ -1232,8 +1182,6 @@ class RemoteNodeNetwork(PropertyType):
 
 @dataclass
 class RemotePodNetwork(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidrs": "Cidrs",
     }
@@ -1243,8 +1191,6 @@ class RemotePodNetwork(PropertyType):
 
 @dataclass
 class ResourcesVpcConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "endpoint_public_access": "EndpointPublicAccess",
         "public_access_cidrs": "PublicAccessCidrs",
@@ -1262,8 +1208,6 @@ class ResourcesVpcConfig(PropertyType):
 
 @dataclass
 class StorageConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "block_storage": "BlockStorage",
     }
@@ -1273,8 +1217,6 @@ class StorageConfig(PropertyType):
 
 @dataclass
 class UpgradePolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "support_type": "SupportType",
     }
@@ -1284,8 +1226,6 @@ class UpgradePolicy(PropertyType):
 
 @dataclass
 class ZonalShiftConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -1385,8 +1325,6 @@ class Cluster(CloudFormationResource):
 
 @dataclass
 class Label(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -1398,8 +1336,6 @@ class Label(PropertyType):
 
 @dataclass
 class Selector(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "labels": "Labels",
         "namespace": "Namespace",
@@ -1440,8 +1376,6 @@ class FargateProfile(CloudFormationResource):
 
 @dataclass
 class OidcIdentityProviderConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "username_prefix": "UsernamePrefix",
         "groups_prefix": "GroupsPrefix",
@@ -1463,8 +1397,6 @@ class OidcIdentityProviderConfig(PropertyType):
 
 @dataclass
 class RequiredClaim(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -1503,8 +1435,6 @@ class IdentityProviderConfig(CloudFormationResource):
 
 @dataclass
 class LaunchTemplateSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
         "id": "Id",
@@ -1518,8 +1448,6 @@ class LaunchTemplateSpecification(PropertyType):
 
 @dataclass
 class NodeRepairConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "node_repair_config_overrides": "NodeRepairConfigOverrides",
         "max_parallel_nodes_repaired_count": "MaxParallelNodesRepairedCount",
@@ -1539,8 +1467,6 @@ class NodeRepairConfig(PropertyType):
 
 @dataclass
 class NodeRepairConfigOverrides(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "node_unhealthy_reason": "NodeUnhealthyReason",
         "repair_action": "RepairAction",
@@ -1556,8 +1482,6 @@ class NodeRepairConfigOverrides(PropertyType):
 
 @dataclass
 class RemoteAccess(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_security_groups": "SourceSecurityGroups",
         "ec2_ssh_key": "Ec2SshKey",
@@ -1569,8 +1493,6 @@ class RemoteAccess(PropertyType):
 
 @dataclass
 class ScalingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_size": "MinSize",
         "desired_size": "DesiredSize",
@@ -1584,8 +1506,6 @@ class ScalingConfig(PropertyType):
 
 @dataclass
 class Taint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "effect": "Effect",
@@ -1599,8 +1519,6 @@ class Taint(PropertyType):
 
 @dataclass
 class UpdateConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_unavailable_percentage": "MaxUnavailablePercentage",
         "update_strategy": "UpdateStrategy",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SageMaker
@@ -6581,8 +6581,6 @@ ACTIVE = WorkforceStatus.ACTIVE
 
 @dataclass
 class ResourceSpec(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lifecycle_config_arn": "LifecycleConfigArn",
         "sage_maker_image_arn": "SageMakerImageArn",
@@ -6634,8 +6632,6 @@ class App(CloudFormationResource):
 
 @dataclass
 class CodeEditorAppImageConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_config": "ContainerConfig",
     }
@@ -6645,8 +6641,6 @@ class CodeEditorAppImageConfig(PropertyType):
 
 @dataclass
 class ContainerConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_entrypoint": "ContainerEntrypoint",
         "container_environment_variables": "ContainerEnvironmentVariables",
@@ -6660,8 +6654,6 @@ class ContainerConfig(PropertyType):
 
 @dataclass
 class CustomImageContainerEnvironmentVariable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -6673,8 +6665,6 @@ class CustomImageContainerEnvironmentVariable(PropertyType):
 
 @dataclass
 class FileSystemConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mount_path": "MountPath",
         "default_gid": "DefaultGid",
@@ -6688,8 +6678,6 @@ class FileSystemConfig(PropertyType):
 
 @dataclass
 class JupyterLabAppImageConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_config": "ContainerConfig",
     }
@@ -6699,8 +6687,6 @@ class JupyterLabAppImageConfig(PropertyType):
 
 @dataclass
 class KernelGatewayImageConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kernel_specs": "KernelSpecs",
         "file_system_config": "FileSystemConfig",
@@ -6712,8 +6698,6 @@ class KernelGatewayImageConfig(PropertyType):
 
 @dataclass
 class KernelSpec(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "display_name": "DisplayName",
         "name": "Name",
@@ -6752,8 +6736,6 @@ class AppImageConfig(CloudFormationResource):
 
 @dataclass
 class AlarmDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alarm_name": "AlarmName",
     }
@@ -6763,8 +6745,6 @@ class AlarmDetails(PropertyType):
 
 @dataclass
 class CapacitySizeConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -6776,8 +6756,6 @@ class CapacitySizeConfig(PropertyType):
 
 @dataclass
 class ClusterAutoScalingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
         "auto_scaler_type": "AutoScalerType",
@@ -6789,8 +6767,6 @@ class ClusterAutoScalingConfig(PropertyType):
 
 @dataclass
 class ClusterCapacityRequirements(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "spot": "Spot",
         "on_demand": "OnDemand",
@@ -6802,8 +6778,6 @@ class ClusterCapacityRequirements(PropertyType):
 
 @dataclass
 class ClusterEbsVolumeConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "volume_size_in_gb": "VolumeSizeInGB",
         "volume_kms_key_id": "VolumeKmsKeyId",
@@ -6817,8 +6791,6 @@ class ClusterEbsVolumeConfig(PropertyType):
 
 @dataclass
 class ClusterInstanceGroup(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_requirements": "CapacityRequirements",
         "instance_group_name": "InstanceGroupName",
@@ -6856,8 +6828,6 @@ class ClusterInstanceGroup(PropertyType):
 
 @dataclass
 class ClusterInstanceStorageConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ebs_volume_config": "EbsVolumeConfig",
     }
@@ -6867,8 +6837,6 @@ class ClusterInstanceStorageConfig(PropertyType):
 
 @dataclass
 class ClusterKubernetesConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "labels": "Labels",
         "taints": "Taints",
@@ -6880,8 +6848,6 @@ class ClusterKubernetesConfig(PropertyType):
 
 @dataclass
 class ClusterKubernetesTaint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "effect": "Effect",
@@ -6895,8 +6861,6 @@ class ClusterKubernetesTaint(PropertyType):
 
 @dataclass
 class ClusterLifeCycleConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_s3_uri": "SourceS3Uri",
         "on_create": "OnCreate",
@@ -6908,8 +6872,6 @@ class ClusterLifeCycleConfig(PropertyType):
 
 @dataclass
 class ClusterOrchestratorEksConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_arn": "ClusterArn",
     }
@@ -6919,8 +6881,6 @@ class ClusterOrchestratorEksConfig(PropertyType):
 
 @dataclass
 class ClusterRestrictedInstanceGroup(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "override_vpc_config": "OverrideVpcConfig",
         "instance_count": "InstanceCount",
@@ -6950,8 +6910,6 @@ class ClusterRestrictedInstanceGroup(PropertyType):
 
 @dataclass
 class DeploymentConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_rollback_configuration": "AutoRollbackConfiguration",
         "rolling_update_policy": "RollingUpdatePolicy",
@@ -6965,8 +6923,6 @@ class DeploymentConfig(PropertyType):
 
 @dataclass
 class EnvironmentConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "f_sx_lustre_config": "FSxLustreConfig",
     }
@@ -6976,8 +6932,6 @@ class EnvironmentConfig(PropertyType):
 
 @dataclass
 class FSxLustreConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "size_in_gi_b": "SizeInGiB",
         "per_unit_storage_throughput": "PerUnitStorageThroughput",
@@ -6989,8 +6943,6 @@ class FSxLustreConfig(PropertyType):
 
 @dataclass
 class Orchestrator(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "eks": "Eks",
     }
@@ -7000,8 +6952,6 @@ class Orchestrator(PropertyType):
 
 @dataclass
 class RollingUpdatePolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maximum_batch_size": "MaximumBatchSize",
         "rollback_maximum_batch_size": "RollbackMaximumBatchSize",
@@ -7013,8 +6963,6 @@ class RollingUpdatePolicy(PropertyType):
 
 @dataclass
 class ScheduledUpdateConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schedule_expression": "ScheduleExpression",
         "deployment_config": "DeploymentConfig",
@@ -7026,8 +6974,6 @@ class ScheduledUpdateConfig(PropertyType):
 
 @dataclass
 class TieredStorageConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
         "instance_memory_allocation_percentage": "InstanceMemoryAllocationPercentage",
@@ -7039,8 +6985,6 @@ class TieredStorageConfig(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_group_ids": "SecurityGroupIds",
         "subnets": "Subnets",
@@ -7106,8 +7050,6 @@ class Cluster(CloudFormationResource):
 
 @dataclass
 class GitConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "branch": "Branch",
@@ -7144,8 +7086,6 @@ class CodeRepository(CloudFormationResource):
 
 @dataclass
 class BatchTransformInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dataset_format": "DatasetFormat",
         "s3_data_distribution_type": "S3DataDistributionType",
@@ -7165,8 +7105,6 @@ class BatchTransformInput(PropertyType):
 
 @dataclass
 class ClusterConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_count": "InstanceCount",
         "volume_size_in_gb": "VolumeSizeInGB",
@@ -7182,8 +7120,6 @@ class ClusterConfig(PropertyType):
 
 @dataclass
 class ConstraintsResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_uri": "S3Uri",
     }
@@ -7193,8 +7129,6 @@ class ConstraintsResource(PropertyType):
 
 @dataclass
 class Csv(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header": "Header",
     }
@@ -7204,8 +7138,6 @@ class Csv(PropertyType):
 
 @dataclass
 class DataQualityAppSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_entrypoint": "ContainerEntrypoint",
         "post_analytics_processor_source_uri": "PostAnalyticsProcessorSourceUri",
@@ -7225,8 +7157,6 @@ class DataQualityAppSpecification(PropertyType):
 
 @dataclass
 class DataQualityBaselineConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "statistics_resource": "StatisticsResource",
         "constraints_resource": "ConstraintsResource",
@@ -7240,8 +7170,6 @@ class DataQualityBaselineConfig(PropertyType):
 
 @dataclass
 class DataQualityJobInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "batch_transform_input": "BatchTransformInput",
         "endpoint_input": "EndpointInput",
@@ -7253,8 +7181,6 @@ class DataQualityJobInput(PropertyType):
 
 @dataclass
 class DatasetFormat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parquet": "Parquet",
         "csv": "Csv",
@@ -7268,8 +7194,6 @@ class DatasetFormat(PropertyType):
 
 @dataclass
 class EndpointInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_data_distribution_type": "S3DataDistributionType",
         "endpoint_name": "EndpointName",
@@ -7287,8 +7211,6 @@ class EndpointInput(PropertyType):
 
 @dataclass
 class Json(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "line": "Line",
     }
@@ -7298,8 +7220,6 @@ class Json(PropertyType):
 
 @dataclass
 class MonitoringOutput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_output": "S3Output",
     }
@@ -7309,8 +7229,6 @@ class MonitoringOutput(PropertyType):
 
 @dataclass
 class MonitoringOutputConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
         "monitoring_outputs": "MonitoringOutputs",
@@ -7322,8 +7240,6 @@ class MonitoringOutputConfig(PropertyType):
 
 @dataclass
 class MonitoringResources(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_config": "ClusterConfig",
     }
@@ -7333,8 +7249,6 @@ class MonitoringResources(PropertyType):
 
 @dataclass
 class NetworkConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_network_isolation": "EnableNetworkIsolation",
         "enable_inter_container_traffic_encryption": "EnableInterContainerTrafficEncryption",
@@ -7348,8 +7262,6 @@ class NetworkConfig(PropertyType):
 
 @dataclass
 class S3Output(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_uri": "S3Uri",
         "local_path": "LocalPath",
@@ -7363,8 +7275,6 @@ class S3Output(PropertyType):
 
 @dataclass
 class StatisticsResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_uri": "S3Uri",
     }
@@ -7374,8 +7284,6 @@ class StatisticsResource(PropertyType):
 
 @dataclass
 class StoppingCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_runtime_in_seconds": "MaxRuntimeInSeconds",
     }
@@ -7385,8 +7293,6 @@ class StoppingCondition(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnets": "Subnets",
         "security_group_ids": "SecurityGroupIds",
@@ -7442,8 +7348,6 @@ class DataQualityJobDefinition(CloudFormationResource):
 
 @dataclass
 class Device(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iot_thing_name": "IotThingName",
         "description": "Description",
@@ -7474,8 +7378,6 @@ class Device(CloudFormationResource):
 
 @dataclass
 class EdgeOutputConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
         "s3_output_location": "S3OutputLocation",
@@ -7508,8 +7410,6 @@ class DeviceFleet(CloudFormationResource):
 
 @dataclass
 class AppLifecycleManagement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "idle_settings": "IdleSettings",
     }
@@ -7519,8 +7419,6 @@ class AppLifecycleManagement(PropertyType):
 
 @dataclass
 class CodeEditorAppSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_images": "CustomImages",
         "default_resource_spec": "DefaultResourceSpec",
@@ -7538,8 +7436,6 @@ class CodeEditorAppSettings(PropertyType):
 
 @dataclass
 class CodeRepository(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "repository_url": "RepositoryUrl",
     }
@@ -7549,8 +7445,6 @@ class CodeRepository(PropertyType):
 
 @dataclass
 class CustomFileSystemConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "efs_file_system_config": "EFSFileSystemConfig",
         "s3_file_system_config": "S3FileSystemConfig",
@@ -7564,8 +7458,6 @@ class CustomFileSystemConfig(PropertyType):
 
 @dataclass
 class CustomImage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "image_name": "ImageName",
         "app_image_config_name": "AppImageConfigName",
@@ -7579,8 +7471,6 @@ class CustomImage(PropertyType):
 
 @dataclass
 class CustomPosixUserConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uid": "Uid",
         "gid": "Gid",
@@ -7592,8 +7482,6 @@ class CustomPosixUserConfig(PropertyType):
 
 @dataclass
 class DefaultEbsStorageSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maximum_ebs_volume_size_in_gb": "MaximumEbsVolumeSizeInGb",
         "default_ebs_volume_size_in_gb": "DefaultEbsVolumeSizeInGb",
@@ -7605,8 +7493,6 @@ class DefaultEbsStorageSettings(PropertyType):
 
 @dataclass
 class DefaultSpaceSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "jupyter_lab_app_settings": "JupyterLabAppSettings",
@@ -7630,8 +7516,6 @@ class DefaultSpaceSettings(PropertyType):
 
 @dataclass
 class DefaultSpaceStorageSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_ebs_storage_settings": "DefaultEbsStorageSettings",
     }
@@ -7641,8 +7525,6 @@ class DefaultSpaceStorageSettings(PropertyType):
 
 @dataclass
 class DockerSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_only_trusted_accounts": "VpcOnlyTrustedAccounts",
         "enable_docker_access": "EnableDockerAccess",
@@ -7654,8 +7536,6 @@ class DockerSettings(PropertyType):
 
 @dataclass
 class DomainSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "docker_settings": "DockerSettings",
         "ip_address_type": "IpAddressType",
@@ -7675,8 +7555,6 @@ class DomainSettings(PropertyType):
 
 @dataclass
 class EFSFileSystemConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file_system_path": "FileSystemPath",
         "file_system_id": "FileSystemId",
@@ -7688,8 +7566,6 @@ class EFSFileSystemConfig(PropertyType):
 
 @dataclass
 class FSxLustreFileSystemConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file_system_path": "FileSystemPath",
         "file_system_id": "FileSystemId",
@@ -7701,8 +7577,6 @@ class FSxLustreFileSystemConfig(PropertyType):
 
 @dataclass
 class HiddenSageMakerImage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sage_maker_image_name": "SageMakerImageName",
         "version_aliases": "VersionAliases",
@@ -7714,8 +7588,6 @@ class HiddenSageMakerImage(PropertyType):
 
 @dataclass
 class IdleSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_idle_timeout_in_minutes": "MaxIdleTimeoutInMinutes",
         "idle_timeout_in_minutes": "IdleTimeoutInMinutes",
@@ -7731,8 +7603,6 @@ class IdleSettings(PropertyType):
 
 @dataclass
 class JupyterLabAppSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_images": "CustomImages",
         "default_resource_spec": "DefaultResourceSpec",
@@ -7752,8 +7622,6 @@ class JupyterLabAppSettings(PropertyType):
 
 @dataclass
 class JupyterServerAppSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_resource_spec": "DefaultResourceSpec",
         "lifecycle_config_arns": "LifecycleConfigArns",
@@ -7765,8 +7633,6 @@ class JupyterServerAppSettings(PropertyType):
 
 @dataclass
 class KernelGatewayAppSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_images": "CustomImages",
         "default_resource_spec": "DefaultResourceSpec",
@@ -7780,8 +7646,6 @@ class KernelGatewayAppSettings(PropertyType):
 
 @dataclass
 class RSessionAppSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_images": "CustomImages",
         "default_resource_spec": "DefaultResourceSpec",
@@ -7793,8 +7657,6 @@ class RSessionAppSettings(PropertyType):
 
 @dataclass
 class RStudioServerProAppSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_status": "AccessStatus",
         "user_group": "UserGroup",
@@ -7806,8 +7668,6 @@ class RStudioServerProAppSettings(PropertyType):
 
 @dataclass
 class RStudioServerProDomainSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_execution_role_arn": "DomainExecutionRoleArn",
         "r_studio_connect_url": "RStudioConnectUrl",
@@ -7823,8 +7683,6 @@ class RStudioServerProDomainSettings(PropertyType):
 
 @dataclass
 class ResourceSpec(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sage_maker_image_arn": "SageMakerImageArn",
         "instance_type": "InstanceType",
@@ -7840,8 +7698,6 @@ class ResourceSpec(PropertyType):
 
 @dataclass
 class S3FileSystemConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mount_path": "MountPath",
         "s3_uri": "S3Uri",
@@ -7853,8 +7709,6 @@ class S3FileSystemConfig(PropertyType):
 
 @dataclass
 class SharingSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "notebook_output_option": "NotebookOutputOption",
         "s3_kms_key_id": "S3KmsKeyId",
@@ -7868,8 +7722,6 @@ class SharingSettings(PropertyType):
 
 @dataclass
 class StudioWebPortalSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hidden_sage_maker_image_version_aliases": "HiddenSageMakerImageVersionAliases",
         "hidden_app_types": "HiddenAppTypes",
@@ -7885,8 +7737,6 @@ class StudioWebPortalSettings(PropertyType):
 
 @dataclass
 class UnifiedStudioSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "environment_id": "EnvironmentId",
         "domain_id": "DomainId",
@@ -7908,8 +7758,6 @@ class UnifiedStudioSettings(PropertyType):
 
 @dataclass
 class UserSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "jupyter_lab_app_settings": "JupyterLabAppSettings",
@@ -8020,8 +7868,6 @@ class Domain(CloudFormationResource):
 
 @dataclass
 class Alarm(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alarm_name": "AlarmName",
     }
@@ -8031,8 +7877,6 @@ class Alarm(PropertyType):
 
 @dataclass
 class AutoRollbackConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alarms": "Alarms",
     }
@@ -8042,8 +7886,6 @@ class AutoRollbackConfig(PropertyType):
 
 @dataclass
 class BlueGreenUpdatePolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maximum_execution_timeout_in_seconds": "MaximumExecutionTimeoutInSeconds",
         "termination_wait_in_seconds": "TerminationWaitInSeconds",
@@ -8057,8 +7899,6 @@ class BlueGreenUpdatePolicy(PropertyType):
 
 @dataclass
 class CapacitySize(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -8070,8 +7910,6 @@ class CapacitySize(PropertyType):
 
 @dataclass
 class DeploymentConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_rollback_configuration": "AutoRollbackConfiguration",
         "rolling_update_policy": "RollingUpdatePolicy",
@@ -8085,8 +7923,6 @@ class DeploymentConfig(PropertyType):
 
 @dataclass
 class RollingUpdatePolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maximum_execution_timeout_in_seconds": "MaximumExecutionTimeoutInSeconds",
         "maximum_batch_size": "MaximumBatchSize",
@@ -8102,8 +7938,6 @@ class RollingUpdatePolicy(PropertyType):
 
 @dataclass
 class TrafficRoutingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "linear_step_size": "LinearStepSize",
@@ -8119,8 +7953,6 @@ class TrafficRoutingConfig(PropertyType):
 
 @dataclass
 class VariantProperty(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "variant_property_type": "VariantPropertyType",
     }
@@ -8161,8 +7993,6 @@ class Endpoint(CloudFormationResource):
 
 @dataclass
 class AsyncInferenceClientConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_concurrent_invocations_per_instance": "MaxConcurrentInvocationsPerInstance",
     }
@@ -8172,8 +8002,6 @@ class AsyncInferenceClientConfig(PropertyType):
 
 @dataclass
 class AsyncInferenceConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "output_config": "OutputConfig",
         "client_config": "ClientConfig",
@@ -8185,8 +8013,6 @@ class AsyncInferenceConfig(PropertyType):
 
 @dataclass
 class AsyncInferenceNotificationConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_inference_response_in": "IncludeInferenceResponseIn",
         "success_topic": "SuccessTopic",
@@ -8200,8 +8026,6 @@ class AsyncInferenceNotificationConfig(PropertyType):
 
 @dataclass
 class AsyncInferenceOutputConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
         "notification_config": "NotificationConfig",
@@ -8217,8 +8041,6 @@ class AsyncInferenceOutputConfig(PropertyType):
 
 @dataclass
 class CapacityReservationConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ml_reservation_arn": "MlReservationArn",
         "capacity_reservation_preference": "CapacityReservationPreference",
@@ -8230,8 +8052,6 @@ class CapacityReservationConfig(PropertyType):
 
 @dataclass
 class CaptureContentTypeHeader(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "json_content_types": "JsonContentTypes",
         "csv_content_types": "CsvContentTypes",
@@ -8243,8 +8063,6 @@ class CaptureContentTypeHeader(PropertyType):
 
 @dataclass
 class CaptureOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capture_mode": "CaptureMode",
     }
@@ -8254,8 +8072,6 @@ class CaptureOption(PropertyType):
 
 @dataclass
 class ClarifyExplainerConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inference_config": "InferenceConfig",
         "enable_explanations": "EnableExplanations",
@@ -8269,22 +8085,16 @@ class ClarifyExplainerConfig(PropertyType):
 
 @dataclass
 class ClarifyFeatureType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     pass
 
 
 @dataclass
 class ClarifyHeader(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     pass
 
 
 @dataclass
 class ClarifyInferenceConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_template": "ContentTemplate",
         "label_headers": "LabelHeaders",
@@ -8314,8 +8124,6 @@ class ClarifyInferenceConfig(PropertyType):
 
 @dataclass
 class ClarifyShapBaselineConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "shap_baseline": "ShapBaseline",
         "shap_baseline_uri": "ShapBaselineUri",
@@ -8329,8 +8137,6 @@ class ClarifyShapBaselineConfig(PropertyType):
 
 @dataclass
 class ClarifyShapConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_config": "TextConfig",
         "use_logit": "UseLogit",
@@ -8348,8 +8154,6 @@ class ClarifyShapConfig(PropertyType):
 
 @dataclass
 class ClarifyTextConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "language": "Language",
         "granularity": "Granularity",
@@ -8361,8 +8165,6 @@ class ClarifyTextConfig(PropertyType):
 
 @dataclass
 class DataCaptureConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capture_options": "CaptureOptions",
         "kms_key_id": "KmsKeyId",
@@ -8382,8 +8184,6 @@ class DataCaptureConfig(PropertyType):
 
 @dataclass
 class ExplainerConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "clarify_explainer_config": "ClarifyExplainerConfig",
     }
@@ -8393,8 +8193,6 @@ class ExplainerConfig(PropertyType):
 
 @dataclass
 class ManagedInstanceScaling(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "max_instance_count": "MaxInstanceCount",
@@ -8408,8 +8206,6 @@ class ManagedInstanceScaling(PropertyType):
 
 @dataclass
 class ProductionVariant(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "managed_instance_scaling": "ManagedInstanceScaling",
         "model_name": "ModelName",
@@ -8445,8 +8241,6 @@ class ProductionVariant(PropertyType):
 
 @dataclass
 class RoutingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "routing_strategy": "RoutingStrategy",
     }
@@ -8456,8 +8250,6 @@ class RoutingConfig(PropertyType):
 
 @dataclass
 class ServerlessConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_concurrency": "MaxConcurrency",
         "memory_size_in_mb": "MemorySizeInMB",
@@ -8471,8 +8263,6 @@ class ServerlessConfig(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnets": "Subnets",
         "security_group_ids": "SecurityGroupIds",
@@ -8523,8 +8313,6 @@ class EndpointConfig(CloudFormationResource):
 
 @dataclass
 class DataCatalogConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "database": "Database",
@@ -8538,8 +8326,6 @@ class DataCatalogConfig(PropertyType):
 
 @dataclass
 class FeatureDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "feature_type": "FeatureType",
         "feature_name": "FeatureName",
@@ -8551,8 +8337,6 @@ class FeatureDefinition(PropertyType):
 
 @dataclass
 class OfflineStoreConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_catalog_config": "DataCatalogConfig",
         "s3_storage_config": "S3StorageConfig",
@@ -8568,8 +8352,6 @@ class OfflineStoreConfig(PropertyType):
 
 @dataclass
 class OnlineStoreConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_online_store": "EnableOnlineStore",
         "storage_type": "StorageType",
@@ -8585,8 +8367,6 @@ class OnlineStoreConfig(PropertyType):
 
 @dataclass
 class OnlineStoreSecurityConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
     }
@@ -8596,8 +8376,6 @@ class OnlineStoreSecurityConfig(PropertyType):
 
 @dataclass
 class S3StorageConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
         "s3_uri": "S3Uri",
@@ -8609,8 +8387,6 @@ class S3StorageConfig(PropertyType):
 
 @dataclass
 class ThroughputConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "provisioned_read_capacity_units": "ProvisionedReadCapacityUnits",
         "provisioned_write_capacity_units": "ProvisionedWriteCapacityUnits",
@@ -8624,8 +8400,6 @@ class ThroughputConfig(PropertyType):
 
 @dataclass
 class TtlDuration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "unit": "Unit",
@@ -8760,8 +8534,6 @@ class ImageVersion(CloudFormationResource):
 
 @dataclass
 class Alarm(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alarm_name": "AlarmName",
     }
@@ -8771,8 +8543,6 @@ class Alarm(PropertyType):
 
 @dataclass
 class AutoRollbackConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alarms": "Alarms",
     }
@@ -8782,8 +8552,6 @@ class AutoRollbackConfiguration(PropertyType):
 
 @dataclass
 class DeployedImage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resolution_time": "ResolutionTime",
         "specified_image": "SpecifiedImage",
@@ -8797,8 +8565,6 @@ class DeployedImage(PropertyType):
 
 @dataclass
 class InferenceComponentCapacitySize(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -8810,8 +8576,6 @@ class InferenceComponentCapacitySize(PropertyType):
 
 @dataclass
 class InferenceComponentComputeResourceRequirements(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "number_of_accelerator_devices_required": "NumberOfAcceleratorDevicesRequired",
         "max_memory_required_in_mb": "MaxMemoryRequiredInMb",
@@ -8827,8 +8591,6 @@ class InferenceComponentComputeResourceRequirements(PropertyType):
 
 @dataclass
 class InferenceComponentContainerSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "artifact_url": "ArtifactUrl",
         "environment": "Environment",
@@ -8844,8 +8606,6 @@ class InferenceComponentContainerSpecification(PropertyType):
 
 @dataclass
 class InferenceComponentDeploymentConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_rollback_configuration": "AutoRollbackConfiguration",
         "rolling_update_policy": "RollingUpdatePolicy",
@@ -8857,8 +8617,6 @@ class InferenceComponentDeploymentConfig(PropertyType):
 
 @dataclass
 class InferenceComponentRollingUpdatePolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maximum_execution_timeout_in_seconds": "MaximumExecutionTimeoutInSeconds",
         "maximum_batch_size": "MaximumBatchSize",
@@ -8874,8 +8632,6 @@ class InferenceComponentRollingUpdatePolicy(PropertyType):
 
 @dataclass
 class InferenceComponentRuntimeConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "current_copy_count": "CurrentCopyCount",
         "desired_copy_count": "DesiredCopyCount",
@@ -8889,8 +8645,6 @@ class InferenceComponentRuntimeConfig(PropertyType):
 
 @dataclass
 class InferenceComponentSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container": "Container",
         "model_name": "ModelName",
@@ -8908,8 +8662,6 @@ class InferenceComponentSpecification(PropertyType):
 
 @dataclass
 class InferenceComponentStartupParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_data_download_timeout_in_seconds": "ModelDataDownloadTimeoutInSeconds",
         "container_startup_health_check_timeout_in_seconds": "ContainerStartupHealthCheckTimeoutInSeconds",
@@ -9004,8 +8756,6 @@ class InferenceComponent(CloudFormationResource):
 
 @dataclass
 class CaptureContentTypeHeader(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "json_content_types": "JsonContentTypes",
         "csv_content_types": "CsvContentTypes",
@@ -9017,8 +8767,6 @@ class CaptureContentTypeHeader(PropertyType):
 
 @dataclass
 class DataStorageConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "content_type": "ContentType",
@@ -9032,8 +8780,6 @@ class DataStorageConfig(PropertyType):
 
 @dataclass
 class EndpointMetadata(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "endpoint_status": "EndpointStatus",
         "endpoint_name": "EndpointName",
@@ -9047,8 +8793,6 @@ class EndpointMetadata(PropertyType):
 
 @dataclass
 class InferenceExperimentSchedule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "end_time": "EndTime",
         "start_time": "StartTime",
@@ -9060,8 +8804,6 @@ class InferenceExperimentSchedule(PropertyType):
 
 @dataclass
 class ModelInfrastructureConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "infrastructure_type": "InfrastructureType",
         "real_time_inference_config": "RealTimeInferenceConfig",
@@ -9073,8 +8815,6 @@ class ModelInfrastructureConfig(PropertyType):
 
 @dataclass
 class ModelVariantConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_name": "ModelName",
         "variant_name": "VariantName",
@@ -9088,8 +8828,6 @@ class ModelVariantConfig(PropertyType):
 
 @dataclass
 class RealTimeInferenceConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_count": "InstanceCount",
         "instance_type": "InstanceType",
@@ -9101,8 +8839,6 @@ class RealTimeInferenceConfig(PropertyType):
 
 @dataclass
 class ShadowModeConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_model_variant_name": "SourceModelVariantName",
         "shadow_model_variants": "ShadowModelVariants",
@@ -9114,8 +8850,6 @@ class ShadowModeConfig(PropertyType):
 
 @dataclass
 class ShadowModelVariantConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "shadow_model_variant_name": "ShadowModelVariantName",
         "sampling_percentage": "SamplingPercentage",
@@ -9238,8 +8972,6 @@ class MlflowTrackingServer(CloudFormationResource):
 
 @dataclass
 class AdditionalModelDataSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channel_name": "ChannelName",
         "s3_data_source": "S3DataSource",
@@ -9251,8 +8983,6 @@ class AdditionalModelDataSource(PropertyType):
 
 @dataclass
 class ContainerDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "image_config": "ImageConfig",
         "inference_specification_name": "InferenceSpecificationName",
@@ -9280,8 +9010,6 @@ class ContainerDefinition(PropertyType):
 
 @dataclass
 class HubAccessConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hub_content_arn": "HubContentArn",
     }
@@ -9291,8 +9019,6 @@ class HubAccessConfig(PropertyType):
 
 @dataclass
 class ImageConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "repository_auth_config": "RepositoryAuthConfig",
         "repository_access_mode": "RepositoryAccessMode",
@@ -9304,8 +9030,6 @@ class ImageConfig(PropertyType):
 
 @dataclass
 class InferenceExecutionConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
     }
@@ -9315,8 +9039,6 @@ class InferenceExecutionConfig(PropertyType):
 
 @dataclass
 class ModelAccessConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "accept_eula": "AcceptEula",
     }
@@ -9326,8 +9048,6 @@ class ModelAccessConfig(PropertyType):
 
 @dataclass
 class ModelDataSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_data_source": "S3DataSource",
     }
@@ -9337,8 +9057,6 @@ class ModelDataSource(PropertyType):
 
 @dataclass
 class MultiModelConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_cache_setting": "ModelCacheSetting",
     }
@@ -9348,8 +9066,6 @@ class MultiModelConfig(PropertyType):
 
 @dataclass
 class RepositoryAuthConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "repository_credentials_provider_arn": "RepositoryCredentialsProviderArn",
     }
@@ -9359,8 +9075,6 @@ class RepositoryAuthConfig(PropertyType):
 
 @dataclass
 class S3DataSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_access_config": "ModelAccessConfig",
         "s3_uri": "S3Uri",
@@ -9378,8 +9092,6 @@ class S3DataSource(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnets": "Subnets",
         "security_group_ids": "SecurityGroupIds",
@@ -9424,8 +9136,6 @@ class Model(CloudFormationResource):
 
 @dataclass
 class BatchTransformInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dataset_format": "DatasetFormat",
         "s3_data_distribution_type": "S3DataDistributionType",
@@ -9455,8 +9165,6 @@ class BatchTransformInput(PropertyType):
 
 @dataclass
 class ClusterConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_count": "InstanceCount",
         "volume_size_in_gb": "VolumeSizeInGB",
@@ -9472,8 +9180,6 @@ class ClusterConfig(PropertyType):
 
 @dataclass
 class ConstraintsResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_uri": "S3Uri",
     }
@@ -9483,8 +9189,6 @@ class ConstraintsResource(PropertyType):
 
 @dataclass
 class Csv(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header": "Header",
     }
@@ -9494,8 +9198,6 @@ class Csv(PropertyType):
 
 @dataclass
 class DatasetFormat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parquet": "Parquet",
         "csv": "Csv",
@@ -9509,8 +9211,6 @@ class DatasetFormat(PropertyType):
 
 @dataclass
 class EndpointInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_data_distribution_type": "S3DataDistributionType",
         "start_time_offset": "StartTimeOffset",
@@ -9538,8 +9238,6 @@ class EndpointInput(PropertyType):
 
 @dataclass
 class Json(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "line": "Line",
     }
@@ -9549,8 +9247,6 @@ class Json(PropertyType):
 
 @dataclass
 class ModelBiasAppSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "config_uri": "ConfigUri",
         "environment": "Environment",
@@ -9564,8 +9260,6 @@ class ModelBiasAppSpecification(PropertyType):
 
 @dataclass
 class ModelBiasBaselineConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "constraints_resource": "ConstraintsResource",
         "baselining_job_name": "BaseliningJobName",
@@ -9577,8 +9271,6 @@ class ModelBiasBaselineConfig(PropertyType):
 
 @dataclass
 class ModelBiasJobInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ground_truth_s3_input": "GroundTruthS3Input",
         "batch_transform_input": "BatchTransformInput",
@@ -9592,8 +9284,6 @@ class ModelBiasJobInput(PropertyType):
 
 @dataclass
 class MonitoringGroundTruthS3Input(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_uri": "S3Uri",
     }
@@ -9603,8 +9293,6 @@ class MonitoringGroundTruthS3Input(PropertyType):
 
 @dataclass
 class MonitoringOutput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_output": "S3Output",
     }
@@ -9614,8 +9302,6 @@ class MonitoringOutput(PropertyType):
 
 @dataclass
 class MonitoringOutputConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
         "monitoring_outputs": "MonitoringOutputs",
@@ -9627,8 +9313,6 @@ class MonitoringOutputConfig(PropertyType):
 
 @dataclass
 class MonitoringResources(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_config": "ClusterConfig",
     }
@@ -9638,8 +9322,6 @@ class MonitoringResources(PropertyType):
 
 @dataclass
 class NetworkConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_network_isolation": "EnableNetworkIsolation",
         "enable_inter_container_traffic_encryption": "EnableInterContainerTrafficEncryption",
@@ -9653,8 +9335,6 @@ class NetworkConfig(PropertyType):
 
 @dataclass
 class S3Output(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_uri": "S3Uri",
         "local_path": "LocalPath",
@@ -9668,8 +9348,6 @@ class S3Output(PropertyType):
 
 @dataclass
 class StoppingCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_runtime_in_seconds": "MaxRuntimeInSeconds",
     }
@@ -9679,8 +9357,6 @@ class StoppingCondition(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnets": "Subnets",
         "security_group_ids": "SecurityGroupIds",
@@ -9736,8 +9412,6 @@ class ModelBiasJobDefinition(CloudFormationResource):
 
 @dataclass
 class AdditionalInformation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ethical_considerations": "EthicalConsiderations",
         "caveats_and_recommendations": "CaveatsAndRecommendations",
@@ -9751,8 +9425,6 @@ class AdditionalInformation(PropertyType):
 
 @dataclass
 class BusinessDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "business_stakeholders": "BusinessStakeholders",
         "line_of_business": "LineOfBusiness",
@@ -9766,8 +9438,6 @@ class BusinessDetails(PropertyType):
 
 @dataclass
 class Container(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "nearest_model_name": "NearestModelName",
         "model_data_url": "ModelDataUrl",
@@ -9781,8 +9451,6 @@ class Container(PropertyType):
 
 @dataclass
 class Content(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "intended_uses": "IntendedUses",
         "additional_information": "AdditionalInformation",
@@ -9804,8 +9472,6 @@ class Content(PropertyType):
 
 @dataclass
 class EvaluationDetail(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "datasets": "Datasets",
         "evaluation_observation": "EvaluationObservation",
@@ -9825,8 +9491,6 @@ class EvaluationDetail(PropertyType):
 
 @dataclass
 class Function(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "function": "Function",
@@ -9840,8 +9504,6 @@ class Function(PropertyType):
 
 @dataclass
 class InferenceEnvironment(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_image": "ContainerImage",
     }
@@ -9851,8 +9513,6 @@ class InferenceEnvironment(PropertyType):
 
 @dataclass
 class InferenceSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "containers": "Containers",
     }
@@ -9862,8 +9522,6 @@ class InferenceSpecification(PropertyType):
 
 @dataclass
 class IntendedUses(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "intended_uses": "IntendedUses",
         "factors_affecting_model_efficiency": "FactorsAffectingModelEfficiency",
@@ -9881,8 +9539,6 @@ class IntendedUses(PropertyType):
 
 @dataclass
 class MetricDataItems(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "x_axis_name": "XAxisName",
         "type_": "Type",
@@ -9902,8 +9558,6 @@ class MetricDataItems(PropertyType):
 
 @dataclass
 class MetricGroup(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
         "metric_data": "MetricData",
@@ -9915,8 +9569,6 @@ class MetricGroup(PropertyType):
 
 @dataclass
 class ModelOverview(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_owner": "ModelOwner",
         "model_artifact": "ModelArtifact",
@@ -9944,8 +9596,6 @@ class ModelOverview(PropertyType):
 
 @dataclass
 class ModelPackageCreator(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_profile_name": "UserProfileName",
     }
@@ -9955,8 +9605,6 @@ class ModelPackageCreator(PropertyType):
 
 @dataclass
 class ModelPackageDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_package_group_name": "ModelPackageGroupName",
         "task": "Task",
@@ -9990,8 +9638,6 @@ class ModelPackageDetails(PropertyType):
 
 @dataclass
 class ObjectiveFunction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function": "Function",
         "notes": "Notes",
@@ -10003,8 +9649,6 @@ class ObjectiveFunction(PropertyType):
 
 @dataclass
 class SecurityConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
     }
@@ -10014,8 +9658,6 @@ class SecurityConfig(PropertyType):
 
 @dataclass
 class SourceAlgorithm(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_data_url": "ModelDataUrl",
         "algorithm_name": "AlgorithmName",
@@ -10027,8 +9669,6 @@ class SourceAlgorithm(PropertyType):
 
 @dataclass
 class TrainingDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "objective_function": "ObjectiveFunction",
         "training_observations": "TrainingObservations",
@@ -10042,8 +9682,6 @@ class TrainingDetails(PropertyType):
 
 @dataclass
 class TrainingEnvironment(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_image": "ContainerImage",
     }
@@ -10053,8 +9691,6 @@ class TrainingEnvironment(PropertyType):
 
 @dataclass
 class TrainingHyperParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -10066,8 +9702,6 @@ class TrainingHyperParameter(PropertyType):
 
 @dataclass
 class TrainingJobDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "training_metrics": "TrainingMetrics",
         "hyper_parameters": "HyperParameters",
@@ -10089,8 +9723,6 @@ class TrainingJobDetails(PropertyType):
 
 @dataclass
 class TrainingMetric(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "notes": "Notes",
@@ -10104,8 +9736,6 @@ class TrainingMetric(PropertyType):
 
 @dataclass
 class UserContext(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "domain_id": "DomainId",
         "user_profile_arn": "UserProfileArn",
@@ -10200,8 +9830,6 @@ class ModelCard(CloudFormationResource):
 
 @dataclass
 class BatchTransformInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dataset_format": "DatasetFormat",
         "s3_data_distribution_type": "S3DataDistributionType",
@@ -10225,8 +9853,6 @@ class BatchTransformInput(PropertyType):
 
 @dataclass
 class ClusterConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_count": "InstanceCount",
         "volume_size_in_gb": "VolumeSizeInGB",
@@ -10242,8 +9868,6 @@ class ClusterConfig(PropertyType):
 
 @dataclass
 class ConstraintsResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_uri": "S3Uri",
     }
@@ -10253,8 +9877,6 @@ class ConstraintsResource(PropertyType):
 
 @dataclass
 class Csv(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header": "Header",
     }
@@ -10264,8 +9886,6 @@ class Csv(PropertyType):
 
 @dataclass
 class DatasetFormat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parquet": "Parquet",
         "csv": "Csv",
@@ -10279,8 +9899,6 @@ class DatasetFormat(PropertyType):
 
 @dataclass
 class EndpointInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_data_distribution_type": "S3DataDistributionType",
         "endpoint_name": "EndpointName",
@@ -10302,8 +9920,6 @@ class EndpointInput(PropertyType):
 
 @dataclass
 class Json(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "line": "Line",
     }
@@ -10313,8 +9929,6 @@ class Json(PropertyType):
 
 @dataclass
 class ModelExplainabilityAppSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "config_uri": "ConfigUri",
         "environment": "Environment",
@@ -10328,8 +9942,6 @@ class ModelExplainabilityAppSpecification(PropertyType):
 
 @dataclass
 class ModelExplainabilityBaselineConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "constraints_resource": "ConstraintsResource",
         "baselining_job_name": "BaseliningJobName",
@@ -10341,8 +9953,6 @@ class ModelExplainabilityBaselineConfig(PropertyType):
 
 @dataclass
 class ModelExplainabilityJobInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "batch_transform_input": "BatchTransformInput",
         "endpoint_input": "EndpointInput",
@@ -10354,8 +9964,6 @@ class ModelExplainabilityJobInput(PropertyType):
 
 @dataclass
 class MonitoringOutput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_output": "S3Output",
     }
@@ -10365,8 +9973,6 @@ class MonitoringOutput(PropertyType):
 
 @dataclass
 class MonitoringOutputConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
         "monitoring_outputs": "MonitoringOutputs",
@@ -10378,8 +9984,6 @@ class MonitoringOutputConfig(PropertyType):
 
 @dataclass
 class MonitoringResources(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_config": "ClusterConfig",
     }
@@ -10389,8 +9993,6 @@ class MonitoringResources(PropertyType):
 
 @dataclass
 class NetworkConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_network_isolation": "EnableNetworkIsolation",
         "enable_inter_container_traffic_encryption": "EnableInterContainerTrafficEncryption",
@@ -10404,8 +10006,6 @@ class NetworkConfig(PropertyType):
 
 @dataclass
 class S3Output(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_uri": "S3Uri",
         "local_path": "LocalPath",
@@ -10419,8 +10019,6 @@ class S3Output(PropertyType):
 
 @dataclass
 class StoppingCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_runtime_in_seconds": "MaxRuntimeInSeconds",
     }
@@ -10430,8 +10028,6 @@ class StoppingCondition(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnets": "Subnets",
         "security_group_ids": "SecurityGroupIds",
@@ -10487,8 +10083,6 @@ class ModelExplainabilityJobDefinition(CloudFormationResource):
 
 @dataclass
 class AdditionalInferenceSpecificationDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "supported_content_types": "SupportedContentTypes",
@@ -10510,8 +10104,6 @@ class AdditionalInferenceSpecificationDefinition(PropertyType):
 
 @dataclass
 class Bias(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "report": "Report",
         "pre_training_report": "PreTrainingReport",
@@ -10525,8 +10117,6 @@ class Bias(PropertyType):
 
 @dataclass
 class DataSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_data_source": "S3DataSource",
     }
@@ -10536,8 +10126,6 @@ class DataSource(PropertyType):
 
 @dataclass
 class DriftCheckBaselines(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_data_quality": "ModelDataQuality",
         "bias": "Bias",
@@ -10553,8 +10141,6 @@ class DriftCheckBaselines(PropertyType):
 
 @dataclass
 class DriftCheckBias(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pre_training_constraints": "PreTrainingConstraints",
         "config_file": "ConfigFile",
@@ -10568,8 +10154,6 @@ class DriftCheckBias(PropertyType):
 
 @dataclass
 class DriftCheckExplainability(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "constraints": "Constraints",
         "config_file": "ConfigFile",
@@ -10581,8 +10165,6 @@ class DriftCheckExplainability(PropertyType):
 
 @dataclass
 class DriftCheckModelDataQuality(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "constraints": "Constraints",
         "statistics": "Statistics",
@@ -10594,8 +10176,6 @@ class DriftCheckModelDataQuality(PropertyType):
 
 @dataclass
 class DriftCheckModelQuality(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "constraints": "Constraints",
         "statistics": "Statistics",
@@ -10607,8 +10187,6 @@ class DriftCheckModelQuality(PropertyType):
 
 @dataclass
 class Explainability(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "report": "Report",
     }
@@ -10618,8 +10196,6 @@ class Explainability(PropertyType):
 
 @dataclass
 class FileSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_type": "ContentType",
         "s3_uri": "S3Uri",
@@ -10633,8 +10209,6 @@ class FileSource(PropertyType):
 
 @dataclass
 class InferenceSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "supported_content_types": "SupportedContentTypes",
         "supported_realtime_inference_instance_types": "SupportedRealtimeInferenceInstanceTypes",
@@ -10652,8 +10226,6 @@ class InferenceSpecification(PropertyType):
 
 @dataclass
 class MetadataProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "generated_by": "GeneratedBy",
         "repository": "Repository",
@@ -10669,8 +10241,6 @@ class MetadataProperties(PropertyType):
 
 @dataclass
 class MetricsSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_type": "ContentType",
         "s3_uri": "S3Uri",
@@ -10684,8 +10254,6 @@ class MetricsSource(PropertyType):
 
 @dataclass
 class ModelAccessConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "accept_eula": "AcceptEula",
     }
@@ -10695,8 +10263,6 @@ class ModelAccessConfig(PropertyType):
 
 @dataclass
 class ModelCard(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_card_status": "ModelCardStatus",
         "model_card_content": "ModelCardContent",
@@ -10708,8 +10274,6 @@ class ModelCard(PropertyType):
 
 @dataclass
 class ModelDataQuality(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "constraints": "Constraints",
         "statistics": "Statistics",
@@ -10721,8 +10285,6 @@ class ModelDataQuality(PropertyType):
 
 @dataclass
 class ModelDataSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_data_source": "S3DataSource",
     }
@@ -10732,8 +10294,6 @@ class ModelDataSource(PropertyType):
 
 @dataclass
 class ModelInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_input_config": "DataInputConfig",
     }
@@ -10743,8 +10303,6 @@ class ModelInput(PropertyType):
 
 @dataclass
 class ModelMetrics(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_data_quality": "ModelDataQuality",
         "bias": "Bias",
@@ -10760,8 +10318,6 @@ class ModelMetrics(PropertyType):
 
 @dataclass
 class ModelPackageContainerDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_input": "ModelInput",
         "nearest_model_name": "NearestModelName",
@@ -10789,8 +10345,6 @@ class ModelPackageContainerDefinition(PropertyType):
 
 @dataclass
 class ModelPackageStatusDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "validation_statuses": "ValidationStatuses",
     }
@@ -10800,8 +10354,6 @@ class ModelPackageStatusDetails(PropertyType):
 
 @dataclass
 class ModelPackageStatusItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "failure_reason": "FailureReason",
@@ -10815,8 +10367,6 @@ class ModelPackageStatusItem(PropertyType):
 
 @dataclass
 class ModelQuality(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "constraints": "Constraints",
         "statistics": "Statistics",
@@ -10828,8 +10378,6 @@ class ModelQuality(PropertyType):
 
 @dataclass
 class S3DataSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_uri": "S3Uri",
         "s3_data_type": "S3DataType",
@@ -10841,8 +10389,6 @@ class S3DataSource(PropertyType):
 
 @dataclass
 class S3ModelDataSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_access_config": "ModelAccessConfig",
         "s3_data_type": "S3DataType",
@@ -10858,8 +10404,6 @@ class S3ModelDataSource(PropertyType):
 
 @dataclass
 class SecurityConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
     }
@@ -10869,8 +10413,6 @@ class SecurityConfig(PropertyType):
 
 @dataclass
 class SourceAlgorithm(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_data_url": "ModelDataUrl",
         "algorithm_name": "AlgorithmName",
@@ -10882,8 +10424,6 @@ class SourceAlgorithm(PropertyType):
 
 @dataclass
 class SourceAlgorithmSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_algorithms": "SourceAlgorithms",
     }
@@ -10893,8 +10433,6 @@ class SourceAlgorithmSpecification(PropertyType):
 
 @dataclass
 class TransformInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_type": "ContentType",
         "split_type": "SplitType",
@@ -10910,8 +10448,6 @@ class TransformInput(PropertyType):
 
 @dataclass
 class TransformJobDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transform_resources": "TransformResources",
         "max_concurrent_transforms": "MaxConcurrentTransforms",
@@ -10933,8 +10469,6 @@ class TransformJobDefinition(PropertyType):
 
 @dataclass
 class TransformOutput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "assemble_with": "AssembleWith",
         "accept": "Accept",
@@ -10950,8 +10484,6 @@ class TransformOutput(PropertyType):
 
 @dataclass
 class TransformResources(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_count": "InstanceCount",
         "volume_kms_key_id": "VolumeKmsKeyId",
@@ -10965,8 +10497,6 @@ class TransformResources(PropertyType):
 
 @dataclass
 class ValidationProfile(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "profile_name": "ProfileName",
         "transform_job_definition": "TransformJobDefinition",
@@ -10978,8 +10508,6 @@ class ValidationProfile(PropertyType):
 
 @dataclass
 class ValidationSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "validation_role": "ValidationRole",
         "validation_profiles": "ValidationProfiles",
@@ -11107,8 +10635,6 @@ class ModelPackageGroup(CloudFormationResource):
 
 @dataclass
 class BatchTransformInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dataset_format": "DatasetFormat",
         "s3_data_distribution_type": "S3DataDistributionType",
@@ -11136,8 +10662,6 @@ class BatchTransformInput(PropertyType):
 
 @dataclass
 class ClusterConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_count": "InstanceCount",
         "volume_size_in_gb": "VolumeSizeInGB",
@@ -11153,8 +10677,6 @@ class ClusterConfig(PropertyType):
 
 @dataclass
 class ConstraintsResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_uri": "S3Uri",
     }
@@ -11164,8 +10686,6 @@ class ConstraintsResource(PropertyType):
 
 @dataclass
 class Csv(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header": "Header",
     }
@@ -11175,8 +10695,6 @@ class Csv(PropertyType):
 
 @dataclass
 class DatasetFormat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parquet": "Parquet",
         "csv": "Csv",
@@ -11190,8 +10708,6 @@ class DatasetFormat(PropertyType):
 
 @dataclass
 class EndpointInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_data_distribution_type": "S3DataDistributionType",
         "start_time_offset": "StartTimeOffset",
@@ -11217,8 +10733,6 @@ class EndpointInput(PropertyType):
 
 @dataclass
 class Json(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "line": "Line",
     }
@@ -11228,8 +10742,6 @@ class Json(PropertyType):
 
 @dataclass
 class ModelQualityAppSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_entrypoint": "ContainerEntrypoint",
         "problem_type": "ProblemType",
@@ -11251,8 +10763,6 @@ class ModelQualityAppSpecification(PropertyType):
 
 @dataclass
 class ModelQualityBaselineConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "constraints_resource": "ConstraintsResource",
         "baselining_job_name": "BaseliningJobName",
@@ -11264,8 +10774,6 @@ class ModelQualityBaselineConfig(PropertyType):
 
 @dataclass
 class ModelQualityJobInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ground_truth_s3_input": "GroundTruthS3Input",
         "batch_transform_input": "BatchTransformInput",
@@ -11279,8 +10787,6 @@ class ModelQualityJobInput(PropertyType):
 
 @dataclass
 class MonitoringGroundTruthS3Input(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_uri": "S3Uri",
     }
@@ -11290,8 +10796,6 @@ class MonitoringGroundTruthS3Input(PropertyType):
 
 @dataclass
 class MonitoringOutput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_output": "S3Output",
     }
@@ -11301,8 +10805,6 @@ class MonitoringOutput(PropertyType):
 
 @dataclass
 class MonitoringOutputConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
         "monitoring_outputs": "MonitoringOutputs",
@@ -11314,8 +10816,6 @@ class MonitoringOutputConfig(PropertyType):
 
 @dataclass
 class MonitoringResources(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_config": "ClusterConfig",
     }
@@ -11325,8 +10825,6 @@ class MonitoringResources(PropertyType):
 
 @dataclass
 class NetworkConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_network_isolation": "EnableNetworkIsolation",
         "enable_inter_container_traffic_encryption": "EnableInterContainerTrafficEncryption",
@@ -11340,8 +10838,6 @@ class NetworkConfig(PropertyType):
 
 @dataclass
 class S3Output(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_uri": "S3Uri",
         "local_path": "LocalPath",
@@ -11355,8 +10851,6 @@ class S3Output(PropertyType):
 
 @dataclass
 class StoppingCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_runtime_in_seconds": "MaxRuntimeInSeconds",
     }
@@ -11366,8 +10860,6 @@ class StoppingCondition(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnets": "Subnets",
         "security_group_ids": "SecurityGroupIds",
@@ -11423,8 +10915,6 @@ class ModelQualityJobDefinition(CloudFormationResource):
 
 @dataclass
 class BaselineConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "statistics_resource": "StatisticsResource",
         "constraints_resource": "ConstraintsResource",
@@ -11436,8 +10926,6 @@ class BaselineConfig(PropertyType):
 
 @dataclass
 class BatchTransformInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dataset_format": "DatasetFormat",
         "s3_data_distribution_type": "S3DataDistributionType",
@@ -11457,8 +10945,6 @@ class BatchTransformInput(PropertyType):
 
 @dataclass
 class ClusterConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_count": "InstanceCount",
         "volume_size_in_gb": "VolumeSizeInGB",
@@ -11474,8 +10960,6 @@ class ClusterConfig(PropertyType):
 
 @dataclass
 class ConstraintsResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_uri": "S3Uri",
     }
@@ -11485,8 +10969,6 @@ class ConstraintsResource(PropertyType):
 
 @dataclass
 class Csv(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header": "Header",
     }
@@ -11496,8 +10978,6 @@ class Csv(PropertyType):
 
 @dataclass
 class DatasetFormat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parquet": "Parquet",
         "csv": "Csv",
@@ -11511,8 +10991,6 @@ class DatasetFormat(PropertyType):
 
 @dataclass
 class EndpointInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_data_distribution_type": "S3DataDistributionType",
         "endpoint_name": "EndpointName",
@@ -11530,8 +11008,6 @@ class EndpointInput(PropertyType):
 
 @dataclass
 class Json(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "line": "Line",
     }
@@ -11541,8 +11017,6 @@ class Json(PropertyType):
 
 @dataclass
 class MonitoringAppSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_entrypoint": "ContainerEntrypoint",
         "post_analytics_processor_source_uri": "PostAnalyticsProcessorSourceUri",
@@ -11560,8 +11034,6 @@ class MonitoringAppSpecification(PropertyType):
 
 @dataclass
 class MonitoringExecutionSummary(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scheduled_time": "ScheduledTime",
         "endpoint_name": "EndpointName",
@@ -11585,8 +11057,6 @@ class MonitoringExecutionSummary(PropertyType):
 
 @dataclass
 class MonitoringInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "batch_transform_input": "BatchTransformInput",
         "endpoint_input": "EndpointInput",
@@ -11598,8 +11068,6 @@ class MonitoringInput(PropertyType):
 
 @dataclass
 class MonitoringJobDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "monitoring_inputs": "MonitoringInputs",
         "monitoring_resources": "MonitoringResources",
@@ -11625,8 +11093,6 @@ class MonitoringJobDefinition(PropertyType):
 
 @dataclass
 class MonitoringOutput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_output": "S3Output",
     }
@@ -11636,8 +11102,6 @@ class MonitoringOutput(PropertyType):
 
 @dataclass
 class MonitoringOutputConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
         "monitoring_outputs": "MonitoringOutputs",
@@ -11649,8 +11113,6 @@ class MonitoringOutputConfig(PropertyType):
 
 @dataclass
 class MonitoringResources(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_config": "ClusterConfig",
     }
@@ -11660,8 +11122,6 @@ class MonitoringResources(PropertyType):
 
 @dataclass
 class MonitoringScheduleConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schedule_config": "ScheduleConfig",
         "monitoring_job_definition": "MonitoringJobDefinition",
@@ -11677,8 +11137,6 @@ class MonitoringScheduleConfig(PropertyType):
 
 @dataclass
 class NetworkConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_network_isolation": "EnableNetworkIsolation",
         "enable_inter_container_traffic_encryption": "EnableInterContainerTrafficEncryption",
@@ -11692,8 +11150,6 @@ class NetworkConfig(PropertyType):
 
 @dataclass
 class S3Output(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_uri": "S3Uri",
         "local_path": "LocalPath",
@@ -11707,8 +11163,6 @@ class S3Output(PropertyType):
 
 @dataclass
 class ScheduleConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schedule_expression": "ScheduleExpression",
         "data_analysis_start_time": "DataAnalysisStartTime",
@@ -11722,8 +11176,6 @@ class ScheduleConfig(PropertyType):
 
 @dataclass
 class StatisticsResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_uri": "S3Uri",
     }
@@ -11733,8 +11185,6 @@ class StatisticsResource(PropertyType):
 
 @dataclass
 class StoppingCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_runtime_in_seconds": "MaxRuntimeInSeconds",
     }
@@ -11744,8 +11194,6 @@ class StoppingCondition(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnets": "Subnets",
         "security_group_ids": "SecurityGroupIds",
@@ -11798,8 +11246,6 @@ class MonitoringSchedule(CloudFormationResource):
 
 @dataclass
 class InstanceMetadataServiceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "minimum_instance_metadata_service_version": "MinimumInstanceMetadataServiceVersion",
     }
@@ -11858,8 +11304,6 @@ class NotebookInstance(CloudFormationResource):
 
 @dataclass
 class NotebookInstanceLifecycleHook(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content": "Content",
     }
@@ -11892,8 +11336,6 @@ class NotebookInstanceLifecycleConfig(CloudFormationResource):
 
 @dataclass
 class PartnerAppConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "admin_users": "AdminUsers",
         "arguments": "Arguments",
@@ -11905,8 +11347,6 @@ class PartnerAppConfig(PropertyType):
 
 @dataclass
 class PartnerAppMaintenanceConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maintenance_window_start": "MaintenanceWindowStart",
     }
@@ -11967,8 +11407,6 @@ class PartnerApp(CloudFormationResource):
 
 @dataclass
 class ParallelismConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_parallel_execution_steps": "MaxParallelExecutionSteps",
     }
@@ -11978,8 +11416,6 @@ class ParallelismConfiguration(PropertyType):
 
 @dataclass
 class PipelineDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pipeline_definition_body": "PipelineDefinitionBody",
         "pipeline_definition_s3_location": "PipelineDefinitionS3Location",
@@ -11991,8 +11427,6 @@ class PipelineDefinition(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "version": "Version",
@@ -12033,8 +11467,6 @@ class Pipeline(CloudFormationResource):
 
 @dataclass
 class AppSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_entrypoint": "ContainerEntrypoint",
         "image_uri": "ImageUri",
@@ -12048,8 +11480,6 @@ class AppSpecification(PropertyType):
 
 @dataclass
 class AthenaDatasetDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "work_group": "WorkGroup",
         "output_s3_uri": "OutputS3Uri",
@@ -12073,8 +11503,6 @@ class AthenaDatasetDefinition(PropertyType):
 
 @dataclass
 class ClusterConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_count": "InstanceCount",
         "volume_size_in_gb": "VolumeSizeInGB",
@@ -12090,8 +11518,6 @@ class ClusterConfig(PropertyType):
 
 @dataclass
 class DatasetDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_mode": "InputMode",
         "redshift_dataset_definition": "RedshiftDatasetDefinition",
@@ -12109,8 +11535,6 @@ class DatasetDefinition(PropertyType):
 
 @dataclass
 class ExperimentConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "trial_name": "TrialName",
         "experiment_name": "ExperimentName",
@@ -12126,8 +11550,6 @@ class ExperimentConfig(PropertyType):
 
 @dataclass
 class FeatureStoreOutput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "feature_group_name": "FeatureGroupName",
     }
@@ -12137,8 +11559,6 @@ class FeatureStoreOutput(PropertyType):
 
 @dataclass
 class NetworkConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_network_isolation": "EnableNetworkIsolation",
         "enable_inter_container_traffic_encryption": "EnableInterContainerTrafficEncryption",
@@ -12152,8 +11572,6 @@ class NetworkConfig(PropertyType):
 
 @dataclass
 class ProcessingInputsObject(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "app_managed": "AppManaged",
         "input_name": "InputName",
@@ -12169,8 +11587,6 @@ class ProcessingInputsObject(PropertyType):
 
 @dataclass
 class ProcessingOutputConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
         "outputs": "Outputs",
@@ -12182,8 +11598,6 @@ class ProcessingOutputConfig(PropertyType):
 
 @dataclass
 class ProcessingOutputsObject(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_output": "S3Output",
         "app_managed": "AppManaged",
@@ -12199,8 +11613,6 @@ class ProcessingOutputsObject(PropertyType):
 
 @dataclass
 class ProcessingResources(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_config": "ClusterConfig",
     }
@@ -12210,8 +11622,6 @@ class ProcessingResources(PropertyType):
 
 @dataclass
 class RedshiftDatasetDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "output_s3_uri": "OutputS3Uri",
         "kms_key_id": "KmsKeyId",
@@ -12237,8 +11647,6 @@ class RedshiftDatasetDefinition(PropertyType):
 
 @dataclass
 class S3Input(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_compression_type": "S3CompressionType",
         "s3_data_distribution_type": "S3DataDistributionType",
@@ -12258,8 +11666,6 @@ class S3Input(PropertyType):
 
 @dataclass
 class S3Output(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_uri": "S3Uri",
         "local_path": "LocalPath",
@@ -12273,8 +11679,6 @@ class S3Output(PropertyType):
 
 @dataclass
 class StoppingCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_runtime_in_seconds": "MaxRuntimeInSeconds",
     }
@@ -12284,8 +11688,6 @@ class StoppingCondition(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnets": "Subnets",
         "security_group_ids": "SecurityGroupIds",
@@ -12386,8 +11788,6 @@ class ProcessingJob(CloudFormationResource):
 
 @dataclass
 class CfnStackParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -12399,8 +11799,6 @@ class CfnStackParameter(PropertyType):
 
 @dataclass
 class CfnTemplateProviderDetail(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "template_url": "TemplateURL",
         "parameters": "Parameters",
@@ -12416,8 +11814,6 @@ class CfnTemplateProviderDetail(PropertyType):
 
 @dataclass
 class ProvisioningParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -12429,8 +11825,6 @@ class ProvisioningParameter(PropertyType):
 
 @dataclass
 class ServiceCatalogProvisionedProductDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "provisioned_product_status_message": "ProvisionedProductStatusMessage",
         "provisioned_product_id": "ProvisionedProductId",
@@ -12442,8 +11836,6 @@ class ServiceCatalogProvisionedProductDetails(PropertyType):
 
 @dataclass
 class ServiceCatalogProvisioningDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path_id": "PathId",
         "provisioning_parameters": "ProvisioningParameters",
@@ -12459,8 +11851,6 @@ class ServiceCatalogProvisioningDetails(PropertyType):
 
 @dataclass
 class TemplateProviderDetail(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cfn_template_provider_detail": "CfnTemplateProviderDetail",
     }
@@ -12514,8 +11904,6 @@ class Project(CloudFormationResource):
 
 @dataclass
 class CodeRepository(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "repository_url": "RepositoryUrl",
     }
@@ -12525,8 +11913,6 @@ class CodeRepository(PropertyType):
 
 @dataclass
 class CustomFileSystem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "f_sx_lustre_file_system": "FSxLustreFileSystem",
         "efs_file_system": "EFSFileSystem",
@@ -12540,8 +11926,6 @@ class CustomFileSystem(PropertyType):
 
 @dataclass
 class CustomImage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "image_name": "ImageName",
         "app_image_config_name": "AppImageConfigName",
@@ -12555,8 +11939,6 @@ class CustomImage(PropertyType):
 
 @dataclass
 class EFSFileSystem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file_system_id": "FileSystemId",
     }
@@ -12566,8 +11948,6 @@ class EFSFileSystem(PropertyType):
 
 @dataclass
 class EbsStorageSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ebs_volume_size_in_gb": "EbsVolumeSizeInGb",
     }
@@ -12577,8 +11957,6 @@ class EbsStorageSettings(PropertyType):
 
 @dataclass
 class FSxLustreFileSystem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file_system_id": "FileSystemId",
     }
@@ -12588,8 +11966,6 @@ class FSxLustreFileSystem(PropertyType):
 
 @dataclass
 class JupyterServerAppSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_resource_spec": "DefaultResourceSpec",
         "lifecycle_config_arns": "LifecycleConfigArns",
@@ -12601,8 +11977,6 @@ class JupyterServerAppSettings(PropertyType):
 
 @dataclass
 class KernelGatewayAppSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_images": "CustomImages",
         "default_resource_spec": "DefaultResourceSpec",
@@ -12616,8 +11990,6 @@ class KernelGatewayAppSettings(PropertyType):
 
 @dataclass
 class OwnershipSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "owner_user_profile_name": "OwnerUserProfileName",
     }
@@ -12627,8 +11999,6 @@ class OwnershipSettings(PropertyType):
 
 @dataclass
 class ResourceSpec(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lifecycle_config_arn": "LifecycleConfigArn",
         "sage_maker_image_arn": "SageMakerImageArn",
@@ -12644,8 +12014,6 @@ class ResourceSpec(PropertyType):
 
 @dataclass
 class S3FileSystem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_uri": "S3Uri",
     }
@@ -12655,8 +12023,6 @@ class S3FileSystem(PropertyType):
 
 @dataclass
 class SpaceAppLifecycleManagement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "idle_settings": "IdleSettings",
     }
@@ -12666,8 +12032,6 @@ class SpaceAppLifecycleManagement(PropertyType):
 
 @dataclass
 class SpaceCodeEditorAppSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_resource_spec": "DefaultResourceSpec",
         "app_lifecycle_management": "AppLifecycleManagement",
@@ -12679,8 +12043,6 @@ class SpaceCodeEditorAppSettings(PropertyType):
 
 @dataclass
 class SpaceIdleSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "idle_timeout_in_minutes": "IdleTimeoutInMinutes",
     }
@@ -12690,8 +12052,6 @@ class SpaceIdleSettings(PropertyType):
 
 @dataclass
 class SpaceJupyterLabAppSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_resource_spec": "DefaultResourceSpec",
         "code_repositories": "CodeRepositories",
@@ -12705,8 +12065,6 @@ class SpaceJupyterLabAppSettings(PropertyType):
 
 @dataclass
 class SpaceSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "jupyter_lab_app_settings": "JupyterLabAppSettings",
         "kernel_gateway_app_settings": "KernelGatewayAppSettings",
@@ -12732,8 +12090,6 @@ class SpaceSettings(PropertyType):
 
 @dataclass
 class SpaceSharingSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sharing_type": "SharingType",
     }
@@ -12743,8 +12099,6 @@ class SpaceSharingSettings(PropertyType):
 
 @dataclass
 class SpaceStorageSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ebs_storage_settings": "EbsStorageSettings",
     }
@@ -12815,8 +12169,6 @@ class StudioLifecycleConfig(CloudFormationResource):
 
 @dataclass
 class AppLifecycleManagement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "idle_settings": "IdleSettings",
     }
@@ -12826,8 +12178,6 @@ class AppLifecycleManagement(PropertyType):
 
 @dataclass
 class CodeEditorAppSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_images": "CustomImages",
         "default_resource_spec": "DefaultResourceSpec",
@@ -12845,8 +12195,6 @@ class CodeEditorAppSettings(PropertyType):
 
 @dataclass
 class CodeRepository(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "repository_url": "RepositoryUrl",
     }
@@ -12856,8 +12204,6 @@ class CodeRepository(PropertyType):
 
 @dataclass
 class CustomFileSystemConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "efs_file_system_config": "EFSFileSystemConfig",
         "s3_file_system_config": "S3FileSystemConfig",
@@ -12871,8 +12217,6 @@ class CustomFileSystemConfig(PropertyType):
 
 @dataclass
 class CustomImage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "image_name": "ImageName",
         "app_image_config_name": "AppImageConfigName",
@@ -12886,8 +12230,6 @@ class CustomImage(PropertyType):
 
 @dataclass
 class CustomPosixUserConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uid": "Uid",
         "gid": "Gid",
@@ -12899,8 +12241,6 @@ class CustomPosixUserConfig(PropertyType):
 
 @dataclass
 class DefaultEbsStorageSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maximum_ebs_volume_size_in_gb": "MaximumEbsVolumeSizeInGb",
         "default_ebs_volume_size_in_gb": "DefaultEbsVolumeSizeInGb",
@@ -12912,8 +12252,6 @@ class DefaultEbsStorageSettings(PropertyType):
 
 @dataclass
 class DefaultSpaceStorageSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_ebs_storage_settings": "DefaultEbsStorageSettings",
     }
@@ -12923,8 +12261,6 @@ class DefaultSpaceStorageSettings(PropertyType):
 
 @dataclass
 class EFSFileSystemConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file_system_path": "FileSystemPath",
         "file_system_id": "FileSystemId",
@@ -12936,8 +12272,6 @@ class EFSFileSystemConfig(PropertyType):
 
 @dataclass
 class FSxLustreFileSystemConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file_system_path": "FileSystemPath",
         "file_system_id": "FileSystemId",
@@ -12949,8 +12283,6 @@ class FSxLustreFileSystemConfig(PropertyType):
 
 @dataclass
 class HiddenSageMakerImage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sage_maker_image_name": "SageMakerImageName",
         "version_aliases": "VersionAliases",
@@ -12962,8 +12294,6 @@ class HiddenSageMakerImage(PropertyType):
 
 @dataclass
 class IdleSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_idle_timeout_in_minutes": "MaxIdleTimeoutInMinutes",
         "idle_timeout_in_minutes": "IdleTimeoutInMinutes",
@@ -12979,8 +12309,6 @@ class IdleSettings(PropertyType):
 
 @dataclass
 class JupyterLabAppSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_images": "CustomImages",
         "default_resource_spec": "DefaultResourceSpec",
@@ -13000,8 +12328,6 @@ class JupyterLabAppSettings(PropertyType):
 
 @dataclass
 class JupyterServerAppSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_resource_spec": "DefaultResourceSpec",
         "lifecycle_config_arns": "LifecycleConfigArns",
@@ -13013,8 +12339,6 @@ class JupyterServerAppSettings(PropertyType):
 
 @dataclass
 class KernelGatewayAppSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_images": "CustomImages",
         "default_resource_spec": "DefaultResourceSpec",
@@ -13028,8 +12352,6 @@ class KernelGatewayAppSettings(PropertyType):
 
 @dataclass
 class RStudioServerProAppSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_status": "AccessStatus",
         "user_group": "UserGroup",
@@ -13041,8 +12363,6 @@ class RStudioServerProAppSettings(PropertyType):
 
 @dataclass
 class ResourceSpec(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lifecycle_config_arn": "LifecycleConfigArn",
         "sage_maker_image_arn": "SageMakerImageArn",
@@ -13058,8 +12378,6 @@ class ResourceSpec(PropertyType):
 
 @dataclass
 class S3FileSystemConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mount_path": "MountPath",
         "s3_uri": "S3Uri",
@@ -13071,8 +12389,6 @@ class S3FileSystemConfig(PropertyType):
 
 @dataclass
 class SharingSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "notebook_output_option": "NotebookOutputOption",
         "s3_kms_key_id": "S3KmsKeyId",
@@ -13086,8 +12402,6 @@ class SharingSettings(PropertyType):
 
 @dataclass
 class StudioWebPortalSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hidden_sage_maker_image_version_aliases": "HiddenSageMakerImageVersionAliases",
         "hidden_app_types": "HiddenAppTypes",
@@ -13103,8 +12417,6 @@ class StudioWebPortalSettings(PropertyType):
 
 @dataclass
 class UserSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "jupyter_lab_app_settings": "JupyterLabAppSettings",
@@ -13171,8 +12483,6 @@ class UserProfile(CloudFormationResource):
 
 @dataclass
 class CognitoMemberDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cognito_user_pool": "CognitoUserPool",
         "cognito_client_id": "CognitoClientId",
@@ -13186,8 +12496,6 @@ class CognitoMemberDefinition(PropertyType):
 
 @dataclass
 class MemberDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "oidc_member_definition": "OidcMemberDefinition",
         "cognito_member_definition": "CognitoMemberDefinition",
@@ -13199,8 +12507,6 @@ class MemberDefinition(PropertyType):
 
 @dataclass
 class NotificationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "notification_topic_arn": "NotificationTopicArn",
     }
@@ -13210,8 +12516,6 @@ class NotificationConfiguration(PropertyType):
 
 @dataclass
 class OidcMemberDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sag"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "oidc_groups": "OidcGroups",
     }

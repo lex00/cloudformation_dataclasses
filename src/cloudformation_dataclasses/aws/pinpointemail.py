@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service PinpointEmail
@@ -27,8 +27,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DeliveryOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sending_pool_name": "SendingPoolName",
     }
@@ -38,8 +36,6 @@ class DeliveryOptions(PropertyType):
 
 @dataclass
 class ReputationOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "reputation_metrics_enabled": "ReputationMetricsEnabled",
     }
@@ -49,8 +45,6 @@ class ReputationOptions(PropertyType):
 
 @dataclass
 class SendingOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sending_enabled": "SendingEnabled",
     }
@@ -60,8 +54,6 @@ class SendingOptions(PropertyType):
 
 @dataclass
 class Tags(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -73,8 +65,6 @@ class Tags(PropertyType):
 
 @dataclass
 class TrackingOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_redirect_domain": "CustomRedirectDomain",
     }
@@ -107,8 +97,6 @@ class ConfigurationSet(CloudFormationResource):
 
 @dataclass
 class CloudWatchDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_configurations": "DimensionConfigurations",
     }
@@ -118,8 +106,6 @@ class CloudWatchDestination(PropertyType):
 
 @dataclass
 class DimensionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dimension_value_source": "DimensionValueSource",
         "default_dimension_value": "DefaultDimensionValue",
@@ -133,8 +119,6 @@ class DimensionConfiguration(PropertyType):
 
 @dataclass
 class EventDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sns_destination": "SnsDestination",
         "cloud_watch_destination": "CloudWatchDestination",
@@ -154,8 +138,6 @@ class EventDestination(PropertyType):
 
 @dataclass
 class KinesisFirehoseDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_stream_arn": "DeliveryStreamArn",
         "iam_role_arn": "IamRoleArn",
@@ -167,8 +149,6 @@ class KinesisFirehoseDestination(PropertyType):
 
 @dataclass
 class PinpointDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_arn": "ApplicationArn",
     }
@@ -178,8 +158,6 @@ class PinpointDestination(PropertyType):
 
 @dataclass
 class SnsDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topic_arn": "TopicArn",
     }
@@ -206,8 +184,6 @@ class ConfigurationSetEventDestination(CloudFormationResource):
 
 @dataclass
 class Tags(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -234,8 +210,6 @@ class DedicatedIpPool(CloudFormationResource):
 
 @dataclass
 class MailFromAttributes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mail_from_domain": "MailFromDomain",
         "behavior_on_mx_failure": "BehaviorOnMxFailure",
@@ -247,8 +221,6 @@ class MailFromAttributes(PropertyType):
 
 @dataclass
 class Tags(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",

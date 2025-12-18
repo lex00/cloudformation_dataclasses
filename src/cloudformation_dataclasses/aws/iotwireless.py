@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IoTWireless
@@ -642,8 +642,6 @@ class Destination(CloudFormationResource):
 
 @dataclass
 class LoRaWANDeviceProfile(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ping_slot_period": "PingSlotPeriod",
         "class_c_timeout": "ClassCTimeout",
@@ -717,8 +715,6 @@ class DeviceProfile(CloudFormationResource):
 
 @dataclass
 class LoRaWAN(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rf_region": "RfRegion",
         "start_time": "StartTime",
@@ -782,8 +778,6 @@ class FuotaTask(CloudFormationResource):
 
 @dataclass
 class LoRaWAN(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "number_of_devices_requested": "NumberOfDevicesRequested",
         "number_of_devices_in_group": "NumberOfDevicesInGroup",
@@ -848,8 +842,6 @@ class MulticastGroup(CloudFormationResource):
 
 @dataclass
 class TraceContent(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "wireless_device_frame_info": "WirelessDeviceFrameInfo",
         "log_level": "LogLevel",
@@ -890,8 +882,6 @@ class NetworkAnalyzerConfiguration(CloudFormationResource):
 
 @dataclass
 class SidewalkAccountInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "app_server_private_key": "AppServerPrivateKey",
     }
@@ -901,8 +891,6 @@ class SidewalkAccountInfo(PropertyType):
 
 @dataclass
 class SidewalkAccountInfoWithFingerprint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fingerprint": "Fingerprint",
         "amazon_id": "AmazonId",
@@ -916,8 +904,6 @@ class SidewalkAccountInfoWithFingerprint(PropertyType):
 
 @dataclass
 class SidewalkUpdateAccount(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "app_server_private_key": "AppServerPrivateKey",
     }
@@ -963,8 +949,6 @@ class PartnerAccount(CloudFormationResource):
 
 @dataclass
 class LoRaWANServiceProfile(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dl_bucket_size": "DlBucketSize",
         "min_gw_diversity": "MinGwDiversity",
@@ -1118,8 +1102,6 @@ class ServiceProfile(CloudFormationResource):
 
 @dataclass
 class LoRaWANGatewayVersion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "station": "Station",
         "model": "Model",
@@ -1133,8 +1115,6 @@ class LoRaWANGatewayVersion(PropertyType):
 
 @dataclass
 class LoRaWANUpdateGatewayTaskCreate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "update_signature": "UpdateSignature",
         "sig_key_crc": "SigKeyCrc",
@@ -1150,8 +1130,6 @@ class LoRaWANUpdateGatewayTaskCreate(PropertyType):
 
 @dataclass
 class LoRaWANUpdateGatewayTaskEntry(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "update_version": "UpdateVersion",
         "current_version": "CurrentVersion",
@@ -1163,8 +1141,6 @@ class LoRaWANUpdateGatewayTaskEntry(PropertyType):
 
 @dataclass
 class UpdateWirelessGatewayTaskCreate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lo_ra_wan": "LoRaWAN",
         "update_data_source": "UpdateDataSource",
@@ -1212,8 +1188,6 @@ class TaskDefinition(CloudFormationResource):
 
 @dataclass
 class AbpV10x(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "session_keys": "SessionKeys",
         "dev_addr": "DevAddr",
@@ -1225,8 +1199,6 @@ class AbpV10x(PropertyType):
 
 @dataclass
 class AbpV11(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "session_keys": "SessionKeys",
         "dev_addr": "DevAddr",
@@ -1238,8 +1210,6 @@ class AbpV11(PropertyType):
 
 @dataclass
 class Application(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "f_port": "FPort",
@@ -1253,8 +1223,6 @@ class Application(PropertyType):
 
 @dataclass
 class FPorts(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "applications": "Applications",
     }
@@ -1264,8 +1232,6 @@ class FPorts(PropertyType):
 
 @dataclass
 class LoRaWANDevice(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "abp_v10x": "AbpV10x",
         "f_ports": "FPorts",
@@ -1289,8 +1255,6 @@ class LoRaWANDevice(PropertyType):
 
 @dataclass
 class OtaaV10x(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "app_eui": "AppEui",
         "app_key": "AppKey",
@@ -1302,8 +1266,6 @@ class OtaaV10x(PropertyType):
 
 @dataclass
 class OtaaV11(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "nwk_key": "NwkKey",
         "app_key": "AppKey",
@@ -1317,8 +1279,6 @@ class OtaaV11(PropertyType):
 
 @dataclass
 class SessionKeysAbpV10x(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "app_s_key": "AppSKey",
         "nwk_s_key": "NwkSKey",
@@ -1330,8 +1290,6 @@ class SessionKeysAbpV10x(PropertyType):
 
 @dataclass
 class SessionKeysAbpV11(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "f_nwk_s_int_key": "FNwkSIntKey",
         "app_s_key": "AppSKey",
@@ -1392,8 +1350,6 @@ class WirelessDevice(CloudFormationResource):
 
 @dataclass
 class Sidewalk(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role": "Role",
         "sidewalk_manufacturing_sn": "SidewalkManufacturingSn",
@@ -1477,8 +1433,6 @@ class WirelessDeviceImportTask(CloudFormationResource):
 
 @dataclass
 class LoRaWANGateway(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rf_region": "RfRegion",
         "gateway_eui": "GatewayEui",

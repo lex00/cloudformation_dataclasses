@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service S3Express
@@ -27,8 +27,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class PublicAccessBlockConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3e"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "restrict_public_buckets": "RestrictPublicBuckets",
         "block_public_policy": "BlockPublicPolicy",
@@ -44,8 +42,6 @@ class PublicAccessBlockConfiguration(PropertyType):
 
 @dataclass
 class Scope(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3e"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "permissions": "Permissions",
         "prefixes": "Prefixes",
@@ -57,8 +53,6 @@ class Scope(PropertyType):
 
 @dataclass
 class VpcConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3e"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_id": "VpcId",
     }
@@ -121,8 +115,6 @@ class BucketPolicy(CloudFormationResource):
 
 @dataclass
 class AbortIncompleteMultipartUpload(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3e"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "days_after_initiation": "DaysAfterInitiation",
     }
@@ -132,8 +124,6 @@ class AbortIncompleteMultipartUpload(PropertyType):
 
 @dataclass
 class BucketEncryption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3e"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "server_side_encryption_configuration": "ServerSideEncryptionConfiguration",
     }
@@ -143,8 +133,6 @@ class BucketEncryption(PropertyType):
 
 @dataclass
 class LifecycleConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3e"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rules": "Rules",
     }
@@ -154,8 +142,6 @@ class LifecycleConfiguration(PropertyType):
 
 @dataclass
 class Rule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3e"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "expiration_in_days": "ExpirationInDays",
@@ -177,8 +163,6 @@ class Rule(PropertyType):
 
 @dataclass
 class ServerSideEncryptionByDefault(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3e"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sse_algorithm": "SSEAlgorithm",
         "kms_master_key_id": "KMSMasterKeyID",
@@ -190,8 +174,6 @@ class ServerSideEncryptionByDefault(PropertyType):
 
 @dataclass
 class ServerSideEncryptionRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3e"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_key_enabled": "BucketKeyEnabled",
         "server_side_encryption_by_default": "ServerSideEncryptionByDefault",

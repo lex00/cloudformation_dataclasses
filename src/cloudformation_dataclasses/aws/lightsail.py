@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Lightsail
@@ -1437,8 +1437,6 @@ class Alarm(CloudFormationResource):
 
 @dataclass
 class AccessRules(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allow_public_overrides": "AllowPublicOverrides",
         "get_object": "GetObject",
@@ -1521,8 +1519,6 @@ class Certificate(CloudFormationResource):
 
 @dataclass
 class Container(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_name": "ContainerName",
         "command": "Command",
@@ -1540,8 +1536,6 @@ class Container(PropertyType):
 
 @dataclass
 class ContainerServiceDeployment(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "containers": "Containers",
         "public_endpoint": "PublicEndpoint",
@@ -1553,8 +1547,6 @@ class ContainerServiceDeployment(PropertyType):
 
 @dataclass
 class EcrImagePullerRole(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "principal_arn": "PrincipalArn",
         "is_active": "IsActive",
@@ -1566,8 +1558,6 @@ class EcrImagePullerRole(PropertyType):
 
 @dataclass
 class EnvironmentVariable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "variable": "Variable",
         "value": "Value",
@@ -1579,8 +1569,6 @@ class EnvironmentVariable(PropertyType):
 
 @dataclass
 class HealthCheckConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "timeout_seconds": "TimeoutSeconds",
@@ -1600,8 +1588,6 @@ class HealthCheckConfig(PropertyType):
 
 @dataclass
 class PortInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "protocol": "Protocol",
@@ -1613,8 +1599,6 @@ class PortInfo(PropertyType):
 
 @dataclass
 class PrivateRegistryAccess(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ecr_image_puller_role": "EcrImagePullerRole",
     }
@@ -1624,8 +1608,6 @@ class PrivateRegistryAccess(PropertyType):
 
 @dataclass
 class PublicDomainName(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_name": "CertificateName",
         "domain_names": "DomainNames",
@@ -1637,8 +1619,6 @@ class PublicDomainName(PropertyType):
 
 @dataclass
 class PublicEndpoint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_name": "ContainerName",
         "container_port": "ContainerPort",
@@ -1700,8 +1680,6 @@ class Container(CloudFormationResource):
 
 @dataclass
 class RelationalDatabaseParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "apply_method": "ApplyMethod",
         "is_modifiable": "IsModifiable",
@@ -1772,8 +1750,6 @@ class Database(CloudFormationResource):
 
 @dataclass
 class AddOn(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "add_on_type": "AddOnType",
@@ -1787,8 +1763,6 @@ class AddOn(PropertyType):
 
 @dataclass
 class AutoSnapshotAddOn(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "snapshot_time_of_day": "SnapshotTimeOfDay",
     }
@@ -1798,8 +1772,6 @@ class AutoSnapshotAddOn(PropertyType):
 
 @dataclass
 class Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region_name": "RegionName",
         "availability_zone": "AvailabilityZone",
@@ -1890,8 +1862,6 @@ class Disk(CloudFormationResource):
 
 @dataclass
 class Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region_name": "RegionName",
         "availability_zone": "AvailabilityZone",
@@ -1981,8 +1951,6 @@ class DiskSnapshot(CloudFormationResource):
 
 @dataclass
 class CacheBehavior(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "behavior": "Behavior",
     }
@@ -1992,8 +1960,6 @@ class CacheBehavior(PropertyType):
 
 @dataclass
 class CacheBehaviorPerPath(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "behavior": "Behavior",
@@ -2005,8 +1971,6 @@ class CacheBehaviorPerPath(PropertyType):
 
 @dataclass
 class CacheSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "forwarded_cookies": "ForwardedCookies",
         "minimum_ttl": "MinimumTTL",
@@ -2030,8 +1994,6 @@ class CacheSettings(PropertyType):
 
 @dataclass
 class CookieObject(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cookies_allow_list": "CookiesAllowList",
         "option": "Option",
@@ -2043,8 +2005,6 @@ class CookieObject(PropertyType):
 
 @dataclass
 class HeaderObject(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "headers_allow_list": "HeadersAllowList",
         "option": "Option",
@@ -2056,8 +2016,6 @@ class HeaderObject(PropertyType):
 
 @dataclass
 class InputOrigin(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region_name": "RegionName",
         "protocol_policy": "ProtocolPolicy",
@@ -2071,8 +2029,6 @@ class InputOrigin(PropertyType):
 
 @dataclass
 class QueryStringObject(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "option": "Option",
         "query_strings_allow_list": "QueryStringsAllowList",
@@ -2131,8 +2087,6 @@ class Distribution(CloudFormationResource):
 
 @dataclass
 class DomainEntry(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target": "Target",
         "type_": "Type",
@@ -2150,8 +2104,6 @@ class DomainEntry(PropertyType):
 
 @dataclass
 class Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region_name": "RegionName",
         "availability_zone": "AvailabilityZone",
@@ -2216,8 +2168,6 @@ class Domain(CloudFormationResource):
 
 @dataclass
 class AddOn(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "add_on_type": "AddOnType",
@@ -2231,8 +2181,6 @@ class AddOn(PropertyType):
 
 @dataclass
 class AutoSnapshotAddOn(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "snapshot_time_of_day": "SnapshotTimeOfDay",
     }
@@ -2242,8 +2190,6 @@ class AutoSnapshotAddOn(PropertyType):
 
 @dataclass
 class Disk(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "size_in_gb": "SizeInGb",
         "path": "Path",
@@ -2265,8 +2211,6 @@ class Disk(PropertyType):
 
 @dataclass
 class Hardware(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cpu_count": "CpuCount",
         "ram_size_in_gb": "RamSizeInGb",
@@ -2280,8 +2224,6 @@ class Hardware(PropertyType):
 
 @dataclass
 class Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region_name": "RegionName",
         "availability_zone": "AvailabilityZone",
@@ -2293,8 +2235,6 @@ class Location(PropertyType):
 
 @dataclass
 class MonthlyTransfer(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "gb_per_month_allocated": "GbPerMonthAllocated",
     }
@@ -2304,8 +2244,6 @@ class MonthlyTransfer(PropertyType):
 
 @dataclass
 class Networking(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ports": "Ports",
         "monthly_transfer": "MonthlyTransfer",
@@ -2317,8 +2255,6 @@ class Networking(PropertyType):
 
 @dataclass
 class Port(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "from_port": "FromPort",
         "access_direction": "AccessDirection",
@@ -2346,8 +2282,6 @@ class Port(PropertyType):
 
 @dataclass
 class State(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "code": "Code",
         "name": "Name",
@@ -2475,8 +2409,6 @@ class Instance(CloudFormationResource):
 
 @dataclass
 class Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lig"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region_name": "RegionName",
         "availability_zone": "AvailabilityZone",

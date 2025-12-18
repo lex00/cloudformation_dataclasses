@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Greengrass
@@ -198,8 +198,6 @@ OPENWRT = UpdateTargetsOperatingSystem.OPENWRT
 
 @dataclass
 class Connector(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connector_arn": "ConnectorArn",
         "parameters": "Parameters",
@@ -213,8 +211,6 @@ class Connector(PropertyType):
 
 @dataclass
 class ConnectorDefinitionVersion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connectors": "Connectors",
     }
@@ -262,8 +258,6 @@ class ConnectorDefinition(CloudFormationResource):
 
 @dataclass
 class Connector(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connector_arn": "ConnectorArn",
         "parameters": "Parameters",
@@ -292,8 +286,6 @@ class ConnectorDefinitionVersion(CloudFormationResource):
 
 @dataclass
 class Core(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sync_shadow": "SyncShadow",
         "thing_arn": "ThingArn",
@@ -309,8 +301,6 @@ class Core(PropertyType):
 
 @dataclass
 class CoreDefinitionVersion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cores": "Cores",
     }
@@ -358,8 +348,6 @@ class CoreDefinition(CloudFormationResource):
 
 @dataclass
 class Core(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sync_shadow": "SyncShadow",
         "thing_arn": "ThingArn",
@@ -390,8 +378,6 @@ class CoreDefinitionVersion(CloudFormationResource):
 
 @dataclass
 class Device(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sync_shadow": "SyncShadow",
         "thing_arn": "ThingArn",
@@ -407,8 +393,6 @@ class Device(PropertyType):
 
 @dataclass
 class DeviceDefinitionVersion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "devices": "Devices",
     }
@@ -456,8 +440,6 @@ class DeviceDefinition(CloudFormationResource):
 
 @dataclass
 class Device(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sync_shadow": "SyncShadow",
         "thing_arn": "ThingArn",
@@ -488,8 +470,6 @@ class DeviceDefinitionVersion(CloudFormationResource):
 
 @dataclass
 class DefaultConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "execution": "Execution",
     }
@@ -499,8 +479,6 @@ class DefaultConfig(PropertyType):
 
 @dataclass
 class Environment(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "variables": "Variables",
         "execution": "Execution",
@@ -516,8 +494,6 @@ class Environment(PropertyType):
 
 @dataclass
 class Execution(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "isolation_mode": "IsolationMode",
         "run_as": "RunAs",
@@ -529,8 +505,6 @@ class Execution(PropertyType):
 
 @dataclass
 class Function(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function_arn": "FunctionArn",
         "function_configuration": "FunctionConfiguration",
@@ -544,8 +518,6 @@ class Function(PropertyType):
 
 @dataclass
 class FunctionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "memory_size": "MemorySize",
         "pinned": "Pinned",
@@ -567,8 +539,6 @@ class FunctionConfiguration(PropertyType):
 
 @dataclass
 class FunctionDefinitionVersion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_config": "DefaultConfig",
         "functions": "Functions",
@@ -580,8 +550,6 @@ class FunctionDefinitionVersion(PropertyType):
 
 @dataclass
 class ResourceAccessPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_id": "ResourceId",
         "permission": "Permission",
@@ -593,8 +561,6 @@ class ResourceAccessPolicy(PropertyType):
 
 @dataclass
 class RunAs(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uid": "Uid",
         "gid": "Gid",
@@ -644,8 +610,6 @@ class FunctionDefinition(CloudFormationResource):
 
 @dataclass
 class DefaultConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "execution": "Execution",
     }
@@ -655,8 +619,6 @@ class DefaultConfig(PropertyType):
 
 @dataclass
 class Environment(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "variables": "Variables",
         "execution": "Execution",
@@ -672,8 +634,6 @@ class Environment(PropertyType):
 
 @dataclass
 class Execution(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "isolation_mode": "IsolationMode",
         "run_as": "RunAs",
@@ -685,8 +645,6 @@ class Execution(PropertyType):
 
 @dataclass
 class Function(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function_arn": "FunctionArn",
         "function_configuration": "FunctionConfiguration",
@@ -700,8 +658,6 @@ class Function(PropertyType):
 
 @dataclass
 class FunctionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "memory_size": "MemorySize",
         "pinned": "Pinned",
@@ -723,8 +679,6 @@ class FunctionConfiguration(PropertyType):
 
 @dataclass
 class ResourceAccessPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_id": "ResourceId",
         "permission": "Permission",
@@ -736,8 +690,6 @@ class ResourceAccessPolicy(PropertyType):
 
 @dataclass
 class RunAs(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uid": "Uid",
         "gid": "Gid",
@@ -766,8 +718,6 @@ class FunctionDefinitionVersion(CloudFormationResource):
 
 @dataclass
 class GroupVersion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logger_definition_version_arn": "LoggerDefinitionVersionArn",
         "device_definition_version_arn": "DeviceDefinitionVersionArn",
@@ -866,8 +816,6 @@ class GroupVersion(CloudFormationResource):
 
 @dataclass
 class Logger(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "space": "Space",
         "type_": "Type",
@@ -885,8 +833,6 @@ class Logger(PropertyType):
 
 @dataclass
 class LoggerDefinitionVersion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "loggers": "Loggers",
     }
@@ -934,8 +880,6 @@ class LoggerDefinition(CloudFormationResource):
 
 @dataclass
 class Logger(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "space": "Space",
         "type_": "Type",
@@ -968,8 +912,6 @@ class LoggerDefinitionVersion(CloudFormationResource):
 
 @dataclass
 class GroupOwnerSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_add_group_owner": "AutoAddGroupOwner",
         "group_owner": "GroupOwner",
@@ -981,8 +923,6 @@ class GroupOwnerSetting(PropertyType):
 
 @dataclass
 class LocalDeviceResourceData(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_path": "SourcePath",
         "group_owner_setting": "GroupOwnerSetting",
@@ -994,8 +934,6 @@ class LocalDeviceResourceData(PropertyType):
 
 @dataclass
 class LocalVolumeResourceData(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_path": "SourcePath",
         "destination_path": "DestinationPath",
@@ -1009,8 +947,6 @@ class LocalVolumeResourceData(PropertyType):
 
 @dataclass
 class ResourceDataContainer(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secrets_manager_secret_resource_data": "SecretsManagerSecretResourceData",
         "sage_maker_machine_learning_model_resource_data": "SageMakerMachineLearningModelResourceData",
@@ -1028,8 +964,6 @@ class ResourceDataContainer(PropertyType):
 
 @dataclass
 class ResourceDefinitionVersion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resources": "Resources",
     }
@@ -1039,8 +973,6 @@ class ResourceDefinitionVersion(PropertyType):
 
 @dataclass
 class ResourceDownloadOwnerSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_owner": "GroupOwner",
         "group_permission": "GroupPermission",
@@ -1052,8 +984,6 @@ class ResourceDownloadOwnerSetting(PropertyType):
 
 @dataclass
 class ResourceInstance(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_data_container": "ResourceDataContainer",
         "id": "Id",
@@ -1067,8 +997,6 @@ class ResourceInstance(PropertyType):
 
 @dataclass
 class S3MachineLearningModelResourceData(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "owner_setting": "OwnerSetting",
         "destination_path": "DestinationPath",
@@ -1082,8 +1010,6 @@ class S3MachineLearningModelResourceData(PropertyType):
 
 @dataclass
 class SageMakerMachineLearningModelResourceData(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "owner_setting": "OwnerSetting",
         "destination_path": "DestinationPath",
@@ -1097,8 +1023,6 @@ class SageMakerMachineLearningModelResourceData(PropertyType):
 
 @dataclass
 class SecretsManagerSecretResourceData(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "ARN",
         "additional_staging_labels_to_download": "AdditionalStagingLabelsToDownload",
@@ -1148,8 +1072,6 @@ class ResourceDefinition(CloudFormationResource):
 
 @dataclass
 class GroupOwnerSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_add_group_owner": "AutoAddGroupOwner",
         "group_owner": "GroupOwner",
@@ -1161,8 +1083,6 @@ class GroupOwnerSetting(PropertyType):
 
 @dataclass
 class LocalDeviceResourceData(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_path": "SourcePath",
         "group_owner_setting": "GroupOwnerSetting",
@@ -1174,8 +1094,6 @@ class LocalDeviceResourceData(PropertyType):
 
 @dataclass
 class LocalVolumeResourceData(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_path": "SourcePath",
         "destination_path": "DestinationPath",
@@ -1189,8 +1107,6 @@ class LocalVolumeResourceData(PropertyType):
 
 @dataclass
 class ResourceDataContainer(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secrets_manager_secret_resource_data": "SecretsManagerSecretResourceData",
         "sage_maker_machine_learning_model_resource_data": "SageMakerMachineLearningModelResourceData",
@@ -1208,8 +1124,6 @@ class ResourceDataContainer(PropertyType):
 
 @dataclass
 class ResourceDownloadOwnerSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_owner": "GroupOwner",
         "group_permission": "GroupPermission",
@@ -1221,8 +1135,6 @@ class ResourceDownloadOwnerSetting(PropertyType):
 
 @dataclass
 class ResourceInstance(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_data_container": "ResourceDataContainer",
         "id": "Id",
@@ -1236,8 +1148,6 @@ class ResourceInstance(PropertyType):
 
 @dataclass
 class S3MachineLearningModelResourceData(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "owner_setting": "OwnerSetting",
         "destination_path": "DestinationPath",
@@ -1251,8 +1161,6 @@ class S3MachineLearningModelResourceData(PropertyType):
 
 @dataclass
 class SageMakerMachineLearningModelResourceData(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "owner_setting": "OwnerSetting",
         "destination_path": "DestinationPath",
@@ -1266,8 +1174,6 @@ class SageMakerMachineLearningModelResourceData(PropertyType):
 
 @dataclass
 class SecretsManagerSecretResourceData(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "ARN",
         "additional_staging_labels_to_download": "AdditionalStagingLabelsToDownload",
@@ -1294,8 +1200,6 @@ class ResourceDefinitionVersion(CloudFormationResource):
 
 @dataclass
 class Subscription(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target": "Target",
         "id": "Id",
@@ -1311,8 +1215,6 @@ class Subscription(PropertyType):
 
 @dataclass
 class SubscriptionDefinitionVersion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subscriptions": "Subscriptions",
     }
@@ -1360,8 +1262,6 @@ class SubscriptionDefinition(CloudFormationResource):
 
 @dataclass
 class Subscription(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gre"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target": "Target",
         "id": "Id",

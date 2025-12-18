@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service InspectorV2
@@ -27,8 +27,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class CisTargets(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ins"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_resource_tags": "TargetResourceTags",
         "account_ids": "AccountIds",
@@ -40,8 +38,6 @@ class CisTargets(PropertyType):
 
 @dataclass
 class DailySchedule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ins"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start_time": "StartTime",
     }
@@ -51,8 +47,6 @@ class DailySchedule(PropertyType):
 
 @dataclass
 class MonthlySchedule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ins"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start_time": "StartTime",
         "day": "Day",
@@ -64,8 +58,6 @@ class MonthlySchedule(PropertyType):
 
 @dataclass
 class Schedule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ins"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "daily": "Daily",
         "monthly": "Monthly",
@@ -81,8 +73,6 @@ class Schedule(PropertyType):
 
 @dataclass
 class Time(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ins"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "time_of_day": "TimeOfDay",
         "time_zone": "TimeZone",
@@ -94,8 +84,6 @@ class Time(PropertyType):
 
 @dataclass
 class WeeklySchedule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ins"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "days": "Days",
         "start_time": "StartTime",
@@ -134,8 +122,6 @@ class CisScanConfiguration(CloudFormationResource):
 
 @dataclass
 class CreateDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ins"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "gitlab_self_managed": "gitlabSelfManaged",
     }
@@ -145,8 +131,6 @@ class CreateDetails(PropertyType):
 
 @dataclass
 class CreateGitLabSelfManagedIntegrationDetail(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ins"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_token": "accessToken",
         "instance_url": "instanceUrl",
@@ -158,8 +142,6 @@ class CreateGitLabSelfManagedIntegrationDetail(PropertyType):
 
 @dataclass
 class UpdateDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ins"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "gitlab_self_managed": "gitlabSelfManaged",
         "github": "github",
@@ -171,8 +153,6 @@ class UpdateDetails(PropertyType):
 
 @dataclass
 class UpdateGitHubIntegrationDetail(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ins"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "code": "code",
         "installation_id": "installationId",
@@ -184,8 +164,6 @@ class UpdateGitHubIntegrationDetail(PropertyType):
 
 @dataclass
 class UpdateGitLabSelfManagedIntegrationDetail(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ins"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auth_code": "authCode",
     }
@@ -247,8 +225,6 @@ class CodeSecurityIntegration(CloudFormationResource):
 
 @dataclass
 class CodeSecurityScanConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ins"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "continuous_integration_scan_configuration": "continuousIntegrationScanConfiguration",
         "periodic_scan_configuration": "periodicScanConfiguration",
@@ -262,8 +238,6 @@ class CodeSecurityScanConfiguration(PropertyType):
 
 @dataclass
 class ContinuousIntegrationScanConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ins"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "supported_events": "supportedEvents",
     }
@@ -273,8 +247,6 @@ class ContinuousIntegrationScanConfiguration(PropertyType):
 
 @dataclass
 class PeriodicScanConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ins"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "frequency_expression": "frequencyExpression",
         "frequency": "frequency",
@@ -286,8 +258,6 @@ class PeriodicScanConfiguration(PropertyType):
 
 @dataclass
 class ScopeSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ins"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "project_selection_scope": "projectSelectionScope",
     }
@@ -324,8 +294,6 @@ class CodeSecurityScanConfiguration(CloudFormationResource):
 
 @dataclass
 class DateFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ins"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "end_inclusive": "EndInclusive",
         "start_inclusive": "StartInclusive",
@@ -337,8 +305,6 @@ class DateFilter(PropertyType):
 
 @dataclass
 class FilterCriteria(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ins"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_tags": "ResourceTags",
         "ec2_instance_image_id": "Ec2InstanceImageId",
@@ -430,8 +396,6 @@ class FilterCriteria(PropertyType):
 
 @dataclass
 class MapFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ins"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison": "Comparison",
         "value": "Value",
@@ -445,8 +409,6 @@ class MapFilter(PropertyType):
 
 @dataclass
 class NumberFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ins"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lower_inclusive": "LowerInclusive",
         "upper_inclusive": "UpperInclusive",
@@ -458,8 +420,6 @@ class NumberFilter(PropertyType):
 
 @dataclass
 class PackageFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ins"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file_path": "FilePath",
         "architecture": "Architecture",
@@ -483,8 +443,6 @@ class PackageFilter(PropertyType):
 
 @dataclass
 class PortRangeFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ins"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "begin_inclusive": "BeginInclusive",
         "end_inclusive": "EndInclusive",
@@ -496,8 +454,6 @@ class PortRangeFilter(PropertyType):
 
 @dataclass
 class StringFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ins"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison": "Comparison",
         "value": "Value",

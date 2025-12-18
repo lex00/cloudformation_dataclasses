@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DLM
@@ -175,8 +175,6 @@ POST = StageValues.POST
 
 @dataclass
 class Action(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cross_region_copy": "CrossRegionCopy",
         "name": "Name",
@@ -188,8 +186,6 @@ class Action(PropertyType):
 
 @dataclass
 class ArchiveRetainRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "retention_archive_tier": "RetentionArchiveTier",
     }
@@ -199,8 +195,6 @@ class ArchiveRetainRule(PropertyType):
 
 @dataclass
 class ArchiveRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "retain_rule": "RetainRule",
     }
@@ -210,8 +204,6 @@ class ArchiveRule(PropertyType):
 
 @dataclass
 class CreateRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interval_unit": "IntervalUnit",
         "scripts": "Scripts",
@@ -231,8 +223,6 @@ class CreateRule(PropertyType):
 
 @dataclass
 class CrossRegionCopyAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target": "Target",
         "encryption_configuration": "EncryptionConfiguration",
@@ -246,8 +236,6 @@ class CrossRegionCopyAction(PropertyType):
 
 @dataclass
 class CrossRegionCopyDeprecateRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interval_unit": "IntervalUnit",
         "interval": "Interval",
@@ -259,8 +247,6 @@ class CrossRegionCopyDeprecateRule(PropertyType):
 
 @dataclass
 class CrossRegionCopyRetainRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interval_unit": "IntervalUnit",
         "interval": "Interval",
@@ -272,8 +258,6 @@ class CrossRegionCopyRetainRule(PropertyType):
 
 @dataclass
 class CrossRegionCopyRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_region": "TargetRegion",
         "target": "Target",
@@ -295,8 +279,6 @@ class CrossRegionCopyRule(PropertyType):
 
 @dataclass
 class CrossRegionCopyTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_region": "TargetRegion",
     }
@@ -306,15 +288,11 @@ class CrossRegionCopyTarget(PropertyType):
 
 @dataclass
 class CrossRegionCopyTargets(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
-
     pass
 
 
 @dataclass
 class DeprecateRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interval_unit": "IntervalUnit",
         "count": "Count",
@@ -328,8 +306,6 @@ class DeprecateRule(PropertyType):
 
 @dataclass
 class EncryptionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encrypted": "Encrypted",
         "cmk_arn": "CmkArn",
@@ -341,8 +317,6 @@ class EncryptionConfiguration(PropertyType):
 
 @dataclass
 class EventParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_type": "EventType",
         "snapshot_owner": "SnapshotOwner",
@@ -356,8 +330,6 @@ class EventParameters(PropertyType):
 
 @dataclass
 class EventSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "parameters": "Parameters",
@@ -369,22 +341,16 @@ class EventSource(PropertyType):
 
 @dataclass
 class ExcludeTags(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
-
     pass
 
 
 @dataclass
 class ExcludeVolumeTypesList(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
-
     pass
 
 
 @dataclass
 class Exclusions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclude_boot_volumes": "ExcludeBootVolumes",
         "exclude_tags": "ExcludeTags",
@@ -398,8 +364,6 @@ class Exclusions(PropertyType):
 
 @dataclass
 class FastRestoreRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interval_unit": "IntervalUnit",
         "availability_zones": "AvailabilityZones",
@@ -415,8 +379,6 @@ class FastRestoreRule(PropertyType):
 
 @dataclass
 class Parameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclude_boot_volume": "ExcludeBootVolume",
         "exclude_data_volume_tags": "ExcludeDataVolumeTags",
@@ -430,8 +392,6 @@ class Parameters(PropertyType):
 
 @dataclass
 class PolicyDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_language": "PolicyLanguage",
         "resource_types": "ResourceTypes",
@@ -471,8 +431,6 @@ class PolicyDetails(PropertyType):
 
 @dataclass
 class RetainRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interval_unit": "IntervalUnit",
         "count": "Count",
@@ -486,8 +444,6 @@ class RetainRule(PropertyType):
 
 @dataclass
 class RetentionArchiveTier(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interval_unit": "IntervalUnit",
         "count": "Count",
@@ -501,8 +457,6 @@ class RetentionArchiveTier(PropertyType):
 
 @dataclass
 class Schedule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "share_rules": "ShareRules",
         "deprecate_rule": "DeprecateRule",
@@ -532,8 +486,6 @@ class Schedule(PropertyType):
 
 @dataclass
 class Script(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "execution_handler_service": "ExecutionHandlerService",
         "execution_timeout": "ExecutionTimeout",
@@ -553,8 +505,6 @@ class Script(PropertyType):
 
 @dataclass
 class ShareRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_accounts": "TargetAccounts",
         "unshare_interval_unit": "UnshareIntervalUnit",
@@ -568,8 +518,6 @@ class ShareRule(PropertyType):
 
 @dataclass
 class VolumeTypeValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm"""
-
     pass
 
 

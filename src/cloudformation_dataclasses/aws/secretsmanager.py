@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SecretsManager
@@ -109,8 +109,6 @@ class ResourcePolicy(CloudFormationResource):
 
 @dataclass
 class ExternalSecretRotationMetadataItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -122,8 +120,6 @@ class ExternalSecretRotationMetadataItem(PropertyType):
 
 @dataclass
 class HostedRotationLambda(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "runtime": "Runtime",
         "kms_key_arn": "KmsKeyArn",
@@ -153,8 +149,6 @@ class HostedRotationLambda(PropertyType):
 
 @dataclass
 class RotationRules(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schedule_expression": "ScheduleExpression",
         "duration": "Duration",
@@ -199,8 +193,6 @@ class RotationSchedule(CloudFormationResource):
 
 @dataclass
 class GenerateSecretString(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclude_uppercase": "ExcludeUppercase",
         "require_each_included_type": "RequireEachIncludedType",
@@ -228,8 +220,6 @@ class GenerateSecretString(PropertyType):
 
 @dataclass
 class ReplicaRegion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sec"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
         "region": "Region",

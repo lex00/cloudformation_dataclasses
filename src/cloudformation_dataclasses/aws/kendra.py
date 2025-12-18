@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Kendra
@@ -860,8 +860,6 @@ EVERYTHING = WebCrawlerMode.EVERYTHING
 
 @dataclass
 class CustomDocumentEnrichmentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ken"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inline_configurations": "InlineConfigurations",
         "pre_extraction_hook_configuration": "PreExtractionHookConfiguration",
@@ -877,8 +875,6 @@ class CustomDocumentEnrichmentConfiguration(PropertyType):
 
 @dataclass
 class DataSourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ken"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "template_configuration": "TemplateConfiguration",
     }
@@ -888,8 +884,6 @@ class DataSourceConfiguration(PropertyType):
 
 @dataclass
 class DocumentAttributeCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ken"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "condition_document_attribute_key": "ConditionDocumentAttributeKey",
@@ -903,8 +897,6 @@ class DocumentAttributeCondition(PropertyType):
 
 @dataclass
 class DocumentAttributeTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ken"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_document_attribute_key": "TargetDocumentAttributeKey",
         "target_document_attribute_value_deletion": "TargetDocumentAttributeValueDeletion",
@@ -918,8 +910,6 @@ class DocumentAttributeTarget(PropertyType):
 
 @dataclass
 class DocumentAttributeValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ken"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "date_value": "DateValue",
         "long_value": "LongValue",
@@ -935,8 +925,6 @@ class DocumentAttributeValue(PropertyType):
 
 @dataclass
 class HookConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ken"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_bucket": "S3Bucket",
         "lambda_arn": "LambdaArn",
@@ -950,8 +938,6 @@ class HookConfiguration(PropertyType):
 
 @dataclass
 class InlineCustomDocumentEnrichmentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ken"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "target": "Target",
@@ -965,8 +951,6 @@ class InlineCustomDocumentEnrichmentConfiguration(PropertyType):
 
 @dataclass
 class TemplateConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ken"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "template": "Template",
     }
@@ -1018,8 +1002,6 @@ class DataSource(CloudFormationResource):
 
 @dataclass
 class S3Path(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ken"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "key": "Key",
@@ -1069,8 +1051,6 @@ class Faq(CloudFormationResource):
 
 @dataclass
 class CapacityUnitsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ken"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "query_capacity_units": "QueryCapacityUnits",
         "storage_capacity_units": "StorageCapacityUnits",
@@ -1082,8 +1062,6 @@ class CapacityUnitsConfiguration(PropertyType):
 
 @dataclass
 class DocumentMetadataConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ken"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "relevance": "Relevance",
         "type_": "Type",
@@ -1099,8 +1077,6 @@ class DocumentMetadataConfiguration(PropertyType):
 
 @dataclass
 class JsonTokenTypeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ken"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_attribute_field": "GroupAttributeField",
         "user_name_attribute_field": "UserNameAttributeField",
@@ -1112,8 +1088,6 @@ class JsonTokenTypeConfiguration(PropertyType):
 
 @dataclass
 class JwtTokenTypeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ken"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "claim_regex": "ClaimRegex",
         "issuer": "Issuer",
@@ -1135,8 +1109,6 @@ class JwtTokenTypeConfiguration(PropertyType):
 
 @dataclass
 class Relevance(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ken"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "importance": "Importance",
         "rank_order": "RankOrder",
@@ -1154,8 +1126,6 @@ class Relevance(PropertyType):
 
 @dataclass
 class Search(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ken"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "displayable": "Displayable",
         "sortable": "Sortable",
@@ -1171,8 +1141,6 @@ class Search(PropertyType):
 
 @dataclass
 class ServerSideEncryptionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ken"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
     }
@@ -1182,8 +1150,6 @@ class ServerSideEncryptionConfiguration(PropertyType):
 
 @dataclass
 class UserTokenConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ken"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "jwt_token_type_configuration": "JwtTokenTypeConfiguration",
         "json_token_type_configuration": "JsonTokenTypeConfiguration",
@@ -1195,8 +1161,6 @@ class UserTokenConfiguration(PropertyType):
 
 @dataclass
 class ValueImportanceItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ken"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",

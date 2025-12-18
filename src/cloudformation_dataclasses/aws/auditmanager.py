@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:45
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AuditManager
@@ -372,8 +372,6 @@ OTHER = ValidationExceptionReason.OTHER
 
 @dataclass
 class AWSAccount(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aud"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "email_address": "EmailAddress",
         "id": "Id",
@@ -387,8 +385,6 @@ class AWSAccount(PropertyType):
 
 @dataclass
 class AWSService(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aud"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_name": "ServiceName",
     }
@@ -398,8 +394,6 @@ class AWSService(PropertyType):
 
 @dataclass
 class AssessmentReportsDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aud"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "destination_type": "DestinationType",
@@ -411,8 +405,6 @@ class AssessmentReportsDestination(PropertyType):
 
 @dataclass
 class Delegation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aud"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "comment": "Comment",
@@ -442,8 +434,6 @@ class Delegation(PropertyType):
 
 @dataclass
 class Role(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aud"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role_type": "RoleType",
         "role_arn": "RoleArn",
@@ -455,8 +445,6 @@ class Role(PropertyType):
 
 @dataclass
 class Scope(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aud"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_accounts": "AwsAccounts",
         "aws_services": "AwsServices",

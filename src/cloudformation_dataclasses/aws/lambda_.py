@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Lambda
@@ -763,8 +763,6 @@ FUNCTIONUPDATE = UpdateRuntimeOn.FUNCTIONUPDATE
 
 @dataclass
 class AliasRoutingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "additional_version_weights": "AdditionalVersionWeights",
     }
@@ -774,8 +772,6 @@ class AliasRoutingConfiguration(PropertyType):
 
 @dataclass
 class ProvisionedConcurrencyConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "provisioned_concurrent_executions": "ProvisionedConcurrentExecutions",
     }
@@ -785,8 +781,6 @@ class ProvisionedConcurrencyConfiguration(PropertyType):
 
 @dataclass
 class VersionWeight(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function_version": "FunctionVersion",
         "function_weight": "FunctionWeight",
@@ -827,8 +821,6 @@ class Alias(CloudFormationResource):
 
 @dataclass
 class CapacityProviderPermissionsConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_provider_operator_role_arn": "CapacityProviderOperatorRoleArn",
     }
@@ -838,8 +830,6 @@ class CapacityProviderPermissionsConfig(PropertyType):
 
 @dataclass
 class CapacityProviderScalingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scaling_policies": "ScalingPolicies",
         "scaling_mode": "ScalingMode",
@@ -853,8 +843,6 @@ class CapacityProviderScalingConfig(PropertyType):
 
 @dataclass
 class CapacityProviderVpcConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnet_ids": "SubnetIds",
         "security_group_ids": "SecurityGroupIds",
@@ -866,8 +854,6 @@ class CapacityProviderVpcConfig(PropertyType):
 
 @dataclass
 class InstanceRequirements(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allowed_instance_types": "AllowedInstanceTypes",
         "excluded_instance_types": "ExcludedInstanceTypes",
@@ -881,8 +867,6 @@ class InstanceRequirements(PropertyType):
 
 @dataclass
 class TargetTrackingScalingPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "predefined_metric_type": "PredefinedMetricType",
         "target_value": "TargetValue",
@@ -930,8 +914,6 @@ class CapacityProvider(CloudFormationResource):
 
 @dataclass
 class AllowedPublishers(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "signing_profile_version_arns": "SigningProfileVersionArns",
     }
@@ -941,8 +923,6 @@ class AllowedPublishers(PropertyType):
 
 @dataclass
 class CodeSigningPolicies(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "untrusted_artifact_on_deployment": "UntrustedArtifactOnDeployment",
     }
@@ -982,8 +962,6 @@ class CodeSigningConfig(CloudFormationResource):
 
 @dataclass
 class DestinationConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_success": "OnSuccess",
         "on_failure": "OnFailure",
@@ -995,8 +973,6 @@ class DestinationConfig(PropertyType):
 
 @dataclass
 class OnFailure(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
     }
@@ -1006,8 +982,6 @@ class OnFailure(PropertyType):
 
 @dataclass
 class OnSuccess(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
     }
@@ -1038,8 +1012,6 @@ class EventInvokeConfig(CloudFormationResource):
 
 @dataclass
 class AmazonManagedKafkaEventSourceConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "consumer_group_id": "ConsumerGroupId",
         "schema_registry_config": "SchemaRegistryConfig",
@@ -1051,8 +1023,6 @@ class AmazonManagedKafkaEventSourceConfig(PropertyType):
 
 @dataclass
 class DestinationConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_failure": "OnFailure",
     }
@@ -1062,8 +1032,6 @@ class DestinationConfig(PropertyType):
 
 @dataclass
 class DocumentDBEventSourceConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "full_document": "FullDocument",
         "collection_name": "CollectionName",
@@ -1077,8 +1045,6 @@ class DocumentDBEventSourceConfig(PropertyType):
 
 @dataclass
 class Endpoints(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kafka_bootstrap_servers": "KafkaBootstrapServers",
     }
@@ -1088,8 +1054,6 @@ class Endpoints(PropertyType):
 
 @dataclass
 class Filter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pattern": "Pattern",
     }
@@ -1099,8 +1063,6 @@ class Filter(PropertyType):
 
 @dataclass
 class FilterCriteria(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filters": "Filters",
     }
@@ -1110,8 +1072,6 @@ class FilterCriteria(PropertyType):
 
 @dataclass
 class LoggingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "system_log_level": "SystemLogLevel",
     }
@@ -1121,8 +1081,6 @@ class LoggingConfig(PropertyType):
 
 @dataclass
 class MetricsConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metrics": "Metrics",
     }
@@ -1132,8 +1090,6 @@ class MetricsConfig(PropertyType):
 
 @dataclass
 class OnFailure(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
     }
@@ -1143,8 +1099,6 @@ class OnFailure(PropertyType):
 
 @dataclass
 class ProvisionedPollerConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "poller_group_name": "PollerGroupName",
         "minimum_pollers": "MinimumPollers",
@@ -1158,8 +1112,6 @@ class ProvisionedPollerConfig(PropertyType):
 
 @dataclass
 class ScalingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maximum_concurrency": "MaximumConcurrency",
     }
@@ -1169,8 +1121,6 @@ class ScalingConfig(PropertyType):
 
 @dataclass
 class SchemaRegistryAccessConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "uri": "URI",
@@ -1182,8 +1132,6 @@ class SchemaRegistryAccessConfig(PropertyType):
 
 @dataclass
 class SchemaRegistryConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schema_validation_configs": "SchemaValidationConfigs",
         "schema_registry_uri": "SchemaRegistryURI",
@@ -1199,8 +1147,6 @@ class SchemaRegistryConfig(PropertyType):
 
 @dataclass
 class SchemaValidationConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute": "Attribute",
     }
@@ -1210,8 +1156,6 @@ class SchemaValidationConfig(PropertyType):
 
 @dataclass
 class SelfManagedEventSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "endpoints": "Endpoints",
     }
@@ -1221,8 +1165,6 @@ class SelfManagedEventSource(PropertyType):
 
 @dataclass
 class SelfManagedKafkaEventSourceConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "consumer_group_id": "ConsumerGroupId",
         "schema_registry_config": "SchemaRegistryConfig",
@@ -1234,8 +1176,6 @@ class SelfManagedKafkaEventSourceConfig(PropertyType):
 
 @dataclass
 class SourceAccessConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "uri": "URI",
@@ -1325,8 +1265,6 @@ class EventSourceMapping(CloudFormationResource):
 
 @dataclass
 class CapacityProviderConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_managed_instances_capacity_provider_config": "LambdaManagedInstancesCapacityProviderConfig",
     }
@@ -1336,8 +1274,6 @@ class CapacityProviderConfig(PropertyType):
 
 @dataclass
 class Code(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_kms_key_arn": "SourceKMSKeyArn",
         "s3_object_version": "S3ObjectVersion",
@@ -1357,8 +1293,6 @@ class Code(PropertyType):
 
 @dataclass
 class DeadLetterConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_arn": "TargetArn",
     }
@@ -1368,8 +1302,6 @@ class DeadLetterConfig(PropertyType):
 
 @dataclass
 class DurableConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "execution_timeout": "ExecutionTimeout",
         "retention_period_in_days": "RetentionPeriodInDays",
@@ -1381,8 +1313,6 @@ class DurableConfig(PropertyType):
 
 @dataclass
 class Environment(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "variables": "Variables",
     }
@@ -1392,8 +1322,6 @@ class Environment(PropertyType):
 
 @dataclass
 class EphemeralStorage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "size": "Size",
     }
@@ -1403,8 +1331,6 @@ class EphemeralStorage(PropertyType):
 
 @dataclass
 class FileSystemConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
         "local_mount_path": "LocalMountPath",
@@ -1416,8 +1342,6 @@ class FileSystemConfig(PropertyType):
 
 @dataclass
 class FunctionScalingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_execution_environments": "MinExecutionEnvironments",
         "max_execution_environments": "MaxExecutionEnvironments",
@@ -1429,8 +1353,6 @@ class FunctionScalingConfig(PropertyType):
 
 @dataclass
 class ImageConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "working_directory": "WorkingDirectory",
         "command": "Command",
@@ -1444,8 +1366,6 @@ class ImageConfig(PropertyType):
 
 @dataclass
 class LambdaManagedInstancesCapacityProviderConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "execution_environment_memory_gi_b_per_v_cpu": "ExecutionEnvironmentMemoryGiBPerVCpu",
         "capacity_provider_arn": "CapacityProviderArn",
@@ -1459,8 +1379,6 @@ class LambdaManagedInstancesCapacityProviderConfig(PropertyType):
 
 @dataclass
 class LoggingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_format": "LogFormat",
         "application_log_level": "ApplicationLogLevel",
@@ -1476,8 +1394,6 @@ class LoggingConfig(PropertyType):
 
 @dataclass
 class RuntimeManagementConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "update_runtime_on": "UpdateRuntimeOn",
         "runtime_version_arn": "RuntimeVersionArn",
@@ -1489,8 +1405,6 @@ class RuntimeManagementConfig(PropertyType):
 
 @dataclass
 class SnapStart(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "apply_on": "ApplyOn",
     }
@@ -1500,8 +1414,6 @@ class SnapStart(PropertyType):
 
 @dataclass
 class SnapStartResponse(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "optimization_status": "OptimizationStatus",
         "apply_on": "ApplyOn",
@@ -1513,8 +1425,6 @@ class SnapStartResponse(PropertyType):
 
 @dataclass
 class TenancyConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tenant_isolation_mode": "TenantIsolationMode",
     }
@@ -1524,8 +1434,6 @@ class TenancyConfig(PropertyType):
 
 @dataclass
 class TracingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
     }
@@ -1535,8 +1443,6 @@ class TracingConfig(PropertyType):
 
 @dataclass
 class VpcConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ipv6_allowed_for_dual_stack": "Ipv6AllowedForDualStack",
         "security_group_ids": "SecurityGroupIds",
@@ -1644,8 +1550,6 @@ class Function(CloudFormationResource):
 
 @dataclass
 class Content(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_object_version": "S3ObjectVersion",
         "s3_bucket": "S3Bucket",
@@ -1748,8 +1652,6 @@ class Permission(CloudFormationResource):
 
 @dataclass
 class Cors(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allow_credentials": "AllowCredentials",
         "allow_origins": "AllowOrigins",
@@ -1801,8 +1703,6 @@ class Url(CloudFormationResource):
 
 @dataclass
 class FunctionScalingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_execution_environments": "MinExecutionEnvironments",
         "max_execution_environments": "MaxExecutionEnvironments",
@@ -1814,8 +1714,6 @@ class FunctionScalingConfig(PropertyType):
 
 @dataclass
 class ProvisionedConcurrencyConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "provisioned_concurrent_executions": "ProvisionedConcurrentExecutions",
     }
@@ -1825,8 +1723,6 @@ class ProvisionedConcurrencyConfiguration(PropertyType):
 
 @dataclass
 class RuntimePolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "update_runtime_on": "UpdateRuntimeOn",
         "runtime_version_arn": "RuntimeVersionArn",

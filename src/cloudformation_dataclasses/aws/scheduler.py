@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Scheduler
@@ -117,8 +117,6 @@ DISABLED = ScheduleState.DISABLED
 
 @dataclass
 class AwsVpcConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sch"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "subnets": "Subnets",
@@ -132,8 +130,6 @@ class AwsVpcConfiguration(PropertyType):
 
 @dataclass
 class CapacityProviderStrategyItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sch"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_provider": "CapacityProvider",
         "weight": "Weight",
@@ -147,8 +143,6 @@ class CapacityProviderStrategyItem(PropertyType):
 
 @dataclass
 class DeadLetterConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sch"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -158,8 +152,6 @@ class DeadLetterConfig(PropertyType):
 
 @dataclass
 class EcsParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sch"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "platform_version": "PlatformVersion",
         "group": "Group",
@@ -195,8 +187,6 @@ class EcsParameters(PropertyType):
 
 @dataclass
 class EventBridgeParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sch"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "detail_type": "DetailType",
         "source": "Source",
@@ -208,8 +198,6 @@ class EventBridgeParameters(PropertyType):
 
 @dataclass
 class FlexibleTimeWindow(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sch"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
         "maximum_window_in_minutes": "MaximumWindowInMinutes",
@@ -221,8 +209,6 @@ class FlexibleTimeWindow(PropertyType):
 
 @dataclass
 class KinesisParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sch"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "partition_key": "PartitionKey",
     }
@@ -232,8 +218,6 @@ class KinesisParameters(PropertyType):
 
 @dataclass
 class NetworkConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sch"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "awsvpc_configuration": "AwsvpcConfiguration",
     }
@@ -243,8 +227,6 @@ class NetworkConfiguration(PropertyType):
 
 @dataclass
 class PlacementConstraint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sch"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "expression": "Expression",
@@ -256,8 +238,6 @@ class PlacementConstraint(PropertyType):
 
 @dataclass
 class PlacementStrategy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sch"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field": "Field",
         "type_": "Type",
@@ -269,8 +249,6 @@ class PlacementStrategy(PropertyType):
 
 @dataclass
 class RetryPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sch"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maximum_retry_attempts": "MaximumRetryAttempts",
         "maximum_event_age_in_seconds": "MaximumEventAgeInSeconds",
@@ -282,8 +260,6 @@ class RetryPolicy(PropertyType):
 
 @dataclass
 class SageMakerPipelineParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sch"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -295,8 +271,6 @@ class SageMakerPipelineParameter(PropertyType):
 
 @dataclass
 class SageMakerPipelineParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sch"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pipeline_parameter_list": "PipelineParameterList",
     }
@@ -306,8 +280,6 @@ class SageMakerPipelineParameters(PropertyType):
 
 @dataclass
 class SqsParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sch"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message_group_id": "MessageGroupId",
     }
@@ -317,8 +289,6 @@ class SqsParameters(PropertyType):
 
 @dataclass
 class Target(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sch"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input": "Input",
         "sqs_parameters": "SqsParameters",

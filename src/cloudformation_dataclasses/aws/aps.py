@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:29
+  Generated: 2025-12-17 21:53:45
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service APS
@@ -27,8 +27,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AnomalyDetectorConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "random_cut_forest": "RandomCutForest",
     }
@@ -38,8 +36,6 @@ class AnomalyDetectorConfiguration(PropertyType):
 
 @dataclass
 class IgnoreNearExpected(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "amount": "Amount",
         "ratio": "Ratio",
@@ -51,8 +47,6 @@ class IgnoreNearExpected(PropertyType):
 
 @dataclass
 class Label(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -64,8 +58,6 @@ class Label(PropertyType):
 
 @dataclass
 class MissingDataAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mark_as_anomaly": "MarkAsAnomaly",
         "skip": "Skip",
@@ -77,8 +69,6 @@ class MissingDataAction(PropertyType):
 
 @dataclass
 class RandomCutForestConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sample_size": "SampleSize",
         "query": "Query",
@@ -167,8 +157,6 @@ class RuleGroupsNamespace(CloudFormationResource):
 
 @dataclass
 class AmpConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "workspace_arn": "WorkspaceArn",
     }
@@ -178,8 +166,6 @@ class AmpConfiguration(PropertyType):
 
 @dataclass
 class CloudWatchLogDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group_arn": "LogGroupArn",
     }
@@ -189,8 +175,6 @@ class CloudWatchLogDestination(PropertyType):
 
 @dataclass
 class ComponentConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "options": "Options",
     }
@@ -200,8 +184,6 @@ class ComponentConfig(PropertyType):
 
 @dataclass
 class Destination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "amp_configuration": "AmpConfiguration",
     }
@@ -211,8 +193,6 @@ class Destination(PropertyType):
 
 @dataclass
 class EksConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_arn": "ClusterArn",
         "security_group_ids": "SecurityGroupIds",
@@ -226,8 +206,6 @@ class EksConfiguration(PropertyType):
 
 @dataclass
 class RoleConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_role_arn": "TargetRoleArn",
         "source_role_arn": "SourceRoleArn",
@@ -239,8 +217,6 @@ class RoleConfiguration(PropertyType):
 
 @dataclass
 class ScrapeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration_blob": "ConfigurationBlob",
     }
@@ -250,8 +226,6 @@ class ScrapeConfiguration(PropertyType):
 
 @dataclass
 class ScraperComponent(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "config": "Config",
@@ -263,8 +237,6 @@ class ScraperComponent(PropertyType):
 
 @dataclass
 class ScraperLoggingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logging_destination": "LoggingDestination",
         "scraper_components": "ScraperComponents",
@@ -276,8 +248,6 @@ class ScraperLoggingConfiguration(PropertyType):
 
 @dataclass
 class ScraperLoggingDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_logs": "CloudWatchLogs",
     }
@@ -287,8 +257,6 @@ class ScraperLoggingDestination(PropertyType):
 
 @dataclass
 class Source(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "eks_configuration": "EksConfiguration",
         "vpc_configuration": "VpcConfiguration",
@@ -300,8 +268,6 @@ class Source(PropertyType):
 
 @dataclass
 class VpcConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_group_ids": "SecurityGroupIds",
         "subnet_ids": "SubnetIds",
@@ -354,8 +320,6 @@ class Scraper(CloudFormationResource):
 
 @dataclass
 class CloudWatchLogDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group_arn": "LogGroupArn",
     }
@@ -365,8 +329,6 @@ class CloudWatchLogDestination(PropertyType):
 
 @dataclass
 class Label(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -378,8 +340,6 @@ class Label(PropertyType):
 
 @dataclass
 class LimitsPerLabelSet(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "limits": "Limits",
         "label_set": "LabelSet",
@@ -391,8 +351,6 @@ class LimitsPerLabelSet(PropertyType):
 
 @dataclass
 class LimitsPerLabelSetEntry(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_series": "MaxSeries",
     }
@@ -402,8 +360,6 @@ class LimitsPerLabelSetEntry(PropertyType):
 
 @dataclass
 class LoggingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group_arn": "LogGroupArn",
     }
@@ -413,8 +369,6 @@ class LoggingConfiguration(PropertyType):
 
 @dataclass
 class LoggingDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filters": "Filters",
         "cloud_watch_logs": "CloudWatchLogs",
@@ -426,8 +380,6 @@ class LoggingDestination(PropertyType):
 
 @dataclass
 class LoggingFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "qsp_threshold": "QspThreshold",
     }
@@ -437,8 +389,6 @@ class LoggingFilter(PropertyType):
 
 @dataclass
 class QueryLoggingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destinations": "Destinations",
     }
@@ -448,8 +398,6 @@ class QueryLoggingConfiguration(PropertyType):
 
 @dataclass
 class WorkspaceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "retention_period_in_days": "RetentionPeriodInDays",
         "limits_per_label_sets": "LimitsPerLabelSets",

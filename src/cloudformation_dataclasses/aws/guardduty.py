@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service GuardDuty
@@ -1030,8 +1030,6 @@ TOP_ACCOUNTS_BY_FEATURE = UsageStatisticType.TOP_ACCOUNTS_BY_FEATURE
 
 @dataclass
 class CFNDataSourceConfigurations(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gua"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "malware_protection": "MalwareProtection",
         "s3_logs": "S3Logs",
@@ -1045,8 +1043,6 @@ class CFNDataSourceConfigurations(PropertyType):
 
 @dataclass
 class CFNFeatureAdditionalConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gua"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "name": "Name",
@@ -1058,8 +1054,6 @@ class CFNFeatureAdditionalConfiguration(PropertyType):
 
 @dataclass
 class CFNFeatureConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gua"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "additional_configuration": "AdditionalConfiguration",
@@ -1073,8 +1067,6 @@ class CFNFeatureConfiguration(PropertyType):
 
 @dataclass
 class CFNKubernetesAuditLogsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gua"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable": "Enable",
     }
@@ -1084,8 +1076,6 @@ class CFNKubernetesAuditLogsConfiguration(PropertyType):
 
 @dataclass
 class CFNKubernetesConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gua"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "audit_logs": "AuditLogs",
     }
@@ -1095,8 +1085,6 @@ class CFNKubernetesConfiguration(PropertyType):
 
 @dataclass
 class CFNMalwareProtectionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gua"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scan_ec2_instance_with_findings": "ScanEc2InstanceWithFindings",
     }
@@ -1106,8 +1094,6 @@ class CFNMalwareProtectionConfiguration(PropertyType):
 
 @dataclass
 class CFNS3LogsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gua"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable": "Enable",
     }
@@ -1117,8 +1103,6 @@ class CFNS3LogsConfiguration(PropertyType):
 
 @dataclass
 class CFNScanEc2InstanceWithFindingsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gua"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ebs_volumes": "EbsVolumes",
     }
@@ -1128,8 +1112,6 @@ class CFNScanEc2InstanceWithFindingsConfiguration(PropertyType):
 
 @dataclass
 class TagItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gua"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -1168,8 +1150,6 @@ class Detector(CloudFormationResource):
 
 @dataclass
 class Condition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gua"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "equals": "Equals",
         "less_than": "LessThan",
@@ -1201,8 +1181,6 @@ class Condition(PropertyType):
 
 @dataclass
 class FindingCriteria(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gua"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "criterion": "Criterion",
     }
@@ -1212,8 +1190,6 @@ class FindingCriteria(PropertyType):
 
 @dataclass
 class TagItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gua"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -1250,8 +1226,6 @@ class Filter(CloudFormationResource):
 
 @dataclass
 class TagItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gua"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -1294,8 +1268,6 @@ class IPSet(CloudFormationResource):
 
 @dataclass
 class CFNActions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gua"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tagging": "Tagging",
     }
@@ -1305,8 +1277,6 @@ class CFNActions(PropertyType):
 
 @dataclass
 class CFNProtectedResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gua"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_bucket": "S3Bucket",
     }
@@ -1316,8 +1286,6 @@ class CFNProtectedResource(PropertyType):
 
 @dataclass
 class CFNStatusReasons(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gua"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message": "Message",
         "code": "Code",
@@ -1329,8 +1297,6 @@ class CFNStatusReasons(PropertyType):
 
 @dataclass
 class CFNTagging(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gua"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
     }
@@ -1340,8 +1306,6 @@ class CFNTagging(PropertyType):
 
 @dataclass
 class S3Bucket(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gua"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "object_prefixes": "ObjectPrefixes",
@@ -1353,8 +1317,6 @@ class S3Bucket(PropertyType):
 
 @dataclass
 class TagItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gua"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -1451,8 +1413,6 @@ class Member(CloudFormationResource):
 
 @dataclass
 class CFNDestinationProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gua"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
         "destination_arn": "DestinationArn",
@@ -1464,8 +1424,6 @@ class CFNDestinationProperties(PropertyType):
 
 @dataclass
 class TagItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gua"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -1512,8 +1470,6 @@ class PublishingDestination(CloudFormationResource):
 
 @dataclass
 class TagItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gua"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -1576,8 +1532,6 @@ class ThreatEntitySet(CloudFormationResource):
 
 @dataclass
 class TagItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gua"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -1620,8 +1574,6 @@ class ThreatIntelSet(CloudFormationResource):
 
 @dataclass
 class TagItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gua"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",

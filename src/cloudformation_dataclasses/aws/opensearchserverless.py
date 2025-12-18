@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service OpenSearchServerless
@@ -218,8 +218,6 @@ class Collection(CloudFormationResource):
 
 @dataclass
 class Index(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "knn_algo_param_ef_search": "KnnAlgoParamEfSearch",
         "refresh_interval": "RefreshInterval",
@@ -233,8 +231,6 @@ class Index(PropertyType):
 
 @dataclass
 class IndexSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "index": "Index",
     }
@@ -244,8 +240,6 @@ class IndexSettings(PropertyType):
 
 @dataclass
 class Mappings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "properties": "Properties",
     }
@@ -255,8 +249,6 @@ class Mappings(PropertyType):
 
 @dataclass
 class Method(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameters": "Parameters",
         "space_type": "SpaceType",
@@ -272,8 +264,6 @@ class Method(PropertyType):
 
 @dataclass
 class Parameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ef_construction": "EfConstruction",
         "m": "M",
@@ -285,8 +275,6 @@ class Parameters(PropertyType):
 
 @dataclass
 class PropertyMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -350,8 +338,6 @@ class LifecyclePolicy(CloudFormationResource):
 
 @dataclass
 class IamFederationConfigOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_attribute": "UserAttribute",
         "group_attribute": "GroupAttribute",
@@ -363,8 +349,6 @@ class IamFederationConfigOptions(PropertyType):
 
 @dataclass
 class IamIdentityCenterConfigOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_arn": "ApplicationArn",
         "application_name": "ApplicationName",
@@ -384,8 +368,6 @@ class IamIdentityCenterConfigOptions(PropertyType):
 
 @dataclass
 class SamlConfigOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "session_timeout": "SessionTimeout",
         "open_search_serverless_entity_id": "OpenSearchServerlessEntityId",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:45
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ApplicationSignals
@@ -43,8 +43,6 @@ class Discovery(CloudFormationResource):
 
 @dataclass
 class GroupingAttributeDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "grouping_name": "GroupingName",
         "grouping_source_keys": "GroupingSourceKeys",
@@ -82,8 +80,6 @@ class GroupingConfiguration(CloudFormationResource):
 
 @dataclass
 class BurnRateConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "look_back_window_minutes": "LookBackWindowMinutes",
     }
@@ -93,8 +89,6 @@ class BurnRateConfiguration(PropertyType):
 
 @dataclass
 class CalendarInterval(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration_unit": "DurationUnit",
         "start_time": "StartTime",
@@ -108,8 +102,6 @@ class CalendarInterval(PropertyType):
 
 @dataclass
 class DependencyConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dependency_key_attributes": "DependencyKeyAttributes",
         "dependency_operation_name": "DependencyOperationName",
@@ -121,8 +113,6 @@ class DependencyConfig(PropertyType):
 
 @dataclass
 class Dimension(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -134,8 +124,6 @@ class Dimension(PropertyType):
 
 @dataclass
 class ExclusionWindow(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "window": "Window",
         "recurrence_rule": "RecurrenceRule",
@@ -151,8 +139,6 @@ class ExclusionWindow(PropertyType):
 
 @dataclass
 class Goal(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "warning_threshold": "WarningThreshold",
         "attainment_goal": "AttainmentGoal",
@@ -166,8 +152,6 @@ class Goal(PropertyType):
 
 @dataclass
 class Interval(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rolling_interval": "RollingInterval",
         "calendar_interval": "CalendarInterval",
@@ -179,8 +163,6 @@ class Interval(PropertyType):
 
 @dataclass
 class Metric(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "dimensions": "Dimensions",
@@ -194,8 +176,6 @@ class Metric(PropertyType):
 
 @dataclass
 class MetricDataQuery(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account_id": "AccountId",
         "return_data": "ReturnData",
@@ -213,8 +193,6 @@ class MetricDataQuery(PropertyType):
 
 @dataclass
 class MetricStat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stat": "Stat",
         "period": "Period",
@@ -230,8 +208,6 @@ class MetricStat(PropertyType):
 
 @dataclass
 class MonitoredRequestCountMetric(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "good_count_metric": "GoodCountMetric",
         "bad_count_metric": "BadCountMetric",
@@ -243,8 +219,6 @@ class MonitoredRequestCountMetric(PropertyType):
 
 @dataclass
 class RecurrenceRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expression": "Expression",
     }
@@ -254,8 +228,6 @@ class RecurrenceRule(PropertyType):
 
 @dataclass
 class RequestBasedSli(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison_operator": "ComparisonOperator",
         "request_based_sli_metric": "RequestBasedSliMetric",
@@ -269,8 +241,6 @@ class RequestBasedSli(PropertyType):
 
 @dataclass
 class RequestBasedSliMetric(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "monitored_request_count_metric": "MonitoredRequestCountMetric",
         "operation_name": "OperationName",
@@ -290,8 +260,6 @@ class RequestBasedSliMetric(PropertyType):
 
 @dataclass
 class RollingInterval(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration_unit": "DurationUnit",
         "duration": "Duration",
@@ -303,8 +271,6 @@ class RollingInterval(PropertyType):
 
 @dataclass
 class Sli(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison_operator": "ComparisonOperator",
         "sli_metric": "SliMetric",
@@ -318,8 +284,6 @@ class Sli(PropertyType):
 
 @dataclass
 class SliMetric(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "statistic": "Statistic",
         "operation_name": "OperationName",
@@ -341,8 +305,6 @@ class SliMetric(PropertyType):
 
 @dataclass
 class Window(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration_unit": "DurationUnit",
         "duration": "Duration",

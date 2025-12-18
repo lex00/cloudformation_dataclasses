@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AutoScalingPlans
@@ -27,8 +27,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ApplicationSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_formation_stack_arn": "CloudFormationStackARN",
         "tag_filters": "TagFilters",
@@ -40,8 +38,6 @@ class ApplicationSource(PropertyType):
 
 @dataclass
 class CustomizedLoadMetricSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "statistic": "Statistic",
@@ -59,8 +55,6 @@ class CustomizedLoadMetricSpecification(PropertyType):
 
 @dataclass
 class CustomizedScalingMetricSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "statistic": "Statistic",
@@ -78,8 +72,6 @@ class CustomizedScalingMetricSpecification(PropertyType):
 
 @dataclass
 class MetricDimension(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -91,8 +83,6 @@ class MetricDimension(PropertyType):
 
 @dataclass
 class PredefinedLoadMetricSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "predefined_load_metric_type": "PredefinedLoadMetricType",
         "resource_label": "ResourceLabel",
@@ -104,8 +94,6 @@ class PredefinedLoadMetricSpecification(PropertyType):
 
 @dataclass
 class PredefinedScalingMetricSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_label": "ResourceLabel",
         "predefined_scaling_metric_type": "PredefinedScalingMetricType",
@@ -117,8 +105,6 @@ class PredefinedScalingMetricSpecification(PropertyType):
 
 @dataclass
 class ScalingInstruction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "disable_dynamic_scaling": "DisableDynamicScaling",
         "service_namespace": "ServiceNamespace",
@@ -154,8 +140,6 @@ class ScalingInstruction(PropertyType):
 
 @dataclass
 class TagFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "key": "Key",
@@ -167,8 +151,6 @@ class TagFilter(PropertyType):
 
 @dataclass
 class TargetTrackingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aut"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scale_out_cooldown": "ScaleOutCooldown",
         "target_value": "TargetValue",

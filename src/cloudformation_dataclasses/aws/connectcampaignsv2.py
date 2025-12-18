@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ConnectCampaignsV2
@@ -245,8 +245,6 @@ INVALIDINPUT = ProfileOutboundRequestFailureCode.INVALIDINPUT
 
 @dataclass
 class AnswerMachineDetectionConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_answer_machine_detection": "EnableAnswerMachineDetection",
         "await_answer_machine_prompt": "AwaitAnswerMachinePrompt",
@@ -258,8 +256,6 @@ class AnswerMachineDetectionConfig(PropertyType):
 
 @dataclass
 class ChannelSubtypeConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "email": "Email",
         "telephony": "Telephony",
@@ -275,8 +271,6 @@ class ChannelSubtypeConfig(PropertyType):
 
 @dataclass
 class CommunicationLimit(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "frequency": "Frequency",
         "max_count_per_recipient": "MaxCountPerRecipient",
@@ -290,8 +284,6 @@ class CommunicationLimit(PropertyType):
 
 @dataclass
 class CommunicationLimits(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "communication_limit_list": "CommunicationLimitList",
     }
@@ -301,8 +293,6 @@ class CommunicationLimits(PropertyType):
 
 @dataclass
 class CommunicationLimitsConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all_channels_subtypes": "AllChannelsSubtypes",
         "instance_limits_handling": "InstanceLimitsHandling",
@@ -314,8 +304,6 @@ class CommunicationLimitsConfig(PropertyType):
 
 @dataclass
 class CommunicationTimeConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "local_time_zone_config": "LocalTimeZoneConfig",
         "email": "Email",
@@ -333,8 +321,6 @@ class CommunicationTimeConfig(PropertyType):
 
 @dataclass
 class DailyHour(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -346,8 +332,6 @@ class DailyHour(PropertyType):
 
 @dataclass
 class EmailChannelSubtypeConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "outbound_mode": "OutboundMode",
         "capacity": "Capacity",
@@ -361,8 +345,6 @@ class EmailChannelSubtypeConfig(PropertyType):
 
 @dataclass
 class EmailOutboundConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connect_source_email_address": "ConnectSourceEmailAddress",
         "source_email_address_display_name": "SourceEmailAddressDisplayName",
@@ -376,8 +358,6 @@ class EmailOutboundConfig(PropertyType):
 
 @dataclass
 class EmailOutboundMode(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "agentless_config": "AgentlessConfig",
     }
@@ -387,8 +367,6 @@ class EmailOutboundMode(PropertyType):
 
 @dataclass
 class EventTrigger(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "customer_profiles_domain_arn": "CustomerProfilesDomainArn",
     }
@@ -398,8 +376,6 @@ class EventTrigger(PropertyType):
 
 @dataclass
 class LocalTimeZoneConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_time_zone": "DefaultTimeZone",
         "local_time_zone_detection": "LocalTimeZoneDetection",
@@ -411,8 +387,6 @@ class LocalTimeZoneConfig(PropertyType):
 
 @dataclass
 class OpenHours(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "daily_hours": "DailyHours",
     }
@@ -422,8 +396,6 @@ class OpenHours(PropertyType):
 
 @dataclass
 class PredictiveConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bandwidth_allocation": "BandwidthAllocation",
     }
@@ -433,8 +405,6 @@ class PredictiveConfig(PropertyType):
 
 @dataclass
 class PreviewConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timeout_config": "TimeoutConfig",
         "agent_actions": "AgentActions",
@@ -448,8 +418,6 @@ class PreviewConfig(PropertyType):
 
 @dataclass
 class ProgressiveConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bandwidth_allocation": "BandwidthAllocation",
     }
@@ -459,8 +427,6 @@ class ProgressiveConfig(PropertyType):
 
 @dataclass
 class RestrictedPeriod(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start_date": "StartDate",
         "end_date": "EndDate",
@@ -474,8 +440,6 @@ class RestrictedPeriod(PropertyType):
 
 @dataclass
 class RestrictedPeriods(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "restricted_period_list": "RestrictedPeriodList",
     }
@@ -485,8 +449,6 @@ class RestrictedPeriods(PropertyType):
 
 @dataclass
 class Schedule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "end_time": "EndTime",
         "start_time": "StartTime",
@@ -500,8 +462,6 @@ class Schedule(PropertyType):
 
 @dataclass
 class SmsChannelSubtypeConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "outbound_mode": "OutboundMode",
         "capacity": "Capacity",
@@ -515,8 +475,6 @@ class SmsChannelSubtypeConfig(PropertyType):
 
 @dataclass
 class SmsOutboundConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connect_source_phone_number_arn": "ConnectSourcePhoneNumberArn",
         "wisdom_template_arn": "WisdomTemplateArn",
@@ -528,8 +486,6 @@ class SmsOutboundConfig(PropertyType):
 
 @dataclass
 class SmsOutboundMode(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "agentless_config": "AgentlessConfig",
     }
@@ -539,8 +495,6 @@ class SmsOutboundMode(PropertyType):
 
 @dataclass
 class Source(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "customer_profiles_segment_arn": "CustomerProfilesSegmentArn",
         "event_trigger": "EventTrigger",
@@ -552,8 +506,6 @@ class Source(PropertyType):
 
 @dataclass
 class TelephonyChannelSubtypeConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "outbound_mode": "OutboundMode",
         "capacity": "Capacity",
@@ -569,8 +521,6 @@ class TelephonyChannelSubtypeConfig(PropertyType):
 
 @dataclass
 class TelephonyOutboundConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connect_contact_flow_id": "ConnectContactFlowId",
         "ring_timeout": "RingTimeout",
@@ -586,8 +536,6 @@ class TelephonyOutboundConfig(PropertyType):
 
 @dataclass
 class TelephonyOutboundMode(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "progressive_config": "ProgressiveConfig",
         "predictive_config": "PredictiveConfig",
@@ -603,8 +551,6 @@ class TelephonyOutboundMode(PropertyType):
 
 @dataclass
 class TimeRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "end_time": "EndTime",
         "start_time": "StartTime",
@@ -616,8 +562,6 @@ class TimeRange(PropertyType):
 
 @dataclass
 class TimeWindow(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "open_hours": "OpenHours",
         "restricted_periods": "RestrictedPeriods",
@@ -629,8 +573,6 @@ class TimeWindow(PropertyType):
 
 @dataclass
 class TimeoutConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration_in_seconds": "DurationInSeconds",
     }
@@ -640,8 +582,6 @@ class TimeoutConfig(PropertyType):
 
 @dataclass
 class WhatsAppChannelSubtypeConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "outbound_mode": "OutboundMode",
         "capacity": "Capacity",
@@ -655,8 +595,6 @@ class WhatsAppChannelSubtypeConfig(PropertyType):
 
 @dataclass
 class WhatsAppOutboundConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connect_source_phone_number_arn": "ConnectSourcePhoneNumberArn",
         "wisdom_template_arn": "WisdomTemplateArn",
@@ -668,8 +606,6 @@ class WhatsAppOutboundConfig(PropertyType):
 
 @dataclass
 class WhatsAppOutboundMode(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "agentless_config": "AgentlessConfig",
     }

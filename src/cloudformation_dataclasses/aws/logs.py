@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Logs
@@ -581,8 +581,6 @@ class Delivery(CloudFormationResource):
 
 @dataclass
 class DestinationPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_destination_name": "DeliveryDestinationName",
         "delivery_destination_policy": "DeliveryDestinationPolicy",
@@ -685,8 +683,6 @@ class Destination(CloudFormationResource):
 
 @dataclass
 class OpenSearchResourceConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dashboard_viewer_principals": "DashboardViewerPrincipals",
         "application_arn": "ApplicationARN",
@@ -704,8 +700,6 @@ class OpenSearchResourceConfig(PropertyType):
 
 @dataclass
 class ResourceConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "open_search_resource_config": "OpenSearchResourceConfig",
     }
@@ -832,8 +826,6 @@ class LogStream(CloudFormationResource):
 
 @dataclass
 class Dimension(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -845,8 +837,6 @@ class Dimension(PropertyType):
 
 @dataclass
 class MetricTransformation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_value": "DefaultValue",
         "metric_name": "MetricName",
@@ -960,8 +950,6 @@ class SubscriptionFilter(CloudFormationResource):
 
 @dataclass
 class AddKeyEntry(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "overwrite_if_exists": "OverwriteIfExists",
         "value": "Value",
@@ -975,8 +963,6 @@ class AddKeyEntry(PropertyType):
 
 @dataclass
 class AddKeys(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entries": "Entries",
     }
@@ -986,8 +972,6 @@ class AddKeys(PropertyType):
 
 @dataclass
 class CopyValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entries": "Entries",
     }
@@ -997,8 +981,6 @@ class CopyValue(PropertyType):
 
 @dataclass
 class CopyValueEntry(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target": "Target",
         "overwrite_if_exists": "OverwriteIfExists",
@@ -1012,8 +994,6 @@ class CopyValueEntry(PropertyType):
 
 @dataclass
 class Csv(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "quote_character": "QuoteCharacter",
         "delimiter": "Delimiter",
@@ -1029,8 +1009,6 @@ class Csv(PropertyType):
 
 @dataclass
 class DateTimeConverter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "locale": "Locale",
         "target": "Target",
@@ -1052,8 +1030,6 @@ class DateTimeConverter(PropertyType):
 
 @dataclass
 class DeleteKeys(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "with_keys": "WithKeys",
     }
@@ -1063,8 +1039,6 @@ class DeleteKeys(PropertyType):
 
 @dataclass
 class Grok(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source": "Source",
         "match": "Match",
@@ -1076,8 +1050,6 @@ class Grok(PropertyType):
 
 @dataclass
 class ListToMap(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_key": "ValueKey",
         "target": "Target",
@@ -1097,8 +1069,6 @@ class ListToMap(PropertyType):
 
 @dataclass
 class LowerCaseString(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "with_keys": "WithKeys",
     }
@@ -1108,8 +1078,6 @@ class LowerCaseString(PropertyType):
 
 @dataclass
 class MoveKeyEntry(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target": "Target",
         "overwrite_if_exists": "OverwriteIfExists",
@@ -1123,8 +1091,6 @@ class MoveKeyEntry(PropertyType):
 
 @dataclass
 class MoveKeys(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entries": "Entries",
     }
@@ -1134,8 +1100,6 @@ class MoveKeys(PropertyType):
 
 @dataclass
 class ParseCloudfront(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source": "Source",
     }
@@ -1145,8 +1109,6 @@ class ParseCloudfront(PropertyType):
 
 @dataclass
 class ParseJSON(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "source": "Source",
@@ -1158,8 +1120,6 @@ class ParseJSON(PropertyType):
 
 @dataclass
 class ParseKeyValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "key_value_delimiter": "KeyValueDelimiter",
@@ -1181,8 +1141,6 @@ class ParseKeyValue(PropertyType):
 
 @dataclass
 class ParsePostgres(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source": "Source",
     }
@@ -1192,8 +1150,6 @@ class ParsePostgres(PropertyType):
 
 @dataclass
 class ParseRoute53(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source": "Source",
     }
@@ -1203,8 +1159,6 @@ class ParseRoute53(PropertyType):
 
 @dataclass
 class ParseToOCSF(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_source": "EventSource",
         "ocsf_version": "OcsfVersion",
@@ -1218,8 +1172,6 @@ class ParseToOCSF(PropertyType):
 
 @dataclass
 class ParseVPC(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source": "Source",
     }
@@ -1229,8 +1181,6 @@ class ParseVPC(PropertyType):
 
 @dataclass
 class ParseWAF(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source": "Source",
     }
@@ -1240,8 +1190,6 @@ class ParseWAF(PropertyType):
 
 @dataclass
 class Processor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parse_cloudfront": "ParseCloudfront",
         "lower_case_string": "LowerCaseString",
@@ -1295,8 +1243,6 @@ class Processor(PropertyType):
 
 @dataclass
 class RenameKeyEntry(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "overwrite_if_exists": "OverwriteIfExists",
         "rename_to": "RenameTo",
@@ -1310,8 +1256,6 @@ class RenameKeyEntry(PropertyType):
 
 @dataclass
 class RenameKeys(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entries": "Entries",
     }
@@ -1321,8 +1265,6 @@ class RenameKeys(PropertyType):
 
 @dataclass
 class SplitString(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entries": "Entries",
     }
@@ -1332,8 +1274,6 @@ class SplitString(PropertyType):
 
 @dataclass
 class SplitStringEntry(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delimiter": "Delimiter",
         "source": "Source",
@@ -1345,8 +1285,6 @@ class SplitStringEntry(PropertyType):
 
 @dataclass
 class SubstituteString(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entries": "Entries",
     }
@@ -1356,8 +1294,6 @@ class SubstituteString(PropertyType):
 
 @dataclass
 class SubstituteStringEntry(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "from_": "From",
         "to": "To",
@@ -1371,8 +1307,6 @@ class SubstituteStringEntry(PropertyType):
 
 @dataclass
 class TrimString(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "with_keys": "WithKeys",
     }
@@ -1382,8 +1316,6 @@ class TrimString(PropertyType):
 
 @dataclass
 class TypeConverter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entries": "Entries",
     }
@@ -1393,8 +1325,6 @@ class TypeConverter(PropertyType):
 
 @dataclass
 class TypeConverterEntry(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "key": "Key",
@@ -1406,8 +1336,6 @@ class TypeConverterEntry(PropertyType):
 
 @dataclass
 class UpperCaseString(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-log"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "with_keys": "WithKeys",
     }

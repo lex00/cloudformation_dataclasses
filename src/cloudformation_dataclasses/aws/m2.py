@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service M2
@@ -195,8 +195,6 @@ OTHER = ValidationExceptionReason.OTHER
 
 @dataclass
 class Definition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content": "Content",
         "s3_location": "S3Location",
@@ -272,8 +270,6 @@ class Deployment(CloudFormationResource):
 
 @dataclass
 class EfsStorageConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mount_point": "MountPoint",
         "file_system_id": "FileSystemId",
@@ -285,8 +281,6 @@ class EfsStorageConfiguration(PropertyType):
 
 @dataclass
 class FsxStorageConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mount_point": "MountPoint",
         "file_system_id": "FileSystemId",
@@ -298,8 +292,6 @@ class FsxStorageConfiguration(PropertyType):
 
 @dataclass
 class HighAvailabilityConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "desired_capacity": "DesiredCapacity",
     }
@@ -309,8 +301,6 @@ class HighAvailabilityConfig(PropertyType):
 
 @dataclass
 class StorageConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "efs": "Efs",
         "fsx": "Fsx",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:45
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Amplify
@@ -202,8 +202,6 @@ DISASSOCIATION_FAILED = WafStatus.DISASSOCIATION_FAILED
 
 @dataclass
 class AutoBranchCreationConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "environment_variables": "EnvironmentVariables",
         "auto_branch_creation_patterns": "AutoBranchCreationPatterns",
@@ -233,8 +231,6 @@ class AutoBranchCreationConfig(PropertyType):
 
 @dataclass
 class BasicAuthConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "username": "Username",
         "enable_basic_auth": "EnableBasicAuth",
@@ -248,8 +244,6 @@ class BasicAuthConfig(PropertyType):
 
 @dataclass
 class CacheConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -259,8 +253,6 @@ class CacheConfig(PropertyType):
 
 @dataclass
 class CustomRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "status": "Status",
@@ -276,8 +268,6 @@ class CustomRule(PropertyType):
 
 @dataclass
 class EnvironmentVariable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -289,8 +279,6 @@ class EnvironmentVariable(PropertyType):
 
 @dataclass
 class JobConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "build_compute_type": "BuildComputeType",
     }
@@ -368,8 +356,6 @@ class App(CloudFormationResource):
 
 @dataclass
 class Backend(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stack_arn": "StackArn",
     }
@@ -379,8 +365,6 @@ class Backend(PropertyType):
 
 @dataclass
 class BasicAuthConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "username": "Username",
         "enable_basic_auth": "EnableBasicAuth",
@@ -394,8 +378,6 @@ class BasicAuthConfig(PropertyType):
 
 @dataclass
 class EnvironmentVariable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -461,8 +443,6 @@ class Branch(CloudFormationResource):
 
 @dataclass
 class Certificate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_type": "CertificateType",
         "certificate_verification_dns_record": "CertificateVerificationDNSRecord",
@@ -476,8 +456,6 @@ class Certificate(PropertyType):
 
 @dataclass
 class CertificateSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_type": "CertificateType",
         "custom_certificate_arn": "CustomCertificateArn",
@@ -489,8 +467,6 @@ class CertificateSettings(PropertyType):
 
 @dataclass
 class SubDomainSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amp"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prefix": "Prefix",
         "branch_name": "BranchName",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CodeDeploy
@@ -527,8 +527,6 @@ class Application(CloudFormationResource):
 
 @dataclass
 class MinimumHealthyHosts(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -540,8 +538,6 @@ class MinimumHealthyHosts(PropertyType):
 
 @dataclass
 class MinimumHealthyHostsPerZone(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -553,8 +549,6 @@ class MinimumHealthyHostsPerZone(PropertyType):
 
 @dataclass
 class TimeBasedCanary(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "canary_percentage": "CanaryPercentage",
         "canary_interval": "CanaryInterval",
@@ -566,8 +560,6 @@ class TimeBasedCanary(PropertyType):
 
 @dataclass
 class TimeBasedLinear(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "linear_interval": "LinearInterval",
         "linear_percentage": "LinearPercentage",
@@ -579,8 +571,6 @@ class TimeBasedLinear(PropertyType):
 
 @dataclass
 class TrafficRoutingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "time_based_linear": "TimeBasedLinear",
@@ -594,8 +584,6 @@ class TrafficRoutingConfig(PropertyType):
 
 @dataclass
 class ZonalConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "monitor_duration_in_seconds": "MonitorDurationInSeconds",
         "minimum_healthy_hosts_per_zone": "MinimumHealthyHostsPerZone",
@@ -630,8 +618,6 @@ class DeploymentConfig(CloudFormationResource):
 
 @dataclass
 class Alarm(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -641,8 +627,6 @@ class Alarm(PropertyType):
 
 @dataclass
 class AlarmConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alarms": "Alarms",
         "enabled": "Enabled",
@@ -656,8 +640,6 @@ class AlarmConfiguration(PropertyType):
 
 @dataclass
 class AutoRollbackConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "events": "Events",
@@ -669,8 +651,6 @@ class AutoRollbackConfiguration(PropertyType):
 
 @dataclass
 class BlueGreenDeploymentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "deployment_ready_option": "DeploymentReadyOption",
         "green_fleet_provisioning_option": "GreenFleetProvisioningOption",
@@ -684,8 +664,6 @@ class BlueGreenDeploymentConfiguration(PropertyType):
 
 @dataclass
 class BlueInstanceTerminationOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "termination_wait_time_in_minutes": "TerminationWaitTimeInMinutes",
@@ -697,8 +675,6 @@ class BlueInstanceTerminationOption(PropertyType):
 
 @dataclass
 class Deployment(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "ignore_application_stop_failures": "IgnoreApplicationStopFailures",
@@ -712,8 +688,6 @@ class Deployment(PropertyType):
 
 @dataclass
 class DeploymentReadyOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action_on_timeout": "ActionOnTimeout",
         "wait_time_in_minutes": "WaitTimeInMinutes",
@@ -725,8 +699,6 @@ class DeploymentReadyOption(PropertyType):
 
 @dataclass
 class DeploymentStyle(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "deployment_option": "DeploymentOption",
         "deployment_type": "DeploymentType",
@@ -738,8 +710,6 @@ class DeploymentStyle(PropertyType):
 
 @dataclass
 class EC2TagFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key": "Key",
         "type_": "Type",
@@ -753,8 +723,6 @@ class EC2TagFilter(PropertyType):
 
 @dataclass
 class EC2TagSet(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ec2_tag_set_list": "Ec2TagSetList",
     }
@@ -764,8 +732,6 @@ class EC2TagSet(PropertyType):
 
 @dataclass
 class EC2TagSetListObject(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ec2_tag_group": "Ec2TagGroup",
     }
@@ -775,8 +741,6 @@ class EC2TagSetListObject(PropertyType):
 
 @dataclass
 class ECSService(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_name": "ClusterName",
         "service_name": "ServiceName",
@@ -788,8 +752,6 @@ class ECSService(PropertyType):
 
 @dataclass
 class ELBInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -799,8 +761,6 @@ class ELBInfo(PropertyType):
 
 @dataclass
 class GitHubLocation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "commit_id": "CommitId",
         "repository": "Repository",
@@ -812,8 +772,6 @@ class GitHubLocation(PropertyType):
 
 @dataclass
 class GreenFleetProvisioningOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
     }
@@ -823,8 +781,6 @@ class GreenFleetProvisioningOption(PropertyType):
 
 @dataclass
 class LoadBalancerInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "elb_info_list": "ElbInfoList",
         "target_group_info_list": "TargetGroupInfoList",
@@ -838,8 +794,6 @@ class LoadBalancerInfo(PropertyType):
 
 @dataclass
 class OnPremisesTagSet(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_premises_tag_set_list": "OnPremisesTagSetList",
     }
@@ -849,8 +803,6 @@ class OnPremisesTagSet(PropertyType):
 
 @dataclass
 class OnPremisesTagSetListObject(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_premises_tag_group": "OnPremisesTagGroup",
     }
@@ -860,8 +812,6 @@ class OnPremisesTagSetListObject(PropertyType):
 
 @dataclass
 class RevisionLocation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "git_hub_location": "GitHubLocation",
         "revision_type": "RevisionType",
@@ -875,8 +825,6 @@ class RevisionLocation(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "bundle_type": "BundleType",
@@ -894,8 +842,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class TagFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key": "Key",
         "type_": "Type",
@@ -909,8 +855,6 @@ class TagFilter(PropertyType):
 
 @dataclass
 class TargetGroupInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -920,8 +864,6 @@ class TargetGroupInfo(PropertyType):
 
 @dataclass
 class TargetGroupPairInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prod_traffic_route": "ProdTrafficRoute",
         "target_groups": "TargetGroups",
@@ -935,8 +877,6 @@ class TargetGroupPairInfo(PropertyType):
 
 @dataclass
 class TrafficRoute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "listener_arns": "ListenerArns",
     }
@@ -946,8 +886,6 @@ class TrafficRoute(PropertyType):
 
 @dataclass
 class TriggerConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "trigger_events": "TriggerEvents",
         "trigger_name": "TriggerName",

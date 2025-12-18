@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service RolesAnywhere
@@ -99,8 +99,6 @@ class CRL(CloudFormationResource):
 
 @dataclass
 class AttributeMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rol"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mapping_rules": "MappingRules",
         "certificate_field": "CertificateField",
@@ -112,8 +110,6 @@ class AttributeMapping(PropertyType):
 
 @dataclass
 class MappingRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rol"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "specifier": "Specifier",
     }
@@ -165,8 +161,6 @@ class Profile(CloudFormationResource):
 
 @dataclass
 class NotificationSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rol"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channel": "Channel",
         "enabled": "Enabled",
@@ -182,8 +176,6 @@ class NotificationSetting(PropertyType):
 
 @dataclass
 class Source(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rol"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_type": "SourceType",
         "source_data": "SourceData",
@@ -195,8 +187,6 @@ class Source(PropertyType):
 
 @dataclass
 class SourceData(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rol"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "acm_pca_arn": "AcmPcaArn",
         "x509_certificate_data": "X509CertificateData",

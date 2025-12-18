@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:35
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service WAFRegional
@@ -780,8 +780,6 @@ GROUP = WafRuleType.GROUP
 
 @dataclass
 class ByteMatchTuple(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_string": "TargetString",
         "target_string_base64": "TargetStringBase64",
@@ -799,8 +797,6 @@ class ByteMatchTuple(PropertyType):
 
 @dataclass
 class FieldToMatch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "data": "Data",
@@ -827,8 +823,6 @@ class ByteMatchSet(CloudFormationResource):
 
 @dataclass
 class GeoMatchConstraint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -855,8 +849,6 @@ class GeoMatchSet(CloudFormationResource):
 
 @dataclass
 class IPSetDescriptor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -883,8 +875,6 @@ class IPSet(CloudFormationResource):
 
 @dataclass
 class Predicate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "data_id": "DataId",
@@ -934,8 +924,6 @@ class RegexPatternSet(CloudFormationResource):
 
 @dataclass
 class Predicate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "data_id": "DataId",
@@ -966,8 +954,6 @@ class Rule(CloudFormationResource):
 
 @dataclass
 class FieldToMatch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "data": "Data",
@@ -979,8 +965,6 @@ class FieldToMatch(PropertyType):
 
 @dataclass
 class SizeConstraint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison_operator": "ComparisonOperator",
         "size": "Size",
@@ -1011,8 +995,6 @@ class SizeConstraintSet(CloudFormationResource):
 
 @dataclass
 class FieldToMatch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "data": "Data",
@@ -1024,8 +1006,6 @@ class FieldToMatch(PropertyType):
 
 @dataclass
 class SqlInjectionMatchTuple(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_transformation": "TextTransformation",
         "field_to_match": "FieldToMatch",
@@ -1052,8 +1032,6 @@ class SqlInjectionMatchSet(CloudFormationResource):
 
 @dataclass
 class Action(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -1063,8 +1041,6 @@ class Action(PropertyType):
 
 @dataclass
 class Rule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "priority": "Priority",
@@ -1112,8 +1088,6 @@ class WebACLAssociation(CloudFormationResource):
 
 @dataclass
 class FieldToMatch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "data": "Data",
@@ -1125,8 +1099,6 @@ class FieldToMatch(PropertyType):
 
 @dataclass
 class XssMatchTuple(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_transformation": "TextTransformation",
         "field_to_match": "FieldToMatch",

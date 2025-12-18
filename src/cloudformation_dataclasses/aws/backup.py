@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Backup
@@ -497,8 +497,6 @@ RESTORE_ACCESS_BACKUP_VAULT = VaultType.RESTORE_ACCESS_BACKUP_VAULT
 
 @dataclass
 class AdvancedBackupSettingResourceType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bac"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "backup_options": "BackupOptions",
         "resource_type": "ResourceType",
@@ -510,8 +508,6 @@ class AdvancedBackupSettingResourceType(PropertyType):
 
 @dataclass
 class BackupPlanResourceType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bac"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "backup_plan_name": "BackupPlanName",
         "advanced_backup_settings": "AdvancedBackupSettings",
@@ -525,8 +521,6 @@ class BackupPlanResourceType(PropertyType):
 
 @dataclass
 class BackupRuleResourceType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bac"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "completion_window_minutes": "CompletionWindowMinutes",
         "schedule_expression": "ScheduleExpression",
@@ -558,8 +552,6 @@ class BackupRuleResourceType(PropertyType):
 
 @dataclass
 class CopyActionResourceType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bac"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lifecycle": "Lifecycle",
         "destination_backup_vault_arn": "DestinationBackupVaultArn",
@@ -571,8 +563,6 @@ class CopyActionResourceType(PropertyType):
 
 @dataclass
 class IndexActionsResourceType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bac"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_types": "ResourceTypes",
     }
@@ -582,8 +572,6 @@ class IndexActionsResourceType(PropertyType):
 
 @dataclass
 class LifecycleResourceType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bac"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "opt_in_to_archive_for_supported_resources": "OptInToArchiveForSupportedResources",
         "delete_after_days": "DeleteAfterDays",
@@ -628,8 +616,6 @@ class BackupPlan(CloudFormationResource):
 
 @dataclass
 class BackupSelectionResourceType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bac"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "list_of_tags": "ListOfTags",
         "not_resources": "NotResources",
@@ -649,8 +635,6 @@ class BackupSelectionResourceType(PropertyType):
 
 @dataclass
 class ConditionParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bac"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition_value": "ConditionValue",
         "condition_key": "ConditionKey",
@@ -662,8 +646,6 @@ class ConditionParameter(PropertyType):
 
 @dataclass
 class ConditionResourceType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bac"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition_value": "ConditionValue",
         "condition_key": "ConditionKey",
@@ -677,8 +659,6 @@ class ConditionResourceType(PropertyType):
 
 @dataclass
 class Conditions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bac"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "string_equals": "StringEquals",
         "string_not_like": "StringNotLike",
@@ -725,8 +705,6 @@ class BackupSelection(CloudFormationResource):
 
 @dataclass
 class LockConfigurationType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bac"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "changeable_for_days": "ChangeableForDays",
         "max_retention_days": "MaxRetentionDays",
@@ -740,8 +718,6 @@ class LockConfigurationType(PropertyType):
 
 @dataclass
 class NotificationObjectType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bac"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sns_topic_arn": "SNSTopicArn",
         "backup_vault_events": "BackupVaultEvents",
@@ -787,8 +763,6 @@ class BackupVault(CloudFormationResource):
 
 @dataclass
 class ControlInputParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bac"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_value": "ParameterValue",
         "parameter_name": "ParameterName",
@@ -800,8 +774,6 @@ class ControlInputParameter(PropertyType):
 
 @dataclass
 class ControlScope(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bac"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compliance_resource_types": "ComplianceResourceTypes",
         "tags": "Tags",
@@ -815,8 +787,6 @@ class ControlScope(PropertyType):
 
 @dataclass
 class FrameworkControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bac"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "control_name": "ControlName",
         "control_input_parameters": "ControlInputParameters",
@@ -870,8 +840,6 @@ class Framework(CloudFormationResource):
 
 @dataclass
 class NotificationObjectType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bac"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sns_topic_arn": "SNSTopicArn",
         "backup_vault_events": "BackupVaultEvents",
@@ -926,8 +894,6 @@ class LogicallyAirGappedBackupVault(CloudFormationResource):
 
 @dataclass
 class ReportDeliveryChannel(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bac"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_key_prefix": "S3KeyPrefix",
         "formats": "Formats",
@@ -941,8 +907,6 @@ class ReportDeliveryChannel(PropertyType):
 
 @dataclass
 class ReportSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bac"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "framework_arns": "FrameworkArns",
         "report_template": "ReportTemplate",
@@ -987,8 +951,6 @@ class ReportPlan(CloudFormationResource):
 
 @dataclass
 class RestoreTestingRecoveryPointSelection(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bac"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "selection_window_days": "SelectionWindowDays",
         "recovery_point_types": "RecoveryPointTypes",
@@ -1035,8 +997,6 @@ class RestoreTestingPlan(CloudFormationResource):
 
 @dataclass
 class KeyValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bac"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -1048,8 +1008,6 @@ class KeyValue(PropertyType):
 
 @dataclass
 class ProtectedResourceConditions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bac"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "string_equals": "StringEquals",
         "string_not_equals": "StringNotEquals",

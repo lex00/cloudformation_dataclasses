@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service OpenSearchService
@@ -973,8 +973,6 @@ NOTAVAILABLE = ZoneStatus.NOTAVAILABLE
 
 @dataclass
 class AppConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -986,8 +984,6 @@ class AppConfig(PropertyType):
 
 @dataclass
 class DataSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_source_arn": "DataSourceArn",
         "data_source_description": "DataSourceDescription",
@@ -999,8 +995,6 @@ class DataSource(PropertyType):
 
 @dataclass
 class IamIdentityCenterOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iam_identity_center_instance_arn": "IamIdentityCenterInstanceArn",
         "iam_role_for_identity_center_application_arn": "IamRoleForIdentityCenterApplicationArn",
@@ -1048,8 +1042,6 @@ class Application(CloudFormationResource):
 
 @dataclass
 class AIMLOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_vectors_engine": "S3VectorsEngine",
     }
@@ -1059,8 +1051,6 @@ class AIMLOptions(PropertyType):
 
 @dataclass
 class AdvancedSecurityOptionsInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iam_federation_options": "IAMFederationOptions",
         "anonymous_auth_enabled": "AnonymousAuthEnabled",
@@ -1084,8 +1074,6 @@ class AdvancedSecurityOptionsInput(PropertyType):
 
 @dataclass
 class ClusterConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "multi_az_with_standby_enabled": "MultiAZWithStandbyEnabled",
         "dedicated_master_enabled": "DedicatedMasterEnabled",
@@ -1119,8 +1107,6 @@ class ClusterConfig(PropertyType):
 
 @dataclass
 class CognitoOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_pool_id": "UserPoolId",
         "enabled": "Enabled",
@@ -1136,8 +1122,6 @@ class CognitoOptions(PropertyType):
 
 @dataclass
 class ColdStorageOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -1147,8 +1131,6 @@ class ColdStorageOptions(PropertyType):
 
 @dataclass
 class DomainEndpointOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_endpoint_enabled": "CustomEndpointEnabled",
         "enforce_https": "EnforceHTTPS",
@@ -1166,8 +1148,6 @@ class DomainEndpointOptions(PropertyType):
 
 @dataclass
 class EBSOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ebs_enabled": "EBSEnabled",
         "volume_type": "VolumeType",
@@ -1185,8 +1165,6 @@ class EBSOptions(PropertyType):
 
 @dataclass
 class EncryptionAtRestOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_id": "KmsKeyId",
         "enabled": "Enabled",
@@ -1198,8 +1176,6 @@ class EncryptionAtRestOptions(PropertyType):
 
 @dataclass
 class IAMFederationOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subject_key": "SubjectKey",
         "roles_key": "RolesKey",
@@ -1213,8 +1189,6 @@ class IAMFederationOptions(PropertyType):
 
 @dataclass
 class IdentityCenterOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "identity_center_application_arn": "IdentityCenterApplicationARN",
         "identity_center_instance_arn": "IdentityCenterInstanceARN",
@@ -1234,8 +1208,6 @@ class IdentityCenterOptions(PropertyType):
 
 @dataclass
 class Idp(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entity_id": "EntityId",
         "metadata_content": "MetadataContent",
@@ -1247,8 +1219,6 @@ class Idp(PropertyType):
 
 @dataclass
 class JWTOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subject_key": "SubjectKey",
         "public_key": "PublicKey",
@@ -1264,8 +1234,6 @@ class JWTOptions(PropertyType):
 
 @dataclass
 class LogPublishingOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_logs_log_group_arn": "CloudWatchLogsLogGroupArn",
         "enabled": "Enabled",
@@ -1277,8 +1245,6 @@ class LogPublishingOption(PropertyType):
 
 @dataclass
 class MasterUserOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "master_user_password": "MasterUserPassword",
         "master_user_arn": "MasterUserARN",
@@ -1292,8 +1258,6 @@ class MasterUserOptions(PropertyType):
 
 @dataclass
 class NodeConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "enabled": "Enabled",
@@ -1307,8 +1271,6 @@ class NodeConfig(PropertyType):
 
 @dataclass
 class NodeOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "node_type": "NodeType",
         "node_config": "NodeConfig",
@@ -1320,8 +1282,6 @@ class NodeOption(PropertyType):
 
 @dataclass
 class NodeToNodeEncryptionOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -1331,8 +1291,6 @@ class NodeToNodeEncryptionOptions(PropertyType):
 
 @dataclass
 class OffPeakWindow(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "window_start_time": "WindowStartTime",
     }
@@ -1342,8 +1300,6 @@ class OffPeakWindow(PropertyType):
 
 @dataclass
 class OffPeakWindowOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "off_peak_window": "OffPeakWindow",
         "enabled": "Enabled",
@@ -1355,8 +1311,6 @@ class OffPeakWindowOptions(PropertyType):
 
 @dataclass
 class S3VectorsEngine(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -1366,8 +1320,6 @@ class S3VectorsEngine(PropertyType):
 
 @dataclass
 class SAMLOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "master_backend_role": "MasterBackendRole",
         "subject_key": "SubjectKey",
@@ -1389,8 +1341,6 @@ class SAMLOptions(PropertyType):
 
 @dataclass
 class ServiceSoftwareOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "new_version": "NewVersion",
         "update_status": "UpdateStatus",
@@ -1414,8 +1364,6 @@ class ServiceSoftwareOptions(PropertyType):
 
 @dataclass
 class SnapshotOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "automated_snapshot_start_hour": "AutomatedSnapshotStartHour",
     }
@@ -1425,8 +1373,6 @@ class SnapshotOptions(PropertyType):
 
 @dataclass
 class SoftwareUpdateOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_software_update_enabled": "AutoSoftwareUpdateEnabled",
     }
@@ -1436,8 +1382,6 @@ class SoftwareUpdateOptions(PropertyType):
 
 @dataclass
 class VPCOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_group_ids": "SecurityGroupIds",
         "subnet_ids": "SubnetIds",
@@ -1449,8 +1393,6 @@ class VPCOptions(PropertyType):
 
 @dataclass
 class WindowStartTime(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hours": "Hours",
         "minutes": "Minutes",
@@ -1462,8 +1404,6 @@ class WindowStartTime(PropertyType):
 
 @dataclass
 class ZoneAwarenessConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ope"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_zone_count": "AvailabilityZoneCount",
     }

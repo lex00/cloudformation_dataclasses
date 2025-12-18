@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IoTEvents
@@ -147,8 +147,6 @@ JSON = PayloadType.JSON
 
 @dataclass
 class AcknowledgeFlow(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -158,8 +156,6 @@ class AcknowledgeFlow(PropertyType):
 
 @dataclass
 class AlarmAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dynamo_d_bv2": "DynamoDBv2",
         "iot_events": "IotEvents",
@@ -185,8 +181,6 @@ class AlarmAction(PropertyType):
 
 @dataclass
 class AlarmCapabilities(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "acknowledge_flow": "AcknowledgeFlow",
         "initialization_configuration": "InitializationConfiguration",
@@ -198,8 +192,6 @@ class AlarmCapabilities(PropertyType):
 
 @dataclass
 class AlarmEventActions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alarm_actions": "AlarmActions",
     }
@@ -209,8 +201,6 @@ class AlarmEventActions(PropertyType):
 
 @dataclass
 class AlarmRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "simple_rule": "SimpleRule",
     }
@@ -220,8 +210,6 @@ class AlarmRule(PropertyType):
 
 @dataclass
 class AssetPropertyTimestamp(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "time_in_seconds": "TimeInSeconds",
         "offset_in_nanos": "OffsetInNanos",
@@ -233,8 +221,6 @@ class AssetPropertyTimestamp(PropertyType):
 
 @dataclass
 class AssetPropertyValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "quality": "Quality",
         "value": "Value",
@@ -248,8 +234,6 @@ class AssetPropertyValue(PropertyType):
 
 @dataclass
 class AssetPropertyVariant(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "double_value": "DoubleValue",
         "boolean_value": "BooleanValue",
@@ -265,8 +249,6 @@ class AssetPropertyVariant(PropertyType):
 
 @dataclass
 class DynamoDB(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "payload_field": "PayloadField",
@@ -294,8 +276,6 @@ class DynamoDB(PropertyType):
 
 @dataclass
 class DynamoDBv2(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "payload": "Payload",
@@ -307,8 +287,6 @@ class DynamoDBv2(PropertyType):
 
 @dataclass
 class Firehose(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_stream_name": "DeliveryStreamName",
         "payload": "Payload",
@@ -322,8 +300,6 @@ class Firehose(PropertyType):
 
 @dataclass
 class InitializationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "disabled_on_initialization": "DisabledOnInitialization",
     }
@@ -333,8 +309,6 @@ class InitializationConfiguration(PropertyType):
 
 @dataclass
 class IotEvents(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_name": "InputName",
         "payload": "Payload",
@@ -346,8 +320,6 @@ class IotEvents(PropertyType):
 
 @dataclass
 class IotSiteWise(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entry_id": "EntryId",
         "property_alias": "PropertyAlias",
@@ -365,8 +337,6 @@ class IotSiteWise(PropertyType):
 
 @dataclass
 class IotTopicPublish(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mqtt_topic": "MqttTopic",
         "payload": "Payload",
@@ -378,8 +348,6 @@ class IotTopicPublish(PropertyType):
 
 @dataclass
 class Lambda(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function_arn": "FunctionArn",
         "payload": "Payload",
@@ -391,8 +359,6 @@ class Lambda(PropertyType):
 
 @dataclass
 class Payload(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_expression": "ContentExpression",
         "type_": "Type",
@@ -404,8 +370,6 @@ class Payload(PropertyType):
 
 @dataclass
 class SimpleRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison_operator": "ComparisonOperator",
         "input_property": "InputProperty",
@@ -419,8 +383,6 @@ class SimpleRule(PropertyType):
 
 @dataclass
 class Sns(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_arn": "TargetArn",
         "payload": "Payload",
@@ -432,8 +394,6 @@ class Sns(PropertyType):
 
 @dataclass
 class Sqs(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "use_base64": "UseBase64",
         "payload": "Payload",
@@ -476,8 +436,6 @@ class AlarmModel(CloudFormationResource):
 
 @dataclass
 class Action(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iot_events": "IotEvents",
         "firehose": "Firehose",
@@ -511,8 +469,6 @@ class Action(PropertyType):
 
 @dataclass
 class AssetPropertyTimestamp(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "time_in_seconds": "TimeInSeconds",
         "offset_in_nanos": "OffsetInNanos",
@@ -524,8 +480,6 @@ class AssetPropertyTimestamp(PropertyType):
 
 @dataclass
 class AssetPropertyValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "quality": "Quality",
         "value": "Value",
@@ -539,8 +493,6 @@ class AssetPropertyValue(PropertyType):
 
 @dataclass
 class AssetPropertyVariant(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "double_value": "DoubleValue",
         "boolean_value": "BooleanValue",
@@ -556,8 +508,6 @@ class AssetPropertyVariant(PropertyType):
 
 @dataclass
 class ClearTimer(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timer_name": "TimerName",
     }
@@ -567,8 +517,6 @@ class ClearTimer(PropertyType):
 
 @dataclass
 class DetectorModelDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "states": "States",
         "initial_state_name": "InitialStateName",
@@ -580,8 +528,6 @@ class DetectorModelDefinition(PropertyType):
 
 @dataclass
 class DynamoDB(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "payload_field": "PayloadField",
@@ -609,8 +555,6 @@ class DynamoDB(PropertyType):
 
 @dataclass
 class DynamoDBv2(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "payload": "Payload",
@@ -622,8 +566,6 @@ class DynamoDBv2(PropertyType):
 
 @dataclass
 class Event(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "actions": "Actions",
@@ -637,8 +579,6 @@ class Event(PropertyType):
 
 @dataclass
 class Firehose(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_stream_name": "DeliveryStreamName",
         "payload": "Payload",
@@ -652,8 +592,6 @@ class Firehose(PropertyType):
 
 @dataclass
 class IotEvents(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_name": "InputName",
         "payload": "Payload",
@@ -665,8 +603,6 @@ class IotEvents(PropertyType):
 
 @dataclass
 class IotSiteWise(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entry_id": "EntryId",
         "property_alias": "PropertyAlias",
@@ -684,8 +620,6 @@ class IotSiteWise(PropertyType):
 
 @dataclass
 class IotTopicPublish(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mqtt_topic": "MqttTopic",
         "payload": "Payload",
@@ -697,8 +631,6 @@ class IotTopicPublish(PropertyType):
 
 @dataclass
 class Lambda(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function_arn": "FunctionArn",
         "payload": "Payload",
@@ -710,8 +642,6 @@ class Lambda(PropertyType):
 
 @dataclass
 class OnEnter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "events": "Events",
     }
@@ -721,8 +651,6 @@ class OnEnter(PropertyType):
 
 @dataclass
 class OnExit(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "events": "Events",
     }
@@ -732,8 +660,6 @@ class OnExit(PropertyType):
 
 @dataclass
 class OnInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "events": "Events",
         "transition_events": "TransitionEvents",
@@ -745,8 +671,6 @@ class OnInput(PropertyType):
 
 @dataclass
 class Payload(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_expression": "ContentExpression",
         "type_": "Type",
@@ -758,8 +682,6 @@ class Payload(PropertyType):
 
 @dataclass
 class ResetTimer(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timer_name": "TimerName",
     }
@@ -769,8 +691,6 @@ class ResetTimer(PropertyType):
 
 @dataclass
 class SetTimer(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "seconds": "Seconds",
         "timer_name": "TimerName",
@@ -784,8 +704,6 @@ class SetTimer(PropertyType):
 
 @dataclass
 class SetVariable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "variable_name": "VariableName",
@@ -797,8 +715,6 @@ class SetVariable(PropertyType):
 
 @dataclass
 class Sns(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_arn": "TargetArn",
         "payload": "Payload",
@@ -810,8 +726,6 @@ class Sns(PropertyType):
 
 @dataclass
 class Sqs(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "use_base64": "UseBase64",
         "payload": "Payload",
@@ -825,8 +739,6 @@ class Sqs(PropertyType):
 
 @dataclass
 class State(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_input": "OnInput",
         "on_exit": "OnExit",
@@ -842,8 +754,6 @@ class State(PropertyType):
 
 @dataclass
 class TransitionEvent(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "actions": "Actions",
@@ -884,8 +794,6 @@ class DetectorModel(CloudFormationResource):
 
 @dataclass
 class Attribute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "json_path": "JsonPath",
     }
@@ -895,8 +803,6 @@ class Attribute(PropertyType):
 
 @dataclass
 class InputDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attributes": "Attributes",
     }

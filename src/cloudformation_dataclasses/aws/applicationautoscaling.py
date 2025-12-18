@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:45
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ApplicationAutoScaling
@@ -27,8 +27,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ScalableTargetAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_capacity": "MinCapacity",
         "max_capacity": "MaxCapacity",
@@ -40,8 +38,6 @@ class ScalableTargetAction(PropertyType):
 
 @dataclass
 class ScheduledAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timezone": "Timezone",
         "scheduled_action_name": "ScheduledActionName",
@@ -61,8 +57,6 @@ class ScheduledAction(PropertyType):
 
 @dataclass
 class SuspendedState(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dynamic_scaling_out_suspended": "DynamicScalingOutSuspended",
         "scheduled_scaling_suspended": "ScheduledScalingSuspended",
@@ -109,8 +103,6 @@ class ScalableTarget(CloudFormationResource):
 
 @dataclass
 class CustomizedMetricSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "metrics": "Metrics",
@@ -130,8 +122,6 @@ class CustomizedMetricSpecification(PropertyType):
 
 @dataclass
 class MetricDimension(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -143,8 +133,6 @@ class MetricDimension(PropertyType):
 
 @dataclass
 class PredefinedMetricSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "predefined_metric_type": "PredefinedMetricType",
         "resource_label": "ResourceLabel",
@@ -156,8 +144,6 @@ class PredefinedMetricSpecification(PropertyType):
 
 @dataclass
 class PredictiveScalingCustomizedCapacityMetric(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_data_queries": "MetricDataQueries",
     }
@@ -167,8 +153,6 @@ class PredictiveScalingCustomizedCapacityMetric(PropertyType):
 
 @dataclass
 class PredictiveScalingCustomizedLoadMetric(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_data_queries": "MetricDataQueries",
     }
@@ -178,8 +162,6 @@ class PredictiveScalingCustomizedLoadMetric(PropertyType):
 
 @dataclass
 class PredictiveScalingCustomizedScalingMetric(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_data_queries": "MetricDataQueries",
     }
@@ -189,8 +171,6 @@ class PredictiveScalingCustomizedScalingMetric(PropertyType):
 
 @dataclass
 class PredictiveScalingMetric(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "dimensions": "Dimensions",
@@ -204,8 +184,6 @@ class PredictiveScalingMetric(PropertyType):
 
 @dataclass
 class PredictiveScalingMetricDataQuery(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "return_data": "ReturnData",
         "expression": "Expression",
@@ -223,8 +201,6 @@ class PredictiveScalingMetricDataQuery(PropertyType):
 
 @dataclass
 class PredictiveScalingMetricDimension(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -236,8 +212,6 @@ class PredictiveScalingMetricDimension(PropertyType):
 
 @dataclass
 class PredictiveScalingMetricSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "customized_load_metric_specification": "CustomizedLoadMetricSpecification",
         "predefined_load_metric_specification": "PredefinedLoadMetricSpecification",
@@ -259,8 +233,6 @@ class PredictiveScalingMetricSpecification(PropertyType):
 
 @dataclass
 class PredictiveScalingMetricStat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stat": "Stat",
         "metric": "Metric",
@@ -274,8 +246,6 @@ class PredictiveScalingMetricStat(PropertyType):
 
 @dataclass
 class PredictiveScalingPolicyConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_capacity_breach_behavior": "MaxCapacityBreachBehavior",
         "max_capacity_buffer": "MaxCapacityBuffer",
@@ -293,8 +263,6 @@ class PredictiveScalingPolicyConfiguration(PropertyType):
 
 @dataclass
 class PredictiveScalingPredefinedLoadMetric(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "predefined_metric_type": "PredefinedMetricType",
         "resource_label": "ResourceLabel",
@@ -306,8 +274,6 @@ class PredictiveScalingPredefinedLoadMetric(PropertyType):
 
 @dataclass
 class PredictiveScalingPredefinedMetricPair(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "predefined_metric_type": "PredefinedMetricType",
         "resource_label": "ResourceLabel",
@@ -319,8 +285,6 @@ class PredictiveScalingPredefinedMetricPair(PropertyType):
 
 @dataclass
 class PredictiveScalingPredefinedScalingMetric(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "predefined_metric_type": "PredefinedMetricType",
         "resource_label": "ResourceLabel",
@@ -332,8 +296,6 @@ class PredictiveScalingPredefinedScalingMetric(PropertyType):
 
 @dataclass
 class StepAdjustment(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_interval_upper_bound": "MetricIntervalUpperBound",
         "metric_interval_lower_bound": "MetricIntervalLowerBound",
@@ -347,8 +309,6 @@ class StepAdjustment(PropertyType):
 
 @dataclass
 class StepScalingPolicyConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_aggregation_type": "MetricAggregationType",
         "cooldown": "Cooldown",
@@ -366,8 +326,6 @@ class StepScalingPolicyConfiguration(PropertyType):
 
 @dataclass
 class TargetTrackingMetric(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "dimensions": "Dimensions",
@@ -381,8 +339,6 @@ class TargetTrackingMetric(PropertyType):
 
 @dataclass
 class TargetTrackingMetricDataQuery(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "return_data": "ReturnData",
         "expression": "Expression",
@@ -400,8 +356,6 @@ class TargetTrackingMetricDataQuery(PropertyType):
 
 @dataclass
 class TargetTrackingMetricDimension(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -413,8 +367,6 @@ class TargetTrackingMetricDimension(PropertyType):
 
 @dataclass
 class TargetTrackingMetricStat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stat": "Stat",
         "metric": "Metric",
@@ -428,8 +380,6 @@ class TargetTrackingMetricStat(PropertyType):
 
 @dataclass
 class TargetTrackingScalingPolicyConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scale_out_cooldown": "ScaleOutCooldown",
         "target_value": "TargetValue",

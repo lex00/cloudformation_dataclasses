@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Cassandra
@@ -27,8 +27,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ReplicationSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cas"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "replication_strategy": "ReplicationStrategy",
         "region_list": "RegionList",
@@ -59,8 +57,6 @@ class Keyspace(CloudFormationResource):
 
 @dataclass
 class AutoScalingSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cas"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maximum_units": "MaximumUnits",
         "scaling_policy": "ScalingPolicy",
@@ -76,8 +72,6 @@ class AutoScalingSetting(PropertyType):
 
 @dataclass
 class AutoScalingSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cas"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "read_capacity_auto_scaling": "ReadCapacityAutoScaling",
         "write_capacity_auto_scaling": "WriteCapacityAutoScaling",
@@ -89,8 +83,6 @@ class AutoScalingSpecification(PropertyType):
 
 @dataclass
 class BillingMode(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cas"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
         "provisioned_throughput": "ProvisionedThroughput",
@@ -102,8 +94,6 @@ class BillingMode(PropertyType):
 
 @dataclass
 class CdcSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cas"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "view_type": "ViewType",
@@ -117,8 +107,6 @@ class CdcSpecification(PropertyType):
 
 @dataclass
 class ClusteringKeyColumn(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cas"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "order_by": "OrderBy",
         "column": "Column",
@@ -130,8 +118,6 @@ class ClusteringKeyColumn(PropertyType):
 
 @dataclass
 class Column(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cas"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_name": "ColumnName",
         "column_type": "ColumnType",
@@ -143,8 +129,6 @@ class Column(PropertyType):
 
 @dataclass
 class EncryptionSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cas"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_type": "EncryptionType",
         "kms_key_identifier": "KmsKeyIdentifier",
@@ -156,8 +140,6 @@ class EncryptionSpecification(PropertyType):
 
 @dataclass
 class ProvisionedThroughput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cas"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "write_capacity_units": "WriteCapacityUnits",
         "read_capacity_units": "ReadCapacityUnits",
@@ -169,8 +151,6 @@ class ProvisionedThroughput(PropertyType):
 
 @dataclass
 class ReplicaSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cas"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "read_capacity_units": "ReadCapacityUnits",
         "region": "Region",
@@ -184,8 +164,6 @@ class ReplicaSpecification(PropertyType):
 
 @dataclass
 class ScalingPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cas"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_tracking_scaling_policy_configuration": "TargetTrackingScalingPolicyConfiguration",
     }
@@ -195,8 +173,6 @@ class ScalingPolicy(PropertyType):
 
 @dataclass
 class TargetTrackingScalingPolicyConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cas"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scale_out_cooldown": "ScaleOutCooldown",
         "target_value": "TargetValue",
@@ -212,8 +188,6 @@ class TargetTrackingScalingPolicyConfiguration(PropertyType):
 
 @dataclass
 class WarmThroughput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cas"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "read_units_per_second": "ReadUnitsPerSecond",
         "write_units_per_second": "WriteUnitsPerSecond",
@@ -266,8 +240,6 @@ class Table(CloudFormationResource):
 
 @dataclass
 class Field(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cas"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_name": "FieldName",
         "field_type": "FieldType",

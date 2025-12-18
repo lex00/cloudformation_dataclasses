@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service PCS
@@ -196,8 +196,6 @@ OTHER = ValidationExceptionReason.OTHER
 
 @dataclass
 class Accounting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_purge_time_in_days": "DefaultPurgeTimeInDays",
         "mode": "Mode",
@@ -209,8 +207,6 @@ class Accounting(PropertyType):
 
 @dataclass
 class AuthKey(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "secret_version": "SecretVersion",
@@ -222,8 +218,6 @@ class AuthKey(PropertyType):
 
 @dataclass
 class Endpoint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "public_ip_address": "PublicIpAddress",
         "type_": "Type",
@@ -241,8 +235,6 @@ class Endpoint(PropertyType):
 
 @dataclass
 class ErrorInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message": "Message",
         "code": "Code",
@@ -254,8 +246,6 @@ class ErrorInfo(PropertyType):
 
 @dataclass
 class JwtAuth(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "jwt_key": "JwtKey",
     }
@@ -265,8 +255,6 @@ class JwtAuth(PropertyType):
 
 @dataclass
 class JwtKey(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "secret_version": "SecretVersion",
@@ -278,8 +266,6 @@ class JwtKey(PropertyType):
 
 @dataclass
 class Networking(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_type": "NetworkType",
         "security_group_ids": "SecurityGroupIds",
@@ -293,8 +279,6 @@ class Networking(PropertyType):
 
 @dataclass
 class Scheduler(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "version": "Version",
@@ -306,8 +290,6 @@ class Scheduler(PropertyType):
 
 @dataclass
 class SlurmConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "jwt_auth": "JwtAuth",
         "accounting": "Accounting",
@@ -327,8 +309,6 @@ class SlurmConfiguration(PropertyType):
 
 @dataclass
 class SlurmCustomSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_value": "ParameterValue",
         "parameter_name": "ParameterName",
@@ -340,8 +320,6 @@ class SlurmCustomSetting(PropertyType):
 
 @dataclass
 class SlurmRest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
     }
@@ -400,8 +378,6 @@ class Cluster(CloudFormationResource):
 
 @dataclass
 class CustomLaunchTemplate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version": "Version",
         "template_id": "TemplateId",
@@ -413,8 +389,6 @@ class CustomLaunchTemplate(PropertyType):
 
 @dataclass
 class ErrorInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message": "Message",
         "code": "Code",
@@ -426,8 +400,6 @@ class ErrorInfo(PropertyType):
 
 @dataclass
 class InstanceConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_type": "InstanceType",
     }
@@ -437,8 +409,6 @@ class InstanceConfig(PropertyType):
 
 @dataclass
 class ScalingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_instance_count": "MaxInstanceCount",
         "min_instance_count": "MinInstanceCount",
@@ -450,8 +420,6 @@ class ScalingConfiguration(PropertyType):
 
 @dataclass
 class SlurmConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "slurm_custom_settings": "SlurmCustomSettings",
     }
@@ -461,8 +429,6 @@ class SlurmConfiguration(PropertyType):
 
 @dataclass
 class SlurmCustomSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_value": "ParameterValue",
         "parameter_name": "ParameterName",
@@ -474,8 +440,6 @@ class SlurmCustomSetting(PropertyType):
 
 @dataclass
 class SpotOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allocation_strategy": "AllocationStrategy",
     }
@@ -541,8 +505,6 @@ class ComputeNodeGroup(CloudFormationResource):
 
 @dataclass
 class ComputeNodeGroupConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compute_node_group_id": "ComputeNodeGroupId",
     }
@@ -552,8 +514,6 @@ class ComputeNodeGroupConfiguration(PropertyType):
 
 @dataclass
 class ErrorInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message": "Message",
         "code": "Code",
@@ -565,8 +525,6 @@ class ErrorInfo(PropertyType):
 
 @dataclass
 class SlurmConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "slurm_custom_settings": "SlurmCustomSettings",
     }
@@ -576,8 +534,6 @@ class SlurmConfiguration(PropertyType):
 
 @dataclass
 class SlurmCustomSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_value": "ParameterValue",
         "parameter_name": "ParameterName",

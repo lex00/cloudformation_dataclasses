@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:45
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AppMesh
@@ -260,8 +260,6 @@ DELETED = VirtualServiceStatusCode.DELETED
 
 @dataclass
 class GatewayRouteHostnameMatch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "suffix": "Suffix",
         "exact": "Exact",
@@ -273,8 +271,6 @@ class GatewayRouteHostnameMatch(PropertyType):
 
 @dataclass
 class GatewayRouteHostnameRewrite(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_target_hostname": "DefaultTargetHostname",
     }
@@ -284,8 +280,6 @@ class GatewayRouteHostnameRewrite(PropertyType):
 
 @dataclass
 class GatewayRouteMetadataMatch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "suffix": "Suffix",
         "regex": "Regex",
@@ -303,8 +297,6 @@ class GatewayRouteMetadataMatch(PropertyType):
 
 @dataclass
 class GatewayRouteRangeMatch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start": "Start",
         "end": "End",
@@ -316,8 +308,6 @@ class GatewayRouteRangeMatch(PropertyType):
 
 @dataclass
 class GatewayRouteSpec(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "http_route": "HttpRoute",
         "priority": "Priority",
@@ -333,8 +323,6 @@ class GatewayRouteSpec(PropertyType):
 
 @dataclass
 class GatewayRouteTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "virtual_service": "VirtualService",
@@ -346,8 +334,6 @@ class GatewayRouteTarget(PropertyType):
 
 @dataclass
 class GatewayRouteVirtualService(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "virtual_service_name": "VirtualServiceName",
     }
@@ -357,8 +343,6 @@ class GatewayRouteVirtualService(PropertyType):
 
 @dataclass
 class GrpcGatewayRoute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "match": "Match",
@@ -370,8 +354,6 @@ class GrpcGatewayRoute(PropertyType):
 
 @dataclass
 class GrpcGatewayRouteAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target": "Target",
         "rewrite": "Rewrite",
@@ -383,8 +365,6 @@ class GrpcGatewayRouteAction(PropertyType):
 
 @dataclass
 class GrpcGatewayRouteMatch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_name": "ServiceName",
         "port": "Port",
@@ -400,8 +380,6 @@ class GrpcGatewayRouteMatch(PropertyType):
 
 @dataclass
 class GrpcGatewayRouteMetadata(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "invert": "Invert",
         "name": "Name",
@@ -415,8 +393,6 @@ class GrpcGatewayRouteMetadata(PropertyType):
 
 @dataclass
 class GrpcGatewayRouteRewrite(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hostname": "Hostname",
     }
@@ -426,8 +402,6 @@ class GrpcGatewayRouteRewrite(PropertyType):
 
 @dataclass
 class HttpGatewayRoute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "match": "Match",
@@ -439,8 +413,6 @@ class HttpGatewayRoute(PropertyType):
 
 @dataclass
 class HttpGatewayRouteAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target": "Target",
         "rewrite": "Rewrite",
@@ -452,8 +424,6 @@ class HttpGatewayRouteAction(PropertyType):
 
 @dataclass
 class HttpGatewayRouteHeader(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "invert": "Invert",
         "name": "Name",
@@ -467,8 +437,6 @@ class HttpGatewayRouteHeader(PropertyType):
 
 @dataclass
 class HttpGatewayRouteHeaderMatch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "suffix": "Suffix",
         "regex": "Regex",
@@ -486,8 +454,6 @@ class HttpGatewayRouteHeaderMatch(PropertyType):
 
 @dataclass
 class HttpGatewayRouteMatch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "headers": "Headers",
@@ -509,8 +475,6 @@ class HttpGatewayRouteMatch(PropertyType):
 
 @dataclass
 class HttpGatewayRoutePathRewrite(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exact": "Exact",
     }
@@ -520,8 +484,6 @@ class HttpGatewayRoutePathRewrite(PropertyType):
 
 @dataclass
 class HttpGatewayRoutePrefixRewrite(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "default_prefix": "DefaultPrefix",
@@ -533,8 +495,6 @@ class HttpGatewayRoutePrefixRewrite(PropertyType):
 
 @dataclass
 class HttpGatewayRouteRewrite(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "hostname": "Hostname",
@@ -548,8 +508,6 @@ class HttpGatewayRouteRewrite(PropertyType):
 
 @dataclass
 class HttpPathMatch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "regex": "Regex",
         "exact": "Exact",
@@ -561,8 +519,6 @@ class HttpPathMatch(PropertyType):
 
 @dataclass
 class HttpQueryParameterMatch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exact": "Exact",
     }
@@ -572,8 +528,6 @@ class HttpQueryParameterMatch(PropertyType):
 
 @dataclass
 class QueryParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
         "match": "Match",
@@ -644,8 +598,6 @@ class GatewayRoute(CloudFormationResource):
 
 @dataclass
 class EgressFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -655,8 +607,6 @@ class EgressFilter(PropertyType):
 
 @dataclass
 class MeshServiceDiscovery(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_preference": "IpPreference",
     }
@@ -666,8 +616,6 @@ class MeshServiceDiscovery(PropertyType):
 
 @dataclass
 class MeshSpec(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "egress_filter": "EgressFilter",
         "service_discovery": "ServiceDiscovery",
@@ -722,8 +670,6 @@ class Mesh(CloudFormationResource):
 
 @dataclass
 class Duration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "unit": "Unit",
@@ -735,8 +681,6 @@ class Duration(PropertyType):
 
 @dataclass
 class GrpcRetryPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_retries": "MaxRetries",
         "per_retry_timeout": "PerRetryTimeout",
@@ -754,8 +698,6 @@ class GrpcRetryPolicy(PropertyType):
 
 @dataclass
 class GrpcRoute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "timeout": "Timeout",
@@ -771,8 +713,6 @@ class GrpcRoute(PropertyType):
 
 @dataclass
 class GrpcRouteAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "weighted_targets": "WeightedTargets",
     }
@@ -782,8 +722,6 @@ class GrpcRouteAction(PropertyType):
 
 @dataclass
 class GrpcRouteMatch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_name": "ServiceName",
         "port": "Port",
@@ -799,8 +737,6 @@ class GrpcRouteMatch(PropertyType):
 
 @dataclass
 class GrpcRouteMetadata(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "invert": "Invert",
         "name": "Name",
@@ -814,8 +750,6 @@ class GrpcRouteMetadata(PropertyType):
 
 @dataclass
 class GrpcRouteMetadataMatchMethod(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "suffix": "Suffix",
         "regex": "Regex",
@@ -833,8 +767,6 @@ class GrpcRouteMetadataMatchMethod(PropertyType):
 
 @dataclass
 class GrpcTimeout(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "per_request": "PerRequest",
         "idle": "Idle",
@@ -846,8 +778,6 @@ class GrpcTimeout(PropertyType):
 
 @dataclass
 class HeaderMatchMethod(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "suffix": "Suffix",
         "regex": "Regex",
@@ -865,8 +795,6 @@ class HeaderMatchMethod(PropertyType):
 
 @dataclass
 class HttpPathMatch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "regex": "Regex",
         "exact": "Exact",
@@ -878,8 +806,6 @@ class HttpPathMatch(PropertyType):
 
 @dataclass
 class HttpQueryParameterMatch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exact": "Exact",
     }
@@ -889,8 +815,6 @@ class HttpQueryParameterMatch(PropertyType):
 
 @dataclass
 class HttpRetryPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_retries": "MaxRetries",
         "per_retry_timeout": "PerRetryTimeout",
@@ -906,8 +830,6 @@ class HttpRetryPolicy(PropertyType):
 
 @dataclass
 class HttpRoute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "timeout": "Timeout",
@@ -923,8 +845,6 @@ class HttpRoute(PropertyType):
 
 @dataclass
 class HttpRouteAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "weighted_targets": "WeightedTargets",
     }
@@ -934,8 +854,6 @@ class HttpRouteAction(PropertyType):
 
 @dataclass
 class HttpRouteHeader(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "invert": "Invert",
         "name": "Name",
@@ -949,8 +867,6 @@ class HttpRouteHeader(PropertyType):
 
 @dataclass
 class HttpRouteMatch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "scheme": "Scheme",
@@ -972,8 +888,6 @@ class HttpRouteMatch(PropertyType):
 
 @dataclass
 class HttpTimeout(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "per_request": "PerRequest",
         "idle": "Idle",
@@ -985,8 +899,6 @@ class HttpTimeout(PropertyType):
 
 @dataclass
 class MatchRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start": "Start",
         "end": "End",
@@ -998,8 +910,6 @@ class MatchRange(PropertyType):
 
 @dataclass
 class QueryParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
         "match": "Match",
@@ -1011,8 +921,6 @@ class QueryParameter(PropertyType):
 
 @dataclass
 class RouteSpec(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "http_route": "HttpRoute",
         "priority": "Priority",
@@ -1030,8 +938,6 @@ class RouteSpec(PropertyType):
 
 @dataclass
 class TcpRoute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "timeout": "Timeout",
@@ -1045,8 +951,6 @@ class TcpRoute(PropertyType):
 
 @dataclass
 class TcpRouteAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "weighted_targets": "WeightedTargets",
     }
@@ -1056,8 +960,6 @@ class TcpRouteAction(PropertyType):
 
 @dataclass
 class TcpRouteMatch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
     }
@@ -1067,8 +969,6 @@ class TcpRouteMatch(PropertyType):
 
 @dataclass
 class TcpTimeout(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "idle": "Idle",
     }
@@ -1078,8 +978,6 @@ class TcpTimeout(PropertyType):
 
 @dataclass
 class WeightedTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "virtual_node": "VirtualNode",
         "port": "Port",
@@ -1152,8 +1050,6 @@ class Route(CloudFormationResource):
 
 @dataclass
 class JsonFormatRef(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -1165,8 +1061,6 @@ class JsonFormatRef(PropertyType):
 
 @dataclass
 class LoggingFormat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text": "Text",
         "json": "Json",
@@ -1178,8 +1072,6 @@ class LoggingFormat(PropertyType):
 
 @dataclass
 class SubjectAlternativeNameMatchers(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exact": "Exact",
     }
@@ -1189,8 +1081,6 @@ class SubjectAlternativeNameMatchers(PropertyType):
 
 @dataclass
 class SubjectAlternativeNames(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match": "Match",
     }
@@ -1200,8 +1090,6 @@ class SubjectAlternativeNames(PropertyType):
 
 @dataclass
 class VirtualGatewayAccessLog(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file": "File",
     }
@@ -1211,8 +1099,6 @@ class VirtualGatewayAccessLog(PropertyType):
 
 @dataclass
 class VirtualGatewayBackendDefaults(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_policy": "ClientPolicy",
     }
@@ -1222,8 +1108,6 @@ class VirtualGatewayBackendDefaults(PropertyType):
 
 @dataclass
 class VirtualGatewayClientPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tls": "TLS",
     }
@@ -1233,8 +1117,6 @@ class VirtualGatewayClientPolicy(PropertyType):
 
 @dataclass
 class VirtualGatewayClientPolicyTls(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "validation": "Validation",
         "enforce": "Enforce",
@@ -1250,8 +1132,6 @@ class VirtualGatewayClientPolicyTls(PropertyType):
 
 @dataclass
 class VirtualGatewayClientTlsCertificate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sds": "SDS",
         "file": "File",
@@ -1263,8 +1143,6 @@ class VirtualGatewayClientTlsCertificate(PropertyType):
 
 @dataclass
 class VirtualGatewayConnectionPool(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "http2": "HTTP2",
         "http": "HTTP",
@@ -1278,8 +1156,6 @@ class VirtualGatewayConnectionPool(PropertyType):
 
 @dataclass
 class VirtualGatewayFileAccessLog(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "format": "Format",
@@ -1291,8 +1167,6 @@ class VirtualGatewayFileAccessLog(PropertyType):
 
 @dataclass
 class VirtualGatewayGrpcConnectionPool(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_requests": "MaxRequests",
     }
@@ -1302,8 +1176,6 @@ class VirtualGatewayGrpcConnectionPool(PropertyType):
 
 @dataclass
 class VirtualGatewayHealthCheckPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "unhealthy_threshold": "UnhealthyThreshold",
@@ -1325,8 +1197,6 @@ class VirtualGatewayHealthCheckPolicy(PropertyType):
 
 @dataclass
 class VirtualGatewayHttp2ConnectionPool(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_requests": "MaxRequests",
     }
@@ -1336,8 +1206,6 @@ class VirtualGatewayHttp2ConnectionPool(PropertyType):
 
 @dataclass
 class VirtualGatewayHttpConnectionPool(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_connections": "MaxConnections",
         "max_pending_requests": "MaxPendingRequests",
@@ -1349,8 +1217,6 @@ class VirtualGatewayHttpConnectionPool(PropertyType):
 
 @dataclass
 class VirtualGatewayListener(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_pool": "ConnectionPool",
         "health_check": "HealthCheck",
@@ -1366,8 +1232,6 @@ class VirtualGatewayListener(PropertyType):
 
 @dataclass
 class VirtualGatewayListenerTls(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "validation": "Validation",
         "mode": "Mode",
@@ -1381,8 +1245,6 @@ class VirtualGatewayListenerTls(PropertyType):
 
 @dataclass
 class VirtualGatewayListenerTlsAcmCertificate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_arn": "CertificateArn",
     }
@@ -1392,8 +1254,6 @@ class VirtualGatewayListenerTlsAcmCertificate(PropertyType):
 
 @dataclass
 class VirtualGatewayListenerTlsCertificate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sds": "SDS",
         "acm": "ACM",
@@ -1407,8 +1267,6 @@ class VirtualGatewayListenerTlsCertificate(PropertyType):
 
 @dataclass
 class VirtualGatewayListenerTlsFileCertificate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "private_key": "PrivateKey",
         "certificate_chain": "CertificateChain",
@@ -1420,8 +1278,6 @@ class VirtualGatewayListenerTlsFileCertificate(PropertyType):
 
 @dataclass
 class VirtualGatewayListenerTlsSdsCertificate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_name": "SecretName",
     }
@@ -1431,8 +1287,6 @@ class VirtualGatewayListenerTlsSdsCertificate(PropertyType):
 
 @dataclass
 class VirtualGatewayListenerTlsValidationContext(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subject_alternative_names": "SubjectAlternativeNames",
         "trust": "Trust",
@@ -1444,8 +1298,6 @@ class VirtualGatewayListenerTlsValidationContext(PropertyType):
 
 @dataclass
 class VirtualGatewayListenerTlsValidationContextTrust(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sds": "SDS",
         "file": "File",
@@ -1457,8 +1309,6 @@ class VirtualGatewayListenerTlsValidationContextTrust(PropertyType):
 
 @dataclass
 class VirtualGatewayLogging(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_log": "AccessLog",
     }
@@ -1468,8 +1318,6 @@ class VirtualGatewayLogging(PropertyType):
 
 @dataclass
 class VirtualGatewayPortMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "protocol": "Protocol",
@@ -1481,8 +1329,6 @@ class VirtualGatewayPortMapping(PropertyType):
 
 @dataclass
 class VirtualGatewaySpec(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logging": "Logging",
         "listeners": "Listeners",
@@ -1496,8 +1342,6 @@ class VirtualGatewaySpec(PropertyType):
 
 @dataclass
 class VirtualGatewayTlsValidationContext(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subject_alternative_names": "SubjectAlternativeNames",
         "trust": "Trust",
@@ -1509,8 +1353,6 @@ class VirtualGatewayTlsValidationContext(PropertyType):
 
 @dataclass
 class VirtualGatewayTlsValidationContextAcmTrust(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_authority_arns": "CertificateAuthorityArns",
     }
@@ -1520,8 +1362,6 @@ class VirtualGatewayTlsValidationContextAcmTrust(PropertyType):
 
 @dataclass
 class VirtualGatewayTlsValidationContextFileTrust(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_chain": "CertificateChain",
     }
@@ -1531,8 +1371,6 @@ class VirtualGatewayTlsValidationContextFileTrust(PropertyType):
 
 @dataclass
 class VirtualGatewayTlsValidationContextSdsTrust(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_name": "SecretName",
     }
@@ -1542,8 +1380,6 @@ class VirtualGatewayTlsValidationContextSdsTrust(PropertyType):
 
 @dataclass
 class VirtualGatewayTlsValidationContextTrust(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sds": "SDS",
         "acm": "ACM",
@@ -1609,8 +1445,6 @@ class VirtualGateway(CloudFormationResource):
 
 @dataclass
 class AccessLog(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file": "File",
     }
@@ -1620,8 +1454,6 @@ class AccessLog(PropertyType):
 
 @dataclass
 class AwsCloudMapInstanceAttribute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -1633,8 +1465,6 @@ class AwsCloudMapInstanceAttribute(PropertyType):
 
 @dataclass
 class AwsCloudMapServiceDiscovery(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "namespace_name": "NamespaceName",
         "service_name": "ServiceName",
@@ -1650,8 +1480,6 @@ class AwsCloudMapServiceDiscovery(PropertyType):
 
 @dataclass
 class Backend(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "virtual_service": "VirtualService",
     }
@@ -1661,8 +1489,6 @@ class Backend(PropertyType):
 
 @dataclass
 class BackendDefaults(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_policy": "ClientPolicy",
     }
@@ -1672,8 +1498,6 @@ class BackendDefaults(PropertyType):
 
 @dataclass
 class ClientPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tls": "TLS",
     }
@@ -1683,8 +1507,6 @@ class ClientPolicy(PropertyType):
 
 @dataclass
 class ClientPolicyTls(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "validation": "Validation",
         "enforce": "Enforce",
@@ -1700,8 +1522,6 @@ class ClientPolicyTls(PropertyType):
 
 @dataclass
 class ClientTlsCertificate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sds": "SDS",
         "file": "File",
@@ -1713,8 +1533,6 @@ class ClientTlsCertificate(PropertyType):
 
 @dataclass
 class DnsServiceDiscovery(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_preference": "IpPreference",
         "hostname": "Hostname",
@@ -1728,8 +1546,6 @@ class DnsServiceDiscovery(PropertyType):
 
 @dataclass
 class Duration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "unit": "Unit",
@@ -1741,8 +1557,6 @@ class Duration(PropertyType):
 
 @dataclass
 class FileAccessLog(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "format": "Format",
@@ -1754,8 +1568,6 @@ class FileAccessLog(PropertyType):
 
 @dataclass
 class GrpcTimeout(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "per_request": "PerRequest",
         "idle": "Idle",
@@ -1767,8 +1579,6 @@ class GrpcTimeout(PropertyType):
 
 @dataclass
 class HealthCheck(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "unhealthy_threshold": "UnhealthyThreshold",
@@ -1790,8 +1600,6 @@ class HealthCheck(PropertyType):
 
 @dataclass
 class HttpTimeout(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "per_request": "PerRequest",
         "idle": "Idle",
@@ -1803,8 +1611,6 @@ class HttpTimeout(PropertyType):
 
 @dataclass
 class JsonFormatRef(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -1816,8 +1622,6 @@ class JsonFormatRef(PropertyType):
 
 @dataclass
 class Listener(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connection_pool": "ConnectionPool",
         "timeout": "Timeout",
@@ -1837,8 +1641,6 @@ class Listener(PropertyType):
 
 @dataclass
 class ListenerTimeout(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tcp": "TCP",
         "http2": "HTTP2",
@@ -1854,8 +1656,6 @@ class ListenerTimeout(PropertyType):
 
 @dataclass
 class ListenerTls(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "validation": "Validation",
         "mode": "Mode",
@@ -1869,8 +1669,6 @@ class ListenerTls(PropertyType):
 
 @dataclass
 class ListenerTlsAcmCertificate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_arn": "CertificateArn",
     }
@@ -1880,8 +1678,6 @@ class ListenerTlsAcmCertificate(PropertyType):
 
 @dataclass
 class ListenerTlsCertificate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sds": "SDS",
         "acm": "ACM",
@@ -1895,8 +1691,6 @@ class ListenerTlsCertificate(PropertyType):
 
 @dataclass
 class ListenerTlsFileCertificate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "private_key": "PrivateKey",
         "certificate_chain": "CertificateChain",
@@ -1908,8 +1702,6 @@ class ListenerTlsFileCertificate(PropertyType):
 
 @dataclass
 class ListenerTlsSdsCertificate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_name": "SecretName",
     }
@@ -1919,8 +1711,6 @@ class ListenerTlsSdsCertificate(PropertyType):
 
 @dataclass
 class ListenerTlsValidationContext(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subject_alternative_names": "SubjectAlternativeNames",
         "trust": "Trust",
@@ -1932,8 +1722,6 @@ class ListenerTlsValidationContext(PropertyType):
 
 @dataclass
 class ListenerTlsValidationContextTrust(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sds": "SDS",
         "file": "File",
@@ -1945,8 +1733,6 @@ class ListenerTlsValidationContextTrust(PropertyType):
 
 @dataclass
 class Logging(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_log": "AccessLog",
     }
@@ -1956,8 +1742,6 @@ class Logging(PropertyType):
 
 @dataclass
 class LoggingFormat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text": "Text",
         "json": "Json",
@@ -1969,8 +1753,6 @@ class LoggingFormat(PropertyType):
 
 @dataclass
 class OutlierDetection(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_ejection_percent": "MaxEjectionPercent",
         "base_ejection_duration": "BaseEjectionDuration",
@@ -1986,8 +1768,6 @@ class OutlierDetection(PropertyType):
 
 @dataclass
 class PortMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "protocol": "Protocol",
@@ -1999,8 +1779,6 @@ class PortMapping(PropertyType):
 
 @dataclass
 class ServiceDiscovery(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dns": "DNS",
         "aws_cloud_map": "AWSCloudMap",
@@ -2012,8 +1790,6 @@ class ServiceDiscovery(PropertyType):
 
 @dataclass
 class SubjectAlternativeNameMatchers(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exact": "Exact",
     }
@@ -2023,8 +1799,6 @@ class SubjectAlternativeNameMatchers(PropertyType):
 
 @dataclass
 class SubjectAlternativeNames(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match": "Match",
     }
@@ -2034,8 +1808,6 @@ class SubjectAlternativeNames(PropertyType):
 
 @dataclass
 class TcpTimeout(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "idle": "Idle",
     }
@@ -2045,8 +1817,6 @@ class TcpTimeout(PropertyType):
 
 @dataclass
 class TlsValidationContext(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subject_alternative_names": "SubjectAlternativeNames",
         "trust": "Trust",
@@ -2058,8 +1828,6 @@ class TlsValidationContext(PropertyType):
 
 @dataclass
 class TlsValidationContextAcmTrust(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_authority_arns": "CertificateAuthorityArns",
     }
@@ -2069,8 +1837,6 @@ class TlsValidationContextAcmTrust(PropertyType):
 
 @dataclass
 class TlsValidationContextFileTrust(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_chain": "CertificateChain",
     }
@@ -2080,8 +1846,6 @@ class TlsValidationContextFileTrust(PropertyType):
 
 @dataclass
 class TlsValidationContextSdsTrust(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_name": "SecretName",
     }
@@ -2091,8 +1855,6 @@ class TlsValidationContextSdsTrust(PropertyType):
 
 @dataclass
 class TlsValidationContextTrust(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sds": "SDS",
         "acm": "ACM",
@@ -2106,8 +1868,6 @@ class TlsValidationContextTrust(PropertyType):
 
 @dataclass
 class VirtualNodeConnectionPool(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tcp": "TCP",
         "http2": "HTTP2",
@@ -2123,8 +1883,6 @@ class VirtualNodeConnectionPool(PropertyType):
 
 @dataclass
 class VirtualNodeGrpcConnectionPool(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_requests": "MaxRequests",
     }
@@ -2134,8 +1892,6 @@ class VirtualNodeGrpcConnectionPool(PropertyType):
 
 @dataclass
 class VirtualNodeHttp2ConnectionPool(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_requests": "MaxRequests",
     }
@@ -2145,8 +1901,6 @@ class VirtualNodeHttp2ConnectionPool(PropertyType):
 
 @dataclass
 class VirtualNodeHttpConnectionPool(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_connections": "MaxConnections",
         "max_pending_requests": "MaxPendingRequests",
@@ -2158,8 +1912,6 @@ class VirtualNodeHttpConnectionPool(PropertyType):
 
 @dataclass
 class VirtualNodeSpec(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logging": "Logging",
         "backends": "Backends",
@@ -2177,8 +1929,6 @@ class VirtualNodeSpec(PropertyType):
 
 @dataclass
 class VirtualNodeTcpConnectionPool(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_connections": "MaxConnections",
     }
@@ -2188,8 +1938,6 @@ class VirtualNodeTcpConnectionPool(PropertyType):
 
 @dataclass
 class VirtualServiceBackend(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_policy": "ClientPolicy",
         "virtual_service_name": "VirtualServiceName",
@@ -2253,8 +2001,6 @@ class VirtualNode(CloudFormationResource):
 
 @dataclass
 class PortMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "protocol": "Protocol",
@@ -2266,8 +2012,6 @@ class PortMapping(PropertyType):
 
 @dataclass
 class VirtualRouterListener(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port_mapping": "PortMapping",
     }
@@ -2277,8 +2021,6 @@ class VirtualRouterListener(PropertyType):
 
 @dataclass
 class VirtualRouterSpec(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "listeners": "Listeners",
     }
@@ -2340,8 +2082,6 @@ class VirtualRouter(CloudFormationResource):
 
 @dataclass
 class VirtualNodeServiceProvider(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "virtual_node_name": "VirtualNodeName",
     }
@@ -2351,8 +2091,6 @@ class VirtualNodeServiceProvider(PropertyType):
 
 @dataclass
 class VirtualRouterServiceProvider(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "virtual_router_name": "VirtualRouterName",
     }
@@ -2362,8 +2100,6 @@ class VirtualRouterServiceProvider(PropertyType):
 
 @dataclass
 class VirtualServiceProvider(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "virtual_node": "VirtualNode",
         "virtual_router": "VirtualRouter",
@@ -2375,8 +2111,6 @@ class VirtualServiceProvider(PropertyType):
 
 @dataclass
 class VirtualServiceSpec(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "provider": "Provider",
     }

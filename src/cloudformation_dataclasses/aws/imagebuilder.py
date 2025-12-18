@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ImageBuilder
@@ -462,8 +462,6 @@ DISTRIBUTION = WorkflowType.DISTRIBUTION
 
 @dataclass
 class LatestVersion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "major": "Major",
         "minor": "Minor",
@@ -556,8 +554,6 @@ class Component(CloudFormationResource):
 
 @dataclass
 class ComponentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameters": "Parameters",
         "component_arn": "ComponentArn",
@@ -569,8 +565,6 @@ class ComponentConfiguration(PropertyType):
 
 @dataclass
 class ComponentParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -582,8 +576,6 @@ class ComponentParameter(PropertyType):
 
 @dataclass
 class EbsInstanceBlockDeviceSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "snapshot_id": "SnapshotId",
         "volume_type": "VolumeType",
@@ -607,8 +599,6 @@ class EbsInstanceBlockDeviceSpecification(PropertyType):
 
 @dataclass
 class InstanceBlockDeviceMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ebs": "Ebs",
         "no_device": "NoDevice",
@@ -624,8 +614,6 @@ class InstanceBlockDeviceMapping(PropertyType):
 
 @dataclass
 class InstanceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "block_device_mappings": "BlockDeviceMappings",
         "image": "Image",
@@ -637,8 +625,6 @@ class InstanceConfiguration(PropertyType):
 
 @dataclass
 class LatestVersion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "major": "Major",
         "minor": "Minor",
@@ -654,8 +640,6 @@ class LatestVersion(PropertyType):
 
 @dataclass
 class TargetContainerRepository(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service": "Service",
         "repository_name": "RepositoryName",
@@ -744,8 +728,6 @@ class ContainerRecipe(CloudFormationResource):
 
 @dataclass
 class AmiDistributionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ami_tags": "AmiTags",
         "description": "Description",
@@ -765,8 +747,6 @@ class AmiDistributionConfiguration(PropertyType):
 
 @dataclass
 class ContainerDistributionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_repository": "TargetRepository",
         "container_tags": "ContainerTags",
@@ -780,8 +760,6 @@ class ContainerDistributionConfiguration(PropertyType):
 
 @dataclass
 class Distribution(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ami_distribution_configuration": "AmiDistributionConfiguration",
         "container_distribution_configuration": "ContainerDistributionConfiguration",
@@ -803,8 +781,6 @@ class Distribution(PropertyType):
 
 @dataclass
 class FastLaunchConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account_id": "AccountId",
         "launch_template": "LaunchTemplate",
@@ -822,8 +798,6 @@ class FastLaunchConfiguration(PropertyType):
 
 @dataclass
 class FastLaunchLaunchTemplateSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "launch_template_name": "LaunchTemplateName",
         "launch_template_version": "LaunchTemplateVersion",
@@ -837,8 +811,6 @@ class FastLaunchLaunchTemplateSpecification(PropertyType):
 
 @dataclass
 class FastLaunchSnapshotConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_resource_count": "TargetResourceCount",
     }
@@ -848,8 +820,6 @@ class FastLaunchSnapshotConfiguration(PropertyType):
 
 @dataclass
 class LaunchPermissionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "organization_arns": "OrganizationArns",
         "organizational_unit_arns": "OrganizationalUnitArns",
@@ -865,8 +835,6 @@ class LaunchPermissionConfiguration(PropertyType):
 
 @dataclass
 class LaunchTemplateConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "set_default_version": "SetDefaultVersion",
         "account_id": "AccountId",
@@ -880,8 +848,6 @@ class LaunchTemplateConfiguration(PropertyType):
 
 @dataclass
 class SsmParameterConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_type": "DataType",
         "parameter_name": "ParameterName",
@@ -895,8 +861,6 @@ class SsmParameterConfiguration(PropertyType):
 
 @dataclass
 class TargetContainerRepository(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service": "Service",
         "repository_name": "RepositoryName",
@@ -938,8 +902,6 @@ class DistributionConfiguration(CloudFormationResource):
 
 @dataclass
 class DeletionSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "execution_role": "ExecutionRole",
     }
@@ -949,8 +911,6 @@ class DeletionSettings(PropertyType):
 
 @dataclass
 class EcrConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_tags": "ContainerTags",
         "repository_name": "RepositoryName",
@@ -962,8 +922,6 @@ class EcrConfiguration(PropertyType):
 
 @dataclass
 class ImageLoggingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group_name": "LogGroupName",
     }
@@ -973,8 +931,6 @@ class ImageLoggingConfiguration(PropertyType):
 
 @dataclass
 class ImagePipelineExecutionSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "deployment_id": "DeploymentId",
         "on_update": "OnUpdate",
@@ -986,8 +942,6 @@ class ImagePipelineExecutionSettings(PropertyType):
 
 @dataclass
 class ImageScanningConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ecr_configuration": "EcrConfiguration",
         "image_scanning_enabled": "ImageScanningEnabled",
@@ -999,8 +953,6 @@ class ImageScanningConfiguration(PropertyType):
 
 @dataclass
 class ImageTestsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timeout_minutes": "TimeoutMinutes",
         "image_tests_enabled": "ImageTestsEnabled",
@@ -1012,8 +964,6 @@ class ImageTestsConfiguration(PropertyType):
 
 @dataclass
 class LatestVersion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "major": "Major",
         "minor": "Minor",
@@ -1029,8 +979,6 @@ class LatestVersion(PropertyType):
 
 @dataclass
 class WorkflowConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parallel_group": "ParallelGroup",
         "parameters": "Parameters",
@@ -1046,8 +994,6 @@ class WorkflowConfiguration(PropertyType):
 
 @dataclass
 class WorkflowParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -1142,8 +1088,6 @@ class Image(CloudFormationResource):
 
 @dataclass
 class AutoDisablePolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "failure_count": "FailureCount",
     }
@@ -1153,8 +1097,6 @@ class AutoDisablePolicy(PropertyType):
 
 @dataclass
 class EcrConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_tags": "ContainerTags",
         "repository_name": "RepositoryName",
@@ -1166,8 +1108,6 @@ class EcrConfiguration(PropertyType):
 
 @dataclass
 class ImageScanningConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ecr_configuration": "EcrConfiguration",
         "image_scanning_enabled": "ImageScanningEnabled",
@@ -1179,8 +1119,6 @@ class ImageScanningConfiguration(PropertyType):
 
 @dataclass
 class ImageTestsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timeout_minutes": "TimeoutMinutes",
         "image_tests_enabled": "ImageTestsEnabled",
@@ -1192,8 +1130,6 @@ class ImageTestsConfiguration(PropertyType):
 
 @dataclass
 class PipelineLoggingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pipeline_log_group_name": "PipelineLogGroupName",
         "image_log_group_name": "ImageLogGroupName",
@@ -1205,8 +1141,6 @@ class PipelineLoggingConfiguration(PropertyType):
 
 @dataclass
 class Schedule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schedule_expression": "ScheduleExpression",
         "pipeline_execution_start_condition": "PipelineExecutionStartCondition",
@@ -1220,8 +1154,6 @@ class Schedule(PropertyType):
 
 @dataclass
 class WorkflowConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parallel_group": "ParallelGroup",
         "parameters": "Parameters",
@@ -1237,8 +1169,6 @@ class WorkflowConfiguration(PropertyType):
 
 @dataclass
 class WorkflowParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -1307,8 +1237,6 @@ class ImagePipeline(CloudFormationResource):
 
 @dataclass
 class AdditionalInstanceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_data_override": "UserDataOverride",
         "systems_manager_agent": "SystemsManagerAgent",
@@ -1320,8 +1248,6 @@ class AdditionalInstanceConfiguration(PropertyType):
 
 @dataclass
 class ComponentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameters": "Parameters",
         "component_arn": "ComponentArn",
@@ -1333,8 +1259,6 @@ class ComponentConfiguration(PropertyType):
 
 @dataclass
 class ComponentParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -1346,8 +1270,6 @@ class ComponentParameter(PropertyType):
 
 @dataclass
 class EbsInstanceBlockDeviceSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "snapshot_id": "SnapshotId",
         "volume_type": "VolumeType",
@@ -1371,8 +1293,6 @@ class EbsInstanceBlockDeviceSpecification(PropertyType):
 
 @dataclass
 class InstanceBlockDeviceMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ebs": "Ebs",
         "no_device": "NoDevice",
@@ -1388,8 +1308,6 @@ class InstanceBlockDeviceMapping(PropertyType):
 
 @dataclass
 class LatestVersion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "major": "Major",
         "minor": "Minor",
@@ -1405,8 +1323,6 @@ class LatestVersion(PropertyType):
 
 @dataclass
 class SystemsManagerAgent(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "uninstall_after_build": "UninstallAfterBuild",
     }
@@ -1483,8 +1399,6 @@ class ImageRecipe(CloudFormationResource):
 
 @dataclass
 class InstanceMetadataOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "http_put_response_hop_limit": "HttpPutResponseHopLimit",
         "http_tokens": "HttpTokens",
@@ -1496,8 +1410,6 @@ class InstanceMetadataOptions(PropertyType):
 
 @dataclass
 class Logging(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_logs": "S3Logs",
     }
@@ -1507,8 +1419,6 @@ class Logging(PropertyType):
 
 @dataclass
 class Placement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tenancy": "Tenancy",
         "availability_zone": "AvailabilityZone",
@@ -1524,8 +1434,6 @@ class Placement(PropertyType):
 
 @dataclass
 class S3Logs(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_key_prefix": "S3KeyPrefix",
         "s3_bucket_name": "S3BucketName",
@@ -1587,8 +1495,6 @@ class InfrastructureConfiguration(CloudFormationResource):
 
 @dataclass
 class Action(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "include_resources": "IncludeResources",
@@ -1600,8 +1506,6 @@ class Action(PropertyType):
 
 @dataclass
 class AmiExclusionRules(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_public": "IsPublic",
         "last_launched": "LastLaunched",
@@ -1619,8 +1523,6 @@ class AmiExclusionRules(PropertyType):
 
 @dataclass
 class ExclusionRules(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "amis": "Amis",
         "tag_map": "TagMap",
@@ -1632,8 +1534,6 @@ class ExclusionRules(PropertyType):
 
 @dataclass
 class Filter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -1649,8 +1549,6 @@ class Filter(PropertyType):
 
 @dataclass
 class IncludeResources(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "containers": "Containers",
         "amis": "Amis",
@@ -1664,8 +1562,6 @@ class IncludeResources(PropertyType):
 
 @dataclass
 class LastLaunched(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "unit": "Unit",
@@ -1677,8 +1573,6 @@ class LastLaunched(PropertyType):
 
 @dataclass
 class PolicyDetail(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "exclusion_rules": "ExclusionRules",
@@ -1692,8 +1586,6 @@ class PolicyDetail(PropertyType):
 
 @dataclass
 class RecipeSelection(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
         "semantic_version": "SemanticVersion",
@@ -1705,8 +1597,6 @@ class RecipeSelection(PropertyType):
 
 @dataclass
 class ResourceSelection(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "recipes": "Recipes",
         "tag_map": "TagMap",
@@ -1751,8 +1641,6 @@ class LifecyclePolicy(CloudFormationResource):
 
 @dataclass
 class LatestVersion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ima"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "major": "Major",
         "minor": "Minor",

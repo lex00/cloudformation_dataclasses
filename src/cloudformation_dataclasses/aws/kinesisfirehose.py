@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service KinesisFirehose
@@ -429,8 +429,6 @@ ALLEVENTS = SplunkS3BackupMode.ALLEVENTS
 
 @dataclass
 class AmazonOpenSearchServerlessBufferingHints(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interval_in_seconds": "IntervalInSeconds",
         "size_in_m_bs": "SizeInMBs",
@@ -442,8 +440,6 @@ class AmazonOpenSearchServerlessBufferingHints(PropertyType):
 
 @dataclass
 class AmazonOpenSearchServerlessDestinationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "index_name": "IndexName",
         "s3_configuration": "S3Configuration",
@@ -471,8 +467,6 @@ class AmazonOpenSearchServerlessDestinationConfiguration(PropertyType):
 
 @dataclass
 class AmazonOpenSearchServerlessRetryOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration_in_seconds": "DurationInSeconds",
     }
@@ -482,8 +476,6 @@ class AmazonOpenSearchServerlessRetryOptions(PropertyType):
 
 @dataclass
 class AmazonopensearchserviceBufferingHints(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interval_in_seconds": "IntervalInSeconds",
         "size_in_m_bs": "SizeInMBs",
@@ -495,8 +487,6 @@ class AmazonopensearchserviceBufferingHints(PropertyType):
 
 @dataclass
 class AmazonopensearchserviceDestinationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_name": "TypeName",
         "index_rotation_period": "IndexRotationPeriod",
@@ -532,8 +522,6 @@ class AmazonopensearchserviceDestinationConfiguration(PropertyType):
 
 @dataclass
 class AmazonopensearchserviceRetryOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration_in_seconds": "DurationInSeconds",
     }
@@ -543,8 +531,6 @@ class AmazonopensearchserviceRetryOptions(PropertyType):
 
 @dataclass
 class AuthenticationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connectivity": "Connectivity",
         "role_arn": "RoleARN",
@@ -556,8 +542,6 @@ class AuthenticationConfiguration(PropertyType):
 
 @dataclass
 class BufferingHints(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interval_in_seconds": "IntervalInSeconds",
         "size_in_m_bs": "SizeInMBs",
@@ -569,8 +553,6 @@ class BufferingHints(PropertyType):
 
 @dataclass
 class CatalogConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "catalog_arn": "CatalogArn",
         "warehouse_location": "WarehouseLocation",
@@ -582,8 +564,6 @@ class CatalogConfiguration(PropertyType):
 
 @dataclass
 class CloudWatchLoggingOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_stream_name": "LogStreamName",
         "enabled": "Enabled",
@@ -597,8 +577,6 @@ class CloudWatchLoggingOptions(PropertyType):
 
 @dataclass
 class CopyCommand(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_table_name": "DataTableName",
         "copy_options": "CopyOptions",
@@ -612,8 +590,6 @@ class CopyCommand(PropertyType):
 
 @dataclass
 class DataFormatConversionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_format_configuration": "InputFormatConfiguration",
         "enabled": "Enabled",
@@ -629,8 +605,6 @@ class DataFormatConversionConfiguration(PropertyType):
 
 @dataclass
 class DatabaseColumns(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclude": "Exclude",
         "include": "Include",
@@ -642,8 +616,6 @@ class DatabaseColumns(PropertyType):
 
 @dataclass
 class DatabaseSourceAuthenticationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secrets_manager_configuration": "SecretsManagerConfiguration",
     }
@@ -653,8 +625,6 @@ class DatabaseSourceAuthenticationConfiguration(PropertyType):
 
 @dataclass
 class DatabaseSourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "digest": "Digest",
         "port": "Port",
@@ -688,8 +658,6 @@ class DatabaseSourceConfiguration(PropertyType):
 
 @dataclass
 class DatabaseSourceVPCConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_endpoint_service_name": "VpcEndpointServiceName",
     }
@@ -699,8 +667,6 @@ class DatabaseSourceVPCConfiguration(PropertyType):
 
 @dataclass
 class DatabaseTables(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclude": "Exclude",
         "include": "Include",
@@ -712,8 +678,6 @@ class DatabaseTables(PropertyType):
 
 @dataclass
 class Databases(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclude": "Exclude",
         "include": "Include",
@@ -725,8 +689,6 @@ class Databases(PropertyType):
 
 @dataclass
 class DeliveryStreamEncryptionConfigurationInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_type": "KeyType",
         "key_arn": "KeyARN",
@@ -738,8 +700,6 @@ class DeliveryStreamEncryptionConfigurationInput(PropertyType):
 
 @dataclass
 class Deserializer(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hive_json_ser_de": "HiveJsonSerDe",
         "open_x_json_ser_de": "OpenXJsonSerDe",
@@ -751,8 +711,6 @@ class Deserializer(PropertyType):
 
 @dataclass
 class DestinationTableConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_database_name": "DestinationDatabaseName",
         "s3_error_output_prefix": "S3ErrorOutputPrefix",
@@ -770,8 +728,6 @@ class DestinationTableConfiguration(PropertyType):
 
 @dataclass
 class DirectPutSourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "throughput_hint_in_m_bs": "ThroughputHintInMBs",
     }
@@ -781,8 +737,6 @@ class DirectPutSourceConfiguration(PropertyType):
 
 @dataclass
 class DocumentIdOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_document_id_format": "DefaultDocumentIdFormat",
     }
@@ -792,8 +746,6 @@ class DocumentIdOptions(PropertyType):
 
 @dataclass
 class DynamicPartitioningConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "retry_options": "RetryOptions",
@@ -805,8 +757,6 @@ class DynamicPartitioningConfiguration(PropertyType):
 
 @dataclass
 class ElasticsearchBufferingHints(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interval_in_seconds": "IntervalInSeconds",
         "size_in_m_bs": "SizeInMBs",
@@ -818,8 +768,6 @@ class ElasticsearchBufferingHints(PropertyType):
 
 @dataclass
 class ElasticsearchDestinationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_name": "TypeName",
         "index_rotation_period": "IndexRotationPeriod",
@@ -855,8 +803,6 @@ class ElasticsearchDestinationConfiguration(PropertyType):
 
 @dataclass
 class ElasticsearchRetryOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration_in_seconds": "DurationInSeconds",
     }
@@ -866,8 +812,6 @@ class ElasticsearchRetryOptions(PropertyType):
 
 @dataclass
 class EncryptionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_encryption_config": "KMSEncryptionConfig",
         "no_encryption_config": "NoEncryptionConfig",
@@ -879,8 +823,6 @@ class EncryptionConfiguration(PropertyType):
 
 @dataclass
 class ExtendedS3DestinationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "error_output_prefix": "ErrorOutputPrefix",
         "s3_backup_configuration": "S3BackupConfiguration",
@@ -918,8 +860,6 @@ class ExtendedS3DestinationConfiguration(PropertyType):
 
 @dataclass
 class HiveJsonSerDe(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timestamp_formats": "TimestampFormats",
     }
@@ -929,8 +869,6 @@ class HiveJsonSerDe(PropertyType):
 
 @dataclass
 class HttpEndpointCommonAttribute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_value": "AttributeValue",
         "attribute_name": "AttributeName",
@@ -942,8 +880,6 @@ class HttpEndpointCommonAttribute(PropertyType):
 
 @dataclass
 class HttpEndpointConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_key": "AccessKey",
         "url": "Url",
@@ -957,8 +893,6 @@ class HttpEndpointConfiguration(PropertyType):
 
 @dataclass
 class HttpEndpointDestinationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "request_configuration": "RequestConfiguration",
         "s3_configuration": "S3Configuration",
@@ -986,8 +920,6 @@ class HttpEndpointDestinationConfiguration(PropertyType):
 
 @dataclass
 class HttpEndpointRequestConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "common_attributes": "CommonAttributes",
         "content_encoding": "ContentEncoding",
@@ -999,8 +931,6 @@ class HttpEndpointRequestConfiguration(PropertyType):
 
 @dataclass
 class IcebergDestinationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "catalog_configuration": "CatalogConfiguration",
         "s3_configuration": "S3Configuration",
@@ -1032,8 +962,6 @@ class IcebergDestinationConfiguration(PropertyType):
 
 @dataclass
 class InputFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "deserializer": "Deserializer",
     }
@@ -1043,8 +971,6 @@ class InputFormatConfiguration(PropertyType):
 
 @dataclass
 class KMSEncryptionConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "awskms_key_arn": "AWSKMSKeyARN",
     }
@@ -1054,8 +980,6 @@ class KMSEncryptionConfig(PropertyType):
 
 @dataclass
 class KinesisStreamSourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kinesis_stream_arn": "KinesisStreamARN",
         "role_arn": "RoleARN",
@@ -1067,8 +991,6 @@ class KinesisStreamSourceConfiguration(PropertyType):
 
 @dataclass
 class MSKSourceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authentication_configuration": "AuthenticationConfiguration",
         "read_from_timestamp": "ReadFromTimestamp",
@@ -1084,8 +1006,6 @@ class MSKSourceConfiguration(PropertyType):
 
 @dataclass
 class OpenXJsonSerDe(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "convert_dots_in_json_keys_to_underscores": "ConvertDotsInJsonKeysToUnderscores",
         "column_to_json_key_mappings": "ColumnToJsonKeyMappings",
@@ -1099,8 +1019,6 @@ class OpenXJsonSerDe(PropertyType):
 
 @dataclass
 class OrcSerDe(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "padding_tolerance": "PaddingTolerance",
         "compression": "Compression",
@@ -1128,8 +1046,6 @@ class OrcSerDe(PropertyType):
 
 @dataclass
 class OutputFormatConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "serializer": "Serializer",
     }
@@ -1139,8 +1055,6 @@ class OutputFormatConfiguration(PropertyType):
 
 @dataclass
 class ParquetSerDe(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compression": "Compression",
         "block_size_bytes": "BlockSizeBytes",
@@ -1160,8 +1074,6 @@ class ParquetSerDe(PropertyType):
 
 @dataclass
 class PartitionField(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_name": "SourceName",
     }
@@ -1171,8 +1083,6 @@ class PartitionField(PropertyType):
 
 @dataclass
 class PartitionSpec(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "identity": "Identity",
     }
@@ -1182,8 +1092,6 @@ class PartitionSpec(PropertyType):
 
 @dataclass
 class ProcessingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "processors": "Processors",
@@ -1195,8 +1103,6 @@ class ProcessingConfiguration(PropertyType):
 
 @dataclass
 class Processor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "parameters": "Parameters",
@@ -1208,8 +1114,6 @@ class Processor(PropertyType):
 
 @dataclass
 class ProcessorParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_value": "ParameterValue",
         "parameter_name": "ParameterName",
@@ -1221,8 +1125,6 @@ class ProcessorParameter(PropertyType):
 
 @dataclass
 class RedshiftDestinationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_backup_configuration": "S3BackupConfiguration",
         "s3_configuration": "S3Configuration",
@@ -1254,8 +1156,6 @@ class RedshiftDestinationConfiguration(PropertyType):
 
 @dataclass
 class RedshiftRetryOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration_in_seconds": "DurationInSeconds",
     }
@@ -1265,8 +1165,6 @@ class RedshiftRetryOptions(PropertyType):
 
 @dataclass
 class RetryOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration_in_seconds": "DurationInSeconds",
     }
@@ -1276,8 +1174,6 @@ class RetryOptions(PropertyType):
 
 @dataclass
 class S3DestinationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "error_output_prefix": "ErrorOutputPrefix",
         "bucket_arn": "BucketARN",
@@ -1301,8 +1197,6 @@ class S3DestinationConfiguration(PropertyType):
 
 @dataclass
 class SchemaConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "version_id": "VersionId",
         "table_name": "TableName",
@@ -1322,8 +1216,6 @@ class SchemaConfiguration(PropertyType):
 
 @dataclass
 class SchemaEvolutionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -1333,8 +1225,6 @@ class SchemaEvolutionConfiguration(PropertyType):
 
 @dataclass
 class SecretsManagerConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretARN",
         "enabled": "Enabled",
@@ -1348,8 +1238,6 @@ class SecretsManagerConfiguration(PropertyType):
 
 @dataclass
 class Serializer(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "orc_ser_de": "OrcSerDe",
         "parquet_ser_de": "ParquetSerDe",
@@ -1361,8 +1249,6 @@ class Serializer(PropertyType):
 
 @dataclass
 class SnowflakeBufferingHints(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interval_in_seconds": "IntervalInSeconds",
         "size_in_m_bs": "SizeInMBs",
@@ -1374,8 +1260,6 @@ class SnowflakeBufferingHints(PropertyType):
 
 @dataclass
 class SnowflakeDestinationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "private_key": "PrivateKey",
         "user": "User",
@@ -1423,8 +1307,6 @@ class SnowflakeDestinationConfiguration(PropertyType):
 
 @dataclass
 class SnowflakeRetryOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration_in_seconds": "DurationInSeconds",
     }
@@ -1434,8 +1316,6 @@ class SnowflakeRetryOptions(PropertyType):
 
 @dataclass
 class SnowflakeRoleConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "snowflake_role": "SnowflakeRole",
         "enabled": "Enabled",
@@ -1447,8 +1327,6 @@ class SnowflakeRoleConfiguration(PropertyType):
 
 @dataclass
 class SnowflakeVpcConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "private_link_vpce_id": "PrivateLinkVpceId",
     }
@@ -1458,8 +1336,6 @@ class SnowflakeVpcConfiguration(PropertyType):
 
 @dataclass
 class SplunkBufferingHints(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interval_in_seconds": "IntervalInSeconds",
         "size_in_m_bs": "SizeInMBs",
@@ -1471,8 +1347,6 @@ class SplunkBufferingHints(PropertyType):
 
 @dataclass
 class SplunkDestinationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hec_endpoint": "HECEndpoint",
         "s3_configuration": "S3Configuration",
@@ -1502,8 +1376,6 @@ class SplunkDestinationConfiguration(PropertyType):
 
 @dataclass
 class SplunkRetryOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration_in_seconds": "DurationInSeconds",
     }
@@ -1513,8 +1385,6 @@ class SplunkRetryOptions(PropertyType):
 
 @dataclass
 class TableCreationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -1524,8 +1394,6 @@ class TableCreationConfiguration(PropertyType):
 
 @dataclass
 class VpcConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnet_ids": "SubnetIds",
         "security_group_ids": "SecurityGroupIds",

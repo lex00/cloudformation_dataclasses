@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service S3
@@ -904,8 +904,6 @@ GROUP = Type.GROUP
 
 @dataclass
 class AccessGrantsLocationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_sub_prefix": "S3SubPrefix",
     }
@@ -915,8 +913,6 @@ class AccessGrantsLocationConfiguration(PropertyType):
 
 @dataclass
 class Grantee(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "grantee_type": "GranteeType",
         "grantee_identifier": "GranteeIdentifier",
@@ -1023,8 +1019,6 @@ class AccessGrantsLocation(CloudFormationResource):
 
 @dataclass
 class PublicAccessBlockConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "restrict_public_buckets": "RestrictPublicBuckets",
         "block_public_policy": "BlockPublicPolicy",
@@ -1040,8 +1034,6 @@ class PublicAccessBlockConfiguration(PropertyType):
 
 @dataclass
 class VpcConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_id": "VpcId",
     }
@@ -1097,8 +1089,6 @@ class AccessPoint(CloudFormationResource):
 
 @dataclass
 class AbortIncompleteMultipartUpload(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "days_after_initiation": "DaysAfterInitiation",
     }
@@ -1108,8 +1098,6 @@ class AbortIncompleteMultipartUpload(PropertyType):
 
 @dataclass
 class AccelerateConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "acceleration_status": "AccelerationStatus",
     }
@@ -1119,8 +1107,6 @@ class AccelerateConfiguration(PropertyType):
 
 @dataclass
 class AccessControlTranslation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "owner": "Owner",
     }
@@ -1130,8 +1116,6 @@ class AccessControlTranslation(PropertyType):
 
 @dataclass
 class AnalyticsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_class_analysis": "StorageClassAnalysis",
         "tag_filters": "TagFilters",
@@ -1147,8 +1131,6 @@ class AnalyticsConfiguration(PropertyType):
 
 @dataclass
 class BlockedEncryptionTypes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_type": "EncryptionType",
     }
@@ -1158,8 +1140,6 @@ class BlockedEncryptionTypes(PropertyType):
 
 @dataclass
 class BucketEncryption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "server_side_encryption_configuration": "ServerSideEncryptionConfiguration",
     }
@@ -1169,8 +1149,6 @@ class BucketEncryption(PropertyType):
 
 @dataclass
 class CorsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cors_rules": "CorsRules",
     }
@@ -1180,8 +1158,6 @@ class CorsConfiguration(PropertyType):
 
 @dataclass
 class CorsRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exposed_headers": "ExposedHeaders",
         "allowed_methods": "AllowedMethods",
@@ -1201,8 +1177,6 @@ class CorsRule(PropertyType):
 
 @dataclass
 class DataExport(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "output_schema_version": "OutputSchemaVersion",
@@ -1214,8 +1188,6 @@ class DataExport(PropertyType):
 
 @dataclass
 class DefaultRetention(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "years": "Years",
         "days": "Days",
@@ -1229,8 +1201,6 @@ class DefaultRetention(PropertyType):
 
 @dataclass
 class DeleteMarkerReplication(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
     }
@@ -1240,8 +1210,6 @@ class DeleteMarkerReplication(PropertyType):
 
 @dataclass
 class Destination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_arn": "BucketArn",
         "format": "Format",
@@ -1257,8 +1225,6 @@ class Destination(PropertyType):
 
 @dataclass
 class EncryptionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "replica_kms_key_id": "ReplicaKmsKeyID",
     }
@@ -1268,8 +1234,6 @@ class EncryptionConfiguration(PropertyType):
 
 @dataclass
 class EventBridgeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_bridge_enabled": "EventBridgeEnabled",
     }
@@ -1279,8 +1243,6 @@ class EventBridgeConfiguration(PropertyType):
 
 @dataclass
 class FilterRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -1292,8 +1254,6 @@ class FilterRule(PropertyType):
 
 @dataclass
 class IntelligentTieringConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "tierings": "Tierings",
@@ -1311,8 +1271,6 @@ class IntelligentTieringConfiguration(PropertyType):
 
 @dataclass
 class InventoryConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "optional_fields": "OptionalFields",
@@ -1334,8 +1292,6 @@ class InventoryConfiguration(PropertyType):
 
 @dataclass
 class InventoryTableConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "configuration_state": "ConfigurationState",
@@ -1351,8 +1307,6 @@ class InventoryTableConfiguration(PropertyType):
 
 @dataclass
 class JournalTableConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "table_arn": "TableArn",
@@ -1368,8 +1322,6 @@ class JournalTableConfiguration(PropertyType):
 
 @dataclass
 class LambdaConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function": "Function",
         "filter": "Filter",
@@ -1383,8 +1335,6 @@ class LambdaConfiguration(PropertyType):
 
 @dataclass
 class LifecycleConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transition_default_minimum_object_size": "TransitionDefaultMinimumObjectSize",
         "rules": "Rules",
@@ -1396,8 +1346,6 @@ class LifecycleConfiguration(PropertyType):
 
 @dataclass
 class LoggingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_object_key_format": "TargetObjectKeyFormat",
         "log_file_prefix": "LogFilePrefix",
@@ -1411,8 +1359,6 @@ class LoggingConfiguration(PropertyType):
 
 @dataclass
 class MetadataConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "journal_table_configuration": "JournalTableConfiguration",
@@ -1426,8 +1372,6 @@ class MetadataConfiguration(PropertyType):
 
 @dataclass
 class MetadataDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_bucket_arn": "TableBucketArn",
         "table_bucket_type": "TableBucketType",
@@ -1441,8 +1385,6 @@ class MetadataDestination(PropertyType):
 
 @dataclass
 class MetadataTableConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_tables_destination": "S3TablesDestination",
     }
@@ -1452,8 +1394,6 @@ class MetadataTableConfiguration(PropertyType):
 
 @dataclass
 class MetadataTableEncryptionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
         "sse_algorithm": "SseAlgorithm",
@@ -1465,8 +1405,6 @@ class MetadataTableEncryptionConfiguration(PropertyType):
 
 @dataclass
 class Metrics(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "event_threshold": "EventThreshold",
@@ -1478,8 +1416,6 @@ class Metrics(PropertyType):
 
 @dataclass
 class MetricsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_point_arn": "AccessPointArn",
         "tag_filters": "TagFilters",
@@ -1495,8 +1431,6 @@ class MetricsConfiguration(PropertyType):
 
 @dataclass
 class NoncurrentVersionExpiration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "noncurrent_days": "NoncurrentDays",
         "newer_noncurrent_versions": "NewerNoncurrentVersions",
@@ -1508,8 +1442,6 @@ class NoncurrentVersionExpiration(PropertyType):
 
 @dataclass
 class NoncurrentVersionTransition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_class": "StorageClass",
         "transition_in_days": "TransitionInDays",
@@ -1523,8 +1455,6 @@ class NoncurrentVersionTransition(PropertyType):
 
 @dataclass
 class NotificationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topic_configurations": "TopicConfigurations",
         "queue_configurations": "QueueConfigurations",
@@ -1540,8 +1470,6 @@ class NotificationConfiguration(PropertyType):
 
 @dataclass
 class NotificationFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_key": "S3Key",
     }
@@ -1551,8 +1479,6 @@ class NotificationFilter(PropertyType):
 
 @dataclass
 class ObjectLockConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object_lock_enabled": "ObjectLockEnabled",
         "rule": "Rule",
@@ -1564,8 +1490,6 @@ class ObjectLockConfiguration(PropertyType):
 
 @dataclass
 class ObjectLockRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_retention": "DefaultRetention",
     }
@@ -1575,8 +1499,6 @@ class ObjectLockRule(PropertyType):
 
 @dataclass
 class OwnershipControls(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rules": "Rules",
     }
@@ -1586,8 +1508,6 @@ class OwnershipControls(PropertyType):
 
 @dataclass
 class OwnershipControlsRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object_ownership": "ObjectOwnership",
     }
@@ -1597,8 +1517,6 @@ class OwnershipControlsRule(PropertyType):
 
 @dataclass
 class PartitionedPrefix(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "partition_date_source": "PartitionDateSource",
     }
@@ -1608,8 +1526,6 @@ class PartitionedPrefix(PropertyType):
 
 @dataclass
 class PublicAccessBlockConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "restrict_public_buckets": "RestrictPublicBuckets",
         "block_public_policy": "BlockPublicPolicy",
@@ -1625,8 +1541,6 @@ class PublicAccessBlockConfiguration(PropertyType):
 
 @dataclass
 class QueueConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter": "Filter",
         "event": "Event",
@@ -1640,8 +1554,6 @@ class QueueConfiguration(PropertyType):
 
 @dataclass
 class RecordExpiration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "days": "Days",
         "expiration": "Expiration",
@@ -1653,8 +1565,6 @@ class RecordExpiration(PropertyType):
 
 @dataclass
 class RedirectAllRequestsTo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "protocol": "Protocol",
         "host_name": "HostName",
@@ -1666,8 +1576,6 @@ class RedirectAllRequestsTo(PropertyType):
 
 @dataclass
 class RedirectRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "replace_key_with": "ReplaceKeyWith",
         "http_redirect_code": "HttpRedirectCode",
@@ -1685,8 +1593,6 @@ class RedirectRule(PropertyType):
 
 @dataclass
 class ReplicaModifications(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
     }
@@ -1696,8 +1602,6 @@ class ReplicaModifications(PropertyType):
 
 @dataclass
 class ReplicationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role": "Role",
         "rules": "Rules",
@@ -1709,8 +1613,6 @@ class ReplicationConfiguration(PropertyType):
 
 @dataclass
 class ReplicationDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_control_translation": "AccessControlTranslation",
         "account": "Account",
@@ -1732,8 +1634,6 @@ class ReplicationDestination(PropertyType):
 
 @dataclass
 class ReplicationRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "destination": "Destination",
@@ -1757,8 +1657,6 @@ class ReplicationRule(PropertyType):
 
 @dataclass
 class ReplicationRuleAndOperator(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tag_filters": "TagFilters",
         "prefix": "Prefix",
@@ -1770,8 +1668,6 @@ class ReplicationRuleAndOperator(PropertyType):
 
 @dataclass
 class ReplicationRuleFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "and_": "And",
         "tag_filter": "TagFilter",
@@ -1785,8 +1681,6 @@ class ReplicationRuleFilter(PropertyType):
 
 @dataclass
 class ReplicationTime(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "time": "Time",
@@ -1798,8 +1692,6 @@ class ReplicationTime(PropertyType):
 
 @dataclass
 class ReplicationTimeValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "minutes": "Minutes",
     }
@@ -1809,8 +1701,6 @@ class ReplicationTimeValue(PropertyType):
 
 @dataclass
 class RoutingRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "redirect_rule": "RedirectRule",
         "routing_rule_condition": "RoutingRuleCondition",
@@ -1822,8 +1712,6 @@ class RoutingRule(PropertyType):
 
 @dataclass
 class RoutingRuleCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_prefix_equals": "KeyPrefixEquals",
         "http_error_code_returned_equals": "HttpErrorCodeReturnedEquals",
@@ -1835,8 +1723,6 @@ class RoutingRuleCondition(PropertyType):
 
 @dataclass
 class Rule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "expired_object_delete_marker": "ExpiredObjectDeleteMarker",
@@ -1876,8 +1762,6 @@ class Rule(PropertyType):
 
 @dataclass
 class S3KeyFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rules": "Rules",
     }
@@ -1887,8 +1771,6 @@ class S3KeyFilter(PropertyType):
 
 @dataclass
 class S3TablesDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_bucket_arn": "TableBucketArn",
         "table_name": "TableName",
@@ -1904,8 +1786,6 @@ class S3TablesDestination(PropertyType):
 
 @dataclass
 class ServerSideEncryptionByDefault(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sse_algorithm": "SSEAlgorithm",
         "kms_master_key_id": "KMSMasterKeyID",
@@ -1917,8 +1797,6 @@ class ServerSideEncryptionByDefault(PropertyType):
 
 @dataclass
 class ServerSideEncryptionRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_key_enabled": "BucketKeyEnabled",
         "blocked_encryption_types": "BlockedEncryptionTypes",
@@ -1932,8 +1810,6 @@ class ServerSideEncryptionRule(PropertyType):
 
 @dataclass
 class SourceSelectionCriteria(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "replica_modifications": "ReplicaModifications",
         "sse_kms_encrypted_objects": "SseKmsEncryptedObjects",
@@ -1945,8 +1821,6 @@ class SourceSelectionCriteria(PropertyType):
 
 @dataclass
 class SseKmsEncryptedObjects(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
     }
@@ -1956,8 +1830,6 @@ class SseKmsEncryptedObjects(PropertyType):
 
 @dataclass
 class StorageClassAnalysis(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_export": "DataExport",
     }
@@ -1967,8 +1839,6 @@ class StorageClassAnalysis(PropertyType):
 
 @dataclass
 class TagFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -1980,8 +1850,6 @@ class TagFilter(PropertyType):
 
 @dataclass
 class TargetObjectKeyFormat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "partitioned_prefix": "PartitionedPrefix",
         "simple_prefix": "SimplePrefix",
@@ -1993,8 +1861,6 @@ class TargetObjectKeyFormat(PropertyType):
 
 @dataclass
 class Tiering(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_tier": "AccessTier",
         "days": "Days",
@@ -2006,8 +1872,6 @@ class Tiering(PropertyType):
 
 @dataclass
 class TopicConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter": "Filter",
         "event": "Event",
@@ -2021,8 +1885,6 @@ class TopicConfiguration(PropertyType):
 
 @dataclass
 class Transition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transition_date": "TransitionDate",
         "storage_class": "StorageClass",
@@ -2036,8 +1898,6 @@ class Transition(PropertyType):
 
 @dataclass
 class VersioningConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
     }
@@ -2047,8 +1907,6 @@ class VersioningConfiguration(PropertyType):
 
 @dataclass
 class WebsiteConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "index_document": "IndexDocument",
         "redirect_all_requests_to": "RedirectAllRequestsTo",
@@ -2212,8 +2070,6 @@ class BucketPolicy(CloudFormationResource):
 
 @dataclass
 class PublicAccessBlockConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "restrict_public_buckets": "RestrictPublicBuckets",
         "block_public_policy": "BlockPublicPolicy",
@@ -2229,8 +2085,6 @@ class PublicAccessBlockConfiguration(PropertyType):
 
 @dataclass
 class Region(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "bucket_account_id": "BucketAccountId",
@@ -2270,8 +2124,6 @@ class MultiRegionAccessPoint(CloudFormationResource):
 
 @dataclass
 class PolicyStatus(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_public": "IsPublic",
     }
@@ -2307,8 +2159,6 @@ class MultiRegionAccessPointPolicy(CloudFormationResource):
 
 @dataclass
 class AccountLevel(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "advanced_data_protection_metrics": "AdvancedDataProtectionMetrics",
         "storage_lens_group_level": "StorageLensGroupLevel",
@@ -2330,8 +2180,6 @@ class AccountLevel(PropertyType):
 
 @dataclass
 class ActivityMetrics(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_enabled": "IsEnabled",
     }
@@ -2341,8 +2189,6 @@ class ActivityMetrics(PropertyType):
 
 @dataclass
 class AdvancedCostOptimizationMetrics(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_enabled": "IsEnabled",
     }
@@ -2352,8 +2198,6 @@ class AdvancedCostOptimizationMetrics(PropertyType):
 
 @dataclass
 class AdvancedDataProtectionMetrics(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_enabled": "IsEnabled",
     }
@@ -2363,8 +2207,6 @@ class AdvancedDataProtectionMetrics(PropertyType):
 
 @dataclass
 class AdvancedPerformanceMetrics(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_enabled": "IsEnabled",
     }
@@ -2374,8 +2216,6 @@ class AdvancedPerformanceMetrics(PropertyType):
 
 @dataclass
 class AwsOrg(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -2385,8 +2225,6 @@ class AwsOrg(PropertyType):
 
 @dataclass
 class BucketLevel(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "advanced_data_protection_metrics": "AdvancedDataProtectionMetrics",
         "prefix_level": "PrefixLevel",
@@ -2406,8 +2244,6 @@ class BucketLevel(PropertyType):
 
 @dataclass
 class BucketsAndRegions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "regions": "Regions",
         "buckets": "Buckets",
@@ -2419,8 +2255,6 @@ class BucketsAndRegions(PropertyType):
 
 @dataclass
 class CloudWatchMetrics(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_enabled": "IsEnabled",
     }
@@ -2430,8 +2264,6 @@ class CloudWatchMetrics(PropertyType):
 
 @dataclass
 class DataExport(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_lens_table_destination": "StorageLensTableDestination",
         "s3_bucket_destination": "S3BucketDestination",
@@ -2445,8 +2277,6 @@ class DataExport(PropertyType):
 
 @dataclass
 class DetailedStatusCodesMetrics(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_enabled": "IsEnabled",
     }
@@ -2456,8 +2286,6 @@ class DetailedStatusCodesMetrics(PropertyType):
 
 @dataclass
 class Encryption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ssekms": "SSEKMS",
         "sses3": "SSES3",
@@ -2469,8 +2297,6 @@ class Encryption(PropertyType):
 
 @dataclass
 class PrefixLevel(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_metrics": "StorageMetrics",
     }
@@ -2480,8 +2306,6 @@ class PrefixLevel(PropertyType):
 
 @dataclass
 class PrefixLevelStorageMetrics(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_enabled": "IsEnabled",
         "selection_criteria": "SelectionCriteria",
@@ -2493,8 +2317,6 @@ class PrefixLevelStorageMetrics(PropertyType):
 
 @dataclass
 class S3BucketDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "output_schema_version": "OutputSchemaVersion",
         "format": "Format",
@@ -2514,8 +2336,6 @@ class S3BucketDestination(PropertyType):
 
 @dataclass
 class SSEKMS(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_id": "KeyId",
     }
@@ -2525,8 +2345,6 @@ class SSEKMS(PropertyType):
 
 @dataclass
 class SelectionCriteria(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delimiter": "Delimiter",
         "max_depth": "MaxDepth",
@@ -2540,8 +2358,6 @@ class SelectionCriteria(PropertyType):
 
 @dataclass
 class StorageLensConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account_level": "AccountLevel",
         "exclude": "Exclude",
@@ -2569,8 +2385,6 @@ class StorageLensConfiguration(PropertyType):
 
 @dataclass
 class StorageLensExpandedPrefixesDataExport(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_lens_table_destination": "StorageLensTableDestination",
         "s3_bucket_destination": "S3BucketDestination",
@@ -2582,8 +2396,6 @@ class StorageLensExpandedPrefixesDataExport(PropertyType):
 
 @dataclass
 class StorageLensGroupLevel(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_lens_group_selection_criteria": "StorageLensGroupSelectionCriteria",
     }
@@ -2593,8 +2405,6 @@ class StorageLensGroupLevel(PropertyType):
 
 @dataclass
 class StorageLensGroupSelectionCriteria(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclude": "Exclude",
         "include": "Include",
@@ -2606,8 +2416,6 @@ class StorageLensGroupSelectionCriteria(PropertyType):
 
 @dataclass
 class StorageLensTableDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_enabled": "IsEnabled",
         "encryption": "Encryption",
@@ -2640,8 +2448,6 @@ class StorageLens(CloudFormationResource):
 
 @dataclass
 class And(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match_object_age": "MatchObjectAge",
         "match_any_prefix": "MatchAnyPrefix",
@@ -2659,8 +2465,6 @@ class And(PropertyType):
 
 @dataclass
 class Filter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match_object_age": "MatchObjectAge",
         "or_": "Or",
@@ -2682,8 +2486,6 @@ class Filter(PropertyType):
 
 @dataclass
 class MatchObjectAge(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "days_less_than": "DaysLessThan",
         "days_greater_than": "DaysGreaterThan",
@@ -2695,8 +2497,6 @@ class MatchObjectAge(PropertyType):
 
 @dataclass
 class MatchObjectSize(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bytes_less_than": "BytesLessThan",
         "bytes_greater_than": "BytesGreaterThan",
@@ -2708,8 +2508,6 @@ class MatchObjectSize(PropertyType):
 
 @dataclass
 class Or(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match_object_age": "MatchObjectAge",
         "match_any_prefix": "MatchAnyPrefix",

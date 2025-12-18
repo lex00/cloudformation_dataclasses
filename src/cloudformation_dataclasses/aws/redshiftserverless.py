@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service RedshiftServerless
@@ -177,8 +177,6 @@ DELETING = WorkgroupStatus.DELETING
 
 @dataclass
 class Namespace(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-red"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "creation_date": "CreationDate",
@@ -212,8 +210,6 @@ class Namespace(PropertyType):
 
 @dataclass
 class SnapshotCopyConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-red"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "snapshot_retention_period": "SnapshotRetentionPeriod",
         "destination_kms_key_id": "DestinationKmsKeyId",
@@ -341,8 +337,6 @@ class Namespace(CloudFormationResource):
 
 @dataclass
 class Snapshot(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-red"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "namespace_name": "NamespaceName",
@@ -450,8 +444,6 @@ class Snapshot(CloudFormationResource):
 
 @dataclass
 class ConfigParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-red"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_value": "ParameterValue",
         "parameter_key": "ParameterKey",
@@ -463,8 +455,6 @@ class ConfigParameter(PropertyType):
 
 @dataclass
 class Endpoint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-red"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address": "Address",
         "vpc_endpoints": "VpcEndpoints",
@@ -478,8 +468,6 @@ class Endpoint(PropertyType):
 
 @dataclass
 class NetworkInterface(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-red"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "private_ip_address": "PrivateIpAddress",
         "availability_zone": "AvailabilityZone",
@@ -495,8 +483,6 @@ class NetworkInterface(PropertyType):
 
 @dataclass
 class PerformanceTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-red"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "level": "Level",
@@ -508,8 +494,6 @@ class PerformanceTarget(PropertyType):
 
 @dataclass
 class VpcEndpoint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-red"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_id": "VpcId",
         "network_interfaces": "NetworkInterfaces",
@@ -523,8 +507,6 @@ class VpcEndpoint(PropertyType):
 
 @dataclass
 class Workgroup(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-red"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "creation_date": "CreationDate",

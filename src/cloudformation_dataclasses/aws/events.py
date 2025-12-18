@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Events
@@ -323,8 +323,6 @@ class Archive(CloudFormationResource):
 
 @dataclass
 class ApiKeyAuthParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "api_key_value": "ApiKeyValue",
         "api_key_name": "ApiKeyName",
@@ -336,8 +334,6 @@ class ApiKeyAuthParameters(PropertyType):
 
 @dataclass
 class AuthParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "invocation_http_parameters": "InvocationHttpParameters",
         "connectivity_parameters": "ConnectivityParameters",
@@ -355,8 +351,6 @@ class AuthParameters(PropertyType):
 
 @dataclass
 class BasicAuthParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "username": "Username",
         "password": "Password",
@@ -368,8 +362,6 @@ class BasicAuthParameters(PropertyType):
 
 @dataclass
 class ClientParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_secret": "ClientSecret",
         "client_id": "ClientID",
@@ -381,8 +373,6 @@ class ClientParameters(PropertyType):
 
 @dataclass
 class ConnectionHttpParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header_parameters": "HeaderParameters",
         "query_string_parameters": "QueryStringParameters",
@@ -396,8 +386,6 @@ class ConnectionHttpParameters(PropertyType):
 
 @dataclass
 class ConnectivityParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_parameters": "ResourceParameters",
     }
@@ -407,8 +395,6 @@ class ConnectivityParameters(PropertyType):
 
 @dataclass
 class InvocationConnectivityParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_parameters": "ResourceParameters",
     }
@@ -418,8 +404,6 @@ class InvocationConnectivityParameters(PropertyType):
 
 @dataclass
 class OAuthParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_parameters": "ClientParameters",
         "o_auth_http_parameters": "OAuthHttpParameters",
@@ -435,8 +419,6 @@ class OAuthParameters(PropertyType):
 
 @dataclass
 class Parameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "is_value_secret": "IsValueSecret",
@@ -450,8 +432,6 @@ class Parameter(PropertyType):
 
 @dataclass
 class ResourceParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_association_arn": "ResourceAssociationArn",
         "resource_configuration_arn": "ResourceConfigurationArn",
@@ -512,8 +492,6 @@ class Connection(CloudFormationResource):
 
 @dataclass
 class EndpointEventBus(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_bus_arn": "EventBusArn",
     }
@@ -523,8 +501,6 @@ class EndpointEventBus(PropertyType):
 
 @dataclass
 class FailoverConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secondary": "Secondary",
         "primary": "Primary",
@@ -536,8 +512,6 @@ class FailoverConfig(PropertyType):
 
 @dataclass
 class Primary(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "health_check": "HealthCheck",
     }
@@ -547,8 +521,6 @@ class Primary(PropertyType):
 
 @dataclass
 class ReplicationConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
     }
@@ -558,8 +530,6 @@ class ReplicationConfig(PropertyType):
 
 @dataclass
 class RoutingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "failover_config": "FailoverConfig",
     }
@@ -569,8 +539,6 @@ class RoutingConfig(PropertyType):
 
 @dataclass
 class Secondary(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "route": "Route",
     }
@@ -629,8 +597,6 @@ class Endpoint(CloudFormationResource):
 
 @dataclass
 class DeadLetterConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -640,8 +606,6 @@ class DeadLetterConfig(PropertyType):
 
 @dataclass
 class LogConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_detail": "IncludeDetail",
         "level": "Level",
@@ -708,8 +672,6 @@ class EventBusPolicy(CloudFormationResource):
 
 @dataclass
 class AppSyncParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "graph_ql_operation": "GraphQLOperation",
     }
@@ -719,8 +681,6 @@ class AppSyncParameters(PropertyType):
 
 @dataclass
 class AwsVpcConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "subnets": "Subnets",
@@ -734,8 +694,6 @@ class AwsVpcConfiguration(PropertyType):
 
 @dataclass
 class BatchArrayProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "size": "Size",
     }
@@ -745,8 +703,6 @@ class BatchArrayProperties(PropertyType):
 
 @dataclass
 class BatchParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "array_properties": "ArrayProperties",
         "job_name": "JobName",
@@ -762,8 +718,6 @@ class BatchParameters(PropertyType):
 
 @dataclass
 class BatchRetryStrategy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attempts": "Attempts",
     }
@@ -773,8 +727,6 @@ class BatchRetryStrategy(PropertyType):
 
 @dataclass
 class CapacityProviderStrategyItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_provider": "CapacityProvider",
         "base": "Base",
@@ -788,8 +740,6 @@ class CapacityProviderStrategyItem(PropertyType):
 
 @dataclass
 class DeadLetterConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -799,8 +749,6 @@ class DeadLetterConfig(PropertyType):
 
 @dataclass
 class EcsParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "platform_version": "PlatformVersion",
         "group": "Group",
@@ -836,8 +784,6 @@ class EcsParameters(PropertyType):
 
 @dataclass
 class HttpParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path_parameter_values": "PathParameterValues",
         "header_parameters": "HeaderParameters",
@@ -851,8 +797,6 @@ class HttpParameters(PropertyType):
 
 @dataclass
 class InputTransformer(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_paths_map": "InputPathsMap",
         "input_template": "InputTemplate",
@@ -864,8 +808,6 @@ class InputTransformer(PropertyType):
 
 @dataclass
 class KinesisParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "partition_key_path": "PartitionKeyPath",
     }
@@ -875,8 +817,6 @@ class KinesisParameters(PropertyType):
 
 @dataclass
 class NetworkConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_vpc_configuration": "AwsVpcConfiguration",
     }
@@ -886,8 +826,6 @@ class NetworkConfiguration(PropertyType):
 
 @dataclass
 class PlacementConstraint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "expression": "Expression",
@@ -899,8 +837,6 @@ class PlacementConstraint(PropertyType):
 
 @dataclass
 class PlacementStrategy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field": "Field",
         "type_": "Type",
@@ -912,8 +848,6 @@ class PlacementStrategy(PropertyType):
 
 @dataclass
 class RedshiftDataParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "statement_name": "StatementName",
         "sqls": "Sqls",
@@ -935,8 +869,6 @@ class RedshiftDataParameters(PropertyType):
 
 @dataclass
 class RetryPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maximum_retry_attempts": "MaximumRetryAttempts",
         "maximum_event_age_in_seconds": "MaximumEventAgeInSeconds",
@@ -948,8 +880,6 @@ class RetryPolicy(PropertyType):
 
 @dataclass
 class RunCommandParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "run_command_targets": "RunCommandTargets",
     }
@@ -959,8 +889,6 @@ class RunCommandParameters(PropertyType):
 
 @dataclass
 class RunCommandTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "key": "Key",
@@ -972,8 +900,6 @@ class RunCommandTarget(PropertyType):
 
 @dataclass
 class SageMakerPipelineParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -985,8 +911,6 @@ class SageMakerPipelineParameter(PropertyType):
 
 @dataclass
 class SageMakerPipelineParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pipeline_parameter_list": "PipelineParameterList",
     }
@@ -996,8 +920,6 @@ class SageMakerPipelineParameters(PropertyType):
 
 @dataclass
 class SqsParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message_group_id": "MessageGroupId",
     }
@@ -1007,8 +929,6 @@ class SqsParameters(PropertyType):
 
 @dataclass
 class Target(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eve"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_path": "InputPath",
         "http_parameters": "HttpParameters",

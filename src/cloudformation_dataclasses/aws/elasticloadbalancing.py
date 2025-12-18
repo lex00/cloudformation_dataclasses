@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ElasticLoadBalancing
@@ -27,8 +27,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AccessLoggingPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "emit_interval": "EmitInterval",
         "enabled": "Enabled",
@@ -44,8 +42,6 @@ class AccessLoggingPolicy(PropertyType):
 
 @dataclass
 class AppCookieStickinessPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cookie_name": "CookieName",
         "policy_name": "PolicyName",
@@ -57,8 +53,6 @@ class AppCookieStickinessPolicy(PropertyType):
 
 @dataclass
 class ConnectionDrainingPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "timeout": "Timeout",
@@ -70,8 +64,6 @@ class ConnectionDrainingPolicy(PropertyType):
 
 @dataclass
 class ConnectionSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "idle_timeout": "IdleTimeout",
     }
@@ -81,8 +73,6 @@ class ConnectionSettings(PropertyType):
 
 @dataclass
 class HealthCheck(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "healthy_threshold": "HealthyThreshold",
         "interval": "Interval",
@@ -100,8 +90,6 @@ class HealthCheck(PropertyType):
 
 @dataclass
 class LBCookieStickinessPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cookie_expiration_period": "CookieExpirationPeriod",
         "policy_name": "PolicyName",
@@ -113,8 +101,6 @@ class LBCookieStickinessPolicy(PropertyType):
 
 @dataclass
 class Listeners(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_port": "InstancePort",
         "instance_protocol": "InstanceProtocol",
@@ -134,8 +120,6 @@ class Listeners(PropertyType):
 
 @dataclass
 class Policies(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attributes": "Attributes",
         "instance_ports": "InstancePorts",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ConnectCampaigns
@@ -111,8 +111,6 @@ FAILED = InstanceOnboardingJobStatusCode.FAILED
 
 @dataclass
 class AgentlessDialerConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dialing_capacity": "DialingCapacity",
     }
@@ -122,8 +120,6 @@ class AgentlessDialerConfig(PropertyType):
 
 @dataclass
 class AnswerMachineDetectionConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_answer_machine_detection": "EnableAnswerMachineDetection",
         "await_answer_machine_prompt": "AwaitAnswerMachinePrompt",
@@ -135,8 +131,6 @@ class AnswerMachineDetectionConfig(PropertyType):
 
 @dataclass
 class DialerConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "agentless_dialer_config": "AgentlessDialerConfig",
         "predictive_dialer_config": "PredictiveDialerConfig",
@@ -150,8 +144,6 @@ class DialerConfig(PropertyType):
 
 @dataclass
 class OutboundCallConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connect_contact_flow_arn": "ConnectContactFlowArn",
         "connect_queue_arn": "ConnectQueueArn",
@@ -167,8 +159,6 @@ class OutboundCallConfig(PropertyType):
 
 @dataclass
 class PredictiveDialerConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dialing_capacity": "DialingCapacity",
         "bandwidth_allocation": "BandwidthAllocation",
@@ -180,8 +170,6 @@ class PredictiveDialerConfig(PropertyType):
 
 @dataclass
 class ProgressiveDialerConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dialing_capacity": "DialingCapacity",
         "bandwidth_allocation": "BandwidthAllocation",

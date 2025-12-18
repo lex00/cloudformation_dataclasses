@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service RDS
@@ -504,8 +504,6 @@ class CustomDBEngineVersion(CloudFormationResource):
 
 @dataclass
 class DBClusterRole(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role_arn": "RoleArn",
         "feature_name": "FeatureName",
@@ -517,8 +515,6 @@ class DBClusterRole(PropertyType):
 
 @dataclass
 class Endpoint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address": "Address",
         "port": "Port",
@@ -530,8 +526,6 @@ class Endpoint(PropertyType):
 
 @dataclass
 class MasterUserSecret(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "kms_key_id": "KmsKeyId",
@@ -543,8 +537,6 @@ class MasterUserSecret(PropertyType):
 
 @dataclass
 class ReadEndpoint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address": "Address",
     }
@@ -554,8 +546,6 @@ class ReadEndpoint(PropertyType):
 
 @dataclass
 class ScalingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timeout_action": "TimeoutAction",
         "seconds_before_timeout": "SecondsBeforeTimeout",
@@ -575,8 +565,6 @@ class ScalingConfiguration(PropertyType):
 
 @dataclass
 class ServerlessV2ScalingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "seconds_until_auto_pause": "SecondsUntilAutoPause",
         "min_capacity": "MinCapacity",
@@ -790,8 +778,6 @@ class DBClusterParameterGroup(CloudFormationResource):
 
 @dataclass
 class CertificateDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "valid_till": "ValidTill",
         "ca_identifier": "CAIdentifier",
@@ -803,8 +789,6 @@ class CertificateDetails(PropertyType):
 
 @dataclass
 class DBInstanceRole(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role_arn": "RoleArn",
         "feature_name": "FeatureName",
@@ -816,8 +800,6 @@ class DBInstanceRole(PropertyType):
 
 @dataclass
 class DBInstanceStatusInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "message": "Message",
@@ -833,8 +815,6 @@ class DBInstanceStatusInfo(PropertyType):
 
 @dataclass
 class Endpoint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address": "Address",
         "port": "Port",
@@ -848,8 +828,6 @@ class Endpoint(PropertyType):
 
 @dataclass
 class MasterUserSecret(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "kms_key_id": "KmsKeyId",
@@ -861,8 +839,6 @@ class MasterUserSecret(PropertyType):
 
 @dataclass
 class ProcessorFeature(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -1203,8 +1179,6 @@ class DBParameterGroup(CloudFormationResource):
 
 @dataclass
 class AuthFormat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "description": "Description",
@@ -1222,8 +1196,6 @@ class AuthFormat(PropertyType):
 
 @dataclass
 class TagFormat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -1288,8 +1260,6 @@ class DBProxy(CloudFormationResource):
 
 @dataclass
 class TagFormat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -1347,8 +1317,6 @@ class DBProxyEndpoint(CloudFormationResource):
 
 @dataclass
 class ConnectionPoolConfigurationInfoFormat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_idle_connections_percent": "MaxIdleConnectionsPercent",
         "max_connections_percent": "MaxConnectionsPercent",
@@ -1393,8 +1361,6 @@ class DBProxyTargetGroup(CloudFormationResource):
 
 @dataclass
 class Ingress(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidrip": "CIDRIP",
         "ec2_security_group_id": "EC2SecurityGroupId",
@@ -1530,8 +1496,6 @@ class EventSubscription(CloudFormationResource):
 
 @dataclass
 class GlobalEndpoint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address": "Address",
     }
@@ -1617,8 +1581,6 @@ class Integration(CloudFormationResource):
 
 @dataclass
 class OptionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "option_version": "OptionVersion",
         "vpc_security_group_memberships": "VpcSecurityGroupMemberships",
@@ -1638,8 +1600,6 @@ class OptionConfiguration(PropertyType):
 
 @dataclass
 class OptionSetting(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",

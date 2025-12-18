@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Rekognition
@@ -696,8 +696,6 @@ class Project(CloudFormationResource):
 
 @dataclass
 class BoundingBox(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rek"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "left": "Left",
         "top": "Top",
@@ -713,8 +711,6 @@ class BoundingBox(PropertyType):
 
 @dataclass
 class ConnectedHomeSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rek"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_confidence": "MinConfidence",
         "labels": "Labels",
@@ -726,8 +722,6 @@ class ConnectedHomeSettings(PropertyType):
 
 @dataclass
 class DataSharingPreference(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rek"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "opt_in": "OptIn",
     }
@@ -737,8 +731,6 @@ class DataSharingPreference(PropertyType):
 
 @dataclass
 class FaceSearchSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rek"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "collection_id": "CollectionId",
         "face_match_threshold": "FaceMatchThreshold",
@@ -750,8 +742,6 @@ class FaceSearchSettings(PropertyType):
 
 @dataclass
 class KinesisDataStream(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rek"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -761,8 +751,6 @@ class KinesisDataStream(PropertyType):
 
 @dataclass
 class KinesisVideoStream(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rek"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -772,8 +760,6 @@ class KinesisVideoStream(PropertyType):
 
 @dataclass
 class NotificationChannel(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rek"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -783,8 +769,6 @@ class NotificationChannel(PropertyType):
 
 @dataclass
 class S3Destination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rek"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "object_key_prefix": "ObjectKeyPrefix",

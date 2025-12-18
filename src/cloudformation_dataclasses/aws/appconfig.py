@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:45
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AppConfig
@@ -173,8 +173,6 @@ LAMBDA = ValidatorType.LAMBDA
 
 @dataclass
 class Tags(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -209,8 +207,6 @@ class Application(CloudFormationResource):
 
 @dataclass
 class Tags(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -222,8 +218,6 @@ class Tags(PropertyType):
 
 @dataclass
 class Validators(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "content": "Content",
@@ -277,8 +271,6 @@ class ConfigurationProfile(CloudFormationResource):
 
 @dataclass
 class DynamicExtensionParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_value": "ParameterValue",
         "extension_reference": "ExtensionReference",
@@ -365,8 +357,6 @@ class DeploymentStrategy(CloudFormationResource):
 
 @dataclass
 class Monitor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alarm_arn": "AlarmArn",
         "alarm_role_arn": "AlarmRoleArn",
@@ -407,8 +397,6 @@ class Environment(CloudFormationResource):
 
 @dataclass
 class Parameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dynamic": "Dynamic",
         "description": "Description",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service KafkaConnect
@@ -173,8 +173,6 @@ DELETING = WorkerConfigurationState.DELETING
 
 @dataclass
 class ApacheKafkaCluster(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kaf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc": "Vpc",
         "bootstrap_servers": "BootstrapServers",
@@ -186,8 +184,6 @@ class ApacheKafkaCluster(PropertyType):
 
 @dataclass
 class AutoScaling(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kaf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scale_out_policy": "ScaleOutPolicy",
         "scale_in_policy": "ScaleInPolicy",
@@ -205,8 +201,6 @@ class AutoScaling(PropertyType):
 
 @dataclass
 class Capacity(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kaf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "provisioned_capacity": "ProvisionedCapacity",
         "auto_scaling": "AutoScaling",
@@ -218,8 +212,6 @@ class Capacity(PropertyType):
 
 @dataclass
 class CloudWatchLogsLogDelivery(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kaf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group": "LogGroup",
         "enabled": "Enabled",
@@ -231,8 +223,6 @@ class CloudWatchLogsLogDelivery(PropertyType):
 
 @dataclass
 class CustomPlugin(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kaf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_plugin_arn": "CustomPluginArn",
         "revision": "Revision",
@@ -244,8 +234,6 @@ class CustomPlugin(PropertyType):
 
 @dataclass
 class FirehoseLogDelivery(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kaf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_stream": "DeliveryStream",
         "enabled": "Enabled",
@@ -257,8 +245,6 @@ class FirehoseLogDelivery(PropertyType):
 
 @dataclass
 class KafkaCluster(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kaf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "apache_kafka_cluster": "ApacheKafkaCluster",
     }
@@ -268,8 +254,6 @@ class KafkaCluster(PropertyType):
 
 @dataclass
 class KafkaClusterClientAuthentication(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kaf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "authentication_type": "AuthenticationType",
     }
@@ -279,8 +263,6 @@ class KafkaClusterClientAuthentication(PropertyType):
 
 @dataclass
 class KafkaClusterEncryptionInTransit(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kaf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_type": "EncryptionType",
     }
@@ -290,8 +272,6 @@ class KafkaClusterEncryptionInTransit(PropertyType):
 
 @dataclass
 class LogDelivery(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kaf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "worker_log_delivery": "WorkerLogDelivery",
     }
@@ -301,8 +281,6 @@ class LogDelivery(PropertyType):
 
 @dataclass
 class Plugin(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kaf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_plugin": "CustomPlugin",
     }
@@ -312,8 +290,6 @@ class Plugin(PropertyType):
 
 @dataclass
 class ProvisionedCapacity(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kaf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "worker_count": "WorkerCount",
         "mcu_count": "McuCount",
@@ -325,8 +301,6 @@ class ProvisionedCapacity(PropertyType):
 
 @dataclass
 class S3LogDelivery(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kaf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "enabled": "Enabled",
@@ -340,8 +314,6 @@ class S3LogDelivery(PropertyType):
 
 @dataclass
 class ScaleInPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kaf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cpu_utilization_percentage": "CpuUtilizationPercentage",
     }
@@ -351,8 +323,6 @@ class ScaleInPolicy(PropertyType):
 
 @dataclass
 class ScaleOutPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kaf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cpu_utilization_percentage": "CpuUtilizationPercentage",
     }
@@ -362,8 +332,6 @@ class ScaleOutPolicy(PropertyType):
 
 @dataclass
 class Vpc(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kaf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "subnets": "Subnets",
@@ -375,8 +343,6 @@ class Vpc(PropertyType):
 
 @dataclass
 class WorkerConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kaf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "revision": "Revision",
         "worker_configuration_arn": "WorkerConfigurationArn",
@@ -388,8 +354,6 @@ class WorkerConfiguration(PropertyType):
 
 @dataclass
 class WorkerLogDelivery(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kaf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
         "firehose": "Firehose",
@@ -446,8 +410,6 @@ class Connector(CloudFormationResource):
 
 @dataclass
 class CustomPluginFileDescription(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kaf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "file_md5": "FileMd5",
         "file_size": "FileSize",
@@ -459,8 +421,6 @@ class CustomPluginFileDescription(PropertyType):
 
 @dataclass
 class CustomPluginLocation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kaf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_location": "S3Location",
     }
@@ -470,8 +430,6 @@ class CustomPluginLocation(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kaf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_arn": "BucketArn",
         "file_key": "FileKey",

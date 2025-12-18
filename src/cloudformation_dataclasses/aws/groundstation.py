@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service GroundStation
@@ -344,8 +344,6 @@ NONE = Polarization.NONE
 
 @dataclass
 class AntennaDownlinkConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gro"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "spectrum_config": "SpectrumConfig",
     }
@@ -355,8 +353,6 @@ class AntennaDownlinkConfig(PropertyType):
 
 @dataclass
 class AntennaDownlinkDemodDecodeConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gro"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "demodulation_config": "DemodulationConfig",
         "spectrum_config": "SpectrumConfig",
@@ -370,8 +366,6 @@ class AntennaDownlinkDemodDecodeConfig(PropertyType):
 
 @dataclass
 class AntennaUplinkConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gro"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transmit_disabled": "TransmitDisabled",
         "spectrum_config": "SpectrumConfig",
@@ -385,8 +379,6 @@ class AntennaUplinkConfig(PropertyType):
 
 @dataclass
 class ConfigData(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gro"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dataflow_endpoint_config": "DataflowEndpointConfig",
         "uplink_echo_config": "UplinkEchoConfig",
@@ -408,8 +400,6 @@ class ConfigData(PropertyType):
 
 @dataclass
 class DataflowEndpointConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gro"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dataflow_endpoint_name": "DataflowEndpointName",
         "dataflow_endpoint_region": "DataflowEndpointRegion",
@@ -421,8 +411,6 @@ class DataflowEndpointConfig(PropertyType):
 
 @dataclass
 class DecodeConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gro"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "unvalidated_json": "UnvalidatedJSON",
     }
@@ -432,8 +420,6 @@ class DecodeConfig(PropertyType):
 
 @dataclass
 class DemodulationConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gro"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "unvalidated_json": "UnvalidatedJSON",
     }
@@ -443,8 +429,6 @@ class DemodulationConfig(PropertyType):
 
 @dataclass
 class Eirp(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gro"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "units": "Units",
@@ -456,8 +440,6 @@ class Eirp(PropertyType):
 
 @dataclass
 class Frequency(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gro"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "units": "Units",
@@ -469,8 +451,6 @@ class Frequency(PropertyType):
 
 @dataclass
 class FrequencyBandwidth(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gro"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "units": "Units",
@@ -482,8 +462,6 @@ class FrequencyBandwidth(PropertyType):
 
 @dataclass
 class S3RecordingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gro"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_arn": "BucketArn",
         "prefix": "Prefix",
@@ -497,8 +475,6 @@ class S3RecordingConfig(PropertyType):
 
 @dataclass
 class SpectrumConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gro"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "polarization": "Polarization",
         "bandwidth": "Bandwidth",
@@ -512,8 +488,6 @@ class SpectrumConfig(PropertyType):
 
 @dataclass
 class TrackingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gro"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "autotrack": "Autotrack",
     }
@@ -523,8 +497,6 @@ class TrackingConfig(PropertyType):
 
 @dataclass
 class UplinkEchoConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gro"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "antenna_uplink_config_arn": "AntennaUplinkConfigArn",
@@ -536,8 +508,6 @@ class UplinkEchoConfig(PropertyType):
 
 @dataclass
 class UplinkSpectrumConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gro"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "polarization": "Polarization",
         "center_frequency": "CenterFrequency",
@@ -582,8 +552,6 @@ class Config(CloudFormationResource):
 
 @dataclass
 class AwsGroundStationAgentEndpoint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gro"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "agent_status": "AgentStatus",
         "ingress_address": "IngressAddress",
@@ -601,8 +569,6 @@ class AwsGroundStationAgentEndpoint(PropertyType):
 
 @dataclass
 class ConnectionDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gro"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "socket_address": "SocketAddress",
         "mtu": "Mtu",
@@ -614,8 +580,6 @@ class ConnectionDetails(PropertyType):
 
 @dataclass
 class DataflowEndpoint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gro"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address": "Address",
         "name": "Name",
@@ -629,8 +593,6 @@ class DataflowEndpoint(PropertyType):
 
 @dataclass
 class EndpointDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gro"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "endpoint": "Endpoint",
         "aws_ground_station_agent_endpoint": "AwsGroundStationAgentEndpoint",
@@ -644,8 +606,6 @@ class EndpointDetails(PropertyType):
 
 @dataclass
 class IntegerRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gro"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "minimum": "Minimum",
         "maximum": "Maximum",
@@ -657,8 +617,6 @@ class IntegerRange(PropertyType):
 
 @dataclass
 class RangedConnectionDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gro"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "socket_address": "SocketAddress",
         "mtu": "Mtu",
@@ -670,8 +628,6 @@ class RangedConnectionDetails(PropertyType):
 
 @dataclass
 class RangedSocketAddress(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gro"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port_range": "PortRange",
         "name": "Name",
@@ -683,8 +639,6 @@ class RangedSocketAddress(PropertyType):
 
 @dataclass
 class SecurityDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gro"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnet_ids": "SubnetIds",
         "security_group_ids": "SecurityGroupIds",
@@ -698,8 +652,6 @@ class SecurityDetails(PropertyType):
 
 @dataclass
 class SocketAddress(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gro"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "name": "Name",
@@ -741,8 +693,6 @@ class DataflowEndpointGroup(CloudFormationResource):
 
 @dataclass
 class DataflowEdge(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gro"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "source": "Source",
@@ -754,8 +704,6 @@ class DataflowEdge(PropertyType):
 
 @dataclass
 class StreamsKmsKey(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gro"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
         "kms_alias_arn": "KmsAliasArn",

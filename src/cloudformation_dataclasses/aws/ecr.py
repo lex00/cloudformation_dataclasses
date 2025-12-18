@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ECR
@@ -360,8 +360,6 @@ GITLAB_CONTAINER_REGISTRY = UpstreamRegistry.GITLAB_CONTAINER_REGISTRY
 
 @dataclass
 class RepositoryCatalogData(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "about_text": "AboutText",
         "operating_systems": "OperatingSystems",
@@ -459,8 +457,6 @@ class RegistryPolicy(CloudFormationResource):
 
 @dataclass
 class RepositoryFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_type": "FilterType",
         "filter": "Filter",
@@ -472,8 +468,6 @@ class RepositoryFilter(PropertyType):
 
 @dataclass
 class ScanningRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "repository_filters": "RepositoryFilters",
         "scan_frequency": "ScanFrequency",
@@ -506,8 +500,6 @@ class RegistryScanningConfiguration(CloudFormationResource):
 
 @dataclass
 class ReplicationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rules": "Rules",
     }
@@ -517,8 +509,6 @@ class ReplicationConfiguration(PropertyType):
 
 @dataclass
 class ReplicationDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region": "Region",
         "registry_id": "RegistryId",
@@ -530,8 +520,6 @@ class ReplicationDestination(PropertyType):
 
 @dataclass
 class ReplicationRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "repository_filters": "RepositoryFilters",
         "destinations": "Destinations",
@@ -543,8 +531,6 @@ class ReplicationRule(PropertyType):
 
 @dataclass
 class RepositoryFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_type": "FilterType",
         "filter": "Filter",
@@ -575,8 +561,6 @@ class ReplicationConfiguration(CloudFormationResource):
 
 @dataclass
 class EncryptionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_type": "EncryptionType",
         "kms_key": "KmsKey",
@@ -588,8 +572,6 @@ class EncryptionConfiguration(PropertyType):
 
 @dataclass
 class ImageScanningConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scan_on_push": "ScanOnPush",
     }
@@ -599,8 +581,6 @@ class ImageScanningConfiguration(PropertyType):
 
 @dataclass
 class ImageTagMutabilityExclusionFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "image_tag_mutability_exclusion_filter_type": "ImageTagMutabilityExclusionFilterType",
         "image_tag_mutability_exclusion_filter_value": "ImageTagMutabilityExclusionFilterValue",
@@ -612,8 +592,6 @@ class ImageTagMutabilityExclusionFilter(PropertyType):
 
 @dataclass
 class LifecyclePolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lifecycle_policy_text": "LifecyclePolicyText",
         "registry_id": "RegistryId",
@@ -665,8 +643,6 @@ class Repository(CloudFormationResource):
 
 @dataclass
 class EncryptionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_type": "EncryptionType",
         "kms_key": "KmsKey",
@@ -678,8 +654,6 @@ class EncryptionConfiguration(PropertyType):
 
 @dataclass
 class ImageTagMutabilityExclusionFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "image_tag_mutability_exclusion_filter_type": "ImageTagMutabilityExclusionFilterType",
         "image_tag_mutability_exclusion_filter_value": "ImageTagMutabilityExclusionFilterValue",
@@ -733,8 +707,6 @@ class RepositoryCreationTemplate(CloudFormationResource):
 
 @dataclass
 class RepositoryFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_type": "FilterType",
         "filter": "Filter",
@@ -746,8 +718,6 @@ class RepositoryFilter(PropertyType):
 
 @dataclass
 class Rule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "repository_filters": "RepositoryFilters",
         "signing_profile_arn": "SigningProfileArn",

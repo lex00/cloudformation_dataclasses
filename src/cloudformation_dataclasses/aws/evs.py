@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service EVS
@@ -134,8 +134,6 @@ CREATE_FAILED = VlanState.CREATE_FAILED
 
 @dataclass
 class Check(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "impaired_since": "ImpairedSince",
@@ -149,8 +147,6 @@ class Check(PropertyType):
 
 @dataclass
 class ConnectivityInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "private_route_server_peerings": "PrivateRouteServerPeerings",
     }
@@ -160,8 +156,6 @@ class ConnectivityInfo(PropertyType):
 
 @dataclass
 class HostInfoForCreate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "key_name": "KeyName",
         "dedicated_host_id": "DedicatedHostId",
@@ -179,8 +173,6 @@ class HostInfoForCreate(PropertyType):
 
 @dataclass
 class InitialVlanInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr": "Cidr",
     }
@@ -190,8 +182,6 @@ class InitialVlanInfo(PropertyType):
 
 @dataclass
 class InitialVlans(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vmk_management": "VmkManagement",
         "v_tep": "VTep",
@@ -223,8 +213,6 @@ class InitialVlans(PropertyType):
 
 @dataclass
 class LicenseInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "solution_key": "SolutionKey",
         "vsan_key": "VsanKey",
@@ -236,8 +224,6 @@ class LicenseInfo(PropertyType):
 
 @dataclass
 class Secret(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
     }
@@ -247,8 +233,6 @@ class Secret(PropertyType):
 
 @dataclass
 class ServiceAccessSecurityGroups(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
     }
@@ -258,8 +242,6 @@ class ServiceAccessSecurityGroups(PropertyType):
 
 @dataclass
 class VcfHostnames(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "nsx": "Nsx",
         "v_center": "VCenter",

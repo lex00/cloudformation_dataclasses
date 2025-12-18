@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service EMRServerless
@@ -27,8 +27,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class AutoStartConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -38,8 +36,6 @@ class AutoStartConfiguration(PropertyType):
 
 @dataclass
 class AutoStopConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "idle_timeout_minutes": "IdleTimeoutMinutes",
@@ -51,8 +47,6 @@ class AutoStopConfiguration(PropertyType):
 
 @dataclass
 class CloudWatchLoggingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_key_arn": "EncryptionKeyArn",
         "enabled": "Enabled",
@@ -70,8 +64,6 @@ class CloudWatchLoggingConfiguration(PropertyType):
 
 @dataclass
 class ConfigurationObject(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "classification": "Classification",
         "properties": "Properties",
@@ -85,8 +77,6 @@ class ConfigurationObject(PropertyType):
 
 @dataclass
 class IdentityCenterConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "identity_center_instance_arn": "IdentityCenterInstanceArn",
     }
@@ -96,8 +86,6 @@ class IdentityCenterConfiguration(PropertyType):
 
 @dataclass
 class ImageConfigurationInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "image_uri": "ImageUri",
     }
@@ -107,8 +95,6 @@ class ImageConfigurationInput(PropertyType):
 
 @dataclass
 class InitialCapacityConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "worker_configuration": "WorkerConfiguration",
         "worker_count": "WorkerCount",
@@ -120,8 +106,6 @@ class InitialCapacityConfig(PropertyType):
 
 @dataclass
 class InitialCapacityConfigKeyValuePair(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -133,8 +117,6 @@ class InitialCapacityConfigKeyValuePair(PropertyType):
 
 @dataclass
 class InteractiveConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "studio_enabled": "StudioEnabled",
         "livy_endpoint_enabled": "LivyEndpointEnabled",
@@ -146,8 +128,6 @@ class InteractiveConfiguration(PropertyType):
 
 @dataclass
 class LogTypeMapKeyValuePair(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -159,8 +139,6 @@ class LogTypeMapKeyValuePair(PropertyType):
 
 @dataclass
 class ManagedPersistenceMonitoringConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "encryption_key_arn": "EncryptionKeyArn",
         "enabled": "Enabled",
@@ -172,8 +150,6 @@ class ManagedPersistenceMonitoringConfiguration(PropertyType):
 
 @dataclass
 class MaximumAllowedResources(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "memory": "Memory",
         "cpu": "Cpu",
@@ -187,8 +163,6 @@ class MaximumAllowedResources(PropertyType):
 
 @dataclass
 class MonitoringConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_monitoring_configuration": "S3MonitoringConfiguration",
         "prometheus_monitoring_configuration": "PrometheusMonitoringConfiguration",
@@ -204,8 +178,6 @@ class MonitoringConfiguration(PropertyType):
 
 @dataclass
 class NetworkConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subnet_ids": "SubnetIds",
         "security_group_ids": "SecurityGroupIds",
@@ -217,8 +189,6 @@ class NetworkConfiguration(PropertyType):
 
 @dataclass
 class PrometheusMonitoringConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "remote_write_url": "RemoteWriteUrl",
     }
@@ -228,8 +198,6 @@ class PrometheusMonitoringConfiguration(PropertyType):
 
 @dataclass
 class S3MonitoringConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_uri": "LogUri",
         "encryption_key_arn": "EncryptionKeyArn",
@@ -241,8 +209,6 @@ class S3MonitoringConfiguration(PropertyType):
 
 @dataclass
 class SchedulerConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "queue_timeout_minutes": "QueueTimeoutMinutes",
         "max_concurrent_runs": "MaxConcurrentRuns",
@@ -254,8 +220,6 @@ class SchedulerConfiguration(PropertyType):
 
 @dataclass
 class WorkerConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "disk_type": "DiskType",
         "memory": "Memory",
@@ -271,8 +235,6 @@ class WorkerConfiguration(PropertyType):
 
 @dataclass
 class WorkerTypeSpecificationInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "image_configuration": "ImageConfiguration",
     }

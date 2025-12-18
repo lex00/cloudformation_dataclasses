@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:45
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AppFlow
@@ -1070,8 +1070,6 @@ NO_OP = ZendeskConnectorOperator.NO_OP
 
 @dataclass
 class ConnectorProvisioningConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_": "Lambda",
     }
@@ -1081,8 +1079,6 @@ class ConnectorProvisioningConfig(PropertyType):
 
 @dataclass
 class LambdaConnectorProvisioningConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_arn": "LambdaArn",
     }
@@ -1117,8 +1113,6 @@ class Connector(CloudFormationResource):
 
 @dataclass
 class AmplitudeConnectorProfileCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_key": "SecretKey",
         "api_key": "ApiKey",
@@ -1130,8 +1124,6 @@ class AmplitudeConnectorProfileCredentials(PropertyType):
 
 @dataclass
 class ApiKeyCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "api_secret_key": "ApiSecretKey",
         "api_key": "ApiKey",
@@ -1143,8 +1135,6 @@ class ApiKeyCredentials(PropertyType):
 
 @dataclass
 class BasicAuthCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "username": "Username",
         "password": "Password",
@@ -1156,8 +1146,6 @@ class BasicAuthCredentials(PropertyType):
 
 @dataclass
 class ConnectorOAuthRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auth_code": "AuthCode",
         "redirect_uri": "RedirectUri",
@@ -1169,8 +1157,6 @@ class ConnectorOAuthRequest(PropertyType):
 
 @dataclass
 class ConnectorProfileConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connector_profile_credentials": "ConnectorProfileCredentials",
         "connector_profile_properties": "ConnectorProfileProperties",
@@ -1182,8 +1168,6 @@ class ConnectorProfileConfig(PropertyType):
 
 @dataclass
 class ConnectorProfileCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "amplitude": "Amplitude",
         "google_analytics": "GoogleAnalytics",
@@ -1227,8 +1211,6 @@ class ConnectorProfileCredentials(PropertyType):
 
 @dataclass
 class ConnectorProfileProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_now": "ServiceNow",
         "custom_connector": "CustomConnector",
@@ -1264,8 +1246,6 @@ class ConnectorProfileProperties(PropertyType):
 
 @dataclass
 class CustomAuthCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "credentials_map": "CredentialsMap",
         "custom_authentication_type": "CustomAuthenticationType",
@@ -1277,8 +1257,6 @@ class CustomAuthCredentials(PropertyType):
 
 @dataclass
 class CustomConnectorProfileCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "basic": "Basic",
         "api_key": "ApiKey",
@@ -1296,8 +1274,6 @@ class CustomConnectorProfileCredentials(PropertyType):
 
 @dataclass
 class CustomConnectorProfileProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "o_auth2_properties": "OAuth2Properties",
         "profile_properties": "ProfileProperties",
@@ -1309,8 +1285,6 @@ class CustomConnectorProfileProperties(PropertyType):
 
 @dataclass
 class DatadogConnectorProfileCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_key": "ApplicationKey",
         "api_key": "ApiKey",
@@ -1322,8 +1296,6 @@ class DatadogConnectorProfileCredentials(PropertyType):
 
 @dataclass
 class DatadogConnectorProfileProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_url": "InstanceUrl",
     }
@@ -1333,8 +1305,6 @@ class DatadogConnectorProfileProperties(PropertyType):
 
 @dataclass
 class DynatraceConnectorProfileCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "api_token": "ApiToken",
     }
@@ -1344,8 +1314,6 @@ class DynatraceConnectorProfileCredentials(PropertyType):
 
 @dataclass
 class DynatraceConnectorProfileProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_url": "InstanceUrl",
     }
@@ -1355,8 +1323,6 @@ class DynatraceConnectorProfileProperties(PropertyType):
 
 @dataclass
 class GoogleAnalyticsConnectorProfileCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "refresh_token": "RefreshToken",
         "client_secret": "ClientSecret",
@@ -1374,8 +1340,6 @@ class GoogleAnalyticsConnectorProfileCredentials(PropertyType):
 
 @dataclass
 class InforNexusConnectorProfileCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "access_key_id": "AccessKeyId",
         "user_id": "UserId",
@@ -1391,8 +1355,6 @@ class InforNexusConnectorProfileCredentials(PropertyType):
 
 @dataclass
 class InforNexusConnectorProfileProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_url": "InstanceUrl",
     }
@@ -1402,8 +1364,6 @@ class InforNexusConnectorProfileProperties(PropertyType):
 
 @dataclass
 class MarketoConnectorProfileCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_secret": "ClientSecret",
         "access_token": "AccessToken",
@@ -1419,8 +1379,6 @@ class MarketoConnectorProfileCredentials(PropertyType):
 
 @dataclass
 class MarketoConnectorProfileProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_url": "InstanceUrl",
     }
@@ -1430,8 +1388,6 @@ class MarketoConnectorProfileProperties(PropertyType):
 
 @dataclass
 class OAuth2Credentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "o_auth_request": "OAuthRequest",
         "refresh_token": "RefreshToken",
@@ -1449,8 +1405,6 @@ class OAuth2Credentials(PropertyType):
 
 @dataclass
 class OAuth2Properties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "token_url_custom_properties": "TokenUrlCustomProperties",
         "token_url": "TokenUrl",
@@ -1464,8 +1418,6 @@ class OAuth2Properties(PropertyType):
 
 @dataclass
 class OAuthCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "refresh_token": "RefreshToken",
         "access_token": "AccessToken",
@@ -1483,8 +1435,6 @@ class OAuthCredentials(PropertyType):
 
 @dataclass
 class OAuthProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auth_code_url": "AuthCodeUrl",
         "token_url": "TokenUrl",
@@ -1498,8 +1448,6 @@ class OAuthProperties(PropertyType):
 
 @dataclass
 class PardotConnectorProfileCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "refresh_token": "RefreshToken",
         "access_token": "AccessToken",
@@ -1515,8 +1463,6 @@ class PardotConnectorProfileCredentials(PropertyType):
 
 @dataclass
 class PardotConnectorProfileProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_url": "InstanceUrl",
         "is_sandbox_environment": "IsSandboxEnvironment",
@@ -1530,8 +1476,6 @@ class PardotConnectorProfileProperties(PropertyType):
 
 @dataclass
 class RedshiftConnectorProfileCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "username": "Username",
         "password": "Password",
@@ -1543,8 +1487,6 @@ class RedshiftConnectorProfileCredentials(PropertyType):
 
 @dataclass
 class RedshiftConnectorProfileProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "database_url": "DatabaseUrl",
         "bucket_name": "BucketName",
@@ -1570,8 +1512,6 @@ class RedshiftConnectorProfileProperties(PropertyType):
 
 @dataclass
 class SAPODataConnectorProfileCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "basic_auth_credentials": "BasicAuthCredentials",
         "o_auth_credentials": "OAuthCredentials",
@@ -1583,8 +1523,6 @@ class SAPODataConnectorProfileCredentials(PropertyType):
 
 @dataclass
 class SAPODataConnectorProfileProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "application_service_path": "ApplicationServicePath",
         "application_host_url": "ApplicationHostUrl",
@@ -1608,8 +1546,6 @@ class SAPODataConnectorProfileProperties(PropertyType):
 
 @dataclass
 class SalesforceConnectorProfileCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "jwt_token": "JwtToken",
         "refresh_token": "RefreshToken",
@@ -1629,8 +1565,6 @@ class SalesforceConnectorProfileCredentials(PropertyType):
 
 @dataclass
 class SalesforceConnectorProfileProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_url": "InstanceUrl",
         "is_sandbox_environment": "isSandboxEnvironment",
@@ -1644,8 +1578,6 @@ class SalesforceConnectorProfileProperties(PropertyType):
 
 @dataclass
 class ServiceNowConnectorProfileCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "username": "Username",
         "o_auth2_credentials": "OAuth2Credentials",
@@ -1659,8 +1591,6 @@ class ServiceNowConnectorProfileCredentials(PropertyType):
 
 @dataclass
 class ServiceNowConnectorProfileProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_url": "InstanceUrl",
     }
@@ -1670,8 +1600,6 @@ class ServiceNowConnectorProfileProperties(PropertyType):
 
 @dataclass
 class SingularConnectorProfileCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "api_key": "ApiKey",
     }
@@ -1681,8 +1609,6 @@ class SingularConnectorProfileCredentials(PropertyType):
 
 @dataclass
 class SlackConnectorProfileCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_secret": "ClientSecret",
         "access_token": "AccessToken",
@@ -1698,8 +1624,6 @@ class SlackConnectorProfileCredentials(PropertyType):
 
 @dataclass
 class SlackConnectorProfileProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_url": "InstanceUrl",
     }
@@ -1709,8 +1633,6 @@ class SlackConnectorProfileProperties(PropertyType):
 
 @dataclass
 class SnowflakeConnectorProfileCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "username": "Username",
         "password": "Password",
@@ -1722,8 +1644,6 @@ class SnowflakeConnectorProfileCredentials(PropertyType):
 
 @dataclass
 class SnowflakeConnectorProfileProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "warehouse": "Warehouse",
         "bucket_name": "BucketName",
@@ -1745,8 +1665,6 @@ class SnowflakeConnectorProfileProperties(PropertyType):
 
 @dataclass
 class TrendmicroConnectorProfileCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "api_secret_key": "ApiSecretKey",
     }
@@ -1756,8 +1674,6 @@ class TrendmicroConnectorProfileCredentials(PropertyType):
 
 @dataclass
 class VeevaConnectorProfileCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "username": "Username",
         "password": "Password",
@@ -1769,8 +1685,6 @@ class VeevaConnectorProfileCredentials(PropertyType):
 
 @dataclass
 class VeevaConnectorProfileProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_url": "InstanceUrl",
     }
@@ -1780,8 +1694,6 @@ class VeevaConnectorProfileProperties(PropertyType):
 
 @dataclass
 class ZendeskConnectorProfileCredentials(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_secret": "ClientSecret",
         "access_token": "AccessToken",
@@ -1797,8 +1709,6 @@ class ZendeskConnectorProfileCredentials(PropertyType):
 
 @dataclass
 class ZendeskConnectorProfileProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_url": "InstanceUrl",
     }
@@ -1842,8 +1752,6 @@ class ConnectorProfile(CloudFormationResource):
 
 @dataclass
 class AggregationConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_file_size": "TargetFileSize",
         "aggregation_type": "AggregationType",
@@ -1855,8 +1763,6 @@ class AggregationConfig(PropertyType):
 
 @dataclass
 class AmplitudeSourceProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }
@@ -1866,8 +1772,6 @@ class AmplitudeSourceProperties(PropertyType):
 
 @dataclass
 class ConnectorOperator(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "amplitude": "Amplitude",
         "s3": "S3",
@@ -1909,8 +1813,6 @@ class ConnectorOperator(PropertyType):
 
 @dataclass
 class CustomConnectorDestinationProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id_field_names": "IdFieldNames",
         "entity_name": "EntityName",
@@ -1928,8 +1830,6 @@ class CustomConnectorDestinationProperties(PropertyType):
 
 @dataclass
 class CustomConnectorSourceProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entity_name": "EntityName",
         "data_transfer_api": "DataTransferApi",
@@ -1943,8 +1843,6 @@ class CustomConnectorSourceProperties(PropertyType):
 
 @dataclass
 class DataTransferApi(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "name": "Name",
@@ -1956,8 +1854,6 @@ class DataTransferApi(PropertyType):
 
 @dataclass
 class DatadogSourceProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }
@@ -1967,8 +1863,6 @@ class DatadogSourceProperties(PropertyType):
 
 @dataclass
 class DestinationConnectorProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
         "custom_connector": "CustomConnector",
@@ -1998,8 +1892,6 @@ class DestinationConnectorProperties(PropertyType):
 
 @dataclass
 class DestinationFlowConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connector_profile_name": "ConnectorProfileName",
         "api_version": "ApiVersion",
@@ -2015,8 +1907,6 @@ class DestinationFlowConfig(PropertyType):
 
 @dataclass
 class DynatraceSourceProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }
@@ -2026,8 +1916,6 @@ class DynatraceSourceProperties(PropertyType):
 
 @dataclass
 class ErrorHandlingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "bucket_prefix": "BucketPrefix",
@@ -2041,8 +1929,6 @@ class ErrorHandlingConfig(PropertyType):
 
 @dataclass
 class EventBridgeDestinationProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
         "error_handling_config": "ErrorHandlingConfig",
@@ -2054,8 +1940,6 @@ class EventBridgeDestinationProperties(PropertyType):
 
 @dataclass
 class GlueDataCatalog(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "database_name": "DatabaseName",
         "role_arn": "RoleArn",
@@ -2069,8 +1953,6 @@ class GlueDataCatalog(PropertyType):
 
 @dataclass
 class GoogleAnalyticsSourceProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }
@@ -2080,8 +1962,6 @@ class GoogleAnalyticsSourceProperties(PropertyType):
 
 @dataclass
 class IncrementalPullConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "datetime_type_field_name": "DatetimeTypeFieldName",
     }
@@ -2091,8 +1971,6 @@ class IncrementalPullConfig(PropertyType):
 
 @dataclass
 class InforNexusSourceProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }
@@ -2102,8 +1980,6 @@ class InforNexusSourceProperties(PropertyType):
 
 @dataclass
 class LookoutMetricsDestinationProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }
@@ -2113,8 +1989,6 @@ class LookoutMetricsDestinationProperties(PropertyType):
 
 @dataclass
 class MarketoDestinationProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
         "error_handling_config": "ErrorHandlingConfig",
@@ -2126,8 +2000,6 @@ class MarketoDestinationProperties(PropertyType):
 
 @dataclass
 class MarketoSourceProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }
@@ -2137,8 +2009,6 @@ class MarketoSourceProperties(PropertyType):
 
 @dataclass
 class MetadataCatalogConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "glue_data_catalog": "GlueDataCatalog",
     }
@@ -2148,8 +2018,6 @@ class MetadataCatalogConfig(PropertyType):
 
 @dataclass
 class PardotSourceProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }
@@ -2159,8 +2027,6 @@ class PardotSourceProperties(PropertyType):
 
 @dataclass
 class PrefixConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prefix_type": "PrefixType",
         "path_prefix_hierarchy": "PathPrefixHierarchy",
@@ -2174,8 +2040,6 @@ class PrefixConfig(PropertyType):
 
 @dataclass
 class RedshiftDestinationProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
         "bucket_prefix": "BucketPrefix",
@@ -2191,8 +2055,6 @@ class RedshiftDestinationProperties(PropertyType):
 
 @dataclass
 class S3DestinationProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "bucket_prefix": "BucketPrefix",
@@ -2206,8 +2068,6 @@ class S3DestinationProperties(PropertyType):
 
 @dataclass
 class S3InputFormatConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_input_file_type": "S3InputFileType",
     }
@@ -2217,8 +2077,6 @@ class S3InputFormatConfig(PropertyType):
 
 @dataclass
 class S3OutputFormatConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prefix_config": "PrefixConfig",
         "file_type": "FileType",
@@ -2234,8 +2092,6 @@ class S3OutputFormatConfig(PropertyType):
 
 @dataclass
 class S3SourceProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_input_format_config": "S3InputFormatConfig",
         "bucket_name": "BucketName",
@@ -2249,8 +2105,6 @@ class S3SourceProperties(PropertyType):
 
 @dataclass
 class SAPODataDestinationProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id_field_names": "IdFieldNames",
         "object_path": "ObjectPath",
@@ -2268,8 +2122,6 @@ class SAPODataDestinationProperties(PropertyType):
 
 @dataclass
 class SAPODataPaginationConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_page_size": "maxPageSize",
     }
@@ -2279,8 +2131,6 @@ class SAPODataPaginationConfig(PropertyType):
 
 @dataclass
 class SAPODataParallelismConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_parallelism": "maxParallelism",
     }
@@ -2290,8 +2140,6 @@ class SAPODataParallelismConfig(PropertyType):
 
 @dataclass
 class SAPODataSourceProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object_path": "ObjectPath",
         "pagination_config": "paginationConfig",
@@ -2305,8 +2153,6 @@ class SAPODataSourceProperties(PropertyType):
 
 @dataclass
 class SalesforceDestinationProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id_field_names": "IdFieldNames",
         "write_operation_type": "WriteOperationType",
@@ -2324,8 +2170,6 @@ class SalesforceDestinationProperties(PropertyType):
 
 @dataclass
 class SalesforceSourceProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_deleted_records": "IncludeDeletedRecords",
         "data_transfer_api": "DataTransferApi",
@@ -2341,8 +2185,6 @@ class SalesforceSourceProperties(PropertyType):
 
 @dataclass
 class ScheduledTriggerProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "schedule_end_time": "ScheduleEndTime",
         "schedule_expression": "ScheduleExpression",
@@ -2366,8 +2208,6 @@ class ScheduledTriggerProperties(PropertyType):
 
 @dataclass
 class ServiceNowSourceProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }
@@ -2377,8 +2217,6 @@ class ServiceNowSourceProperties(PropertyType):
 
 @dataclass
 class SingularSourceProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }
@@ -2388,8 +2226,6 @@ class SingularSourceProperties(PropertyType):
 
 @dataclass
 class SlackSourceProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }
@@ -2399,8 +2235,6 @@ class SlackSourceProperties(PropertyType):
 
 @dataclass
 class SnowflakeDestinationProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
         "bucket_prefix": "BucketPrefix",
@@ -2416,8 +2250,6 @@ class SnowflakeDestinationProperties(PropertyType):
 
 @dataclass
 class SourceConnectorProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "amplitude": "Amplitude",
         "s3": "S3",
@@ -2459,8 +2291,6 @@ class SourceConnectorProperties(PropertyType):
 
 @dataclass
 class SourceFlowConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "connector_profile_name": "ConnectorProfileName",
         "api_version": "ApiVersion",
@@ -2478,8 +2308,6 @@ class SourceFlowConfig(PropertyType):
 
 @dataclass
 class SuccessResponseHandlingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "bucket_prefix": "BucketPrefix",
@@ -2491,8 +2319,6 @@ class SuccessResponseHandlingConfig(PropertyType):
 
 @dataclass
 class Task(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_fields": "SourceFields",
         "destination_field": "DestinationField",
@@ -2510,8 +2336,6 @@ class Task(PropertyType):
 
 @dataclass
 class TaskPropertiesObject(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -2523,8 +2347,6 @@ class TaskPropertiesObject(PropertyType):
 
 @dataclass
 class TrendmicroSourceProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }
@@ -2534,8 +2356,6 @@ class TrendmicroSourceProperties(PropertyType):
 
 @dataclass
 class TriggerConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "trigger_type": "TriggerType",
         "trigger_properties": "TriggerProperties",
@@ -2547,8 +2367,6 @@ class TriggerConfig(PropertyType):
 
 @dataclass
 class UpsolverDestinationProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "bucket_prefix": "BucketPrefix",
@@ -2562,8 +2380,6 @@ class UpsolverDestinationProperties(PropertyType):
 
 @dataclass
 class UpsolverS3OutputFormatConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prefix_config": "PrefixConfig",
         "file_type": "FileType",
@@ -2577,8 +2393,6 @@ class UpsolverS3OutputFormatConfig(PropertyType):
 
 @dataclass
 class VeevaSourceProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_all_versions": "IncludeAllVersions",
         "include_renditions": "IncludeRenditions",
@@ -2596,8 +2410,6 @@ class VeevaSourceProperties(PropertyType):
 
 @dataclass
 class ZendeskDestinationProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id_field_names": "IdFieldNames",
         "write_operation_type": "WriteOperationType",
@@ -2613,8 +2425,6 @@ class ZendeskDestinationProperties(PropertyType):
 
 @dataclass
 class ZendeskSourceProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-app"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object": "Object",
     }

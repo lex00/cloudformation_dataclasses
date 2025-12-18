@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:35
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service WAFv2
@@ -1118,8 +1118,6 @@ class IPSet(CloudFormationResource):
 
 @dataclass
 class ActionCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
     }
@@ -1129,8 +1127,6 @@ class ActionCondition(PropertyType):
 
 @dataclass
 class Condition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "label_name_condition": "LabelNameCondition",
         "action_condition": "ActionCondition",
@@ -1142,8 +1138,6 @@ class Condition(PropertyType):
 
 @dataclass
 class FieldToMatch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "query_string": "QueryString",
         "uri_path": "UriPath",
@@ -1159,8 +1153,6 @@ class FieldToMatch(PropertyType):
 
 @dataclass
 class Filter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "requirement": "Requirement",
         "behavior": "Behavior",
@@ -1174,8 +1166,6 @@ class Filter(PropertyType):
 
 @dataclass
 class LabelNameCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "label_name": "LabelName",
     }
@@ -1185,8 +1175,6 @@ class LabelNameCondition(PropertyType):
 
 @dataclass
 class LoggingFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filters": "Filters",
         "default_behavior": "DefaultBehavior",
@@ -1198,8 +1186,6 @@ class LoggingFilter(PropertyType):
 
 @dataclass
 class SingleHeader(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -1266,8 +1252,6 @@ class RegexPatternSet(CloudFormationResource):
 
 @dataclass
 class AllowAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_request_handling": "CustomRequestHandling",
     }
@@ -1277,8 +1261,6 @@ class AllowAction(PropertyType):
 
 @dataclass
 class AndStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "statements": "Statements",
     }
@@ -1288,8 +1270,6 @@ class AndStatement(PropertyType):
 
 @dataclass
 class AsnMatchStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "forwarded_ip_config": "ForwardedIPConfig",
         "asn_list": "AsnList",
@@ -1301,8 +1281,6 @@ class AsnMatchStatement(PropertyType):
 
 @dataclass
 class BlockAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_response": "CustomResponse",
     }
@@ -1312,8 +1290,6 @@ class BlockAction(PropertyType):
 
 @dataclass
 class Body(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "oversize_handling": "OversizeHandling",
     }
@@ -1323,8 +1299,6 @@ class Body(PropertyType):
 
 @dataclass
 class ByteMatchStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "search_string_base64": "SearchStringBase64",
         "text_transformations": "TextTransformations",
@@ -1342,8 +1316,6 @@ class ByteMatchStatement(PropertyType):
 
 @dataclass
 class CaptchaAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_request_handling": "CustomRequestHandling",
     }
@@ -1353,8 +1325,6 @@ class CaptchaAction(PropertyType):
 
 @dataclass
 class CaptchaConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "immunity_time_property": "ImmunityTimeProperty",
     }
@@ -1364,8 +1334,6 @@ class CaptchaConfig(PropertyType):
 
 @dataclass
 class ChallengeAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_request_handling": "CustomRequestHandling",
     }
@@ -1375,8 +1343,6 @@ class ChallengeAction(PropertyType):
 
 @dataclass
 class ChallengeConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "immunity_time_property": "ImmunityTimeProperty",
     }
@@ -1386,8 +1352,6 @@ class ChallengeConfig(PropertyType):
 
 @dataclass
 class CookieMatchPattern(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all": "All",
         "included_cookies": "IncludedCookies",
@@ -1401,8 +1365,6 @@ class CookieMatchPattern(PropertyType):
 
 @dataclass
 class Cookies(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match_scope": "MatchScope",
         "match_pattern": "MatchPattern",
@@ -1416,8 +1378,6 @@ class Cookies(PropertyType):
 
 @dataclass
 class CountAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_request_handling": "CustomRequestHandling",
     }
@@ -1427,8 +1387,6 @@ class CountAction(PropertyType):
 
 @dataclass
 class CustomHTTPHeader(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -1440,8 +1398,6 @@ class CustomHTTPHeader(PropertyType):
 
 @dataclass
 class CustomRequestHandling(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "insert_headers": "InsertHeaders",
     }
@@ -1451,8 +1407,6 @@ class CustomRequestHandling(PropertyType):
 
 @dataclass
 class CustomResponse(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "response_code": "ResponseCode",
         "custom_response_body_key": "CustomResponseBodyKey",
@@ -1466,8 +1420,6 @@ class CustomResponse(PropertyType):
 
 @dataclass
 class CustomResponseBody(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_type": "ContentType",
         "content": "Content",
@@ -1479,8 +1431,6 @@ class CustomResponseBody(PropertyType):
 
 @dataclass
 class FieldToMatch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all_query_arguments": "AllQueryArguments",
         "ja3_fingerprint": "JA3Fingerprint",
@@ -1514,8 +1464,6 @@ class FieldToMatch(PropertyType):
 
 @dataclass
 class ForwardedIPConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fallback_behavior": "FallbackBehavior",
         "header_name": "HeaderName",
@@ -1527,8 +1475,6 @@ class ForwardedIPConfiguration(PropertyType):
 
 @dataclass
 class GeoMatchStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "forwarded_ip_config": "ForwardedIPConfig",
         "country_codes": "CountryCodes",
@@ -1540,8 +1486,6 @@ class GeoMatchStatement(PropertyType):
 
 @dataclass
 class HeaderMatchPattern(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all": "All",
         "included_headers": "IncludedHeaders",
@@ -1555,8 +1499,6 @@ class HeaderMatchPattern(PropertyType):
 
 @dataclass
 class Headers(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match_scope": "MatchScope",
         "match_pattern": "MatchPattern",
@@ -1570,8 +1512,6 @@ class Headers(PropertyType):
 
 @dataclass
 class IPSetForwardedIPConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fallback_behavior": "FallbackBehavior",
         "header_name": "HeaderName",
@@ -1585,8 +1525,6 @@ class IPSetForwardedIPConfiguration(PropertyType):
 
 @dataclass
 class IPSetReferenceStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_set_forwarded_ip_config": "IPSetForwardedIPConfig",
         "arn": "Arn",
@@ -1598,8 +1536,6 @@ class IPSetReferenceStatement(PropertyType):
 
 @dataclass
 class ImmunityTimeProperty(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "immunity_time": "ImmunityTime",
     }
@@ -1609,8 +1545,6 @@ class ImmunityTimeProperty(PropertyType):
 
 @dataclass
 class JA3Fingerprint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fallback_behavior": "FallbackBehavior",
     }
@@ -1620,8 +1554,6 @@ class JA3Fingerprint(PropertyType):
 
 @dataclass
 class JA4Fingerprint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fallback_behavior": "FallbackBehavior",
     }
@@ -1631,8 +1563,6 @@ class JA4Fingerprint(PropertyType):
 
 @dataclass
 class JsonBody(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match_scope": "MatchScope",
         "match_pattern": "MatchPattern",
@@ -1648,8 +1578,6 @@ class JsonBody(PropertyType):
 
 @dataclass
 class JsonMatchPattern(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all": "All",
         "included_paths": "IncludedPaths",
@@ -1661,8 +1589,6 @@ class JsonMatchPattern(PropertyType):
 
 @dataclass
 class Label(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -1672,8 +1598,6 @@ class Label(PropertyType):
 
 @dataclass
 class LabelMatchStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scope": "Scope",
         "key": "Key",
@@ -1685,8 +1609,6 @@ class LabelMatchStatement(PropertyType):
 
 @dataclass
 class LabelSummary(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -1696,8 +1618,6 @@ class LabelSummary(PropertyType):
 
 @dataclass
 class NotStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "statement": "Statement",
     }
@@ -1707,8 +1627,6 @@ class NotStatement(PropertyType):
 
 @dataclass
 class OrStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "statements": "Statements",
     }
@@ -1718,8 +1636,6 @@ class OrStatement(PropertyType):
 
 @dataclass
 class RateBasedStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregate_key_type": "AggregateKeyType",
         "custom_keys": "CustomKeys",
@@ -1739,8 +1655,6 @@ class RateBasedStatement(PropertyType):
 
 @dataclass
 class RateBasedStatementCustomKey(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cookie": "Cookie",
         "forwarded_ip": "ForwardedIP",
@@ -1772,8 +1686,6 @@ class RateBasedStatementCustomKey(PropertyType):
 
 @dataclass
 class RateLimitCookie(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_transformations": "TextTransformations",
         "name": "Name",
@@ -1785,8 +1697,6 @@ class RateLimitCookie(PropertyType):
 
 @dataclass
 class RateLimitHeader(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_transformations": "TextTransformations",
         "name": "Name",
@@ -1798,8 +1708,6 @@ class RateLimitHeader(PropertyType):
 
 @dataclass
 class RateLimitJA3Fingerprint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fallback_behavior": "FallbackBehavior",
     }
@@ -1809,8 +1717,6 @@ class RateLimitJA3Fingerprint(PropertyType):
 
 @dataclass
 class RateLimitJA4Fingerprint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fallback_behavior": "FallbackBehavior",
     }
@@ -1820,8 +1726,6 @@ class RateLimitJA4Fingerprint(PropertyType):
 
 @dataclass
 class RateLimitLabelNamespace(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "namespace": "Namespace",
     }
@@ -1831,8 +1735,6 @@ class RateLimitLabelNamespace(PropertyType):
 
 @dataclass
 class RateLimitQueryArgument(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_transformations": "TextTransformations",
         "name": "Name",
@@ -1844,8 +1746,6 @@ class RateLimitQueryArgument(PropertyType):
 
 @dataclass
 class RateLimitQueryString(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_transformations": "TextTransformations",
     }
@@ -1855,8 +1755,6 @@ class RateLimitQueryString(PropertyType):
 
 @dataclass
 class RateLimitUriPath(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_transformations": "TextTransformations",
     }
@@ -1866,8 +1764,6 @@ class RateLimitUriPath(PropertyType):
 
 @dataclass
 class RegexMatchStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_transformations": "TextTransformations",
         "regex_string": "RegexString",
@@ -1881,8 +1777,6 @@ class RegexMatchStatement(PropertyType):
 
 @dataclass
 class RegexPatternSetReferenceStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_transformations": "TextTransformations",
         "arn": "Arn",
@@ -1896,8 +1790,6 @@ class RegexPatternSetReferenceStatement(PropertyType):
 
 @dataclass
 class Rule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "priority": "Priority",
@@ -1921,8 +1813,6 @@ class Rule(PropertyType):
 
 @dataclass
 class RuleAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "captcha": "Captcha",
         "block": "Block",
@@ -1940,8 +1830,6 @@ class RuleAction(PropertyType):
 
 @dataclass
 class SingleHeader(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -1951,8 +1839,6 @@ class SingleHeader(PropertyType):
 
 @dataclass
 class SingleQueryArgument(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -1962,8 +1848,6 @@ class SingleQueryArgument(PropertyType):
 
 @dataclass
 class SizeConstraintStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison_operator": "ComparisonOperator",
         "text_transformations": "TextTransformations",
@@ -1979,8 +1863,6 @@ class SizeConstraintStatement(PropertyType):
 
 @dataclass
 class SqliMatchStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sensitivity_level": "SensitivityLevel",
         "text_transformations": "TextTransformations",
@@ -1994,8 +1876,6 @@ class SqliMatchStatement(PropertyType):
 
 @dataclass
 class Statement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "size_constraint_statement": "SizeConstraintStatement",
         "and_statement": "AndStatement",
@@ -2031,8 +1911,6 @@ class Statement(PropertyType):
 
 @dataclass
 class TextTransformation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "priority": "Priority",
@@ -2044,8 +1922,6 @@ class TextTransformation(PropertyType):
 
 @dataclass
 class UriFragment(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fallback_behavior": "FallbackBehavior",
     }
@@ -2055,8 +1931,6 @@ class UriFragment(PropertyType):
 
 @dataclass
 class VisibilityConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "sampled_requests_enabled": "SampledRequestsEnabled",
@@ -2070,8 +1944,6 @@ class VisibilityConfig(PropertyType):
 
 @dataclass
 class XssMatchStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_transformations": "TextTransformations",
         "field_to_match": "FieldToMatch",
@@ -2130,8 +2002,6 @@ class RuleGroup(CloudFormationResource):
 
 @dataclass
 class AWSManagedRulesACFPRuleSet(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "registration_page_path": "RegistrationPagePath",
         "response_inspection": "ResponseInspection",
@@ -2149,8 +2019,6 @@ class AWSManagedRulesACFPRuleSet(PropertyType):
 
 @dataclass
 class AWSManagedRulesATPRuleSet(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "response_inspection": "ResponseInspection",
         "enable_regex_in_path": "EnableRegexInPath",
@@ -2166,8 +2034,6 @@ class AWSManagedRulesATPRuleSet(PropertyType):
 
 @dataclass
 class AWSManagedRulesAntiDDoSRuleSet(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_side_action_config": "ClientSideActionConfig",
         "sensitivity_to_block": "SensitivityToBlock",
@@ -2179,8 +2045,6 @@ class AWSManagedRulesAntiDDoSRuleSet(PropertyType):
 
 @dataclass
 class AWSManagedRulesBotControlRuleSet(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inspection_level": "InspectionLevel",
         "enable_machine_learning": "EnableMachineLearning",
@@ -2192,8 +2056,6 @@ class AWSManagedRulesBotControlRuleSet(PropertyType):
 
 @dataclass
 class AllowAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_request_handling": "CustomRequestHandling",
     }
@@ -2203,8 +2065,6 @@ class AllowAction(PropertyType):
 
 @dataclass
 class AndStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "statements": "Statements",
     }
@@ -2214,8 +2074,6 @@ class AndStatement(PropertyType):
 
 @dataclass
 class ApplicationAttribute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "name": "Name",
@@ -2227,8 +2085,6 @@ class ApplicationAttribute(PropertyType):
 
 @dataclass
 class ApplicationConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attributes": "Attributes",
     }
@@ -2238,8 +2094,6 @@ class ApplicationConfig(PropertyType):
 
 @dataclass
 class AsnMatchStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "forwarded_ip_config": "ForwardedIPConfig",
         "asn_list": "AsnList",
@@ -2251,8 +2105,6 @@ class AsnMatchStatement(PropertyType):
 
 @dataclass
 class AssociationConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "request_body": "RequestBody",
     }
@@ -2262,8 +2114,6 @@ class AssociationConfig(PropertyType):
 
 @dataclass
 class BlockAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_response": "CustomResponse",
     }
@@ -2273,8 +2123,6 @@ class BlockAction(PropertyType):
 
 @dataclass
 class Body(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "oversize_handling": "OversizeHandling",
     }
@@ -2284,8 +2132,6 @@ class Body(PropertyType):
 
 @dataclass
 class ByteMatchStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "search_string_base64": "SearchStringBase64",
         "text_transformations": "TextTransformations",
@@ -2303,8 +2149,6 @@ class ByteMatchStatement(PropertyType):
 
 @dataclass
 class CaptchaAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_request_handling": "CustomRequestHandling",
     }
@@ -2314,8 +2158,6 @@ class CaptchaAction(PropertyType):
 
 @dataclass
 class CaptchaConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "immunity_time_property": "ImmunityTimeProperty",
     }
@@ -2325,8 +2167,6 @@ class CaptchaConfig(PropertyType):
 
 @dataclass
 class ChallengeAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_request_handling": "CustomRequestHandling",
     }
@@ -2336,8 +2176,6 @@ class ChallengeAction(PropertyType):
 
 @dataclass
 class ChallengeConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "immunity_time_property": "ImmunityTimeProperty",
     }
@@ -2347,8 +2185,6 @@ class ChallengeConfig(PropertyType):
 
 @dataclass
 class ClientSideAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "usage_of_action": "UsageOfAction",
         "sensitivity": "Sensitivity",
@@ -2362,8 +2198,6 @@ class ClientSideAction(PropertyType):
 
 @dataclass
 class ClientSideActionConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "challenge": "Challenge",
     }
@@ -2373,8 +2207,6 @@ class ClientSideActionConfig(PropertyType):
 
 @dataclass
 class CookieMatchPattern(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all": "All",
         "included_cookies": "IncludedCookies",
@@ -2388,8 +2220,6 @@ class CookieMatchPattern(PropertyType):
 
 @dataclass
 class Cookies(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match_scope": "MatchScope",
         "match_pattern": "MatchPattern",
@@ -2403,8 +2233,6 @@ class Cookies(PropertyType):
 
 @dataclass
 class CountAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_request_handling": "CustomRequestHandling",
     }
@@ -2414,8 +2242,6 @@ class CountAction(PropertyType):
 
 @dataclass
 class CustomHTTPHeader(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -2427,8 +2253,6 @@ class CustomHTTPHeader(PropertyType):
 
 @dataclass
 class CustomRequestHandling(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "insert_headers": "InsertHeaders",
     }
@@ -2438,8 +2262,6 @@ class CustomRequestHandling(PropertyType):
 
 @dataclass
 class CustomResponse(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "response_code": "ResponseCode",
         "custom_response_body_key": "CustomResponseBodyKey",
@@ -2453,8 +2275,6 @@ class CustomResponse(PropertyType):
 
 @dataclass
 class CustomResponseBody(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_type": "ContentType",
         "content": "Content",
@@ -2466,8 +2286,6 @@ class CustomResponseBody(PropertyType):
 
 @dataclass
 class DataProtect(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field": "Field",
         "action": "Action",
@@ -2483,8 +2301,6 @@ class DataProtect(PropertyType):
 
 @dataclass
 class DataProtectionConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_protections": "DataProtections",
     }
@@ -2494,8 +2310,6 @@ class DataProtectionConfig(PropertyType):
 
 @dataclass
 class DefaultAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "block": "Block",
         "allow": "Allow",
@@ -2507,8 +2321,6 @@ class DefaultAction(PropertyType):
 
 @dataclass
 class ExcludedRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -2518,8 +2330,6 @@ class ExcludedRule(PropertyType):
 
 @dataclass
 class FieldIdentifier(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "identifier": "Identifier",
     }
@@ -2529,8 +2339,6 @@ class FieldIdentifier(PropertyType):
 
 @dataclass
 class FieldToMatch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all_query_arguments": "AllQueryArguments",
         "ja3_fingerprint": "JA3Fingerprint",
@@ -2564,8 +2372,6 @@ class FieldToMatch(PropertyType):
 
 @dataclass
 class FieldToProtect(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_keys": "FieldKeys",
         "field_type": "FieldType",
@@ -2577,8 +2383,6 @@ class FieldToProtect(PropertyType):
 
 @dataclass
 class ForwardedIPConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fallback_behavior": "FallbackBehavior",
         "header_name": "HeaderName",
@@ -2590,8 +2394,6 @@ class ForwardedIPConfiguration(PropertyType):
 
 @dataclass
 class GeoMatchStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "forwarded_ip_config": "ForwardedIPConfig",
         "country_codes": "CountryCodes",
@@ -2603,8 +2405,6 @@ class GeoMatchStatement(PropertyType):
 
 @dataclass
 class HeaderMatchPattern(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all": "All",
         "included_headers": "IncludedHeaders",
@@ -2618,8 +2418,6 @@ class HeaderMatchPattern(PropertyType):
 
 @dataclass
 class Headers(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match_scope": "MatchScope",
         "match_pattern": "MatchPattern",
@@ -2633,8 +2431,6 @@ class Headers(PropertyType):
 
 @dataclass
 class IPSetForwardedIPConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fallback_behavior": "FallbackBehavior",
         "header_name": "HeaderName",
@@ -2648,8 +2444,6 @@ class IPSetForwardedIPConfiguration(PropertyType):
 
 @dataclass
 class IPSetReferenceStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_set_forwarded_ip_config": "IPSetForwardedIPConfig",
         "arn": "Arn",
@@ -2661,8 +2455,6 @@ class IPSetReferenceStatement(PropertyType):
 
 @dataclass
 class ImmunityTimeProperty(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "immunity_time": "ImmunityTime",
     }
@@ -2672,8 +2464,6 @@ class ImmunityTimeProperty(PropertyType):
 
 @dataclass
 class JA3Fingerprint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fallback_behavior": "FallbackBehavior",
     }
@@ -2683,8 +2473,6 @@ class JA3Fingerprint(PropertyType):
 
 @dataclass
 class JA4Fingerprint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fallback_behavior": "FallbackBehavior",
     }
@@ -2694,8 +2482,6 @@ class JA4Fingerprint(PropertyType):
 
 @dataclass
 class JsonBody(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match_scope": "MatchScope",
         "match_pattern": "MatchPattern",
@@ -2711,8 +2497,6 @@ class JsonBody(PropertyType):
 
 @dataclass
 class JsonMatchPattern(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all": "All",
         "included_paths": "IncludedPaths",
@@ -2724,8 +2508,6 @@ class JsonMatchPattern(PropertyType):
 
 @dataclass
 class Label(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -2735,8 +2517,6 @@ class Label(PropertyType):
 
 @dataclass
 class LabelMatchStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "scope": "Scope",
         "key": "Key",
@@ -2748,8 +2528,6 @@ class LabelMatchStatement(PropertyType):
 
 @dataclass
 class ManagedRuleGroupConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aws_managed_rules_anti_d_do_s_rule_set": "AWSManagedRulesAntiDDoSRuleSet",
         "username_field": "UsernameField",
@@ -2773,8 +2551,6 @@ class ManagedRuleGroupConfig(PropertyType):
 
 @dataclass
 class ManagedRuleGroupStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vendor_name": "VendorName",
         "version": "Version",
@@ -2796,8 +2572,6 @@ class ManagedRuleGroupStatement(PropertyType):
 
 @dataclass
 class NotStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "statement": "Statement",
     }
@@ -2807,8 +2581,6 @@ class NotStatement(PropertyType):
 
 @dataclass
 class OnSourceDDoSProtectionConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alb_low_reputation_mode": "ALBLowReputationMode",
     }
@@ -2818,8 +2590,6 @@ class OnSourceDDoSProtectionConfig(PropertyType):
 
 @dataclass
 class OrStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "statements": "Statements",
     }
@@ -2829,8 +2599,6 @@ class OrStatement(PropertyType):
 
 @dataclass
 class OverrideAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "count": "Count",
         "none": "None",
@@ -2842,8 +2610,6 @@ class OverrideAction(PropertyType):
 
 @dataclass
 class RateBasedStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregate_key_type": "AggregateKeyType",
         "custom_keys": "CustomKeys",
@@ -2863,8 +2629,6 @@ class RateBasedStatement(PropertyType):
 
 @dataclass
 class RateBasedStatementCustomKey(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cookie": "Cookie",
         "forwarded_ip": "ForwardedIP",
@@ -2896,8 +2660,6 @@ class RateBasedStatementCustomKey(PropertyType):
 
 @dataclass
 class RateLimitCookie(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_transformations": "TextTransformations",
         "name": "Name",
@@ -2909,8 +2671,6 @@ class RateLimitCookie(PropertyType):
 
 @dataclass
 class RateLimitHeader(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_transformations": "TextTransformations",
         "name": "Name",
@@ -2922,8 +2682,6 @@ class RateLimitHeader(PropertyType):
 
 @dataclass
 class RateLimitJA3Fingerprint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fallback_behavior": "FallbackBehavior",
     }
@@ -2933,8 +2691,6 @@ class RateLimitJA3Fingerprint(PropertyType):
 
 @dataclass
 class RateLimitJA4Fingerprint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fallback_behavior": "FallbackBehavior",
     }
@@ -2944,8 +2700,6 @@ class RateLimitJA4Fingerprint(PropertyType):
 
 @dataclass
 class RateLimitLabelNamespace(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "namespace": "Namespace",
     }
@@ -2955,8 +2709,6 @@ class RateLimitLabelNamespace(PropertyType):
 
 @dataclass
 class RateLimitQueryArgument(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_transformations": "TextTransformations",
         "name": "Name",
@@ -2968,8 +2720,6 @@ class RateLimitQueryArgument(PropertyType):
 
 @dataclass
 class RateLimitQueryString(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_transformations": "TextTransformations",
     }
@@ -2979,8 +2729,6 @@ class RateLimitQueryString(PropertyType):
 
 @dataclass
 class RateLimitUriPath(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_transformations": "TextTransformations",
     }
@@ -2990,8 +2738,6 @@ class RateLimitUriPath(PropertyType):
 
 @dataclass
 class Regex(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "regex_string": "RegexString",
     }
@@ -3001,8 +2747,6 @@ class Regex(PropertyType):
 
 @dataclass
 class RegexMatchStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_transformations": "TextTransformations",
         "regex_string": "RegexString",
@@ -3016,8 +2760,6 @@ class RegexMatchStatement(PropertyType):
 
 @dataclass
 class RegexPatternSetReferenceStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_transformations": "TextTransformations",
         "arn": "Arn",
@@ -3031,8 +2773,6 @@ class RegexPatternSetReferenceStatement(PropertyType):
 
 @dataclass
 class RequestBodyAssociatedResourceTypeConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_size_inspection_limit": "DefaultSizeInspectionLimit",
     }
@@ -3042,8 +2782,6 @@ class RequestBodyAssociatedResourceTypeConfig(PropertyType):
 
 @dataclass
 class RequestInspection(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "username_field": "UsernameField",
         "password_field": "PasswordField",
@@ -3057,8 +2795,6 @@ class RequestInspection(PropertyType):
 
 @dataclass
 class RequestInspectionACFP(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "username_field": "UsernameField",
         "email_field": "EmailField",
@@ -3078,8 +2814,6 @@ class RequestInspectionACFP(PropertyType):
 
 @dataclass
 class ResponseInspection(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "header": "Header",
         "body_contains": "BodyContains",
@@ -3095,8 +2829,6 @@ class ResponseInspection(PropertyType):
 
 @dataclass
 class ResponseInspectionBodyContains(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "success_strings": "SuccessStrings",
         "failure_strings": "FailureStrings",
@@ -3108,8 +2840,6 @@ class ResponseInspectionBodyContains(PropertyType):
 
 @dataclass
 class ResponseInspectionHeader(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "success_values": "SuccessValues",
         "failure_values": "FailureValues",
@@ -3123,8 +2853,6 @@ class ResponseInspectionHeader(PropertyType):
 
 @dataclass
 class ResponseInspectionJson(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "identifier": "Identifier",
         "success_values": "SuccessValues",
@@ -3138,8 +2866,6 @@ class ResponseInspectionJson(PropertyType):
 
 @dataclass
 class ResponseInspectionStatusCode(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "success_codes": "SuccessCodes",
         "failure_codes": "FailureCodes",
@@ -3151,8 +2877,6 @@ class ResponseInspectionStatusCode(PropertyType):
 
 @dataclass
 class Rule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "priority": "Priority",
@@ -3178,8 +2902,6 @@ class Rule(PropertyType):
 
 @dataclass
 class RuleAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "captcha": "Captcha",
         "block": "Block",
@@ -3197,8 +2919,6 @@ class RuleAction(PropertyType):
 
 @dataclass
 class RuleActionOverride(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action_to_use": "ActionToUse",
         "name": "Name",
@@ -3210,8 +2930,6 @@ class RuleActionOverride(PropertyType):
 
 @dataclass
 class RuleGroupReferenceStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule_action_overrides": "RuleActionOverrides",
         "arn": "Arn",
@@ -3225,8 +2943,6 @@ class RuleGroupReferenceStatement(PropertyType):
 
 @dataclass
 class SingleHeader(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -3236,8 +2952,6 @@ class SingleHeader(PropertyType):
 
 @dataclass
 class SingleQueryArgument(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -3247,8 +2961,6 @@ class SingleQueryArgument(PropertyType):
 
 @dataclass
 class SizeConstraintStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison_operator": "ComparisonOperator",
         "text_transformations": "TextTransformations",
@@ -3264,8 +2976,6 @@ class SizeConstraintStatement(PropertyType):
 
 @dataclass
 class SqliMatchStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sensitivity_level": "SensitivityLevel",
         "text_transformations": "TextTransformations",
@@ -3279,8 +2989,6 @@ class SqliMatchStatement(PropertyType):
 
 @dataclass
 class Statement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "size_constraint_statement": "SizeConstraintStatement",
         "and_statement": "AndStatement",
@@ -3320,8 +3028,6 @@ class Statement(PropertyType):
 
 @dataclass
 class TextTransformation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "priority": "Priority",
@@ -3333,8 +3039,6 @@ class TextTransformation(PropertyType):
 
 @dataclass
 class UriFragment(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fallback_behavior": "FallbackBehavior",
     }
@@ -3344,8 +3048,6 @@ class UriFragment(PropertyType):
 
 @dataclass
 class VisibilityConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "sampled_requests_enabled": "SampledRequestsEnabled",
@@ -3359,8 +3061,6 @@ class VisibilityConfig(PropertyType):
 
 @dataclass
 class XssMatchStatement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "text_transformations": "TextTransformations",
         "field_to_match": "FieldToMatch",

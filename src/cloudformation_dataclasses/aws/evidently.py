@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Evidently
@@ -218,8 +218,6 @@ BOOLEAN = VariationValueType.BOOLEAN
 
 @dataclass
 class MetricGoalObject(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entity_id_key": "EntityIdKey",
         "desired_change": "DesiredChange",
@@ -239,8 +237,6 @@ class MetricGoalObject(PropertyType):
 
 @dataclass
 class OnlineAbConfigObject(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "treatment_weights": "TreatmentWeights",
         "control_treatment_name": "ControlTreatmentName",
@@ -252,8 +248,6 @@ class OnlineAbConfigObject(PropertyType):
 
 @dataclass
 class RunningStatusObject(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "desired_state": "DesiredState",
@@ -269,8 +263,6 @@ class RunningStatusObject(PropertyType):
 
 @dataclass
 class TreatmentObject(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "variation": "Variation",
@@ -286,8 +278,6 @@ class TreatmentObject(PropertyType):
 
 @dataclass
 class TreatmentToWeight(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "treatment": "Treatment",
         "split_weight": "SplitWeight",
@@ -340,8 +330,6 @@ class Experiment(CloudFormationResource):
 
 @dataclass
 class EntityOverride(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entity_id": "EntityId",
         "variation": "Variation",
@@ -353,8 +341,6 @@ class EntityOverride(PropertyType):
 
 @dataclass
 class VariationObject(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "variation_name": "VariationName",
         "double_value": "DoubleValue",
@@ -405,8 +391,6 @@ class Feature(CloudFormationResource):
 
 @dataclass
 class ExecutionStatusObject(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "desired_state": "DesiredState",
@@ -420,8 +404,6 @@ class ExecutionStatusObject(PropertyType):
 
 @dataclass
 class GroupToWeight(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_name": "GroupName",
         "split_weight": "SplitWeight",
@@ -433,8 +415,6 @@ class GroupToWeight(PropertyType):
 
 @dataclass
 class LaunchGroupObject(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_name": "GroupName",
         "description": "Description",
@@ -450,8 +430,6 @@ class LaunchGroupObject(PropertyType):
 
 @dataclass
 class MetricDefinitionObject(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entity_id_key": "EntityIdKey",
         "metric_name": "MetricName",
@@ -469,8 +447,6 @@ class MetricDefinitionObject(PropertyType):
 
 @dataclass
 class SegmentOverride(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "weights": "Weights",
         "evaluation_order": "EvaluationOrder",
@@ -484,8 +460,6 @@ class SegmentOverride(PropertyType):
 
 @dataclass
 class StepConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_weights": "GroupWeights",
         "segment_overrides": "SegmentOverrides",
@@ -534,8 +508,6 @@ class Launch(CloudFormationResource):
 
 @dataclass
 class AppConfigResourceObject(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "environment_id": "EnvironmentId",
         "application_id": "ApplicationId",
@@ -547,8 +519,6 @@ class AppConfigResourceObject(PropertyType):
 
 @dataclass
 class DataDeliveryObject(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
         "log_group": "LogGroup",
@@ -560,8 +530,6 @@ class DataDeliveryObject(PropertyType):
 
 @dataclass
 class S3Destination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "prefix": "Prefix",

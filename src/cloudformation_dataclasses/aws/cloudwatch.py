@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CloudWatch
@@ -240,8 +240,6 @@ FORBIDDEN = StatusCode.FORBIDDEN
 
 @dataclass
 class Dimension(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -253,8 +251,6 @@ class Dimension(PropertyType):
 
 @dataclass
 class Metric(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "dimensions": "Dimensions",
@@ -268,8 +264,6 @@ class Metric(PropertyType):
 
 @dataclass
 class MetricDataQuery(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account_id": "AccountId",
         "return_data": "ReturnData",
@@ -291,8 +285,6 @@ class MetricDataQuery(PropertyType):
 
 @dataclass
 class MetricStat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stat": "Stat",
         "period": "Period",
@@ -369,8 +361,6 @@ class Alarm(CloudFormationResource):
 
 @dataclass
 class Configuration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_time_zone": "MetricTimeZone",
         "excluded_time_ranges": "ExcludedTimeRanges",
@@ -382,8 +372,6 @@ class Configuration(PropertyType):
 
 @dataclass
 class Dimension(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -395,8 +383,6 @@ class Dimension(PropertyType):
 
 @dataclass
 class Metric(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "dimensions": "Dimensions",
@@ -410,8 +396,6 @@ class Metric(PropertyType):
 
 @dataclass
 class MetricCharacteristics(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "periodic_spikes": "PeriodicSpikes",
     }
@@ -421,15 +405,11 @@ class MetricCharacteristics(PropertyType):
 
 @dataclass
 class MetricDataQueries(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     pass
 
 
 @dataclass
 class MetricDataQuery(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account_id": "AccountId",
         "return_data": "ReturnData",
@@ -451,8 +431,6 @@ class MetricDataQuery(PropertyType):
 
 @dataclass
 class MetricMathAnomalyDetector(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_data_queries": "MetricDataQueries",
     }
@@ -462,8 +440,6 @@ class MetricMathAnomalyDetector(PropertyType):
 
 @dataclass
 class MetricStat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stat": "Stat",
         "period": "Period",
@@ -479,8 +455,6 @@ class MetricStat(PropertyType):
 
 @dataclass
 class Range(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "end_time": "EndTime",
         "start_time": "StartTime",
@@ -492,8 +466,6 @@ class Range(PropertyType):
 
 @dataclass
 class SingleMetricAnomalyDetector(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "account_id": "AccountId",
@@ -592,8 +564,6 @@ class Dashboard(CloudFormationResource):
 
 @dataclass
 class Tags(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     pass
 
 
@@ -631,8 +601,6 @@ class InsightRule(CloudFormationResource):
 
 @dataclass
 class MetricStreamFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_names": "MetricNames",
         "namespace": "Namespace",
@@ -644,8 +612,6 @@ class MetricStreamFilter(PropertyType):
 
 @dataclass
 class MetricStreamStatisticsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_metrics": "IncludeMetrics",
         "additional_statistics": "AdditionalStatistics",
@@ -657,8 +623,6 @@ class MetricStreamStatisticsConfiguration(PropertyType):
 
 @dataclass
 class MetricStreamStatisticsMetric(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "namespace": "Namespace",

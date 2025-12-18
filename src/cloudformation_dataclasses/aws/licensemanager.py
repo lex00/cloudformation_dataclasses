@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service LicenseManager
@@ -423,8 +423,6 @@ class Grant(CloudFormationResource):
 
 @dataclass
 class BorrowConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lic"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allow_early_check_in": "AllowEarlyCheckIn",
         "max_time_to_live_in_minutes": "MaxTimeToLiveInMinutes",
@@ -436,8 +434,6 @@ class BorrowConfiguration(PropertyType):
 
 @dataclass
 class ConsumptionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lic"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "borrow_configuration": "BorrowConfiguration",
         "renew_type": "RenewType",
@@ -451,8 +447,6 @@ class ConsumptionConfiguration(PropertyType):
 
 @dataclass
 class Entitlement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lic"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allow_check_in": "AllowCheckIn",
         "overage": "Overage",
@@ -472,8 +466,6 @@ class Entitlement(PropertyType):
 
 @dataclass
 class IssuerData(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lic"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sign_key": "SignKey",
         "name": "Name",
@@ -485,8 +477,6 @@ class IssuerData(PropertyType):
 
 @dataclass
 class Metadata(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lic"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -498,8 +488,6 @@ class Metadata(PropertyType):
 
 @dataclass
 class ProvisionalConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lic"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_time_to_live_in_minutes": "MaxTimeToLiveInMinutes",
     }
@@ -509,8 +497,6 @@ class ProvisionalConfiguration(PropertyType):
 
 @dataclass
 class ValidityDateFormat(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lic"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "begin": "Begin",
         "end": "End",

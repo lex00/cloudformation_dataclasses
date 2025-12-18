@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CE
@@ -564,8 +564,6 @@ THREE_YEARS = TermInYears.THREE_YEARS
 
 @dataclass
 class ResourceTag(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ce-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -624,8 +622,6 @@ class AnomalyMonitor(CloudFormationResource):
 
 @dataclass
 class ResourceTag(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ce-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -637,8 +633,6 @@ class ResourceTag(PropertyType):
 
 @dataclass
 class Subscriber(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ce-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "type_": "Type",
@@ -688,8 +682,6 @@ class AnomalySubscription(CloudFormationResource):
 
 @dataclass
 class ResourceTag(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ce-"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",

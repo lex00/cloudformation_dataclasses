@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ServiceCatalog
@@ -460,8 +460,6 @@ class AcceptedPortfolioShare(CloudFormationResource):
 
 @dataclass
 class CodeStarParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ser"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "artifact_path": "ArtifactPath",
         "repository": "Repository",
@@ -477,8 +475,6 @@ class CodeStarParameters(PropertyType):
 
 @dataclass
 class ConnectionParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ser"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "code_star": "CodeStar",
     }
@@ -488,8 +484,6 @@ class ConnectionParameters(PropertyType):
 
 @dataclass
 class ProvisioningArtifactProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ser"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "description": "Description",
@@ -507,8 +501,6 @@ class ProvisioningArtifactProperties(PropertyType):
 
 @dataclass
 class SourceConnection(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ser"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "connection_parameters": "ConnectionParameters",
@@ -573,8 +565,6 @@ class CloudFormationProduct(CloudFormationResource):
 
 @dataclass
 class ProvisioningParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ser"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -586,8 +576,6 @@ class ProvisioningParameter(PropertyType):
 
 @dataclass
 class ProvisioningPreferences(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ser"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stack_set_accounts": "StackSetAccounts",
         "stack_set_failure_tolerance_count": "StackSetFailureToleranceCount",
@@ -853,8 +841,6 @@ class ResourceUpdateConstraint(CloudFormationResource):
 
 @dataclass
 class DefinitionParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ser"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",

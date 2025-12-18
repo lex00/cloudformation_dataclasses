@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service RefactorSpaces
@@ -27,8 +27,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ApiGatewayProxyInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ref"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stage_name": "StageName",
         "endpoint_type": "EndpointType",
@@ -139,8 +137,6 @@ class Environment(CloudFormationResource):
 
 @dataclass
 class DefaultRouteInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ref"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "activation_state": "ActivationState",
     }
@@ -150,8 +146,6 @@ class DefaultRouteInput(PropertyType):
 
 @dataclass
 class UriPathRouteInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ref"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_path": "SourcePath",
         "append_source_path": "AppendSourcePath",
@@ -210,8 +204,6 @@ class Route(CloudFormationResource):
 
 @dataclass
 class LambdaEndpointInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ref"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -221,8 +213,6 @@ class LambdaEndpointInput(PropertyType):
 
 @dataclass
 class UrlEndpointInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ref"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "health_url": "HealthUrl",
         "url": "Url",

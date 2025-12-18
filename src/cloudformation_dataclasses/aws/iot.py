@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IoT
@@ -1154,8 +1154,6 @@ ALARM_INVALIDATED = ViolationEventType.ALARM_INVALIDATED
 
 @dataclass
 class AuditCheckConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -1165,8 +1163,6 @@ class AuditCheckConfiguration(PropertyType):
 
 @dataclass
 class AuditCheckConfigurations(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iot_role_alias_overly_permissive_check": "IotRoleAliasOverlyPermissiveCheck",
         "device_certificate_shared_check": "DeviceCertificateSharedCheck",
@@ -1208,8 +1204,6 @@ class AuditCheckConfigurations(PropertyType):
 
 @dataclass
 class AuditNotificationTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_arn": "TargetArn",
         "enabled": "Enabled",
@@ -1223,8 +1217,6 @@ class AuditNotificationTarget(PropertyType):
 
 @dataclass
 class AuditNotificationTargetConfigurations(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sns": "Sns",
     }
@@ -1234,8 +1226,6 @@ class AuditNotificationTargetConfigurations(PropertyType):
 
 @dataclass
 class CertAgeCheckCustomConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cert_age_threshold_in_days": "CertAgeThresholdInDays",
     }
@@ -1245,8 +1235,6 @@ class CertAgeCheckCustomConfiguration(PropertyType):
 
 @dataclass
 class CertExpirationCheckCustomConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cert_expiration_threshold_in_days": "CertExpirationThresholdInDays",
     }
@@ -1256,8 +1244,6 @@ class CertExpirationCheckCustomConfiguration(PropertyType):
 
 @dataclass
 class DeviceCertAgeAuditCheckConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration": "Configuration",
         "enabled": "Enabled",
@@ -1269,8 +1255,6 @@ class DeviceCertAgeAuditCheckConfiguration(PropertyType):
 
 @dataclass
 class DeviceCertExpirationAuditCheckConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration": "Configuration",
         "enabled": "Enabled",
@@ -1334,8 +1318,6 @@ class Authorizer(CloudFormationResource):
 
 @dataclass
 class BillingGroupProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "billing_group_description": "BillingGroupDescription",
     }
@@ -1373,8 +1355,6 @@ class BillingGroup(CloudFormationResource):
 
 @dataclass
 class RegistrationConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "template_name": "TemplateName",
         "template_body": "TemplateBody",
@@ -1483,8 +1463,6 @@ class CertificateProvider(CloudFormationResource):
 
 @dataclass
 class CommandParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_value": "DefaultValue",
         "description": "Description",
@@ -1500,8 +1478,6 @@ class CommandParameter(PropertyType):
 
 @dataclass
 class CommandParameterValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "b": "B",
         "s": "S",
@@ -1523,8 +1499,6 @@ class CommandParameterValue(PropertyType):
 
 @dataclass
 class CommandPayload(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_type": "ContentType",
         "content": "Content",
@@ -1627,8 +1601,6 @@ class Dimension(CloudFormationResource):
 
 @dataclass
 class AuthorizerConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_authorizer_name": "DefaultAuthorizerName",
         "allow_authorizer_override": "AllowAuthorizerOverride",
@@ -1640,8 +1612,6 @@ class AuthorizerConfig(PropertyType):
 
 @dataclass
 class ClientCertificateConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_certificate_callback_arn": "ClientCertificateCallbackArn",
     }
@@ -1651,8 +1621,6 @@ class ClientCertificateConfig(PropertyType):
 
 @dataclass
 class ServerCertificateConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_ocsp_check": "EnableOCSPCheck",
         "ocsp_lambda_arn": "OcspLambdaArn",
@@ -1666,8 +1634,6 @@ class ServerCertificateConfig(PropertyType):
 
 @dataclass
 class ServerCertificateSummary(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "server_certificate_status_detail": "ServerCertificateStatusDetail",
         "server_certificate_arn": "ServerCertificateArn",
@@ -1681,8 +1647,6 @@ class ServerCertificateSummary(PropertyType):
 
 @dataclass
 class TlsConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_policy": "SecurityPolicy",
     }
@@ -1745,8 +1709,6 @@ class DomainConfiguration(CloudFormationResource):
 
 @dataclass
 class ConfigurationDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configuration_status": "ConfigurationStatus",
         "error_code": "ErrorCode",
@@ -1808,8 +1770,6 @@ class EncryptionConfiguration(CloudFormationResource):
 
 @dataclass
 class AggregationType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "name": "Name",
@@ -1873,8 +1833,6 @@ class FleetMetric(CloudFormationResource):
 
 @dataclass
 class AbortConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "criteria_list": "CriteriaList",
     }
@@ -1884,8 +1842,6 @@ class AbortConfig(PropertyType):
 
 @dataclass
 class AbortCriteria(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "failure_type": "FailureType",
@@ -1901,8 +1857,6 @@ class AbortCriteria(PropertyType):
 
 @dataclass
 class ExponentialRolloutRate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rate_increase_criteria": "RateIncreaseCriteria",
         "base_rate_per_minute": "BaseRatePerMinute",
@@ -1916,8 +1870,6 @@ class ExponentialRolloutRate(PropertyType):
 
 @dataclass
 class JobExecutionsRetryConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "retry_criteria_list": "RetryCriteriaList",
     }
@@ -1927,8 +1879,6 @@ class JobExecutionsRetryConfig(PropertyType):
 
 @dataclass
 class JobExecutionsRolloutConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maximum_per_minute": "MaximumPerMinute",
         "exponential_rollout_rate": "ExponentialRolloutRate",
@@ -1940,8 +1890,6 @@ class JobExecutionsRolloutConfig(PropertyType):
 
 @dataclass
 class MaintenanceWindow(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "duration_in_minutes": "DurationInMinutes",
         "start_time": "StartTime",
@@ -1953,8 +1901,6 @@ class MaintenanceWindow(PropertyType):
 
 @dataclass
 class PresignedUrlConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "expires_in_sec": "ExpiresInSec",
         "role_arn": "RoleArn",
@@ -1966,8 +1912,6 @@ class PresignedUrlConfig(PropertyType):
 
 @dataclass
 class RateIncreaseCriteria(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "number_of_succeeded_things": "NumberOfSucceededThings",
         "number_of_notified_things": "NumberOfNotifiedThings",
@@ -1979,8 +1923,6 @@ class RateIncreaseCriteria(PropertyType):
 
 @dataclass
 class RetryCriteria(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "failure_type": "FailureType",
         "number_of_retries": "NumberOfRetries",
@@ -1992,8 +1934,6 @@ class RetryCriteria(PropertyType):
 
 @dataclass
 class TimeoutConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "in_progress_timeout_in_minutes": "InProgressTimeoutInMinutes",
     }
@@ -2063,8 +2003,6 @@ class Logging(CloudFormationResource):
 
 @dataclass
 class ActionParams(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "update_device_certificate_params": "UpdateDeviceCertificateParams",
         "add_things_to_thing_group_params": "AddThingsToThingGroupParams",
@@ -2084,8 +2022,6 @@ class ActionParams(PropertyType):
 
 @dataclass
 class AddThingsToThingGroupParams(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "override_dynamic_groups": "OverrideDynamicGroups",
         "thing_group_names": "ThingGroupNames",
@@ -2097,8 +2033,6 @@ class AddThingsToThingGroupParams(PropertyType):
 
 @dataclass
 class EnableIoTLoggingParams(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role_arn_for_logging": "RoleArnForLogging",
         "log_level": "LogLevel",
@@ -2110,8 +2044,6 @@ class EnableIoTLoggingParams(PropertyType):
 
 @dataclass
 class PublishFindingToSnsParams(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topic_arn": "TopicArn",
     }
@@ -2121,8 +2053,6 @@ class PublishFindingToSnsParams(PropertyType):
 
 @dataclass
 class ReplaceDefaultPolicyVersionParams(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "template_name": "TemplateName",
     }
@@ -2132,8 +2062,6 @@ class ReplaceDefaultPolicyVersionParams(PropertyType):
 
 @dataclass
 class UpdateCACertificateParams(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
     }
@@ -2143,8 +2071,6 @@ class UpdateCACertificateParams(PropertyType):
 
 @dataclass
 class UpdateDeviceCertificateParams(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
     }
@@ -2227,8 +2153,6 @@ class PolicyPrincipalAttachment(CloudFormationResource):
 
 @dataclass
 class ProvisioningHook(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_arn": "TargetArn",
         "payload_version": "PayloadVersion",
@@ -2350,8 +2274,6 @@ class ScheduledAudit(CloudFormationResource):
 
 @dataclass
 class AlertTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alert_target_arn": "AlertTargetArn",
         "role_arn": "RoleArn",
@@ -2363,8 +2285,6 @@ class AlertTarget(PropertyType):
 
 @dataclass
 class Behavior(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "export_metric": "ExportMetric",
         "suppress_alerts": "SuppressAlerts",
@@ -2384,8 +2304,6 @@ class Behavior(PropertyType):
 
 @dataclass
 class BehaviorCriteria(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison_operator": "ComparisonOperator",
         "ml_detection_config": "MlDetectionConfig",
@@ -2407,8 +2325,6 @@ class BehaviorCriteria(PropertyType):
 
 @dataclass
 class MachineLearningDetectionConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "confidence_level": "ConfidenceLevel",
     }
@@ -2418,8 +2334,6 @@ class MachineLearningDetectionConfig(PropertyType):
 
 @dataclass
 class MetricDimension(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "operator": "Operator",
         "dimension_name": "DimensionName",
@@ -2431,8 +2345,6 @@ class MetricDimension(PropertyType):
 
 @dataclass
 class MetricToRetain(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "export_metric": "ExportMetric",
         "metric": "Metric",
@@ -2446,8 +2358,6 @@ class MetricToRetain(PropertyType):
 
 @dataclass
 class MetricValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "numbers": "Numbers",
         "number": "Number",
@@ -2467,8 +2377,6 @@ class MetricValue(PropertyType):
 
 @dataclass
 class MetricsExportConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mqtt_topic": "MqttTopic",
         "role_arn": "RoleArn",
@@ -2480,8 +2388,6 @@ class MetricsExportConfig(PropertyType):
 
 @dataclass
 class StatisticalThreshold(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "statistic": "Statistic",
     }
@@ -2547,8 +2453,6 @@ class SoftwarePackage(CloudFormationResource):
 
 @dataclass
 class PackageVersionArtifact(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_location": "S3Location",
     }
@@ -2558,8 +2462,6 @@ class PackageVersionArtifact(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "version": "Version",
@@ -2573,8 +2475,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class Sbom(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_location": "S3Location",
     }
@@ -2632,8 +2532,6 @@ class SoftwarePackageVersion(CloudFormationResource):
 
 @dataclass
 class AttributePayload(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attributes": "Attributes",
     }
@@ -2669,8 +2567,6 @@ class Thing(CloudFormationResource):
 
 @dataclass
 class AttributePayload(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attributes": "Attributes",
     }
@@ -2680,8 +2576,6 @@ class AttributePayload(PropertyType):
 
 @dataclass
 class ThingGroupProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attribute_payload": "AttributePayload",
         "thing_group_description": "ThingGroupDescription",
@@ -2742,8 +2636,6 @@ class ThingPrincipalAttachment(CloudFormationResource):
 
 @dataclass
 class Mqtt5Configuration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "propagating_attributes": "PropagatingAttributes",
     }
@@ -2753,8 +2645,6 @@ class Mqtt5Configuration(PropertyType):
 
 @dataclass
 class PropagatingAttribute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user_property_key": "UserPropertyKey",
         "thing_attribute": "ThingAttribute",
@@ -2768,8 +2658,6 @@ class PropagatingAttribute(PropertyType):
 
 @dataclass
 class ThingTypeProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "thing_type_description": "ThingTypeDescription",
         "mqtt5_configuration": "Mqtt5Configuration",
@@ -2813,8 +2701,6 @@ class ThingType(CloudFormationResource):
 
 @dataclass
 class Action(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
         "cloudwatch_alarm": "CloudwatchAlarm",
@@ -2866,8 +2752,6 @@ class Action(PropertyType):
 
 @dataclass
 class AssetPropertyTimestamp(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "time_in_seconds": "TimeInSeconds",
         "offset_in_nanos": "OffsetInNanos",
@@ -2879,8 +2763,6 @@ class AssetPropertyTimestamp(PropertyType):
 
 @dataclass
 class AssetPropertyValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "quality": "Quality",
         "value": "Value",
@@ -2894,8 +2776,6 @@ class AssetPropertyValue(PropertyType):
 
 @dataclass
 class AssetPropertyVariant(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "double_value": "DoubleValue",
         "boolean_value": "BooleanValue",
@@ -2911,8 +2791,6 @@ class AssetPropertyVariant(PropertyType):
 
 @dataclass
 class CloudwatchAlarmAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "alarm_name": "AlarmName",
         "state_reason": "StateReason",
@@ -2928,8 +2806,6 @@ class CloudwatchAlarmAction(PropertyType):
 
 @dataclass
 class CloudwatchLogsAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "batch_mode": "BatchMode",
         "log_group_name": "LogGroupName",
@@ -2943,8 +2819,6 @@ class CloudwatchLogsAction(PropertyType):
 
 @dataclass
 class CloudwatchMetricAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "metric_value": "MetricValue",
@@ -2964,8 +2838,6 @@ class CloudwatchMetricAction(PropertyType):
 
 @dataclass
 class DynamoDBAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "payload_field": "PayloadField",
@@ -2991,8 +2863,6 @@ class DynamoDBAction(PropertyType):
 
 @dataclass
 class DynamoDBv2Action(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "put_item": "PutItem",
         "role_arn": "RoleArn",
@@ -3004,8 +2874,6 @@ class DynamoDBv2Action(PropertyType):
 
 @dataclass
 class ElasticsearchAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "endpoint": "Endpoint",
@@ -3023,8 +2891,6 @@ class ElasticsearchAction(PropertyType):
 
 @dataclass
 class FirehoseAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_stream_name": "DeliveryStreamName",
         "batch_mode": "BatchMode",
@@ -3040,8 +2906,6 @@ class FirehoseAction(PropertyType):
 
 @dataclass
 class HttpAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "headers": "Headers",
         "auth": "Auth",
@@ -3057,8 +2921,6 @@ class HttpAction(PropertyType):
 
 @dataclass
 class HttpActionHeader(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -3070,8 +2932,6 @@ class HttpActionHeader(PropertyType):
 
 @dataclass
 class HttpAuthorization(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sigv4": "Sigv4",
     }
@@ -3081,8 +2941,6 @@ class HttpAuthorization(PropertyType):
 
 @dataclass
 class IotAnalyticsAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channel_name": "ChannelName",
         "batch_mode": "BatchMode",
@@ -3096,8 +2954,6 @@ class IotAnalyticsAction(PropertyType):
 
 @dataclass
 class IotEventsAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_name": "InputName",
         "batch_mode": "BatchMode",
@@ -3113,8 +2969,6 @@ class IotEventsAction(PropertyType):
 
 @dataclass
 class IotSiteWiseAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "put_asset_property_value_entries": "PutAssetPropertyValueEntries",
         "role_arn": "RoleArn",
@@ -3126,8 +2980,6 @@ class IotSiteWiseAction(PropertyType):
 
 @dataclass
 class KafkaAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "partition": "Partition",
         "client_properties": "ClientProperties",
@@ -3147,8 +2999,6 @@ class KafkaAction(PropertyType):
 
 @dataclass
 class KafkaActionHeader(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -3160,8 +3010,6 @@ class KafkaActionHeader(PropertyType):
 
 @dataclass
 class KinesisAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stream_name": "StreamName",
         "partition_key": "PartitionKey",
@@ -3175,8 +3023,6 @@ class KinesisAction(PropertyType):
 
 @dataclass
 class LambdaAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function_arn": "FunctionArn",
     }
@@ -3186,8 +3032,6 @@ class LambdaAction(PropertyType):
 
 @dataclass
 class LocationAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tracker_name": "TrackerName",
         "device_id": "DeviceId",
@@ -3207,8 +3051,6 @@ class LocationAction(PropertyType):
 
 @dataclass
 class OpenSearchAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "endpoint": "Endpoint",
@@ -3226,8 +3068,6 @@ class OpenSearchAction(PropertyType):
 
 @dataclass
 class PutAssetPropertyValueEntry(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "property_values": "PropertyValues",
         "entry_id": "EntryId",
@@ -3245,8 +3085,6 @@ class PutAssetPropertyValueEntry(PropertyType):
 
 @dataclass
 class PutItemInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
     }
@@ -3256,8 +3094,6 @@ class PutItemInput(PropertyType):
 
 @dataclass
 class RepublishAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "qos": "Qos",
         "headers": "Headers",
@@ -3273,8 +3109,6 @@ class RepublishAction(PropertyType):
 
 @dataclass
 class RepublishActionHeaders(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "correlation_data": "CorrelationData",
         "user_properties": "UserProperties",
@@ -3294,8 +3128,6 @@ class RepublishActionHeaders(PropertyType):
 
 @dataclass
 class S3Action(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "canned_acl": "CannedAcl",
@@ -3311,8 +3143,6 @@ class S3Action(PropertyType):
 
 @dataclass
 class SigV4Authorization(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_name": "ServiceName",
         "signing_region": "SigningRegion",
@@ -3326,8 +3156,6 @@ class SigV4Authorization(PropertyType):
 
 @dataclass
 class SnsAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message_format": "MessageFormat",
         "target_arn": "TargetArn",
@@ -3341,8 +3169,6 @@ class SnsAction(PropertyType):
 
 @dataclass
 class SqsAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "use_base64": "UseBase64",
         "role_arn": "RoleArn",
@@ -3356,8 +3182,6 @@ class SqsAction(PropertyType):
 
 @dataclass
 class StepFunctionsAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "execution_name_prefix": "ExecutionNamePrefix",
         "state_machine_name": "StateMachineName",
@@ -3371,8 +3195,6 @@ class StepFunctionsAction(PropertyType):
 
 @dataclass
 class Timestamp(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "unit": "Unit",
@@ -3384,8 +3206,6 @@ class Timestamp(PropertyType):
 
 @dataclass
 class TimestreamAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "database_name": "DatabaseName",
@@ -3403,8 +3223,6 @@ class TimestreamAction(PropertyType):
 
 @dataclass
 class TimestreamDimension(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -3416,8 +3234,6 @@ class TimestreamDimension(PropertyType):
 
 @dataclass
 class TimestreamTimestamp(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "unit": "Unit",
@@ -3429,8 +3245,6 @@ class TimestreamTimestamp(PropertyType):
 
 @dataclass
 class TopicRulePayload(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rule_disabled": "RuleDisabled",
         "error_action": "ErrorAction",
@@ -3450,8 +3264,6 @@ class TopicRulePayload(PropertyType):
 
 @dataclass
 class UserProperty(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -3486,8 +3298,6 @@ class TopicRule(CloudFormationResource):
 
 @dataclass
 class HttpUrlDestinationSummary(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "confirmation_url": "ConfirmationUrl",
     }
@@ -3497,8 +3307,6 @@ class HttpUrlDestinationSummary(PropertyType):
 
 @dataclass
 class VpcDestinationProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "vpc_id": "VpcId",

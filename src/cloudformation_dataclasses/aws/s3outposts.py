@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service S3Outposts
@@ -58,8 +58,6 @@ DELETE_FAILED = EndpointStatus.DELETE_FAILED
 
 @dataclass
 class VpcConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3o"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_id": "VpcId",
     }
@@ -94,8 +92,6 @@ class AccessPoint(CloudFormationResource):
 
 @dataclass
 class AbortIncompleteMultipartUpload(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3o"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "days_after_initiation": "DaysAfterInitiation",
     }
@@ -105,8 +101,6 @@ class AbortIncompleteMultipartUpload(PropertyType):
 
 @dataclass
 class Filter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3o"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "and_operator": "AndOperator",
         "prefix": "Prefix",
@@ -120,8 +114,6 @@ class Filter(PropertyType):
 
 @dataclass
 class FilterAndOperator(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3o"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prefix": "Prefix",
         "tags": "Tags",
@@ -133,8 +125,6 @@ class FilterAndOperator(PropertyType):
 
 @dataclass
 class FilterTag(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3o"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -146,8 +136,6 @@ class FilterTag(PropertyType):
 
 @dataclass
 class LifecycleConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3o"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rules": "Rules",
     }
@@ -157,8 +145,6 @@ class LifecycleConfiguration(PropertyType):
 
 @dataclass
 class Rule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3o"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "expiration_date": "ExpirationDate",
@@ -218,8 +204,6 @@ class BucketPolicy(CloudFormationResource):
 
 @dataclass
 class FailedReason(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3o"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message": "Message",
         "error_code": "ErrorCode",
@@ -231,8 +215,6 @@ class FailedReason(PropertyType):
 
 @dataclass
 class NetworkInterface(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3o"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "network_interface_id": "NetworkInterfaceId",
     }

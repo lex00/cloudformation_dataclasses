@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Config
@@ -1385,8 +1385,6 @@ class AggregationAuthorization(CloudFormationResource):
 
 @dataclass
 class Compliance(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -1396,8 +1394,6 @@ class Compliance(PropertyType):
 
 @dataclass
 class CustomPolicyDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_debug_log_delivery": "EnableDebugLogDelivery",
         "policy_text": "PolicyText",
@@ -1411,8 +1407,6 @@ class CustomPolicyDetails(PropertyType):
 
 @dataclass
 class EvaluationModeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mode": "Mode",
     }
@@ -1422,8 +1416,6 @@ class EvaluationModeConfiguration(PropertyType):
 
 @dataclass
 class Scope(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compliance_resource_id": "ComplianceResourceId",
         "tag_key": "TagKey",
@@ -1439,8 +1431,6 @@ class Scope(PropertyType):
 
 @dataclass
 class Source(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "owner": "Owner",
         "custom_policy_details": "CustomPolicyDetails",
@@ -1456,8 +1446,6 @@ class Source(PropertyType):
 
 @dataclass
 class SourceDetail(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_source": "EventSource",
         "maximum_execution_frequency": "MaximumExecutionFrequency",
@@ -1514,8 +1502,6 @@ class ConfigRule(CloudFormationResource):
 
 @dataclass
 class AccountAggregationSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all_aws_regions": "AllAwsRegions",
         "aws_regions": "AwsRegions",
@@ -1529,8 +1515,6 @@ class AccountAggregationSource(PropertyType):
 
 @dataclass
 class OrganizationAggregationSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all_aws_regions": "AllAwsRegions",
         "aws_regions": "AwsRegions",
@@ -1569,8 +1553,6 @@ class ConfigurationAggregator(CloudFormationResource):
 
 @dataclass
 class ExclusionByResourceTypes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_types": "ResourceTypes",
     }
@@ -1580,8 +1562,6 @@ class ExclusionByResourceTypes(PropertyType):
 
 @dataclass
 class RecordingGroup(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "all_supported": "AllSupported",
         "exclusion_by_resource_types": "ExclusionByResourceTypes",
@@ -1599,8 +1579,6 @@ class RecordingGroup(PropertyType):
 
 @dataclass
 class RecordingMode(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "recording_frequency": "RecordingFrequency",
         "recording_mode_overrides": "RecordingModeOverrides",
@@ -1612,8 +1590,6 @@ class RecordingMode(PropertyType):
 
 @dataclass
 class RecordingModeOverride(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "recording_frequency": "RecordingFrequency",
@@ -1627,8 +1603,6 @@ class RecordingModeOverride(PropertyType):
 
 @dataclass
 class RecordingStrategy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "use_only": "UseOnly",
     }
@@ -1657,8 +1631,6 @@ class ConfigurationRecorder(CloudFormationResource):
 
 @dataclass
 class ConformancePackInputParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_value": "ParameterValue",
         "parameter_name": "ParameterName",
@@ -1670,8 +1642,6 @@ class ConformancePackInputParameter(PropertyType):
 
 @dataclass
 class TemplateSSMDocumentDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "document_version": "DocumentVersion",
         "document_name": "DocumentName",
@@ -1708,8 +1678,6 @@ class ConformancePack(CloudFormationResource):
 
 @dataclass
 class ConfigSnapshotDeliveryProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_frequency": "DeliveryFrequency",
     }
@@ -1742,8 +1710,6 @@ class DeliveryChannel(CloudFormationResource):
 
 @dataclass
 class OrganizationCustomPolicyRuleMetadata(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tag_key_scope": "TagKeyScope",
         "tag_value_scope": "TagValueScope",
@@ -1773,8 +1739,6 @@ class OrganizationCustomPolicyRuleMetadata(PropertyType):
 
 @dataclass
 class OrganizationCustomRuleMetadata(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tag_key_scope": "TagKeyScope",
         "tag_value_scope": "TagValueScope",
@@ -1800,8 +1764,6 @@ class OrganizationCustomRuleMetadata(PropertyType):
 
 @dataclass
 class OrganizationManagedRuleMetadata(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tag_key_scope": "TagKeyScope",
         "tag_value_scope": "TagValueScope",
@@ -1846,8 +1808,6 @@ class OrganizationConfigRule(CloudFormationResource):
 
 @dataclass
 class ConformancePackInputParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_value": "ParameterValue",
         "parameter_name": "ParameterName",
@@ -1884,8 +1844,6 @@ class OrganizationConformancePack(CloudFormationResource):
 
 @dataclass
 class ExecutionControls(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ssm_controls": "SsmControls",
     }
@@ -1895,8 +1853,6 @@ class ExecutionControls(PropertyType):
 
 @dataclass
 class RemediationParameterValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_value": "ResourceValue",
         "static_value": "StaticValue",
@@ -1908,8 +1864,6 @@ class RemediationParameterValue(PropertyType):
 
 @dataclass
 class ResourceValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -1919,8 +1873,6 @@ class ResourceValue(PropertyType):
 
 @dataclass
 class SsmControls(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "error_percentage": "ErrorPercentage",
         "concurrent_execution_rate_percentage": "ConcurrentExecutionRatePercentage",
@@ -1932,8 +1884,6 @@ class SsmControls(PropertyType):
 
 @dataclass
 class StaticValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
     }

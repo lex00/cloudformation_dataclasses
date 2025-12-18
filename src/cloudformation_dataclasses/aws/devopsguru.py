@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DevOpsGuru
@@ -43,8 +43,6 @@ class LogAnomalyDetectionIntegration(CloudFormationResource):
 
 @dataclass
 class NotificationChannelConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dev"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filters": "Filters",
         "sns": "Sns",
@@ -56,8 +54,6 @@ class NotificationChannelConfig(PropertyType):
 
 @dataclass
 class NotificationFilterConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dev"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message_types": "MessageTypes",
         "severities": "Severities",
@@ -69,8 +65,6 @@ class NotificationFilterConfig(PropertyType):
 
 @dataclass
 class SnsChannelConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dev"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "topic_arn": "TopicArn",
     }
@@ -99,8 +93,6 @@ class NotificationChannel(CloudFormationResource):
 
 @dataclass
 class CloudFormationCollectionFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dev"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "stack_names": "StackNames",
     }
@@ -110,8 +102,6 @@ class CloudFormationCollectionFilter(PropertyType):
 
 @dataclass
 class ResourceCollectionFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dev"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_formation": "CloudFormation",
         "tags": "Tags",
@@ -123,8 +113,6 @@ class ResourceCollectionFilter(PropertyType):
 
 @dataclass
 class TagCollection(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dev"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "app_boundary_key": "AppBoundaryKey",
         "tag_values": "TagValues",

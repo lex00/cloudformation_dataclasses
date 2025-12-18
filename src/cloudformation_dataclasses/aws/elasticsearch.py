@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Elasticsearch
@@ -546,8 +546,6 @@ DELETE_FAILED = VpcEndpointStatus.DELETE_FAILED
 
 @dataclass
 class AdvancedSecurityOptionsInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "anonymous_auth_enabled": "AnonymousAuthEnabled",
         "enabled": "Enabled",
@@ -563,8 +561,6 @@ class AdvancedSecurityOptionsInput(PropertyType):
 
 @dataclass
 class CognitoOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "identity_pool_id": "IdentityPoolId",
@@ -580,8 +576,6 @@ class CognitoOptions(PropertyType):
 
 @dataclass
 class ColdStorageOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -591,8 +585,6 @@ class ColdStorageOptions(PropertyType):
 
 @dataclass
 class DomainEndpointOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_endpoint": "CustomEndpoint",
         "custom_endpoint_certificate_arn": "CustomEndpointCertificateArn",
@@ -610,8 +602,6 @@ class DomainEndpointOptions(PropertyType):
 
 @dataclass
 class EBSOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ebs_enabled": "EBSEnabled",
         "iops": "Iops",
@@ -627,8 +617,6 @@ class EBSOptions(PropertyType):
 
 @dataclass
 class ElasticsearchClusterConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cold_storage_options": "ColdStorageOptions",
         "dedicated_master_count": "DedicatedMasterCount",
@@ -658,8 +646,6 @@ class ElasticsearchClusterConfig(PropertyType):
 
 @dataclass
 class EncryptionAtRestOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "kms_key_id": "KmsKeyId",
@@ -671,8 +657,6 @@ class EncryptionAtRestOptions(PropertyType):
 
 @dataclass
 class LogPublishingOption(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_logs_log_group_arn": "CloudWatchLogsLogGroupArn",
         "enabled": "Enabled",
@@ -684,8 +668,6 @@ class LogPublishingOption(PropertyType):
 
 @dataclass
 class MasterUserOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "master_user_arn": "MasterUserARN",
         "master_user_name": "MasterUserName",
@@ -699,8 +681,6 @@ class MasterUserOptions(PropertyType):
 
 @dataclass
 class NodeToNodeEncryptionOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -710,8 +690,6 @@ class NodeToNodeEncryptionOptions(PropertyType):
 
 @dataclass
 class SnapshotOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "automated_snapshot_start_hour": "AutomatedSnapshotStartHour",
     }
@@ -721,8 +699,6 @@ class SnapshotOptions(PropertyType):
 
 @dataclass
 class VPCOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_group_ids": "SecurityGroupIds",
         "subnet_ids": "SubnetIds",
@@ -734,8 +710,6 @@ class VPCOptions(PropertyType):
 
 @dataclass
 class ZoneAwarenessConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_zone_count": "AvailabilityZoneCount",
     }

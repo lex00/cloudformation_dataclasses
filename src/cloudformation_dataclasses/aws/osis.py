@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service OSIS
@@ -118,8 +118,6 @@ OPENSEARCH_SERVERLESS = VpcEndpointServiceName.OPENSEARCH_SERVERLESS
 
 @dataclass
 class BufferOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "persistent_buffer_enabled": "PersistentBufferEnabled",
     }
@@ -129,8 +127,6 @@ class BufferOptions(PropertyType):
 
 @dataclass
 class CloudWatchLogDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group": "LogGroup",
     }
@@ -140,8 +136,6 @@ class CloudWatchLogDestination(PropertyType):
 
 @dataclass
 class EncryptionAtRestOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kms_key_arn": "KmsKeyArn",
     }
@@ -151,8 +145,6 @@ class EncryptionAtRestOptions(PropertyType):
 
 @dataclass
 class LogPublishingOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_log_destination": "CloudWatchLogDestination",
         "is_logging_enabled": "IsLoggingEnabled",
@@ -164,8 +156,6 @@ class LogPublishingOptions(PropertyType):
 
 @dataclass
 class ResourcePolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
     }
@@ -175,8 +165,6 @@ class ResourcePolicy(PropertyType):
 
 @dataclass
 class VpcAttachmentOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "attach_to_vpc": "AttachToVpc",
         "cidr_block": "CidrBlock",
@@ -188,8 +176,6 @@ class VpcAttachmentOptions(PropertyType):
 
 @dataclass
 class VpcEndpoint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_id": "VpcId",
         "vpc_options": "VpcOptions",
@@ -203,8 +189,6 @@ class VpcEndpoint(PropertyType):
 
 @dataclass
 class VpcOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osi"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_attachment_options": "VpcAttachmentOptions",
         "vpc_endpoint_management": "VpcEndpointManagement",

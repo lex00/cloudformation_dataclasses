@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Budgets
@@ -339,8 +339,6 @@ CUSTOM = TimeUnit.CUSTOM
 
 @dataclass
 class AutoAdjustData(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bud"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_adjust_type": "AutoAdjustType",
         "historical_options": "HistoricalOptions",
@@ -352,8 +350,6 @@ class AutoAdjustData(PropertyType):
 
 @dataclass
 class BudgetData(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bud"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metrics": "Metrics",
         "budget_limit": "BudgetLimit",
@@ -385,8 +381,6 @@ class BudgetData(PropertyType):
 
 @dataclass
 class CostCategoryValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bud"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match_options": "MatchOptions",
         "values": "Values",
@@ -400,8 +394,6 @@ class CostCategoryValues(PropertyType):
 
 @dataclass
 class CostTypes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bud"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_support": "IncludeSupport",
         "include_other_subscription": "IncludeOtherSubscription",
@@ -431,8 +423,6 @@ class CostTypes(PropertyType):
 
 @dataclass
 class Expression(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bud"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "not_": "Not",
         "or_": "Or",
@@ -452,8 +442,6 @@ class Expression(PropertyType):
 
 @dataclass
 class ExpressionDimensionValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bud"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match_options": "MatchOptions",
         "values": "Values",
@@ -467,8 +455,6 @@ class ExpressionDimensionValues(PropertyType):
 
 @dataclass
 class HistoricalOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bud"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "budget_adjustment_period": "BudgetAdjustmentPeriod",
     }
@@ -478,8 +464,6 @@ class HistoricalOptions(PropertyType):
 
 @dataclass
 class Notification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bud"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison_operator": "ComparisonOperator",
         "notification_type": "NotificationType",
@@ -495,8 +479,6 @@ class Notification(PropertyType):
 
 @dataclass
 class NotificationWithSubscribers(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bud"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subscribers": "Subscribers",
         "notification": "Notification",
@@ -508,8 +490,6 @@ class NotificationWithSubscribers(PropertyType):
 
 @dataclass
 class ResourceTag(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bud"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -521,8 +501,6 @@ class ResourceTag(PropertyType):
 
 @dataclass
 class Spend(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bud"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "amount": "Amount",
         "unit": "Unit",
@@ -534,8 +512,6 @@ class Spend(PropertyType):
 
 @dataclass
 class Subscriber(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bud"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "subscription_type": "SubscriptionType",
         "address": "Address",
@@ -547,8 +523,6 @@ class Subscriber(PropertyType):
 
 @dataclass
 class TagValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bud"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match_options": "MatchOptions",
         "values": "Values",
@@ -562,8 +536,6 @@ class TagValues(PropertyType):
 
 @dataclass
 class TimePeriod(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bud"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "start": "Start",
         "end": "End",
@@ -592,8 +564,6 @@ class Budget(CloudFormationResource):
 
 @dataclass
 class ActionThreshold(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bud"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -605,8 +575,6 @@ class ActionThreshold(PropertyType):
 
 @dataclass
 class Definition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bud"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ssm_action_definition": "SsmActionDefinition",
         "iam_action_definition": "IamActionDefinition",
@@ -620,8 +588,6 @@ class Definition(PropertyType):
 
 @dataclass
 class IamActionDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bud"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_arn": "PolicyArn",
         "groups": "Groups",
@@ -637,8 +603,6 @@ class IamActionDefinition(PropertyType):
 
 @dataclass
 class ResourceTag(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bud"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -650,8 +614,6 @@ class ResourceTag(PropertyType):
 
 @dataclass
 class ScpActionDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bud"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_ids": "TargetIds",
         "policy_id": "PolicyId",
@@ -663,8 +625,6 @@ class ScpActionDefinition(PropertyType):
 
 @dataclass
 class SsmActionDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bud"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region": "Region",
         "instance_ids": "InstanceIds",
@@ -678,8 +638,6 @@ class SsmActionDefinition(PropertyType):
 
 @dataclass
 class Subscriber(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bud"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "address": "Address",

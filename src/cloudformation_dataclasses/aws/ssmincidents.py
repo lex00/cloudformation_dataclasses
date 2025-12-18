@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SSMIncidents
@@ -150,8 +150,6 @@ INVOLVED_RESOURCES = VariableType.INVOLVED_RESOURCES
 
 @dataclass
 class RegionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sse_kms_key_id": "SseKmsKeyId",
     }
@@ -161,8 +159,6 @@ class RegionConfiguration(PropertyType):
 
 @dataclass
 class ReplicationRegion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region_configuration": "RegionConfiguration",
         "region_name": "RegionName",
@@ -197,8 +193,6 @@ class ReplicationSet(CloudFormationResource):
 
 @dataclass
 class Action(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ssm_automation": "SsmAutomation",
     }
@@ -208,8 +202,6 @@ class Action(PropertyType):
 
 @dataclass
 class ChatChannel(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "chatbot_sns": "ChatbotSns",
     }
@@ -219,8 +211,6 @@ class ChatChannel(PropertyType):
 
 @dataclass
 class DynamicSsmParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -232,8 +222,6 @@ class DynamicSsmParameter(PropertyType):
 
 @dataclass
 class DynamicSsmParameterValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "variable": "Variable",
     }
@@ -243,8 +231,6 @@ class DynamicSsmParameterValue(PropertyType):
 
 @dataclass
 class IncidentTemplate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "impact": "Impact",
         "incident_tags": "IncidentTags",
@@ -264,8 +250,6 @@ class IncidentTemplate(PropertyType):
 
 @dataclass
 class Integration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pager_duty_configuration": "PagerDutyConfiguration",
     }
@@ -275,8 +259,6 @@ class Integration(PropertyType):
 
 @dataclass
 class NotificationTargetItem(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sns_topic_arn": "SnsTopicArn",
     }
@@ -286,8 +268,6 @@ class NotificationTargetItem(PropertyType):
 
 @dataclass
 class PagerDutyConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_id": "SecretId",
         "pager_duty_incident_configuration": "PagerDutyIncidentConfiguration",
@@ -301,8 +281,6 @@ class PagerDutyConfiguration(PropertyType):
 
 @dataclass
 class PagerDutyIncidentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_id": "ServiceId",
     }
@@ -312,8 +290,6 @@ class PagerDutyIncidentConfiguration(PropertyType):
 
 @dataclass
 class SsmAutomation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameters": "Parameters",
         "target_account": "TargetAccount",
@@ -333,8 +309,6 @@ class SsmAutomation(PropertyType):
 
 @dataclass
 class SsmParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "key": "Key",

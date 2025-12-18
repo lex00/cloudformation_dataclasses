@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:35
+  Generated: 2025-12-17 21:53:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service WAF
@@ -771,8 +771,6 @@ GROUP = WafRuleType.GROUP
 
 @dataclass
 class ByteMatchTuple(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_to_match": "FieldToMatch",
         "positional_constraint": "PositionalConstraint",
@@ -790,8 +788,6 @@ class ByteMatchTuple(PropertyType):
 
 @dataclass
 class FieldToMatch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data": "Data",
         "type_": "Type",
@@ -818,8 +814,6 @@ class ByteMatchSet(CloudFormationResource):
 
 @dataclass
 class IPSetDescriptor(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "value": "Value",
@@ -846,8 +840,6 @@ class IPSet(CloudFormationResource):
 
 @dataclass
 class Predicate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_id": "DataId",
         "negated": "Negated",
@@ -878,8 +870,6 @@ class Rule(CloudFormationResource):
 
 @dataclass
 class FieldToMatch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data": "Data",
         "type_": "Type",
@@ -891,8 +881,6 @@ class FieldToMatch(PropertyType):
 
 @dataclass
 class SizeConstraint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "comparison_operator": "ComparisonOperator",
         "field_to_match": "FieldToMatch",
@@ -923,8 +911,6 @@ class SizeConstraintSet(CloudFormationResource):
 
 @dataclass
 class FieldToMatch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data": "Data",
         "type_": "Type",
@@ -936,8 +922,6 @@ class FieldToMatch(PropertyType):
 
 @dataclass
 class SqlInjectionMatchTuple(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_to_match": "FieldToMatch",
         "text_transformation": "TextTransformation",
@@ -964,8 +948,6 @@ class SqlInjectionMatchSet(CloudFormationResource):
 
 @dataclass
 class ActivatedRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "action": "Action",
         "priority": "Priority",
@@ -979,8 +961,6 @@ class ActivatedRule(PropertyType):
 
 @dataclass
 class WafAction(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -1009,8 +989,6 @@ class WebACL(CloudFormationResource):
 
 @dataclass
 class FieldToMatch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data": "Data",
         "type_": "Type",
@@ -1022,8 +1000,6 @@ class FieldToMatch(PropertyType):
 
 @dataclass
 class XssMatchTuple(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_to_match": "FieldToMatch",
         "text_transformation": "TextTransformation",

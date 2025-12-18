@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:29
+  Generated: 2025-12-17 21:53:45
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ARCRegionSwitch
@@ -27,8 +27,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class ArcRoutingControlConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region_and_routing_controls": "RegionAndRoutingControls",
         "timeout_minutes": "TimeoutMinutes",
@@ -44,8 +42,6 @@ class ArcRoutingControlConfiguration(PropertyType):
 
 @dataclass
 class Asg(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "external_id": "ExternalId",
         "cross_account_role": "CrossAccountRole",
@@ -59,8 +55,6 @@ class Asg(PropertyType):
 
 @dataclass
 class AssociatedAlarm(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_identifier": "ResourceIdentifier",
         "external_id": "ExternalId",
@@ -76,8 +70,6 @@ class AssociatedAlarm(PropertyType):
 
 @dataclass
 class CustomActionLambdaConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambdas": "Lambdas",
         "retry_interval_minutes": "RetryIntervalMinutes",
@@ -95,8 +87,6 @@ class CustomActionLambdaConfiguration(PropertyType):
 
 @dataclass
 class Ec2AsgCapacityIncreaseConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "asgs": "Asgs",
         "capacity_monitoring_approach": "CapacityMonitoringApproach",
@@ -114,8 +104,6 @@ class Ec2AsgCapacityIncreaseConfiguration(PropertyType):
 
 @dataclass
 class Ec2Ungraceful(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "minimum_success_percentage": "MinimumSuccessPercentage",
     }
@@ -125,8 +113,6 @@ class Ec2Ungraceful(PropertyType):
 
 @dataclass
 class EcsCapacityIncreaseConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "services": "Services",
         "capacity_monitoring_approach": "CapacityMonitoringApproach",
@@ -144,8 +130,6 @@ class EcsCapacityIncreaseConfiguration(PropertyType):
 
 @dataclass
 class EcsUngraceful(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "minimum_success_percentage": "MinimumSuccessPercentage",
     }
@@ -155,8 +139,6 @@ class EcsUngraceful(PropertyType):
 
 @dataclass
 class EksCluster(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_arn": "ClusterArn",
         "external_id": "ExternalId",
@@ -170,8 +152,6 @@ class EksCluster(PropertyType):
 
 @dataclass
 class EksResourceScalingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kubernetes_resource_type": "KubernetesResourceType",
         "capacity_monitoring_approach": "CapacityMonitoringApproach",
@@ -193,8 +173,6 @@ class EksResourceScalingConfiguration(PropertyType):
 
 @dataclass
 class EksResourceScalingUngraceful(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "minimum_success_percentage": "MinimumSuccessPercentage",
     }
@@ -204,8 +182,6 @@ class EksResourceScalingUngraceful(PropertyType):
 
 @dataclass
 class ExecutionApprovalConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "timeout_minutes": "TimeoutMinutes",
         "approval_role": "ApprovalRole",
@@ -217,8 +193,6 @@ class ExecutionApprovalConfiguration(PropertyType):
 
 @dataclass
 class ExecutionBlockConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "global_aurora_config": "GlobalAuroraConfig",
         "route53_health_check_config": "Route53HealthCheckConfig",
@@ -246,8 +220,6 @@ class ExecutionBlockConfiguration(PropertyType):
 
 @dataclass
 class GlobalAuroraConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "database_cluster_arns": "DatabaseClusterArns",
         "timeout_minutes": "TimeoutMinutes",
@@ -269,8 +241,6 @@ class GlobalAuroraConfiguration(PropertyType):
 
 @dataclass
 class GlobalAuroraUngraceful(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ungraceful": "Ungraceful",
     }
@@ -280,8 +250,6 @@ class GlobalAuroraUngraceful(PropertyType):
 
 @dataclass
 class KubernetesResourceType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "api_version": "ApiVersion",
         "kind": "Kind",
@@ -293,8 +261,6 @@ class KubernetesResourceType(PropertyType):
 
 @dataclass
 class LambdaUngraceful(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "behavior": "Behavior",
     }
@@ -304,8 +270,6 @@ class LambdaUngraceful(PropertyType):
 
 @dataclass
 class Lambdas(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "external_id": "ExternalId",
         "cross_account_role": "CrossAccountRole",
@@ -319,8 +283,6 @@ class Lambdas(PropertyType):
 
 @dataclass
 class ParallelExecutionBlockConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "steps": "Steps",
     }
@@ -330,8 +292,6 @@ class ParallelExecutionBlockConfiguration(PropertyType):
 
 @dataclass
 class RegionSwitchPlanConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "external_id": "ExternalId",
         "cross_account_role": "CrossAccountRole",
@@ -345,8 +305,6 @@ class RegionSwitchPlanConfiguration(PropertyType):
 
 @dataclass
 class Route53HealthCheckConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "record_name": "RecordName",
         "timeout_minutes": "TimeoutMinutes",
@@ -366,8 +324,6 @@ class Route53HealthCheckConfiguration(PropertyType):
 
 @dataclass
 class Route53ResourceRecordSet(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region": "Region",
         "record_set_identifier": "RecordSetIdentifier",
@@ -379,8 +335,6 @@ class Route53ResourceRecordSet(PropertyType):
 
 @dataclass
 class Service(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_arn": "ClusterArn",
         "external_id": "ExternalId",
@@ -396,8 +350,6 @@ class Service(PropertyType):
 
 @dataclass
 class Step(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "execution_block_type": "ExecutionBlockType",
@@ -413,8 +365,6 @@ class Step(PropertyType):
 
 @dataclass
 class Trigger(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_region": "TargetRegion",
         "action": "Action",
@@ -432,8 +382,6 @@ class Trigger(PropertyType):
 
 @dataclass
 class TriggerCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "associated_alarm_name": "AssociatedAlarmName",
@@ -445,8 +393,6 @@ class TriggerCondition(PropertyType):
 
 @dataclass
 class Workflow(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "steps": "Steps",
         "workflow_target_action": "WorkflowTargetAction",

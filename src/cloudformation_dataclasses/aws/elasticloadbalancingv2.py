@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ElasticLoadBalancingV2
@@ -364,8 +364,6 @@ CREATING = TrustStoreStatus.CREATING
 
 @dataclass
 class Action(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "order": "Order",
         "target_group_arn": "TargetGroupArn",
@@ -391,8 +389,6 @@ class Action(PropertyType):
 
 @dataclass
 class AuthenticateCognitoConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_unauthenticated_request": "OnUnauthenticatedRequest",
         "user_pool_client_id": "UserPoolClientId",
@@ -416,8 +412,6 @@ class AuthenticateCognitoConfig(PropertyType):
 
 @dataclass
 class AuthenticateOidcConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_unauthenticated_request": "OnUnauthenticatedRequest",
         "token_endpoint": "TokenEndpoint",
@@ -449,8 +443,6 @@ class AuthenticateOidcConfig(PropertyType):
 
 @dataclass
 class Certificate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_arn": "CertificateArn",
     }
@@ -460,8 +452,6 @@ class Certificate(PropertyType):
 
 @dataclass
 class FixedResponseConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_type": "ContentType",
         "status_code": "StatusCode",
@@ -475,8 +465,6 @@ class FixedResponseConfig(PropertyType):
 
 @dataclass
 class ForwardConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_group_stickiness_config": "TargetGroupStickinessConfig",
         "target_groups": "TargetGroups",
@@ -488,8 +476,6 @@ class ForwardConfig(PropertyType):
 
 @dataclass
 class JwtValidationActionAdditionalClaim(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "format": "Format",
         "values": "Values",
@@ -503,8 +489,6 @@ class JwtValidationActionAdditionalClaim(PropertyType):
 
 @dataclass
 class JwtValidationConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "jwks_endpoint": "JwksEndpoint",
         "issuer": "Issuer",
@@ -518,8 +502,6 @@ class JwtValidationConfig(PropertyType):
 
 @dataclass
 class ListenerAttribute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -531,8 +513,6 @@ class ListenerAttribute(PropertyType):
 
 @dataclass
 class MutualAuthentication(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ignore_client_certificate_expiry": "IgnoreClientCertificateExpiry",
         "mode": "Mode",
@@ -548,8 +528,6 @@ class MutualAuthentication(PropertyType):
 
 @dataclass
 class RedirectConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "query": "Query",
@@ -569,8 +547,6 @@ class RedirectConfig(PropertyType):
 
 @dataclass
 class TargetGroupStickinessConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "duration_seconds": "DurationSeconds",
@@ -582,8 +558,6 @@ class TargetGroupStickinessConfig(PropertyType):
 
 @dataclass
 class TargetGroupTuple(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_group_arn": "TargetGroupArn",
         "weight": "Weight",
@@ -630,8 +604,6 @@ class Listener(CloudFormationResource):
 
 @dataclass
 class Certificate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_arn": "CertificateArn",
     }
@@ -656,8 +628,6 @@ class ListenerCertificate(CloudFormationResource):
 
 @dataclass
 class Action(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "order": "Order",
         "target_group_arn": "TargetGroupArn",
@@ -683,8 +653,6 @@ class Action(PropertyType):
 
 @dataclass
 class AuthenticateCognitoConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_unauthenticated_request": "OnUnauthenticatedRequest",
         "user_pool_client_id": "UserPoolClientId",
@@ -708,8 +676,6 @@ class AuthenticateCognitoConfig(PropertyType):
 
 @dataclass
 class AuthenticateOidcConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "on_unauthenticated_request": "OnUnauthenticatedRequest",
         "token_endpoint": "TokenEndpoint",
@@ -741,8 +707,6 @@ class AuthenticateOidcConfig(PropertyType):
 
 @dataclass
 class FixedResponseConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "content_type": "ContentType",
         "status_code": "StatusCode",
@@ -756,8 +720,6 @@ class FixedResponseConfig(PropertyType):
 
 @dataclass
 class ForwardConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_group_stickiness_config": "TargetGroupStickinessConfig",
         "target_groups": "TargetGroups",
@@ -769,8 +731,6 @@ class ForwardConfig(PropertyType):
 
 @dataclass
 class HostHeaderConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "regex_values": "RegexValues",
@@ -782,8 +742,6 @@ class HostHeaderConfig(PropertyType):
 
 @dataclass
 class HttpHeaderConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "regex_values": "RegexValues",
@@ -797,8 +755,6 @@ class HttpHeaderConfig(PropertyType):
 
 @dataclass
 class HttpRequestMethodConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
     }
@@ -808,8 +764,6 @@ class HttpRequestMethodConfig(PropertyType):
 
 @dataclass
 class JwtValidationActionAdditionalClaim(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "format": "Format",
         "values": "Values",
@@ -823,8 +777,6 @@ class JwtValidationActionAdditionalClaim(PropertyType):
 
 @dataclass
 class JwtValidationConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "jwks_endpoint": "JwksEndpoint",
         "issuer": "Issuer",
@@ -838,8 +790,6 @@ class JwtValidationConfig(PropertyType):
 
 @dataclass
 class PathPatternConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "regex_values": "RegexValues",
@@ -851,8 +801,6 @@ class PathPatternConfig(PropertyType):
 
 @dataclass
 class QueryStringConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
     }
@@ -862,8 +810,6 @@ class QueryStringConfig(PropertyType):
 
 @dataclass
 class QueryStringKeyValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -875,8 +821,6 @@ class QueryStringKeyValue(PropertyType):
 
 @dataclass
 class RedirectConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "query": "Query",
@@ -896,8 +840,6 @@ class RedirectConfig(PropertyType):
 
 @dataclass
 class RewriteConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "replace": "Replace",
         "regex": "Regex",
@@ -909,8 +851,6 @@ class RewriteConfig(PropertyType):
 
 @dataclass
 class RewriteConfigObject(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rewrites": "Rewrites",
     }
@@ -920,8 +860,6 @@ class RewriteConfigObject(PropertyType):
 
 @dataclass
 class RuleCondition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field": "Field",
         "http_header_config": "HttpHeaderConfig",
@@ -947,8 +885,6 @@ class RuleCondition(PropertyType):
 
 @dataclass
 class SourceIpConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
     }
@@ -958,8 +894,6 @@ class SourceIpConfig(PropertyType):
 
 @dataclass
 class TargetGroupStickinessConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "duration_seconds": "DurationSeconds",
@@ -971,8 +905,6 @@ class TargetGroupStickinessConfig(PropertyType):
 
 @dataclass
 class TargetGroupTuple(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_group_arn": "TargetGroupArn",
         "weight": "Weight",
@@ -984,8 +916,6 @@ class TargetGroupTuple(PropertyType):
 
 @dataclass
 class Transform(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "url_rewrite_config": "UrlRewriteConfig",
@@ -1031,8 +961,6 @@ class ListenerRule(CloudFormationResource):
 
 @dataclass
 class LoadBalancerAttribute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -1044,8 +972,6 @@ class LoadBalancerAttribute(PropertyType):
 
 @dataclass
 class MinimumLoadBalancerCapacity(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_units": "CapacityUnits",
     }
@@ -1055,8 +981,6 @@ class MinimumLoadBalancerCapacity(PropertyType):
 
 @dataclass
 class SubnetMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allocation_id": "AllocationId",
         "i_pv6_address": "IPv6Address",
@@ -1144,8 +1068,6 @@ class LoadBalancer(CloudFormationResource):
 
 @dataclass
 class Matcher(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "grpc_code": "GrpcCode",
         "http_code": "HttpCode",
@@ -1157,8 +1079,6 @@ class Matcher(PropertyType):
 
 @dataclass
 class TargetDescription(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "quic_server_id": "QuicServerId",
         "port": "Port",
@@ -1174,8 +1094,6 @@ class TargetDescription(PropertyType):
 
 @dataclass
 class TargetGroupAttribute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -1296,8 +1214,6 @@ class TrustStore(CloudFormationResource):
 
 @dataclass
 class RevocationContent(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_object_version": "S3ObjectVersion",
         "s3_bucket": "S3Bucket",
@@ -1313,8 +1229,6 @@ class RevocationContent(PropertyType):
 
 @dataclass
 class TrustStoreRevocation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "number_of_revoked_entries": "NumberOfRevokedEntries",
         "trust_store_arn": "TrustStoreArn",

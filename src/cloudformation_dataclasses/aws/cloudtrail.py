@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CloudTrail
@@ -310,8 +310,6 @@ REQUESTCONTEXT = Type.REQUESTCONTEXT
 
 @dataclass
 class Destination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "location": "Location",
@@ -348,8 +346,6 @@ class Channel(CloudFormationResource):
 
 @dataclass
 class Frequency(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "unit": "Unit",
@@ -361,8 +357,6 @@ class Frequency(PropertyType):
 
 @dataclass
 class RefreshSchedule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "time_of_day": "TimeOfDay",
@@ -376,8 +370,6 @@ class RefreshSchedule(PropertyType):
 
 @dataclass
 class Widget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "query_statement": "QueryStatement",
         "query_parameters": "QueryParameters",
@@ -438,8 +430,6 @@ class Dashboard(CloudFormationResource):
 
 @dataclass
 class AdvancedEventSelector(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_selectors": "FieldSelectors",
         "name": "Name",
@@ -451,8 +441,6 @@ class AdvancedEventSelector(PropertyType):
 
 @dataclass
 class AdvancedFieldSelector(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field": "Field",
         "equals": "Equals",
@@ -474,8 +462,6 @@ class AdvancedFieldSelector(PropertyType):
 
 @dataclass
 class ContextKeySelector(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "equals": "Equals",
@@ -487,8 +473,6 @@ class ContextKeySelector(PropertyType):
 
 @dataclass
 class InsightSelector(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "insight_type": "InsightType",
     }
@@ -577,8 +561,6 @@ class ResourcePolicy(CloudFormationResource):
 
 @dataclass
 class AdvancedEventSelector(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field_selectors": "FieldSelectors",
         "name": "Name",
@@ -590,8 +572,6 @@ class AdvancedEventSelector(PropertyType):
 
 @dataclass
 class AdvancedFieldSelector(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "field": "Field",
         "equals": "Equals",
@@ -613,8 +593,6 @@ class AdvancedFieldSelector(PropertyType):
 
 @dataclass
 class AggregationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_category": "EventCategory",
         "templates": "Templates",
@@ -626,8 +604,6 @@ class AggregationConfiguration(PropertyType):
 
 @dataclass
 class DataResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "values": "Values",
@@ -639,8 +615,6 @@ class DataResource(PropertyType):
 
 @dataclass
 class EventSelector(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "include_management_events": "IncludeManagementEvents",
         "read_write_type": "ReadWriteType",
@@ -656,8 +630,6 @@ class EventSelector(PropertyType):
 
 @dataclass
 class InsightSelector(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-clo"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "insight_type": "InsightType",
         "event_categories": "EventCategories",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Grafana
@@ -182,8 +182,6 @@ VERSION_UPDATE_FAILED = WorkspaceStatus.VERSION_UPDATE_FAILED
 
 @dataclass
 class AssertionAttributes(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role": "Role",
         "email": "Email",
@@ -203,8 +201,6 @@ class AssertionAttributes(PropertyType):
 
 @dataclass
 class IdpMetadata(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "xml": "Xml",
         "url": "Url",
@@ -216,8 +212,6 @@ class IdpMetadata(PropertyType):
 
 @dataclass
 class NetworkAccessControl(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prefix_list_ids": "PrefixListIds",
         "vpce_ids": "VpceIds",
@@ -229,8 +223,6 @@ class NetworkAccessControl(PropertyType):
 
 @dataclass
 class RoleValues(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "editor": "Editor",
         "admin": "Admin",
@@ -242,8 +234,6 @@ class RoleValues(PropertyType):
 
 @dataclass
 class SamlConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "login_validity_duration": "LoginValidityDuration",
         "role_values": "RoleValues",
@@ -261,8 +251,6 @@ class SamlConfiguration(PropertyType):
 
 @dataclass
 class VpcConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gra"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_group_ids": "SecurityGroupIds",
         "subnet_ids": "SubnetIds",

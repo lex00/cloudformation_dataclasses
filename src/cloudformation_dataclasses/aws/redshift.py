@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Redshift
@@ -460,8 +460,6 @@ NEEDS_ATTENTION = ZeroETLIntegrationStatus.NEEDS_ATTENTION
 
 @dataclass
 class Endpoint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-red"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address": "Address",
         "port": "Port",
@@ -473,8 +471,6 @@ class Endpoint(PropertyType):
 
 @dataclass
 class LoggingProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-red"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "s3_key_prefix": "S3KeyPrefix",
@@ -631,8 +627,6 @@ class Cluster(CloudFormationResource):
 
 @dataclass
 class Parameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-red"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "parameter_value": "ParameterValue",
         "parameter_name": "ParameterName",
@@ -722,8 +716,6 @@ class ClusterSubnetGroup(CloudFormationResource):
 
 @dataclass
 class NetworkInterface(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-red"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "private_ip_address": "PrivateIpAddress",
         "availability_zone": "AvailabilityZone",
@@ -739,8 +731,6 @@ class NetworkInterface(PropertyType):
 
 @dataclass
 class VpcEndpoint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-red"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpc_id": "VpcId",
         "network_interfaces": "NetworkInterfaces",
@@ -754,8 +744,6 @@ class VpcEndpoint(PropertyType):
 
 @dataclass
 class VpcSecurityGroup(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-red"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "vpc_security_group_id": "VpcSecurityGroupId",
@@ -986,8 +974,6 @@ class Integration(CloudFormationResource):
 
 @dataclass
 class PauseClusterMessage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-red"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_identifier": "ClusterIdentifier",
     }
@@ -997,8 +983,6 @@ class PauseClusterMessage(PropertyType):
 
 @dataclass
 class ResizeClusterMessage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-red"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "node_type": "NodeType",
         "number_of_nodes": "NumberOfNodes",
@@ -1016,8 +1000,6 @@ class ResizeClusterMessage(PropertyType):
 
 @dataclass
 class ResumeClusterMessage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-red"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cluster_identifier": "ClusterIdentifier",
     }
@@ -1027,8 +1009,6 @@ class ResumeClusterMessage(PropertyType):
 
 @dataclass
 class ScheduledActionType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-red"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pause_cluster": "PauseCluster",
         "resume_cluster": "ResumeCluster",

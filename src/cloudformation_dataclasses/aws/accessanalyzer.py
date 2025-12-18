@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:29
+  Generated: 2025-12-17 21:53:45
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AccessAnalyzer
@@ -527,8 +527,6 @@ NOTSUPPORTED = ValidationExceptionReason.NOTSUPPORTED
 
 @dataclass
 class AnalysisRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclusions": "Exclusions",
     }
@@ -538,8 +536,6 @@ class AnalysisRule(PropertyType):
 
 @dataclass
 class AnalysisRuleCriteria(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account_ids": "AccountIds",
         "resource_tags": "ResourceTags",
@@ -551,8 +547,6 @@ class AnalysisRuleCriteria(PropertyType):
 
 @dataclass
 class AnalyzerConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "internal_access_configuration": "InternalAccessConfiguration",
         "unused_access_configuration": "UnusedAccessConfiguration",
@@ -564,8 +558,6 @@ class AnalyzerConfiguration(PropertyType):
 
 @dataclass
 class ArchiveRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter": "Filter",
         "rule_name": "RuleName",
@@ -577,8 +569,6 @@ class ArchiveRule(PropertyType):
 
 @dataclass
 class Filter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exists": "Exists",
         "contains": "Contains",
@@ -596,8 +586,6 @@ class Filter(PropertyType):
 
 @dataclass
 class InternalAccessAnalysisRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "inclusions": "Inclusions",
     }
@@ -607,8 +595,6 @@ class InternalAccessAnalysisRule(PropertyType):
 
 @dataclass
 class InternalAccessAnalysisRuleCriteria(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_types": "ResourceTypes",
         "account_ids": "AccountIds",
@@ -622,8 +608,6 @@ class InternalAccessAnalysisRuleCriteria(PropertyType):
 
 @dataclass
 class InternalAccessConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "internal_access_analysis_rule": "InternalAccessAnalysisRule",
     }
@@ -633,8 +617,6 @@ class InternalAccessConfiguration(PropertyType):
 
 @dataclass
 class UnusedAccessConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acc"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "unused_access_age": "UnusedAccessAge",
         "analysis_rule": "AnalysisRule",

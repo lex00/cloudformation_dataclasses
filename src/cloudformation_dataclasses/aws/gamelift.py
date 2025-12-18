@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service GameLift
@@ -2000,8 +2000,6 @@ FORCE_TERMINATE = TerminationMode.FORCE_TERMINATE
 
 @dataclass
 class RoutingStrategy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "message": "Message",
@@ -2045,8 +2043,6 @@ class Alias(CloudFormationResource):
 
 @dataclass
 class StorageLocation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object_version": "ObjectVersion",
         "bucket": "Bucket",
@@ -2096,8 +2092,6 @@ class Build(CloudFormationResource):
 
 @dataclass
 class ConnectionPortRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "from_port": "FromPort",
         "to_port": "ToPort",
@@ -2109,8 +2103,6 @@ class ConnectionPortRange(PropertyType):
 
 @dataclass
 class DeploymentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "protection_strategy": "ProtectionStrategy",
         "impairment_strategy": "ImpairmentStrategy",
@@ -2124,8 +2116,6 @@ class DeploymentConfiguration(PropertyType):
 
 @dataclass
 class DeploymentDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "latest_deployment_id": "LatestDeploymentId",
     }
@@ -2135,8 +2125,6 @@ class DeploymentDetails(PropertyType):
 
 @dataclass
 class GameSessionCreationLimitPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_period_in_minutes": "PolicyPeriodInMinutes",
         "new_game_sessions_per_creator": "NewGameSessionsPerCreator",
@@ -2148,8 +2136,6 @@ class GameSessionCreationLimitPolicy(PropertyType):
 
 @dataclass
 class IpPermission(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_range": "IpRange",
         "from_port": "FromPort",
@@ -2165,8 +2151,6 @@ class IpPermission(PropertyType):
 
 @dataclass
 class LocationCapacity(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_size": "MinSize",
         "desired_ec2_instances": "DesiredEC2Instances",
@@ -2180,8 +2164,6 @@ class LocationCapacity(PropertyType):
 
 @dataclass
 class LocationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "location_capacity": "LocationCapacity",
         "stopped_actions": "StoppedActions",
@@ -2195,8 +2177,6 @@ class LocationConfiguration(PropertyType):
 
 @dataclass
 class LogConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_destination": "LogDestination",
         "s3_bucket_name": "S3BucketName",
@@ -2210,8 +2190,6 @@ class LogConfiguration(PropertyType):
 
 @dataclass
 class ScalingPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "policy_type": "PolicyType",
@@ -2237,8 +2215,6 @@ class ScalingPolicy(PropertyType):
 
 @dataclass
 class TargetConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_value": "TargetValue",
     }
@@ -2339,8 +2315,6 @@ class ContainerFleet(CloudFormationResource):
 
 @dataclass
 class ContainerDependency(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "condition": "Condition",
         "container_name": "ContainerName",
@@ -2352,8 +2326,6 @@ class ContainerDependency(PropertyType):
 
 @dataclass
 class ContainerEnvironment(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -2365,8 +2337,6 @@ class ContainerEnvironment(PropertyType):
 
 @dataclass
 class ContainerHealthCheck(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "command": "Command",
         "timeout": "Timeout",
@@ -2384,8 +2354,6 @@ class ContainerHealthCheck(PropertyType):
 
 @dataclass
 class ContainerMountPoint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_path": "InstancePath",
         "container_path": "ContainerPath",
@@ -2399,8 +2367,6 @@ class ContainerMountPoint(PropertyType):
 
 @dataclass
 class ContainerPortRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "from_port": "FromPort",
         "to_port": "ToPort",
@@ -2414,8 +2380,6 @@ class ContainerPortRange(PropertyType):
 
 @dataclass
 class GameServerContainerDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mount_points": "MountPoints",
         "depends_on": "DependsOn",
@@ -2439,8 +2403,6 @@ class GameServerContainerDefinition(PropertyType):
 
 @dataclass
 class PortConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "container_port_ranges": "ContainerPortRanges",
     }
@@ -2450,8 +2412,6 @@ class PortConfiguration(PropertyType):
 
 @dataclass
 class SupportContainerDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mount_points": "MountPoints",
         "depends_on": "DependsOn",
@@ -2538,8 +2498,6 @@ class ContainerGroupDefinition(CloudFormationResource):
 
 @dataclass
 class AnywhereConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cost": "Cost",
     }
@@ -2549,8 +2507,6 @@ class AnywhereConfiguration(PropertyType):
 
 @dataclass
 class CertificateConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "certificate_type": "CertificateType",
     }
@@ -2560,8 +2516,6 @@ class CertificateConfiguration(PropertyType):
 
 @dataclass
 class IpPermission(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ip_range": "IpRange",
         "from_port": "FromPort",
@@ -2577,8 +2531,6 @@ class IpPermission(PropertyType):
 
 @dataclass
 class LocationCapacity(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_size": "MinSize",
         "desired_ec2_instances": "DesiredEC2Instances",
@@ -2592,8 +2544,6 @@ class LocationCapacity(PropertyType):
 
 @dataclass
 class LocationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "location_capacity": "LocationCapacity",
         "location": "Location",
@@ -2605,8 +2555,6 @@ class LocationConfiguration(PropertyType):
 
 @dataclass
 class ResourceCreationLimitPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_period_in_minutes": "PolicyPeriodInMinutes",
         "new_game_sessions_per_creator": "NewGameSessionsPerCreator",
@@ -2618,8 +2566,6 @@ class ResourceCreationLimitPolicy(PropertyType):
 
 @dataclass
 class RuntimeConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "server_processes": "ServerProcesses",
         "max_concurrent_game_session_activations": "MaxConcurrentGameSessionActivations",
@@ -2633,8 +2579,6 @@ class RuntimeConfiguration(PropertyType):
 
 @dataclass
 class ScalingPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "status": "Status",
         "metric_name": "MetricName",
@@ -2666,8 +2610,6 @@ class ScalingPolicy(PropertyType):
 
 @dataclass
 class ServerProcess(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "concurrent_executions": "ConcurrentExecutions",
         "parameters": "Parameters",
@@ -2681,8 +2623,6 @@ class ServerProcess(PropertyType):
 
 @dataclass
 class TargetConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_value": "TargetValue",
     }
@@ -2758,8 +2698,6 @@ class Fleet(CloudFormationResource):
 
 @dataclass
 class AutoScalingPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_tracking_configuration": "TargetTrackingConfiguration",
         "estimated_instance_warmup": "EstimatedInstanceWarmup",
@@ -2771,8 +2709,6 @@ class AutoScalingPolicy(PropertyType):
 
 @dataclass
 class InstanceDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "weighted_capacity": "WeightedCapacity",
         "instance_type": "InstanceType",
@@ -2784,8 +2720,6 @@ class InstanceDefinition(PropertyType):
 
 @dataclass
 class LaunchTemplate(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "launch_template_name": "LaunchTemplateName",
         "version": "Version",
@@ -2799,8 +2733,6 @@ class LaunchTemplate(PropertyType):
 
 @dataclass
 class TargetTrackingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_value": "TargetValue",
     }
@@ -2856,8 +2788,6 @@ class GameServerGroup(CloudFormationResource):
 
 @dataclass
 class FilterConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allowed_locations": "AllowedLocations",
     }
@@ -2867,8 +2797,6 @@ class FilterConfiguration(PropertyType):
 
 @dataclass
 class GameSessionQueueDestination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_arn": "DestinationArn",
     }
@@ -2878,8 +2806,6 @@ class GameSessionQueueDestination(PropertyType):
 
 @dataclass
 class PlayerLatencyPolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy_duration_seconds": "PolicyDurationSeconds",
         "maximum_individual_player_latency_milliseconds": "MaximumIndividualPlayerLatencyMilliseconds",
@@ -2891,8 +2817,6 @@ class PlayerLatencyPolicy(PropertyType):
 
 @dataclass
 class PriorityConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "priority_order": "PriorityOrder",
         "location_order": "LocationOrder",
@@ -2965,8 +2889,6 @@ class Location(CloudFormationResource):
 
 @dataclass
 class GameProperty(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -3067,8 +2989,6 @@ class MatchmakingRuleSet(CloudFormationResource):
 
 @dataclass
 class S3Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gam"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "object_version": "ObjectVersion",
         "bucket": "Bucket",

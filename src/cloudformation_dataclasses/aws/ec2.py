@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service EC2
@@ -7876,8 +7876,6 @@ class CapacityManagerDataExport(CloudFormationResource):
 
 @dataclass
 class CapacityAllocation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allocation_type": "AllocationType",
         "count": "Count",
@@ -7889,8 +7887,6 @@ class CapacityAllocation(PropertyType):
 
 @dataclass
 class CommitmentInfo(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "committed_instance_count": "CommittedInstanceCount",
         "commitment_end_date": "CommitmentEndDate",
@@ -7902,8 +7898,6 @@ class CommitmentInfo(PropertyType):
 
 @dataclass
 class TagSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_type": "ResourceType",
         "tags": "Tags",
@@ -8047,8 +8041,6 @@ class CapacityReservation(CloudFormationResource):
 
 @dataclass
 class InstanceTypeSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "priority": "Priority",
         "availability_zone_id": "AvailabilityZoneId",
@@ -8070,8 +8062,6 @@ class InstanceTypeSpecification(PropertyType):
 
 @dataclass
 class TagSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_type": "ResourceType",
         "tags": "Tags",
@@ -8170,8 +8160,6 @@ class ClientVpnAuthorizationRule(CloudFormationResource):
 
 @dataclass
 class CertificateAuthenticationRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "client_root_certificate_chain_arn": "ClientRootCertificateChainArn",
     }
@@ -8181,8 +8169,6 @@ class CertificateAuthenticationRequest(PropertyType):
 
 @dataclass
 class ClientAuthenticationRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mutual_authentication": "MutualAuthentication",
         "type_": "Type",
@@ -8198,8 +8184,6 @@ class ClientAuthenticationRequest(PropertyType):
 
 @dataclass
 class ClientConnectOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "lambda_function_arn": "LambdaFunctionArn",
         "enabled": "Enabled",
@@ -8211,8 +8195,6 @@ class ClientConnectOptions(PropertyType):
 
 @dataclass
 class ClientLoginBannerOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
         "banner_text": "BannerText",
@@ -8224,8 +8206,6 @@ class ClientLoginBannerOptions(PropertyType):
 
 @dataclass
 class ClientRouteEnforcementOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enforced": "Enforced",
     }
@@ -8235,8 +8215,6 @@ class ClientRouteEnforcementOptions(PropertyType):
 
 @dataclass
 class ConnectionLogOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloudwatch_log_stream": "CloudwatchLogStream",
         "enabled": "Enabled",
@@ -8250,8 +8228,6 @@ class ConnectionLogOptions(PropertyType):
 
 @dataclass
 class DirectoryServiceAuthenticationRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "directory_id": "DirectoryId",
     }
@@ -8261,8 +8237,6 @@ class DirectoryServiceAuthenticationRequest(PropertyType):
 
 @dataclass
 class FederatedAuthenticationRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "self_service_saml_provider_arn": "SelfServiceSAMLProviderArn",
         "saml_provider_arn": "SAMLProviderArn",
@@ -8274,8 +8248,6 @@ class FederatedAuthenticationRequest(PropertyType):
 
 @dataclass
 class TagSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_type": "ResourceType",
         "tags": "Tags",
@@ -8430,8 +8402,6 @@ class DHCPOptions(CloudFormationResource):
 
 @dataclass
 class AcceleratorCountRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -8443,8 +8413,6 @@ class AcceleratorCountRequest(PropertyType):
 
 @dataclass
 class AcceleratorTotalMemoryMiBRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -8456,8 +8424,6 @@ class AcceleratorTotalMemoryMiBRequest(PropertyType):
 
 @dataclass
 class BaselineEbsBandwidthMbpsRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -8469,8 +8435,6 @@ class BaselineEbsBandwidthMbpsRequest(PropertyType):
 
 @dataclass
 class BaselinePerformanceFactorsRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cpu": "Cpu",
     }
@@ -8480,8 +8444,6 @@ class BaselinePerformanceFactorsRequest(PropertyType):
 
 @dataclass
 class BlockDeviceMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ebs": "Ebs",
         "no_device": "NoDevice",
@@ -8497,8 +8459,6 @@ class BlockDeviceMapping(PropertyType):
 
 @dataclass
 class CapacityRebalance(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "termination_delay": "TerminationDelay",
         "replacement_strategy": "ReplacementStrategy",
@@ -8510,8 +8470,6 @@ class CapacityRebalance(PropertyType):
 
 @dataclass
 class CapacityReservationOptionsRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "usage_strategy": "UsageStrategy",
     }
@@ -8521,8 +8479,6 @@ class CapacityReservationOptionsRequest(PropertyType):
 
 @dataclass
 class CpuPerformanceFactorRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "references": "References",
     }
@@ -8532,8 +8488,6 @@ class CpuPerformanceFactorRequest(PropertyType):
 
 @dataclass
 class EbsBlockDevice(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "snapshot_id": "SnapshotId",
         "volume_type": "VolumeType",
@@ -8555,8 +8509,6 @@ class EbsBlockDevice(PropertyType):
 
 @dataclass
 class FleetLaunchTemplateConfigRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "launch_template_specification": "LaunchTemplateSpecification",
         "overrides": "Overrides",
@@ -8568,8 +8520,6 @@ class FleetLaunchTemplateConfigRequest(PropertyType):
 
 @dataclass
 class FleetLaunchTemplateOverridesRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "weighted_capacity": "WeightedCapacity",
         "placement": "Placement",
@@ -8595,8 +8545,6 @@ class FleetLaunchTemplateOverridesRequest(PropertyType):
 
 @dataclass
 class FleetLaunchTemplateSpecificationRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "launch_template_name": "LaunchTemplateName",
         "version": "Version",
@@ -8610,8 +8558,6 @@ class FleetLaunchTemplateSpecificationRequest(PropertyType):
 
 @dataclass
 class InstanceRequirementsRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_generations": "InstanceGenerations",
         "require_encryption_in_transit": "RequireEncryptionInTransit",
@@ -8671,8 +8617,6 @@ class InstanceRequirementsRequest(PropertyType):
 
 @dataclass
 class MaintenanceStrategies(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_rebalance": "CapacityRebalance",
     }
@@ -8682,8 +8626,6 @@ class MaintenanceStrategies(PropertyType):
 
 @dataclass
 class MemoryGiBPerVCpuRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -8695,8 +8637,6 @@ class MemoryGiBPerVCpuRequest(PropertyType):
 
 @dataclass
 class MemoryMiBRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -8708,8 +8648,6 @@ class MemoryMiBRequest(PropertyType):
 
 @dataclass
 class NetworkBandwidthGbpsRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -8721,8 +8659,6 @@ class NetworkBandwidthGbpsRequest(PropertyType):
 
 @dataclass
 class NetworkInterfaceCountRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -8734,8 +8670,6 @@ class NetworkInterfaceCountRequest(PropertyType):
 
 @dataclass
 class OnDemandOptionsRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "single_availability_zone": "SingleAvailabilityZone",
         "allocation_strategy": "AllocationStrategy",
@@ -8755,8 +8689,6 @@ class OnDemandOptionsRequest(PropertyType):
 
 @dataclass
 class PerformanceFactorReferenceRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_family": "InstanceFamily",
     }
@@ -8766,8 +8698,6 @@ class PerformanceFactorReferenceRequest(PropertyType):
 
 @dataclass
 class Placement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_name": "GroupName",
         "tenancy": "Tenancy",
@@ -8791,8 +8721,6 @@ class Placement(PropertyType):
 
 @dataclass
 class SpotOptionsRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "single_availability_zone": "SingleAvailabilityZone",
         "allocation_strategy": "AllocationStrategy",
@@ -8816,8 +8744,6 @@ class SpotOptionsRequest(PropertyType):
 
 @dataclass
 class TagSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_type": "ResourceType",
         "tags": "Tags",
@@ -8829,8 +8755,6 @@ class TagSpecification(PropertyType):
 
 @dataclass
 class TargetCapacitySpecificationRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_target_capacity_type": "DefaultTargetCapacityType",
         "total_target_capacity": "TotalTargetCapacity",
@@ -8848,8 +8772,6 @@ class TargetCapacitySpecificationRequest(PropertyType):
 
 @dataclass
 class TotalLocalStorageGBRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -8861,8 +8783,6 @@ class TotalLocalStorageGBRequest(PropertyType):
 
 @dataclass
 class VCpuCountRangeRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -9030,8 +8950,6 @@ class EnclaveCertificateIamRoleAssociation(CloudFormationResource):
 
 @dataclass
 class DestinationOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "per_hour_partition": "PerHourPartition",
         "hive_compatible_partitions": "HiveCompatiblePartitions",
@@ -9142,8 +9060,6 @@ class Host(CloudFormationResource):
 
 @dataclass
 class IpamOperatingRegion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region_name": "RegionName",
     }
@@ -9153,8 +9069,6 @@ class IpamOperatingRegion(PropertyType):
 
 @dataclass
 class IpamOrganizationalUnitExclusion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "organizations_entity_path": "OrganizationsEntityPath",
     }
@@ -9255,8 +9169,6 @@ class IPAMAllocation(CloudFormationResource):
 
 @dataclass
 class ProvisionedCidr(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr": "Cidr",
     }
@@ -9266,8 +9178,6 @@ class ProvisionedCidr(PropertyType):
 
 @dataclass
 class SourceResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_region": "ResourceRegion",
         "resource_id": "ResourceId",
@@ -9395,8 +9305,6 @@ class IPAMPoolCidr(CloudFormationResource):
 
 @dataclass
 class IpamOperatingRegion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "region_name": "RegionName",
     }
@@ -9406,8 +9314,6 @@ class IpamOperatingRegion(PropertyType):
 
 @dataclass
 class IpamResourceDiscoveryOrganizationalUnitExclusion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "organizations_entity_path": "OrganizationsEntityPath",
     }
@@ -9525,8 +9431,6 @@ class IPAMResourceDiscoveryAssociation(CloudFormationResource):
 
 @dataclass
 class IpamScopeExternalAuthorityConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "external_resource_identifier": "ExternalResourceIdentifier",
         "ipam_scope_external_authority_type": "IpamScopeExternalAuthorityType",
@@ -9588,8 +9492,6 @@ class IPAMScope(CloudFormationResource):
 
 @dataclass
 class AssociationParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -9601,8 +9503,6 @@ class AssociationParameter(PropertyType):
 
 @dataclass
 class BlockDeviceMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ebs": "Ebs",
         "no_device": "NoDevice",
@@ -9618,8 +9518,6 @@ class BlockDeviceMapping(PropertyType):
 
 @dataclass
 class CpuOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "threads_per_core": "ThreadsPerCore",
         "core_count": "CoreCount",
@@ -9631,8 +9529,6 @@ class CpuOptions(PropertyType):
 
 @dataclass
 class CreditSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cpu_credits": "CPUCredits",
     }
@@ -9642,8 +9538,6 @@ class CreditSpecification(PropertyType):
 
 @dataclass
 class Ebs(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "snapshot_id": "SnapshotId",
         "volume_type": "VolumeType",
@@ -9665,8 +9559,6 @@ class Ebs(PropertyType):
 
 @dataclass
 class ElasticGpuSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -9676,8 +9568,6 @@ class ElasticGpuSpecification(PropertyType):
 
 @dataclass
 class ElasticInferenceAccelerator(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "count": "Count",
@@ -9689,8 +9579,6 @@ class ElasticInferenceAccelerator(PropertyType):
 
 @dataclass
 class EnaSrdSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ena_srd_enabled": "EnaSrdEnabled",
         "ena_srd_udp_specification": "EnaSrdUdpSpecification",
@@ -9702,8 +9590,6 @@ class EnaSrdSpecification(PropertyType):
 
 @dataclass
 class EnaSrdUdpSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ena_srd_udp_enabled": "EnaSrdUdpEnabled",
     }
@@ -9713,8 +9599,6 @@ class EnaSrdUdpSpecification(PropertyType):
 
 @dataclass
 class EnclaveOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -9724,8 +9608,6 @@ class EnclaveOptions(PropertyType):
 
 @dataclass
 class HibernationOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configured": "Configured",
     }
@@ -9735,8 +9617,6 @@ class HibernationOptions(PropertyType):
 
 @dataclass
 class InstanceIpv6Address(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ipv6_address": "Ipv6Address",
     }
@@ -9746,8 +9626,6 @@ class InstanceIpv6Address(PropertyType):
 
 @dataclass
 class LaunchTemplateSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "launch_template_name": "LaunchTemplateName",
         "version": "Version",
@@ -9761,8 +9639,6 @@ class LaunchTemplateSpecification(PropertyType):
 
 @dataclass
 class LicenseSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "license_configuration_arn": "LicenseConfigurationArn",
     }
@@ -9772,8 +9648,6 @@ class LicenseSpecification(PropertyType):
 
 @dataclass
 class MetadataOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "http_put_response_hop_limit": "HttpPutResponseHopLimit",
         "http_protocol_ipv6": "HttpProtocolIpv6",
@@ -9791,8 +9665,6 @@ class MetadataOptions(PropertyType):
 
 @dataclass
 class NetworkInterface(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "private_ip_address": "PrivateIpAddress",
@@ -9828,8 +9700,6 @@ class NetworkInterface(PropertyType):
 
 @dataclass
 class PrivateDnsNameOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_resource_name_dns_a_record": "EnableResourceNameDnsARecord",
         "hostname_type": "HostnameType",
@@ -9843,8 +9713,6 @@ class PrivateDnsNameOptions(PropertyType):
 
 @dataclass
 class PrivateIpAddressSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "private_ip_address": "PrivateIpAddress",
         "primary": "Primary",
@@ -9856,8 +9724,6 @@ class PrivateIpAddressSpecification(PropertyType):
 
 @dataclass
 class SsmAssociation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "association_parameters": "AssociationParameters",
         "document_name": "DocumentName",
@@ -9869,8 +9735,6 @@ class SsmAssociation(PropertyType):
 
 @dataclass
 class State(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "code": "Code",
         "name": "Name",
@@ -9882,8 +9746,6 @@ class State(PropertyType):
 
 @dataclass
 class Volume(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "volume_id": "VolumeId",
         "device": "Device",
@@ -10138,8 +10000,6 @@ class KeyPair(CloudFormationResource):
 
 @dataclass
 class AcceleratorCount(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -10151,8 +10011,6 @@ class AcceleratorCount(PropertyType):
 
 @dataclass
 class AcceleratorTotalMemoryMiB(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -10164,8 +10022,6 @@ class AcceleratorTotalMemoryMiB(PropertyType):
 
 @dataclass
 class BaselineEbsBandwidthMbps(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -10177,8 +10033,6 @@ class BaselineEbsBandwidthMbps(PropertyType):
 
 @dataclass
 class BaselinePerformanceFactors(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cpu": "Cpu",
     }
@@ -10188,8 +10042,6 @@ class BaselinePerformanceFactors(PropertyType):
 
 @dataclass
 class BlockDeviceMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ebs": "Ebs",
         "no_device": "NoDevice",
@@ -10205,8 +10057,6 @@ class BlockDeviceMapping(PropertyType):
 
 @dataclass
 class CapacityReservationSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_reservation_preference": "CapacityReservationPreference",
         "capacity_reservation_target": "CapacityReservationTarget",
@@ -10218,8 +10068,6 @@ class CapacityReservationSpecification(PropertyType):
 
 @dataclass
 class CapacityReservationTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_reservation_resource_group_arn": "CapacityReservationResourceGroupArn",
         "capacity_reservation_id": "CapacityReservationId",
@@ -10231,8 +10079,6 @@ class CapacityReservationTarget(PropertyType):
 
 @dataclass
 class ConnectionTrackingSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "udp_timeout": "UdpTimeout",
         "tcp_established_timeout": "TcpEstablishedTimeout",
@@ -10246,8 +10092,6 @@ class ConnectionTrackingSpecification(PropertyType):
 
 @dataclass
 class Cpu(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "references": "References",
     }
@@ -10257,8 +10101,6 @@ class Cpu(PropertyType):
 
 @dataclass
 class CpuOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "threads_per_core": "ThreadsPerCore",
         "amd_sev_snp": "AmdSevSnp",
@@ -10272,8 +10114,6 @@ class CpuOptions(PropertyType):
 
 @dataclass
 class CreditSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cpu_credits": "CpuCredits",
     }
@@ -10283,8 +10123,6 @@ class CreditSpecification(PropertyType):
 
 @dataclass
 class Ebs(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "snapshot_id": "SnapshotId",
         "volume_type": "VolumeType",
@@ -10310,8 +10148,6 @@ class Ebs(PropertyType):
 
 @dataclass
 class EnaSrdSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ena_srd_enabled": "EnaSrdEnabled",
         "ena_srd_udp_specification": "EnaSrdUdpSpecification",
@@ -10323,8 +10159,6 @@ class EnaSrdSpecification(PropertyType):
 
 @dataclass
 class EnaSrdUdpSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ena_srd_udp_enabled": "EnaSrdUdpEnabled",
     }
@@ -10334,8 +10168,6 @@ class EnaSrdUdpSpecification(PropertyType):
 
 @dataclass
 class EnclaveOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -10345,8 +10177,6 @@ class EnclaveOptions(PropertyType):
 
 @dataclass
 class HibernationOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "configured": "Configured",
     }
@@ -10356,8 +10186,6 @@ class HibernationOptions(PropertyType):
 
 @dataclass
 class IamInstanceProfile(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
         "name": "Name",
@@ -10369,8 +10197,6 @@ class IamInstanceProfile(PropertyType):
 
 @dataclass
 class InstanceMarketOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "spot_options": "SpotOptions",
         "market_type": "MarketType",
@@ -10382,8 +10208,6 @@ class InstanceMarketOptions(PropertyType):
 
 @dataclass
 class InstanceRequirements(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_generations": "InstanceGenerations",
         "memory_gi_b_per_v_cpu": "MemoryGiBPerVCpu",
@@ -10441,8 +10265,6 @@ class InstanceRequirements(PropertyType):
 
 @dataclass
 class Ipv4PrefixSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ipv4_prefix": "Ipv4Prefix",
     }
@@ -10452,8 +10274,6 @@ class Ipv4PrefixSpecification(PropertyType):
 
 @dataclass
 class Ipv6Add(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ipv6_address": "Ipv6Address",
     }
@@ -10463,8 +10283,6 @@ class Ipv6Add(PropertyType):
 
 @dataclass
 class Ipv6PrefixSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ipv6_prefix": "Ipv6Prefix",
     }
@@ -10474,8 +10292,6 @@ class Ipv6PrefixSpecification(PropertyType):
 
 @dataclass
 class LaunchTemplateData(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "tag_specifications": "TagSpecifications",
@@ -10543,8 +10359,6 @@ class LaunchTemplateData(PropertyType):
 
 @dataclass
 class LaunchTemplateTagSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_type": "ResourceType",
         "tags": "Tags",
@@ -10556,8 +10370,6 @@ class LaunchTemplateTagSpecification(PropertyType):
 
 @dataclass
 class LicenseSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "license_configuration_arn": "LicenseConfigurationArn",
     }
@@ -10567,8 +10379,6 @@ class LicenseSpecification(PropertyType):
 
 @dataclass
 class MaintenanceOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "auto_recovery": "AutoRecovery",
     }
@@ -10578,8 +10388,6 @@ class MaintenanceOptions(PropertyType):
 
 @dataclass
 class MemoryGiBPerVCpu(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -10591,8 +10399,6 @@ class MemoryGiBPerVCpu(PropertyType):
 
 @dataclass
 class MemoryMiB(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -10604,8 +10410,6 @@ class MemoryMiB(PropertyType):
 
 @dataclass
 class MetadataOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "http_put_response_hop_limit": "HttpPutResponseHopLimit",
         "http_tokens": "HttpTokens",
@@ -10623,8 +10427,6 @@ class MetadataOptions(PropertyType):
 
 @dataclass
 class Monitoring(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -10634,8 +10436,6 @@ class Monitoring(PropertyType):
 
 @dataclass
 class NetworkBandwidthGbps(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -10647,8 +10447,6 @@ class NetworkBandwidthGbps(PropertyType):
 
 @dataclass
 class NetworkInterface(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "private_ip_address": "PrivateIpAddress",
@@ -10702,8 +10500,6 @@ class NetworkInterface(PropertyType):
 
 @dataclass
 class NetworkInterfaceCount(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -10715,8 +10511,6 @@ class NetworkInterfaceCount(PropertyType):
 
 @dataclass
 class NetworkPerformanceOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bandwidth_weighting": "BandwidthWeighting",
     }
@@ -10726,8 +10520,6 @@ class NetworkPerformanceOptions(PropertyType):
 
 @dataclass
 class Placement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_name": "GroupName",
         "tenancy": "Tenancy",
@@ -10753,8 +10545,6 @@ class Placement(PropertyType):
 
 @dataclass
 class PrivateDnsNameOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_resource_name_dns_a_record": "EnableResourceNameDnsARecord",
         "hostname_type": "HostnameType",
@@ -10768,8 +10558,6 @@ class PrivateDnsNameOptions(PropertyType):
 
 @dataclass
 class PrivateIpAdd(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "private_ip_address": "PrivateIpAddress",
         "primary": "Primary",
@@ -10781,8 +10569,6 @@ class PrivateIpAdd(PropertyType):
 
 @dataclass
 class Reference(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_family": "InstanceFamily",
     }
@@ -10792,8 +10578,6 @@ class Reference(PropertyType):
 
 @dataclass
 class SpotOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "spot_instance_type": "SpotInstanceType",
         "instance_interruption_behavior": "InstanceInterruptionBehavior",
@@ -10811,8 +10595,6 @@ class SpotOptions(PropertyType):
 
 @dataclass
 class TagSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_type": "ResourceType",
         "tags": "Tags",
@@ -10824,8 +10606,6 @@ class TagSpecification(PropertyType):
 
 @dataclass
 class TotalLocalStorageGB(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -10837,8 +10617,6 @@ class TotalLocalStorageGB(PropertyType):
 
 @dataclass
 class VCpuCount(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -11132,8 +10910,6 @@ class LocalGatewayVirtualInterfaceGroup(CloudFormationResource):
 
 @dataclass
 class AvailabilityZoneAddress(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "availability_zone_id": "AvailabilityZoneId",
         "availability_zone": "AvailabilityZone",
@@ -11229,8 +11005,6 @@ class NetworkAcl(CloudFormationResource):
 
 @dataclass
 class Icmp(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "code": "Code",
@@ -11242,8 +11016,6 @@ class Icmp(PropertyType):
 
 @dataclass
 class PortRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "from_": "From",
         "to": "To",
@@ -11290,8 +11062,6 @@ class NetworkAclEntry(CloudFormationResource):
 
 @dataclass
 class AccessScopePathRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "through_resources": "ThroughResources",
@@ -11305,8 +11075,6 @@ class AccessScopePathRequest(PropertyType):
 
 @dataclass
 class PacketHeaderStatementRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "protocols": "Protocols",
         "destination_ports": "DestinationPorts",
@@ -11328,8 +11096,6 @@ class PacketHeaderStatementRequest(PropertyType):
 
 @dataclass
 class PathStatementRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_statement": "ResourceStatement",
         "packet_header_statement": "PacketHeaderStatement",
@@ -11341,8 +11107,6 @@ class PathStatementRequest(PropertyType):
 
 @dataclass
 class ResourceStatementRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_types": "ResourceTypes",
         "resources": "Resources",
@@ -11354,8 +11118,6 @@ class ResourceStatementRequest(PropertyType):
 
 @dataclass
 class ThroughResourcesStatementRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_statement": "ResourceStatement",
     }
@@ -11459,8 +11221,6 @@ class NetworkInsightsAccessScopeAnalysis(CloudFormationResource):
 
 @dataclass
 class AdditionalDetail(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service_name": "ServiceName",
         "additional_detail_type": "AdditionalDetailType",
@@ -11476,8 +11236,6 @@ class AdditionalDetail(PropertyType):
 
 @dataclass
 class AlternatePathHint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "component_arn": "ComponentArn",
         "component_id": "ComponentId",
@@ -11489,8 +11247,6 @@ class AlternatePathHint(PropertyType):
 
 @dataclass
 class AnalysisAclRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port_range": "PortRange",
         "cidr": "Cidr",
@@ -11510,8 +11266,6 @@ class AnalysisAclRule(PropertyType):
 
 @dataclass
 class AnalysisComponent(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id": "Id",
         "arn": "Arn",
@@ -11523,8 +11277,6 @@ class AnalysisComponent(PropertyType):
 
 @dataclass
 class AnalysisLoadBalancerListener(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_port": "InstancePort",
         "load_balancer_port": "LoadBalancerPort",
@@ -11536,8 +11288,6 @@ class AnalysisLoadBalancerListener(PropertyType):
 
 @dataclass
 class AnalysisLoadBalancerTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address": "Address",
         "instance": "Instance",
@@ -11553,8 +11303,6 @@ class AnalysisLoadBalancerTarget(PropertyType):
 
 @dataclass
 class AnalysisPacketHeader(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_port_ranges": "DestinationPortRanges",
         "source_port_ranges": "SourcePortRanges",
@@ -11572,8 +11320,6 @@ class AnalysisPacketHeader(PropertyType):
 
 @dataclass
 class AnalysisRouteTableRoute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "origin": "Origin",
         "destination_prefix_list_id": "destinationPrefixListId",
@@ -11603,8 +11349,6 @@ class AnalysisRouteTableRoute(PropertyType):
 
 @dataclass
 class AnalysisSecurityGroupRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port_range": "PortRange",
         "cidr": "Cidr",
@@ -11624,8 +11368,6 @@ class AnalysisSecurityGroupRule(PropertyType):
 
 @dataclass
 class Explanation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "vpn_gateway": "VpnGateway",
         "packet_field": "PacketField",
@@ -11735,8 +11477,6 @@ class Explanation(PropertyType):
 
 @dataclass
 class PathComponent(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "additional_details": "AdditionalDetails",
         "inbound_header": "InboundHeader",
@@ -11778,8 +11518,6 @@ class PathComponent(PropertyType):
 
 @dataclass
 class PortRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "from_": "From",
         "to": "To",
@@ -11791,8 +11529,6 @@ class PortRange(PropertyType):
 
 @dataclass
 class TransitGatewayRouteTableRoute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "prefix_list_id": "PrefixListId",
         "resource_id": "ResourceId",
@@ -11891,8 +11627,6 @@ class NetworkInsightsAnalysis(CloudFormationResource):
 
 @dataclass
 class FilterPortRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "from_port": "FromPort",
         "to_port": "ToPort",
@@ -11904,8 +11638,6 @@ class FilterPortRange(PropertyType):
 
 @dataclass
 class PathFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_address": "SourceAddress",
         "destination_port_range": "DestinationPortRange",
@@ -11976,8 +11708,6 @@ class NetworkInsightsPath(CloudFormationResource):
 
 @dataclass
 class ConnectionTrackingSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "udp_timeout": "UdpTimeout",
         "tcp_established_timeout": "TcpEstablishedTimeout",
@@ -11991,8 +11721,6 @@ class ConnectionTrackingSpecification(PropertyType):
 
 @dataclass
 class InstanceIpv6Address(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ipv6_address": "Ipv6Address",
     }
@@ -12002,8 +11730,6 @@ class InstanceIpv6Address(PropertyType):
 
 @dataclass
 class Ipv4PrefixSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ipv4_prefix": "Ipv4Prefix",
     }
@@ -12013,8 +11739,6 @@ class Ipv4PrefixSpecification(PropertyType):
 
 @dataclass
 class Ipv6PrefixSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ipv6_prefix": "Ipv6Prefix",
     }
@@ -12024,8 +11748,6 @@ class Ipv6PrefixSpecification(PropertyType):
 
 @dataclass
 class PrivateIpAddressSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "private_ip_address": "PrivateIpAddress",
         "primary": "Primary",
@@ -12037,8 +11759,6 @@ class PrivateIpAddressSpecification(PropertyType):
 
 @dataclass
 class PublicIpDnsNameOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dns_hostname_type": "DnsHostnameType",
         "public_ipv4_dns_name": "PublicIpv4DnsName",
@@ -12150,8 +11870,6 @@ class NetworkInterface(CloudFormationResource):
 
 @dataclass
 class EnaSrdSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ena_srd_enabled": "EnaSrdEnabled",
         "ena_srd_udp_specification": "EnaSrdUdpSpecification",
@@ -12163,8 +11881,6 @@ class EnaSrdSpecification(PropertyType):
 
 @dataclass
 class EnaSrdUdpSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ena_srd_udp_enabled": "EnaSrdUdpEnabled",
     }
@@ -12264,8 +11980,6 @@ class PlacementGroup(CloudFormationResource):
 
 @dataclass
 class Entry(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "cidr": "Cidr",
@@ -12456,8 +12170,6 @@ class RouteServerEndpoint(CloudFormationResource):
 
 @dataclass
 class BgpOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "peer_liveness_detection": "PeerLivenessDetection",
         "peer_asn": "PeerAsn",
@@ -12560,8 +12272,6 @@ class RouteTable(CloudFormationResource):
 
 @dataclass
 class Egress(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr_ip": "CidrIp",
         "cidr_ipv6": "CidrIpv6",
@@ -12585,8 +12295,6 @@ class Egress(PropertyType):
 
 @dataclass
 class Ingress(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr_ip": "CidrIp",
         "cidr_ipv6": "CidrIpv6",
@@ -12779,8 +12487,6 @@ class SnapshotBlockPublicAccess(CloudFormationResource):
 
 @dataclass
 class AcceleratorCountRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -12792,8 +12498,6 @@ class AcceleratorCountRequest(PropertyType):
 
 @dataclass
 class AcceleratorTotalMemoryMiBRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -12805,8 +12509,6 @@ class AcceleratorTotalMemoryMiBRequest(PropertyType):
 
 @dataclass
 class BaselineEbsBandwidthMbpsRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -12818,8 +12520,6 @@ class BaselineEbsBandwidthMbpsRequest(PropertyType):
 
 @dataclass
 class BaselinePerformanceFactorsRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cpu": "Cpu",
     }
@@ -12829,8 +12529,6 @@ class BaselinePerformanceFactorsRequest(PropertyType):
 
 @dataclass
 class BlockDeviceMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ebs": "Ebs",
         "no_device": "NoDevice",
@@ -12846,8 +12544,6 @@ class BlockDeviceMapping(PropertyType):
 
 @dataclass
 class ClassicLoadBalancer(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -12857,8 +12553,6 @@ class ClassicLoadBalancer(PropertyType):
 
 @dataclass
 class ClassicLoadBalancersConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "classic_load_balancers": "ClassicLoadBalancers",
     }
@@ -12868,8 +12562,6 @@ class ClassicLoadBalancersConfig(PropertyType):
 
 @dataclass
 class CpuPerformanceFactorRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "references": "References",
     }
@@ -12879,8 +12571,6 @@ class CpuPerformanceFactorRequest(PropertyType):
 
 @dataclass
 class EbsBlockDevice(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "snapshot_id": "SnapshotId",
         "volume_type": "VolumeType",
@@ -12900,8 +12590,6 @@ class EbsBlockDevice(PropertyType):
 
 @dataclass
 class FleetLaunchTemplateSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "launch_template_name": "LaunchTemplateName",
         "version": "Version",
@@ -12915,8 +12603,6 @@ class FleetLaunchTemplateSpecification(PropertyType):
 
 @dataclass
 class GroupIdentifier(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_id": "GroupId",
     }
@@ -12926,8 +12612,6 @@ class GroupIdentifier(PropertyType):
 
 @dataclass
 class IamInstanceProfileSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -12937,8 +12621,6 @@ class IamInstanceProfileSpecification(PropertyType):
 
 @dataclass
 class InstanceIpv6Address(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ipv6_address": "Ipv6Address",
     }
@@ -12948,8 +12630,6 @@ class InstanceIpv6Address(PropertyType):
 
 @dataclass
 class InstanceNetworkInterfaceSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "private_ip_addresses": "PrivateIpAddresses",
@@ -12979,8 +12659,6 @@ class InstanceNetworkInterfaceSpecification(PropertyType):
 
 @dataclass
 class InstanceRequirementsRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_generations": "InstanceGenerations",
         "require_encryption_in_transit": "RequireEncryptionInTransit",
@@ -13040,8 +12718,6 @@ class InstanceRequirementsRequest(PropertyType):
 
 @dataclass
 class LaunchTemplateConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "launch_template_specification": "LaunchTemplateSpecification",
         "overrides": "Overrides",
@@ -13053,8 +12729,6 @@ class LaunchTemplateConfig(PropertyType):
 
 @dataclass
 class LaunchTemplateOverrides(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "spot_price": "SpotPrice",
         "weighted_capacity": "WeightedCapacity",
@@ -13076,8 +12750,6 @@ class LaunchTemplateOverrides(PropertyType):
 
 @dataclass
 class LoadBalancersConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "classic_load_balancers_config": "ClassicLoadBalancersConfig",
         "target_groups_config": "TargetGroupsConfig",
@@ -13089,8 +12761,6 @@ class LoadBalancersConfig(PropertyType):
 
 @dataclass
 class MemoryGiBPerVCpuRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -13102,8 +12772,6 @@ class MemoryGiBPerVCpuRequest(PropertyType):
 
 @dataclass
 class MemoryMiBRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -13115,8 +12783,6 @@ class MemoryMiBRequest(PropertyType):
 
 @dataclass
 class NetworkBandwidthGbpsRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -13128,8 +12794,6 @@ class NetworkBandwidthGbpsRequest(PropertyType):
 
 @dataclass
 class NetworkInterfaceCountRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -13141,8 +12805,6 @@ class NetworkInterfaceCountRequest(PropertyType):
 
 @dataclass
 class PerformanceFactorReferenceRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_family": "InstanceFamily",
     }
@@ -13152,8 +12814,6 @@ class PerformanceFactorReferenceRequest(PropertyType):
 
 @dataclass
 class PrivateIpAddressSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "private_ip_address": "PrivateIpAddress",
         "primary": "Primary",
@@ -13165,8 +12825,6 @@ class PrivateIpAddressSpecification(PropertyType):
 
 @dataclass
 class SpotCapacityRebalance(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "termination_delay": "TerminationDelay",
         "replacement_strategy": "ReplacementStrategy",
@@ -13178,8 +12836,6 @@ class SpotCapacityRebalance(PropertyType):
 
 @dataclass
 class SpotFleetLaunchSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "security_groups": "SecurityGroups",
         "tag_specifications": "TagSpecifications",
@@ -13223,8 +12879,6 @@ class SpotFleetLaunchSpecification(PropertyType):
 
 @dataclass
 class SpotFleetMonitoring(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enabled": "Enabled",
     }
@@ -13234,8 +12888,6 @@ class SpotFleetMonitoring(PropertyType):
 
 @dataclass
 class SpotFleetRequestConfigData(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "context": "Context",
         "spot_max_total_price": "SpotMaxTotalPrice",
@@ -13289,8 +12941,6 @@ class SpotFleetRequestConfigData(PropertyType):
 
 @dataclass
 class SpotFleetTagSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_type": "ResourceType",
         "tags": "Tags",
@@ -13302,8 +12952,6 @@ class SpotFleetTagSpecification(PropertyType):
 
 @dataclass
 class SpotMaintenanceStrategies(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capacity_rebalance": "CapacityRebalance",
     }
@@ -13313,8 +12961,6 @@ class SpotMaintenanceStrategies(PropertyType):
 
 @dataclass
 class SpotPlacement(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "group_name": "GroupName",
         "tenancy": "Tenancy",
@@ -13328,8 +12974,6 @@ class SpotPlacement(PropertyType):
 
 @dataclass
 class TargetGroup(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "Arn",
     }
@@ -13339,8 +12983,6 @@ class TargetGroup(PropertyType):
 
 @dataclass
 class TargetGroupsConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_groups": "TargetGroups",
     }
@@ -13350,8 +12992,6 @@ class TargetGroupsConfig(PropertyType):
 
 @dataclass
 class TotalLocalStorageGBRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -13363,8 +13003,6 @@ class TotalLocalStorageGBRequest(PropertyType):
 
 @dataclass
 class VCpuCountRangeRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min": "Min",
         "max": "Max",
@@ -13397,8 +13035,6 @@ class SpotFleet(CloudFormationResource):
 
 @dataclass
 class BlockPublicAccessStates(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "internet_gateway_block_mode": "InternetGatewayBlockMode",
     }
@@ -13408,8 +13044,6 @@ class BlockPublicAccessStates(PropertyType):
 
 @dataclass
 class PrivateDnsNameOptionsOnLaunch(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_resource_name_dns_a_record": "EnableResourceNameDnsARecord",
         "hostname_type": "HostnameType",
@@ -13619,8 +13253,6 @@ class TrafficMirrorFilter(CloudFormationResource):
 
 @dataclass
 class TrafficMirrorPortRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "from_port": "FromPort",
         "to_port": "ToPort",
@@ -13788,8 +13420,6 @@ class TransitGateway(CloudFormationResource):
 
 @dataclass
 class Options(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ipv6_support": "Ipv6Support",
         "appliance_mode_support": "ApplianceModeSupport",
@@ -13832,8 +13462,6 @@ class TransitGatewayAttachment(CloudFormationResource):
 
 @dataclass
 class TransitGatewayConnectOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "protocol": "Protocol",
     }
@@ -13881,8 +13509,6 @@ class TransitGatewayConnect(CloudFormationResource):
 
 @dataclass
 class TransitGatewayAttachmentBgpConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transit_gateway_address": "TransitGatewayAddress",
         "peer_address": "PeerAddress",
@@ -13900,8 +13526,6 @@ class TransitGatewayAttachmentBgpConfiguration(PropertyType):
 
 @dataclass
 class TransitGatewayConnectPeerConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transit_gateway_address": "TransitGatewayAddress",
         "bgp_configurations": "BgpConfigurations",
@@ -14041,8 +13665,6 @@ class TransitGatewayMeteringPolicyEntry(CloudFormationResource):
 
 @dataclass
 class Options(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "static_sources_support": "StaticSourcesSupport",
         "auto_accept_shared_associations": "AutoAcceptSharedAssociations",
@@ -14233,8 +13855,6 @@ class TransitGatewayMulticastGroupSource(CloudFormationResource):
 
 @dataclass
 class PeeringAttachmentStatus(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "message": "Message",
         "code": "Code",
@@ -14368,8 +13988,6 @@ class TransitGatewayRouteTablePropagation(CloudFormationResource):
 
 @dataclass
 class Options(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ipv6_support": "Ipv6Support",
         "appliance_mode_support": "ApplianceModeSupport",
@@ -14583,8 +14201,6 @@ class VPCDHCPOptionsAssociation(CloudFormationResource):
 
 @dataclass
 class ResourceExclusions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "elastic_file_system": "ElasticFileSystem",
         "vpc_lattice": "VpcLattice",
@@ -14608,8 +14224,6 @@ class ResourceExclusions(PropertyType):
 
 @dataclass
 class VpcEncryptionControlExclusion(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "state": "State",
         "state_message": "StateMessage",
@@ -14795,8 +14409,6 @@ class VPCEncryptionControl(CloudFormationResource):
 
 @dataclass
 class DnsOptionsSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "private_dns_only_for_inbound_resolver_endpoint": "PrivateDnsOnlyForInboundResolverEndpoint",
         "private_dns_specified_domains": "PrivateDnsSpecifiedDomains",
@@ -15025,8 +14637,6 @@ class VPNConcentrator(CloudFormationResource):
 
 @dataclass
 class CloudwatchLogOptionsSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bgp_log_enabled": "BgpLogEnabled",
         "log_enabled": "LogEnabled",
@@ -15046,8 +14656,6 @@ class CloudwatchLogOptionsSpecification(PropertyType):
 
 @dataclass
 class IKEVersionsRequestListValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -15057,8 +14665,6 @@ class IKEVersionsRequestListValue(PropertyType):
 
 @dataclass
 class Phase1DHGroupNumbersRequestListValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -15068,8 +14674,6 @@ class Phase1DHGroupNumbersRequestListValue(PropertyType):
 
 @dataclass
 class Phase1EncryptionAlgorithmsRequestListValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -15079,8 +14683,6 @@ class Phase1EncryptionAlgorithmsRequestListValue(PropertyType):
 
 @dataclass
 class Phase1IntegrityAlgorithmsRequestListValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -15090,8 +14692,6 @@ class Phase1IntegrityAlgorithmsRequestListValue(PropertyType):
 
 @dataclass
 class Phase2DHGroupNumbersRequestListValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -15101,8 +14701,6 @@ class Phase2DHGroupNumbersRequestListValue(PropertyType):
 
 @dataclass
 class Phase2EncryptionAlgorithmsRequestListValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -15112,8 +14710,6 @@ class Phase2EncryptionAlgorithmsRequestListValue(PropertyType):
 
 @dataclass
 class Phase2IntegrityAlgorithmsRequestListValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
     }
@@ -15123,8 +14719,6 @@ class Phase2IntegrityAlgorithmsRequestListValue(PropertyType):
 
 @dataclass
 class VpnTunnelLogOptionsSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloudwatch_log_options": "CloudwatchLogOptions",
     }
@@ -15134,8 +14728,6 @@ class VpnTunnelLogOptionsSpecification(PropertyType):
 
 @dataclass
 class VpnTunnelOptionsSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "phase2_encryption_algorithms": "Phase2EncryptionAlgorithms",
         "phase2_dh_group_numbers": "Phase2DHGroupNumbers",
@@ -15295,8 +14887,6 @@ class VPNGatewayRoutePropagation(CloudFormationResource):
 
 @dataclass
 class CidrOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cidr": "Cidr",
         "port_ranges": "PortRanges",
@@ -15312,8 +14902,6 @@ class CidrOptions(PropertyType):
 
 @dataclass
 class LoadBalancerOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "load_balancer_arn": "LoadBalancerArn",
         "port": "Port",
@@ -15331,8 +14919,6 @@ class LoadBalancerOptions(PropertyType):
 
 @dataclass
 class NetworkInterfaceOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "port": "Port",
         "port_ranges": "PortRanges",
@@ -15348,8 +14934,6 @@ class NetworkInterfaceOptions(PropertyType):
 
 @dataclass
 class PortRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "from_port": "FromPort",
         "to_port": "ToPort",
@@ -15361,8 +14945,6 @@ class PortRange(PropertyType):
 
 @dataclass
 class RdsOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rds_db_proxy_arn": "RdsDbProxyArn",
         "rds_db_cluster_arn": "RdsDbClusterArn",
@@ -15384,8 +14966,6 @@ class RdsOptions(PropertyType):
 
 @dataclass
 class SseSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "customer_managed_key_enabled": "CustomerManagedKeyEnabled",
         "kms_key_arn": "KmsKeyArn",
@@ -15476,8 +15056,6 @@ class VerifiedAccessEndpoint(CloudFormationResource):
 
 @dataclass
 class SseSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "customer_managed_key_enabled": "CustomerManagedKeyEnabled",
         "kms_key_arn": "KmsKeyArn",
@@ -15538,8 +15116,6 @@ class VerifiedAccessGroup(CloudFormationResource):
 
 @dataclass
 class CloudWatchLogs(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group": "LogGroup",
         "enabled": "Enabled",
@@ -15551,8 +15127,6 @@ class CloudWatchLogs(PropertyType):
 
 @dataclass
 class KinesisDataFirehose(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_stream": "DeliveryStream",
         "enabled": "Enabled",
@@ -15564,8 +15138,6 @@ class KinesisDataFirehose(PropertyType):
 
 @dataclass
 class S3(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
         "enabled": "Enabled",
@@ -15581,8 +15153,6 @@ class S3(PropertyType):
 
 @dataclass
 class VerifiedAccessLogs(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
         "log_version": "LogVersion",
@@ -15600,8 +15170,6 @@ class VerifiedAccessLogs(PropertyType):
 
 @dataclass
 class VerifiedAccessTrustProvider(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "device_trust_provider_type": "DeviceTrustProviderType",
@@ -15665,8 +15233,6 @@ class VerifiedAccessInstance(CloudFormationResource):
 
 @dataclass
 class DeviceOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tenant_id": "TenantId",
         "public_signing_key_url": "PublicSigningKeyUrl",
@@ -15678,8 +15244,6 @@ class DeviceOptions(PropertyType):
 
 @dataclass
 class NativeApplicationOidcOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "token_endpoint": "TokenEndpoint",
         "scope": "Scope",
@@ -15703,8 +15267,6 @@ class NativeApplicationOidcOptions(PropertyType):
 
 @dataclass
 class OidcOptions(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "token_endpoint": "TokenEndpoint",
         "scope": "Scope",
@@ -15726,8 +15288,6 @@ class OidcOptions(PropertyType):
 
 @dataclass
 class SseSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "customer_managed_key_enabled": "CustomerManagedKeyEnabled",
         "kms_key_arn": "KmsKeyArn",

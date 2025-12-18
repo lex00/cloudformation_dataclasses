@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ResourceExplorer2
@@ -72,8 +72,6 @@ class Index(CloudFormationResource):
 
 @dataclass
 class IncludedProperty(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-res"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -83,8 +81,6 @@ class IncludedProperty(PropertyType):
 
 @dataclass
 class SearchFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-res"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "filter_string": "FilterString",
     }

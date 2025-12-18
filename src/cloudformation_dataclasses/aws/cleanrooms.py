@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CleanRooms
@@ -849,8 +849,6 @@ CR_4X = WorkerComputeType.CR_4X
 
 @dataclass
 class AnalysisParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_value": "DefaultValue",
         "type_": "Type",
@@ -864,8 +862,6 @@ class AnalysisParameter(PropertyType):
 
 @dataclass
 class AnalysisSchema(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "referenced_tables": "ReferencedTables",
     }
@@ -875,8 +871,6 @@ class AnalysisSchema(PropertyType):
 
 @dataclass
 class AnalysisSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "artifacts": "Artifacts",
         "text": "Text",
@@ -888,8 +882,6 @@ class AnalysisSource(PropertyType):
 
 @dataclass
 class AnalysisSourceMetadata(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "artifacts": "Artifacts",
     }
@@ -899,8 +891,6 @@ class AnalysisSourceMetadata(PropertyType):
 
 @dataclass
 class AnalysisTemplateArtifact(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "location": "Location",
     }
@@ -910,8 +900,6 @@ class AnalysisTemplateArtifact(PropertyType):
 
 @dataclass
 class AnalysisTemplateArtifactMetadata(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "entry_point_hash": "EntryPointHash",
         "additional_artifact_hashes": "AdditionalArtifactHashes",
@@ -923,8 +911,6 @@ class AnalysisTemplateArtifactMetadata(PropertyType):
 
 @dataclass
 class AnalysisTemplateArtifacts(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "additional_artifacts": "AdditionalArtifacts",
         "entry_point": "EntryPoint",
@@ -938,8 +924,6 @@ class AnalysisTemplateArtifacts(PropertyType):
 
 @dataclass
 class ColumnClassificationDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_mapping": "ColumnMapping",
     }
@@ -949,8 +933,6 @@ class ColumnClassificationDetails(PropertyType):
 
 @dataclass
 class ErrorMessageConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
     }
@@ -960,8 +942,6 @@ class ErrorMessageConfiguration(PropertyType):
 
 @dataclass
 class Hash(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "sha256": "Sha256",
     }
@@ -971,8 +951,6 @@ class Hash(PropertyType):
 
 @dataclass
 class MLSyntheticDataParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_classification": "ColumnClassification",
         "epsilon": "Epsilon",
@@ -986,8 +964,6 @@ class MLSyntheticDataParameters(PropertyType):
 
 @dataclass
 class S3Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "key": "Key",
@@ -999,8 +975,6 @@ class S3Location(PropertyType):
 
 @dataclass
 class SyntheticDataColumnProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_name": "ColumnName",
         "column_type": "ColumnType",
@@ -1014,8 +988,6 @@ class SyntheticDataColumnProperties(PropertyType):
 
 @dataclass
 class SyntheticDataParameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ml_synthetic_data_parameters": "MlSyntheticDataParameters",
     }
@@ -1084,8 +1056,6 @@ class AnalysisTemplate(CloudFormationResource):
 
 @dataclass
 class DataEncryptionMetadata(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allow_cleartext": "AllowCleartext",
         "preserve_nulls": "PreserveNulls",
@@ -1101,8 +1071,6 @@ class DataEncryptionMetadata(PropertyType):
 
 @dataclass
 class JobComputePaymentConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_responsible": "IsResponsible",
     }
@@ -1112,8 +1080,6 @@ class JobComputePaymentConfig(PropertyType):
 
 @dataclass
 class MLMemberAbilities(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "custom_ml_member_abilities": "CustomMLMemberAbilities",
     }
@@ -1123,8 +1089,6 @@ class MLMemberAbilities(PropertyType):
 
 @dataclass
 class MLPaymentConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_inference": "ModelInference",
         "synthetic_data_generation": "SyntheticDataGeneration",
@@ -1138,8 +1102,6 @@ class MLPaymentConfig(PropertyType):
 
 @dataclass
 class MemberSpecification(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account_id": "AccountId",
         "ml_member_abilities": "MLMemberAbilities",
@@ -1157,8 +1119,6 @@ class MemberSpecification(PropertyType):
 
 @dataclass
 class ModelInferencePaymentConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_responsible": "IsResponsible",
     }
@@ -1168,8 +1128,6 @@ class ModelInferencePaymentConfig(PropertyType):
 
 @dataclass
 class ModelTrainingPaymentConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_responsible": "IsResponsible",
     }
@@ -1179,8 +1137,6 @@ class ModelTrainingPaymentConfig(PropertyType):
 
 @dataclass
 class PaymentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "job_compute": "JobCompute",
         "query_compute": "QueryCompute",
@@ -1194,8 +1150,6 @@ class PaymentConfiguration(PropertyType):
 
 @dataclass
 class QueryComputePaymentConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_responsible": "IsResponsible",
     }
@@ -1205,8 +1159,6 @@ class QueryComputePaymentConfig(PropertyType):
 
 @dataclass
 class SyntheticDataGenerationPaymentConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_responsible": "IsResponsible",
     }
@@ -1266,8 +1218,6 @@ class Collaboration(CloudFormationResource):
 
 @dataclass
 class AggregateColumn(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "function": "Function",
         "column_names": "ColumnNames",
@@ -1279,8 +1229,6 @@ class AggregateColumn(PropertyType):
 
 @dataclass
 class AggregationConstraint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_name": "ColumnName",
         "minimum": "Minimum",
@@ -1294,8 +1242,6 @@ class AggregationConstraint(PropertyType):
 
 @dataclass
 class AnalysisRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
         "type_": "Type",
@@ -1307,8 +1253,6 @@ class AnalysisRule(PropertyType):
 
 @dataclass
 class AnalysisRuleAggregation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allowed_join_operators": "AllowedJoinOperators",
         "scalar_functions": "ScalarFunctions",
@@ -1332,8 +1276,6 @@ class AnalysisRuleAggregation(PropertyType):
 
 @dataclass
 class AnalysisRuleCustom(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "additional_analyses": "AdditionalAnalyses",
         "allowed_analysis_providers": "AllowedAnalysisProviders",
@@ -1351,8 +1293,6 @@ class AnalysisRuleCustom(PropertyType):
 
 @dataclass
 class AnalysisRuleList(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allowed_join_operators": "AllowedJoinOperators",
         "list_columns": "ListColumns",
@@ -1368,8 +1308,6 @@ class AnalysisRuleList(PropertyType):
 
 @dataclass
 class AthenaTableReference(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "work_group": "WorkGroup",
         "table_name": "TableName",
@@ -1387,8 +1325,6 @@ class AthenaTableReference(PropertyType):
 
 @dataclass
 class ConfiguredTableAnalysisRulePolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "v1": "V1",
     }
@@ -1398,8 +1334,6 @@ class ConfiguredTableAnalysisRulePolicy(PropertyType):
 
 @dataclass
 class ConfiguredTableAnalysisRulePolicyV1(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation": "Aggregation",
         "list": "List",
@@ -1413,8 +1347,6 @@ class ConfiguredTableAnalysisRulePolicyV1(PropertyType):
 
 @dataclass
 class DifferentialPrivacy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "columns": "Columns",
     }
@@ -1424,8 +1356,6 @@ class DifferentialPrivacy(PropertyType):
 
 @dataclass
 class DifferentialPrivacyColumn(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -1435,8 +1365,6 @@ class DifferentialPrivacyColumn(PropertyType):
 
 @dataclass
 class GlueTableReference(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_name": "TableName",
         "database_name": "DatabaseName",
@@ -1450,8 +1378,6 @@ class GlueTableReference(PropertyType):
 
 @dataclass
 class SnowflakeTableReference(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "secret_arn": "SecretArn",
         "table_name": "TableName",
@@ -1471,8 +1397,6 @@ class SnowflakeTableReference(PropertyType):
 
 @dataclass
 class SnowflakeTableSchema(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "v1": "V1",
     }
@@ -1482,8 +1406,6 @@ class SnowflakeTableSchema(PropertyType):
 
 @dataclass
 class SnowflakeTableSchemaV1(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "column_name": "ColumnName",
         "column_type": "ColumnType",
@@ -1495,8 +1417,6 @@ class SnowflakeTableSchemaV1(PropertyType):
 
 @dataclass
 class TableReference(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "glue": "Glue",
         "snowflake": "Snowflake",
@@ -1548,8 +1468,6 @@ class ConfiguredTable(CloudFormationResource):
 
 @dataclass
 class ConfiguredTableAssociationAnalysisRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "policy": "Policy",
         "type_": "Type",
@@ -1561,8 +1479,6 @@ class ConfiguredTableAssociationAnalysisRule(PropertyType):
 
 @dataclass
 class ConfiguredTableAssociationAnalysisRuleAggregation(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allowed_result_receivers": "AllowedResultReceivers",
         "allowed_additional_analyses": "AllowedAdditionalAnalyses",
@@ -1574,8 +1490,6 @@ class ConfiguredTableAssociationAnalysisRuleAggregation(PropertyType):
 
 @dataclass
 class ConfiguredTableAssociationAnalysisRuleCustom(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allowed_result_receivers": "AllowedResultReceivers",
         "allowed_additional_analyses": "AllowedAdditionalAnalyses",
@@ -1587,8 +1501,6 @@ class ConfiguredTableAssociationAnalysisRuleCustom(PropertyType):
 
 @dataclass
 class ConfiguredTableAssociationAnalysisRuleList(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allowed_result_receivers": "AllowedResultReceivers",
         "allowed_additional_analyses": "AllowedAdditionalAnalyses",
@@ -1600,8 +1512,6 @@ class ConfiguredTableAssociationAnalysisRuleList(PropertyType):
 
 @dataclass
 class ConfiguredTableAssociationAnalysisRulePolicy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "v1": "V1",
     }
@@ -1611,8 +1521,6 @@ class ConfiguredTableAssociationAnalysisRulePolicy(PropertyType):
 
 @dataclass
 class ConfiguredTableAssociationAnalysisRulePolicyV1(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "aggregation": "Aggregation",
         "list": "List",
@@ -1662,8 +1570,6 @@ class ConfiguredTableAssociation(CloudFormationResource):
 
 @dataclass
 class IdMappingTableInputReferenceConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_reference_arn": "InputReferenceArn",
         "manage_resource_policies": "ManageResourcePolicies",
@@ -1675,8 +1581,6 @@ class IdMappingTableInputReferenceConfig(PropertyType):
 
 @dataclass
 class IdMappingTableInputReferenceProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id_mapping_table_input_source": "IdMappingTableInputSource",
     }
@@ -1686,8 +1590,6 @@ class IdMappingTableInputReferenceProperties(PropertyType):
 
 @dataclass
 class IdMappingTableInputSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "id_namespace_association_id": "IdNamespaceAssociationId",
@@ -1758,8 +1660,6 @@ class IdMappingTable(CloudFormationResource):
 
 @dataclass
 class IdMappingConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allow_use_as_dimension_column": "AllowUseAsDimensionColumn",
     }
@@ -1769,8 +1669,6 @@ class IdMappingConfig(PropertyType):
 
 @dataclass
 class IdNamespaceAssociationInputReferenceConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "input_reference_arn": "InputReferenceArn",
         "manage_resource_policies": "ManageResourcePolicies",
@@ -1782,8 +1680,6 @@ class IdNamespaceAssociationInputReferenceConfig(PropertyType):
 
 @dataclass
 class IdNamespaceAssociationInputReferenceProperties(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id_namespace_type": "IdNamespaceType",
         "id_mapping_workflows_supported": "IdMappingWorkflowsSupported",
@@ -1859,8 +1755,6 @@ class IdNamespaceAssociation(CloudFormationResource):
 
 @dataclass
 class MembershipJobComputePaymentConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_responsible": "IsResponsible",
     }
@@ -1870,8 +1764,6 @@ class MembershipJobComputePaymentConfig(PropertyType):
 
 @dataclass
 class MembershipMLPaymentConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "model_inference": "ModelInference",
         "synthetic_data_generation": "SyntheticDataGeneration",
@@ -1885,8 +1777,6 @@ class MembershipMLPaymentConfig(PropertyType):
 
 @dataclass
 class MembershipModelInferencePaymentConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_responsible": "IsResponsible",
     }
@@ -1896,8 +1786,6 @@ class MembershipModelInferencePaymentConfig(PropertyType):
 
 @dataclass
 class MembershipModelTrainingPaymentConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_responsible": "IsResponsible",
     }
@@ -1907,8 +1795,6 @@ class MembershipModelTrainingPaymentConfig(PropertyType):
 
 @dataclass
 class MembershipPaymentConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "job_compute": "JobCompute",
         "query_compute": "QueryCompute",
@@ -1922,8 +1808,6 @@ class MembershipPaymentConfiguration(PropertyType):
 
 @dataclass
 class MembershipProtectedJobOutputConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
     }
@@ -1933,8 +1817,6 @@ class MembershipProtectedJobOutputConfiguration(PropertyType):
 
 @dataclass
 class MembershipProtectedJobResultConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "output_configuration": "OutputConfiguration",
         "role_arn": "RoleArn",
@@ -1946,8 +1828,6 @@ class MembershipProtectedJobResultConfiguration(PropertyType):
 
 @dataclass
 class MembershipProtectedQueryOutputConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
     }
@@ -1957,8 +1837,6 @@ class MembershipProtectedQueryOutputConfiguration(PropertyType):
 
 @dataclass
 class MembershipProtectedQueryResultConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "output_configuration": "OutputConfiguration",
         "role_arn": "RoleArn",
@@ -1970,8 +1848,6 @@ class MembershipProtectedQueryResultConfiguration(PropertyType):
 
 @dataclass
 class MembershipQueryComputePaymentConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_responsible": "IsResponsible",
     }
@@ -1981,8 +1857,6 @@ class MembershipQueryComputePaymentConfig(PropertyType):
 
 @dataclass
 class MembershipSyntheticDataGenerationPaymentConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "is_responsible": "IsResponsible",
     }
@@ -1992,8 +1866,6 @@ class MembershipSyntheticDataGenerationPaymentConfig(PropertyType):
 
 @dataclass
 class ProtectedJobS3OutputConfigurationInput(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "key_prefix": "KeyPrefix",
@@ -2005,8 +1877,6 @@ class ProtectedJobS3OutputConfigurationInput(PropertyType):
 
 @dataclass
 class ProtectedQueryS3OutputConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket": "Bucket",
         "result_format": "ResultFormat",
@@ -2068,8 +1938,6 @@ class Membership(CloudFormationResource):
 
 @dataclass
 class BudgetParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "budget": "Budget",
@@ -2083,8 +1951,6 @@ class BudgetParameter(PropertyType):
 
 @dataclass
 class Parameters(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cle"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceArn",
         "budget_parameters": "BudgetParameters",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service BillingConductor
@@ -322,8 +322,6 @@ ILLEGAL_LINE_ITEM_FILTER = ValidationExceptionReason.ILLEGAL_LINE_ITEM_FILTER
 
 @dataclass
 class AccountGrouping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bil"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "responsibility_transfer_arn": "ResponsibilityTransferArn",
         "linked_account_ids": "LinkedAccountIds",
@@ -337,8 +335,6 @@ class AccountGrouping(PropertyType):
 
 @dataclass
 class ComputationPreference(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bil"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "pricing_plan_arn": "PricingPlanArn",
     }
@@ -402,8 +398,6 @@ class BillingGroup(CloudFormationResource):
 
 @dataclass
 class BillingPeriodRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bil"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "exclusive_end_billing_period": "ExclusiveEndBillingPeriod",
         "inclusive_start_billing_period": "InclusiveStartBillingPeriod",
@@ -415,8 +409,6 @@ class BillingPeriodRange(PropertyType):
 
 @dataclass
 class CustomLineItemChargeDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bil"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "line_item_filters": "LineItemFilters",
         "type_": "Type",
@@ -432,8 +424,6 @@ class CustomLineItemChargeDetails(PropertyType):
 
 @dataclass
 class CustomLineItemFlatChargeDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bil"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "charge_value": "ChargeValue",
     }
@@ -443,8 +433,6 @@ class CustomLineItemFlatChargeDetails(PropertyType):
 
 @dataclass
 class CustomLineItemPercentageChargeDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bil"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "child_associated_resources": "ChildAssociatedResources",
         "percentage_value": "PercentageValue",
@@ -456,8 +444,6 @@ class CustomLineItemPercentageChargeDetails(PropertyType):
 
 @dataclass
 class LineItemFilter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bil"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match_option": "MatchOption",
         "attribute": "Attribute",
@@ -473,8 +459,6 @@ class LineItemFilter(PropertyType):
 
 @dataclass
 class PresentationDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bil"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "service": "Service",
     }
@@ -584,8 +568,6 @@ class PricingPlan(CloudFormationResource):
 
 @dataclass
 class FreeTier(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bil"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "activated": "Activated",
     }
@@ -595,8 +577,6 @@ class FreeTier(PropertyType):
 
 @dataclass
 class Tiering(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bil"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "free_tier": "FreeTier",
     }

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IVS
@@ -180,8 +180,6 @@ CONSTRAINED_BANDWIDTH_DELIVERY = TranscodePreset.CONSTRAINED_BANDWIDTH_DELIVERY
 
 @dataclass
 class MultitrackInputConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "maximum_resolution": "MaximumResolution",
         "policy": "Policy",
@@ -242,8 +240,6 @@ class Channel(CloudFormationResource):
 
 @dataclass
 class Video(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "framerate": "Framerate",
         "height": "Height",
@@ -409,8 +405,6 @@ class PublicKey(CloudFormationResource):
 
 @dataclass
 class DestinationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
     }
@@ -420,8 +414,6 @@ class DestinationConfiguration(PropertyType):
 
 @dataclass
 class RenditionConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "rendition_selection": "RenditionSelection",
         "renditions": "Renditions",
@@ -433,8 +425,6 @@ class RenditionConfiguration(PropertyType):
 
 @dataclass
 class S3DestinationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
     }
@@ -444,8 +434,6 @@ class S3DestinationConfiguration(PropertyType):
 
 @dataclass
 class ThumbnailConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_interval_seconds": "TargetIntervalSeconds",
         "storage": "Storage",
@@ -495,8 +483,6 @@ class RecordingConfiguration(CloudFormationResource):
 
 @dataclass
 class AutoParticipantRecordingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "storage_configuration_arn": "StorageConfigurationArn",
         "recording_reconnect_window_seconds": "RecordingReconnectWindowSeconds",
@@ -514,8 +500,6 @@ class AutoParticipantRecordingConfiguration(PropertyType):
 
 @dataclass
 class HlsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "participant_recording_hls_configuration": "ParticipantRecordingHlsConfiguration",
     }
@@ -525,8 +509,6 @@ class HlsConfiguration(PropertyType):
 
 @dataclass
 class ParticipantRecordingHlsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_segment_duration_seconds": "TargetSegmentDurationSeconds",
     }
@@ -536,8 +518,6 @@ class ParticipantRecordingHlsConfiguration(PropertyType):
 
 @dataclass
 class ParticipantThumbnailConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_interval_seconds": "TargetIntervalSeconds",
         "storage": "Storage",
@@ -551,8 +531,6 @@ class ParticipantThumbnailConfiguration(PropertyType):
 
 @dataclass
 class ThumbnailConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "participant_thumbnail_configuration": "ParticipantThumbnailConfiguration",
     }
@@ -590,8 +568,6 @@ class Stage(CloudFormationResource):
 
 @dataclass
 class S3StorageConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
     }

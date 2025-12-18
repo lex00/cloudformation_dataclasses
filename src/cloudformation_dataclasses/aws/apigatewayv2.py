@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:45
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ApiGatewayV2
@@ -248,8 +248,6 @@ V2 = VpcLinkVersion.V2
 
 @dataclass
 class BodyS3Location(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "etag": "Etag",
         "bucket": "Bucket",
@@ -265,8 +263,6 @@ class BodyS3Location(PropertyType):
 
 @dataclass
 class Cors(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "allow_origins": "AllowOrigins",
         "allow_credentials": "AllowCredentials",
@@ -344,8 +340,6 @@ class Api(CloudFormationResource):
 
 @dataclass
 class AccessLogSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "format": "Format",
         "destination_arn": "DestinationArn",
@@ -357,8 +351,6 @@ class AccessLogSettings(PropertyType):
 
 @dataclass
 class IntegrationOverrides(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "payload_format_version": "PayloadFormatVersion",
@@ -374,8 +366,6 @@ class IntegrationOverrides(PropertyType):
 
 @dataclass
 class RouteOverrides(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target": "Target",
         "authorizer_id": "AuthorizerId",
@@ -393,8 +383,6 @@ class RouteOverrides(PropertyType):
 
 @dataclass
 class RouteSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logging_level": "LoggingLevel",
         "data_trace_enabled": "DataTraceEnabled",
@@ -412,8 +400,6 @@ class RouteSettings(PropertyType):
 
 @dataclass
 class StageOverrides(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "access_log_settings": "AccessLogSettings",
@@ -477,8 +463,6 @@ class ApiMapping(CloudFormationResource):
 
 @dataclass
 class JWTConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "issuer": "Issuer",
         "audience": "Audience",
@@ -552,8 +536,6 @@ class Deployment(CloudFormationResource):
 
 @dataclass
 class DomainNameConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "ownership_verification_certificate_arn": "OwnershipVerificationCertificateArn",
         "ip_address_type": "IpAddressType",
@@ -573,8 +555,6 @@ class DomainNameConfiguration(PropertyType):
 
 @dataclass
 class MutualTlsAuthentication(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "truststore_version": "TruststoreVersion",
         "truststore_uri": "TruststoreUri",
@@ -623,8 +603,6 @@ class DomainName(CloudFormationResource):
 
 @dataclass
 class ResponseParameter(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination": "Destination",
         "source": "Source",
@@ -636,8 +614,6 @@ class ResponseParameter(PropertyType):
 
 @dataclass
 class ResponseParameterMap(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "response_parameters": "ResponseParameters",
     }
@@ -647,8 +623,6 @@ class ResponseParameterMap(PropertyType):
 
 @dataclass
 class TlsConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "server_name_to_verify": "ServerNameToVerify",
     }
@@ -810,8 +784,6 @@ class Route(CloudFormationResource):
 
 @dataclass
 class ParameterConstraints(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "required": "Required",
     }
@@ -850,8 +822,6 @@ class RouteResponse(CloudFormationResource):
 
 @dataclass
 class Action(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "invoke_api": "InvokeApi",
     }
@@ -861,8 +831,6 @@ class Action(PropertyType):
 
 @dataclass
 class ActionInvokeApi(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "strip_base_path": "StripBasePath",
         "stage": "Stage",
@@ -876,8 +844,6 @@ class ActionInvokeApi(PropertyType):
 
 @dataclass
 class Condition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "match_base_paths": "MatchBasePaths",
         "match_headers": "MatchHeaders",
@@ -889,8 +855,6 @@ class Condition(PropertyType):
 
 @dataclass
 class MatchBasePaths(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "any_of": "AnyOf",
     }
@@ -900,8 +864,6 @@ class MatchBasePaths(PropertyType):
 
 @dataclass
 class MatchHeaderValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value_glob": "ValueGlob",
         "header": "Header",
@@ -913,8 +875,6 @@ class MatchHeaderValue(PropertyType):
 
 @dataclass
 class MatchHeaders(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "any_of": "AnyOf",
     }
@@ -954,8 +914,6 @@ class RoutingRule(CloudFormationResource):
 
 @dataclass
 class AccessLogSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "format": "Format",
         "destination_arn": "DestinationArn",
@@ -967,8 +925,6 @@ class AccessLogSettings(PropertyType):
 
 @dataclass
 class RouteSettings(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-api"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logging_level": "LoggingLevel",
         "data_trace_enabled": "DataTraceEnabled",

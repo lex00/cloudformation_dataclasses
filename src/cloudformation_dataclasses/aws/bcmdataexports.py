@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:30
+  Generated: 2025-12-17 21:53:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service BCMDataExports
@@ -27,8 +27,6 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 @dataclass
 class DataQuery(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "table_configurations": "TableConfigurations",
         "query_statement": "QueryStatement",
@@ -40,8 +38,6 @@ class DataQuery(PropertyType):
 
 @dataclass
 class DestinationConfigurations(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_destination": "S3Destination",
     }
@@ -51,8 +47,6 @@ class DestinationConfigurations(PropertyType):
 
 @dataclass
 class Export(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "refresh_cadence": "RefreshCadence",
@@ -72,8 +66,6 @@ class Export(PropertyType):
 
 @dataclass
 class RefreshCadence(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "frequency": "Frequency",
     }
@@ -83,8 +75,6 @@ class RefreshCadence(PropertyType):
 
 @dataclass
 class ResourceTag(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -96,8 +86,6 @@ class ResourceTag(PropertyType):
 
 @dataclass
 class S3Destination(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3_bucket": "S3Bucket",
         "s3_output_configurations": "S3OutputConfigurations",
@@ -113,8 +101,6 @@ class S3Destination(PropertyType):
 
 @dataclass
 class S3OutputConfigurations(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcm"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "compression": "Compression",
         "overwrite": "Overwrite",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IVSChat
@@ -105,8 +105,6 @@ OTHER = ValidationExceptionReason.OTHER
 
 @dataclass
 class CloudWatchLogsDestinationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group_name": "LogGroupName",
     }
@@ -116,8 +114,6 @@ class CloudWatchLogsDestinationConfiguration(PropertyType):
 
 @dataclass
 class DestinationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "s3": "S3",
         "firehose": "Firehose",
@@ -131,8 +127,6 @@ class DestinationConfiguration(PropertyType):
 
 @dataclass
 class FirehoseDestinationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_stream_name": "DeliveryStreamName",
     }
@@ -142,8 +136,6 @@ class FirehoseDestinationConfiguration(PropertyType):
 
 @dataclass
 class S3DestinationConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "bucket_name": "BucketName",
     }
@@ -186,8 +178,6 @@ class LoggingConfiguration(CloudFormationResource):
 
 @dataclass
 class MessageReviewHandler(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "fallback_result": "FallbackResult",
         "uri": "Uri",

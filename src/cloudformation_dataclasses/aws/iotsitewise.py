@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:32
+  Generated: 2025-12-17 21:53:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IoTSiteWise
@@ -645,8 +645,6 @@ DISABLED = WarmTierState.DISABLED
 
 @dataclass
 class AccessPolicyIdentity(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "user": "User",
         "iam_user": "IamUser",
@@ -660,8 +658,6 @@ class AccessPolicyIdentity(PropertyType):
 
 @dataclass
 class AccessPolicyResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "project": "Project",
         "portal": "Portal",
@@ -673,8 +669,6 @@ class AccessPolicyResource(PropertyType):
 
 @dataclass
 class IamRole(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "arn",
     }
@@ -684,8 +678,6 @@ class IamRole(PropertyType):
 
 @dataclass
 class IamUser(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "arn": "arn",
     }
@@ -695,8 +687,6 @@ class IamUser(PropertyType):
 
 @dataclass
 class Portal(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id": "id",
     }
@@ -706,8 +696,6 @@ class Portal(PropertyType):
 
 @dataclass
 class Project(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id": "id",
     }
@@ -717,8 +705,6 @@ class Project(PropertyType):
 
 @dataclass
 class User(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "id": "id",
     }
@@ -756,8 +742,6 @@ class AccessPolicy(CloudFormationResource):
 
 @dataclass
 class AssetHierarchy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logical_id": "LogicalId",
         "external_id": "ExternalId",
@@ -773,8 +757,6 @@ class AssetHierarchy(PropertyType):
 
 @dataclass
 class AssetProperty(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logical_id": "LogicalId",
         "alias": "Alias",
@@ -830,8 +812,6 @@ class Asset(CloudFormationResource):
 
 @dataclass
 class AssetModelCompositeModel(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "path": "Path",
         "parent_asset_model_composite_model_external_id": "ParentAssetModelCompositeModelExternalId",
@@ -857,8 +837,6 @@ class AssetModelCompositeModel(PropertyType):
 
 @dataclass
 class AssetModelHierarchy(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "logical_id": "LogicalId",
         "external_id": "ExternalId",
@@ -876,8 +854,6 @@ class AssetModelHierarchy(PropertyType):
 
 @dataclass
 class AssetModelProperty(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "logical_id": "LogicalId",
@@ -901,8 +877,6 @@ class AssetModelProperty(PropertyType):
 
 @dataclass
 class Attribute(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "default_value": "DefaultValue",
     }
@@ -912,8 +886,6 @@ class Attribute(PropertyType):
 
 @dataclass
 class EnforcedAssetModelInterfacePropertyMapping(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interface_asset_model_property_external_id": "InterfaceAssetModelPropertyExternalId",
         "asset_model_property_logical_id": "AssetModelPropertyLogicalId",
@@ -927,8 +899,6 @@ class EnforcedAssetModelInterfacePropertyMapping(PropertyType):
 
 @dataclass
 class EnforcedAssetModelInterfaceRelationship(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interface_asset_model_id": "InterfaceAssetModelId",
         "property_mappings": "PropertyMappings",
@@ -940,8 +910,6 @@ class EnforcedAssetModelInterfaceRelationship(PropertyType):
 
 @dataclass
 class ExpressionVariable(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "name": "Name",
@@ -953,8 +921,6 @@ class ExpressionVariable(PropertyType):
 
 @dataclass
 class Metric(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "variables": "Variables",
         "window": "Window",
@@ -968,8 +934,6 @@ class Metric(PropertyType):
 
 @dataclass
 class MetricWindow(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "tumbling": "Tumbling",
     }
@@ -979,8 +943,6 @@ class MetricWindow(PropertyType):
 
 @dataclass
 class PropertyPathDefinition(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "name": "Name",
     }
@@ -990,8 +952,6 @@ class PropertyPathDefinition(PropertyType):
 
 @dataclass
 class PropertyType(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_name": "TypeName",
         "attribute": "Attribute",
@@ -1007,8 +967,6 @@ class PropertyType(PropertyType):
 
 @dataclass
 class Transform(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "variables": "Variables",
         "expression": "Expression",
@@ -1020,8 +978,6 @@ class Transform(PropertyType):
 
 @dataclass
 class TumblingWindow(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "interval": "Interval",
         "offset": "Offset",
@@ -1033,8 +989,6 @@ class TumblingWindow(PropertyType):
 
 @dataclass
 class VariableValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "property_external_id": "PropertyExternalId",
         "hierarchy_id": "HierarchyId",
@@ -1096,8 +1050,6 @@ class AssetModel(CloudFormationResource):
 
 @dataclass
 class AnomalyDetectionComputationModelConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "result_property": "ResultProperty",
         "input_properties": "InputProperties",
@@ -1109,8 +1061,6 @@ class AnomalyDetectionComputationModelConfiguration(PropertyType):
 
 @dataclass
 class AssetModelPropertyBindingValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "asset_model_id": "AssetModelId",
         "property_id": "PropertyId",
@@ -1122,8 +1072,6 @@ class AssetModelPropertyBindingValue(PropertyType):
 
 @dataclass
 class AssetPropertyBindingValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "asset_id": "AssetId",
         "property_id": "PropertyId",
@@ -1135,8 +1083,6 @@ class AssetPropertyBindingValue(PropertyType):
 
 @dataclass
 class ComputationModelConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "anomaly_detection": "AnomalyDetection",
     }
@@ -1146,8 +1092,6 @@ class ComputationModelConfiguration(PropertyType):
 
 @dataclass
 class ComputationModelDataBindingValue(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "asset_property": "AssetProperty",
         "asset_model_property": "AssetModelProperty",
@@ -1225,8 +1169,6 @@ class Dashboard(CloudFormationResource):
 
 @dataclass
 class DatasetSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "source_type": "SourceType",
         "source_format": "SourceFormat",
@@ -1240,8 +1182,6 @@ class DatasetSource(PropertyType):
 
 @dataclass
 class KendraSourceDetail(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "knowledge_base_arn": "KnowledgeBaseArn",
         "role_arn": "RoleArn",
@@ -1253,8 +1193,6 @@ class KendraSourceDetail(PropertyType):
 
 @dataclass
 class SourceDetail(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "kendra": "Kendra",
     }
@@ -1294,8 +1232,6 @@ class Dataset(CloudFormationResource):
 
 @dataclass
 class GatewayCapabilitySummary(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "capability_namespace": "CapabilityNamespace",
         "capability_configuration": "CapabilityConfiguration",
@@ -1307,8 +1243,6 @@ class GatewayCapabilitySummary(PropertyType):
 
 @dataclass
 class GatewayPlatform(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "greengrass_v2": "GreengrassV2",
         "siemens_ie": "SiemensIE",
@@ -1320,8 +1254,6 @@ class GatewayPlatform(PropertyType):
 
 @dataclass
 class GreengrassV2(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "core_device_thing_name": "CoreDeviceThingName",
         "core_device_operating_system": "CoreDeviceOperatingSystem",
@@ -1333,8 +1265,6 @@ class GreengrassV2(PropertyType):
 
 @dataclass
 class SiemensIE(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "iot_core_thing_name": "IotCoreThingName",
     }
@@ -1371,8 +1301,6 @@ class Gateway(CloudFormationResource):
 
 @dataclass
 class Alarms(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "notification_lambda_arn": "NotificationLambdaArn",
         "alarm_role_arn": "AlarmRoleArn",
@@ -1384,8 +1312,6 @@ class Alarms(PropertyType):
 
 @dataclass
 class PortalTypeEntry(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "portal_tools": "PortalTools",
     }

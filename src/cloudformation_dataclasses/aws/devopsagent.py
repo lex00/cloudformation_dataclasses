@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DevOpsAgent
@@ -63,8 +63,6 @@ class AgentSpace(CloudFormationResource):
 
 @dataclass
 class AWSConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dev"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "assumable_role_arn": "AssumableRoleArn",
         "account_id": "AccountId",
@@ -82,8 +80,6 @@ class AWSConfiguration(PropertyType):
 
 @dataclass
 class AWSResource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dev"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "resource_arn": "ResourceArn",
         "resource_type": "ResourceType",
@@ -97,8 +93,6 @@ class AWSResource(PropertyType):
 
 @dataclass
 class DynatraceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dev"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "env_id": "EnvId",
         "resources": "Resources",
@@ -112,8 +106,6 @@ class DynatraceConfiguration(PropertyType):
 
 @dataclass
 class EventChannelConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dev"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "enable_webhook_updates": "EnableWebhookUpdates",
     }
@@ -123,8 +115,6 @@ class EventChannelConfiguration(PropertyType):
 
 @dataclass
 class GitHubConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dev"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "owner": "Owner",
         "owner_type": "OwnerType",
@@ -140,8 +130,6 @@ class GitHubConfiguration(PropertyType):
 
 @dataclass
 class GitLabConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dev"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "project_id": "ProjectId",
         "instance_identifier": "InstanceIdentifier",
@@ -157,8 +145,6 @@ class GitLabConfiguration(PropertyType):
 
 @dataclass
 class KeyValuePair(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dev"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "value": "Value",
         "key": "Key",
@@ -170,8 +156,6 @@ class KeyValuePair(PropertyType):
 
 @dataclass
 class MCPServerConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dev"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "endpoint": "Endpoint",
@@ -189,8 +173,6 @@ class MCPServerConfiguration(PropertyType):
 
 @dataclass
 class MCPServerDatadogConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dev"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "endpoint": "Endpoint",
@@ -206,8 +188,6 @@ class MCPServerDatadogConfiguration(PropertyType):
 
 @dataclass
 class MCPServerNewRelicConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dev"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "account_id": "AccountId",
         "endpoint": "Endpoint",
@@ -219,8 +199,6 @@ class MCPServerNewRelicConfiguration(PropertyType):
 
 @dataclass
 class MCPServerSplunkConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dev"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "description": "Description",
         "endpoint": "Endpoint",
@@ -236,8 +214,6 @@ class MCPServerSplunkConfiguration(PropertyType):
 
 @dataclass
 class ServiceConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dev"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "mcp_server": "MCPServer",
         "event_channel": "EventChannel",
@@ -269,8 +245,6 @@ class ServiceConfiguration(PropertyType):
 
 @dataclass
 class ServiceNowConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dev"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "instance_id": "InstanceId",
         "enable_webhook_updates": "EnableWebhookUpdates",
@@ -282,8 +256,6 @@ class ServiceNowConfiguration(PropertyType):
 
 @dataclass
 class SlackChannel(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dev"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "channel_name": "ChannelName",
         "channel_id": "ChannelId",
@@ -295,8 +267,6 @@ class SlackChannel(PropertyType):
 
 @dataclass
 class SlackConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dev"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "transmission_target": "TransmissionTarget",
         "workspace_id": "WorkspaceId",
@@ -310,8 +280,6 @@ class SlackConfiguration(PropertyType):
 
 @dataclass
 class SlackTransmissionTarget(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dev"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "incident_response_target": "IncidentResponseTarget",
     }
@@ -321,8 +289,6 @@ class SlackTransmissionTarget(PropertyType):
 
 @dataclass
 class SourceAwsConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dev"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "assumable_role_arn": "AssumableRoleArn",
         "account_id": "AccountId",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:33
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Personalize
@@ -121,8 +121,6 @@ MANUAL = TrainingType.MANUAL
 
 @dataclass
 class DataSource(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-per"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_location": "DataLocation",
     }
@@ -132,8 +130,6 @@ class DataSource(PropertyType):
 
 @dataclass
 class DatasetImportJob(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-per"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "dataset_arn": "DatasetArn",
         "job_name": "JobName",
@@ -226,8 +222,6 @@ class Schema(CloudFormationResource):
 
 @dataclass
 class AlgorithmHyperParameterRanges(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-per"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "integer_hyper_parameter_ranges": "IntegerHyperParameterRanges",
         "categorical_hyper_parameter_ranges": "CategoricalHyperParameterRanges",
@@ -241,8 +235,6 @@ class AlgorithmHyperParameterRanges(PropertyType):
 
 @dataclass
 class AutoMLConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-per"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "recipe_list": "RecipeList",
@@ -254,8 +246,6 @@ class AutoMLConfig(PropertyType):
 
 @dataclass
 class CategoricalHyperParameterRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-per"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "values": "Values",
         "name": "Name",
@@ -267,8 +257,6 @@ class CategoricalHyperParameterRange(PropertyType):
 
 @dataclass
 class ContinuousHyperParameterRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-per"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_value": "MinValue",
         "max_value": "MaxValue",
@@ -282,8 +270,6 @@ class ContinuousHyperParameterRange(PropertyType):
 
 @dataclass
 class HpoConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-per"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "hpo_resource_config": "HpoResourceConfig",
         "algorithm_hyper_parameter_ranges": "AlgorithmHyperParameterRanges",
@@ -297,8 +283,6 @@ class HpoConfig(PropertyType):
 
 @dataclass
 class HpoObjective(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-per"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "metric_name": "MetricName",
         "type_": "Type",
@@ -312,8 +296,6 @@ class HpoObjective(PropertyType):
 
 @dataclass
 class HpoResourceConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-per"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "max_parallel_training_jobs": "MaxParallelTrainingJobs",
         "max_number_of_training_jobs": "MaxNumberOfTrainingJobs",
@@ -325,8 +307,6 @@ class HpoResourceConfig(PropertyType):
 
 @dataclass
 class IntegerHyperParameterRange(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-per"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "min_value": "MinValue",
         "max_value": "MaxValue",
@@ -340,8 +320,6 @@ class IntegerHyperParameterRange(PropertyType):
 
 @dataclass
 class SolutionConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-per"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "event_value_threshold": "EventValueThreshold",
         "hpo_config": "HpoConfig",

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:31
+  Generated: 2025-12-17 21:53:47
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ElastiCache
@@ -346,8 +346,6 @@ NOT_APPLICABLE = UpdateActionStatus.NOT_APPLICABLE
 
 @dataclass
 class CloudWatchLogsDestinationDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group": "LogGroup",
     }
@@ -357,8 +355,6 @@ class CloudWatchLogsDestinationDetails(PropertyType):
 
 @dataclass
 class DestinationDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_logs_details": "CloudWatchLogsDetails",
         "kinesis_firehose_details": "KinesisFirehoseDetails",
@@ -370,8 +366,6 @@ class DestinationDetails(PropertyType):
 
 @dataclass
 class KinesisFirehoseDestinationDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_stream": "DeliveryStream",
     }
@@ -381,8 +375,6 @@ class KinesisFirehoseDestinationDetails(PropertyType):
 
 @dataclass
 class LogDeliveryConfigurationRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_details": "DestinationDetails",
         "destination_type": "DestinationType",
@@ -480,8 +472,6 @@ class CacheCluster(CloudFormationResource):
 
 @dataclass
 class GlobalReplicationGroupMember(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "role": "Role",
         "replication_group_region": "ReplicationGroupRegion",
@@ -495,8 +485,6 @@ class GlobalReplicationGroupMember(PropertyType):
 
 @dataclass
 class RegionalConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "replication_group_region": "ReplicationGroupRegion",
         "replication_group_id": "ReplicationGroupId",
@@ -510,8 +498,6 @@ class RegionalConfiguration(PropertyType):
 
 @dataclass
 class ReshardingConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "node_group_id": "NodeGroupId",
         "preferred_availability_zones": "PreferredAvailabilityZones",
@@ -590,8 +576,6 @@ class ParameterGroup(CloudFormationResource):
 
 @dataclass
 class CloudWatchLogsDestinationDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "log_group": "LogGroup",
     }
@@ -601,8 +585,6 @@ class CloudWatchLogsDestinationDetails(PropertyType):
 
 @dataclass
 class DestinationDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "cloud_watch_logs_details": "CloudWatchLogsDetails",
         "kinesis_firehose_details": "KinesisFirehoseDetails",
@@ -614,8 +596,6 @@ class DestinationDetails(PropertyType):
 
 @dataclass
 class KinesisFirehoseDestinationDetails(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "delivery_stream": "DeliveryStream",
     }
@@ -625,8 +605,6 @@ class KinesisFirehoseDestinationDetails(PropertyType):
 
 @dataclass
 class LogDeliveryConfigurationRequest(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "destination_details": "DestinationDetails",
         "destination_type": "DestinationType",
@@ -642,8 +620,6 @@ class LogDeliveryConfigurationRequest(PropertyType):
 
 @dataclass
 class NodeGroupConfiguration(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "node_group_id": "NodeGroupId",
         "primary_availability_zone": "PrimaryAvailabilityZone",
@@ -833,8 +809,6 @@ class SecurityGroupIngress(CloudFormationResource):
 
 @dataclass
 class CacheUsageLimits(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "data_storage": "DataStorage",
         "ecpu_per_second": "ECPUPerSecond",
@@ -846,8 +820,6 @@ class CacheUsageLimits(PropertyType):
 
 @dataclass
 class DataStorage(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "minimum": "Minimum",
         "maximum": "Maximum",
@@ -861,8 +833,6 @@ class DataStorage(PropertyType):
 
 @dataclass
 class ECPUPerSecond(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "minimum": "Minimum",
         "maximum": "Maximum",
@@ -874,8 +844,6 @@ class ECPUPerSecond(PropertyType):
 
 @dataclass
 class Endpoint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "address": "Address",
         "port": "Port",
@@ -990,8 +958,6 @@ class SubnetGroup(CloudFormationResource):
 
 @dataclass
 class AuthenticationMode(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ela"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "passwords": "Passwords",

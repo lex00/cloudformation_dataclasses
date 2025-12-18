@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:50:34
+  Generated: 2025-12-17 21:53:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Route53RecoveryControl
@@ -65,8 +65,6 @@ PENDING_DELETION = Status.PENDING_DELETION
 
 @dataclass
 class ClusterEndpoint(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "endpoint": "Endpoint",
         "region": "Region",
@@ -177,8 +175,6 @@ class RoutingControl(CloudFormationResource):
 
 @dataclass
 class AssertionRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "asserted_controls": "AssertedControls",
         "wait_period_ms": "WaitPeriodMs",
@@ -190,8 +186,6 @@ class AssertionRule(PropertyType):
 
 @dataclass
 class GatingRule(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "target_controls": "TargetControls",
         "gating_controls": "GatingControls",
@@ -205,8 +199,6 @@ class GatingRule(PropertyType):
 
 @dataclass
 class RuleConfig(PropertyType):
-    """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rou"""
-
     _property_mappings: ClassVar[dict[str, str]] = {
         "type_": "Type",
         "inverted": "Inverted",
