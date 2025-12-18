@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:53
+  Generated: 2025-12-17 21:50:33
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service NetworkManager
@@ -547,7 +547,6 @@ class ConnectAttachmentOptions(PropertyType):
         "protocol": "Protocol",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     protocol: Optional[Union[str, TunnelProtocol, Ref, GetAtt, Sub]] = None
 
 
@@ -561,11 +560,8 @@ class ProposedNetworkFunctionGroupChange(PropertyType):
         "attachment_policy_rule_number": "AttachmentPolicyRuleNumber",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_function_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attachment_policy_rule_number: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -579,11 +575,8 @@ class ProposedSegmentChange(PropertyType):
         "attachment_policy_rule_number": "AttachmentPolicyRuleNumber",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     segment_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attachment_policy_rule_number: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -604,23 +597,14 @@ class ConnectAttachment(CloudFormationResource):
         "edge_location": "EdgeLocation",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     proposed_segment_change: Optional[ProposedSegmentChange] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     options: Optional[ConnectAttachmentOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     transport_attachment_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     core_network_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     proposed_network_function_group_change: Optional[ProposedNetworkFunctionGroupChange] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     routing_policy_label: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     network_function_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     edge_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -689,7 +673,6 @@ class BgpOptions(PropertyType):
         "peer_asn": "PeerAsn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     peer_asn: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -704,13 +687,9 @@ class ConnectPeerBgpConfiguration(PropertyType):
         "core_network_asn": "CoreNetworkAsn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     peer_address: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     core_network_address: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     peer_asn: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     core_network_asn: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -726,15 +705,10 @@ class ConnectPeerConfiguration(PropertyType):
         "protocol": "Protocol",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bgp_configurations: Optional[list[ConnectPeerBgpConfiguration]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     peer_address: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     core_network_address: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     inside_cidr_blocks: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     protocol: Optional[Union[str, TunnelProtocol, Ref, GetAtt, Sub]] = None
 
 
@@ -753,19 +727,12 @@ class ConnectPeer(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connect_attachment_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     peer_address: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     subnet_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     core_network_address: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     bgp_options: Optional[BgpOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     inside_cidr_blocks: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -841,11 +808,8 @@ class CoreNetworkEdge(PropertyType):
         "edge_location": "EdgeLocation",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     inside_cidr_blocks: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     asn: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     edge_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -859,11 +823,8 @@ class CoreNetworkNetworkFunctionGroup(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     edge_locations: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     segments: Optional[Segments] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -877,11 +838,8 @@ class CoreNetworkSegment(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     edge_locations: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     shared_segments: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -894,9 +852,7 @@ class Segments(PropertyType):
         "send_via": "SendVia",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     send_to: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     send_via: Optional[Union[list[str], Ref]] = None
 
 
@@ -912,13 +868,9 @@ class CoreNetwork(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     global_network_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy_document: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -975,11 +927,8 @@ class CoreNetworkPrefixListAssociation(CloudFormationResource):
         "prefix_list_alias": "PrefixListAlias",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     core_network_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     prefix_list_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     prefix_list_alias: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -996,13 +945,9 @@ class CustomerGatewayAssociation(CloudFormationResource):
         "link_id": "LinkId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     global_network_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     device_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     customer_gateway_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     link_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1016,9 +961,7 @@ class AWSLocation(PropertyType):
         "subnet_arn": "SubnetArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     zone: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnet_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1032,11 +975,8 @@ class Location(PropertyType):
         "longitude": "Longitude",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     address: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     latitude: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     longitude: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1058,25 +998,15 @@ class Device(CloudFormationResource):
         "location": "Location",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     site_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     aws_location: Optional[AWSLocation] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     global_network_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     serial_number: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vendor: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     location: Optional[Location] = None
 
     @property
@@ -1112,11 +1042,8 @@ class ProposedNetworkFunctionGroupChange(PropertyType):
         "attachment_policy_rule_number": "AttachmentPolicyRuleNumber",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_function_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attachment_policy_rule_number: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1130,11 +1057,8 @@ class ProposedSegmentChange(PropertyType):
         "attachment_policy_rule_number": "AttachmentPolicyRuleNumber",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     segment_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attachment_policy_rule_number: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1153,19 +1077,12 @@ class DirectConnectGatewayAttachment(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     proposed_segment_change: Optional[ProposedSegmentChange] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     core_network_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     proposed_network_function_group_change: Optional[ProposedNetworkFunctionGroupChange] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     edge_locations: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     direct_connect_gateway_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     routing_policy_label: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -1243,13 +1160,9 @@ class GlobalNetwork(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     state: Optional[Union[str, GlobalNetworkState, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     created_at: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -1274,9 +1187,7 @@ class Bandwidth(PropertyType):
         "upload_speed": "UploadSpeed",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     download_speed: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     upload_speed: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1295,19 +1206,12 @@ class Link(CloudFormationResource):
         "provider": "Provider",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     site_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     global_network_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     bandwidth: Optional[Bandwidth] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     provider: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1344,11 +1248,8 @@ class LinkAssociation(CloudFormationResource):
         "link_id": "LinkId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     global_network_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     device_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     link_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1363,11 +1264,8 @@ class Location(PropertyType):
         "longitude": "Longitude",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     address: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     latitude: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     longitude: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1383,13 +1281,9 @@ class Site(CloudFormationResource):
         "location": "Location",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     global_network_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     location: Optional[Location] = None
 
     @property
@@ -1425,11 +1319,8 @@ class ProposedNetworkFunctionGroupChange(PropertyType):
         "attachment_policy_rule_number": "AttachmentPolicyRuleNumber",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_function_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attachment_policy_rule_number: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1443,11 +1334,8 @@ class ProposedSegmentChange(PropertyType):
         "attachment_policy_rule_number": "AttachmentPolicyRuleNumber",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     segment_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attachment_policy_rule_number: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1466,19 +1354,12 @@ class SiteToSiteVpnAttachment(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     proposed_segment_change: Optional[ProposedSegmentChange] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     core_network_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     proposed_network_function_group_change: Optional[ProposedNetworkFunctionGroupChange] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpn_connection_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     routing_policy_label: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     network_function_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -1555,11 +1436,8 @@ class TransitGatewayPeering(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     core_network_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     transit_gateway_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -1625,9 +1503,7 @@ class TransitGatewayRegistration(CloudFormationResource):
         "transit_gateway_arn": "TransitGatewayArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     global_network_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     transit_gateway_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1642,11 +1518,8 @@ class ProposedNetworkFunctionGroupChange(PropertyType):
         "attachment_policy_rule_number": "AttachmentPolicyRuleNumber",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_function_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attachment_policy_rule_number: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1660,11 +1533,8 @@ class ProposedSegmentChange(PropertyType):
         "attachment_policy_rule_number": "AttachmentPolicyRuleNumber",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     segment_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attachment_policy_rule_number: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1683,19 +1553,12 @@ class TransitGatewayRouteTableAttachment(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     proposed_segment_change: Optional[ProposedSegmentChange] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     transit_gateway_route_table_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     proposed_network_function_group_change: Optional[ProposedNetworkFunctionGroupChange] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     peering_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     routing_policy_label: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     network_function_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -1776,11 +1639,8 @@ class ProposedNetworkFunctionGroupChange(PropertyType):
         "attachment_policy_rule_number": "AttachmentPolicyRuleNumber",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_function_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attachment_policy_rule_number: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1794,11 +1654,8 @@ class ProposedSegmentChange(PropertyType):
         "attachment_policy_rule_number": "AttachmentPolicyRuleNumber",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     segment_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attachment_policy_rule_number: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1813,13 +1670,9 @@ class VpcOptions(PropertyType):
         "dns_support": "DnsSupport",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ipv6_support: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     appliance_mode_support: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_group_referencing_support: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dns_support: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1839,21 +1692,13 @@ class VpcAttachment(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     proposed_segment_change: Optional[ProposedSegmentChange] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     subnet_arns: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     options: Optional[VpcOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     core_network_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     proposed_network_function_group_change: Optional[ProposedNetworkFunctionGroupChange] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     routing_policy_label: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property

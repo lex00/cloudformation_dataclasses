@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:31
+  Generated: 2025-12-17 21:50:30
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service BCMDataExports
@@ -34,9 +34,7 @@ class DataQuery(PropertyType):
         "query_statement": "QueryStatement",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_configurations: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_statement: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -48,7 +46,6 @@ class DestinationConfigurations(PropertyType):
         "s3_destination": "S3Destination",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_destination: Optional[S3Destination] = None
 
 
@@ -65,17 +62,11 @@ class Export(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     refresh_cadence: Optional[RefreshCadence] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     export_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_query: Optional[DataQuery] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_configurations: Optional[DestinationConfigurations] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -87,7 +78,6 @@ class RefreshCadence(PropertyType):
         "frequency": "Frequency",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     frequency: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -100,9 +90,7 @@ class ResourceTag(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -117,13 +105,9 @@ class S3Destination(PropertyType):
         "s3_prefix": "S3Prefix",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_bucket: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_output_configurations: Optional[S3OutputConfigurations] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -138,13 +122,9 @@ class S3OutputConfigurations(PropertyType):
         "output_type": "OutputType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compression: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     overwrite: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     format: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     output_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -158,9 +138,7 @@ class Export(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     export: Optional[Export] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[ResourceTag]] = None
 
     @property

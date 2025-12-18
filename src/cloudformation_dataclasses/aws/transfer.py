@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:44:05
+  Generated: 2025-12-17 21:50:35
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Transfer
@@ -467,15 +467,10 @@ class CustomDirectories(PropertyType):
         "status_files_directory": "StatusFilesDirectory",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failed_files_directory: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     temporary_files_directory: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mdn_files_directory: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     payload_files_directory: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     status_files_directory: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -498,27 +493,16 @@ class Agreement(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     base_directory: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     server_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     custom_directories: Optional[CustomDirectories] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     access_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     partner_profile_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     local_profile_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     enforce_message_signing: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     preserve_filename: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -550,21 +534,13 @@ class Certificate(CloudFormationResource):
         "certificate": "Certificate",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     inactive_date: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     usage: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     private_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     certificate_chain: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     active_date: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     certificate: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -622,25 +598,15 @@ class As2Config(PropertyType):
         "preserve_content_type": "PreserveContentType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compression: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     message_subject: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     basic_auth_secret_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     partner_profile_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_algorithm: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     signing_algorithm: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     local_profile_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mdn_response: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mdn_signing_algorithm: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     preserve_content_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -652,7 +618,6 @@ class ConnectorEgressConfig(PropertyType):
         "vpc_lattice": "VpcLattice",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_lattice: Optional[ConnectorVpcLatticeEgressConfig] = None
 
 
@@ -665,9 +630,7 @@ class ConnectorVpcLatticeEgressConfig(PropertyType):
         "port_number": "PortNumber",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_configuration_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port_number: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -681,11 +644,8 @@ class SftpConfig(PropertyType):
         "max_concurrent_connections": "MaxConcurrentConnections",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     trusted_host_keys: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_secret_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_concurrent_connections: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -706,23 +666,14 @@ class Connector(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     as2_config: Optional[As2Config] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     logging_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     access_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     egress_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     egress_config: Optional[ConnectorEgressConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     security_policy_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     sftp_config: Optional[SftpConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -765,13 +716,9 @@ class Profile(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     as2_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     profile_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     certificate_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -799,15 +746,10 @@ class EndpointDetails(PropertyType):
         "security_group_ids": "SecurityGroupIds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     address_allocation_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_endpoint_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnet_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_group_ids: Optional[Union[list[str], Ref]] = None
 
 
@@ -823,15 +765,10 @@ class IdentityProviderDetails(PropertyType):
         "sftp_authentication_methods": "SftpAuthenticationMethods",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     function: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     directory_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     invocation_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sftp_authentication_methods: Optional[Union[str, SftpAuthenticationMethods, Ref, GetAtt, Sub]] = None
 
 
@@ -846,13 +783,9 @@ class ProtocolDetails(PropertyType):
         "tls_session_resumption_mode": "TlsSessionResumptionMode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     as2_transports: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     passive_ip: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     set_stat_option: Optional[Union[str, SetStatOption, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tls_session_resumption_mode: Optional[Union[str, TlsSessionResumptionMode, Ref, GetAtt, Sub]] = None
 
 
@@ -864,7 +797,6 @@ class S3StorageOptions(PropertyType):
         "directory_listing_optimization": "DirectoryListingOptimization",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     directory_listing_optimization: Optional[Union[str, DirectoryListingOptimization, Ref, GetAtt, Sub]] = None
 
 
@@ -877,9 +809,7 @@ class WorkflowDetail(PropertyType):
         "execution_role": "ExecutionRole",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     workflow_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     execution_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -892,9 +822,7 @@ class WorkflowDetails(PropertyType):
         "on_partial_upload": "OnPartialUpload",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     on_upload: Optional[list[WorkflowDetail]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     on_partial_upload: Optional[list[WorkflowDetail]] = None
 
 
@@ -923,39 +851,22 @@ class Server(CloudFormationResource):
         "certificate": "Certificate",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ip_address_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     logging_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     protocols: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     identity_provider_details: Optional[IdentityProviderDetails] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     endpoint_details: Optional[EndpointDetails] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     structured_log_destinations: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     pre_authentication_login_banner: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     post_authentication_login_banner: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     endpoint_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     security_policy_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     protocol_details: Optional[ProtocolDetails] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     s3_storage_options: Optional[S3StorageOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     workflow_details: Optional[WorkflowDetails] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     identity_provider_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     certificate: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -991,11 +902,8 @@ class HomeDirectoryMapEntry(PropertyType):
         "type_": "Type",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     entry: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, MapType, Ref, GetAtt, Sub]] = None
 
 
@@ -1009,11 +917,8 @@ class PosixProfile(PropertyType):
         "gid": "Gid",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     uid: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secondary_gids: Optional[Union[list[float], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     gid: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -1035,25 +940,15 @@ class User(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     home_directory: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     home_directory_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     server_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     user_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     home_directory_mappings: Optional[list[HomeDirectoryMapEntry]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     posix_profile: Optional[PosixProfile] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ssh_public_keys: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -1084,11 +979,8 @@ class IdentityProviderDetails(PropertyType):
         "instance_arn": "InstanceArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     application_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1102,11 +994,8 @@ class WebAppCustomization(PropertyType):
         "logo_file": "LogoFile",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     favicon_file: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     title: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     logo_file: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1118,7 +1007,6 @@ class WebAppUnits(PropertyType):
         "provisioned": "Provisioned",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     provisioned: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1136,17 +1024,11 @@ class WebApp(CloudFormationResource):
         "access_endpoint": "AccessEndpoint",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     web_app_customization: Optional[WebAppCustomization] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     identity_provider_details: Optional[IdentityProviderDetails] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     web_app_units: Optional[WebAppUnits] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     web_app_endpoint_policy: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     access_endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1178,13 +1060,9 @@ class CopyStepDetails(PropertyType):
         "overwrite_existing": "OverwriteExisting",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_file_location: Optional[S3FileLocation] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_file_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     overwrite_existing: Optional[Union[str, OverwriteExisting, Ref, GetAtt, Sub]] = None
 
 
@@ -1199,13 +1077,9 @@ class CustomStepDetails(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_file_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1221,15 +1095,10 @@ class DecryptStepDetails(PropertyType):
         "overwrite_existing": "OverwriteExisting",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_file_location: Optional[InputFileLocation] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, EncryptionType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_file_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     overwrite_existing: Optional[Union[str, OverwriteExisting, Ref, GetAtt, Sub]] = None
 
 
@@ -1242,9 +1111,7 @@ class DeleteStepDetails(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_file_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1257,9 +1124,7 @@ class EfsInputFileLocation(PropertyType):
         "file_system_id": "FileSystemId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file_system_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1272,9 +1137,7 @@ class InputFileLocation(PropertyType):
         "s3_file_location": "S3FileLocation",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     efs_file_location: Optional[EfsInputFileLocation] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_file_location: Optional[S3InputFileLocation] = None
 
 
@@ -1286,7 +1149,6 @@ class S3FileLocation(PropertyType):
         "s3_file_location": "S3FileLocation",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_file_location: Optional[S3InputFileLocation] = None
 
 
@@ -1299,9 +1161,7 @@ class S3InputFileLocation(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1314,9 +1174,7 @@ class S3Tag(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1330,11 +1188,8 @@ class TagStepDetails(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_file_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tags: Optional[list[S3Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1351,17 +1206,11 @@ class WorkflowStep(PropertyType):
         "delete_step_details": "DeleteStepDetails",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_step_details: Optional[CustomStepDetails] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     copy_step_details: Optional[CopyStepDetails] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     decrypt_step_details: Optional[DecryptStepDetails] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, WorkflowStepType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tag_step_details: Optional[TagStepDetails] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     delete_step_details: Optional[DeleteStepDetails] = None
 
 
@@ -1377,13 +1226,9 @@ class Workflow(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     steps: Optional[list[WorkflowStep]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     on_exception_steps: Optional[list[WorkflowStep]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property

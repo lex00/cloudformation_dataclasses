@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:44:02
+  Generated: 2025-12-17 21:50:34
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SSMIncidents
@@ -156,7 +156,6 @@ class RegionConfiguration(PropertyType):
         "sse_kms_key_id": "SseKmsKeyId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sse_kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -169,9 +168,7 @@ class ReplicationRegion(PropertyType):
         "region_name": "RegionName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     region_configuration: Optional[RegionConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     region_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -186,11 +183,8 @@ class ReplicationSet(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     regions: Optional[list[ReplicationRegion]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     deletion_protected: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -209,7 +203,6 @@ class Action(PropertyType):
         "ssm_automation": "SsmAutomation",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ssm_automation: Optional[SsmAutomation] = None
 
 
@@ -221,7 +214,6 @@ class ChatChannel(PropertyType):
         "chatbot_sns": "ChatbotSns",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     chatbot_sns: Optional[Union[list[str], Ref]] = None
 
 
@@ -234,9 +226,7 @@ class DynamicSsmParameter(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[DynamicSsmParameterValue] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -248,7 +238,6 @@ class DynamicSsmParameterValue(PropertyType):
         "variable": "Variable",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     variable: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -265,17 +254,11 @@ class IncidentTemplate(PropertyType):
         "dedupe_string": "DedupeString",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     impact: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     incident_tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     summary: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     title: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     notification_targets: Optional[list[NotificationTargetItem]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dedupe_string: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -287,7 +270,6 @@ class Integration(PropertyType):
         "pager_duty_configuration": "PagerDutyConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pager_duty_configuration: Optional[PagerDutyConfiguration] = None
 
 
@@ -299,7 +281,6 @@ class NotificationTargetItem(PropertyType):
         "sns_topic_arn": "SnsTopicArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sns_topic_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -313,11 +294,8 @@ class PagerDutyConfiguration(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pager_duty_incident_configuration: Optional[PagerDutyIncidentConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -329,7 +307,6 @@ class PagerDutyIncidentConfiguration(PropertyType):
         "service_id": "ServiceId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     service_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -346,17 +323,11 @@ class SsmAutomation(PropertyType):
         "document_name": "DocumentName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parameters: Optional[list[SsmParameter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_account: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dynamic_parameters: Optional[list[DynamicSsmParameter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     document_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     document_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -369,9 +340,7 @@ class SsmParameter(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     values: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -391,21 +360,13 @@ class ResponsePlan(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     chat_channel: Optional[ChatChannel] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     integrations: Optional[list[Integration]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     actions: Optional[list[Action]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     display_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     incident_template: Optional[IncidentTemplate] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     engagements: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property

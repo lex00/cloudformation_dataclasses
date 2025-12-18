@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:54
+  Generated: 2025-12-17 21:50:33
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service OSIS
@@ -124,7 +124,6 @@ class BufferOptions(PropertyType):
         "persistent_buffer_enabled": "PersistentBufferEnabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     persistent_buffer_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -136,7 +135,6 @@ class CloudWatchLogDestination(PropertyType):
         "log_group": "LogGroup",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_group: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -148,7 +146,6 @@ class EncryptionAtRestOptions(PropertyType):
         "kms_key_arn": "KmsKeyArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -161,9 +158,7 @@ class LogPublishingOptions(PropertyType):
         "is_logging_enabled": "IsLoggingEnabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch_log_destination: Optional[CloudWatchLogDestination] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     is_logging_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -175,7 +170,6 @@ class ResourcePolicy(PropertyType):
         "policy": "Policy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     policy: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
 
@@ -188,9 +182,7 @@ class VpcAttachmentOptions(PropertyType):
         "cidr_block": "CidrBlock",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attach_to_vpc: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cidr_block: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -204,11 +196,8 @@ class VpcEndpoint(PropertyType):
         "vpc_endpoint_id": "VpcEndpointId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_options: Optional[VpcOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_endpoint_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -223,13 +212,9 @@ class VpcOptions(PropertyType):
         "subnet_ids": "SubnetIds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_attachment_options: Optional[VpcAttachmentOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_endpoint_management: Optional[Union[str, VpcEndpointManagement, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_group_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnet_ids: Optional[Union[list[str], Ref]] = None
 
 
@@ -252,27 +237,16 @@ class Pipeline(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     pipeline_configuration_body: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     buffer_options: Optional[BufferOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     pipeline_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     min_units: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     pipeline_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_options: Optional[VpcOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     max_units: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     log_publishing_options: Optional[LogPublishingOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_policy: Optional[ResourcePolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     encryption_at_rest_options: Optional[EncryptionAtRestOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property

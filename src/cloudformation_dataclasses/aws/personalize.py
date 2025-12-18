@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:56
+  Generated: 2025-12-17 21:50:33
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Personalize
@@ -127,7 +127,6 @@ class DataSource(PropertyType):
         "data_location": "DataLocation",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -143,15 +142,10 @@ class DatasetImportJob(PropertyType):
         "data_source": "DataSource",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dataset_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     job_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dataset_import_job_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_source: Optional[DataSource] = None
 
 
@@ -168,15 +162,10 @@ class Dataset(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     dataset_group_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     dataset_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     dataset_import_job: Optional[DatasetImportJob] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     schema_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -199,13 +188,9 @@ class DatasetGroup(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kms_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -227,11 +212,8 @@ class Schema(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     schema: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -252,11 +234,8 @@ class AlgorithmHyperParameterRanges(PropertyType):
         "continuous_hyper_parameter_ranges": "ContinuousHyperParameterRanges",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     integer_hyper_parameter_ranges: Optional[list[IntegerHyperParameterRange]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     categorical_hyper_parameter_ranges: Optional[list[CategoricalHyperParameterRange]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     continuous_hyper_parameter_ranges: Optional[list[ContinuousHyperParameterRange]] = None
 
 
@@ -269,9 +248,7 @@ class AutoMLConfig(PropertyType):
         "recipe_list": "RecipeList",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     recipe_list: Optional[Union[list[str], Ref]] = None
 
 
@@ -284,9 +261,7 @@ class CategoricalHyperParameterRange(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     values: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -300,11 +275,8 @@ class ContinuousHyperParameterRange(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min_value: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_value: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -318,11 +290,8 @@ class HpoConfig(PropertyType):
         "hpo_objective": "HpoObjective",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hpo_resource_config: Optional[HpoResourceConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     algorithm_hyper_parameter_ranges: Optional[AlgorithmHyperParameterRanges] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hpo_objective: Optional[HpoObjective] = None
 
 
@@ -336,11 +305,8 @@ class HpoObjective(PropertyType):
         "metric_regex": "MetricRegex",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric_regex: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -353,9 +319,7 @@ class HpoResourceConfig(PropertyType):
         "max_number_of_training_jobs": "MaxNumberOfTrainingJobs",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_parallel_training_jobs: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_number_of_training_jobs: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -369,11 +333,8 @@ class IntegerHyperParameterRange(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min_value: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_value: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -389,15 +350,10 @@ class SolutionConfig(PropertyType):
         "auto_ml_config": "AutoMLConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     event_value_threshold: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hpo_config: Optional[HpoConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     algorithm_hyper_parameters: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     feature_transformation_parameters: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auto_ml_config: Optional[AutoMLConfig] = None
 
 
@@ -416,19 +372,12 @@ class Solution(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     perform_auto_ml: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     perform_hpo: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     event_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     dataset_group_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     solution_config: Optional[SolutionConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     recipe_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property

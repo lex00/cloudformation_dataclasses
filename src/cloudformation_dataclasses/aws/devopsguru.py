@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:39
+  Generated: 2025-12-17 21:50:31
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DevOpsGuru
@@ -50,9 +50,7 @@ class NotificationChannelConfig(PropertyType):
         "sns": "Sns",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filters: Optional[NotificationFilterConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sns: Optional[SnsChannelConfig] = None
 
 
@@ -65,9 +63,7 @@ class NotificationFilterConfig(PropertyType):
         "severities": "Severities",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     message_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     severities: Optional[Union[list[str], Ref]] = None
 
 
@@ -79,7 +75,6 @@ class SnsChannelConfig(PropertyType):
         "topic_arn": "TopicArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     topic_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -92,7 +87,6 @@ class NotificationChannel(CloudFormationResource):
         "config": "Config",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     config: Optional[NotificationChannelConfig] = None
 
     @property
@@ -111,7 +105,6 @@ class CloudFormationCollectionFilter(PropertyType):
         "stack_names": "StackNames",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stack_names: Optional[Union[list[str], Ref]] = None
 
 
@@ -124,9 +117,7 @@ class ResourceCollectionFilter(PropertyType):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_formation: Optional[CloudFormationCollectionFilter] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tags: Optional[list[TagCollection]] = None
 
 
@@ -139,9 +130,7 @@ class TagCollection(PropertyType):
         "tag_values": "TagValues",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     app_boundary_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tag_values: Optional[Union[list[str], Ref]] = None
 
 
@@ -154,7 +143,6 @@ class ResourceCollection(CloudFormationResource):
         "resource_collection_filter": "ResourceCollectionFilter",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_collection_filter: Optional[ResourceCollectionFilter] = None
 
     @property

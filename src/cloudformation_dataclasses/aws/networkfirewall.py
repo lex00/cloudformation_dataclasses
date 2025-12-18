@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:53
+  Generated: 2025-12-17 21:50:33
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service NetworkFirewall
@@ -479,7 +479,6 @@ class AvailabilityZoneMapping(PropertyType):
         "availability_zone": "AvailabilityZone",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     availability_zone: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -492,9 +491,7 @@ class SubnetMapping(PropertyType):
         "subnet_id": "SubnetId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ip_address_type: Optional[Union[str, IPAddressType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnet_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -519,31 +516,18 @@ class Firewall(CloudFormationResource):
         "subnet_mappings": "SubnetMappings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     firewall_policy_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     subnet_change_protection: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     transit_gateway_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     availability_zone_change_protection: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     firewall_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     delete_protection: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     firewall_policy_change_protection: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     availability_zone_mappings: Optional[list[AvailabilityZoneMapping]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     enabled_analysis_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     subnet_mappings: Optional[list[SubnetMapping]] = None
 
     @property
@@ -577,7 +561,6 @@ class ActionDefinition(PropertyType):
         "publish_metric_action": "PublishMetricAction",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     publish_metric_action: Optional[PublishMetricAction] = None
 
 
@@ -590,9 +573,7 @@ class CustomAction(PropertyType):
         "action_definition": "ActionDefinition",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action_definition: Optional[ActionDefinition] = None
 
 
@@ -604,7 +585,6 @@ class Dimension(PropertyType):
         "value": "Value",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -625,25 +605,15 @@ class FirewallPolicy(PropertyType):
         "tls_inspection_configuration_arn": "TLSInspectionConfigurationArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stateless_rule_group_references: Optional[list[StatelessRuleGroupReference]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stateful_rule_group_references: Optional[list[StatefulRuleGroupReference]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_tls_session_holding: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stateless_default_actions: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stateful_engine_options: Optional[StatefulEngineOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stateless_custom_actions: Optional[list[CustomAction]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stateless_fragment_default_actions: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     policy_variables: Optional[PolicyVariables] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stateful_default_actions: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tls_inspection_configuration_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -655,7 +625,6 @@ class FlowTimeouts(PropertyType):
         "tcp_idle_timeout_seconds": "TcpIdleTimeoutSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tcp_idle_timeout_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -667,7 +636,6 @@ class IPSet(PropertyType):
         "definition": "Definition",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     definition: Optional[Union[list[str], Ref]] = None
 
 
@@ -679,7 +647,6 @@ class PolicyVariables(PropertyType):
         "rule_variables": "RuleVariables",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rule_variables: Optional[dict[str, Any]] = None
 
 
@@ -691,7 +658,6 @@ class PublishMetricAction(PropertyType):
         "dimensions": "Dimensions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dimensions: Optional[list[Dimension]] = None
 
 
@@ -705,11 +671,8 @@ class StatefulEngineOptions(PropertyType):
         "rule_order": "RuleOrder",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stream_exception_policy: Optional[Union[str, StreamExceptionPolicy, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     flow_timeouts: Optional[FlowTimeouts] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rule_order: Optional[Union[str, RuleOrder, Ref, GetAtt, Sub]] = None
 
 
@@ -721,7 +684,6 @@ class StatefulRuleGroupOverride(PropertyType):
         "action": "Action",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[Union[str, OverrideAction, Ref, GetAtt, Sub]] = None
 
 
@@ -736,13 +698,9 @@ class StatefulRuleGroupReference(PropertyType):
         "deep_threat_inspection": "DeepThreatInspection",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     priority: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     override: Optional[StatefulRuleGroupOverride] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     deep_threat_inspection: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -755,9 +713,7 @@ class StatelessRuleGroupReference(PropertyType):
         "priority": "Priority",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     priority: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -773,13 +729,9 @@ class FirewallPolicy(CloudFormationResource):
         "firewall_policy": "FirewallPolicy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     firewall_policy_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     firewall_policy: Optional[FirewallPolicy] = None
 
     @property
@@ -805,11 +757,8 @@ class LogDestinationConfig(PropertyType):
         "log_destination_type": "LogDestinationType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_type: Optional[Union[str, LogType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_destination: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_destination_type: Optional[Union[str, LogDestinationType, Ref, GetAtt, Sub]] = None
 
 
@@ -821,7 +770,6 @@ class LoggingConfiguration(PropertyType):
         "log_destination_configs": "LogDestinationConfigs",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_destination_configs: Optional[list[LogDestinationConfig]] = None
 
 
@@ -837,13 +785,9 @@ class LoggingConfiguration(CloudFormationResource):
         "logging_configuration": "LoggingConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     enable_monitoring_dashboard: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     firewall_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     firewall_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     logging_configuration: Optional[LoggingConfiguration] = None
 
 
@@ -856,7 +800,6 @@ class ActionDefinition(PropertyType):
         "publish_metric_action": "PublishMetricAction",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     publish_metric_action: Optional[PublishMetricAction] = None
 
 
@@ -868,7 +811,6 @@ class Address(PropertyType):
         "address_definition": "AddressDefinition",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     address_definition: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -881,9 +823,7 @@ class CustomAction(PropertyType):
         "action_definition": "ActionDefinition",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action_definition: Optional[ActionDefinition] = None
 
 
@@ -895,7 +835,6 @@ class Dimension(PropertyType):
         "value": "Value",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -912,17 +851,11 @@ class Header(PropertyType):
         "source": "Source",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     protocol: Optional[Union[str, StatefulRuleProtocol, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_port: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     direction: Optional[Union[str, StatefulRuleDirection, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_port: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -934,7 +867,6 @@ class IPSet(PropertyType):
         "definition": "Definition",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     definition: Optional[Union[list[str], Ref]] = None
 
 
@@ -946,7 +878,6 @@ class IPSetReference(PropertyType):
         "reference_arn": "ReferenceArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     reference_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -963,17 +894,11 @@ class MatchAttributes(PropertyType):
         "source_ports": "SourcePorts",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     protocols: Optional[Union[list[int], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tcp_flags: Optional[list[TCPFlagField]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_ports: Optional[list[PortRange]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destinations: Optional[list[Address]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sources: Optional[list[Address]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_ports: Optional[list[PortRange]] = None
 
 
@@ -986,9 +911,7 @@ class PortRange(PropertyType):
         "to_port": "ToPort",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     from_port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     to_port: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1000,7 +923,6 @@ class PortSet(PropertyType):
         "definition": "Definition",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     definition: Optional[Union[list[str], Ref]] = None
 
 
@@ -1012,7 +934,6 @@ class PublishMetricAction(PropertyType):
         "dimensions": "Dimensions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dimensions: Optional[list[Dimension]] = None
 
 
@@ -1024,7 +945,6 @@ class ReferenceSets(PropertyType):
         "ip_set_references": "IPSetReferences",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ip_set_references: Optional[dict[str, Any]] = None
 
 
@@ -1037,9 +957,7 @@ class RuleDefinition(PropertyType):
         "match_attributes": "MatchAttributes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     actions: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match_attributes: Optional[MatchAttributes] = None
 
 
@@ -1054,13 +972,9 @@ class RuleGroup(PropertyType):
         "rule_variables": "RuleVariables",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stateful_rule_options: Optional[StatefulRuleOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     reference_sets: Optional[ReferenceSets] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rules_source: Optional[RulesSource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rule_variables: Optional[RuleVariables] = None
 
 
@@ -1073,9 +987,7 @@ class RuleOption(PropertyType):
         "settings": "Settings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     keyword: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     settings: Optional[Union[list[str], Ref]] = None
 
 
@@ -1088,9 +1000,7 @@ class RuleVariables(PropertyType):
         "ip_sets": "IPSets",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port_sets: Optional[dict[str, Any]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ip_sets: Optional[dict[str, Any]] = None
 
 
@@ -1105,13 +1015,9 @@ class RulesSource(PropertyType):
         "rules_source_list": "RulesSourceList",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stateless_rules_and_custom_actions: Optional[StatelessRulesAndCustomActions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stateful_rules: Optional[list[StatefulRule]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rules_string: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rules_source_list: Optional[RulesSourceList] = None
 
 
@@ -1125,11 +1031,8 @@ class RulesSourceList(PropertyType):
         "targets": "Targets",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     generated_rules_type: Optional[Union[str, GeneratedRulesType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     targets: Optional[Union[list[str], Ref]] = None
 
 
@@ -1143,11 +1046,8 @@ class StatefulRule(PropertyType):
         "rule_options": "RuleOptions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[Union[str, StatefulAction, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header: Optional[Header] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rule_options: Optional[list[RuleOption]] = None
 
 
@@ -1159,7 +1059,6 @@ class StatefulRuleOptions(PropertyType):
         "rule_order": "RuleOrder",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rule_order: Optional[Union[str, RuleOrder, Ref, GetAtt, Sub]] = None
 
 
@@ -1172,9 +1071,7 @@ class StatelessRule(PropertyType):
         "rule_definition": "RuleDefinition",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     priority: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rule_definition: Optional[RuleDefinition] = None
 
 
@@ -1187,9 +1084,7 @@ class StatelessRulesAndCustomActions(PropertyType):
         "custom_actions": "CustomActions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stateless_rules: Optional[list[StatelessRule]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_actions: Optional[list[CustomAction]] = None
 
 
@@ -1201,7 +1096,6 @@ class SummaryConfiguration(PropertyType):
         "rule_options": "RuleOptions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rule_options: Optional[Union[list[str], Ref]] = None
 
 
@@ -1214,9 +1108,7 @@ class TCPFlagField(PropertyType):
         "masks": "Masks",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     flags: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     masks: Optional[Union[list[str], Ref]] = None
 
 
@@ -1235,19 +1127,12 @@ class RuleGroup(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     capacity: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     rule_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     summary_configuration: Optional[SummaryConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     rule_group: Optional[RuleGroup] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -1271,7 +1156,6 @@ class Address(PropertyType):
         "address_definition": "AddressDefinition",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     address_definition: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1284,9 +1168,7 @@ class CheckCertificateRevocationStatus(PropertyType):
         "revoked_status_action": "RevokedStatusAction",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     unknown_status_action: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     revoked_status_action: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1299,9 +1181,7 @@ class PortRange(PropertyType):
         "to_port": "ToPort",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     from_port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     to_port: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1313,7 +1193,6 @@ class ServerCertificate(PropertyType):
         "resource_arn": "ResourceArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1328,13 +1207,9 @@ class ServerCertificateConfiguration(PropertyType):
         "server_certificates": "ServerCertificates",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     certificate_authority_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     check_certificate_revocation_status: Optional[CheckCertificateRevocationStatus] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scopes: Optional[list[ServerCertificateScope]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     server_certificates: Optional[list[ServerCertificate]] = None
 
 
@@ -1350,15 +1225,10 @@ class ServerCertificateScope(PropertyType):
         "source_ports": "SourcePorts",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     protocols: Optional[Union[list[int], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_ports: Optional[list[PortRange]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destinations: Optional[list[Address]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sources: Optional[list[Address]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_ports: Optional[list[PortRange]] = None
 
 
@@ -1370,7 +1240,6 @@ class TLSInspectionConfiguration(PropertyType):
         "server_certificate_configurations": "ServerCertificateConfigurations",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     server_certificate_configurations: Optional[list[ServerCertificateConfiguration]] = None
 
 
@@ -1386,13 +1255,9 @@ class TLSInspectionConfiguration(CloudFormationResource):
         "tls_inspection_configuration": "TLSInspectionConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tls_inspection_configuration_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tls_inspection_configuration: Optional[TLSInspectionConfiguration] = None
 
     @property
@@ -1417,9 +1282,7 @@ class SubnetMapping(PropertyType):
         "subnet_id": "SubnetId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ip_address_type: Optional[Union[str, IPAddressType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnet_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1436,15 +1299,10 @@ class VpcEndpointAssociation(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     subnet_mapping: Optional[SubnetMapping] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     firewall_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property

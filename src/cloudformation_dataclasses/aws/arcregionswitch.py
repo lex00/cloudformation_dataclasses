@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:28
+  Generated: 2025-12-17 21:50:29
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ARCRegionSwitch
@@ -36,13 +36,9 @@ class ArcRoutingControlConfiguration(PropertyType):
         "cross_account_role": "CrossAccountRole",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     region_and_routing_controls: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout_minutes: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     external_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cross_account_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -56,11 +52,8 @@ class Asg(PropertyType):
         "arn": "Arn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     external_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cross_account_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -75,13 +68,9 @@ class AssociatedAlarm(PropertyType):
         "cross_account_role": "CrossAccountRole",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     external_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     alarm_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cross_account_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -97,15 +86,10 @@ class CustomActionLambdaConfiguration(PropertyType):
         "ungraceful": "Ungraceful",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lambdas: Optional[list[Lambdas]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retry_interval_minutes: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout_minutes: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     region_to_run: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ungraceful: Optional[LambdaUngraceful] = None
 
 
@@ -121,15 +105,10 @@ class Ec2AsgCapacityIncreaseConfiguration(PropertyType):
         "target_percent": "TargetPercent",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     asgs: Optional[list[Asg]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity_monitoring_approach: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout_minutes: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ungraceful: Optional[Ec2Ungraceful] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_percent: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -141,7 +120,6 @@ class Ec2Ungraceful(PropertyType):
         "minimum_success_percentage": "MinimumSuccessPercentage",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     minimum_success_percentage: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -157,15 +135,10 @@ class EcsCapacityIncreaseConfiguration(PropertyType):
         "target_percent": "TargetPercent",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     services: Optional[list[Service]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity_monitoring_approach: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout_minutes: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ungraceful: Optional[EcsUngraceful] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_percent: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -177,7 +150,6 @@ class EcsUngraceful(PropertyType):
         "minimum_success_percentage": "MinimumSuccessPercentage",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     minimum_success_percentage: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -191,11 +163,8 @@ class EksCluster(PropertyType):
         "cross_account_role": "CrossAccountRole",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cluster_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     external_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cross_account_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -213,19 +182,12 @@ class EksResourceScalingConfiguration(PropertyType):
         "target_percent": "TargetPercent",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kubernetes_resource_type: Optional[KubernetesResourceType] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity_monitoring_approach: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     eks_clusters: Optional[list[EksCluster]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout_minutes: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scaling_resources: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ungraceful: Optional[EksResourceScalingUngraceful] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_percent: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -237,7 +199,6 @@ class EksResourceScalingUngraceful(PropertyType):
         "minimum_success_percentage": "MinimumSuccessPercentage",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     minimum_success_percentage: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -250,9 +211,7 @@ class ExecutionApprovalConfiguration(PropertyType):
         "approval_role": "ApprovalRole",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout_minutes: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     approval_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -273,25 +232,15 @@ class ExecutionBlockConfiguration(PropertyType):
         "region_switch_plan_config": "RegionSwitchPlanConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     global_aurora_config: Optional[GlobalAuroraConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     route53_health_check_config: Optional[Route53HealthCheckConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     arc_routing_control_config: Optional[ArcRoutingControlConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parallel_config: Optional[ParallelExecutionBlockConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     eks_resource_scaling_config: Optional[EksResourceScalingConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ecs_capacity_increase_config: Optional[EcsCapacityIncreaseConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_action_lambda_config: Optional[CustomActionLambdaConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     execution_approval_config: Optional[ExecutionApprovalConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ec2_asg_capacity_increase_config: Optional[Ec2AsgCapacityIncreaseConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     region_switch_plan_config: Optional[RegionSwitchPlanConfiguration] = None
 
 
@@ -309,19 +258,12 @@ class GlobalAuroraConfiguration(PropertyType):
         "global_cluster_identifier": "GlobalClusterIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_cluster_arns: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout_minutes: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     external_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     behavior: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cross_account_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ungraceful: Optional[GlobalAuroraUngraceful] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     global_cluster_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -333,7 +275,6 @@ class GlobalAuroraUngraceful(PropertyType):
         "ungraceful": "Ungraceful",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ungraceful: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -346,9 +287,7 @@ class KubernetesResourceType(PropertyType):
         "kind": "Kind",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     api_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kind: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -360,7 +299,6 @@ class LambdaUngraceful(PropertyType):
         "behavior": "Behavior",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     behavior: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
 
@@ -374,11 +312,8 @@ class Lambdas(PropertyType):
         "arn": "Arn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     external_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cross_account_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -390,7 +325,6 @@ class ParallelExecutionBlockConfiguration(PropertyType):
         "steps": "Steps",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     steps: Optional[list[Step]] = None
 
 
@@ -404,11 +338,8 @@ class RegionSwitchPlanConfiguration(PropertyType):
         "arn": "Arn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     external_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cross_account_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -425,17 +356,11 @@ class Route53HealthCheckConfiguration(PropertyType):
         "record_sets": "RecordSets",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     record_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout_minutes: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     external_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hosted_zone_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cross_account_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     record_sets: Optional[list[Route53ResourceRecordSet]] = None
 
 
@@ -448,9 +373,7 @@ class Route53ResourceRecordSet(PropertyType):
         "record_set_identifier": "RecordSetIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     record_set_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -465,13 +388,9 @@ class Service(PropertyType):
         "cross_account_role": "CrossAccountRole",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cluster_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     external_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     service_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cross_account_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -486,13 +405,9 @@ class Step(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     execution_block_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     execution_block_configuration: Optional[ExecutionBlockConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -508,15 +423,10 @@ class Trigger(PropertyType):
         "conditions": "Conditions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min_delay_minutes_between_executions: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     conditions: Optional[list[TriggerCondition]] = None
 
 
@@ -529,9 +439,7 @@ class TriggerCondition(PropertyType):
         "associated_alarm_name": "AssociatedAlarmName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     condition: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     associated_alarm_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -546,13 +454,9 @@ class Workflow(PropertyType):
         "workflow_target_region": "WorkflowTargetRegion",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     steps: Optional[list[Step]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     workflow_target_action: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     workflow_description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     workflow_target_region: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -575,27 +479,16 @@ class Plan(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     primary_region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     workflows: Optional[list[Workflow]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     recovery_time_objective_minutes: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     regions: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     triggers: Optional[list[Trigger]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     associated_alarms: Optional[dict[str, Any]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     recovery_approach: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     execution_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property

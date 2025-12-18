@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:52
+  Generated: 2025-12-17 21:50:33
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MediaTailor
@@ -419,13 +419,9 @@ class DashPlaylistSettings(PropertyType):
         "min_update_period_seconds": "MinUpdatePeriodSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manifest_window_seconds: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     suggested_presentation_delay_seconds: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min_buffer_time_seconds: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min_update_period_seconds: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -438,9 +434,7 @@ class HlsPlaylistSettings(PropertyType):
         "ad_markup_type": "AdMarkupType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manifest_window_seconds: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ad_markup_type: Optional[Union[list[str], Ref]] = None
 
 
@@ -452,7 +446,6 @@ class LogConfigurationForChannel(PropertyType):
         "log_types": "LogTypes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_types: Optional[Union[list[str], Ref]] = None
 
 
@@ -467,13 +460,9 @@ class RequestOutputItem(PropertyType):
         "source_group": "SourceGroup",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manifest_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dash_playlist_settings: Optional[DashPlaylistSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hls_playlist_settings: Optional[HlsPlaylistSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_group: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -486,9 +475,7 @@ class SlateSource(PropertyType):
         "source_location_name": "SourceLocationName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vod_source_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_location_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -500,7 +487,6 @@ class TimeShiftConfiguration(PropertyType):
         "max_time_delay_seconds": "MaxTimeDelaySeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_time_delay_seconds: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -521,23 +507,14 @@ class Channel(CloudFormationResource):
         "time_shift_configuration": "TimeShiftConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     filler_slate: Optional[SlateSource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     channel_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     audiences: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     outputs: Optional[list[RequestOutputItem]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     log_configuration: Optional[LogConfigurationForChannel] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     playback_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     time_shift_configuration: Optional[TimeShiftConfiguration] = None
 
     @property
@@ -558,9 +535,7 @@ class ChannelPolicy(CloudFormationResource):
         "channel_name": "ChannelName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     channel_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -575,11 +550,8 @@ class HttpPackageConfiguration(PropertyType):
         "source_group": "SourceGroup",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Type, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_group: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -595,13 +567,9 @@ class LiveSource(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     live_source_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source_location_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     http_package_configurations: Optional[list[HttpPackageConfiguration]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -620,7 +588,6 @@ class AdConditioningConfiguration(PropertyType):
         "streaming_media_file_conditioning": "StreamingMediaFileConditioning",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     streaming_media_file_conditioning: Optional[Union[str, StreamingMediaFileConditioning, Ref, GetAtt, Sub]] = None
 
 
@@ -632,7 +599,6 @@ class AdMarkerPassthrough(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -645,9 +611,7 @@ class AdsInteractionLog(PropertyType):
         "publish_opt_in_event_types": "PublishOptInEventTypes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exclude_event_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     publish_opt_in_event_types: Optional[Union[list[str], Ref]] = None
 
 
@@ -661,11 +625,8 @@ class AvailSuppression(PropertyType):
         "fill_policy": "FillPolicy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mode: Optional[Union[str, Mode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     fill_policy: Optional[Union[str, FillPolicy, Ref, GetAtt, Sub]] = None
 
 
@@ -678,9 +639,7 @@ class Bumper(PropertyType):
         "end_url": "EndUrl",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     end_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -693,9 +652,7 @@ class CdnConfiguration(PropertyType):
         "content_segment_url_prefix": "ContentSegmentUrlPrefix",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ad_segment_url_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     content_segment_url_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -709,11 +666,8 @@ class DashConfiguration(PropertyType):
         "origin_manifest_type": "OriginManifestType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mpd_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manifest_endpoint_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     origin_manifest_type: Optional[Union[str, OriginManifestType, Ref, GetAtt, Sub]] = None
 
 
@@ -725,7 +679,6 @@ class HlsConfiguration(PropertyType):
         "manifest_endpoint_prefix": "ManifestEndpointPrefix",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manifest_endpoint_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -738,9 +691,7 @@ class LivePreRollConfiguration(PropertyType):
         "max_duration_seconds": "MaxDurationSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ad_decision_server_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_duration_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -755,13 +706,9 @@ class LogConfiguration(PropertyType):
         "manifest_service_interaction_log": "ManifestServiceInteractionLog",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled_logging_strategies: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     percent_enabled: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ads_interaction_log: Optional[AdsInteractionLog] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manifest_service_interaction_log: Optional[ManifestServiceInteractionLog] = None
 
 
@@ -773,7 +720,6 @@ class ManifestProcessingRules(PropertyType):
         "ad_marker_passthrough": "AdMarkerPassthrough",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ad_marker_passthrough: Optional[AdMarkerPassthrough] = None
 
 
@@ -785,7 +731,6 @@ class ManifestServiceInteractionLog(PropertyType):
         "exclude_event_types": "ExcludeEventTypes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exclude_event_types: Optional[Union[list[str], Ref]] = None
 
 
@@ -815,41 +760,23 @@ class PlaybackConfiguration(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     bumper: Optional[Bumper] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     dash_configuration: Optional[DashConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     insertion_mode: Optional[Union[str, InsertionMode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     cdn_configuration: Optional[CdnConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     manifest_processing_rules: Optional[ManifestProcessingRules] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     personalization_threshold_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     live_pre_roll_configuration: Optional[LivePreRollConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     hls_configuration: Optional[HlsConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     log_configuration: Optional[LogConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     video_content_source_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     transcode_profile_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     configuration_aliases: Optional[dict[str, dict[str, Any]]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ad_decision_server_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ad_conditioning_configuration: Optional[AdConditioningConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     slate_ad_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     avail_suppression: Optional[AvailSuppression] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -889,9 +816,7 @@ class AccessConfiguration(PropertyType):
         "access_type": "AccessType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secrets_manager_access_token_configuration: Optional[SecretsManagerAccessTokenConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     access_type: Optional[Union[str, AccessType, Ref, GetAtt, Sub]] = None
 
 
@@ -903,7 +828,6 @@ class DefaultSegmentDeliveryConfiguration(PropertyType):
         "base_url": "BaseUrl",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     base_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -915,7 +839,6 @@ class HttpConfiguration(PropertyType):
         "base_url": "BaseUrl",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     base_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -929,11 +852,8 @@ class SecretsManagerAccessTokenConfiguration(PropertyType):
         "secret_string_key": "SecretStringKey",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_string_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -946,9 +866,7 @@ class SegmentDeliveryConfiguration(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     base_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -966,17 +884,11 @@ class SourceLocation(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source_location_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     default_segment_delivery_configuration: Optional[DefaultSegmentDeliveryConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     segment_delivery_configurations: Optional[list[SegmentDeliveryConfiguration]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     http_configuration: Optional[HttpConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     access_configuration: Optional[AccessConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -997,11 +909,8 @@ class HttpPackageConfiguration(PropertyType):
         "source_group": "SourceGroup",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Type, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_group: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1017,13 +926,9 @@ class VodSource(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vod_source_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source_location_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     http_package_configurations: Optional[list[HttpPackageConfiguration]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property

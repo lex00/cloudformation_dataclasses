@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:44:06
+  Generated: 2025-12-17 21:50:35
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service WAFv2
@@ -1096,17 +1096,11 @@ class IPSet(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     addresses: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     scope: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ip_address_version: Optional[Union[str, IPAddressVersion, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1130,7 +1124,6 @@ class ActionCondition(PropertyType):
         "action": "Action",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[Union[str, ActionValue, Ref, GetAtt, Sub]] = None
 
 
@@ -1143,9 +1136,7 @@ class Condition(PropertyType):
         "action_condition": "ActionCondition",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     label_name_condition: Optional[LabelNameCondition] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action_condition: Optional[ActionCondition] = None
 
 
@@ -1160,13 +1151,9 @@ class FieldToMatch(PropertyType):
         "single_header": "SingleHeader",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_string: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     uri_path: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     method: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     single_header: Optional[SingleHeader] = None
 
 
@@ -1180,11 +1167,8 @@ class Filter(PropertyType):
         "conditions": "Conditions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     requirement: Optional[Union[str, FilterRequirement, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     behavior: Optional[Union[str, FilterBehavior, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     conditions: Optional[list[Condition]] = None
 
 
@@ -1196,7 +1180,6 @@ class LabelNameCondition(PropertyType):
         "label_name": "LabelName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     label_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1209,9 +1192,7 @@ class LoggingFilter(PropertyType):
         "default_behavior": "DefaultBehavior",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filters: Optional[list[Filter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_behavior: Optional[Union[str, FilterBehavior, Ref, GetAtt, Sub]] = None
 
 
@@ -1223,7 +1204,6 @@ class SingleHeader(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1239,13 +1219,9 @@ class LoggingConfiguration(CloudFormationResource):
         "logging_filter": "LoggingFilter",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     log_destination_configs: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     redacted_fields: Optional[list[FieldToMatch]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     logging_filter: Optional[LoggingFilter] = None
 
     @property
@@ -1269,15 +1245,10 @@ class RegexPatternSet(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     regular_expression_list: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     scope: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1301,7 +1272,6 @@ class AllowAction(PropertyType):
         "custom_request_handling": "CustomRequestHandling",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_request_handling: Optional[CustomRequestHandling] = None
 
 
@@ -1313,7 +1283,6 @@ class AndStatement(PropertyType):
         "statements": "Statements",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     statements: Optional[list[Statement]] = None
 
 
@@ -1326,9 +1295,7 @@ class AsnMatchStatement(PropertyType):
         "asn_list": "AsnList",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     forwarded_ip_config: Optional[ForwardedIPConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     asn_list: Optional[Union[list[int], Ref]] = None
 
 
@@ -1340,7 +1307,6 @@ class BlockAction(PropertyType):
         "custom_response": "CustomResponse",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_response: Optional[CustomResponse] = None
 
 
@@ -1352,7 +1318,6 @@ class Body(PropertyType):
         "oversize_handling": "OversizeHandling",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     oversize_handling: Optional[Union[str, OversizeHandling, Ref, GetAtt, Sub]] = None
 
 
@@ -1368,15 +1333,10 @@ class ByteMatchStatement(PropertyType):
         "field_to_match": "FieldToMatch",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     search_string_base64: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformations: Optional[list[TextTransformation]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     positional_constraint: Optional[Union[str, PositionalConstraint, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     search_string: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_to_match: Optional[FieldToMatch] = None
 
 
@@ -1388,7 +1348,6 @@ class CaptchaAction(PropertyType):
         "custom_request_handling": "CustomRequestHandling",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_request_handling: Optional[CustomRequestHandling] = None
 
 
@@ -1400,7 +1359,6 @@ class CaptchaConfig(PropertyType):
         "immunity_time_property": "ImmunityTimeProperty",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     immunity_time_property: Optional[ImmunityTimeProperty] = None
 
 
@@ -1412,7 +1370,6 @@ class ChallengeAction(PropertyType):
         "custom_request_handling": "CustomRequestHandling",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_request_handling: Optional[CustomRequestHandling] = None
 
 
@@ -1424,7 +1381,6 @@ class ChallengeConfig(PropertyType):
         "immunity_time_property": "ImmunityTimeProperty",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     immunity_time_property: Optional[ImmunityTimeProperty] = None
 
 
@@ -1438,11 +1394,8 @@ class CookieMatchPattern(PropertyType):
         "excluded_cookies": "ExcludedCookies",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     all: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     included_cookies: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     excluded_cookies: Optional[Union[list[str], Ref]] = None
 
 
@@ -1456,11 +1409,8 @@ class Cookies(PropertyType):
         "oversize_handling": "OversizeHandling",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match_scope: Optional[Union[str, MapMatchScope, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match_pattern: Optional[CookieMatchPattern] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     oversize_handling: Optional[Union[str, OversizeHandling, Ref, GetAtt, Sub]] = None
 
 
@@ -1472,7 +1422,6 @@ class CountAction(PropertyType):
         "custom_request_handling": "CustomRequestHandling",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_request_handling: Optional[CustomRequestHandling] = None
 
 
@@ -1485,9 +1434,7 @@ class CustomHTTPHeader(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1499,7 +1446,6 @@ class CustomRequestHandling(PropertyType):
         "insert_headers": "InsertHeaders",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     insert_headers: Optional[list[CustomHTTPHeader]] = None
 
 
@@ -1513,11 +1459,8 @@ class CustomResponse(PropertyType):
         "response_headers": "ResponseHeaders",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     response_code: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_response_body_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     response_headers: Optional[list[CustomHTTPHeader]] = None
 
 
@@ -1530,9 +1473,7 @@ class CustomResponseBody(PropertyType):
         "content": "Content",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     content_type: Optional[Union[str, ResponseContentType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     content: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1556,31 +1497,18 @@ class FieldToMatch(PropertyType):
         "single_header": "SingleHeader",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     all_query_arguments: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ja3_fingerprint: Optional[JA3Fingerprint] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     single_query_argument: Optional[SingleQueryArgument] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_string: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     headers: Optional[Headers] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     method: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     uri_fragment: Optional[UriFragment] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     json_body: Optional[JsonBody] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     uri_path: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cookies: Optional[Cookies] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ja4_fingerprint: Optional[JA4Fingerprint] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     body: Optional[Body] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     single_header: Optional[SingleHeader] = None
 
 
@@ -1593,9 +1521,7 @@ class ForwardedIPConfiguration(PropertyType):
         "header_name": "HeaderName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     fallback_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1608,9 +1534,7 @@ class GeoMatchStatement(PropertyType):
         "country_codes": "CountryCodes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     forwarded_ip_config: Optional[ForwardedIPConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     country_codes: Optional[Union[list[str], Ref]] = None
 
 
@@ -1624,11 +1548,8 @@ class HeaderMatchPattern(PropertyType):
         "excluded_headers": "ExcludedHeaders",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     all: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     included_headers: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     excluded_headers: Optional[Union[list[str], Ref]] = None
 
 
@@ -1642,11 +1563,8 @@ class Headers(PropertyType):
         "oversize_handling": "OversizeHandling",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match_scope: Optional[Union[str, MapMatchScope, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match_pattern: Optional[HeaderMatchPattern] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     oversize_handling: Optional[Union[str, OversizeHandling, Ref, GetAtt, Sub]] = None
 
 
@@ -1660,11 +1578,8 @@ class IPSetForwardedIPConfiguration(PropertyType):
         "position": "Position",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     fallback_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     position: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1677,9 +1592,7 @@ class IPSetReferenceStatement(PropertyType):
         "arn": "Arn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ip_set_forwarded_ip_config: Optional[IPSetForwardedIPConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1691,7 +1604,6 @@ class ImmunityTimeProperty(PropertyType):
         "immunity_time": "ImmunityTime",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     immunity_time: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1703,7 +1615,6 @@ class JA3Fingerprint(PropertyType):
         "fallback_behavior": "FallbackBehavior",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     fallback_behavior: Optional[Union[str, FallbackBehavior, Ref, GetAtt, Sub]] = None
 
 
@@ -1715,7 +1626,6 @@ class JA4Fingerprint(PropertyType):
         "fallback_behavior": "FallbackBehavior",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     fallback_behavior: Optional[Union[str, FallbackBehavior, Ref, GetAtt, Sub]] = None
 
 
@@ -1730,13 +1640,9 @@ class JsonBody(PropertyType):
         "oversize_handling": "OversizeHandling",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match_scope: Optional[Union[str, JsonMatchScope, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match_pattern: Optional[JsonMatchPattern] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     invalid_fallback_behavior: Optional[Union[str, BodyParsingFallbackBehavior, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     oversize_handling: Optional[Union[str, OversizeHandling, Ref, GetAtt, Sub]] = None
 
 
@@ -1749,9 +1655,7 @@ class JsonMatchPattern(PropertyType):
         "included_paths": "IncludedPaths",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     all: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     included_paths: Optional[Union[list[str], Ref]] = None
 
 
@@ -1763,7 +1667,6 @@ class Label(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1776,9 +1679,7 @@ class LabelMatchStatement(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scope: Optional[Union[str, LabelMatchScope, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1790,7 +1691,6 @@ class LabelSummary(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1802,7 +1702,6 @@ class NotStatement(PropertyType):
         "statement": "Statement",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     statement: Optional[Statement] = None
 
 
@@ -1814,7 +1713,6 @@ class OrStatement(PropertyType):
         "statements": "Statements",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     statements: Optional[list[Statement]] = None
 
 
@@ -1831,17 +1729,11 @@ class RateBasedStatement(PropertyType):
         "scope_down_statement": "ScopeDownStatement",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aggregate_key_type: Optional[Union[str, RateBasedStatementAggregateKeyType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_keys: Optional[list[RateBasedStatementCustomKey]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     forwarded_ip_config: Optional[ForwardedIPConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     limit: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     evaluation_window_sec: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scope_down_statement: Optional[Statement] = None
 
 
@@ -1864,29 +1756,17 @@ class RateBasedStatementCustomKey(PropertyType):
         "label_namespace": "LabelNamespace",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cookie: Optional[RateLimitCookie] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     forwarded_ip: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_argument: Optional[RateLimitQueryArgument] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ja3_fingerprint: Optional[RateLimitJA3Fingerprint] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header: Optional[RateLimitHeader] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http_method: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_string: Optional[RateLimitQueryString] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     uri_path: Optional[RateLimitUriPath] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ip: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ja4_fingerprint: Optional[RateLimitJA4Fingerprint] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     asn: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     label_namespace: Optional[RateLimitLabelNamespace] = None
 
 
@@ -1899,9 +1779,7 @@ class RateLimitCookie(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformations: Optional[list[TextTransformation]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1914,9 +1792,7 @@ class RateLimitHeader(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformations: Optional[list[TextTransformation]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1928,7 +1804,6 @@ class RateLimitJA3Fingerprint(PropertyType):
         "fallback_behavior": "FallbackBehavior",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     fallback_behavior: Optional[Union[str, FallbackBehavior, Ref, GetAtt, Sub]] = None
 
 
@@ -1940,7 +1815,6 @@ class RateLimitJA4Fingerprint(PropertyType):
         "fallback_behavior": "FallbackBehavior",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     fallback_behavior: Optional[Union[str, FallbackBehavior, Ref, GetAtt, Sub]] = None
 
 
@@ -1952,7 +1826,6 @@ class RateLimitLabelNamespace(PropertyType):
         "namespace": "Namespace",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     namespace: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1965,9 +1838,7 @@ class RateLimitQueryArgument(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformations: Optional[list[TextTransformation]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1979,7 +1850,6 @@ class RateLimitQueryString(PropertyType):
         "text_transformations": "TextTransformations",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformations: Optional[list[TextTransformation]] = None
 
 
@@ -1991,7 +1861,6 @@ class RateLimitUriPath(PropertyType):
         "text_transformations": "TextTransformations",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformations: Optional[list[TextTransformation]] = None
 
 
@@ -2005,11 +1874,8 @@ class RegexMatchStatement(PropertyType):
         "field_to_match": "FieldToMatch",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformations: Optional[list[TextTransformation]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     regex_string: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_to_match: Optional[FieldToMatch] = None
 
 
@@ -2023,11 +1889,8 @@ class RegexPatternSetReferenceStatement(PropertyType):
         "field_to_match": "FieldToMatch",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformations: Optional[list[TextTransformation]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_to_match: Optional[FieldToMatch] = None
 
 
@@ -2046,21 +1909,13 @@ class Rule(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[RuleAction] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     priority: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     statement: Optional[Statement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     challenge_config: Optional[ChallengeConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rule_labels: Optional[list[Label]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     visibility_config: Optional[VisibilityConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     captcha_config: Optional[CaptchaConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2076,15 +1931,10 @@ class RuleAction(PropertyType):
         "challenge": "Challenge",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     captcha: Optional[CaptchaAction] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     block: Optional[BlockAction] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     count: Optional[CountAction] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allow: Optional[AllowAction] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     challenge: Optional[ChallengeAction] = None
 
 
@@ -2096,7 +1946,6 @@ class SingleHeader(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2108,7 +1957,6 @@ class SingleQueryArgument(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2123,13 +1971,9 @@ class SizeConstraintStatement(PropertyType):
         "field_to_match": "FieldToMatch",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     comparison_operator: Optional[Union[str, ComparisonOperator, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformations: Optional[list[TextTransformation]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     size: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_to_match: Optional[FieldToMatch] = None
 
 
@@ -2143,11 +1987,8 @@ class SqliMatchStatement(PropertyType):
         "field_to_match": "FieldToMatch",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sensitivity_level: Optional[Union[str, SensitivityLevel, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformations: Optional[list[TextTransformation]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_to_match: Optional[FieldToMatch] = None
 
 
@@ -2172,33 +2013,19 @@ class Statement(PropertyType):
         "ip_set_reference_statement": "IPSetReferenceStatement",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     size_constraint_statement: Optional[SizeConstraintStatement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     and_statement: Optional[AndStatement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     xss_match_statement: Optional[XssMatchStatement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     not_statement: Optional[NotStatement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     byte_match_statement: Optional[ByteMatchStatement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rate_based_statement: Optional[RateBasedStatement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     geo_match_statement: Optional[GeoMatchStatement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     label_match_statement: Optional[LabelMatchStatement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     regex_match_statement: Optional[RegexMatchStatement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sqli_match_statement: Optional[SqliMatchStatement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     regex_pattern_set_reference_statement: Optional[RegexPatternSetReferenceStatement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     or_statement: Optional[OrStatement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     asn_match_statement: Optional[AsnMatchStatement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ip_set_reference_statement: Optional[IPSetReferenceStatement] = None
 
 
@@ -2211,9 +2038,7 @@ class TextTransformation(PropertyType):
         "priority": "Priority",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, TextTransformationType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     priority: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -2225,7 +2050,6 @@ class UriFragment(PropertyType):
         "fallback_behavior": "FallbackBehavior",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     fallback_behavior: Optional[Union[str, FallbackBehavior, Ref, GetAtt, Sub]] = None
 
 
@@ -2239,11 +2063,8 @@ class VisibilityConfig(PropertyType):
         "cloud_watch_metrics_enabled": "CloudWatchMetricsEnabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sampled_requests_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch_metrics_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2256,9 +2077,7 @@ class XssMatchStatement(PropertyType):
         "field_to_match": "FieldToMatch",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformations: Optional[list[TextTransformation]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_to_match: Optional[FieldToMatch] = None
 
 
@@ -2280,25 +2099,15 @@ class RuleGroup(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     scope: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     capacity: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     available_labels: Optional[list[LabelSummary]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     custom_response_bodies: Optional[dict[str, Any]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     consumed_labels: Optional[list[LabelSummary]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     rules: Optional[list[Rule]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     visibility_config: Optional[VisibilityConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -2331,15 +2140,10 @@ class AWSManagedRulesACFPRuleSet(PropertyType):
         "request_inspection": "RequestInspection",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     registration_page_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     response_inspection: Optional[ResponseInspection] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     creation_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_regex_in_path: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     request_inspection: Optional[RequestInspectionACFP] = None
 
 
@@ -2354,13 +2158,9 @@ class AWSManagedRulesATPRuleSet(PropertyType):
         "request_inspection": "RequestInspection",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     response_inspection: Optional[ResponseInspection] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_regex_in_path: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     login_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     request_inspection: Optional[RequestInspection] = None
 
 
@@ -2373,9 +2173,7 @@ class AWSManagedRulesAntiDDoSRuleSet(PropertyType):
         "sensitivity_to_block": "SensitivityToBlock",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_side_action_config: Optional[ClientSideActionConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sensitivity_to_block: Optional[Union[str, SensitivityToAct, Ref, GetAtt, Sub]] = None
 
 
@@ -2388,9 +2186,7 @@ class AWSManagedRulesBotControlRuleSet(PropertyType):
         "enable_machine_learning": "EnableMachineLearning",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     inspection_level: Optional[Union[str, InspectionLevel, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_machine_learning: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2402,7 +2198,6 @@ class AllowAction(PropertyType):
         "custom_request_handling": "CustomRequestHandling",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_request_handling: Optional[CustomRequestHandling] = None
 
 
@@ -2414,7 +2209,6 @@ class AndStatement(PropertyType):
         "statements": "Statements",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     statements: Optional[list[Statement]] = None
 
 
@@ -2427,9 +2221,7 @@ class ApplicationAttribute(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     values: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2441,7 +2233,6 @@ class ApplicationConfig(PropertyType):
         "attributes": "Attributes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attributes: Optional[list[ApplicationAttribute]] = None
 
 
@@ -2454,9 +2245,7 @@ class AsnMatchStatement(PropertyType):
         "asn_list": "AsnList",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     forwarded_ip_config: Optional[ForwardedIPConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     asn_list: Optional[Union[list[int], Ref]] = None
 
 
@@ -2468,7 +2257,6 @@ class AssociationConfig(PropertyType):
         "request_body": "RequestBody",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     request_body: Optional[dict[str, Any]] = None
 
 
@@ -2480,7 +2268,6 @@ class BlockAction(PropertyType):
         "custom_response": "CustomResponse",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_response: Optional[CustomResponse] = None
 
 
@@ -2492,7 +2279,6 @@ class Body(PropertyType):
         "oversize_handling": "OversizeHandling",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     oversize_handling: Optional[Union[str, OversizeHandling, Ref, GetAtt, Sub]] = None
 
 
@@ -2508,15 +2294,10 @@ class ByteMatchStatement(PropertyType):
         "field_to_match": "FieldToMatch",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     search_string_base64: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformations: Optional[list[TextTransformation]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     positional_constraint: Optional[Union[str, PositionalConstraint, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     search_string: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_to_match: Optional[FieldToMatch] = None
 
 
@@ -2528,7 +2309,6 @@ class CaptchaAction(PropertyType):
         "custom_request_handling": "CustomRequestHandling",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_request_handling: Optional[CustomRequestHandling] = None
 
 
@@ -2540,7 +2320,6 @@ class CaptchaConfig(PropertyType):
         "immunity_time_property": "ImmunityTimeProperty",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     immunity_time_property: Optional[ImmunityTimeProperty] = None
 
 
@@ -2552,7 +2331,6 @@ class ChallengeAction(PropertyType):
         "custom_request_handling": "CustomRequestHandling",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_request_handling: Optional[CustomRequestHandling] = None
 
 
@@ -2564,7 +2342,6 @@ class ChallengeConfig(PropertyType):
         "immunity_time_property": "ImmunityTimeProperty",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     immunity_time_property: Optional[ImmunityTimeProperty] = None
 
 
@@ -2578,11 +2355,8 @@ class ClientSideAction(PropertyType):
         "exempt_uri_regular_expressions": "ExemptUriRegularExpressions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     usage_of_action: Optional[Union[str, UsageOfAction, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sensitivity: Optional[Union[str, SensitivityToAct, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exempt_uri_regular_expressions: Optional[list[Regex]] = None
 
 
@@ -2594,7 +2368,6 @@ class ClientSideActionConfig(PropertyType):
         "challenge": "Challenge",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     challenge: Optional[ClientSideAction] = None
 
 
@@ -2608,11 +2381,8 @@ class CookieMatchPattern(PropertyType):
         "excluded_cookies": "ExcludedCookies",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     all: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     included_cookies: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     excluded_cookies: Optional[Union[list[str], Ref]] = None
 
 
@@ -2626,11 +2396,8 @@ class Cookies(PropertyType):
         "oversize_handling": "OversizeHandling",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match_scope: Optional[Union[str, MapMatchScope, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match_pattern: Optional[CookieMatchPattern] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     oversize_handling: Optional[Union[str, OversizeHandling, Ref, GetAtt, Sub]] = None
 
 
@@ -2642,7 +2409,6 @@ class CountAction(PropertyType):
         "custom_request_handling": "CustomRequestHandling",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_request_handling: Optional[CustomRequestHandling] = None
 
 
@@ -2655,9 +2421,7 @@ class CustomHTTPHeader(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2669,7 +2433,6 @@ class CustomRequestHandling(PropertyType):
         "insert_headers": "InsertHeaders",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     insert_headers: Optional[list[CustomHTTPHeader]] = None
 
 
@@ -2683,11 +2446,8 @@ class CustomResponse(PropertyType):
         "response_headers": "ResponseHeaders",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     response_code: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_response_body_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     response_headers: Optional[list[CustomHTTPHeader]] = None
 
 
@@ -2700,9 +2460,7 @@ class CustomResponseBody(PropertyType):
         "content": "Content",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     content_type: Optional[Union[str, ResponseContentType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     content: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2717,13 +2475,9 @@ class DataProtect(PropertyType):
         "exclude_rule_match_details": "ExcludeRuleMatchDetails",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field: Optional[FieldToProtect] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exclude_rate_based_details: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exclude_rule_match_details: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2735,7 +2489,6 @@ class DataProtectionConfig(PropertyType):
         "data_protections": "DataProtections",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_protections: Optional[list[DataProtect]] = None
 
 
@@ -2748,9 +2501,7 @@ class DefaultAction(PropertyType):
         "allow": "Allow",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     block: Optional[BlockAction] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allow: Optional[AllowAction] = None
 
 
@@ -2762,7 +2513,6 @@ class ExcludedRule(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2774,7 +2524,6 @@ class FieldIdentifier(PropertyType):
         "identifier": "Identifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2798,31 +2547,18 @@ class FieldToMatch(PropertyType):
         "single_header": "SingleHeader",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     all_query_arguments: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ja3_fingerprint: Optional[JA3Fingerprint] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     single_query_argument: Optional[SingleQueryArgument] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_string: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     headers: Optional[Headers] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     method: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     uri_fragment: Optional[UriFragment] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     json_body: Optional[JsonBody] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     uri_path: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cookies: Optional[Cookies] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ja4_fingerprint: Optional[JA4Fingerprint] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     body: Optional[Body] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     single_header: Optional[SingleHeader] = None
 
 
@@ -2835,9 +2571,7 @@ class FieldToProtect(PropertyType):
         "field_type": "FieldType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_keys: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_type: Optional[Union[str, FieldToProtectType, Ref, GetAtt, Sub]] = None
 
 
@@ -2850,9 +2584,7 @@ class ForwardedIPConfiguration(PropertyType):
         "header_name": "HeaderName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     fallback_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2865,9 +2597,7 @@ class GeoMatchStatement(PropertyType):
         "country_codes": "CountryCodes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     forwarded_ip_config: Optional[ForwardedIPConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     country_codes: Optional[Union[list[str], Ref]] = None
 
 
@@ -2881,11 +2611,8 @@ class HeaderMatchPattern(PropertyType):
         "excluded_headers": "ExcludedHeaders",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     all: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     included_headers: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     excluded_headers: Optional[Union[list[str], Ref]] = None
 
 
@@ -2899,11 +2626,8 @@ class Headers(PropertyType):
         "oversize_handling": "OversizeHandling",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match_scope: Optional[Union[str, MapMatchScope, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match_pattern: Optional[HeaderMatchPattern] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     oversize_handling: Optional[Union[str, OversizeHandling, Ref, GetAtt, Sub]] = None
 
 
@@ -2917,11 +2641,8 @@ class IPSetForwardedIPConfiguration(PropertyType):
         "position": "Position",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     fallback_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     position: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2934,9 +2655,7 @@ class IPSetReferenceStatement(PropertyType):
         "arn": "Arn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ip_set_forwarded_ip_config: Optional[IPSetForwardedIPConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2948,7 +2667,6 @@ class ImmunityTimeProperty(PropertyType):
         "immunity_time": "ImmunityTime",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     immunity_time: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -2960,7 +2678,6 @@ class JA3Fingerprint(PropertyType):
         "fallback_behavior": "FallbackBehavior",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     fallback_behavior: Optional[Union[str, FallbackBehavior, Ref, GetAtt, Sub]] = None
 
 
@@ -2972,7 +2689,6 @@ class JA4Fingerprint(PropertyType):
         "fallback_behavior": "FallbackBehavior",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     fallback_behavior: Optional[Union[str, FallbackBehavior, Ref, GetAtt, Sub]] = None
 
 
@@ -2987,13 +2703,9 @@ class JsonBody(PropertyType):
         "oversize_handling": "OversizeHandling",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match_scope: Optional[Union[str, JsonMatchScope, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match_pattern: Optional[JsonMatchPattern] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     invalid_fallback_behavior: Optional[Union[str, BodyParsingFallbackBehavior, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     oversize_handling: Optional[Union[str, OversizeHandling, Ref, GetAtt, Sub]] = None
 
 
@@ -3006,9 +2718,7 @@ class JsonMatchPattern(PropertyType):
         "included_paths": "IncludedPaths",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     all: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     included_paths: Optional[Union[list[str], Ref]] = None
 
 
@@ -3020,7 +2730,6 @@ class Label(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -3033,9 +2742,7 @@ class LabelMatchStatement(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scope: Optional[Union[str, LabelMatchScope, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -3054,21 +2761,13 @@ class ManagedRuleGroupConfig(PropertyType):
         "payload_type": "PayloadType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_managed_rules_anti_d_do_s_rule_set: Optional[AWSManagedRulesAntiDDoSRuleSet] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     username_field: Optional[FieldIdentifier] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     login_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_managed_rules_atp_rule_set: Optional[AWSManagedRulesATPRuleSet] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_managed_rules_bot_control_rule_set: Optional[AWSManagedRulesBotControlRuleSet] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     password_field: Optional[FieldIdentifier] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_managed_rules_acfp_rule_set: Optional[AWSManagedRulesACFPRuleSet] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     payload_type: Optional[Union[str, PayloadType, Ref, GetAtt, Sub]] = None
 
 
@@ -3086,19 +2785,12 @@ class ManagedRuleGroupStatement(PropertyType):
         "scope_down_statement": "ScopeDownStatement",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vendor_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rule_action_overrides: Optional[list[RuleActionOverride]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     managed_rule_group_configs: Optional[list[ManagedRuleGroupConfig]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     excluded_rules: Optional[list[ExcludedRule]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scope_down_statement: Optional[Statement] = None
 
 
@@ -3110,7 +2802,6 @@ class NotStatement(PropertyType):
         "statement": "Statement",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     statement: Optional[Statement] = None
 
 
@@ -3122,7 +2813,6 @@ class OnSourceDDoSProtectionConfig(PropertyType):
         "alb_low_reputation_mode": "ALBLowReputationMode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     alb_low_reputation_mode: Optional[Union[str, LowReputationMode, Ref, GetAtt, Sub]] = None
 
 
@@ -3134,7 +2824,6 @@ class OrStatement(PropertyType):
         "statements": "Statements",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     statements: Optional[list[Statement]] = None
 
 
@@ -3147,9 +2836,7 @@ class OverrideAction(PropertyType):
         "none": "None",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     count: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     none: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
 
@@ -3166,17 +2853,11 @@ class RateBasedStatement(PropertyType):
         "scope_down_statement": "ScopeDownStatement",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aggregate_key_type: Optional[Union[str, RateBasedStatementAggregateKeyType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_keys: Optional[list[RateBasedStatementCustomKey]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     forwarded_ip_config: Optional[ForwardedIPConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     limit: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     evaluation_window_sec: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scope_down_statement: Optional[Statement] = None
 
 
@@ -3199,29 +2880,17 @@ class RateBasedStatementCustomKey(PropertyType):
         "label_namespace": "LabelNamespace",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cookie: Optional[RateLimitCookie] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     forwarded_ip: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_argument: Optional[RateLimitQueryArgument] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ja3_fingerprint: Optional[RateLimitJA3Fingerprint] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header: Optional[RateLimitHeader] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http_method: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_string: Optional[RateLimitQueryString] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     uri_path: Optional[RateLimitUriPath] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ip: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ja4_fingerprint: Optional[RateLimitJA4Fingerprint] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     asn: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     label_namespace: Optional[RateLimitLabelNamespace] = None
 
 
@@ -3234,9 +2903,7 @@ class RateLimitCookie(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformations: Optional[list[TextTransformation]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -3249,9 +2916,7 @@ class RateLimitHeader(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformations: Optional[list[TextTransformation]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -3263,7 +2928,6 @@ class RateLimitJA3Fingerprint(PropertyType):
         "fallback_behavior": "FallbackBehavior",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     fallback_behavior: Optional[Union[str, FallbackBehavior, Ref, GetAtt, Sub]] = None
 
 
@@ -3275,7 +2939,6 @@ class RateLimitJA4Fingerprint(PropertyType):
         "fallback_behavior": "FallbackBehavior",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     fallback_behavior: Optional[Union[str, FallbackBehavior, Ref, GetAtt, Sub]] = None
 
 
@@ -3287,7 +2950,6 @@ class RateLimitLabelNamespace(PropertyType):
         "namespace": "Namespace",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     namespace: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -3300,9 +2962,7 @@ class RateLimitQueryArgument(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformations: Optional[list[TextTransformation]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -3314,7 +2974,6 @@ class RateLimitQueryString(PropertyType):
         "text_transformations": "TextTransformations",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformations: Optional[list[TextTransformation]] = None
 
 
@@ -3326,7 +2985,6 @@ class RateLimitUriPath(PropertyType):
         "text_transformations": "TextTransformations",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformations: Optional[list[TextTransformation]] = None
 
 
@@ -3338,7 +2996,6 @@ class Regex(PropertyType):
         "regex_string": "RegexString",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     regex_string: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -3352,11 +3009,8 @@ class RegexMatchStatement(PropertyType):
         "field_to_match": "FieldToMatch",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformations: Optional[list[TextTransformation]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     regex_string: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_to_match: Optional[FieldToMatch] = None
 
 
@@ -3370,11 +3024,8 @@ class RegexPatternSetReferenceStatement(PropertyType):
         "field_to_match": "FieldToMatch",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformations: Optional[list[TextTransformation]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_to_match: Optional[FieldToMatch] = None
 
 
@@ -3386,7 +3037,6 @@ class RequestBodyAssociatedResourceTypeConfig(PropertyType):
         "default_size_inspection_limit": "DefaultSizeInspectionLimit",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_size_inspection_limit: Optional[Union[str, SizeInspectionLimit, Ref, GetAtt, Sub]] = None
 
 
@@ -3400,11 +3050,8 @@ class RequestInspection(PropertyType):
         "payload_type": "PayloadType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     username_field: Optional[FieldIdentifier] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     password_field: Optional[FieldIdentifier] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     payload_type: Optional[Union[str, PayloadType, Ref, GetAtt, Sub]] = None
 
 
@@ -3421,17 +3068,11 @@ class RequestInspectionACFP(PropertyType):
         "phone_number_fields": "PhoneNumberFields",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     username_field: Optional[FieldIdentifier] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     email_field: Optional[FieldIdentifier] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     password_field: Optional[FieldIdentifier] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     address_fields: Optional[list[FieldIdentifier]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     payload_type: Optional[Union[str, PayloadType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     phone_number_fields: Optional[list[FieldIdentifier]] = None
 
 
@@ -3446,13 +3087,9 @@ class ResponseInspection(PropertyType):
         "status_code": "StatusCode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header: Optional[ResponseInspectionHeader] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     body_contains: Optional[ResponseInspectionBodyContains] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     json: Optional[ResponseInspectionJson] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     status_code: Optional[ResponseInspectionStatusCode] = None
 
 
@@ -3465,9 +3102,7 @@ class ResponseInspectionBodyContains(PropertyType):
         "failure_strings": "FailureStrings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     success_strings: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failure_strings: Optional[Union[list[str], Ref]] = None
 
 
@@ -3481,11 +3116,8 @@ class ResponseInspectionHeader(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     success_values: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failure_values: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -3499,11 +3131,8 @@ class ResponseInspectionJson(PropertyType):
         "failure_values": "FailureValues",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     success_values: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failure_values: Optional[Union[list[str], Ref]] = None
 
 
@@ -3516,9 +3145,7 @@ class ResponseInspectionStatusCode(PropertyType):
         "failure_codes": "FailureCodes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     success_codes: Optional[Union[list[int], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failure_codes: Optional[Union[list[int], Ref]] = None
 
 
@@ -3538,23 +3165,14 @@ class Rule(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[RuleAction] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     priority: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     statement: Optional[Statement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     challenge_config: Optional[ChallengeConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     override_action: Optional[OverrideAction] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rule_labels: Optional[list[Label]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     visibility_config: Optional[VisibilityConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     captcha_config: Optional[CaptchaConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -3570,15 +3188,10 @@ class RuleAction(PropertyType):
         "challenge": "Challenge",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     captcha: Optional[CaptchaAction] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     block: Optional[BlockAction] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     count: Optional[CountAction] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allow: Optional[AllowAction] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     challenge: Optional[ChallengeAction] = None
 
 
@@ -3591,9 +3204,7 @@ class RuleActionOverride(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action_to_use: Optional[RuleAction] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -3607,11 +3218,8 @@ class RuleGroupReferenceStatement(PropertyType):
         "excluded_rules": "ExcludedRules",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rule_action_overrides: Optional[list[RuleActionOverride]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     excluded_rules: Optional[list[ExcludedRule]] = None
 
 
@@ -3623,7 +3231,6 @@ class SingleHeader(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -3635,7 +3242,6 @@ class SingleQueryArgument(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -3650,13 +3256,9 @@ class SizeConstraintStatement(PropertyType):
         "field_to_match": "FieldToMatch",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     comparison_operator: Optional[Union[str, ComparisonOperator, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformations: Optional[list[TextTransformation]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     size: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_to_match: Optional[FieldToMatch] = None
 
 
@@ -3670,11 +3272,8 @@ class SqliMatchStatement(PropertyType):
         "field_to_match": "FieldToMatch",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sensitivity_level: Optional[Union[str, SensitivityLevel, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformations: Optional[list[TextTransformation]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_to_match: Optional[FieldToMatch] = None
 
 
@@ -3701,37 +3300,21 @@ class Statement(PropertyType):
         "ip_set_reference_statement": "IPSetReferenceStatement",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     size_constraint_statement: Optional[SizeConstraintStatement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     and_statement: Optional[AndStatement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     xss_match_statement: Optional[XssMatchStatement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     not_statement: Optional[NotStatement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     byte_match_statement: Optional[ByteMatchStatement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rate_based_statement: Optional[RateBasedStatement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     geo_match_statement: Optional[GeoMatchStatement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rule_group_reference_statement: Optional[RuleGroupReferenceStatement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     label_match_statement: Optional[LabelMatchStatement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     regex_match_statement: Optional[RegexMatchStatement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sqli_match_statement: Optional[SqliMatchStatement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     regex_pattern_set_reference_statement: Optional[RegexPatternSetReferenceStatement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     or_statement: Optional[OrStatement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     asn_match_statement: Optional[AsnMatchStatement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     managed_rule_group_statement: Optional[ManagedRuleGroupStatement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ip_set_reference_statement: Optional[IPSetReferenceStatement] = None
 
 
@@ -3744,9 +3327,7 @@ class TextTransformation(PropertyType):
         "priority": "Priority",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, TextTransformationType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     priority: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -3758,7 +3339,6 @@ class UriFragment(PropertyType):
         "fallback_behavior": "FallbackBehavior",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     fallback_behavior: Optional[Union[str, FallbackBehavior, Ref, GetAtt, Sub]] = None
 
 
@@ -3772,11 +3352,8 @@ class VisibilityConfig(PropertyType):
         "cloud_watch_metrics_enabled": "CloudWatchMetricsEnabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sampled_requests_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch_metrics_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -3789,9 +3366,7 @@ class XssMatchStatement(PropertyType):
         "field_to_match": "FieldToMatch",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformations: Optional[list[TextTransformation]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_to_match: Optional[FieldToMatch] = None
 
 
@@ -3818,35 +3393,20 @@ class WebACL(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     association_config: Optional[AssociationConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     challenge_config: Optional[ChallengeConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     data_protection_config: Optional[DataProtectionConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     on_source_d_do_s_protection_config: Optional[OnSourceDDoSProtectionConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     rules: Optional[list[Rule]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     visibility_config: Optional[VisibilityConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     token_domains: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     default_action: Optional[DefaultAction] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     scope: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     application_config: Optional[ApplicationConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     custom_response_bodies: Optional[dict[str, Any]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     captcha_config: Optional[CaptchaConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -3882,9 +3442,7 @@ class WebACLAssociation(CloudFormationResource):
         "web_acl_arn": "WebACLArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     web_acl_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 

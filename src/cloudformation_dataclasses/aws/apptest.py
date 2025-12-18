@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:30
+  Generated: 2025-12-17 21:50:30
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AppTest
@@ -35,11 +35,8 @@ class Batch(PropertyType):
         "batch_job_parameters": "BatchJobParameters",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     batch_job_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     export_data_set_names: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     batch_job_parameters: Optional[dict[str, str]] = None
 
 
@@ -52,9 +49,7 @@ class CloudFormationAction(PropertyType):
         "resource": "Resource",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -67,9 +62,7 @@ class CompareAction(PropertyType):
         "output": "Output",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input: Optional[Input] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     output: Optional[Output] = None
 
 
@@ -85,15 +78,10 @@ class DataSet(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ccsid: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     format: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     length: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -106,9 +94,7 @@ class DatabaseCDC(PropertyType):
         "target_metadata": "TargetMetadata",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_metadata: Optional[SourceDatabaseMetadata] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_metadata: Optional[TargetDatabaseMetadata] = None
 
 
@@ -121,9 +107,7 @@ class FileMetadata(PropertyType):
         "data_sets": "DataSets",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_cdc: Optional[DatabaseCDC] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_sets: Optional[list[DataSet]] = None
 
 
@@ -135,7 +119,6 @@ class Input(PropertyType):
         "file": "File",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file: Optional[InputFile] = None
 
 
@@ -149,11 +132,8 @@ class InputFile(PropertyType):
         "file_metadata": "FileMetadata",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file_metadata: Optional[FileMetadata] = None
 
 
@@ -166,9 +146,7 @@ class M2ManagedActionProperties(PropertyType):
         "force_stop": "ForceStop",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     import_data_set_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     force_stop: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -182,11 +160,8 @@ class M2ManagedApplicationAction(PropertyType):
         "properties": "Properties",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     properties: Optional[M2ManagedActionProperties] = None
 
 
@@ -199,9 +174,7 @@ class M2NonManagedApplicationAction(PropertyType):
         "resource": "Resource",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -215,11 +188,8 @@ class MainframeAction(PropertyType):
         "properties": "Properties",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action_type: Optional[MainframeActionType] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     properties: Optional[MainframeActionProperties] = None
 
 
@@ -231,7 +201,6 @@ class MainframeActionProperties(PropertyType):
         "dms_task_arn": "DmsTaskArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dms_task_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -244,9 +213,7 @@ class MainframeActionType(PropertyType):
         "tn3270": "Tn3270",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     batch: Optional[Batch] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tn3270: Optional[TN3270] = None
 
 
@@ -258,7 +225,6 @@ class Output(PropertyType):
         "file": "File",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file: Optional[OutputFile] = None
 
 
@@ -270,7 +236,6 @@ class OutputFile(PropertyType):
         "file_location": "FileLocation",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -284,11 +249,8 @@ class ResourceAction(PropertyType):
         "m2_non_managed_application_action": "M2NonManagedApplicationAction",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_formation_action: Optional[CloudFormationAction] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     m2_managed_application_action: Optional[M2ManagedApplicationAction] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     m2_non_managed_application_action: Optional[M2NonManagedApplicationAction] = None
 
 
@@ -301,9 +263,7 @@ class Script(PropertyType):
         "script_location": "ScriptLocation",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     script_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -316,9 +276,7 @@ class SourceDatabaseMetadata(PropertyType):
         "capture_tool": "CaptureTool",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capture_tool: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -332,11 +290,8 @@ class Step(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[StepAction] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -350,11 +305,8 @@ class StepAction(PropertyType):
         "resource_action": "ResourceAction",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compare_action: Optional[CompareAction] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mainframe_action: Optional[MainframeAction] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_action: Optional[ResourceAction] = None
 
 
@@ -367,9 +319,7 @@ class TN3270(PropertyType):
         "export_data_set_names": "ExportDataSetNames",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     script: Optional[Script] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     export_data_set_names: Optional[Union[list[str], Ref]] = None
 
 
@@ -382,9 +332,7 @@ class TargetDatabaseMetadata(PropertyType):
         "capture_tool": "CaptureTool",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capture_tool: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -397,9 +345,7 @@ class TestCaseLatestVersion(PropertyType):
         "version": "Version",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     version: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -415,13 +361,9 @@ class TestCase(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     steps: Optional[list[Step]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property

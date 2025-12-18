@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:58
+  Generated: 2025-12-17 21:50:34
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ResilienceHub
@@ -561,11 +561,8 @@ class EventSubscription(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     event_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sns_topic_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -579,11 +576,8 @@ class PermissionModel(PropertyType):
         "invoker_role_name": "InvokerRoleName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cross_account_role_arns: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     invoker_role_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -598,13 +592,9 @@ class PhysicalResourceId(PropertyType):
         "aws_account_id": "AwsAccountId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_account_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -621,17 +611,11 @@ class ResourceMapping(PropertyType):
         "eks_source_name": "EksSourceName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mapping_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     logical_stack_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     terraform_source_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     physical_resource_id: Optional[PhysicalResourceId] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     eks_source_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -652,23 +636,14 @@ class App(CloudFormationResource):
         "resiliency_policy_arn": "ResiliencyPolicyArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     app_template_body: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     app_assessment_schedule: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     permission_model: Optional[PermissionModel] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_mappings: Optional[list[ResourceMapping]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     event_subscriptions: Optional[list[EventSubscription]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resiliency_policy_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -693,9 +668,7 @@ class FailurePolicy(PropertyType):
         "rto_in_secs": "RtoInSecs",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rpo_in_secs: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rto_in_secs: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -710,13 +683,9 @@ class PolicyMap(PropertyType):
         "software": "Software",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     az: Optional[FailurePolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     region: Optional[FailurePolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hardware: Optional[FailurePolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     software: Optional[FailurePolicy] = None
 
 
@@ -734,17 +703,11 @@ class ResiliencyPolicy(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy: Optional[PolicyMap] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy_description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     data_location_constraint: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
 
     @property

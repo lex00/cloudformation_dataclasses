@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:50
+  Generated: 2025-12-17 21:50:32
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service LicenseManager
@@ -401,17 +401,11 @@ class Grant(CloudFormationResource):
         "grant_name": "GrantName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     principals: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     home_region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     allowed_operations: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     license_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     grant_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -436,9 +430,7 @@ class BorrowConfiguration(PropertyType):
         "max_time_to_live_in_minutes": "MaxTimeToLiveInMinutes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allow_early_check_in: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_time_to_live_in_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -452,11 +444,8 @@ class ConsumptionConfiguration(PropertyType):
         "provisional_configuration": "ProvisionalConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     borrow_configuration: Optional[BorrowConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     renew_type: Optional[Union[str, RenewType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     provisional_configuration: Optional[ProvisionalConfiguration] = None
 
 
@@ -473,17 +462,11 @@ class Entitlement(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allow_check_in: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     overage: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     unit: Optional[Union[str, EntitlementUnit, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -496,9 +479,7 @@ class IssuerData(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sign_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -511,9 +492,7 @@ class Metadata(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -525,7 +504,6 @@ class ProvisionalConfiguration(PropertyType):
         "max_time_to_live_in_minutes": "MaxTimeToLiveInMinutes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_time_to_live_in_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -538,9 +516,7 @@ class ValidityDateFormat(PropertyType):
         "end": "End",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     begin: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     end: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -563,27 +539,16 @@ class License(CloudFormationResource):
         "beneficiary": "Beneficiary",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     product_sku: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     status: Optional[Union[str, LicenseStatus, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     consumption_configuration: Optional[ConsumptionConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     validity: Optional[ValidityDateFormat] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     product_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     issuer: Optional[IssuerData] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     home_region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     entitlements: Optional[list[Entitlement]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     license_metadata: Optional[list[Metadata]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     license_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     beneficiary: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property

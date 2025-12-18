@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:38
+  Generated: 2025-12-17 21:50:31
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DataBrew
@@ -274,9 +274,7 @@ class CsvOptions(PropertyType):
         "header_row": "HeaderRow",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     delimiter: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header_row: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -291,13 +289,9 @@ class DataCatalogInputDefinition(PropertyType):
         "catalog_id": "CatalogId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     temp_directory: Optional[S3Location] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     catalog_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -312,13 +306,9 @@ class DatabaseInputDefinition(PropertyType):
         "database_table_name": "DatabaseTableName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     temp_directory: Optional[S3Location] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_string: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     glue_connection_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -334,15 +324,10 @@ class DatasetParameter(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, ParameterType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     datetime_options: Optional[DatetimeOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filter: Optional[FilterExpression] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     create_column: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -356,11 +341,8 @@ class DatetimeOptions(PropertyType):
         "timezone_offset": "TimezoneOffset",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     locale_code: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     format: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timezone_offset: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -374,11 +356,8 @@ class ExcelOptions(PropertyType):
         "sheet_indexes": "SheetIndexes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header_row: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sheet_names: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sheet_indexes: Optional[Union[list[int], Ref]] = None
 
 
@@ -392,11 +371,8 @@ class FilesLimit(PropertyType):
         "max_files": "MaxFiles",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     order: Optional[Union[str, Order, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ordered_by: Optional[Union[str, OrderedBy, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_files: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -409,9 +385,7 @@ class FilterExpression(PropertyType):
         "values_map": "ValuesMap",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     expression: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     values_map: Optional[list[FilterValue]] = None
 
 
@@ -424,9 +398,7 @@ class FilterValue(PropertyType):
         "value_reference": "ValueReference",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value_reference: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -440,11 +412,8 @@ class FormatOptions(PropertyType):
         "json": "Json",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     excel: Optional[ExcelOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     csv: Optional[CsvOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     json: Optional[JsonOptions] = None
 
 
@@ -459,13 +428,9 @@ class Input(PropertyType):
         "data_catalog_input_definition": "DataCatalogInputDefinition",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_input_definition: Optional[DatabaseInputDefinition] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_input_definition: Optional[S3Location] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metadata: Optional[Metadata] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_catalog_input_definition: Optional[DataCatalogInputDefinition] = None
 
 
@@ -477,7 +442,6 @@ class JsonOptions(PropertyType):
         "multi_line": "MultiLine",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     multi_line: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -489,7 +453,6 @@ class Metadata(PropertyType):
         "source_arn": "SourceArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -503,11 +466,8 @@ class PathOptions(PropertyType):
         "files_limit": "FilesLimit",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parameters: Optional[list[PathParameter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     last_modified_date_condition: Optional[FilterExpression] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     files_limit: Optional[FilesLimit] = None
 
 
@@ -520,9 +480,7 @@ class PathParameter(PropertyType):
         "dataset_parameter": "DatasetParameter",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     path_parameter_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dataset_parameter: Optional[DatasetParameter] = None
 
 
@@ -536,11 +494,8 @@ class S3Location(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_owner: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -559,19 +514,12 @@ class Dataset(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     input: Optional[Input] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     format: Optional[Union[str, InputFormat, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     format_options: Optional[FormatOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source: Optional[Union[str, Source, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     path_options: Optional[PathOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -584,7 +532,6 @@ class AllowedStatistics(PropertyType):
         "statistics": "Statistics",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     statistics: Optional[Union[list[str], Ref]] = None
 
 
@@ -597,9 +544,7 @@ class ColumnSelector(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     regex: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -612,9 +557,7 @@ class ColumnStatisticsConfiguration(PropertyType):
         "selectors": "Selectors",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     statistics: Optional[StatisticsConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     selectors: Optional[list[ColumnSelector]] = None
 
 
@@ -626,7 +569,6 @@ class CsvOutputOptions(PropertyType):
         "delimiter": "Delimiter",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     delimiter: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -643,17 +585,11 @@ class DataCatalogOutput(PropertyType):
         "catalog_id": "CatalogId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     overwrite: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_options: Optional[S3TableOutputOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_options: Optional[DatabaseTableOutputOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     catalog_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -667,11 +603,8 @@ class DatabaseOutput(PropertyType):
         "glue_connection_name": "GlueConnectionName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_output_mode: Optional[Union[str, DatabaseOutputMode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_options: Optional[DatabaseTableOutputOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     glue_connection_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -684,9 +617,7 @@ class DatabaseTableOutputOptions(PropertyType):
         "table_name": "TableName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     temp_directory: Optional[S3Location] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -699,9 +630,7 @@ class EntityDetectorConfiguration(PropertyType):
         "allowed_statistics": "AllowedStatistics",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     entity_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allowed_statistics: Optional[AllowedStatistics] = None
 
 
@@ -714,9 +643,7 @@ class JobSample(PropertyType):
         "mode": "Mode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     size: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mode: Optional[Union[str, SampleMode, Ref, GetAtt, Sub]] = None
 
 
@@ -734,19 +661,12 @@ class Output(PropertyType):
         "location": "Location",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     overwrite: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     format: Optional[Union[str, OutputFormat, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_output_files: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compression_format: Optional[Union[str, CompressionFormat, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     partition_columns: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     format_options: Optional[OutputFormatOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     location: Optional[S3Location] = None
 
 
@@ -758,7 +678,6 @@ class OutputFormatOptions(PropertyType):
         "csv": "Csv",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     csv: Optional[CsvOutputOptions] = None
 
 
@@ -772,11 +691,8 @@ class OutputLocation(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_owner: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -791,13 +707,9 @@ class ProfileConfiguration(PropertyType):
         "entity_detector_configuration": "EntityDetectorConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     profile_columns: Optional[list[ColumnSelector]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dataset_statistics_configuration: Optional[StatisticsConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     column_statistics_configurations: Optional[list[ColumnStatisticsConfiguration]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     entity_detector_configuration: Optional[EntityDetectorConfiguration] = None
 
 
@@ -810,9 +722,7 @@ class Recipe(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -826,11 +736,8 @@ class S3Location(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_owner: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -842,7 +749,6 @@ class S3TableOutputOptions(PropertyType):
         "location": "Location",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     location: Optional[S3Location] = None
 
 
@@ -855,9 +761,7 @@ class StatisticOverride(PropertyType):
         "statistic": "Statistic",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parameters: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     statistic: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -870,9 +774,7 @@ class StatisticsConfiguration(PropertyType):
         "overrides": "Overrides",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     included_statistics: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     overrides: Optional[list[StatisticOverride]] = None
 
 
@@ -885,9 +787,7 @@ class ValidationConfiguration(PropertyType):
         "validation_mode": "ValidationMode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ruleset_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     validation_mode: Optional[Union[str, ValidationMode, Ref, GetAtt, Sub]] = None
 
 
@@ -919,45 +819,25 @@ class Job(CloudFormationResource):
         "data_catalog_outputs": "DataCatalogOutputs",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     max_retries: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     project_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     recipe: Optional[Recipe] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     encryption_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     log_subscription: Optional[Union[str, LogSubscription, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     timeout: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     database_outputs: Optional[list[DatabaseOutput]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     output_location: Optional[OutputLocation] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_: Optional[Union[str, JobType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     dataset_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     profile_configuration: Optional[ProfileConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     outputs: Optional[list[Output]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     validation_configurations: Optional[list[ValidationConfiguration]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     job_sample: Optional[JobSample] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     encryption_mode: Optional[Union[str, EncryptionMode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     max_capacity: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     data_catalog_outputs: Optional[list[DataCatalogOutput]] = None
 
 
@@ -971,9 +851,7 @@ class Sample(PropertyType):
         "size": "Size",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, SampleType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     size: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -991,17 +869,11 @@ class Project(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     recipe_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     dataset_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     sample: Optional[Sample] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1015,9 +887,7 @@ class Action(PropertyType):
         "operation": "Operation",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parameters: Optional[RecipeParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     operation: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1031,11 +901,8 @@ class ConditionExpression(PropertyType):
         "target_column": "TargetColumn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     condition: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_column: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1050,13 +917,9 @@ class DataCatalogInputDefinition(PropertyType):
         "catalog_id": "CatalogId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     temp_directory: Optional[S3Location] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     catalog_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1069,9 +932,7 @@ class Input(PropertyType):
         "data_catalog_input_definition": "DataCatalogInputDefinition",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_input_definition: Optional[S3Location] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_catalog_input_definition: Optional[DataCatalogInputDefinition] = None
 
 
@@ -1183,207 +1044,106 @@ class RecipeParameters(PropertyType):
         "source_columns": "SourceColumns",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ignore_case: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pattern_options: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     count: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     order_by_column: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     upper_bound: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     join_keys: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     remove_leading_and_trailing_punctuation: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     step_index: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     group_by_agg_function_options: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     position: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stop_words_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_column: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_characters: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     time_zone: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     remove_leading_and_trailing_quotes: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_column2: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     collapse_consecutive_whitespace: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     num_rows_after: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     remove_letters: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_column1: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     use_new_data_frame: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interval: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lower_bound: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tokenizer_pattern: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     left_columns: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     chars_to_remove: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value1: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     delete_other_rows: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value2: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     category_map: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start_pattern: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start_position: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sheet_indexes: Optional[Union[list[int], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_index: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     remove_source_column: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     date_time_parameters: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     end_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     remove_custom_characters: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     end_position: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pattern: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     delimiter: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     remove_special_characters: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     remove_all_quotes: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     end_pattern: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start_column_index: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mode_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secondary_inputs: Optional[list[SecondaryInput]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sample_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     date_time_format: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     other: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     case_statement: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     false_string: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     remove_all_punctuation: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_stop_words: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     map_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     column_range: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input: Optional[Input] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     step_count: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_date_format: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     second_input: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     group_by_columns: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     num_rows_before: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     is_text: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_column: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     remove_numbers: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     period: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     num_rows: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     right_columns: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stemming_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     units: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sample_size: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_in_split: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aggregate_function: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exponent: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pattern_option2: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     remove_custom_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pattern_option1: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     multi_line: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     true_string: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     remove_leading_and_trailing_whitespace: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hidden_columns: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     remove_all_whitespace: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     view_frame: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     column_data_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     join_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     base: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value_column: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     datasets_columns: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     udf_lang: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_column_names: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     date_add_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     expand_contractions: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     unpivot_column: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     strategy: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sheet_names: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     limit: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     order_by_columns: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_columns: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1396,9 +1156,7 @@ class RecipeStep(PropertyType):
         "condition_expressions": "ConditionExpressions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[Action] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     condition_expressions: Optional[list[ConditionExpression]] = None
 
 
@@ -1411,9 +1169,7 @@ class S3Location(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1426,9 +1182,7 @@ class SecondaryInput(PropertyType):
         "data_catalog_input_definition": "DataCatalogInputDefinition",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_input_definition: Optional[S3Location] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_catalog_input_definition: Optional[DataCatalogInputDefinition] = None
 
 
@@ -1444,13 +1198,9 @@ class Recipe(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     steps: Optional[list[RecipeStep]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1464,9 +1214,7 @@ class ColumnSelector(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     regex: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1483,17 +1231,11 @@ class Rule(PropertyType):
         "threshold": "Threshold",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     column_selectors: Optional[list[ColumnSelector]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     disabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     substitution_map: Optional[list[SubstitutionValue]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     check_expression: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     threshold: Optional[Threshold] = None
 
 
@@ -1506,9 +1248,7 @@ class SubstitutionValue(PropertyType):
         "value_reference": "ValueReference",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value_reference: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1522,11 +1262,8 @@ class Threshold(PropertyType):
         "unit": "Unit",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, ThresholdType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     unit: Optional[Union[str, ThresholdUnit, Ref, GetAtt, Sub]] = None
 
 
@@ -1543,15 +1280,10 @@ class Ruleset(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     target_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     rules: Optional[list[Rule]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1568,13 +1300,9 @@ class Schedule(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     job_names: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     cron_expression: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 

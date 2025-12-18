@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:43
+  Generated: 2025-12-17 21:50:31
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service FMS
@@ -386,9 +386,7 @@ class NotificationChannel(CloudFormationResource):
         "sns_role_name": "SnsRoleName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     sns_topic_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     sns_role_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -402,9 +400,7 @@ class IEMap(PropertyType):
         "orgunit": "ORGUNIT",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     account: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     orgunit: Optional[Union[list[str], Ref]] = None
 
 
@@ -417,9 +413,7 @@ class IcmpTypeCode(PropertyType):
         "code": "Code",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     code: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -431,7 +425,6 @@ class NetworkAclCommonPolicy(PropertyType):
         "network_acl_entry_set": "NetworkAclEntrySet",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_acl_entry_set: Optional[NetworkAclEntrySet] = None
 
 
@@ -449,19 +442,12 @@ class NetworkAclEntry(PropertyType):
         "protocol": "Protocol",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port_range: Optional[PortRange] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     icmp_type_code: Optional[IcmpTypeCode] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rule_action: Optional[Union[str, NetworkAclRuleAction, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cidr_block: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     egress: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ipv6_cidr_block: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     protocol: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -476,13 +462,9 @@ class NetworkAclEntrySet(PropertyType):
         "force_remediate_for_last_entries": "ForceRemediateForLastEntries",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     last_entries: Optional[list[NetworkAclEntry]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     force_remediate_for_first_entries: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     first_entries: Optional[list[NetworkAclEntry]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     force_remediate_for_last_entries: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -494,7 +476,6 @@ class NetworkFirewallPolicy(PropertyType):
         "firewall_deployment_model": "FirewallDeploymentModel",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     firewall_deployment_model: Optional[Union[str, FirewallDeploymentModel, Ref, GetAtt, Sub]] = None
 
 
@@ -508,11 +489,8 @@ class PolicyOption(PropertyType):
         "third_party_firewall_policy": "ThirdPartyFirewallPolicy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_firewall_policy: Optional[NetworkFirewallPolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_acl_common_policy: Optional[NetworkAclCommonPolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     third_party_firewall_policy: Optional[ThirdPartyFirewallPolicy] = None
 
 
@@ -525,9 +503,7 @@ class PolicyTag(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -540,9 +516,7 @@ class PortRange(PropertyType):
         "to": "To",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     from_: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     to: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -555,9 +529,7 @@ class ResourceTag(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -571,11 +543,8 @@ class SecurityServicePolicyData(PropertyType):
         "policy_option": "PolicyOption",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     managed_service_data: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, SecurityServiceType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     policy_option: Optional[PolicyOption] = None
 
 
@@ -587,7 +556,6 @@ class ThirdPartyFirewallPolicy(PropertyType):
         "firewall_deployment_model": "FirewallDeploymentModel",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     firewall_deployment_model: Optional[Union[str, FirewallDeploymentModel, Ref, GetAtt, Sub]] = None
 
 
@@ -614,35 +582,20 @@ class Policy(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_tag_logical_operator: Optional[Union[str, ResourceTagLogicalOperator, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resources_clean_up: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_tags: Optional[list[ResourceTag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     exclude_resource_tags: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_set_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     security_service_policy_data: Optional[SecurityServicePolicyData] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     remediation_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     delete_all_policy_resources: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     exclude_map: Optional[IEMap] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     include_map: Optional[IEMap] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy_description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_type_list: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[PolicyTag]] = None
 
     @property
@@ -671,15 +624,10 @@ class ResourceSet(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_type_list: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resources: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property

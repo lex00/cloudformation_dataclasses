@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:44:04
+  Generated: 2025-12-17 21:50:34
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Shield
@@ -180,9 +180,7 @@ class DRTAccess(CloudFormationResource):
         "role_arn": "RoleArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     log_bucket_list: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -203,11 +201,8 @@ class EmergencyContact(PropertyType):
         "email_address": "EmailAddress",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     contact_notes: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     phone_number: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     email_address: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -221,9 +216,7 @@ class ProactiveEngagement(CloudFormationResource):
         "emergency_contact_list": "EmergencyContactList",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     proactive_engagement_status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     emergency_contact_list: Optional[list[EmergencyContact]] = None
 
     @property
@@ -243,9 +236,7 @@ class Action(PropertyType):
         "count": "Count",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     block: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     count: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
 
@@ -258,9 +249,7 @@ class ApplicationLayerAutomaticResponseConfiguration(PropertyType):
         "action": "Action",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     status: Optional[Union[str, ApplicationLayerAutomaticResponseStatus, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[Action] = None
 
 
@@ -277,15 +266,10 @@ class Protection(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     health_check_arns: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     application_layer_automatic_response_configuration: Optional[ApplicationLayerAutomaticResponseConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -315,17 +299,11 @@ class ProtectionGroup(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     aggregation: Optional[Union[str, ProtectionGroupAggregation, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     pattern: Optional[Union[str, ProtectionGroupPattern, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     protection_group_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_type: Optional[Union[str, ProtectedResourceType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     members: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:44:06
+  Generated: 2025-12-17 21:50:35
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service WorkSpaces
@@ -1039,13 +1039,9 @@ class ConnectionAliasAssociation(PropertyType):
         "association_status": "AssociationStatus",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     associated_account_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connection_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     association_status: Optional[Union[str, AssociationStatus, Ref, GetAtt, Sub]] = None
 
 
@@ -1059,9 +1055,7 @@ class ConnectionAlias(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connection_string: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -1094,15 +1088,10 @@ class WorkspaceProperties(PropertyType):
         "user_volume_size_gib": "UserVolumeSizeGib",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compute_type_name: Optional[Union[str, Compute, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     root_volume_size_gib: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     running_mode: Optional[Union[str, RunningMode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     running_mode_auto_stop_timeout_in_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_volume_size_gib: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1122,21 +1111,13 @@ class Workspace(CloudFormationResource):
         "workspace_properties": "WorkspaceProperties",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     bundle_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     directory_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     root_volume_encryption_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     user_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     user_volume_encryption_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     volume_encryption_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     workspace_properties: Optional[WorkspaceProperties] = None
 
 
@@ -1150,9 +1131,7 @@ class ApplicationSettings(PropertyType):
         "settings_group": "SettingsGroup",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     settings_group: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1164,7 +1143,6 @@ class Capacity(PropertyType):
         "desired_user_sessions": "DesiredUserSessions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     desired_user_sessions: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1178,11 +1156,8 @@ class TimeoutSettings(PropertyType):
         "disconnect_timeout_in_seconds": "DisconnectTimeoutInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_user_duration_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     idle_disconnect_timeout_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     disconnect_timeout_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1202,21 +1177,13 @@ class WorkspacesPool(CloudFormationResource):
         "running_mode": "RunningMode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     application_settings: Optional[ApplicationSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     bundle_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     directory_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     timeout_settings: Optional[TimeoutSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     capacity: Optional[Capacity] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     pool_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     running_mode: Optional[Union[str, PoolsRunningMode, Ref, GetAtt, Sub]] = None
 
     @property

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:34
+  Generated: 2025-12-17 21:50:30
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CloudFormation
@@ -1167,9 +1167,7 @@ class CustomResource(CloudFormationResource):
         "service_token": "ServiceToken",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     service_timeout: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     service_token: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1184,11 +1182,8 @@ class HookTarget(PropertyType):
         "target_name": "TargetName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     invocation_point: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[Union[str, HookTargetAction, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1200,7 +1195,6 @@ class Options(PropertyType):
         "input_params": "InputParams",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input_params: Optional[S3Location] = None
 
 
@@ -1213,9 +1207,7 @@ class S3Location(PropertyType):
         "uri": "Uri",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     version_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1229,11 +1221,8 @@ class StackFilters(PropertyType):
         "stack_roles": "StackRoles",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filtering_criteria: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stack_names: Optional[StackNames] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stack_roles: Optional[StackRoles] = None
 
 
@@ -1246,9 +1235,7 @@ class StackNames(PropertyType):
         "include": "Include",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exclude: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include: Optional[Union[list[str], Ref]] = None
 
 
@@ -1261,9 +1248,7 @@ class StackRoles(PropertyType):
         "include": "Include",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exclude: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include: Optional[Union[list[str], Ref]] = None
 
 
@@ -1278,13 +1263,9 @@ class TargetFilters(PropertyType):
         "invocation_points": "InvocationPoints",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     actions: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_names: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     targets: Optional[list[HookTarget]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     invocation_points: Optional[Union[list[str], Ref]] = None
 
 
@@ -1306,25 +1287,15 @@ class GuardHook(CloudFormationResource):
         "failure_mode": "FailureMode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     options: Optional[Options] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     rule_location: Optional[S3Location] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     hook_status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     alias: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     stack_filters: Optional[StackFilters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     target_operations: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     target_filters: Optional[TargetFilters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     log_bucket: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     execution_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     failure_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1346,11 +1317,8 @@ class HookDefaultVersion(CloudFormationResource):
         "type_version_arn": "TypeVersionArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     version_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_version_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1373,13 +1341,9 @@ class HookTypeConfig(CloudFormationResource):
         "configuration_alias": "ConfigurationAlias",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     configuration: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     configuration_alias: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1399,9 +1363,7 @@ class LoggingConfig(PropertyType):
         "log_role_arn": "LogRoleArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1417,13 +1379,9 @@ class HookVersion(CloudFormationResource):
         "schema_handler_package": "SchemaHandlerPackage",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     execution_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     logging_config: Optional[LoggingConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     schema_handler_package: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1464,11 +1422,8 @@ class HookTarget(PropertyType):
         "target_name": "TargetName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     invocation_point: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[Union[str, HookTargetAction, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1482,11 +1437,8 @@ class StackFilters(PropertyType):
         "stack_roles": "StackRoles",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filtering_criteria: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stack_names: Optional[StackNames] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stack_roles: Optional[StackRoles] = None
 
 
@@ -1499,9 +1451,7 @@ class StackNames(PropertyType):
         "include": "Include",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exclude: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include: Optional[Union[list[str], Ref]] = None
 
 
@@ -1514,9 +1464,7 @@ class StackRoles(PropertyType):
         "include": "Include",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exclude: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include: Optional[Union[list[str], Ref]] = None
 
 
@@ -1531,13 +1479,9 @@ class TargetFilters(PropertyType):
         "invocation_points": "InvocationPoints",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     actions: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_names: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     targets: Optional[list[HookTarget]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     invocation_points: Optional[Union[list[str], Ref]] = None
 
 
@@ -1557,21 +1501,13 @@ class LambdaHook(CloudFormationResource):
         "failure_mode": "FailureMode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     hook_status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     alias: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     stack_filters: Optional[StackFilters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     target_operations: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     target_filters: Optional[TargetFilters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     lambda_function: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     execution_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     failure_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1595,15 +1531,10 @@ class Macro(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     function_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     log_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     log_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1619,11 +1550,8 @@ class ModuleDefaultVersion(CloudFormationResource):
         "arn": "Arn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     version_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     module_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1638,9 +1566,7 @@ class ModuleVersion(CloudFormationResource):
         "module_name": "ModuleName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     module_package: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     module_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1699,15 +1625,10 @@ class PublicTypeVersion(CloudFormationResource):
         "arn": "Arn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     log_delivery_bucket: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     public_version_number: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1738,9 +1659,7 @@ class Publisher(CloudFormationResource):
         "connection_arn": "ConnectionArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     accept_terms_and_conditions: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connection_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1777,11 +1696,8 @@ class ResourceDefaultVersion(CloudFormationResource):
         "type_version_arn": "TypeVersionArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     version_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_version_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1801,9 +1717,7 @@ class LoggingConfig(PropertyType):
         "log_role_arn": "LogRoleArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1819,13 +1733,9 @@ class ResourceVersion(CloudFormationResource):
         "schema_handler_package": "SchemaHandlerPackage",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     execution_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     logging_config: Optional[LoggingConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     schema_handler_package: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1874,15 +1784,10 @@ class Stack(CloudFormationResource):
         "timeout_in_minutes": "TimeoutInMinutes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-prop
     notification_ar_ns: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-prop
     parameters: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-prop
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-prop
     template_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-prop
     timeout_in_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1897,11 +1802,8 @@ class AutoDeployment(PropertyType):
         "retain_stacks_on_account_removal": "RetainStacksOnAccountRemoval",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     depends_on: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retain_stacks_on_account_removal: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1916,13 +1818,9 @@ class DeploymentTargets(PropertyType):
         "organizational_unit_ids": "OrganizationalUnitIds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     account_filter_type: Optional[Union[str, AccountFilterType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     accounts: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     accounts_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     organizational_unit_ids: Optional[Union[list[str], Ref]] = None
 
 
@@ -1934,7 +1832,6 @@ class ManagedExecution(PropertyType):
         "active": "Active",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     active: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1952,19 +1849,12 @@ class OperationPreferences(PropertyType):
         "region_order": "RegionOrder",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_concurrent_percentage: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     region_concurrency_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_concurrent_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failure_tolerance_percentage: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     concurrency_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failure_tolerance_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     region_order: Optional[Union[list[str], Ref]] = None
 
 
@@ -1977,9 +1867,7 @@ class Parameter(PropertyType):
         "parameter_key": "ParameterKey",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parameter_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parameter_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1993,11 +1881,8 @@ class StackInstances(PropertyType):
         "regions": "Regions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parameter_overrides: Optional[list[Parameter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     deployment_targets: Optional[DeploymentTargets] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     regions: Optional[Union[list[str], Ref]] = None
 
 
@@ -2024,35 +1909,20 @@ class StackSet(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     parameters: Optional[list[Parameter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     stack_instances_group: Optional[list[StackInstances]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     template_body: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     stack_set_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     call_as: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     operation_preferences: Optional[OperationPreferences] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     template_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auto_deployment: Optional[AutoDeployment] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     capabilities: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     permission_model: Optional[Union[str, PermissionModels, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     administration_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     execution_role_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     managed_execution: Optional[ManagedExecution] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -2072,9 +1942,7 @@ class LoggingConfig(PropertyType):
         "log_role_arn": "LogRoleArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2096,25 +1964,15 @@ class TypeActivation(CloudFormationResource):
         "type_name_alias": "TypeNameAlias",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     major_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     execution_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     public_type_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auto_update: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     logging_config: Optional[LoggingConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     publisher_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     version_bump: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_name_alias: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -2136,11 +1994,8 @@ class WaitCondition(CloudFormationResource):
         "timeout": "Timeout",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-prop
     count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-prop
     handle: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-prop
     timeout: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property

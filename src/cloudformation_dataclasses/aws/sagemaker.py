@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:44:02
+  Generated: 2025-12-17 21:50:34
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SageMaker
@@ -6590,13 +6590,9 @@ class ResourceSpec(PropertyType):
         "sage_maker_image_version_arn": "SageMakerImageVersionArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lifecycle_config_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sage_maker_image_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_type: Optional[Union[str, AppInstanceType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sage_maker_image_version_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -6615,19 +6611,12 @@ class App(CloudFormationResource):
         "app_name": "AppName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     recovery_mode: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_spec: Optional[ResourceSpec] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     app_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     user_profile_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     app_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -6651,7 +6640,6 @@ class CodeEditorAppImageConfig(PropertyType):
         "container_config": "ContainerConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     container_config: Optional[ContainerConfig] = None
 
 
@@ -6665,11 +6653,8 @@ class ContainerConfig(PropertyType):
         "container_arguments": "ContainerArguments",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     container_entrypoint: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     container_environment_variables: Optional[list[CustomImageContainerEnvironmentVariable]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     container_arguments: Optional[Union[list[str], Ref]] = None
 
 
@@ -6682,9 +6667,7 @@ class CustomImageContainerEnvironmentVariable(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -6698,11 +6681,8 @@ class FileSystemConfig(PropertyType):
         "default_uid": "DefaultUid",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mount_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_gid: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_uid: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -6714,7 +6694,6 @@ class JupyterLabAppImageConfig(PropertyType):
         "container_config": "ContainerConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     container_config: Optional[ContainerConfig] = None
 
 
@@ -6727,9 +6706,7 @@ class KernelGatewayImageConfig(PropertyType):
         "file_system_config": "FileSystemConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kernel_specs: Optional[list[KernelSpec]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file_system_config: Optional[FileSystemConfig] = None
 
 
@@ -6742,9 +6719,7 @@ class KernelSpec(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     display_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -6761,15 +6736,10 @@ class AppImageConfig(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kernel_gateway_image_config: Optional[KernelGatewayImageConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     code_editor_app_image_config: Optional[CodeEditorAppImageConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     app_image_config_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     jupyter_lab_app_image_config: Optional[JupyterLabAppImageConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -6788,7 +6758,6 @@ class AlarmDetails(PropertyType):
         "alarm_name": "AlarmName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     alarm_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -6801,9 +6770,7 @@ class CapacitySizeConfig(PropertyType):
         "value": "Value",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, NodeUnavailabilityType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -6816,9 +6783,7 @@ class ClusterAutoScalingConfig(PropertyType):
         "auto_scaler_type": "AutoScalerType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mode: Optional[Union[str, ClusterAutoScalingMode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auto_scaler_type: Optional[Union[str, ClusterAutoScalerType, Ref, GetAtt, Sub]] = None
 
 
@@ -6831,9 +6796,7 @@ class ClusterCapacityRequirements(PropertyType):
         "on_demand": "OnDemand",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     spot: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     on_demand: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
 
@@ -6847,11 +6810,8 @@ class ClusterEbsVolumeConfig(PropertyType):
         "root_volume": "RootVolume",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volume_size_in_gb: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volume_kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     root_volume: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -6877,35 +6837,20 @@ class ClusterInstanceGroup(PropertyType):
         "execution_role": "ExecutionRole",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity_requirements: Optional[ClusterCapacityRequirements] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_storage_configs: Optional[list[ClusterInstanceStorageConfig]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kubernetes_config: Optional[ClusterKubernetesConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     life_cycle_config: Optional[ClusterLifeCycleConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     training_plan_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     threads_per_core: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     override_vpc_config: Optional[VpcConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     on_start_deep_health_checks: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     current_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scheduled_update_config: Optional[ScheduledUpdateConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     execution_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -6917,7 +6862,6 @@ class ClusterInstanceStorageConfig(PropertyType):
         "ebs_volume_config": "EbsVolumeConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ebs_volume_config: Optional[ClusterEbsVolumeConfig] = None
 
 
@@ -6930,9 +6874,7 @@ class ClusterKubernetesConfig(PropertyType):
         "taints": "Taints",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     labels: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     taints: Optional[list[ClusterKubernetesTaint]] = None
 
 
@@ -6946,11 +6888,8 @@ class ClusterKubernetesTaint(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     effect: Optional[Union[str, ClusterKubernetesTaintEffect, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -6963,9 +6902,7 @@ class ClusterLifeCycleConfig(PropertyType):
         "on_create": "OnCreate",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     on_create: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -6977,7 +6914,6 @@ class ClusterOrchestratorEksConfig(PropertyType):
         "cluster_arn": "ClusterArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cluster_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -6999,27 +6935,16 @@ class ClusterRestrictedInstanceGroup(PropertyType):
         "execution_role": "ExecutionRole",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     override_vpc_config: Optional[VpcConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     on_start_deep_health_checks: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     environment_config: Optional[EnvironmentConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_storage_configs: Optional[list[ClusterInstanceStorageConfig]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     current_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     training_plan_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     threads_per_core: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     execution_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -7033,11 +6958,8 @@ class DeploymentConfig(PropertyType):
         "wait_interval_in_seconds": "WaitIntervalInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auto_rollback_configuration: Optional[list[AlarmDetails]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rolling_update_policy: Optional[RollingUpdatePolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     wait_interval_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -7049,7 +6971,6 @@ class EnvironmentConfig(PropertyType):
         "f_sx_lustre_config": "FSxLustreConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     f_sx_lustre_config: Optional[FSxLustreConfig] = None
 
 
@@ -7062,9 +6983,7 @@ class FSxLustreConfig(PropertyType):
         "per_unit_storage_throughput": "PerUnitStorageThroughput",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     size_in_gi_b: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     per_unit_storage_throughput: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -7076,7 +6995,6 @@ class Orchestrator(PropertyType):
         "eks": "Eks",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     eks: Optional[ClusterOrchestratorEksConfig] = None
 
 
@@ -7089,9 +7007,7 @@ class RollingUpdatePolicy(PropertyType):
         "rollback_maximum_batch_size": "RollbackMaximumBatchSize",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maximum_batch_size: Optional[CapacitySizeConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rollback_maximum_batch_size: Optional[CapacitySizeConfig] = None
 
 
@@ -7104,9 +7020,7 @@ class ScheduledUpdateConfig(PropertyType):
         "deployment_config": "DeploymentConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     schedule_expression: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     deployment_config: Optional[DeploymentConfig] = None
 
 
@@ -7119,9 +7033,7 @@ class TieredStorageConfig(PropertyType):
         "instance_memory_allocation_percentage": "InstanceMemoryAllocationPercentage",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_memory_allocation_percentage: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -7134,9 +7046,7 @@ class VpcConfig(PropertyType):
         "subnets": "Subnets",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_group_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnets: Optional[Union[list[str], Ref]] = None
 
 
@@ -7159,27 +7069,16 @@ class Cluster(CloudFormationResource):
         "tiered_storage_config": "TieredStorageConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_config: Optional[VpcConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     node_recovery: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     node_provisioning_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     instance_groups: Optional[list[ClusterInstanceGroup]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     restricted_instance_groups: Optional[list[ClusterRestrictedInstanceGroup]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     cluster_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     orchestrator: Optional[Orchestrator] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auto_scaling: Optional[ClusterAutoScalingConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     cluster_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tiered_storage_config: Optional[TieredStorageConfig] = None
 
     @property
@@ -7215,11 +7114,8 @@ class GitConfig(PropertyType):
         "repository_url": "RepositoryUrl",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     branch: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     repository_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -7234,11 +7130,8 @@ class CodeRepository(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     code_repository_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     git_config: Optional[GitConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -7262,17 +7155,11 @@ class BatchTransformInput(PropertyType):
         "exclude_features_attribute": "ExcludeFeaturesAttribute",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dataset_format: Optional[DatasetFormat] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_data_distribution_type: Optional[Union[str, ProcessingS3DataDistributionType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_captured_destination_s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_input_mode: Optional[Union[str, ProcessingS3InputMode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     local_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exclude_features_attribute: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -7287,13 +7174,9 @@ class ClusterConfig(PropertyType):
         "instance_type": "InstanceType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volume_size_in_gb: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volume_kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -7305,7 +7188,6 @@ class ConstraintsResource(PropertyType):
         "s3_uri": "S3Uri",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -7317,7 +7199,6 @@ class Csv(PropertyType):
         "header": "Header",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -7334,17 +7215,11 @@ class DataQualityAppSpecification(PropertyType):
         "container_arguments": "ContainerArguments",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     container_entrypoint: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     post_analytics_processor_source_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     record_preprocessor_source_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     environment: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     container_arguments: Optional[Union[list[str], Ref]] = None
 
 
@@ -7358,11 +7233,8 @@ class DataQualityBaselineConfig(PropertyType):
         "baselining_job_name": "BaseliningJobName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     statistics_resource: Optional[StatisticsResource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     constraints_resource: Optional[ConstraintsResource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     baselining_job_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -7375,9 +7247,7 @@ class DataQualityJobInput(PropertyType):
         "endpoint_input": "EndpointInput",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     batch_transform_input: Optional[BatchTransformInput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoint_input: Optional[EndpointInput] = None
 
 
@@ -7391,11 +7261,8 @@ class DatasetFormat(PropertyType):
         "json": "Json",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parquet: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     csv: Optional[Csv] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     json: Optional[Json] = None
 
 
@@ -7411,15 +7278,10 @@ class EndpointInput(PropertyType):
         "exclude_features_attribute": "ExcludeFeaturesAttribute",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_data_distribution_type: Optional[Union[str, ProcessingS3DataDistributionType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoint_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_input_mode: Optional[Union[str, ProcessingS3InputMode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     local_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exclude_features_attribute: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -7431,7 +7293,6 @@ class Json(PropertyType):
         "line": "Line",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     line: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -7443,7 +7304,6 @@ class MonitoringOutput(PropertyType):
         "s3_output": "S3Output",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_output: Optional[S3Output] = None
 
 
@@ -7456,9 +7316,7 @@ class MonitoringOutputConfig(PropertyType):
         "monitoring_outputs": "MonitoringOutputs",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     monitoring_outputs: Optional[list[MonitoringOutput]] = None
 
 
@@ -7470,7 +7328,6 @@ class MonitoringResources(PropertyType):
         "cluster_config": "ClusterConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cluster_config: Optional[ClusterConfig] = None
 
 
@@ -7484,11 +7341,8 @@ class NetworkConfig(PropertyType):
         "vpc_config": "VpcConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_network_isolation: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_inter_container_traffic_encryption: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_config: Optional[VpcConfig] = None
 
 
@@ -7502,11 +7356,8 @@ class S3Output(PropertyType):
         "s3_upload_mode": "S3UploadMode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     local_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_upload_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -7518,7 +7369,6 @@ class StatisticsResource(PropertyType):
         "s3_uri": "S3Uri",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -7530,7 +7380,6 @@ class StoppingCondition(PropertyType):
         "max_runtime_in_seconds": "MaxRuntimeInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_runtime_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -7543,9 +7392,7 @@ class VpcConfig(PropertyType):
         "security_group_ids": "SecurityGroupIds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnets: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_group_ids: Optional[Union[list[str], Ref]] = None
 
 
@@ -7568,27 +7415,16 @@ class DataQualityJobDefinition(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     data_quality_job_input: Optional[DataQualityJobInput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     data_quality_app_specification: Optional[DataQualityAppSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     endpoint_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     stopping_condition: Optional[StoppingCondition] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     job_definition_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     job_resources: Optional[MonitoringResources] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     network_config: Optional[NetworkConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     data_quality_job_output_config: Optional[MonitoringOutputConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     data_quality_baseline_config: Optional[DataQualityBaselineConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -7614,11 +7450,8 @@ class Device(PropertyType):
         "device_name": "DeviceName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     iot_thing_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     device_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -7633,11 +7466,8 @@ class Device(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     device_fleet_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     device: Optional[Device] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
 
@@ -7651,9 +7481,7 @@ class EdgeOutputConfig(PropertyType):
         "s3_output_location": "S3OutputLocation",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_output_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -7670,15 +7498,10 @@ class DeviceFleet(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     device_fleet_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     output_config: Optional[EdgeOutputConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
 
@@ -7691,7 +7514,6 @@ class AppLifecycleManagement(PropertyType):
         "idle_settings": "IdleSettings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     idle_settings: Optional[IdleSettings] = None
 
 
@@ -7707,15 +7529,10 @@ class CodeEditorAppSettings(PropertyType):
         "app_lifecycle_management": "AppLifecycleManagement",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_images: Optional[list[CustomImage]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_resource_spec: Optional[ResourceSpec] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lifecycle_config_arns: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     built_in_lifecycle_config_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     app_lifecycle_management: Optional[AppLifecycleManagement] = None
 
 
@@ -7727,7 +7544,6 @@ class CodeRepository(PropertyType):
         "repository_url": "RepositoryUrl",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     repository_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -7741,11 +7557,8 @@ class CustomFileSystemConfig(PropertyType):
         "f_sx_lustre_file_system_config": "FSxLustreFileSystemConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     efs_file_system_config: Optional[EFSFileSystemConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_file_system_config: Optional[S3FileSystemConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     f_sx_lustre_file_system_config: Optional[FSxLustreFileSystemConfig] = None
 
 
@@ -7759,11 +7572,8 @@ class CustomImage(PropertyType):
         "image_version_number": "ImageVersionNumber",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     app_image_config_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_version_number: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -7776,9 +7586,7 @@ class CustomPosixUserConfig(PropertyType):
         "gid": "Gid",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     uid: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     gid: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -7791,9 +7599,7 @@ class DefaultEbsStorageSettings(PropertyType):
         "default_ebs_volume_size_in_gb": "DefaultEbsVolumeSizeInGb",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maximum_ebs_volume_size_in_gb: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_ebs_volume_size_in_gb: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -7812,21 +7618,13 @@ class DefaultSpaceSettings(PropertyType):
         "custom_posix_user_config": "CustomPosixUserConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_groups: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     jupyter_lab_app_settings: Optional[JupyterLabAppSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kernel_gateway_app_settings: Optional[KernelGatewayAppSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     jupyter_server_app_settings: Optional[JupyterServerAppSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_file_system_configs: Optional[list[CustomFileSystemConfig]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     execution_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     space_storage_settings: Optional[DefaultSpaceStorageSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_posix_user_config: Optional[CustomPosixUserConfig] = None
 
 
@@ -7838,7 +7636,6 @@ class DefaultSpaceStorageSettings(PropertyType):
         "default_ebs_storage_settings": "DefaultEbsStorageSettings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_ebs_storage_settings: Optional[DefaultEbsStorageSettings] = None
 
 
@@ -7851,9 +7648,7 @@ class DockerSettings(PropertyType):
         "enable_docker_access": "EnableDockerAccess",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_only_trusted_accounts: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_docker_access: Optional[Union[str, FeatureStatus, Ref, GetAtt, Sub]] = None
 
 
@@ -7870,17 +7665,11 @@ class DomainSettings(PropertyType):
         "security_group_ids": "SecurityGroupIds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     docker_settings: Optional[DockerSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ip_address_type: Optional[Union[str, IPAddressType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     execution_role_identity_config: Optional[Union[str, ExecutionRoleIdentityConfig, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     unified_studio_settings: Optional[UnifiedStudioSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     r_studio_server_pro_domain_settings: Optional[RStudioServerProDomainSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_group_ids: Optional[Union[list[str], Ref]] = None
 
 
@@ -7893,9 +7682,7 @@ class EFSFileSystemConfig(PropertyType):
         "file_system_id": "FileSystemId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file_system_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file_system_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -7908,9 +7695,7 @@ class FSxLustreFileSystemConfig(PropertyType):
         "file_system_id": "FileSystemId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file_system_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file_system_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -7923,9 +7708,7 @@ class HiddenSageMakerImage(PropertyType):
         "version_aliases": "VersionAliases",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sage_maker_image_name: Optional[Union[str, SageMakerImageName, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     version_aliases: Optional[Union[list[str], Ref]] = None
 
 
@@ -7940,13 +7723,9 @@ class IdleSettings(PropertyType):
         "lifecycle_management": "LifecycleManagement",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_idle_timeout_in_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     idle_timeout_in_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min_idle_timeout_in_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lifecycle_management: Optional[Union[str, LifecycleManagement, Ref, GetAtt, Sub]] = None
 
 
@@ -7963,17 +7742,11 @@ class JupyterLabAppSettings(PropertyType):
         "app_lifecycle_management": "AppLifecycleManagement",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_images: Optional[list[CustomImage]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_resource_spec: Optional[ResourceSpec] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lifecycle_config_arns: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     built_in_lifecycle_config_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     code_repositories: Optional[list[CodeRepository]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     app_lifecycle_management: Optional[AppLifecycleManagement] = None
 
 
@@ -7986,9 +7759,7 @@ class JupyterServerAppSettings(PropertyType):
         "lifecycle_config_arns": "LifecycleConfigArns",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_resource_spec: Optional[ResourceSpec] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lifecycle_config_arns: Optional[Union[list[str], Ref]] = None
 
 
@@ -8002,11 +7773,8 @@ class KernelGatewayAppSettings(PropertyType):
         "lifecycle_config_arns": "LifecycleConfigArns",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_images: Optional[list[CustomImage]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_resource_spec: Optional[ResourceSpec] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lifecycle_config_arns: Optional[Union[list[str], Ref]] = None
 
 
@@ -8019,9 +7787,7 @@ class RSessionAppSettings(PropertyType):
         "default_resource_spec": "DefaultResourceSpec",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_images: Optional[list[CustomImage]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_resource_spec: Optional[ResourceSpec] = None
 
 
@@ -8034,9 +7800,7 @@ class RStudioServerProAppSettings(PropertyType):
         "user_group": "UserGroup",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     access_status: Optional[Union[str, RStudioServerProAccessStatus, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_group: Optional[Union[str, RStudioServerProUserGroup, Ref, GetAtt, Sub]] = None
 
 
@@ -8051,13 +7815,9 @@ class RStudioServerProDomainSettings(PropertyType):
         "r_studio_package_manager_url": "RStudioPackageManagerUrl",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     domain_execution_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     r_studio_connect_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_resource_spec: Optional[ResourceSpec] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     r_studio_package_manager_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -8072,13 +7832,9 @@ class ResourceSpec(PropertyType):
         "sage_maker_image_version_arn": "SageMakerImageVersionArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sage_maker_image_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_type: Optional[Union[str, AppInstanceType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lifecycle_config_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sage_maker_image_version_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -8091,9 +7847,7 @@ class S3FileSystemConfig(PropertyType):
         "s3_uri": "S3Uri",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mount_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -8107,11 +7861,8 @@ class SharingSettings(PropertyType):
         "s3_output_path": "S3OutputPath",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     notebook_output_option: Optional[Union[str, NotebookOutputOption, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_output_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -8126,13 +7877,9 @@ class StudioWebPortalSettings(PropertyType):
         "hidden_ml_tools": "HiddenMlTools",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hidden_sage_maker_image_version_aliases: Optional[list[HiddenSageMakerImage]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hidden_app_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hidden_instance_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hidden_ml_tools: Optional[Union[list[str], Ref]] = None
 
 
@@ -8150,19 +7897,12 @@ class UnifiedStudioSettings(PropertyType):
         "studio_web_portal_access": "StudioWebPortalAccess",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     environment_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     domain_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     project_s3_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     domain_account_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     project_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     domain_region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     studio_web_portal_access: Optional[Union[str, FeatureStatus, Ref, GetAtt, Sub]] = None
 
 
@@ -8189,37 +7929,21 @@ class UserSettings(PropertyType):
         "sharing_settings": "SharingSettings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_groups: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     jupyter_lab_app_settings: Optional[JupyterLabAppSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kernel_gateway_app_settings: Optional[KernelGatewayAppSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     studio_web_portal_settings: Optional[StudioWebPortalSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_file_system_configs: Optional[list[CustomFileSystemConfig]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_posix_user_config: Optional[CustomPosixUserConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     code_editor_app_settings: Optional[CodeEditorAppSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     r_studio_server_pro_app_settings: Optional[RStudioServerProAppSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     studio_web_portal: Optional[Union[str, StudioWebPortal, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     r_session_app_settings: Optional[RSessionAppSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     jupyter_server_app_settings: Optional[JupyterServerAppSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auto_mount_home_efs: Optional[Union[str, AutoMountHomeEFS, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_landing_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     execution_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     space_storage_settings: Optional[DefaultSpaceStorageSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sharing_settings: Optional[SharingSettings] = None
 
 
@@ -8243,29 +7967,17 @@ class Domain(CloudFormationResource):
         "tag_propagation": "TagPropagation",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     app_network_access_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     default_space_settings: Optional[DefaultSpaceSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     app_security_group_management: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     default_user_settings: Optional[UserSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     subnet_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auth_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_settings: Optional[DomainSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tag_propagation: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -8314,7 +8026,6 @@ class Alarm(PropertyType):
         "alarm_name": "AlarmName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     alarm_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -8326,7 +8037,6 @@ class AutoRollbackConfig(PropertyType):
         "alarms": "Alarms",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     alarms: Optional[list[Alarm]] = None
 
 
@@ -8340,11 +8050,8 @@ class BlueGreenUpdatePolicy(PropertyType):
         "traffic_routing_configuration": "TrafficRoutingConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maximum_execution_timeout_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     termination_wait_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     traffic_routing_configuration: Optional[TrafficRoutingConfig] = None
 
 
@@ -8357,9 +8064,7 @@ class CapacitySize(PropertyType):
         "value": "Value",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, CapacitySizeType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -8373,11 +8078,8 @@ class DeploymentConfig(PropertyType):
         "blue_green_update_policy": "BlueGreenUpdatePolicy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auto_rollback_configuration: Optional[AutoRollbackConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rolling_update_policy: Optional[RollingUpdatePolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     blue_green_update_policy: Optional[BlueGreenUpdatePolicy] = None
 
 
@@ -8392,13 +8094,9 @@ class RollingUpdatePolicy(PropertyType):
         "rollback_maximum_batch_size": "RollbackMaximumBatchSize",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maximum_execution_timeout_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maximum_batch_size: Optional[CapacitySize] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     wait_interval_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rollback_maximum_batch_size: Optional[CapacitySize] = None
 
 
@@ -8413,13 +8111,9 @@ class TrafficRoutingConfig(PropertyType):
         "wait_interval_in_seconds": "WaitIntervalInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, TrafficRoutingConfigType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     linear_step_size: Optional[CapacitySize] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     canary_size: Optional[CapacitySize] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     wait_interval_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -8431,7 +8125,6 @@ class VariantProperty(PropertyType):
         "variant_property_type": "VariantPropertyType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     variant_property_type: Optional[Union[str, VariantPropertyType, Ref, GetAtt, Sub]] = None
 
 
@@ -8450,19 +8143,12 @@ class Endpoint(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     retain_all_variant_properties: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     endpoint_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     exclude_retained_variant_properties: Optional[list[VariantProperty]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     endpoint_config_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     deployment_config: Optional[DeploymentConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     retain_deployment_config: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -8481,7 +8167,6 @@ class AsyncInferenceClientConfig(PropertyType):
         "max_concurrent_invocations_per_instance": "MaxConcurrentInvocationsPerInstance",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_concurrent_invocations_per_instance: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -8494,9 +8179,7 @@ class AsyncInferenceConfig(PropertyType):
         "client_config": "ClientConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     output_config: Optional[AsyncInferenceOutputConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_config: Optional[AsyncInferenceClientConfig] = None
 
 
@@ -8510,11 +8193,8 @@ class AsyncInferenceNotificationConfig(PropertyType):
         "error_topic": "ErrorTopic",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_inference_response_in: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     success_topic: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     error_topic: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -8529,13 +8209,9 @@ class AsyncInferenceOutputConfig(PropertyType):
         "s3_failure_path": "S3FailurePath",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     notification_config: Optional[AsyncInferenceNotificationConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_output_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_failure_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -8548,9 +8224,7 @@ class CapacityReservationConfig(PropertyType):
         "capacity_reservation_preference": "CapacityReservationPreference",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ml_reservation_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity_reservation_preference: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -8563,9 +8237,7 @@ class CaptureContentTypeHeader(PropertyType):
         "csv_content_types": "CsvContentTypes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     json_content_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     csv_content_types: Optional[Union[list[str], Ref]] = None
 
 
@@ -8577,7 +8249,6 @@ class CaptureOption(PropertyType):
         "capture_mode": "CaptureMode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capture_mode: Optional[Union[str, CaptureMode, Ref, GetAtt, Sub]] = None
 
 
@@ -8591,11 +8262,8 @@ class ClarifyExplainerConfig(PropertyType):
         "shap_config": "ShapConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     inference_config: Optional[ClarifyInferenceConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_explanations: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     shap_config: Optional[ClarifyShapConfig] = None
 
 
@@ -8631,27 +8299,16 @@ class ClarifyInferenceConfig(PropertyType):
         "max_record_count": "MaxRecordCount",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     content_template: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     label_headers: Optional[list[ClarifyHeader]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_payload_in_mb: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     probability_index: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     label_attribute: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     feature_types: Optional[list[ClarifyFeatureType]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     feature_headers: Optional[list[ClarifyHeader]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     label_index: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     probability_attribute: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     features_attribute: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_record_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -8665,11 +8322,8 @@ class ClarifyShapBaselineConfig(PropertyType):
         "mime_type": "MimeType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     shap_baseline: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     shap_baseline_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mime_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -8685,15 +8339,10 @@ class ClarifyShapConfig(PropertyType):
         "number_of_samples": "NumberOfSamples",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_config: Optional[ClarifyTextConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     use_logit: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     seed: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     shap_baseline_config: Optional[ClarifyShapBaselineConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     number_of_samples: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -8706,9 +8355,7 @@ class ClarifyTextConfig(PropertyType):
         "granularity": "Granularity",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     language: Optional[Union[str, ClarifyTextLanguage, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     granularity: Optional[Union[str, ClarifyTextGranularity, Ref, GetAtt, Sub]] = None
 
 
@@ -8725,17 +8372,11 @@ class DataCaptureConfig(PropertyType):
         "enable_capture": "EnableCapture",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capture_options: Optional[list[CaptureOption]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     initial_sampling_percentage: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capture_content_type_header: Optional[CaptureContentTypeHeader] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_capture: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -8747,7 +8388,6 @@ class ExplainerConfig(PropertyType):
         "clarify_explainer_config": "ClarifyExplainerConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     clarify_explainer_config: Optional[ClarifyExplainerConfig] = None
 
 
@@ -8761,11 +8401,8 @@ class ManagedInstanceScaling(PropertyType):
         "min_instance_count": "MinInstanceCount",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_instance_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min_instance_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -8790,33 +8427,19 @@ class ProductionVariant(PropertyType):
         "instance_type": "InstanceType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     managed_instance_scaling: Optional[ManagedInstanceScaling] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volume_size_in_gb: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_ssm_access: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     variant_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     initial_instance_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     routing_config: Optional[RoutingConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     initial_variant_weight: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_data_download_timeout_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity_reservation_config: Optional[CapacityReservationConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     inference_ami_version: Optional[Union[str, ProductionVariantInferenceAmiVersion, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     container_startup_health_check_timeout_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     serverless_config: Optional[ServerlessConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_type: Optional[Union[str, ProductionVariantInstanceType, Ref, GetAtt, Sub]] = None
 
 
@@ -8828,7 +8451,6 @@ class RoutingConfig(PropertyType):
         "routing_strategy": "RoutingStrategy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     routing_strategy: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -8842,11 +8464,8 @@ class ServerlessConfig(PropertyType):
         "provisioned_concurrency": "ProvisionedConcurrency",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_concurrency: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     memory_size_in_mb: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     provisioned_concurrency: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -8859,9 +8478,7 @@ class VpcConfig(PropertyType):
         "security_group_ids": "SecurityGroupIds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnets: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_group_ids: Optional[Union[list[str], Ref]] = None
 
 
@@ -8884,27 +8501,16 @@ class EndpointConfig(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     shadow_production_variants: Optional[list[ProductionVariant]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     data_capture_config: Optional[DataCaptureConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     execution_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     enable_network_isolation: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     production_variants: Optional[list[ProductionVariant]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     async_inference_config: Optional[AsyncInferenceConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_config: Optional[VpcConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     endpoint_config_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     explainer_config: Optional[ExplainerConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -8925,11 +8531,8 @@ class DataCatalogConfig(PropertyType):
         "catalog": "Catalog",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     catalog: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -8942,9 +8545,7 @@ class FeatureDefinition(PropertyType):
         "feature_name": "FeatureName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     feature_type: Optional[Union[str, FeatureType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     feature_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -8959,13 +8560,9 @@ class OfflineStoreConfig(PropertyType):
         "table_format": "TableFormat",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_catalog_config: Optional[DataCatalogConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_storage_config: Optional[S3StorageConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     disable_glue_table_creation: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_format: Optional[Union[str, TableFormat, Ref, GetAtt, Sub]] = None
 
 
@@ -8980,13 +8577,9 @@ class OnlineStoreConfig(PropertyType):
         "ttl_duration": "TtlDuration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_online_store: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     storage_type: Optional[Union[str, StorageType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_config: Optional[OnlineStoreSecurityConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ttl_duration: Optional[TtlDuration] = None
 
 
@@ -8998,7 +8591,6 @@ class OnlineStoreSecurityConfig(PropertyType):
         "kms_key_id": "KmsKeyId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -9011,9 +8603,7 @@ class S3StorageConfig(PropertyType):
         "s3_uri": "S3Uri",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -9027,11 +8617,8 @@ class ThroughputConfig(PropertyType):
         "throughput_mode": "ThroughputMode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     provisioned_read_capacity_units: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     provisioned_write_capacity_units: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     throughput_mode: Optional[Union[str, ThroughputMode, Ref, GetAtt, Sub]] = None
 
 
@@ -9044,9 +8631,7 @@ class TtlDuration(PropertyType):
         "unit": "Unit",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     unit: Optional[Union[str, TtlDurationUnit, Ref, GetAtt, Sub]] = None
 
 
@@ -9068,25 +8653,15 @@ class FeatureGroup(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     throughput_config: Optional[ThroughputConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     offline_store_config: Optional[OfflineStoreConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     feature_definitions: Optional[list[FeatureDefinition]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     record_identifier_feature_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     event_time_feature_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     feature_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     online_store_config: Optional[OnlineStoreConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -9115,15 +8690,10 @@ class Image(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     image_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     image_display_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     image_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     image_description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -9153,27 +8723,16 @@ class ImageVersion(CloudFormationResource):
         "base_image": "BaseImage",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     image_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     horovod: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     processor: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     job_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     alias: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     programming_lang: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vendor_guidance: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ml_framework: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     aliases: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     release_notes: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     base_image: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -9207,7 +8766,6 @@ class Alarm(PropertyType):
         "alarm_name": "AlarmName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     alarm_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -9219,7 +8777,6 @@ class AutoRollbackConfiguration(PropertyType):
         "alarms": "Alarms",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     alarms: Optional[list[Alarm]] = None
 
 
@@ -9233,11 +8790,8 @@ class DeployedImage(PropertyType):
         "resolved_image": "ResolvedImage",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resolution_time: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     specified_image: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resolved_image: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -9250,9 +8804,7 @@ class InferenceComponentCapacitySize(PropertyType):
         "value": "Value",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, InferenceComponentCapacitySizeType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -9267,13 +8819,9 @@ class InferenceComponentComputeResourceRequirements(PropertyType):
         "number_of_cpu_cores_required": "NumberOfCpuCoresRequired",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     number_of_accelerator_devices_required: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_memory_required_in_mb: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min_memory_required_in_mb: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     number_of_cpu_cores_required: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -9288,13 +8836,9 @@ class InferenceComponentContainerSpecification(PropertyType):
         "image": "Image",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     artifact_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     environment: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     deployed_image: Optional[DeployedImage] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -9307,9 +8851,7 @@ class InferenceComponentDeploymentConfig(PropertyType):
         "rolling_update_policy": "RollingUpdatePolicy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auto_rollback_configuration: Optional[AutoRollbackConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rolling_update_policy: Optional[InferenceComponentRollingUpdatePolicy] = None
 
 
@@ -9324,13 +8866,9 @@ class InferenceComponentRollingUpdatePolicy(PropertyType):
         "rollback_maximum_batch_size": "RollbackMaximumBatchSize",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maximum_execution_timeout_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maximum_batch_size: Optional[InferenceComponentCapacitySize] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     wait_interval_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rollback_maximum_batch_size: Optional[InferenceComponentCapacitySize] = None
 
 
@@ -9344,11 +8882,8 @@ class InferenceComponentRuntimeConfig(PropertyType):
         "copy_count": "CopyCount",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     current_copy_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     desired_copy_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     copy_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -9364,15 +8899,10 @@ class InferenceComponentSpecification(PropertyType):
         "startup_parameters": "StartupParameters",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     container: Optional[InferenceComponentContainerSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compute_resource_requirements: Optional[InferenceComponentComputeResourceRequirements] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     base_inference_component_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     startup_parameters: Optional[InferenceComponentStartupParameters] = None
 
 
@@ -9385,9 +8915,7 @@ class InferenceComponentStartupParameters(PropertyType):
         "container_startup_health_check_timeout_in_seconds": "ContainerStartupHealthCheckTimeoutInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_data_download_timeout_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     container_startup_health_check_timeout_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -9407,21 +8935,13 @@ class InferenceComponent(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     endpoint_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     variant_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     inference_component_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     specification: Optional[InferenceComponentSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     runtime_config: Optional[InferenceComponentRuntimeConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     deployment_config: Optional[InferenceComponentDeploymentConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     endpoint_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -9491,9 +9011,7 @@ class CaptureContentTypeHeader(PropertyType):
         "csv_content_types": "CsvContentTypes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     json_content_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     csv_content_types: Optional[Union[list[str], Ref]] = None
 
 
@@ -9507,11 +9025,8 @@ class DataStorageConfig(PropertyType):
         "kms_key": "KmsKey",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     content_type: Optional[CaptureContentTypeHeader] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -9525,11 +9040,8 @@ class EndpointMetadata(PropertyType):
         "endpoint_config_name": "EndpointConfigName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoint_status: Optional[Union[str, EndpointStatus, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoint_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoint_config_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -9542,9 +9054,7 @@ class InferenceExperimentSchedule(PropertyType):
         "start_time": "StartTime",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     end_time: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start_time: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -9557,9 +9067,7 @@ class ModelInfrastructureConfig(PropertyType):
         "real_time_inference_config": "RealTimeInferenceConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     infrastructure_type: Optional[Union[str, ModelInfrastructureType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     real_time_inference_config: Optional[RealTimeInferenceConfig] = None
 
 
@@ -9573,11 +9081,8 @@ class ModelVariantConfig(PropertyType):
         "infrastructure_config": "InfrastructureConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     variant_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     infrastructure_config: Optional[ModelInfrastructureConfig] = None
 
 
@@ -9590,9 +9095,7 @@ class RealTimeInferenceConfig(PropertyType):
         "instance_type": "InstanceType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_type: Optional[Union[str, InstanceType, Ref, GetAtt, Sub]] = None
 
 
@@ -9605,9 +9108,7 @@ class ShadowModeConfig(PropertyType):
         "shadow_model_variants": "ShadowModelVariants",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_model_variant_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     shadow_model_variants: Optional[list[ShadowModelVariantConfig]] = None
 
 
@@ -9620,9 +9121,7 @@ class ShadowModelVariantConfig(PropertyType):
         "sampling_percentage": "SamplingPercentage",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     shadow_model_variant_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sampling_percentage: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -9647,31 +9146,18 @@ class InferenceExperiment(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     data_storage_config: Optional[DataStorageConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     status_reason: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model_variants: Optional[list[ModelVariantConfig]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     shadow_mode_config: Optional[ShadowModeConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     endpoint_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     desired_state: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     schedule: Optional[InferenceExperimentSchedule] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kms_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -9733,21 +9219,13 @@ class MlflowTrackingServer(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tracking_server_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     mlflow_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     weekly_maintenance_window_start: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tracking_server_size: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     artifact_store_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     automatic_model_registration: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -9767,9 +9245,7 @@ class AdditionalModelDataSource(PropertyType):
         "s3_data_source": "S3DataSource",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     channel_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_data_source: Optional[S3DataSource] = None
 
 
@@ -9790,25 +9266,15 @@ class ContainerDefinition(PropertyType):
         "multi_model_config": "MultiModelConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_config: Optional[ImageConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     inference_specification_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     container_hostname: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_package_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mode: Optional[Union[str, ContainerMode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     environment: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_data_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_data_source: Optional[ModelDataSource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     multi_model_config: Optional[MultiModelConfig] = None
 
 
@@ -9820,7 +9286,6 @@ class HubAccessConfig(PropertyType):
         "hub_content_arn": "HubContentArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hub_content_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -9833,9 +9298,7 @@ class ImageConfig(PropertyType):
         "repository_access_mode": "RepositoryAccessMode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     repository_auth_config: Optional[RepositoryAuthConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     repository_access_mode: Optional[Union[str, RepositoryAccessMode, Ref, GetAtt, Sub]] = None
 
 
@@ -9847,7 +9310,6 @@ class InferenceExecutionConfig(PropertyType):
         "mode": "Mode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mode: Optional[Union[str, InferenceExecutionMode, Ref, GetAtt, Sub]] = None
 
 
@@ -9859,7 +9321,6 @@ class ModelAccessConfig(PropertyType):
         "accept_eula": "AcceptEula",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     accept_eula: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -9871,7 +9332,6 @@ class ModelDataSource(PropertyType):
         "s3_data_source": "S3DataSource",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_data_source: Optional[S3DataSource] = None
 
 
@@ -9883,7 +9343,6 @@ class MultiModelConfig(PropertyType):
         "model_cache_setting": "ModelCacheSetting",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_cache_setting: Optional[Union[str, ModelCacheSetting, Ref, GetAtt, Sub]] = None
 
 
@@ -9895,7 +9354,6 @@ class RepositoryAuthConfig(PropertyType):
         "repository_credentials_provider_arn": "RepositoryCredentialsProviderArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     repository_credentials_provider_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -9911,15 +9369,10 @@ class S3DataSource(PropertyType):
         "hub_access_config": "HubAccessConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_access_config: Optional[ModelAccessConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_data_type: Optional[Union[str, S3DataType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compression_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hub_access_config: Optional[HubAccessConfig] = None
 
 
@@ -9932,9 +9385,7 @@ class VpcConfig(PropertyType):
         "security_group_ids": "SecurityGroupIds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnets: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_group_ids: Optional[Union[list[str], Ref]] = None
 
 
@@ -9954,21 +9405,13 @@ class Model(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     execution_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     enable_network_isolation: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     primary_container: Optional[ContainerDefinition] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_config: Optional[VpcConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     containers: Optional[list[ContainerDefinition]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     inference_execution_config: Optional[InferenceExecutionConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -9997,27 +9440,16 @@ class BatchTransformInput(PropertyType):
         "features_attribute": "FeaturesAttribute",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dataset_format: Optional[DatasetFormat] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_data_distribution_type: Optional[Union[str, ProcessingS3DataDistributionType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start_time_offset: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     end_time_offset: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     probability_threshold_attribute: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     inference_attribute: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_captured_destination_s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_input_mode: Optional[Union[str, ProcessingS3InputMode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     local_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     probability_attribute: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     features_attribute: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -10032,13 +9464,9 @@ class ClusterConfig(PropertyType):
         "instance_type": "InstanceType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volume_size_in_gb: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volume_kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -10050,7 +9478,6 @@ class ConstraintsResource(PropertyType):
         "s3_uri": "S3Uri",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -10062,7 +9489,6 @@ class Csv(PropertyType):
         "header": "Header",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -10076,11 +9502,8 @@ class DatasetFormat(PropertyType):
         "json": "Json",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parquet: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     csv: Optional[Csv] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     json: Optional[Json] = None
 
 
@@ -10101,25 +9524,15 @@ class EndpointInput(PropertyType):
         "features_attribute": "FeaturesAttribute",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_data_distribution_type: Optional[Union[str, ProcessingS3DataDistributionType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start_time_offset: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     end_time_offset: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     probability_threshold_attribute: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoint_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     inference_attribute: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_input_mode: Optional[Union[str, ProcessingS3InputMode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     local_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     probability_attribute: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     features_attribute: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -10131,7 +9544,6 @@ class Json(PropertyType):
         "line": "Line",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     line: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -10145,11 +9557,8 @@ class ModelBiasAppSpecification(PropertyType):
         "image_uri": "ImageUri",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     config_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     environment: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -10162,9 +9571,7 @@ class ModelBiasBaselineConfig(PropertyType):
         "baselining_job_name": "BaseliningJobName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     constraints_resource: Optional[ConstraintsResource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     baselining_job_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -10178,11 +9585,8 @@ class ModelBiasJobInput(PropertyType):
         "endpoint_input": "EndpointInput",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ground_truth_s3_input: Optional[MonitoringGroundTruthS3Input] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     batch_transform_input: Optional[BatchTransformInput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoint_input: Optional[EndpointInput] = None
 
 
@@ -10194,7 +9598,6 @@ class MonitoringGroundTruthS3Input(PropertyType):
         "s3_uri": "S3Uri",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -10206,7 +9609,6 @@ class MonitoringOutput(PropertyType):
         "s3_output": "S3Output",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_output: Optional[S3Output] = None
 
 
@@ -10219,9 +9621,7 @@ class MonitoringOutputConfig(PropertyType):
         "monitoring_outputs": "MonitoringOutputs",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     monitoring_outputs: Optional[list[MonitoringOutput]] = None
 
 
@@ -10233,7 +9633,6 @@ class MonitoringResources(PropertyType):
         "cluster_config": "ClusterConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cluster_config: Optional[ClusterConfig] = None
 
 
@@ -10247,11 +9646,8 @@ class NetworkConfig(PropertyType):
         "vpc_config": "VpcConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_network_isolation: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_inter_container_traffic_encryption: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_config: Optional[VpcConfig] = None
 
 
@@ -10265,11 +9661,8 @@ class S3Output(PropertyType):
         "s3_upload_mode": "S3UploadMode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     local_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_upload_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -10281,7 +9674,6 @@ class StoppingCondition(PropertyType):
         "max_runtime_in_seconds": "MaxRuntimeInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_runtime_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -10294,9 +9686,7 @@ class VpcConfig(PropertyType):
         "security_group_ids": "SecurityGroupIds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnets: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_group_ids: Optional[Union[list[str], Ref]] = None
 
 
@@ -10319,27 +9709,16 @@ class ModelBiasJobDefinition(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model_bias_job_input: Optional[ModelBiasJobInput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model_bias_job_output_config: Optional[MonitoringOutputConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     endpoint_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     stopping_condition: Optional[StoppingCondition] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     job_definition_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     job_resources: Optional[MonitoringResources] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     network_config: Optional[NetworkConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model_bias_baseline_config: Optional[ModelBiasBaselineConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model_bias_app_specification: Optional[ModelBiasAppSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -10365,11 +9744,8 @@ class AdditionalInformation(PropertyType):
         "custom_details": "CustomDetails",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ethical_considerations: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     caveats_and_recommendations: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_details: Optional[dict[str, str]] = None
 
 
@@ -10383,11 +9759,8 @@ class BusinessDetails(PropertyType):
         "business_problem": "BusinessProblem",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     business_stakeholders: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     line_of_business: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     business_problem: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -10401,11 +9774,8 @@ class Container(PropertyType):
         "image": "Image",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     nearest_model_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_data_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -10423,19 +9793,12 @@ class Content(PropertyType):
         "business_details": "BusinessDetails",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     intended_uses: Optional[IntendedUses] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     additional_information: Optional[AdditionalInformation] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_overview: Optional[ModelOverview] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     training_details: Optional[TrainingDetails] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     evaluation_details: Optional[list[EvaluationDetail]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_package_details: Optional[ModelPackageDetails] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     business_details: Optional[BusinessDetails] = None
 
 
@@ -10452,17 +9815,11 @@ class EvaluationDetail(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     datasets: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     evaluation_observation: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric_groups: Optional[list[MetricGroup]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metadata: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     evaluation_job_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -10476,11 +9833,8 @@ class Function(PropertyType):
         "facet": "Facet",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     condition: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     function: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     facet: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -10492,7 +9846,6 @@ class InferenceEnvironment(PropertyType):
         "container_image": "ContainerImage",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     container_image: Optional[Union[list[str], Ref]] = None
 
 
@@ -10504,7 +9857,6 @@ class InferenceSpecification(PropertyType):
         "containers": "Containers",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     containers: Optional[list[Container]] = None
 
 
@@ -10520,15 +9872,10 @@ class IntendedUses(PropertyType):
         "explanations_for_risk_rating": "ExplanationsForRiskRating",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     intended_uses: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     factors_affecting_model_efficiency: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     purpose_of_model: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     risk_rating: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     explanations_for_risk_rating: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -10545,17 +9892,11 @@ class MetricDataItems(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     x_axis_name: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     y_axis_name: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     notes: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -10568,9 +9909,7 @@ class MetricGroup(PropertyType):
         "metric_data": "MetricData",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric_data: Optional[list[MetricDataItems]] = None
 
 
@@ -10591,25 +9930,15 @@ class ModelOverview(PropertyType):
         "model_id": "ModelId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_owner: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_artifact: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     algorithm_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     inference_environment: Optional[InferenceEnvironment] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     problem_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_version: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_creator: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -10621,7 +9950,6 @@ class ModelPackageCreator(PropertyType):
         "user_profile_name": "UserProfileName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_profile_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -10645,31 +9973,18 @@ class ModelPackageDetails(PropertyType):
         "domain": "Domain",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_package_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     task: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     created_by: Optional[ModelPackageCreator] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     approval_description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_approval_status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_package_version: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_package_description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_package_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_package_status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_algorithms: Optional[list[SourceAlgorithm]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     inference_specification: Optional[InferenceSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_package_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     domain: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -10682,9 +9997,7 @@ class ObjectiveFunction(PropertyType):
         "notes": "Notes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     function: Optional[Function] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     notes: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -10696,7 +10009,6 @@ class SecurityConfig(PropertyType):
         "kms_key_id": "KmsKeyId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -10709,9 +10021,7 @@ class SourceAlgorithm(PropertyType):
         "algorithm_name": "AlgorithmName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_data_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     algorithm_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -10725,11 +10035,8 @@ class TrainingDetails(PropertyType):
         "training_job_details": "TrainingJobDetails",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     objective_function: Optional[ObjectiveFunction] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     training_observations: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     training_job_details: Optional[TrainingJobDetails] = None
 
 
@@ -10741,7 +10048,6 @@ class TrainingEnvironment(PropertyType):
         "container_image": "ContainerImage",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     container_image: Optional[Union[list[str], Ref]] = None
 
 
@@ -10754,9 +10060,7 @@ class TrainingHyperParameter(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -10774,19 +10078,12 @@ class TrainingJobDetails(PropertyType):
         "user_provided_hyper_parameters": "UserProvidedHyperParameters",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     training_metrics: Optional[list[TrainingMetric]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hyper_parameters: Optional[list[TrainingHyperParameter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     training_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_provided_training_metrics: Optional[list[TrainingMetric]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     training_environment: Optional[TrainingEnvironment] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     training_datasets: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_provided_hyper_parameters: Optional[list[TrainingHyperParameter]] = None
 
 
@@ -10800,11 +10097,8 @@ class TrainingMetric(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     notes: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -10818,11 +10112,8 @@ class UserContext(PropertyType):
         "user_profile_name": "UserProfileName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     domain_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_profile_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_profile_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -10841,19 +10132,12 @@ class ModelCard(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     last_modified_by: Optional[UserContext] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model_card_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model_card_status: Optional[Union[str, ModelCardStatus, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     created_by: Optional[UserContext] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     security_config: Optional[SecurityConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     content: Optional[Content] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -10929,21 +10213,13 @@ class BatchTransformInput(PropertyType):
         "features_attribute": "FeaturesAttribute",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dataset_format: Optional[DatasetFormat] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_data_distribution_type: Optional[Union[str, ProcessingS3DataDistributionType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     inference_attribute: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_captured_destination_s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_input_mode: Optional[Union[str, ProcessingS3InputMode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     local_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     probability_attribute: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     features_attribute: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -10958,13 +10234,9 @@ class ClusterConfig(PropertyType):
         "instance_type": "InstanceType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volume_size_in_gb: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volume_kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -10976,7 +10248,6 @@ class ConstraintsResource(PropertyType):
         "s3_uri": "S3Uri",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -10988,7 +10259,6 @@ class Csv(PropertyType):
         "header": "Header",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -11002,11 +10272,8 @@ class DatasetFormat(PropertyType):
         "json": "Json",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parquet: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     csv: Optional[Csv] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     json: Optional[Json] = None
 
 
@@ -11024,19 +10291,12 @@ class EndpointInput(PropertyType):
         "features_attribute": "FeaturesAttribute",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_data_distribution_type: Optional[Union[str, ProcessingS3DataDistributionType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoint_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     inference_attribute: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_input_mode: Optional[Union[str, ProcessingS3InputMode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     local_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     probability_attribute: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     features_attribute: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -11048,7 +10308,6 @@ class Json(PropertyType):
         "line": "Line",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     line: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -11062,11 +10321,8 @@ class ModelExplainabilityAppSpecification(PropertyType):
         "image_uri": "ImageUri",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     config_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     environment: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -11079,9 +10335,7 @@ class ModelExplainabilityBaselineConfig(PropertyType):
         "baselining_job_name": "BaseliningJobName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     constraints_resource: Optional[ConstraintsResource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     baselining_job_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -11094,9 +10348,7 @@ class ModelExplainabilityJobInput(PropertyType):
         "endpoint_input": "EndpointInput",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     batch_transform_input: Optional[BatchTransformInput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoint_input: Optional[EndpointInput] = None
 
 
@@ -11108,7 +10360,6 @@ class MonitoringOutput(PropertyType):
         "s3_output": "S3Output",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_output: Optional[S3Output] = None
 
 
@@ -11121,9 +10372,7 @@ class MonitoringOutputConfig(PropertyType):
         "monitoring_outputs": "MonitoringOutputs",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     monitoring_outputs: Optional[list[MonitoringOutput]] = None
 
 
@@ -11135,7 +10384,6 @@ class MonitoringResources(PropertyType):
         "cluster_config": "ClusterConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cluster_config: Optional[ClusterConfig] = None
 
 
@@ -11149,11 +10397,8 @@ class NetworkConfig(PropertyType):
         "vpc_config": "VpcConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_network_isolation: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_inter_container_traffic_encryption: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_config: Optional[VpcConfig] = None
 
 
@@ -11167,11 +10412,8 @@ class S3Output(PropertyType):
         "s3_upload_mode": "S3UploadMode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     local_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_upload_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -11183,7 +10425,6 @@ class StoppingCondition(PropertyType):
         "max_runtime_in_seconds": "MaxRuntimeInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_runtime_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -11196,9 +10437,7 @@ class VpcConfig(PropertyType):
         "security_group_ids": "SecurityGroupIds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnets: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_group_ids: Optional[Union[list[str], Ref]] = None
 
 
@@ -11221,27 +10460,16 @@ class ModelExplainabilityJobDefinition(CloudFormationResource):
         "model_explainability_app_specification": "ModelExplainabilityAppSpecification",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model_explainability_job_output_config: Optional[MonitoringOutputConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     endpoint_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     stopping_condition: Optional[StoppingCondition] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model_explainability_baseline_config: Optional[ModelExplainabilityBaselineConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     job_definition_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     job_resources: Optional[MonitoringResources] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     network_config: Optional[NetworkConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model_explainability_job_input: Optional[ModelExplainabilityJobInput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model_explainability_app_specification: Optional[ModelExplainabilityAppSpecification] = None
 
     @property
@@ -11271,19 +10499,12 @@ class AdditionalInferenceSpecificationDefinition(PropertyType):
         "supported_response_mime_types": "SupportedResponseMIMETypes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     supported_content_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     supported_realtime_inference_instance_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     containers: Optional[list[ModelPackageContainerDefinition]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     supported_transform_instance_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     supported_response_mime_types: Optional[Union[list[str], Ref]] = None
 
 
@@ -11297,11 +10518,8 @@ class Bias(PropertyType):
         "post_training_report": "PostTrainingReport",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     report: Optional[MetricsSource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pre_training_report: Optional[MetricsSource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     post_training_report: Optional[MetricsSource] = None
 
 
@@ -11313,7 +10531,6 @@ class DataSource(PropertyType):
         "s3_data_source": "S3DataSource",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_data_source: Optional[S3DataSource] = None
 
 
@@ -11328,13 +10545,9 @@ class DriftCheckBaselines(PropertyType):
         "explainability": "Explainability",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_data_quality: Optional[DriftCheckModelDataQuality] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bias: Optional[DriftCheckBias] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_quality: Optional[DriftCheckModelQuality] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     explainability: Optional[DriftCheckExplainability] = None
 
 
@@ -11348,11 +10561,8 @@ class DriftCheckBias(PropertyType):
         "post_training_constraints": "PostTrainingConstraints",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pre_training_constraints: Optional[MetricsSource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     config_file: Optional[FileSource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     post_training_constraints: Optional[MetricsSource] = None
 
 
@@ -11365,9 +10575,7 @@ class DriftCheckExplainability(PropertyType):
         "config_file": "ConfigFile",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     constraints: Optional[MetricsSource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     config_file: Optional[FileSource] = None
 
 
@@ -11380,9 +10588,7 @@ class DriftCheckModelDataQuality(PropertyType):
         "statistics": "Statistics",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     constraints: Optional[MetricsSource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     statistics: Optional[MetricsSource] = None
 
 
@@ -11395,9 +10601,7 @@ class DriftCheckModelQuality(PropertyType):
         "statistics": "Statistics",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     constraints: Optional[MetricsSource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     statistics: Optional[MetricsSource] = None
 
 
@@ -11409,7 +10613,6 @@ class Explainability(PropertyType):
         "report": "Report",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     report: Optional[MetricsSource] = None
 
 
@@ -11423,11 +10626,8 @@ class FileSource(PropertyType):
         "content_digest": "ContentDigest",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     content_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     content_digest: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -11443,15 +10643,10 @@ class InferenceSpecification(PropertyType):
         "supported_response_mime_types": "SupportedResponseMIMETypes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     supported_content_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     supported_realtime_inference_instance_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     containers: Optional[list[ModelPackageContainerDefinition]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     supported_transform_instance_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     supported_response_mime_types: Optional[Union[list[str], Ref]] = None
 
 
@@ -11466,13 +10661,9 @@ class MetadataProperties(PropertyType):
         "project_id": "ProjectId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     generated_by: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     repository: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     commit_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     project_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -11486,11 +10677,8 @@ class MetricsSource(PropertyType):
         "content_digest": "ContentDigest",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     content_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     content_digest: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -11502,7 +10690,6 @@ class ModelAccessConfig(PropertyType):
         "accept_eula": "AcceptEula",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     accept_eula: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -11515,9 +10702,7 @@ class ModelCard(PropertyType):
         "model_card_content": "ModelCardContent",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_card_status: Optional[Union[str, ModelCardStatus, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_card_content: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -11530,9 +10715,7 @@ class ModelDataQuality(PropertyType):
         "statistics": "Statistics",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     constraints: Optional[MetricsSource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     statistics: Optional[MetricsSource] = None
 
 
@@ -11544,7 +10727,6 @@ class ModelDataSource(PropertyType):
         "s3_data_source": "S3DataSource",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_data_source: Optional[S3ModelDataSource] = None
 
 
@@ -11556,7 +10738,6 @@ class ModelInput(PropertyType):
         "data_input_config": "DataInputConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_input_config: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -11571,13 +10752,9 @@ class ModelMetrics(PropertyType):
         "explainability": "Explainability",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_data_quality: Optional[ModelDataQuality] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bias: Optional[Bias] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_quality: Optional[ModelQuality] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     explainability: Optional[Explainability] = None
 
 
@@ -11598,25 +10775,15 @@ class ModelPackageContainerDefinition(PropertyType):
         "framework": "Framework",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_input: Optional[ModelInput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     nearest_model_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     container_hostname: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_digest: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     framework_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     environment: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_data_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_data_source: Optional[ModelDataSource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     framework: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -11628,7 +10795,6 @@ class ModelPackageStatusDetails(PropertyType):
         "validation_statuses": "ValidationStatuses",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     validation_statuses: Optional[list[ModelPackageStatusItem]] = None
 
 
@@ -11642,11 +10808,8 @@ class ModelPackageStatusItem(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     status: Optional[Union[str, DetailedModelPackageStatus, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failure_reason: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -11659,9 +10822,7 @@ class ModelQuality(PropertyType):
         "statistics": "Statistics",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     constraints: Optional[MetricsSource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     statistics: Optional[MetricsSource] = None
 
 
@@ -11674,9 +10835,7 @@ class S3DataSource(PropertyType):
         "s3_data_type": "S3DataType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_data_type: Optional[Union[str, S3DataType, Ref, GetAtt, Sub]] = None
 
 
@@ -11691,13 +10850,9 @@ class S3ModelDataSource(PropertyType):
         "s3_uri": "S3Uri",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_access_config: Optional[ModelAccessConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_data_type: Optional[Union[str, S3ModelDataType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compression_type: Optional[Union[str, ModelCompressionType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -11709,7 +10864,6 @@ class SecurityConfig(PropertyType):
         "kms_key_id": "KmsKeyId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -11722,9 +10876,7 @@ class SourceAlgorithm(PropertyType):
         "algorithm_name": "AlgorithmName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_data_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     algorithm_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -11736,7 +10888,6 @@ class SourceAlgorithmSpecification(PropertyType):
         "source_algorithms": "SourceAlgorithms",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_algorithms: Optional[list[SourceAlgorithm]] = None
 
 
@@ -11751,13 +10902,9 @@ class TransformInput(PropertyType):
         "data_source": "DataSource",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     content_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     split_type: Optional[Union[str, SplitType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compression_type: Optional[Union[str, CompressionType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_source: Optional[DataSource] = None
 
 
@@ -11775,19 +10922,12 @@ class TransformJobDefinition(PropertyType):
         "batch_strategy": "BatchStrategy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     transform_resources: Optional[TransformResources] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_concurrent_transforms: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_payload_in_mb: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     transform_output: Optional[TransformOutput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     environment: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     transform_input: Optional[TransformInput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     batch_strategy: Optional[Union[str, BatchStrategy, Ref, GetAtt, Sub]] = None
 
 
@@ -11802,13 +10942,9 @@ class TransformOutput(PropertyType):
         "s3_output_path": "S3OutputPath",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     assemble_with: Optional[Union[str, AssemblyType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     accept: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_output_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -11822,11 +10958,8 @@ class TransformResources(PropertyType):
         "instance_type": "InstanceType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volume_kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_type: Optional[Union[str, TransformInstanceType, Ref, GetAtt, Sub]] = None
 
 
@@ -11839,9 +10972,7 @@ class ValidationProfile(PropertyType):
         "transform_job_definition": "TransformJobDefinition",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     profile_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     transform_job_definition: Optional[TransformJobDefinition] = None
 
 
@@ -11854,9 +10985,7 @@ class ValidationSpecification(PropertyType):
         "validation_profiles": "ValidationProfiles",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     validation_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     validation_profiles: Optional[list[ValidationProfile]] = None
 
 
@@ -11895,59 +11024,32 @@ class ModelPackage(CloudFormationResource):
         "additional_inference_specifications": "AdditionalInferenceSpecifications",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     drift_check_baselines: Optional[DriftCheckBaselines] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model_metrics: Optional[ModelMetrics] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     task: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     customer_metadata_properties: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model_approval_status: Optional[Union[str, ModelApprovalStatus, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model_package_version: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     metadata_properties: Optional[MetadataProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source_algorithm_specification: Optional[SourceAlgorithmSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model_package_status_details: Optional[ModelPackageStatusDetails] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model_package_description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     additional_inference_specifications_to_add: Optional[list[AdditionalInferenceSpecificationDefinition]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     security_config: Optional[SecurityConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     inference_specification: Optional[InferenceSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     sample_payload_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     certify_for_marketplace: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model_package_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     approval_description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model_card: Optional[ModelCard] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     validation_specification: Optional[ValidationSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     skip_model_validation: Optional[Union[str, SkipModelValidation, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model_package_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     last_modified_time: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     client_token: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     additional_inference_specifications: Optional[list[AdditionalInferenceSpecificationDefinition]] = None
 
     @property
@@ -11980,13 +11082,9 @@ class ModelPackageGroup(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model_package_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model_package_group_description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model_package_group_policy: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -12024,25 +11122,15 @@ class BatchTransformInput(PropertyType):
         "probability_attribute": "ProbabilityAttribute",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dataset_format: Optional[DatasetFormat] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_data_distribution_type: Optional[Union[str, ProcessingS3DataDistributionType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start_time_offset: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     end_time_offset: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     probability_threshold_attribute: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     inference_attribute: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_captured_destination_s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_input_mode: Optional[Union[str, ProcessingS3InputMode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     local_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     probability_attribute: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -12057,13 +11145,9 @@ class ClusterConfig(PropertyType):
         "instance_type": "InstanceType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volume_size_in_gb: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volume_kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -12075,7 +11159,6 @@ class ConstraintsResource(PropertyType):
         "s3_uri": "S3Uri",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -12087,7 +11170,6 @@ class Csv(PropertyType):
         "header": "Header",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -12101,11 +11183,8 @@ class DatasetFormat(PropertyType):
         "json": "Json",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parquet: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     csv: Optional[Csv] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     json: Optional[Json] = None
 
 
@@ -12125,23 +11204,14 @@ class EndpointInput(PropertyType):
         "probability_attribute": "ProbabilityAttribute",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_data_distribution_type: Optional[Union[str, ProcessingS3DataDistributionType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start_time_offset: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     end_time_offset: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     probability_threshold_attribute: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoint_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     inference_attribute: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_input_mode: Optional[Union[str, ProcessingS3InputMode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     local_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     probability_attribute: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -12153,7 +11223,6 @@ class Json(PropertyType):
         "line": "Line",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     line: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -12171,19 +11240,12 @@ class ModelQualityAppSpecification(PropertyType):
         "container_arguments": "ContainerArguments",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     container_entrypoint: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     problem_type: Optional[Union[str, MonitoringProblemType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     post_analytics_processor_source_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     record_preprocessor_source_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     environment: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     container_arguments: Optional[Union[list[str], Ref]] = None
 
 
@@ -12196,9 +11258,7 @@ class ModelQualityBaselineConfig(PropertyType):
         "baselining_job_name": "BaseliningJobName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     constraints_resource: Optional[ConstraintsResource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     baselining_job_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -12212,11 +11272,8 @@ class ModelQualityJobInput(PropertyType):
         "endpoint_input": "EndpointInput",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ground_truth_s3_input: Optional[MonitoringGroundTruthS3Input] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     batch_transform_input: Optional[BatchTransformInput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoint_input: Optional[EndpointInput] = None
 
 
@@ -12228,7 +11285,6 @@ class MonitoringGroundTruthS3Input(PropertyType):
         "s3_uri": "S3Uri",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -12240,7 +11296,6 @@ class MonitoringOutput(PropertyType):
         "s3_output": "S3Output",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_output: Optional[S3Output] = None
 
 
@@ -12253,9 +11308,7 @@ class MonitoringOutputConfig(PropertyType):
         "monitoring_outputs": "MonitoringOutputs",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     monitoring_outputs: Optional[list[MonitoringOutput]] = None
 
 
@@ -12267,7 +11320,6 @@ class MonitoringResources(PropertyType):
         "cluster_config": "ClusterConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cluster_config: Optional[ClusterConfig] = None
 
 
@@ -12281,11 +11333,8 @@ class NetworkConfig(PropertyType):
         "vpc_config": "VpcConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_network_isolation: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_inter_container_traffic_encryption: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_config: Optional[VpcConfig] = None
 
 
@@ -12299,11 +11348,8 @@ class S3Output(PropertyType):
         "s3_upload_mode": "S3UploadMode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     local_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_upload_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -12315,7 +11361,6 @@ class StoppingCondition(PropertyType):
         "max_runtime_in_seconds": "MaxRuntimeInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_runtime_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -12328,9 +11373,7 @@ class VpcConfig(PropertyType):
         "security_group_ids": "SecurityGroupIds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnets: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_group_ids: Optional[Union[list[str], Ref]] = None
 
 
@@ -12353,27 +11396,16 @@ class ModelQualityJobDefinition(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model_quality_app_specification: Optional[ModelQualityAppSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     endpoint_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     stopping_condition: Optional[StoppingCondition] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model_quality_baseline_config: Optional[ModelQualityBaselineConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     job_definition_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model_quality_job_input: Optional[ModelQualityJobInput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     job_resources: Optional[MonitoringResources] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     network_config: Optional[NetworkConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model_quality_job_output_config: Optional[MonitoringOutputConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -12398,9 +11430,7 @@ class BaselineConfig(PropertyType):
         "constraints_resource": "ConstraintsResource",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     statistics_resource: Optional[StatisticsResource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     constraints_resource: Optional[ConstraintsResource] = None
 
 
@@ -12417,17 +11447,11 @@ class BatchTransformInput(PropertyType):
         "exclude_features_attribute": "ExcludeFeaturesAttribute",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dataset_format: Optional[DatasetFormat] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_data_distribution_type: Optional[Union[str, ProcessingS3DataDistributionType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_captured_destination_s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_input_mode: Optional[Union[str, ProcessingS3InputMode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     local_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exclude_features_attribute: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -12442,13 +11466,9 @@ class ClusterConfig(PropertyType):
         "instance_type": "InstanceType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volume_size_in_gb: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volume_kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -12460,7 +11480,6 @@ class ConstraintsResource(PropertyType):
         "s3_uri": "S3Uri",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -12472,7 +11491,6 @@ class Csv(PropertyType):
         "header": "Header",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -12486,11 +11504,8 @@ class DatasetFormat(PropertyType):
         "json": "Json",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parquet: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     csv: Optional[Csv] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     json: Optional[Json] = None
 
 
@@ -12506,15 +11521,10 @@ class EndpointInput(PropertyType):
         "exclude_features_attribute": "ExcludeFeaturesAttribute",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_data_distribution_type: Optional[Union[str, ProcessingS3DataDistributionType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoint_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_input_mode: Optional[Union[str, ProcessingS3InputMode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     local_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exclude_features_attribute: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -12526,7 +11536,6 @@ class Json(PropertyType):
         "line": "Line",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     line: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -12542,15 +11551,10 @@ class MonitoringAppSpecification(PropertyType):
         "container_arguments": "ContainerArguments",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     container_entrypoint: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     post_analytics_processor_source_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     record_preprocessor_source_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     container_arguments: Optional[Union[list[str], Ref]] = None
 
 
@@ -12569,21 +11573,13 @@ class MonitoringExecutionSummary(PropertyType):
         "monitoring_execution_status": "MonitoringExecutionStatus",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scheduled_time: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoint_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     monitoring_schedule_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     processing_job_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failure_reason: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     creation_time: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     last_modified_time: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     monitoring_execution_status: Optional[Union[str, ExecutionStatus, Ref, GetAtt, Sub]] = None
 
 
@@ -12596,9 +11592,7 @@ class MonitoringInput(PropertyType):
         "endpoint_input": "EndpointInput",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     batch_transform_input: Optional[BatchTransformInput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoint_input: Optional[EndpointInput] = None
 
 
@@ -12618,23 +11612,14 @@ class MonitoringJobDefinition(PropertyType):
         "role_arn": "RoleArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     monitoring_inputs: Optional[list[MonitoringInput]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     monitoring_resources: Optional[MonitoringResources] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     baseline_config: Optional[BaselineConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stopping_condition: Optional[StoppingCondition] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     monitoring_app_specification: Optional[MonitoringAppSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_config: Optional[NetworkConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     environment: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     monitoring_output_config: Optional[MonitoringOutputConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -12646,7 +11631,6 @@ class MonitoringOutput(PropertyType):
         "s3_output": "S3Output",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_output: Optional[S3Output] = None
 
 
@@ -12659,9 +11643,7 @@ class MonitoringOutputConfig(PropertyType):
         "monitoring_outputs": "MonitoringOutputs",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     monitoring_outputs: Optional[list[MonitoringOutput]] = None
 
 
@@ -12673,7 +11655,6 @@ class MonitoringResources(PropertyType):
         "cluster_config": "ClusterConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cluster_config: Optional[ClusterConfig] = None
 
 
@@ -12688,13 +11669,9 @@ class MonitoringScheduleConfig(PropertyType):
         "monitoring_type": "MonitoringType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     schedule_config: Optional[ScheduleConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     monitoring_job_definition: Optional[MonitoringJobDefinition] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     monitoring_job_definition_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     monitoring_type: Optional[Union[str, MonitoringType, Ref, GetAtt, Sub]] = None
 
 
@@ -12708,11 +11685,8 @@ class NetworkConfig(PropertyType):
         "vpc_config": "VpcConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_network_isolation: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_inter_container_traffic_encryption: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_config: Optional[VpcConfig] = None
 
 
@@ -12726,11 +11700,8 @@ class S3Output(PropertyType):
         "s3_upload_mode": "S3UploadMode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     local_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_upload_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -12744,11 +11715,8 @@ class ScheduleConfig(PropertyType):
         "data_analysis_end_time": "DataAnalysisEndTime",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     schedule_expression: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_analysis_start_time: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_analysis_end_time: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -12760,7 +11728,6 @@ class StatisticsResource(PropertyType):
         "s3_uri": "S3Uri",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -12772,7 +11739,6 @@ class StoppingCondition(PropertyType):
         "max_runtime_in_seconds": "MaxRuntimeInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_runtime_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -12785,9 +11751,7 @@ class VpcConfig(PropertyType):
         "security_group_ids": "SecurityGroupIds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnets: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_group_ids: Optional[Union[list[str], Ref]] = None
 
 
@@ -12806,19 +11770,12 @@ class MonitoringSchedule(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     monitoring_schedule_status: Optional[Union[str, ScheduleStatus, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     monitoring_schedule_config: Optional[MonitoringScheduleConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     monitoring_schedule_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     endpoint_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     failure_reason: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     last_monitoring_execution_summary: Optional[MonitoringExecutionSummary] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -12847,7 +11804,6 @@ class InstanceMetadataServiceConfiguration(PropertyType):
         "minimum_instance_metadata_service_version": "MinimumInstanceMetadataServiceVersion",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     minimum_instance_metadata_service_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -12875,37 +11831,21 @@ class NotebookInstance(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     volume_size_in_gb: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     additional_code_repositories: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     default_code_repository: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     direct_internet_access: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     platform_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     accelerator_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     subnet_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     security_group_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     instance_metadata_service_configuration: Optional[InstanceMetadataServiceConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     root_access: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     notebook_instance_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     instance_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     lifecycle_config_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -12924,7 +11864,6 @@ class NotebookInstanceLifecycleHook(PropertyType):
         "content": "Content",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     content: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -12939,11 +11878,8 @@ class NotebookInstanceLifecycleConfig(CloudFormationResource):
         "on_create": "OnCreate",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     on_start: Optional[list[NotebookInstanceLifecycleHook]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     notebook_instance_lifecycle_config_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     on_create: Optional[list[NotebookInstanceLifecycleHook]] = None
 
     @property
@@ -12963,9 +11899,7 @@ class PartnerAppConfig(PropertyType):
         "arguments": "Arguments",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     admin_users: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     arguments: Optional[dict[str, str]] = None
 
 
@@ -12977,7 +11911,6 @@ class PartnerAppMaintenanceConfig(PropertyType):
         "maintenance_window_start": "MaintenanceWindowStart",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maintenance_window_start: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -13001,29 +11934,17 @@ class PartnerApp(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     app_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     execution_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     enable_iam_session_based_identity: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     enable_auto_minor_version_upgrade: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     application_config: Optional[PartnerAppConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auth_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     maintenance_config: Optional[PartnerAppMaintenanceConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -13052,7 +11973,6 @@ class ParallelismConfiguration(PropertyType):
         "max_parallel_execution_steps": "MaxParallelExecutionSteps",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_parallel_execution_steps: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -13065,9 +11985,7 @@ class PipelineDefinition(PropertyType):
         "pipeline_definition_s3_location": "PipelineDefinitionS3Location",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pipeline_definition_body: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pipeline_definition_s3_location: Optional[S3Location] = None
 
 
@@ -13082,13 +12000,9 @@ class S3Location(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     e_tag: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -13107,19 +12021,12 @@ class Pipeline(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     pipeline_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     parallelism_configuration: Optional[ParallelismConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     pipeline_description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     pipeline_display_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     pipeline_definition: Optional[PipelineDefinition] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
 
@@ -13134,11 +12041,8 @@ class AppSpecification(PropertyType):
         "container_arguments": "ContainerArguments",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     container_entrypoint: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     container_arguments: Optional[Union[list[str], Ref]] = None
 
 
@@ -13157,21 +12061,13 @@ class AthenaDatasetDefinition(PropertyType):
         "catalog": "Catalog",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     work_group: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     output_s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_string: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     output_format: Optional[Union[str, AthenaResultFormat, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     output_compression: Optional[Union[str, AthenaResultCompressionType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     catalog: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -13186,13 +12082,9 @@ class ClusterConfig(PropertyType):
         "instance_type": "InstanceType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volume_size_in_gb: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volume_kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -13208,15 +12100,10 @@ class DatasetDefinition(PropertyType):
         "data_distribution_type": "DataDistributionType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input_mode: Optional[Union[str, InputMode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     redshift_dataset_definition: Optional[RedshiftDatasetDefinition] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     athena_dataset_definition: Optional[AthenaDatasetDefinition] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     local_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_distribution_type: Optional[Union[str, DataDistributionType, Ref, GetAtt, Sub]] = None
 
 
@@ -13231,13 +12118,9 @@ class ExperimentConfig(PropertyType):
         "run_name": "RunName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     trial_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     experiment_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     trial_component_display_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     run_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -13249,7 +12132,6 @@ class FeatureStoreOutput(PropertyType):
         "feature_group_name": "FeatureGroupName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     feature_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -13263,11 +12145,8 @@ class NetworkConfig(PropertyType):
         "vpc_config": "VpcConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_network_isolation: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_inter_container_traffic_encryption: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_config: Optional[VpcConfig] = None
 
 
@@ -13282,13 +12161,9 @@ class ProcessingInputsObject(PropertyType):
         "s3_input": "S3Input",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     app_managed: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dataset_definition: Optional[DatasetDefinition] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_input: Optional[S3Input] = None
 
 
@@ -13301,9 +12176,7 @@ class ProcessingOutputConfig(PropertyType):
         "outputs": "Outputs",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     outputs: Optional[list[ProcessingOutputsObject]] = None
 
 
@@ -13318,13 +12191,9 @@ class ProcessingOutputsObject(PropertyType):
         "output_name": "OutputName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_output: Optional[S3Output] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     app_managed: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     feature_store_output: Optional[FeatureStoreOutput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     output_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -13336,7 +12205,6 @@ class ProcessingResources(PropertyType):
         "cluster_config": "ClusterConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cluster_config: Optional[ClusterConfig] = None
 
 
@@ -13356,23 +12224,14 @@ class RedshiftDatasetDefinition(PropertyType):
         "db_user": "DbUser",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     output_s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cluster_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_string: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     output_format: Optional[Union[str, RedshiftResultFormat, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     output_compression: Optional[Union[str, RedshiftResultCompressionType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cluster_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     db_user: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -13389,17 +12248,11 @@ class S3Input(PropertyType):
         "s3_data_type": "S3DataType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_compression_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_data_distribution_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_input_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     local_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_data_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -13413,11 +12266,8 @@ class S3Output(PropertyType):
         "s3_upload_mode": "S3UploadMode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     local_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_upload_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -13429,7 +12279,6 @@ class StoppingCondition(PropertyType):
         "max_runtime_in_seconds": "MaxRuntimeInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_runtime_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -13442,9 +12291,7 @@ class VpcConfig(PropertyType):
         "security_group_ids": "SecurityGroupIds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnets: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_group_ids: Optional[Union[list[str], Ref]] = None
 
 
@@ -13467,27 +12314,16 @@ class ProcessingJob(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     processing_resources: Optional[ProcessingResources] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     stopping_condition: Optional[StoppingCondition] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     experiment_config: Optional[ExperimentConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     processing_inputs: Optional[list[ProcessingInputsObject]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     network_config: Optional[NetworkConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     processing_output_config: Optional[ProcessingOutputConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     environment: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     app_specification: Optional[AppSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     processing_job_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -13557,9 +12393,7 @@ class CfnStackParameter(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -13574,13 +12408,9 @@ class CfnTemplateProviderDetail(PropertyType):
         "role_arn": "RoleARN",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     template_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parameters: Optional[list[CfnStackParameter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     template_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -13593,9 +12423,7 @@ class ProvisioningParameter(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -13608,9 +12436,7 @@ class ServiceCatalogProvisionedProductDetails(PropertyType):
         "provisioned_product_id": "ProvisionedProductId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     provisioned_product_status_message: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     provisioned_product_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -13625,13 +12451,9 @@ class ServiceCatalogProvisioningDetails(PropertyType):
         "provisioning_artifact_id": "ProvisioningArtifactId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     path_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     provisioning_parameters: Optional[list[ProvisioningParameter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     product_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     provisioning_artifact_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -13643,7 +12465,6 @@ class TemplateProviderDetail(PropertyType):
         "cfn_template_provider_detail": "CfnTemplateProviderDetail",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cfn_template_provider_detail: Optional[CfnTemplateProviderDetail] = None
 
 
@@ -13661,17 +12482,11 @@ class Project(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     project_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     template_provider_details: Optional[list[TemplateProviderDetail]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     service_catalog_provisioned_product_details: Optional[ServiceCatalogProvisionedProductDetails] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     service_catalog_provisioning_details: Optional[ServiceCatalogProvisioningDetails] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     project_description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -13705,7 +12520,6 @@ class CodeRepository(PropertyType):
         "repository_url": "RepositoryUrl",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     repository_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -13719,11 +12533,8 @@ class CustomFileSystem(PropertyType):
         "s3_file_system": "S3FileSystem",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     f_sx_lustre_file_system: Optional[FSxLustreFileSystem] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     efs_file_system: Optional[EFSFileSystem] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_file_system: Optional[S3FileSystem] = None
 
 
@@ -13737,11 +12548,8 @@ class CustomImage(PropertyType):
         "image_version_number": "ImageVersionNumber",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     app_image_config_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_version_number: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -13753,7 +12561,6 @@ class EFSFileSystem(PropertyType):
         "file_system_id": "FileSystemId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file_system_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -13765,7 +12572,6 @@ class EbsStorageSettings(PropertyType):
         "ebs_volume_size_in_gb": "EbsVolumeSizeInGb",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ebs_volume_size_in_gb: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -13777,7 +12583,6 @@ class FSxLustreFileSystem(PropertyType):
         "file_system_id": "FileSystemId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file_system_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -13790,9 +12595,7 @@ class JupyterServerAppSettings(PropertyType):
         "lifecycle_config_arns": "LifecycleConfigArns",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_resource_spec: Optional[ResourceSpec] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lifecycle_config_arns: Optional[Union[list[str], Ref]] = None
 
 
@@ -13806,11 +12609,8 @@ class KernelGatewayAppSettings(PropertyType):
         "lifecycle_config_arns": "LifecycleConfigArns",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_images: Optional[list[CustomImage]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_resource_spec: Optional[ResourceSpec] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lifecycle_config_arns: Optional[Union[list[str], Ref]] = None
 
 
@@ -13822,7 +12622,6 @@ class OwnershipSettings(PropertyType):
         "owner_user_profile_name": "OwnerUserProfileName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     owner_user_profile_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -13837,13 +12636,9 @@ class ResourceSpec(PropertyType):
         "sage_maker_image_version_arn": "SageMakerImageVersionArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lifecycle_config_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sage_maker_image_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_type: Optional[Union[str, AppInstanceType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sage_maker_image_version_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -13855,7 +12650,6 @@ class S3FileSystem(PropertyType):
         "s3_uri": "S3Uri",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -13867,7 +12661,6 @@ class SpaceAppLifecycleManagement(PropertyType):
         "idle_settings": "IdleSettings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     idle_settings: Optional[SpaceIdleSettings] = None
 
 
@@ -13880,9 +12673,7 @@ class SpaceCodeEditorAppSettings(PropertyType):
         "app_lifecycle_management": "AppLifecycleManagement",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_resource_spec: Optional[ResourceSpec] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     app_lifecycle_management: Optional[SpaceAppLifecycleManagement] = None
 
 
@@ -13894,7 +12685,6 @@ class SpaceIdleSettings(PropertyType):
         "idle_timeout_in_minutes": "IdleTimeoutInMinutes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     idle_timeout_in_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -13908,11 +12698,8 @@ class SpaceJupyterLabAppSettings(PropertyType):
         "app_lifecycle_management": "AppLifecycleManagement",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_resource_spec: Optional[ResourceSpec] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     code_repositories: Optional[list[CodeRepository]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     app_lifecycle_management: Optional[SpaceAppLifecycleManagement] = None
 
 
@@ -13932,23 +12719,14 @@ class SpaceSettings(PropertyType):
         "space_storage_settings": "SpaceStorageSettings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     jupyter_lab_app_settings: Optional[SpaceJupyterLabAppSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kernel_gateway_app_settings: Optional[KernelGatewayAppSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     code_editor_app_settings: Optional[SpaceCodeEditorAppSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     space_managed_resources: Optional[Union[str, FeatureStatus, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     remote_access: Optional[Union[str, FeatureStatus, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     jupyter_server_app_settings: Optional[JupyterServerAppSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_file_systems: Optional[list[CustomFileSystem]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     app_type: Optional[Union[str, AppType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     space_storage_settings: Optional[SpaceStorageSettings] = None
 
 
@@ -13960,7 +12738,6 @@ class SpaceSharingSettings(PropertyType):
         "sharing_type": "SharingType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sharing_type: Optional[Union[str, SharingType, Ref, GetAtt, Sub]] = None
 
 
@@ -13972,7 +12749,6 @@ class SpaceStorageSettings(PropertyType):
         "ebs_storage_settings": "EbsStorageSettings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ebs_storage_settings: Optional[EbsStorageSettings] = None
 
 
@@ -13991,19 +12767,12 @@ class Space(CloudFormationResource):
         "ownership_settings": "OwnershipSettings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     space_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     space_settings: Optional[SpaceSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     space_display_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     space_sharing_settings: Optional[SpaceSharingSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ownership_settings: Optional[OwnershipSettings] = None
 
     @property
@@ -14031,13 +12800,9 @@ class StudioLifecycleConfig(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     studio_lifecycle_config_app_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     studio_lifecycle_config_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     studio_lifecycle_config_content: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -14056,7 +12821,6 @@ class AppLifecycleManagement(PropertyType):
         "idle_settings": "IdleSettings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     idle_settings: Optional[IdleSettings] = None
 
 
@@ -14072,15 +12836,10 @@ class CodeEditorAppSettings(PropertyType):
         "app_lifecycle_management": "AppLifecycleManagement",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_images: Optional[list[CustomImage]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_resource_spec: Optional[ResourceSpec] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lifecycle_config_arns: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     built_in_lifecycle_config_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     app_lifecycle_management: Optional[AppLifecycleManagement] = None
 
 
@@ -14092,7 +12851,6 @@ class CodeRepository(PropertyType):
         "repository_url": "RepositoryUrl",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     repository_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -14106,11 +12864,8 @@ class CustomFileSystemConfig(PropertyType):
         "f_sx_lustre_file_system_config": "FSxLustreFileSystemConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     efs_file_system_config: Optional[EFSFileSystemConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_file_system_config: Optional[S3FileSystemConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     f_sx_lustre_file_system_config: Optional[FSxLustreFileSystemConfig] = None
 
 
@@ -14124,11 +12879,8 @@ class CustomImage(PropertyType):
         "image_version_number": "ImageVersionNumber",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     app_image_config_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_version_number: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -14141,9 +12893,7 @@ class CustomPosixUserConfig(PropertyType):
         "gid": "Gid",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     uid: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     gid: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -14156,9 +12906,7 @@ class DefaultEbsStorageSettings(PropertyType):
         "default_ebs_volume_size_in_gb": "DefaultEbsVolumeSizeInGb",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maximum_ebs_volume_size_in_gb: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_ebs_volume_size_in_gb: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -14170,7 +12918,6 @@ class DefaultSpaceStorageSettings(PropertyType):
         "default_ebs_storage_settings": "DefaultEbsStorageSettings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_ebs_storage_settings: Optional[DefaultEbsStorageSettings] = None
 
 
@@ -14183,9 +12930,7 @@ class EFSFileSystemConfig(PropertyType):
         "file_system_id": "FileSystemId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file_system_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file_system_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -14198,9 +12943,7 @@ class FSxLustreFileSystemConfig(PropertyType):
         "file_system_id": "FileSystemId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file_system_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file_system_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -14213,9 +12956,7 @@ class HiddenSageMakerImage(PropertyType):
         "version_aliases": "VersionAliases",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sage_maker_image_name: Optional[Union[str, SageMakerImageName, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     version_aliases: Optional[Union[list[str], Ref]] = None
 
 
@@ -14230,13 +12971,9 @@ class IdleSettings(PropertyType):
         "lifecycle_management": "LifecycleManagement",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_idle_timeout_in_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     idle_timeout_in_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min_idle_timeout_in_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lifecycle_management: Optional[Union[str, LifecycleManagement, Ref, GetAtt, Sub]] = None
 
 
@@ -14253,17 +12990,11 @@ class JupyterLabAppSettings(PropertyType):
         "app_lifecycle_management": "AppLifecycleManagement",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_images: Optional[list[CustomImage]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_resource_spec: Optional[ResourceSpec] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lifecycle_config_arns: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     built_in_lifecycle_config_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     code_repositories: Optional[list[CodeRepository]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     app_lifecycle_management: Optional[AppLifecycleManagement] = None
 
 
@@ -14276,9 +13007,7 @@ class JupyterServerAppSettings(PropertyType):
         "lifecycle_config_arns": "LifecycleConfigArns",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_resource_spec: Optional[ResourceSpec] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lifecycle_config_arns: Optional[Union[list[str], Ref]] = None
 
 
@@ -14292,11 +13021,8 @@ class KernelGatewayAppSettings(PropertyType):
         "lifecycle_config_arns": "LifecycleConfigArns",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_images: Optional[list[CustomImage]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_resource_spec: Optional[ResourceSpec] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lifecycle_config_arns: Optional[Union[list[str], Ref]] = None
 
 
@@ -14309,9 +13035,7 @@ class RStudioServerProAppSettings(PropertyType):
         "user_group": "UserGroup",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     access_status: Optional[Union[str, RStudioServerProAccessStatus, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_group: Optional[Union[str, RStudioServerProUserGroup, Ref, GetAtt, Sub]] = None
 
 
@@ -14326,13 +13050,9 @@ class ResourceSpec(PropertyType):
         "sage_maker_image_version_arn": "SageMakerImageVersionArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lifecycle_config_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sage_maker_image_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_type: Optional[Union[str, AppInstanceType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sage_maker_image_version_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -14345,9 +13065,7 @@ class S3FileSystemConfig(PropertyType):
         "s3_uri": "S3Uri",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mount_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -14361,11 +13079,8 @@ class SharingSettings(PropertyType):
         "s3_output_path": "S3OutputPath",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     notebook_output_option: Optional[Union[str, NotebookOutputOption, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_output_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -14380,13 +13095,9 @@ class StudioWebPortalSettings(PropertyType):
         "hidden_ml_tools": "HiddenMlTools",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hidden_sage_maker_image_version_aliases: Optional[list[HiddenSageMakerImage]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hidden_app_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hidden_instance_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hidden_ml_tools: Optional[Union[list[str], Ref]] = None
 
 
@@ -14412,35 +13123,20 @@ class UserSettings(PropertyType):
         "sharing_settings": "SharingSettings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_groups: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     jupyter_lab_app_settings: Optional[JupyterLabAppSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kernel_gateway_app_settings: Optional[KernelGatewayAppSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     studio_web_portal_settings: Optional[StudioWebPortalSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_file_system_configs: Optional[list[CustomFileSystemConfig]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_posix_user_config: Optional[CustomPosixUserConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     code_editor_app_settings: Optional[CodeEditorAppSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     r_studio_server_pro_app_settings: Optional[RStudioServerProAppSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     studio_web_portal: Optional[Union[str, StudioWebPortal, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     jupyter_server_app_settings: Optional[JupyterServerAppSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auto_mount_home_efs: Optional[Union[str, AutoMountHomeEFS, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_landing_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     execution_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     space_storage_settings: Optional[DefaultSpaceStorageSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sharing_settings: Optional[SharingSettings] = None
 
 
@@ -14458,17 +13154,11 @@ class UserProfile(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     single_sign_on_user_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     user_settings: Optional[UserSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     single_sign_on_user_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     user_profile_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -14489,11 +13179,8 @@ class CognitoMemberDefinition(PropertyType):
         "cognito_user_group": "CognitoUserGroup",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cognito_user_pool: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cognito_client_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cognito_user_group: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -14506,9 +13193,7 @@ class MemberDefinition(PropertyType):
         "cognito_member_definition": "CognitoMemberDefinition",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     oidc_member_definition: Optional[OidcMemberDefinition] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cognito_member_definition: Optional[CognitoMemberDefinition] = None
 
 
@@ -14520,7 +13205,6 @@ class NotificationConfiguration(PropertyType):
         "notification_topic_arn": "NotificationTopicArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     notification_topic_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -14532,7 +13216,6 @@ class OidcMemberDefinition(PropertyType):
         "oidc_groups": "OidcGroups",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     oidc_groups: Optional[Union[list[str], Ref]] = None
 
 
@@ -14550,17 +13233,11 @@ class Workteam(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     notification_configuration: Optional[NotificationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     workteam_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     member_definitions: Optional[list[MemberDefinition]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     workforce_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property

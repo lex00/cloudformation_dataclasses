@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:55
+  Generated: 2025-12-17 21:50:33
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service PCAConnectorAD
@@ -34,9 +34,7 @@ class VpcInformation(PropertyType):
         "security_group_ids": "SecurityGroupIds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ip_address_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_group_ids: Optional[Union[list[str], Ref]] = None
 
 
@@ -52,13 +50,9 @@ class Connector(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     certificate_authority_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     directory_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_information: Optional[VpcInformation] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
 
     @property
@@ -79,9 +73,7 @@ class DirectoryRegistration(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     directory_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
 
     @property
@@ -102,9 +94,7 @@ class ServicePrincipalName(CloudFormationResource):
         "directory_registration_arn": "DirectoryRegistrationArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connector_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     directory_registration_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -118,9 +108,7 @@ class ApplicationPolicies(PropertyType):
         "critical": "Critical",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     policies: Optional[list[ApplicationPolicy]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     critical: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -133,9 +121,7 @@ class ApplicationPolicy(PropertyType):
         "policy_object_identifier": "PolicyObjectIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     policy_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     policy_object_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -148,9 +134,7 @@ class CertificateValidity(PropertyType):
         "renewal_period": "RenewalPeriod",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     validity_period: Optional[ValidityPeriod] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     renewal_period: Optional[ValidityPeriod] = None
 
 
@@ -166,15 +150,10 @@ class EnrollmentFlagsV2(PropertyType):
         "remove_invalid_certificate_from_personal_store": "RemoveInvalidCertificateFromPersonalStore",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     no_security_extension: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_symmetric_algorithms: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_interaction_required: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_key_reuse_on_nt_token_keyset_storage_full: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     remove_invalid_certificate_from_personal_store: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -190,15 +169,10 @@ class EnrollmentFlagsV3(PropertyType):
         "remove_invalid_certificate_from_personal_store": "RemoveInvalidCertificateFromPersonalStore",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     no_security_extension: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_symmetric_algorithms: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_interaction_required: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_key_reuse_on_nt_token_keyset_storage_full: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     remove_invalid_certificate_from_personal_store: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -214,15 +188,10 @@ class EnrollmentFlagsV4(PropertyType):
         "remove_invalid_certificate_from_personal_store": "RemoveInvalidCertificateFromPersonalStore",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     no_security_extension: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_symmetric_algorithms: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_interaction_required: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_key_reuse_on_nt_token_keyset_storage_full: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     remove_invalid_certificate_from_personal_store: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -235,9 +204,7 @@ class ExtensionsV2(PropertyType):
         "key_usage": "KeyUsage",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     application_policies: Optional[ApplicationPolicies] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_usage: Optional[KeyUsage] = None
 
 
@@ -250,9 +217,7 @@ class ExtensionsV3(PropertyType):
         "key_usage": "KeyUsage",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     application_policies: Optional[ApplicationPolicies] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_usage: Optional[KeyUsage] = None
 
 
@@ -265,9 +230,7 @@ class ExtensionsV4(PropertyType):
         "key_usage": "KeyUsage",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     application_policies: Optional[ApplicationPolicies] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_usage: Optional[KeyUsage] = None
 
 
@@ -280,9 +243,7 @@ class GeneralFlagsV2(PropertyType):
         "machine_type": "MachineType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auto_enrollment: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     machine_type: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -295,9 +256,7 @@ class GeneralFlagsV3(PropertyType):
         "machine_type": "MachineType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auto_enrollment: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     machine_type: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -310,9 +269,7 @@ class GeneralFlagsV4(PropertyType):
         "machine_type": "MachineType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auto_enrollment: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     machine_type: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -325,9 +282,7 @@ class KeyUsage(PropertyType):
         "usage_flags": "UsageFlags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     critical: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     usage_flags: Optional[KeyUsageFlags] = None
 
 
@@ -343,15 +298,10 @@ class KeyUsageFlags(PropertyType):
         "non_repudiation": "NonRepudiation",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_encipherment: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_encipherment: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     digital_signature: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_agreement: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     non_repudiation: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -364,9 +314,7 @@ class KeyUsageProperty(PropertyType):
         "property_type": "PropertyType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     property_flags: Optional[KeyUsagePropertyFlags] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     property_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -380,11 +328,8 @@ class KeyUsagePropertyFlags(PropertyType):
         "key_agreement": "KeyAgreement",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     decrypt: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sign: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_agreement: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -398,11 +343,8 @@ class PrivateKeyAttributesV2(PropertyType):
         "crypto_providers": "CryptoProviders",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     minimal_key_length: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_spec: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     crypto_providers: Optional[Union[list[str], Ref]] = None
 
 
@@ -418,15 +360,10 @@ class PrivateKeyAttributesV3(PropertyType):
         "crypto_providers": "CryptoProviders",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     minimal_key_length: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_spec: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_usage_property: Optional[KeyUsageProperty] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     algorithm: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     crypto_providers: Optional[Union[list[str], Ref]] = None
 
 
@@ -442,15 +379,10 @@ class PrivateKeyAttributesV4(PropertyType):
         "crypto_providers": "CryptoProviders",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     minimal_key_length: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_spec: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_usage_property: Optional[KeyUsageProperty] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     algorithm: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     crypto_providers: Optional[Union[list[str], Ref]] = None
 
 
@@ -464,11 +396,8 @@ class PrivateKeyFlagsV2(PropertyType):
         "client_version": "ClientVersion",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exportable_key: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     strong_key_protection_required: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -483,13 +412,9 @@ class PrivateKeyFlagsV3(PropertyType):
         "client_version": "ClientVersion",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     require_alternate_signature_algorithm: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exportable_key: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     strong_key_protection_required: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -506,17 +431,11 @@ class PrivateKeyFlagsV4(PropertyType):
         "client_version": "ClientVersion",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     require_alternate_signature_algorithm: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exportable_key: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     use_legacy_provider: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     strong_key_protection_required: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     require_same_key_renewal: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -537,25 +456,15 @@ class SubjectNameFlagsV2(PropertyType):
         "require_dns_as_cn": "RequireDnsAsCn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     san_require_email: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     san_require_dns: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     require_common_name: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     san_require_upn: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     san_require_domain_dns: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     san_require_spn: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     require_email: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     require_directory_path: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     san_require_directory_guid: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     require_dns_as_cn: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -576,25 +485,15 @@ class SubjectNameFlagsV3(PropertyType):
         "require_dns_as_cn": "RequireDnsAsCn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     san_require_email: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     san_require_dns: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     require_common_name: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     san_require_upn: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     san_require_domain_dns: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     san_require_spn: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     require_email: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     require_directory_path: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     san_require_directory_guid: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     require_dns_as_cn: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -615,25 +514,15 @@ class SubjectNameFlagsV4(PropertyType):
         "require_dns_as_cn": "RequireDnsAsCn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     san_require_email: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     san_require_dns: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     require_common_name: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     san_require_upn: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     san_require_domain_dns: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     san_require_spn: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     require_email: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     require_directory_path: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     san_require_directory_guid: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     require_dns_as_cn: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -647,11 +536,8 @@ class TemplateDefinition(PropertyType):
         "template_v2": "TemplateV2",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     template_v4: Optional[TemplateV4] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     template_v3: Optional[TemplateV3] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     template_v2: Optional[TemplateV2] = None
 
 
@@ -670,21 +556,13 @@ class TemplateV2(PropertyType):
         "enrollment_flags": "EnrollmentFlags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subject_name_flags: Optional[SubjectNameFlagsV2] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     superseded_templates: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     private_key_flags: Optional[PrivateKeyFlagsV2] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     private_key_attributes: Optional[PrivateKeyAttributesV2] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     general_flags: Optional[GeneralFlagsV2] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     certificate_validity: Optional[CertificateValidity] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     extensions: Optional[ExtensionsV2] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enrollment_flags: Optional[EnrollmentFlagsV2] = None
 
 
@@ -704,23 +582,14 @@ class TemplateV3(PropertyType):
         "hash_algorithm": "HashAlgorithm",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subject_name_flags: Optional[SubjectNameFlagsV3] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     superseded_templates: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     private_key_flags: Optional[PrivateKeyFlagsV3] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     private_key_attributes: Optional[PrivateKeyAttributesV3] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     general_flags: Optional[GeneralFlagsV3] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     certificate_validity: Optional[CertificateValidity] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     extensions: Optional[ExtensionsV3] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enrollment_flags: Optional[EnrollmentFlagsV3] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hash_algorithm: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -740,23 +609,14 @@ class TemplateV4(PropertyType):
         "hash_algorithm": "HashAlgorithm",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subject_name_flags: Optional[SubjectNameFlagsV4] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     superseded_templates: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     private_key_flags: Optional[PrivateKeyFlagsV4] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     private_key_attributes: Optional[PrivateKeyAttributesV4] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     general_flags: Optional[GeneralFlagsV4] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     certificate_validity: Optional[CertificateValidity] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     extensions: Optional[ExtensionsV4] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enrollment_flags: Optional[EnrollmentFlagsV4] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hash_algorithm: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -769,9 +629,7 @@ class ValidityPeriod(PropertyType):
         "period": "Period",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     period_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     period: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -788,15 +646,10 @@ class Template(CloudFormationResource):
         "reenroll_all_certificate_holders": "ReenrollAllCertificateHolders",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connector_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     definition: Optional[TemplateDefinition] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     reenroll_all_certificate_holders: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
     @property
@@ -816,9 +669,7 @@ class AccessRights(PropertyType):
         "auto_enroll": "AutoEnroll",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enroll: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auto_enroll: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -834,13 +685,9 @@ class TemplateGroupAccessControlEntry(CloudFormationResource):
         "group_security_identifier": "GroupSecurityIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     access_rights: Optional[AccessRights] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     template_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     group_display_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     group_security_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 

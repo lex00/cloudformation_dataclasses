@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:31
+  Generated: 2025-12-17 21:50:30
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AutoScaling
@@ -462,9 +462,7 @@ class AcceleratorCountRequest(PropertyType):
         "max": "Max",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -477,9 +475,7 @@ class AcceleratorTotalMemoryMiBRequest(PropertyType):
         "max": "Max",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -491,7 +487,6 @@ class AvailabilityZoneDistribution(PropertyType):
         "capacity_distribution_strategy": "CapacityDistributionStrategy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity_distribution_strategy: Optional[Union[str, CapacityDistributionStrategy, Ref, GetAtt, Sub]] = None
 
 
@@ -504,9 +499,7 @@ class AvailabilityZoneImpairmentPolicy(PropertyType):
         "impaired_zone_health_check_behavior": "ImpairedZoneHealthCheckBehavior",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     zonal_shift_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     impaired_zone_health_check_behavior: Optional[Union[str, ImpairedZoneHealthCheckBehavior, Ref, GetAtt, Sub]] = None
 
 
@@ -519,9 +512,7 @@ class BaselineEbsBandwidthMbpsRequest(PropertyType):
         "max": "Max",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -533,7 +524,6 @@ class BaselinePerformanceFactorsRequest(PropertyType):
         "cpu": "Cpu",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cpu: Optional[CpuPerformanceFactorRequest] = None
 
 
@@ -546,9 +536,7 @@ class CapacityReservationSpecification(PropertyType):
         "capacity_reservation_target": "CapacityReservationTarget",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity_reservation_preference: Optional[Union[str, CapacityReservationPreference, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity_reservation_target: Optional[CapacityReservationTarget] = None
 
 
@@ -561,9 +549,7 @@ class CapacityReservationTarget(PropertyType):
         "capacity_reservation_resource_group_arns": "CapacityReservationResourceGroupArns",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity_reservation_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity_reservation_resource_group_arns: Optional[Union[list[str], Ref]] = None
 
 
@@ -575,7 +561,6 @@ class CpuPerformanceFactorRequest(PropertyType):
         "references": "References",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     references: Optional[list[PerformanceFactorReferenceRequest]] = None
 
 
@@ -588,9 +573,7 @@ class InstanceMaintenancePolicy(PropertyType):
         "min_healthy_percentage": "MinHealthyPercentage",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_healthy_percentage: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min_healthy_percentage: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -626,55 +609,30 @@ class InstanceRequirements(PropertyType):
         "total_local_storage_gb": "TotalLocalStorageGB",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_generations: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     accelerator_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     memory_gi_b_per_v_cpu: Optional[MemoryGiBPerVCpuRequest] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     accelerator_manufacturers: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     v_cpu_count: Optional[VCpuCountRequest] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     local_storage: Optional[Union[str, LocalStorage, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cpu_manufacturers: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bare_metal: Optional[Union[str, BareMetal, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     require_hibernate_support: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_spot_price_as_percentage_of_optimal_on_demand_price: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     on_demand_max_price_percentage_over_lowest_price: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     memory_mi_b: Optional[MemoryMiBRequest] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     local_storage_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_interface_count: Optional[NetworkInterfaceCountRequest] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     excluded_instance_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allowed_instance_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     accelerator_count: Optional[AcceleratorCountRequest] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_bandwidth_gbps: Optional[NetworkBandwidthGbpsRequest] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     baseline_performance_factors: Optional[BaselinePerformanceFactorsRequest] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     baseline_ebs_bandwidth_mbps: Optional[BaselineEbsBandwidthMbpsRequest] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     spot_max_price_percentage_over_lowest_price: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     accelerator_names: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     accelerator_total_memory_mi_b: Optional[AcceleratorTotalMemoryMiBRequest] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     burstable_performance: Optional[Union[str, BurstablePerformance, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     total_local_storage_gb: Optional[TotalLocalStorageGBRequest] = None
 
 
@@ -691,17 +649,11 @@ class InstancesDistribution(PropertyType):
         "spot_max_price": "SpotMaxPrice",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     on_demand_allocation_strategy: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     on_demand_base_capacity: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     on_demand_percentage_above_base_capacity: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     spot_instance_pools: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     spot_allocation_strategy: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     spot_max_price: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -714,9 +666,7 @@ class LaunchTemplate(PropertyType):
         "overrides": "Overrides",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     launch_template_specification: Optional[LaunchTemplateSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     overrides: Optional[list[LaunchTemplateOverrides]] = None
 
 
@@ -731,13 +681,9 @@ class LaunchTemplateOverrides(PropertyType):
         "instance_type": "InstanceType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     launch_template_specification: Optional[LaunchTemplateSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     weighted_capacity: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_requirements: Optional[InstanceRequirements] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -751,11 +697,8 @@ class LaunchTemplateSpecification(PropertyType):
         "launch_template_id": "LaunchTemplateId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     launch_template_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     launch_template_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -773,19 +716,12 @@ class LifecycleHookSpecification(PropertyType):
         "role_arn": "RoleARN",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lifecycle_hook_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lifecycle_transition: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     heartbeat_timeout: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     notification_metadata: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_result: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     notification_target_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -798,9 +734,7 @@ class MemoryGiBPerVCpuRequest(PropertyType):
         "max": "Max",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -813,9 +747,7 @@ class MemoryMiBRequest(PropertyType):
         "max": "Max",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -828,9 +760,7 @@ class MetricsCollection(PropertyType):
         "granularity": "Granularity",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metrics: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     granularity: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -843,9 +773,7 @@ class MixedInstancesPolicy(PropertyType):
         "launch_template": "LaunchTemplate",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instances_distribution: Optional[InstancesDistribution] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     launch_template: Optional[LaunchTemplate] = None
 
 
@@ -858,9 +786,7 @@ class NetworkBandwidthGbpsRequest(PropertyType):
         "max": "Max",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -873,9 +799,7 @@ class NetworkInterfaceCountRequest(PropertyType):
         "max": "Max",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -888,9 +812,7 @@ class NotificationConfiguration(PropertyType):
         "notification_types": "NotificationTypes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     topic_arn: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     notification_types: Optional[Union[list[str], Ref]] = None
 
 
@@ -902,7 +824,6 @@ class PerformanceFactorReferenceRequest(PropertyType):
         "instance_family": "InstanceFamily",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_family: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -916,11 +837,8 @@ class TagProperty(PropertyType):
         "propagate_at_launch": "PropagateAtLaunch",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     propagate_at_launch: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -933,9 +851,7 @@ class TotalLocalStorageGBRequest(PropertyType):
         "max": "Max",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -948,9 +864,7 @@ class TrafficSourceIdentifier(PropertyType):
         "identifier": "Identifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -963,9 +877,7 @@ class VCpuCountRequest(PropertyType):
         "max": "Max",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1011,73 +923,39 @@ class AutoScalingGroup(CloudFormationResource):
         "max_instance_lifetime": "MaxInstanceLifetime",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     lifecycle_hook_specification_list: Optional[list[LifecycleHookSpecification]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     load_balancer_names: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     launch_configuration_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     service_linked_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     availability_zone_impairment_policy: Optional[AvailabilityZoneImpairmentPolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     target_group_ar_ns: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     cooldown: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     notification_configurations: Optional[list[NotificationConfiguration]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     desired_capacity: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     health_check_grace_period: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     default_instance_warmup: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     skip_zonal_shift_validation: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     new_instances_protected_from_scale_in: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     launch_template: Optional[LaunchTemplateSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     mixed_instances_policy: Optional[MixedInstancesPolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_zone_identifier: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[TagProperty]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     context: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     capacity_rebalance: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     instance_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     availability_zones: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     availability_zone_distribution: Optional[AvailabilityZoneDistribution] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     metrics_collection: Optional[list[MetricsCollection]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     instance_maintenance_policy: Optional[InstanceMaintenancePolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     max_size: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     min_size: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     termination_policies: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auto_scaling_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     traffic_sources: Optional[list[TrafficSourceIdentifier]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     desired_capacity_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     placement_group: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     capacity_reservation_specification: Optional[CapacityReservationSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     health_check_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     max_instance_lifetime: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1102,19 +980,12 @@ class BlockDevice(PropertyType):
         "delete_on_termination": "DeleteOnTermination",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     snapshot_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volume_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encrypted: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     throughput: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     iops: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volume_size: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     delete_on_termination: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1129,13 +1000,9 @@ class BlockDeviceMapping(PropertyType):
         "device_name": "DeviceName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ebs: Optional[BlockDevice] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     no_device: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     virtual_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     device_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1149,11 +1016,8 @@ class MetadataOptions(PropertyType):
         "http_endpoint": "HttpEndpoint",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http_put_response_hop_limit: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http_tokens: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http_endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1184,43 +1048,24 @@ class LaunchConfiguration(CloudFormationResource):
         "instance_monitoring": "InstanceMonitoring",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     placement_tenancy: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     security_groups: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     launch_configuration_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     metadata_options: Optional[MetadataOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     instance_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     user_data: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     classic_link_vpc_security_groups: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     block_device_mappings: Optional[list[BlockDeviceMapping]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     iam_instance_profile: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kernel_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     associate_public_ip_address: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     classic_link_vpc_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ebs_optimized: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     key_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     spot_price: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     image_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     instance_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ram_disk_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     instance_monitoring: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1241,21 +1086,13 @@ class LifecycleHook(CloudFormationResource):
         "role_arn": "RoleARN",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     lifecycle_hook_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     lifecycle_transition: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auto_scaling_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     heartbeat_timeout: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     notification_metadata: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     default_result: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     notification_target_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1274,19 +1111,12 @@ class CustomizedMetricSpecification(PropertyType):
         "namespace": "Namespace",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metrics: Optional[list[TargetTrackingMetricDataQuery]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     statistic: Optional[Union[str, MetricStatistic, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dimensions: Optional[list[MetricDimension]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     period: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     unit: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     namespace: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1300,11 +1130,8 @@ class Metric(PropertyType):
         "namespace": "Namespace",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dimensions: Optional[list[MetricDimension]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     namespace: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1320,15 +1147,10 @@ class MetricDataQuery(PropertyType):
         "id": "Id",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     return_data: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     expression: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     label: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric_stat: Optional[MetricStat] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1341,9 +1163,7 @@ class MetricDimension(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1357,11 +1177,8 @@ class MetricStat(PropertyType):
         "unit": "Unit",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stat: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric: Optional[Metric] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     unit: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1374,9 +1191,7 @@ class PredefinedMetricSpecification(PropertyType):
         "resource_label": "ResourceLabel",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     predefined_metric_type: Optional[Union[str, MetricType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_label: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1392,15 +1207,10 @@ class PredictiveScalingConfiguration(PropertyType):
         "scheduling_buffer_time": "SchedulingBufferTime",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_capacity_breach_behavior: Optional[Union[str, PredictiveScalingMaxCapacityBreachBehavior, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_capacity_buffer: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mode: Optional[Union[str, PredictiveScalingMode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric_specifications: Optional[list[PredictiveScalingMetricSpecification]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scheduling_buffer_time: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1412,7 +1222,6 @@ class PredictiveScalingCustomizedCapacityMetric(PropertyType):
         "metric_data_queries": "MetricDataQueries",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric_data_queries: Optional[list[MetricDataQuery]] = None
 
 
@@ -1424,7 +1233,6 @@ class PredictiveScalingCustomizedLoadMetric(PropertyType):
         "metric_data_queries": "MetricDataQueries",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric_data_queries: Optional[list[MetricDataQuery]] = None
 
 
@@ -1436,7 +1244,6 @@ class PredictiveScalingCustomizedScalingMetric(PropertyType):
         "metric_data_queries": "MetricDataQueries",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric_data_queries: Optional[list[MetricDataQuery]] = None
 
 
@@ -1454,19 +1261,12 @@ class PredictiveScalingMetricSpecification(PropertyType):
         "predefined_metric_pair_specification": "PredefinedMetricPairSpecification",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     customized_load_metric_specification: Optional[PredictiveScalingCustomizedLoadMetric] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     predefined_load_metric_specification: Optional[PredictiveScalingPredefinedLoadMetric] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_value: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     predefined_scaling_metric_specification: Optional[PredictiveScalingPredefinedScalingMetric] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     customized_capacity_metric_specification: Optional[PredictiveScalingCustomizedCapacityMetric] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     customized_scaling_metric_specification: Optional[PredictiveScalingCustomizedScalingMetric] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     predefined_metric_pair_specification: Optional[PredictiveScalingPredefinedMetricPair] = None
 
 
@@ -1479,9 +1279,7 @@ class PredictiveScalingPredefinedLoadMetric(PropertyType):
         "resource_label": "ResourceLabel",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     predefined_metric_type: Optional[Union[str, PredefinedLoadMetricType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_label: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1494,9 +1292,7 @@ class PredictiveScalingPredefinedMetricPair(PropertyType):
         "resource_label": "ResourceLabel",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     predefined_metric_type: Optional[Union[str, PredefinedMetricPairType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_label: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1509,9 +1305,7 @@ class PredictiveScalingPredefinedScalingMetric(PropertyType):
         "resource_label": "ResourceLabel",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     predefined_metric_type: Optional[Union[str, PredefinedScalingMetricType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_label: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1525,11 +1319,8 @@ class StepAdjustment(PropertyType):
         "scaling_adjustment": "ScalingAdjustment",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric_interval_upper_bound: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric_interval_lower_bound: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scaling_adjustment: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1544,13 +1335,9 @@ class TargetTrackingConfiguration(PropertyType):
         "predefined_metric_specification": "PredefinedMetricSpecification",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_value: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     customized_metric_specification: Optional[CustomizedMetricSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     disable_scale_in: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     predefined_metric_specification: Optional[PredefinedMetricSpecification] = None
 
 
@@ -1567,17 +1354,11 @@ class TargetTrackingMetricDataQuery(PropertyType):
         "id": "Id",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     return_data: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     expression: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     label: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric_stat: Optional[TargetTrackingMetricStat] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     period: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1592,13 +1373,9 @@ class TargetTrackingMetricStat(PropertyType):
         "unit": "Unit",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stat: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     period: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric: Optional[Metric] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     unit: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1621,27 +1398,16 @@ class ScalingPolicy(CloudFormationResource):
         "adjustment_type": "AdjustmentType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     metric_aggregation_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     predictive_scaling_configuration: Optional[PredictiveScalingConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     scaling_adjustment: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     cooldown: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     step_adjustments: Optional[list[StepAdjustment]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auto_scaling_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     min_adjustment_magnitude: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     target_tracking_configuration: Optional[TargetTrackingConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     estimated_instance_warmup: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     adjustment_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1673,21 +1439,13 @@ class ScheduledAction(CloudFormationResource):
         "max_size": "MaxSize",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     min_size: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     recurrence: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     time_zone: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     end_time: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auto_scaling_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     start_time: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     desired_capacity: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     max_size: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1706,7 +1464,6 @@ class InstanceReusePolicy(PropertyType):
         "reuse_on_scale_in": "ReuseOnScaleIn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     reuse_on_scale_in: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1723,15 +1480,10 @@ class WarmPool(CloudFormationResource):
         "instance_reuse_policy": "InstanceReusePolicy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     min_size: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     max_group_prepared_capacity: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auto_scaling_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     pool_state: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     instance_reuse_policy: Optional[InstanceReusePolicy] = None
 
 

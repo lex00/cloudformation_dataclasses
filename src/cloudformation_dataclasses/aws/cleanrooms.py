@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:33
+  Generated: 2025-12-17 21:50:30
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CleanRooms
@@ -857,11 +857,8 @@ class AnalysisParameter(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -873,7 +870,6 @@ class AnalysisSchema(PropertyType):
         "referenced_tables": "ReferencedTables",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     referenced_tables: Optional[Union[list[str], Ref]] = None
 
 
@@ -886,9 +882,7 @@ class AnalysisSource(PropertyType):
         "text": "Text",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     artifacts: Optional[AnalysisTemplateArtifacts] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -900,7 +894,6 @@ class AnalysisSourceMetadata(PropertyType):
         "artifacts": "Artifacts",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     artifacts: Optional[AnalysisTemplateArtifactMetadata] = None
 
 
@@ -912,7 +905,6 @@ class AnalysisTemplateArtifact(PropertyType):
         "location": "Location",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     location: Optional[S3Location] = None
 
 
@@ -925,9 +917,7 @@ class AnalysisTemplateArtifactMetadata(PropertyType):
         "additional_artifact_hashes": "AdditionalArtifactHashes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     entry_point_hash: Optional[Hash] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     additional_artifact_hashes: Optional[list[Hash]] = None
 
 
@@ -941,11 +931,8 @@ class AnalysisTemplateArtifacts(PropertyType):
         "role_arn": "RoleArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     additional_artifacts: Optional[list[AnalysisTemplateArtifact]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     entry_point: Optional[AnalysisTemplateArtifact] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -957,7 +944,6 @@ class ColumnClassificationDetails(PropertyType):
         "column_mapping": "ColumnMapping",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     column_mapping: Optional[list[SyntheticDataColumnProperties]] = None
 
 
@@ -969,7 +955,6 @@ class ErrorMessageConfiguration(PropertyType):
         "type_": "Type",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -981,7 +966,6 @@ class Hash(PropertyType):
         "sha256": "Sha256",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sha256: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -995,11 +979,8 @@ class MLSyntheticDataParameters(PropertyType):
         "max_membership_inference_attack_score": "MaxMembershipInferenceAttackScore",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     column_classification: Optional[ColumnClassificationDetails] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     epsilon: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_membership_inference_attack_score: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -1012,9 +993,7 @@ class S3Location(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1028,11 +1007,8 @@ class SyntheticDataColumnProperties(PropertyType):
         "is_predictive_value": "IsPredictiveValue",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     column_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     column_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     is_predictive_value: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1044,7 +1020,6 @@ class SyntheticDataParameters(PropertyType):
         "ml_synthetic_data_parameters": "MlSyntheticDataParameters",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ml_synthetic_data_parameters: Optional[MLSyntheticDataParameters] = None
 
 
@@ -1067,27 +1042,16 @@ class AnalysisTemplate(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     membership_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     format: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source_metadata: Optional[AnalysisSourceMetadata] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     error_message_configuration: Optional[ErrorMessageConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     analysis_parameters: Optional[list[AnalysisParameter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     schema: Optional[AnalysisSchema] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     synthetic_data_parameters: Optional[SyntheticDataParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source: Optional[AnalysisSource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1129,13 +1093,9 @@ class DataEncryptionMetadata(PropertyType):
         "allow_duplicates": "AllowDuplicates",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allow_cleartext: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     preserve_nulls: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allow_joins_on_columns_with_different_names: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allow_duplicates: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1147,7 +1107,6 @@ class JobComputePaymentConfig(PropertyType):
         "is_responsible": "IsResponsible",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     is_responsible: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1159,7 +1118,6 @@ class MLMemberAbilities(PropertyType):
         "custom_ml_member_abilities": "CustomMLMemberAbilities",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_ml_member_abilities: Optional[Union[list[str], Ref]] = None
 
 
@@ -1173,11 +1131,8 @@ class MLPaymentConfig(PropertyType):
         "model_training": "ModelTraining",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_inference: Optional[ModelInferencePaymentConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     synthetic_data_generation: Optional[SyntheticDataGenerationPaymentConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_training: Optional[ModelTrainingPaymentConfig] = None
 
 
@@ -1193,15 +1148,10 @@ class MemberSpecification(PropertyType):
         "payment_configuration": "PaymentConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     account_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ml_member_abilities: Optional[MLMemberAbilities] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     display_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     member_abilities: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     payment_configuration: Optional[PaymentConfiguration] = None
 
 
@@ -1213,7 +1163,6 @@ class ModelInferencePaymentConfig(PropertyType):
         "is_responsible": "IsResponsible",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     is_responsible: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1225,7 +1174,6 @@ class ModelTrainingPaymentConfig(PropertyType):
         "is_responsible": "IsResponsible",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     is_responsible: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1239,11 +1187,8 @@ class PaymentConfiguration(PropertyType):
         "machine_learning": "MachineLearning",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     job_compute: Optional[JobComputePaymentConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_compute: Optional[QueryComputePaymentConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     machine_learning: Optional[MLPaymentConfig] = None
 
 
@@ -1255,7 +1200,6 @@ class QueryComputePaymentConfig(PropertyType):
         "is_responsible": "IsResponsible",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     is_responsible: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1267,7 +1211,6 @@ class SyntheticDataGenerationPaymentConfig(PropertyType):
         "is_responsible": "IsResponsible",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     is_responsible: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1293,33 +1236,19 @@ class Collaboration(CloudFormationResource):
         "allowed_result_regions": "AllowedResultRegions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     analytics_engine: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     creator_display_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     creator_member_abilities: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     creator_ml_member_abilities: Optional[MLMemberAbilities] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     job_log_status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     query_log_status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auto_approved_change_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     creator_payment_configuration: Optional[PaymentConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     data_encryption_metadata: Optional[DataEncryptionMetadata] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     members: Optional[list[MemberSpecification]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     allowed_result_regions: Optional[Union[list[str], Ref]] = None
 
     @property
@@ -1344,9 +1273,7 @@ class AggregateColumn(PropertyType):
         "column_names": "ColumnNames",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     function: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     column_names: Optional[Union[list[str], Ref]] = None
 
 
@@ -1360,11 +1287,8 @@ class AggregationConstraint(PropertyType):
         "type_": "Type",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     column_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     minimum: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1377,9 +1301,7 @@ class AnalysisRule(PropertyType):
         "type_": "Type",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     policy: Optional[ConfiguredTableAnalysisRulePolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1398,21 +1320,13 @@ class AnalysisRuleAggregation(PropertyType):
         "aggregate_columns": "AggregateColumns",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allowed_join_operators: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scalar_functions: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     additional_analyses: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     output_constraints: Optional[list[AggregationConstraint]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dimension_columns: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     join_columns: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     join_required: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aggregate_columns: Optional[list[AggregateColumn]] = None
 
 
@@ -1428,15 +1342,10 @@ class AnalysisRuleCustom(PropertyType):
         "disallowed_output_columns": "DisallowedOutputColumns",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     additional_analyses: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allowed_analysis_providers: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     differential_privacy: Optional[DifferentialPrivacy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allowed_analyses: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     disallowed_output_columns: Optional[Union[list[str], Ref]] = None
 
 
@@ -1451,13 +1360,9 @@ class AnalysisRuleList(PropertyType):
         "join_columns": "JoinColumns",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allowed_join_operators: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     list_columns: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     additional_analyses: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     join_columns: Optional[Union[list[str], Ref]] = None
 
 
@@ -1473,15 +1378,10 @@ class AthenaTableReference(PropertyType):
         "output_location": "OutputLocation",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     work_group: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     output_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1493,7 +1393,6 @@ class ConfiguredTableAnalysisRulePolicy(PropertyType):
         "v1": "V1",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     v1: Optional[ConfiguredTableAnalysisRulePolicyV1] = None
 
 
@@ -1507,11 +1406,8 @@ class ConfiguredTableAnalysisRulePolicyV1(PropertyType):
         "custom": "Custom",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aggregation: Optional[AnalysisRuleAggregation] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     list: Optional[AnalysisRuleList] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom: Optional[AnalysisRuleCustom] = None
 
 
@@ -1523,7 +1419,6 @@ class DifferentialPrivacy(PropertyType):
         "columns": "Columns",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     columns: Optional[list[DifferentialPrivacyColumn]] = None
 
 
@@ -1535,7 +1430,6 @@ class DifferentialPrivacyColumn(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1549,11 +1443,8 @@ class GlueTableReference(PropertyType):
         "region": "Region",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     region: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1570,17 +1461,11 @@ class SnowflakeTableReference(PropertyType):
         "schema_name": "SchemaName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_schema: Optional[SnowflakeTableSchema] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     account_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     schema_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1592,7 +1477,6 @@ class SnowflakeTableSchema(PropertyType):
         "v1": "V1",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     v1: Optional[list[SnowflakeTableSchemaV1]] = None
 
 
@@ -1605,9 +1489,7 @@ class SnowflakeTableSchemaV1(PropertyType):
         "column_type": "ColumnType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     column_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     column_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1621,11 +1503,8 @@ class TableReference(PropertyType):
         "athena": "Athena",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     glue: Optional[GlueTableReference] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     snowflake: Optional[SnowflakeTableReference] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     athena: Optional[AthenaTableReference] = None
 
 
@@ -1645,21 +1524,13 @@ class ConfiguredTable(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     selected_analysis_methods: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     analysis_method: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     table_reference: Optional[TableReference] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     analysis_rules: Optional[list[AnalysisRule]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     allowed_columns: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1684,9 +1555,7 @@ class ConfiguredTableAssociationAnalysisRule(PropertyType):
         "type_": "Type",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     policy: Optional[ConfiguredTableAssociationAnalysisRulePolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1699,9 +1568,7 @@ class ConfiguredTableAssociationAnalysisRuleAggregation(PropertyType):
         "allowed_additional_analyses": "AllowedAdditionalAnalyses",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allowed_result_receivers: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allowed_additional_analyses: Optional[Union[list[str], Ref]] = None
 
 
@@ -1714,9 +1581,7 @@ class ConfiguredTableAssociationAnalysisRuleCustom(PropertyType):
         "allowed_additional_analyses": "AllowedAdditionalAnalyses",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allowed_result_receivers: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allowed_additional_analyses: Optional[Union[list[str], Ref]] = None
 
 
@@ -1729,9 +1594,7 @@ class ConfiguredTableAssociationAnalysisRuleList(PropertyType):
         "allowed_additional_analyses": "AllowedAdditionalAnalyses",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allowed_result_receivers: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allowed_additional_analyses: Optional[Union[list[str], Ref]] = None
 
 
@@ -1743,7 +1606,6 @@ class ConfiguredTableAssociationAnalysisRulePolicy(PropertyType):
         "v1": "V1",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     v1: Optional[ConfiguredTableAssociationAnalysisRulePolicyV1] = None
 
 
@@ -1757,11 +1619,8 @@ class ConfiguredTableAssociationAnalysisRulePolicyV1(PropertyType):
         "custom": "Custom",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aggregation: Optional[ConfiguredTableAssociationAnalysisRuleAggregation] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     list: Optional[ConfiguredTableAssociationAnalysisRuleList] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom: Optional[ConfiguredTableAssociationAnalysisRuleCustom] = None
 
 
@@ -1780,19 +1639,12 @@ class ConfiguredTableAssociation(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     membership_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     configured_table_association_analysis_rules: Optional[list[ConfiguredTableAssociationAnalysisRule]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     configured_table_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1817,9 +1669,7 @@ class IdMappingTableInputReferenceConfig(PropertyType):
         "manage_resource_policies": "ManageResourcePolicies",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input_reference_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manage_resource_policies: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1831,7 +1681,6 @@ class IdMappingTableInputReferenceProperties(PropertyType):
         "id_mapping_table_input_source": "IdMappingTableInputSource",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     id_mapping_table_input_source: Optional[list[IdMappingTableInputSource]] = None
 
 
@@ -1844,9 +1693,7 @@ class IdMappingTableInputSource(PropertyType):
         "id_namespace_association_id": "IdNamespaceAssociationId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     id_namespace_association_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1864,17 +1711,11 @@ class IdMappingTable(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     membership_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kms_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     input_reference_config: Optional[IdMappingTableInputReferenceConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1923,7 +1764,6 @@ class IdMappingConfig(PropertyType):
         "allow_use_as_dimension_column": "AllowUseAsDimensionColumn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allow_use_as_dimension_column: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1936,9 +1776,7 @@ class IdNamespaceAssociationInputReferenceConfig(PropertyType):
         "manage_resource_policies": "ManageResourcePolicies",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input_reference_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manage_resource_policies: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1951,9 +1789,7 @@ class IdNamespaceAssociationInputReferenceProperties(PropertyType):
         "id_mapping_workflows_supported": "IdMappingWorkflowsSupported",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     id_namespace_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     id_mapping_workflows_supported: Optional[Union[list[dict[str, Any]], Ref]] = None
 
 
@@ -1971,17 +1807,11 @@ class IdNamespaceAssociation(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     id_mapping_config: Optional[IdMappingConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     membership_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     input_reference_config: Optional[IdNamespaceAssociationInputReferenceConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -2035,7 +1865,6 @@ class MembershipJobComputePaymentConfig(PropertyType):
         "is_responsible": "IsResponsible",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     is_responsible: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2049,11 +1878,8 @@ class MembershipMLPaymentConfig(PropertyType):
         "model_training": "ModelTraining",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_inference: Optional[MembershipModelInferencePaymentConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     synthetic_data_generation: Optional[MembershipSyntheticDataGenerationPaymentConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_training: Optional[MembershipModelTrainingPaymentConfig] = None
 
 
@@ -2065,7 +1891,6 @@ class MembershipModelInferencePaymentConfig(PropertyType):
         "is_responsible": "IsResponsible",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     is_responsible: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2077,7 +1902,6 @@ class MembershipModelTrainingPaymentConfig(PropertyType):
         "is_responsible": "IsResponsible",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     is_responsible: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2091,11 +1915,8 @@ class MembershipPaymentConfiguration(PropertyType):
         "machine_learning": "MachineLearning",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     job_compute: Optional[MembershipJobComputePaymentConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_compute: Optional[MembershipQueryComputePaymentConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     machine_learning: Optional[MembershipMLPaymentConfig] = None
 
 
@@ -2107,7 +1928,6 @@ class MembershipProtectedJobOutputConfiguration(PropertyType):
         "s3": "S3",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3: Optional[ProtectedJobS3OutputConfigurationInput] = None
 
 
@@ -2120,9 +1940,7 @@ class MembershipProtectedJobResultConfiguration(PropertyType):
         "role_arn": "RoleArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     output_configuration: Optional[MembershipProtectedJobOutputConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2134,7 +1952,6 @@ class MembershipProtectedQueryOutputConfiguration(PropertyType):
         "s3": "S3",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3: Optional[ProtectedQueryS3OutputConfiguration] = None
 
 
@@ -2147,9 +1964,7 @@ class MembershipProtectedQueryResultConfiguration(PropertyType):
         "role_arn": "RoleArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     output_configuration: Optional[MembershipProtectedQueryOutputConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2161,7 +1976,6 @@ class MembershipQueryComputePaymentConfig(PropertyType):
         "is_responsible": "IsResponsible",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     is_responsible: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2173,7 +1987,6 @@ class MembershipSyntheticDataGenerationPaymentConfig(PropertyType):
         "is_responsible": "IsResponsible",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     is_responsible: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2186,9 +1999,7 @@ class ProtectedJobS3OutputConfigurationInput(PropertyType):
         "key_prefix": "KeyPrefix",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2203,13 +2014,9 @@ class ProtectedQueryS3OutputConfiguration(PropertyType):
         "single_file_output": "SingleFileOutput",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     result_format: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     single_file_output: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2228,19 +2035,12 @@ class Membership(CloudFormationResource):
         "payment_configuration": "PaymentConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     collaboration_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     job_log_status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     default_result_configuration: Optional[MembershipProtectedQueryResultConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     query_log_status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     default_job_result_configuration: Optional[MembershipProtectedJobResultConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     payment_configuration: Optional[MembershipPaymentConfiguration] = None
 
     @property
@@ -2276,11 +2076,8 @@ class BudgetParameter(PropertyType):
         "auto_refresh": "AutoRefresh",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     budget: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auto_refresh: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2295,13 +2092,9 @@ class Parameters(PropertyType):
         "users_noise_per_query": "UsersNoisePerQuery",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     budget_parameters: Optional[list[BudgetParameter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     epsilon: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     users_noise_per_query: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -2318,15 +2111,10 @@ class PrivacyBudgetTemplate(CloudFormationResource):
         "auto_refresh": "AutoRefresh",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     privacy_budget_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     membership_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     parameters: Optional[Parameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auto_refresh: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property

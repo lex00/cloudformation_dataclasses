@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:47
+  Generated: 2025-12-17 21:50:32
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IoTEvents
@@ -153,7 +153,6 @@ class AcknowledgeFlow(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -173,23 +172,14 @@ class AlarmAction(PropertyType):
         "lambda_": "Lambda",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dynamo_d_bv2: Optional[DynamoDBv2] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     iot_events: Optional[IotEvents] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     iot_site_wise: Optional[IotSiteWise] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sqs: Optional[Sqs] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     firehose: Optional[Firehose] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dynamo_db: Optional[DynamoDB] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     iot_topic_publish: Optional[IotTopicPublish] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sns: Optional[Sns] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lambda_: Optional[Lambda] = None
 
 
@@ -202,9 +192,7 @@ class AlarmCapabilities(PropertyType):
         "initialization_configuration": "InitializationConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     acknowledge_flow: Optional[AcknowledgeFlow] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     initialization_configuration: Optional[InitializationConfiguration] = None
 
 
@@ -216,7 +204,6 @@ class AlarmEventActions(PropertyType):
         "alarm_actions": "AlarmActions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     alarm_actions: Optional[list[AlarmAction]] = None
 
 
@@ -228,7 +215,6 @@ class AlarmRule(PropertyType):
         "simple_rule": "SimpleRule",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     simple_rule: Optional[SimpleRule] = None
 
 
@@ -241,9 +227,7 @@ class AssetPropertyTimestamp(PropertyType):
         "offset_in_nanos": "OffsetInNanos",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     time_in_seconds: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     offset_in_nanos: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -257,11 +241,8 @@ class AssetPropertyValue(PropertyType):
         "timestamp": "Timestamp",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     quality: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[AssetPropertyVariant] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timestamp: Optional[AssetPropertyTimestamp] = None
 
 
@@ -276,13 +257,9 @@ class AssetPropertyVariant(PropertyType):
         "string_value": "StringValue",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     double_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     boolean_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     integer_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     string_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -303,25 +280,15 @@ class DynamoDB(PropertyType):
         "operation": "Operation",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     payload_field: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     range_key_field: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hash_key_field: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     range_key_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     range_key_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hash_key_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hash_key_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     payload: Optional[Payload] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     operation: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -334,9 +301,7 @@ class DynamoDBv2(PropertyType):
         "payload": "Payload",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     payload: Optional[Payload] = None
 
 
@@ -350,11 +315,8 @@ class Firehose(PropertyType):
         "separator": "Separator",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     delivery_stream_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     payload: Optional[Payload] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     separator: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -366,7 +328,6 @@ class InitializationConfiguration(PropertyType):
         "disabled_on_initialization": "DisabledOnInitialization",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     disabled_on_initialization: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -379,9 +340,7 @@ class IotEvents(PropertyType):
         "payload": "Payload",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     payload: Optional[Payload] = None
 
 
@@ -397,15 +356,10 @@ class IotSiteWise(PropertyType):
         "property_id": "PropertyId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     entry_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     property_alias: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     property_value: Optional[AssetPropertyValue] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     asset_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     property_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -418,9 +372,7 @@ class IotTopicPublish(PropertyType):
         "payload": "Payload",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mqtt_topic: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     payload: Optional[Payload] = None
 
 
@@ -433,9 +385,7 @@ class Lambda(PropertyType):
         "payload": "Payload",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     function_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     payload: Optional[Payload] = None
 
 
@@ -448,9 +398,7 @@ class Payload(PropertyType):
         "type_": "Type",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     content_expression: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -464,11 +412,8 @@ class SimpleRule(PropertyType):
         "threshold": "Threshold",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     comparison_operator: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input_property: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     threshold: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -481,9 +426,7 @@ class Sns(PropertyType):
         "payload": "Payload",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     payload: Optional[Payload] = None
 
 
@@ -497,11 +440,8 @@ class Sqs(PropertyType):
         "queue_url": "QueueUrl",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     use_base64: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     payload: Optional[Payload] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     queue_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -522,23 +462,14 @@ class AlarmModel(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     alarm_rule: Optional[AlarmRule] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     alarm_model_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     alarm_model_description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     severity: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     alarm_capabilities: Optional[AlarmCapabilities] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     alarm_event_actions: Optional[AlarmEventActions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
 
@@ -563,31 +494,18 @@ class Action(PropertyType):
         "set_variable": "SetVariable",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     iot_events: Optional[IotEvents] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     firehose: Optional[Firehose] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dynamo_db: Optional[DynamoDB] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     iot_topic_publish: Optional[IotTopicPublish] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dynamo_d_bv2: Optional[DynamoDBv2] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     iot_site_wise: Optional[IotSiteWise] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     reset_timer: Optional[ResetTimer] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sqs: Optional[Sqs] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     set_timer: Optional[SetTimer] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sns: Optional[Sns] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     clear_timer: Optional[ClearTimer] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lambda_: Optional[Lambda] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     set_variable: Optional[SetVariable] = None
 
 
@@ -600,9 +518,7 @@ class AssetPropertyTimestamp(PropertyType):
         "offset_in_nanos": "OffsetInNanos",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     time_in_seconds: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     offset_in_nanos: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -616,11 +532,8 @@ class AssetPropertyValue(PropertyType):
         "timestamp": "Timestamp",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     quality: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[AssetPropertyVariant] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timestamp: Optional[AssetPropertyTimestamp] = None
 
 
@@ -635,13 +548,9 @@ class AssetPropertyVariant(PropertyType):
         "string_value": "StringValue",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     double_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     boolean_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     integer_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     string_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -653,7 +562,6 @@ class ClearTimer(PropertyType):
         "timer_name": "TimerName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timer_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -666,9 +574,7 @@ class DetectorModelDefinition(PropertyType):
         "initial_state_name": "InitialStateName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     states: Optional[list[State]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     initial_state_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -689,25 +595,15 @@ class DynamoDB(PropertyType):
         "operation": "Operation",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     payload_field: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     range_key_field: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hash_key_field: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     range_key_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     range_key_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hash_key_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hash_key_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     payload: Optional[Payload] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     operation: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -720,9 +616,7 @@ class DynamoDBv2(PropertyType):
         "payload": "Payload",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     payload: Optional[Payload] = None
 
 
@@ -736,11 +630,8 @@ class Event(PropertyType):
         "event_name": "EventName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     condition: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     actions: Optional[list[Action]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     event_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -754,11 +645,8 @@ class Firehose(PropertyType):
         "separator": "Separator",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     delivery_stream_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     payload: Optional[Payload] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     separator: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -771,9 +659,7 @@ class IotEvents(PropertyType):
         "payload": "Payload",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     payload: Optional[Payload] = None
 
 
@@ -789,15 +675,10 @@ class IotSiteWise(PropertyType):
         "property_id": "PropertyId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     entry_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     property_alias: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     property_value: Optional[AssetPropertyValue] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     asset_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     property_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -810,9 +691,7 @@ class IotTopicPublish(PropertyType):
         "payload": "Payload",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mqtt_topic: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     payload: Optional[Payload] = None
 
 
@@ -825,9 +704,7 @@ class Lambda(PropertyType):
         "payload": "Payload",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     function_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     payload: Optional[Payload] = None
 
 
@@ -839,7 +716,6 @@ class OnEnter(PropertyType):
         "events": "Events",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     events: Optional[list[Event]] = None
 
 
@@ -851,7 +727,6 @@ class OnExit(PropertyType):
         "events": "Events",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     events: Optional[list[Event]] = None
 
 
@@ -864,9 +739,7 @@ class OnInput(PropertyType):
         "transition_events": "TransitionEvents",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     events: Optional[list[Event]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     transition_events: Optional[list[TransitionEvent]] = None
 
 
@@ -879,9 +752,7 @@ class Payload(PropertyType):
         "type_": "Type",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     content_expression: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -893,7 +764,6 @@ class ResetTimer(PropertyType):
         "timer_name": "TimerName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timer_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -907,11 +777,8 @@ class SetTimer(PropertyType):
         "duration_expression": "DurationExpression",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timer_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     duration_expression: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -924,9 +791,7 @@ class SetVariable(PropertyType):
         "variable_name": "VariableName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     variable_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -939,9 +804,7 @@ class Sns(PropertyType):
         "payload": "Payload",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     payload: Optional[Payload] = None
 
 
@@ -955,11 +818,8 @@ class Sqs(PropertyType):
         "queue_url": "QueueUrl",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     use_base64: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     payload: Optional[Payload] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     queue_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -974,13 +834,9 @@ class State(PropertyType):
         "on_enter": "OnEnter",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     on_input: Optional[OnInput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     on_exit: Optional[OnExit] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     state_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     on_enter: Optional[OnEnter] = None
 
 
@@ -995,13 +851,9 @@ class TransitionEvent(PropertyType):
         "event_name": "EventName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     condition: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     actions: Optional[list[Action]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     next_state: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     event_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1020,19 +872,12 @@ class DetectorModel(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     detector_model_definition: Optional[DetectorModelDefinition] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     evaluation_method: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     detector_model_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     detector_model_description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
 
@@ -1045,7 +890,6 @@ class Attribute(PropertyType):
         "json_path": "JsonPath",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     json_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1057,7 +901,6 @@ class InputDefinition(PropertyType):
         "attributes": "Attributes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attributes: Optional[list[Attribute]] = None
 
 
@@ -1073,13 +916,9 @@ class Input(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     input_definition: Optional[InputDefinition] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     input_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     input_description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
 

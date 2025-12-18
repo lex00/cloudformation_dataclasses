@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:28
+  Generated: 2025-12-17 21:50:29
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service APS
@@ -33,7 +33,6 @@ class AnomalyDetectorConfiguration(PropertyType):
         "random_cut_forest": "RandomCutForest",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     random_cut_forest: Optional[RandomCutForestConfiguration] = None
 
 
@@ -46,9 +45,7 @@ class IgnoreNearExpected(PropertyType):
         "ratio": "Ratio",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     amount: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ratio: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -61,9 +58,7 @@ class Label(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -76,9 +71,7 @@ class MissingDataAction(PropertyType):
         "skip": "Skip",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mark_as_anomaly: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     skip: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -94,15 +87,10 @@ class RandomCutForestConfiguration(PropertyType):
         "ignore_near_expected_from_above": "IgnoreNearExpectedFromAbove",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sample_size: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     shingle_size: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ignore_near_expected_from_below: Optional[IgnoreNearExpected] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ignore_near_expected_from_above: Optional[IgnoreNearExpected] = None
 
 
@@ -121,19 +109,12 @@ class AnomalyDetector(CloudFormationResource):
         "workspace": "Workspace",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     configuration: Optional[AnomalyDetectorConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     alias: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     missing_data_action: Optional[MissingDataAction] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     labels: Optional[list[Label]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     evaluation_interval_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     workspace: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -154,9 +135,7 @@ class ResourcePolicy(CloudFormationResource):
         "policy_document": "PolicyDocument",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     workspace_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy_document: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -173,13 +152,9 @@ class RuleGroupsNamespace(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     data: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     workspace: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -198,7 +173,6 @@ class AmpConfiguration(PropertyType):
         "workspace_arn": "WorkspaceArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     workspace_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -210,7 +184,6 @@ class CloudWatchLogDestination(PropertyType):
         "log_group_arn": "LogGroupArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_group_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -222,7 +195,6 @@ class ComponentConfig(PropertyType):
         "options": "Options",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     options: Optional[dict[str, str]] = None
 
 
@@ -234,7 +206,6 @@ class Destination(PropertyType):
         "amp_configuration": "AmpConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     amp_configuration: Optional[AmpConfiguration] = None
 
 
@@ -248,11 +219,8 @@ class EksConfiguration(PropertyType):
         "subnet_ids": "SubnetIds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cluster_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_group_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnet_ids: Optional[Union[list[str], Ref]] = None
 
 
@@ -265,9 +233,7 @@ class RoleConfiguration(PropertyType):
         "source_role_arn": "SourceRoleArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -279,7 +245,6 @@ class ScrapeConfiguration(PropertyType):
         "configuration_blob": "ConfigurationBlob",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     configuration_blob: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -292,9 +257,7 @@ class ScraperComponent(PropertyType):
         "config": "Config",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     config: Optional[ComponentConfig] = None
 
 
@@ -307,9 +270,7 @@ class ScraperLoggingConfiguration(PropertyType):
         "scraper_components": "ScraperComponents",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     logging_destination: Optional[ScraperLoggingDestination] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scraper_components: Optional[list[ScraperComponent]] = None
 
 
@@ -321,7 +282,6 @@ class ScraperLoggingDestination(PropertyType):
         "cloud_watch_logs": "CloudWatchLogs",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch_logs: Optional[CloudWatchLogDestination] = None
 
 
@@ -334,9 +294,7 @@ class Source(PropertyType):
         "vpc_configuration": "VpcConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     eks_configuration: Optional[EksConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_configuration: Optional[VpcConfiguration] = None
 
 
@@ -349,9 +307,7 @@ class VpcConfiguration(PropertyType):
         "subnet_ids": "SubnetIds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_group_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnet_ids: Optional[Union[list[str], Ref]] = None
 
 
@@ -370,19 +326,12 @@ class Scraper(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     scrape_configuration: Optional[ScrapeConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     destination: Optional[Destination] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     scraper_logging_configuration: Optional[ScraperLoggingConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     alias: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_configuration: Optional[RoleConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source: Optional[Source] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -411,7 +360,6 @@ class CloudWatchLogDestination(PropertyType):
         "log_group_arn": "LogGroupArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_group_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -424,9 +372,7 @@ class Label(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -439,9 +385,7 @@ class LimitsPerLabelSet(PropertyType):
         "label_set": "LabelSet",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     limits: Optional[LimitsPerLabelSetEntry] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     label_set: Optional[list[Label]] = None
 
 
@@ -453,7 +397,6 @@ class LimitsPerLabelSetEntry(PropertyType):
         "max_series": "MaxSeries",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_series: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -465,7 +408,6 @@ class LoggingConfiguration(PropertyType):
         "log_group_arn": "LogGroupArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_group_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -478,9 +420,7 @@ class LoggingDestination(PropertyType):
         "cloud_watch_logs": "CloudWatchLogs",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filters: Optional[LoggingFilter] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch_logs: Optional[CloudWatchLogDestination] = None
 
 
@@ -492,7 +432,6 @@ class LoggingFilter(PropertyType):
         "qsp_threshold": "QspThreshold",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     qsp_threshold: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -504,7 +443,6 @@ class QueryLoggingConfiguration(PropertyType):
         "destinations": "Destinations",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destinations: Optional[list[LoggingDestination]] = None
 
 
@@ -517,9 +455,7 @@ class WorkspaceConfiguration(PropertyType):
         "limits_per_label_sets": "LimitsPerLabelSets",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retention_period_in_days: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     limits_per_label_sets: Optional[list[LimitsPerLabelSet]] = None
 
 
@@ -538,19 +474,12 @@ class Workspace(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kms_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     query_logging_configuration: Optional[QueryLoggingConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     alias: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     logging_configuration: Optional[LoggingConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     workspace_configuration: Optional[WorkspaceConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     alert_manager_definition: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property

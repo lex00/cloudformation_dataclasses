@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:52
+  Generated: 2025-12-17 21:50:33
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MediaPackageV2
@@ -524,9 +524,7 @@ class IngestEndpoint(PropertyType):
         "url": "Url",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     url: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -539,9 +537,7 @@ class InputSwitchConfiguration(PropertyType):
         "mqcs_input_switching": "MQCSInputSwitching",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     preferred_input: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mqcs_input_switching: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -553,7 +549,6 @@ class OutputHeaderConfiguration(PropertyType):
         "publish_mqcs": "PublishMQCS",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     publish_mqcs: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -572,19 +567,12 @@ class Channel(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     input_switch_configuration: Optional[InputSwitchConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     channel_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     input_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     output_header_configuration: Optional[OutputHeaderConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     channel_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -626,11 +614,8 @@ class ChannelGroup(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     channel_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -667,11 +652,8 @@ class ChannelPolicy(CloudFormationResource):
         "channel_group_name": "ChannelGroupName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     channel_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     channel_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -687,13 +669,9 @@ class DashBaseUrl(PropertyType):
         "url": "Url",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     service_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dvb_weight: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dvb_priority: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     url: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -707,11 +685,8 @@ class DashDvbFontDownload(PropertyType):
         "mime_type": "MimeType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     font_family: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mime_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -724,9 +699,7 @@ class DashDvbMetricsReporting(PropertyType):
         "probability": "Probability",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     reporting_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     probability: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -739,9 +712,7 @@ class DashDvbSettings(PropertyType):
         "error_metrics": "ErrorMetrics",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     font_download: Optional[DashDvbFontDownload] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     error_metrics: Optional[list[DashDvbMetricsReporting]] = None
 
 
@@ -769,39 +740,22 @@ class DashManifestConfiguration(PropertyType):
         "scte_dash": "ScteDash",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manifest_window_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     drm_signaling: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compactness: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     program_information: Optional[DashProgramInformation] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filter_configuration: Optional[FilterConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     segment_template_format: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     base_urls: Optional[list[DashBaseUrl]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manifest_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     period_triggers: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     suggested_presentation_delay_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     utc_timing: Optional[DashUtcTiming] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subtitle_configuration: Optional[DashSubtitleConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min_buffer_time_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     profiles: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dvb_settings: Optional[DashDvbSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min_update_period_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scte_dash: Optional[ScteDash] = None
 
 
@@ -817,15 +771,10 @@ class DashProgramInformation(PropertyType):
         "source": "Source",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     copyright: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     language_code: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     title: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     more_information_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -837,7 +786,6 @@ class DashSubtitleConfiguration(PropertyType):
         "ttml_configuration": "TtmlConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ttml_configuration: Optional[DashTtmlConfiguration] = None
 
 
@@ -849,7 +797,6 @@ class DashTtmlConfiguration(PropertyType):
         "ttml_profile": "TtmlProfile",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ttml_profile: Optional[Union[str, DashTtmlProfile, Ref, GetAtt, Sub]] = None
 
 
@@ -862,9 +809,7 @@ class DashUtcTiming(PropertyType):
         "timing_source": "TimingSource",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timing_mode: Optional[Union[str, DashUtcTimingMode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timing_source: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -880,15 +825,10 @@ class Encryption(PropertyType):
         "encryption_method": "EncryptionMethod",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_rotation_interval_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cmaf_exclude_segment_drm_metadata: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     constant_initialization_vector: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     speke_key_provider: Optional[SpekeKeyProvider] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_method: Optional[EncryptionMethod] = None
 
 
@@ -901,9 +841,7 @@ class EncryptionContractConfiguration(PropertyType):
         "preset_speke20_video": "PresetSpeke20Video",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     preset_speke20_audio: Optional[Union[str, PresetSpeke20Audio, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     preset_speke20_video: Optional[Union[str, PresetSpeke20Video, Ref, GetAtt, Sub]] = None
 
 
@@ -917,11 +855,8 @@ class EncryptionMethod(PropertyType):
         "ts_encryption_method": "TsEncryptionMethod",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ism_encryption_method: Optional[Union[str, IsmEncryptionMethod, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cmaf_encryption_method: Optional[Union[str, CmafEncryptionMethod, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ts_encryption_method: Optional[Union[str, TsEncryptionMethod, Ref, GetAtt, Sub]] = None
 
 
@@ -937,15 +872,10 @@ class FilterConfiguration(PropertyType):
         "manifest_filter": "ManifestFilter",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     end: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     time_delay_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     clip_start_time: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manifest_filter: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -957,7 +887,6 @@ class ForceEndpointErrorConfiguration(PropertyType):
         "endpoint_error_conditions": "EndpointErrorConditions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoint_error_conditions: Optional[Union[list[str], Ref]] = None
 
 
@@ -977,23 +906,14 @@ class HlsManifestConfiguration(PropertyType):
         "start_tag": "StartTag",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manifest_window_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manifest_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     program_date_time_interval_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     child_manifest_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scte_hls: Optional[ScteHls] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filter_configuration: Optional[FilterConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     url_encode_child_manifest: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start_tag: Optional[StartTag] = None
 
 
@@ -1013,23 +933,14 @@ class LowLatencyHlsManifestConfiguration(PropertyType):
         "start_tag": "StartTag",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manifest_window_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manifest_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     program_date_time_interval_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     child_manifest_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scte_hls: Optional[ScteHls] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filter_configuration: Optional[FilterConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     url_encode_child_manifest: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start_tag: Optional[StartTag] = None
 
 
@@ -1044,13 +955,9 @@ class MssManifestConfiguration(PropertyType):
         "filter_configuration": "FilterConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manifest_window_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manifest_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manifest_layout: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filter_configuration: Optional[FilterConfiguration] = None
 
 
@@ -1062,7 +969,6 @@ class Scte(PropertyType):
         "scte_filter": "ScteFilter",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scte_filter: Optional[Union[list[str], Ref]] = None
 
 
@@ -1074,7 +980,6 @@ class ScteDash(PropertyType):
         "ad_marker_dash": "AdMarkerDash",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ad_marker_dash: Optional[Union[str, AdMarkerDash, Ref, GetAtt, Sub]] = None
 
 
@@ -1086,7 +991,6 @@ class ScteHls(PropertyType):
         "ad_marker_hls": "AdMarkerHls",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ad_marker_hls: Optional[Union[str, AdMarkerHls, Ref, GetAtt, Sub]] = None
 
 
@@ -1104,19 +1008,12 @@ class Segment(PropertyType):
         "encryption": "Encryption",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     segment_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ts_use_audio_rendition_group: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_iframe_only_streams: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scte: Optional[Scte] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ts_include_dvb_subtitles: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     segment_duration_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption: Optional[Encryption] = None
 
 
@@ -1132,15 +1029,10 @@ class SpekeKeyProvider(PropertyType):
         "url": "Url",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     drm_systems: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_contract_configuration: Optional[EncryptionContractConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     url: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1153,9 +1045,7 @@ class StartTag(PropertyType):
         "time_offset": "TimeOffset",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     precise: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     time_offset: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -1180,31 +1070,18 @@ class OriginEndpoint(CloudFormationResource):
         "startover_window_seconds": "StartoverWindowSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     mss_manifests: Optional[list[MssManifestConfiguration]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     low_latency_hls_manifests: Optional[list[LowLatencyHlsManifestConfiguration]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     container_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     force_endpoint_error_configuration: Optional[ForceEndpointErrorConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     hls_manifests: Optional[list[HlsManifestConfiguration]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     dash_manifests: Optional[list[DashManifestConfiguration]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     segment: Optional[Segment] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     channel_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     origin_endpoint_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     channel_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     startover_window_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1254,9 +1131,7 @@ class CdnAuthConfiguration(PropertyType):
         "cdn_identifier_secret_arns": "CdnIdentifierSecretArns",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secrets_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cdn_identifier_secret_arns: Optional[Union[list[str], Ref]] = None
 
 
@@ -1273,15 +1148,10 @@ class OriginEndpointPolicy(CloudFormationResource):
         "cdn_auth_configuration": "CdnAuthConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     channel_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     origin_endpoint_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     channel_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     cdn_auth_configuration: Optional[CdnAuthConfiguration] = None
 
 

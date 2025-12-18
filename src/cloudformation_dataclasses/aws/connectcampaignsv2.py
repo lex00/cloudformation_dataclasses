@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:37
+  Generated: 2025-12-17 21:50:31
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ConnectCampaignsV2
@@ -252,9 +252,7 @@ class AnswerMachineDetectionConfig(PropertyType):
         "await_answer_machine_prompt": "AwaitAnswerMachinePrompt",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_answer_machine_detection: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     await_answer_machine_prompt: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -269,13 +267,9 @@ class ChannelSubtypeConfig(PropertyType):
         "whats_app": "WhatsApp",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     email: Optional[EmailChannelSubtypeConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     telephony: Optional[TelephonyChannelSubtypeConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sms: Optional[SmsChannelSubtypeConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     whats_app: Optional[WhatsAppChannelSubtypeConfig] = None
 
 
@@ -289,11 +283,8 @@ class CommunicationLimit(PropertyType):
         "unit": "Unit",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     frequency: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_count_per_recipient: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     unit: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -305,7 +296,6 @@ class CommunicationLimits(PropertyType):
         "communication_limit_list": "CommunicationLimitList",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     communication_limit_list: Optional[list[CommunicationLimit]] = None
 
 
@@ -318,9 +308,7 @@ class CommunicationLimitsConfig(PropertyType):
         "instance_limits_handling": "InstanceLimitsHandling",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     all_channels_subtypes: Optional[CommunicationLimits] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_limits_handling: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -336,15 +324,10 @@ class CommunicationTimeConfig(PropertyType):
         "whats_app": "WhatsApp",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     local_time_zone_config: Optional[LocalTimeZoneConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     email: Optional[TimeWindow] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     telephony: Optional[TimeWindow] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sms: Optional[TimeWindow] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     whats_app: Optional[TimeWindow] = None
 
 
@@ -357,9 +340,7 @@ class DailyHour(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[list[TimeRange]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -373,11 +354,8 @@ class EmailChannelSubtypeConfig(PropertyType):
         "default_outbound_config": "DefaultOutboundConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     outbound_mode: Optional[EmailOutboundMode] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_outbound_config: Optional[EmailOutboundConfig] = None
 
 
@@ -391,11 +369,8 @@ class EmailOutboundConfig(PropertyType):
         "wisdom_template_arn": "WisdomTemplateArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connect_source_email_address: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_email_address_display_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     wisdom_template_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -407,7 +382,6 @@ class EmailOutboundMode(PropertyType):
         "agentless_config": "AgentlessConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     agentless_config: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
 
@@ -419,7 +393,6 @@ class EventTrigger(PropertyType):
         "customer_profiles_domain_arn": "CustomerProfilesDomainArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     customer_profiles_domain_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -432,9 +405,7 @@ class LocalTimeZoneConfig(PropertyType):
         "local_time_zone_detection": "LocalTimeZoneDetection",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_time_zone: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     local_time_zone_detection: Optional[Union[list[str], Ref]] = None
 
 
@@ -446,7 +417,6 @@ class OpenHours(PropertyType):
         "daily_hours": "DailyHours",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     daily_hours: Optional[list[DailyHour]] = None
 
 
@@ -458,7 +428,6 @@ class PredictiveConfig(PropertyType):
         "bandwidth_allocation": "BandwidthAllocation",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bandwidth_allocation: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -472,11 +441,8 @@ class PreviewConfig(PropertyType):
         "bandwidth_allocation": "BandwidthAllocation",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout_config: Optional[TimeoutConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     agent_actions: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bandwidth_allocation: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -488,7 +454,6 @@ class ProgressiveConfig(PropertyType):
         "bandwidth_allocation": "BandwidthAllocation",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bandwidth_allocation: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -502,11 +467,8 @@ class RestrictedPeriod(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start_date: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     end_date: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -518,7 +480,6 @@ class RestrictedPeriods(PropertyType):
         "restricted_period_list": "RestrictedPeriodList",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     restricted_period_list: Optional[list[RestrictedPeriod]] = None
 
 
@@ -532,11 +493,8 @@ class Schedule(PropertyType):
         "refresh_frequency": "RefreshFrequency",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     end_time: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start_time: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     refresh_frequency: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -550,11 +508,8 @@ class SmsChannelSubtypeConfig(PropertyType):
         "default_outbound_config": "DefaultOutboundConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     outbound_mode: Optional[SmsOutboundMode] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_outbound_config: Optional[SmsOutboundConfig] = None
 
 
@@ -567,9 +522,7 @@ class SmsOutboundConfig(PropertyType):
         "wisdom_template_arn": "WisdomTemplateArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connect_source_phone_number_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     wisdom_template_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -581,7 +534,6 @@ class SmsOutboundMode(PropertyType):
         "agentless_config": "AgentlessConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     agentless_config: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
 
@@ -594,9 +546,7 @@ class Source(PropertyType):
         "event_trigger": "EventTrigger",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     customer_profiles_segment_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     event_trigger: Optional[EventTrigger] = None
 
 
@@ -611,13 +561,9 @@ class TelephonyChannelSubtypeConfig(PropertyType):
         "default_outbound_config": "DefaultOutboundConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     outbound_mode: Optional[TelephonyOutboundMode] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connect_queue_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_outbound_config: Optional[TelephonyOutboundConfig] = None
 
 
@@ -632,13 +578,9 @@ class TelephonyOutboundConfig(PropertyType):
         "connect_source_phone_number": "ConnectSourcePhoneNumber",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connect_contact_flow_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ring_timeout: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     answer_machine_detection_config: Optional[AnswerMachineDetectionConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connect_source_phone_number: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -653,13 +595,9 @@ class TelephonyOutboundMode(PropertyType):
         "preview_config": "PreviewConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     progressive_config: Optional[ProgressiveConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     predictive_config: Optional[PredictiveConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     agentless_config: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     preview_config: Optional[PreviewConfig] = None
 
 
@@ -672,9 +610,7 @@ class TimeRange(PropertyType):
         "start_time": "StartTime",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     end_time: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start_time: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -687,9 +623,7 @@ class TimeWindow(PropertyType):
         "restricted_periods": "RestrictedPeriods",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     open_hours: Optional[OpenHours] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     restricted_periods: Optional[RestrictedPeriods] = None
 
 
@@ -701,7 +635,6 @@ class TimeoutConfig(PropertyType):
         "duration_in_seconds": "DurationInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     duration_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -715,11 +648,8 @@ class WhatsAppChannelSubtypeConfig(PropertyType):
         "default_outbound_config": "DefaultOutboundConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     outbound_mode: Optional[WhatsAppOutboundMode] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_outbound_config: Optional[WhatsAppOutboundConfig] = None
 
 
@@ -732,9 +662,7 @@ class WhatsAppOutboundConfig(PropertyType):
         "wisdom_template_arn": "WisdomTemplateArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connect_source_phone_number_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     wisdom_template_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -746,7 +674,6 @@ class WhatsAppOutboundMode(PropertyType):
         "agentless_config": "AgentlessConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     agentless_config: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
 
@@ -768,25 +695,15 @@ class Campaign(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     communication_limits_override: Optional[CommunicationLimitsConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     channel_subtype_config: Optional[ChannelSubtypeConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connect_campaign_flow_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     schedule: Optional[Schedule] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     communication_time_config: Optional[CommunicationTimeConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connect_instance_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source: Optional[Source] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:44:05
+  Generated: 2025-12-17 21:50:35
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Timestream
@@ -157,11 +157,8 @@ class Database(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     database_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -180,7 +177,6 @@ class LogDeliveryConfiguration(PropertyType):
         "s3_configuration": "S3Configuration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_configuration: Optional[S3Configuration] = None
 
 
@@ -193,9 +189,7 @@ class S3Configuration(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -224,39 +218,22 @@ class InfluxDBInstance(CloudFormationResource):
         "password": "Password",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     db_parameter_group_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     organization: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     db_instance_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_subnet_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     deployment_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     allocated_storage: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     db_storage_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     log_delivery_configuration: Optional[LogDeliveryConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     username: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     bucket: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_security_group_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     network_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     publicly_accessible: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     password: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -306,9 +283,7 @@ class DimensionMapping(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dimension_value_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -320,7 +295,6 @@ class ErrorReportConfiguration(PropertyType):
         "s3_configuration": "S3Configuration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_configuration: Optional[S3Configuration] = None
 
 
@@ -336,15 +310,10 @@ class MixedMeasureMapping(PropertyType):
         "multi_measure_attribute_mappings": "MultiMeasureAttributeMappings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     measure_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_column: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_measure_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     measure_value_type: Optional[Union[str, MeasureValueType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     multi_measure_attribute_mappings: Optional[list[MultiMeasureAttributeMapping]] = None
 
 
@@ -358,11 +327,8 @@ class MultiMeasureAttributeMapping(PropertyType):
         "measure_value_type": "MeasureValueType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_column: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_multi_measure_attribute_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     measure_value_type: Optional[Union[str, ScalarMeasureValueType, Ref, GetAtt, Sub]] = None
 
 
@@ -375,9 +341,7 @@ class MultiMeasureMappings(PropertyType):
         "multi_measure_attribute_mappings": "MultiMeasureAttributeMappings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_multi_measure_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     multi_measure_attribute_mappings: Optional[list[MultiMeasureAttributeMapping]] = None
 
 
@@ -389,7 +353,6 @@ class NotificationConfiguration(PropertyType):
         "sns_configuration": "SnsConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sns_configuration: Optional[SnsConfiguration] = None
 
 
@@ -403,11 +366,8 @@ class S3Configuration(PropertyType):
         "encryption_option": "EncryptionOption",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object_key_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_option: Optional[Union[str, S3EncryptionOption, Ref, GetAtt, Sub]] = None
 
 
@@ -419,7 +379,6 @@ class ScheduleConfiguration(PropertyType):
         "schedule_expression": "ScheduleExpression",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     schedule_expression: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -431,7 +390,6 @@ class SnsConfiguration(PropertyType):
         "topic_arn": "TopicArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     topic_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -443,7 +401,6 @@ class TargetConfiguration(PropertyType):
         "timestream_configuration": "TimestreamConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timestream_configuration: Optional[TimestreamConfiguration] = None
 
 
@@ -461,19 +418,12 @@ class TimestreamConfiguration(PropertyType):
         "multi_measure_mappings": "MultiMeasureMappings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     time_column: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dimension_mappings: Optional[list[DimensionMapping]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mixed_measure_mappings: Optional[list[MixedMeasureMapping]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     measure_name_column: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     multi_measure_mappings: Optional[MultiMeasureMappings] = None
 
 
@@ -495,25 +445,15 @@ class ScheduledQuery(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     scheduled_query_execution_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     error_report_configuration: Optional[ErrorReportConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     schedule_configuration: Optional[ScheduleConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     target_configuration: Optional[TargetConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     query_string: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     notification_configuration: Optional[NotificationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     scheduled_query_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     client_token: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -572,7 +512,6 @@ class MagneticStoreRejectedDataLocation(PropertyType):
         "s3_configuration": "S3Configuration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_configuration: Optional[S3Configuration] = None
 
 
@@ -585,9 +524,7 @@ class MagneticStoreWriteProperties(PropertyType):
         "magnetic_store_rejected_data_location": "MagneticStoreRejectedDataLocation",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_magnetic_store_writes: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     magnetic_store_rejected_data_location: Optional[MagneticStoreRejectedDataLocation] = None
 
 
@@ -601,11 +538,8 @@ class PartitionKey(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, PartitionKeyType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enforcement_in_record: Optional[Union[str, PartitionKeyEnforcementLevel, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -618,9 +552,7 @@ class RetentionProperties(PropertyType):
         "memory_store_retention_period_in_hours": "MemoryStoreRetentionPeriodInHours",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     magnetic_store_retention_period_in_days: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     memory_store_retention_period_in_hours: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -635,13 +567,9 @@ class S3Configuration(PropertyType):
         "encryption_option": "EncryptionOption",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object_key_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_option: Optional[Union[str, S3EncryptionOption, Ref, GetAtt, Sub]] = None
 
 
@@ -653,7 +581,6 @@ class Schema(PropertyType):
         "composite_partition_key": "CompositePartitionKey",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     composite_partition_key: Optional[list[PartitionKey]] = None
 
 
@@ -671,17 +598,11 @@ class Table(CloudFormationResource):
         "magnetic_store_write_properties": "MagneticStoreWriteProperties",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     retention_properties: Optional[RetentionProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     schema: Optional[Schema] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     database_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     magnetic_store_write_properties: Optional[MagneticStoreWriteProperties] = None
 
     @property

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:32
+  Generated: 2025-12-17 21:50:30
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Batch
@@ -413,41 +413,23 @@ class ComputeResources(PropertyType):
         "desiredv_cpus": "DesiredvCpus",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     spot_iam_fleet_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maxv_cpus: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ec2_configuration: Optional[list[Ec2ConfigurationObject]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bid_percentage: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_group_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allocation_strategy: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnets: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     minv_cpus: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     update_to_latest_image_version: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     launch_template: Optional[LaunchTemplateSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ec2_key_pair: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     placement_group: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tags: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     desiredv_cpus: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -461,11 +443,8 @@ class Ec2ConfigurationObject(PropertyType):
         "image_type": "ImageType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_id_override: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_kubernetes_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -478,9 +457,7 @@ class EksConfiguration(PropertyType):
         "kubernetes_namespace": "KubernetesNamespace",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     eks_cluster_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kubernetes_namespace: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -496,15 +473,10 @@ class LaunchTemplateSpecification(PropertyType):
         "launch_template_id": "LaunchTemplateId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     userdata_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     launch_template_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     overrides: Optional[list[LaunchTemplateSpecificationOverride]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     launch_template_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -520,15 +492,10 @@ class LaunchTemplateSpecificationOverride(PropertyType):
         "launch_template_id": "LaunchTemplateId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_instance_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     userdata_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     launch_template_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     launch_template_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -541,9 +508,7 @@ class UpdatePolicy(PropertyType):
         "terminate_jobs_on_update": "TerminateJobsOnUpdate",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     job_execution_timeout_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     terminate_jobs_on_update: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -566,27 +531,16 @@ class ComputeEnvironment(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     context: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     unmanagedv_cpus: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     replace_compute_environment: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     service_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     update_policy: Optional[UpdatePolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     eks_configuration: Optional[EksConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     compute_environment_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     compute_resources: Optional[ComputeResources] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     state: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
 
     @property
@@ -609,13 +563,9 @@ class ConsumableResource(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     total_quantity: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     consumable_resource_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
 
     @property
@@ -649,7 +599,6 @@ class ConsumableResourceProperties(PropertyType):
         "consumable_resource_list": "ConsumableResourceList",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     consumable_resource_list: Optional[list[ConsumableResourceRequirement]] = None
 
 
@@ -662,9 +611,7 @@ class ConsumableResourceRequirement(PropertyType):
         "quantity": "Quantity",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     consumable_resource: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     quantity: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -698,51 +645,28 @@ class ContainerProperties(PropertyType):
         "ephemeral_storage": "EphemeralStorage",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     repository_credentials: Optional[RepositoryCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secrets: Optional[list[Secret]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     memory: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     privileged: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_execute_command: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     linux_parameters: Optional[LinuxParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     fargate_platform_configuration: Optional[FargatePlatformConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     job_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     readonly_root_filesystem: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vcpus: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_requirements: Optional[list[ResourceRequirement]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_configuration: Optional[LogConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mount_points: Optional[list[MountPoint]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     execution_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     runtime_platform: Optional[RuntimePlatform] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volumes: Optional[list[Volume]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     command: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     environment: Optional[list[Environment]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ulimits: Optional[list[Ulimit]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_configuration: Optional[NetworkConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ephemeral_storage: Optional[EphemeralStorage] = None
 
 
@@ -756,11 +680,8 @@ class Device(PropertyType):
         "container_path": "ContainerPath",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     host_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     permissions: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     container_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -773,9 +694,7 @@ class EFSAuthorizationConfig(PropertyType):
         "access_point_id": "AccessPointId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     iam: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     access_point_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -791,15 +710,10 @@ class EFSVolumeConfiguration(PropertyType):
         "transit_encryption_port": "TransitEncryptionPort",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     transit_encryption: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     authorization_config: Optional[EFSAuthorizationConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file_system_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     root_directory: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     transit_encryption_port: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -811,7 +725,6 @@ class EcsProperties(PropertyType):
         "task_properties": "TaskProperties",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     task_properties: Optional[list[EcsTaskProperties]] = None
 
 
@@ -833,27 +746,16 @@ class EcsTaskProperties(PropertyType):
         "ephemeral_storage": "EphemeralStorage",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     platform_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     execution_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     runtime_platform: Optional[RuntimePlatform] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     task_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ipc_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volumes: Optional[list[Volume]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_execute_command: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     containers: Optional[list[TaskContainerProperties]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_configuration: Optional[NetworkConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pid_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ephemeral_storage: Optional[EphemeralStorage] = None
 
 
@@ -873,23 +775,14 @@ class EksContainer(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     args: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volume_mounts: Optional[list[EksContainerVolumeMount]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_pull_policy: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     command: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_context: Optional[EksContainerSecurityContext] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resources: Optional[EksContainerResourceRequirements] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     env: Optional[list[EksContainerEnvironmentVariable]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -902,9 +795,7 @@ class EksContainerEnvironmentVariable(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -917,9 +808,7 @@ class EksContainerResourceRequirements(PropertyType):
         "requests": "Requests",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     limits: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     requests: Optional[dict[str, str]] = None
 
 
@@ -936,17 +825,11 @@ class EksContainerSecurityContext(PropertyType):
         "run_as_group": "RunAsGroup",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     run_as_user: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allow_privilege_escalation: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     run_as_non_root: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     privileged: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     read_only_root_filesystem: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     run_as_group: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -961,13 +844,9 @@ class EksContainerVolumeMount(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mount_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     read_only: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sub_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -980,9 +859,7 @@ class EksEmptyDir(PropertyType):
         "size_limit": "SizeLimit",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     medium: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     size_limit: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -994,7 +871,6 @@ class EksHostPath(PropertyType):
         "path": "Path",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     path: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1008,11 +884,8 @@ class EksMetadata(PropertyType):
         "namespace": "Namespace",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     annotations: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     labels: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     namespace: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1025,9 +898,7 @@ class EksPersistentVolumeClaim(PropertyType):
         "claim_name": "ClaimName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     read_only: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     claim_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1047,23 +918,14 @@ class EksPodProperties(PropertyType):
         "share_process_namespace": "ShareProcessNamespace",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     init_containers: Optional[list[EksContainer]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volumes: Optional[list[EksVolume]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dns_policy: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     containers: Optional[list[EksContainer]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metadata: Optional[EksMetadata] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     service_account_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_pull_secrets: Optional[list[ImagePullSecret]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     host_network: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     share_process_namespace: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1075,7 +937,6 @@ class EksProperties(PropertyType):
         "pod_properties": "PodProperties",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pod_properties: Optional[EksPodProperties] = None
 
 
@@ -1088,9 +949,7 @@ class EksSecret(PropertyType):
         "optional": "Optional",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     optional: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1106,15 +965,10 @@ class EksVolume(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret: Optional[EksSecret] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     empty_dir: Optional[EksEmptyDir] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     host_path: Optional[EksHostPath] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     persistent_volume_claim: Optional[EksPersistentVolumeClaim] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1127,9 +981,7 @@ class Environment(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1141,7 +993,6 @@ class EphemeralStorage(PropertyType):
         "size_in_gi_b": "SizeInGiB",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     size_in_gi_b: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1156,13 +1007,9 @@ class EvaluateOnExit(PropertyType):
         "on_status_reason": "OnStatusReason",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     on_exit_code: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     on_reason: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     on_status_reason: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1174,7 +1021,6 @@ class FargatePlatformConfiguration(PropertyType):
         "platform_version": "PlatformVersion",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     platform_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1187,9 +1033,7 @@ class FirelensConfiguration(PropertyType):
         "type_": "Type",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     options: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1201,7 +1045,6 @@ class Host(PropertyType):
         "source_path": "SourcePath",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1213,7 +1056,6 @@ class ImagePullSecret(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1225,7 +1067,6 @@ class JobTimeout(PropertyType):
         "attempt_duration_seconds": "AttemptDurationSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attempt_duration_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1242,17 +1083,11 @@ class LinuxParameters(PropertyType):
         "max_swap": "MaxSwap",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     swappiness: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tmpfs: Optional[list[Tmpfs]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     shared_memory_size: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     devices: Optional[list[Device]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     init_process_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_swap: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1266,11 +1101,8 @@ class LogConfiguration(PropertyType):
         "log_driver": "LogDriver",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_options: Optional[list[Secret]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     options: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_driver: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1284,11 +1116,8 @@ class MountPoint(PropertyType):
         "container_path": "ContainerPath",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     read_only: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_volume: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     container_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1321,49 +1150,27 @@ class MultiNodeContainerProperties(PropertyType):
         "ephemeral_storage": "EphemeralStorage",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     repository_credentials: Optional[RepositoryCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secrets: Optional[list[Secret]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     memory: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     privileged: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_execute_command: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     linux_parameters: Optional[LinuxParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     job_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     readonly_root_filesystem: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vcpus: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_requirements: Optional[list[ResourceRequirement]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_configuration: Optional[LogConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mount_points: Optional[list[MountPoint]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     execution_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     runtime_platform: Optional[RuntimePlatform] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volumes: Optional[list[Volume]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     command: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     environment: Optional[list[Environment]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ulimits: Optional[list[Ulimit]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ephemeral_storage: Optional[EphemeralStorage] = None
 
 
@@ -1375,7 +1182,6 @@ class MultiNodeEcsProperties(PropertyType):
         "task_properties": "TaskProperties",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     task_properties: Optional[list[MultiNodeEcsTaskProperties]] = None
 
 
@@ -1393,19 +1199,12 @@ class MultiNodeEcsTaskProperties(PropertyType):
         "pid_mode": "PidMode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     execution_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     task_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ipc_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volumes: Optional[list[Volume]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_execute_command: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     containers: Optional[list[TaskContainerProperties]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pid_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1417,7 +1216,6 @@ class NetworkConfiguration(PropertyType):
         "assign_public_ip": "AssignPublicIp",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     assign_public_ip: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1431,11 +1229,8 @@ class NodeProperties(PropertyType):
         "num_nodes": "NumNodes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     main_node: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     node_range_properties: Optional[list[NodeRangeProperty]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     num_nodes: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1452,17 +1247,11 @@ class NodeRangeProperty(PropertyType):
         "consumable_resource_properties": "ConsumableResourceProperties",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     container: Optional[MultiNodeContainerProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_nodes: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ecs_properties: Optional[MultiNodeEcsProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     eks_properties: Optional[EksProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     consumable_resource_properties: Optional[ConsumableResourceProperties] = None
 
 
@@ -1474,7 +1263,6 @@ class RepositoryCredentials(PropertyType):
         "credentials_parameter": "CredentialsParameter",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     credentials_parameter: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1487,9 +1275,7 @@ class ResourceRequirement(PropertyType):
         "value": "Value",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1501,7 +1287,6 @@ class ResourceRetentionPolicy(PropertyType):
         "skip_deregister_on_update": "SkipDeregisterOnUpdate",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     skip_deregister_on_update: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1514,9 +1299,7 @@ class RetryStrategy(PropertyType):
         "attempts": "Attempts",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     evaluate_on_exit: Optional[list[EvaluateOnExit]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attempts: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1529,9 +1312,7 @@ class RuntimePlatform(PropertyType):
         "cpu_architecture": "CpuArchitecture",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     operating_system_family: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cpu_architecture: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1544,9 +1325,7 @@ class Secret(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value_from: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1559,9 +1338,7 @@ class TaskContainerDependency(PropertyType):
         "container_name": "ContainerName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     condition: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     container_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1589,39 +1366,22 @@ class TaskContainerProperties(PropertyType):
         "ulimits": "Ulimits",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     repository_credentials: Optional[RepositoryCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secrets: Optional[list[Secret]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     privileged: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     linux_parameters: Optional[LinuxParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     readonly_root_filesystem: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_configuration: Optional[LogConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     essential: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_requirements: Optional[list[ResourceRequirement]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mount_points: Optional[list[MountPoint]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     firelens_configuration: Optional[FirelensConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     depends_on: Optional[list[TaskContainerDependency]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     command: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     environment: Optional[list[Environment]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ulimits: Optional[list[Ulimit]] = None
 
 
@@ -1635,11 +1395,8 @@ class Tmpfs(PropertyType):
         "mount_options": "MountOptions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     size: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     container_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mount_options: Optional[Union[list[str], Ref]] = None
 
 
@@ -1653,11 +1410,8 @@ class Ulimit(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     soft_limit: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hard_limit: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1671,11 +1425,8 @@ class Volume(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     host: Optional[Host] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     efs_volume_configuration: Optional[EFSVolumeConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1702,35 +1453,20 @@ class JobDefinition(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     parameters: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     timeout: Optional[JobTimeout] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     job_definition_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     propagate_tags: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     platform_capabilities: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     eks_properties: Optional[EksProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     consumable_resource_properties: Optional[ConsumableResourceProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     node_properties: Optional[NodeProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     scheduling_priority: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     container_properties: Optional[ContainerProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ecs_properties: Optional[EcsProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_retention_policy: Optional[ResourceRetentionPolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     retry_strategy: Optional[RetryStrategy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
 
     @property
@@ -1750,9 +1486,7 @@ class ComputeEnvironmentOrder(PropertyType):
         "order": "Order",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compute_environment: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     order: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1767,13 +1501,9 @@ class JobStateTimeLimitAction(PropertyType):
         "reason": "Reason",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_time_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     state: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     reason: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1786,9 +1516,7 @@ class ServiceEnvironmentOrder(PropertyType):
         "service_environment": "ServiceEnvironment",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     order: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     service_environment: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1809,23 +1537,14 @@ class JobQueue(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     compute_environment_order: Optional[list[ComputeEnvironmentOrder]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     priority: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     state: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     job_queue_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     service_environment_order: Optional[list[ServiceEnvironmentOrder]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     scheduling_policy_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     job_state_time_limit_actions: Optional[list[JobStateTimeLimitAction]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     job_queue_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
 
     @property
@@ -1846,11 +1565,8 @@ class FairsharePolicy(PropertyType):
         "compute_reservation": "ComputeReservation",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     share_distribution: Optional[list[ShareAttributes]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     share_decay_seconds: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compute_reservation: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -1863,9 +1579,7 @@ class ShareAttributes(PropertyType):
         "share_identifier": "ShareIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     weight_factor: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     share_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1880,11 +1594,8 @@ class SchedulingPolicy(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     fairshare_policy: Optional[FairsharePolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1904,9 +1615,7 @@ class CapacityLimit(PropertyType):
         "max_capacity": "MaxCapacity",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity_unit: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_capacity: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1923,15 +1632,10 @@ class ServiceEnvironment(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     service_environment_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     state: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     service_environment_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     capacity_limits: Optional[list[CapacityLimit]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
 
     @property

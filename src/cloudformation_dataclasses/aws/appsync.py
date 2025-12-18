@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:30
+  Generated: 2025-12-17 21:50:30
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AppSync
@@ -432,7 +432,6 @@ class AuthMode(PropertyType):
         "auth_type": "AuthType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auth_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -447,13 +446,9 @@ class AuthProvider(PropertyType):
         "auth_type": "AuthType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     open_id_connect_config: Optional[OpenIDConnectConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cognito_config: Optional[CognitoConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lambda_authorizer_config: Optional[LambdaAuthorizerConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auth_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -467,11 +462,8 @@ class CognitoConfig(PropertyType):
         "aws_region": "AwsRegion",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     app_id_client_regex: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_pool_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_region: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -484,9 +476,7 @@ class DnsMap(PropertyType):
         "realtime": "Realtime",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     realtime: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -502,15 +492,10 @@ class EventConfig(PropertyType):
         "log_config": "LogConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auth_providers: Optional[list[AuthProvider]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connection_auth_modes: Optional[list[AuthMode]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_publish_auth_modes: Optional[list[AuthMode]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_subscribe_auth_modes: Optional[list[AuthMode]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_config: Optional[EventLogConfig] = None
 
 
@@ -523,9 +508,7 @@ class EventLogConfig(PropertyType):
         "log_level": "LogLevel",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch_logs_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_level: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -539,11 +522,8 @@ class LambdaAuthorizerConfig(PropertyType):
         "authorizer_result_ttl_in_seconds": "AuthorizerResultTtlInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     identity_validation_expression: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     authorizer_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     authorizer_result_ttl_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -558,13 +538,9 @@ class OpenIDConnectConfig(PropertyType):
         "iat_ttl": "IatTTL",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     issuer: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auth_ttl: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     iat_ttl: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -580,13 +556,9 @@ class Api(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     owner_contact: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     event_config: Optional[EventConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -632,19 +604,12 @@ class ApiCache(CloudFormationResource):
         "ttl": "Ttl",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     transit_encryption_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     health_metrics_config: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     at_rest_encryption_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     api_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     api_caching_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ttl: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -661,13 +626,9 @@ class ApiKey(CloudFormationResource):
         "api_id": "ApiId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     api_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     expires: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     api_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -691,7 +652,6 @@ class AuthMode(PropertyType):
         "auth_type": "AuthType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auth_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -704,9 +664,7 @@ class HandlerConfig(PropertyType):
         "behavior": "Behavior",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     integration: Optional[Integration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -719,9 +677,7 @@ class HandlerConfigs(PropertyType):
         "on_subscribe": "OnSubscribe",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     on_publish: Optional[HandlerConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     on_subscribe: Optional[HandlerConfig] = None
 
 
@@ -734,9 +690,7 @@ class Integration(PropertyType):
         "lambda_config": "LambdaConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_source_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lambda_config: Optional[LambdaConfig] = None
 
 
@@ -748,7 +702,6 @@ class LambdaConfig(PropertyType):
         "invoke_type": "InvokeType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     invoke_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -768,21 +721,13 @@ class ChannelNamespace(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     subscribe_auth_modes: Optional[list[AuthMode]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     code_s3_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     publish_auth_modes: Optional[list[AuthMode]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     code_handlers: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     handler_configs: Optional[HandlerConfigs] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     api_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -802,9 +747,7 @@ class AuthorizationConfig(PropertyType):
         "authorization_type": "AuthorizationType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_iam_config: Optional[AwsIamConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     authorization_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -817,9 +760,7 @@ class AwsIamConfig(PropertyType):
         "signing_service_name": "SigningServiceName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     signing_region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     signing_service_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -833,11 +774,8 @@ class DeltaSyncConfig(PropertyType):
         "delta_sync_table_name": "DeltaSyncTableName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     base_table_ttl: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     delta_sync_table_ttl: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     delta_sync_table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -853,15 +791,10 @@ class DynamoDBConfig(PropertyType):
         "use_caller_credentials": "UseCallerCredentials",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     versioned: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     delta_sync_config: Optional[DeltaSyncConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     use_caller_credentials: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -873,7 +806,6 @@ class EventBridgeConfig(PropertyType):
         "event_bus_arn": "EventBusArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     event_bus_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -886,9 +818,7 @@ class HttpConfig(PropertyType):
         "authorization_config": "AuthorizationConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     authorization_config: Optional[AuthorizationConfig] = None
 
 
@@ -900,7 +830,6 @@ class LambdaConfig(PropertyType):
         "lambda_function_arn": "LambdaFunctionArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lambda_function_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -913,9 +842,7 @@ class OpenSearchServiceConfig(PropertyType):
         "endpoint": "Endpoint",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -931,15 +858,10 @@ class RdsHttpEndpointConfig(PropertyType):
         "aws_secret_store_arn": "AwsSecretStoreArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     schema: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     db_cluster_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_secret_store_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -952,9 +874,7 @@ class RelationalDatabaseConfig(PropertyType):
         "relational_database_source_type": "RelationalDatabaseSourceType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rds_http_endpoint_config: Optional[RdsHttpEndpointConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     relational_database_source_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -978,29 +898,17 @@ class DataSource(CloudFormationResource):
         "dynamo_db_config": "DynamoDBConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     open_search_service_config: Optional[OpenSearchServiceConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     service_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     event_bridge_config: Optional[EventBridgeConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     http_config: Optional[HttpConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     relational_database_config: Optional[RelationalDatabaseConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     lambda_config: Optional[LambdaConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     api_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     metrics_config: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     dynamo_db_config: Optional[DynamoDBConfig] = None
 
     @property
@@ -1028,13 +936,9 @@ class DomainName(CloudFormationResource):
         "certificate_arn": "CertificateArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     certificate_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1070,9 +974,7 @@ class DomainNameApiAssociation(CloudFormationResource):
         "api_id": "ApiId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     api_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1092,9 +994,7 @@ class AppSyncRuntime(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     runtime_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1106,7 +1006,6 @@ class LambdaConflictHandlerConfig(PropertyType):
         "lambda_conflict_handler_arn": "LambdaConflictHandlerArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lambda_conflict_handler_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1120,11 +1019,8 @@ class SyncConfig(PropertyType):
         "lambda_conflict_handler_config": "LambdaConflictHandlerConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     conflict_handler: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     conflict_detection: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lambda_conflict_handler_config: Optional[LambdaConflictHandlerConfig] = None
 
 
@@ -1150,33 +1046,19 @@ class FunctionConfiguration(CloudFormationResource):
         "api_id": "ApiId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     request_mapping_template: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     response_mapping_template: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     max_batch_size: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     sync_config: Optional[SyncConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     code: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     response_mapping_template_s3_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     runtime: Optional[AppSyncRuntime] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     code_s3_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     data_source_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     function_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     request_mapping_template_s3_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     api_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1213,13 +1095,9 @@ class AdditionalAuthenticationProvider(PropertyType):
         "authentication_type": "AuthenticationType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     open_id_connect_config: Optional[OpenIDConnectConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lambda_authorizer_config: Optional[LambdaAuthorizerConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_pool_config: Optional[CognitoUserPoolConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     authentication_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1233,11 +1111,8 @@ class CognitoUserPoolConfig(PropertyType):
         "aws_region": "AwsRegion",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     app_id_client_regex: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_pool_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_region: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1251,11 +1126,8 @@ class EnhancedMetricsConfig(PropertyType):
         "data_source_level_metrics_behavior": "DataSourceLevelMetricsBehavior",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     operation_level_metrics_config: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resolver_level_metrics_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_source_level_metrics_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1269,11 +1141,8 @@ class LambdaAuthorizerConfig(PropertyType):
         "authorizer_result_ttl_in_seconds": "AuthorizerResultTtlInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     identity_validation_expression: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     authorizer_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     authorizer_result_ttl_in_seconds: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -1287,11 +1156,8 @@ class LogConfig(PropertyType):
         "field_log_level": "FieldLogLevel",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch_logs_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exclude_verbose_content: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_log_level: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1306,13 +1172,9 @@ class OpenIDConnectConfig(PropertyType):
         "iat_ttl": "IatTTL",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     issuer: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auth_ttl: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     iat_ttl: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -1327,13 +1189,9 @@ class UserPoolConfig(PropertyType):
         "default_action": "DefaultAction",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     app_id_client_regex: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_pool_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_action: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1363,41 +1221,23 @@ class GraphQLApi(CloudFormationResource):
         "log_config": "LogConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     query_depth_limit: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     open_id_connect_config: Optional[OpenIDConnectConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     introspection_config: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     merged_api_execution_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     enhanced_metrics_config: Optional[EnhancedMetricsConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     owner_contact: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resolver_count_limit: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     additional_authentication_providers: Optional[list[AdditionalAuthenticationProvider]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     environment_variables: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     api_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     lambda_authorizer_config: Optional[LambdaAuthorizerConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     xray_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     visibility: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     user_pool_config: Optional[UserPoolConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     authentication_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     log_config: Optional[LogConfig] = None
 
     @property
@@ -1449,11 +1289,8 @@ class GraphQLSchema(CloudFormationResource):
         "api_id": "ApiId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     definition: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     definition_s3_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     api_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1467,9 +1304,7 @@ class AppSyncRuntime(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     runtime_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1482,9 +1317,7 @@ class CachingConfig(PropertyType):
         "ttl": "Ttl",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     caching_keys: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ttl: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -1496,7 +1329,6 @@ class LambdaConflictHandlerConfig(PropertyType):
         "lambda_conflict_handler_arn": "LambdaConflictHandlerArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lambda_conflict_handler_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1508,7 +1340,6 @@ class PipelineConfig(PropertyType):
         "functions": "Functions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     functions: Optional[Union[list[str], Ref]] = None
 
 
@@ -1522,11 +1353,8 @@ class SyncConfig(PropertyType):
         "lambda_conflict_handler_config": "LambdaConflictHandlerConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     conflict_handler: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     conflict_detection: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lambda_conflict_handler_config: Optional[LambdaConflictHandlerConfig] = None
 
 
@@ -1555,39 +1383,22 @@ class Resolver(CloudFormationResource):
         "field_name": "FieldName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     pipeline_config: Optional[PipelineConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     request_mapping_template: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     response_mapping_template: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     max_batch_size: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     sync_config: Optional[SyncConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     code: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     metrics_config: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     response_mapping_template_s3_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     runtime: Optional[AppSyncRuntime] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     code_s3_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     data_source_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kind: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     caching_config: Optional[CachingConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     request_mapping_template_s3_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     api_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     field_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1616,7 +1427,6 @@ class SourceApiAssociationConfig(PropertyType):
         "merge_type": "MergeType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     merge_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1632,13 +1442,9 @@ class SourceApiAssociation(CloudFormationResource):
         "source_api_identifier": "SourceApiIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source_api_association_config: Optional[SourceApiAssociationConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     merged_api_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source_api_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property

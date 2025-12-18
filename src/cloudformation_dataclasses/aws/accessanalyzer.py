@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:28
+  Generated: 2025-12-17 21:50:29
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AccessAnalyzer
@@ -533,7 +533,6 @@ class AnalysisRule(PropertyType):
         "exclusions": "Exclusions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exclusions: Optional[list[AnalysisRuleCriteria]] = None
 
 
@@ -546,9 +545,7 @@ class AnalysisRuleCriteria(PropertyType):
         "resource_tags": "ResourceTags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     account_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_tags: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
 
@@ -561,9 +558,7 @@ class AnalyzerConfiguration(PropertyType):
         "unused_access_configuration": "UnusedAccessConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     internal_access_configuration: Optional[InternalAccessConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     unused_access_configuration: Optional[UnusedAccessConfiguration] = None
 
 
@@ -576,9 +571,7 @@ class ArchiveRule(PropertyType):
         "rule_name": "RuleName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filter: Optional[list[Filter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rule_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -594,15 +587,10 @@ class Filter(PropertyType):
         "property": "Property",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exists: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     contains: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     neq: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     eq: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     property: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -614,7 +602,6 @@ class InternalAccessAnalysisRule(PropertyType):
         "inclusions": "Inclusions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     inclusions: Optional[list[InternalAccessAnalysisRuleCriteria]] = None
 
 
@@ -628,11 +615,8 @@ class InternalAccessAnalysisRuleCriteria(PropertyType):
         "resource_arns": "ResourceArns",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     account_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_arns: Optional[Union[list[str], Ref]] = None
 
 
@@ -644,7 +628,6 @@ class InternalAccessConfiguration(PropertyType):
         "internal_access_analysis_rule": "InternalAccessAnalysisRule",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     internal_access_analysis_rule: Optional[InternalAccessAnalysisRule] = None
 
 
@@ -657,9 +640,7 @@ class UnusedAccessConfiguration(PropertyType):
         "analysis_rule": "AnalysisRule",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     unused_access_age: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     analysis_rule: Optional[AnalysisRule] = None
 
 
@@ -676,15 +657,10 @@ class Analyzer(CloudFormationResource):
         "analyzer_configuration": "AnalyzerConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     archive_rules: Optional[list[ArchiveRule]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     analyzer_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     analyzer_configuration: Optional[AnalyzerConfiguration] = None
 
     @property

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:44:00
+  Generated: 2025-12-17 21:50:34
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service S3Express
@@ -36,13 +36,9 @@ class PublicAccessBlockConfiguration(PropertyType):
         "ignore_public_acls": "IgnorePublicAcls",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     restrict_public_buckets: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     block_public_policy: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     block_public_acls: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ignore_public_acls: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -55,9 +51,7 @@ class Scope(PropertyType):
         "prefixes": "Prefixes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     permissions: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prefixes: Optional[Union[list[str], Ref]] = None
 
 
@@ -69,7 +63,6 @@ class VpcConfiguration(PropertyType):
         "vpc_id": "VpcId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -89,21 +82,13 @@ class AccessPoint(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     public_access_block_configuration: Optional[PublicAccessBlockConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     scope: Optional[Scope] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     bucket: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     bucket_account_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_configuration: Optional[VpcConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -129,9 +114,7 @@ class BucketPolicy(CloudFormationResource):
         "policy_document": "PolicyDocument",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     bucket: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy_document: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
 
@@ -144,7 +127,6 @@ class AbortIncompleteMultipartUpload(PropertyType):
         "days_after_initiation": "DaysAfterInitiation",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     days_after_initiation: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -156,7 +138,6 @@ class BucketEncryption(PropertyType):
         "server_side_encryption_configuration": "ServerSideEncryptionConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     server_side_encryption_configuration: Optional[list[ServerSideEncryptionRule]] = None
 
 
@@ -168,7 +149,6 @@ class LifecycleConfiguration(PropertyType):
         "rules": "Rules",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rules: Optional[list[Rule]] = None
 
 
@@ -186,19 +166,12 @@ class Rule(PropertyType):
         "object_size_less_than": "ObjectSizeLessThan",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     expiration_in_days: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object_size_greater_than: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     abort_incomplete_multipart_upload: Optional[AbortIncompleteMultipartUpload] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object_size_less_than: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -211,9 +184,7 @@ class ServerSideEncryptionByDefault(PropertyType):
         "kms_master_key_id": "KMSMasterKeyID",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sse_algorithm: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_master_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -226,9 +197,7 @@ class ServerSideEncryptionRule(PropertyType):
         "server_side_encryption_by_default": "ServerSideEncryptionByDefault",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_key_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     server_side_encryption_by_default: Optional[ServerSideEncryptionByDefault] = None
 
 
@@ -246,17 +215,11 @@ class DirectoryBucket(CloudFormationResource):
         "location_name": "LocationName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     bucket_encryption: Optional[BucketEncryption] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     data_redundancy: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     lifecycle_configuration: Optional[LifecycleConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     location_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property

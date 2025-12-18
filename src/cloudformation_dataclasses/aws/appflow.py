@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:29
+  Generated: 2025-12-17 21:50:30
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AppFlow
@@ -1076,7 +1076,6 @@ class ConnectorProvisioningConfig(PropertyType):
         "lambda_": "Lambda",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lambda_: Optional[LambdaConnectorProvisioningConfig] = None
 
 
@@ -1088,7 +1087,6 @@ class LambdaConnectorProvisioningConfig(PropertyType):
         "lambda_arn": "LambdaArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lambda_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1104,13 +1102,9 @@ class Connector(CloudFormationResource):
         "connector_provisioning_config": "ConnectorProvisioningConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connector_label: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connector_provisioning_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connector_provisioning_config: Optional[ConnectorProvisioningConfig] = None
 
     @property
@@ -1130,9 +1124,7 @@ class AmplitudeConnectorProfileCredentials(PropertyType):
         "api_key": "ApiKey",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     api_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1145,9 +1137,7 @@ class ApiKeyCredentials(PropertyType):
         "api_key": "ApiKey",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     api_secret_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     api_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1160,9 +1150,7 @@ class BasicAuthCredentials(PropertyType):
         "password": "Password",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     username: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     password: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1175,9 +1163,7 @@ class ConnectorOAuthRequest(PropertyType):
         "redirect_uri": "RedirectUri",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auth_code: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     redirect_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1190,9 +1176,7 @@ class ConnectorProfileConfig(PropertyType):
         "connector_profile_properties": "ConnectorProfileProperties",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connector_profile_credentials: Optional[ConnectorProfileCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connector_profile_properties: Optional[ConnectorProfileProperties] = None
 
 
@@ -1221,41 +1205,23 @@ class ConnectorProfileCredentials(PropertyType):
         "salesforce": "Salesforce",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     amplitude: Optional[AmplitudeConnectorProfileCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     google_analytics: Optional[GoogleAnalyticsConnectorProfileCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     service_now: Optional[ServiceNowConnectorProfileCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_connector: Optional[CustomConnectorProfileCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sapo_data: Optional[SAPODataConnectorProfileCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pardot: Optional[PardotConnectorProfileCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     veeva: Optional[VeevaConnectorProfileCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     trendmicro: Optional[TrendmicroConnectorProfileCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     datadog: Optional[DatadogConnectorProfileCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     marketo: Optional[MarketoConnectorProfileCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     redshift: Optional[RedshiftConnectorProfileCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     singular: Optional[SingularConnectorProfileCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     slack: Optional[SlackConnectorProfileCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     snowflake: Optional[SnowflakeConnectorProfileCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dynatrace: Optional[DynatraceConnectorProfileCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     zendesk: Optional[ZendeskConnectorProfileCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     infor_nexus: Optional[InforNexusConnectorProfileCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     salesforce: Optional[SalesforceConnectorProfileCredentials] = None
 
 
@@ -1280,33 +1246,19 @@ class ConnectorProfileProperties(PropertyType):
         "salesforce": "Salesforce",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     service_now: Optional[ServiceNowConnectorProfileProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_connector: Optional[CustomConnectorProfileProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sapo_data: Optional[SAPODataConnectorProfileProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pardot: Optional[PardotConnectorProfileProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     veeva: Optional[VeevaConnectorProfileProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     datadog: Optional[DatadogConnectorProfileProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     marketo: Optional[MarketoConnectorProfileProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     redshift: Optional[RedshiftConnectorProfileProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     slack: Optional[SlackConnectorProfileProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     snowflake: Optional[SnowflakeConnectorProfileProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dynatrace: Optional[DynatraceConnectorProfileProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     zendesk: Optional[ZendeskConnectorProfileProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     infor_nexus: Optional[InforNexusConnectorProfileProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     salesforce: Optional[SalesforceConnectorProfileProperties] = None
 
 
@@ -1319,9 +1271,7 @@ class CustomAuthCredentials(PropertyType):
         "custom_authentication_type": "CustomAuthenticationType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     credentials_map: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_authentication_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1337,15 +1287,10 @@ class CustomConnectorProfileCredentials(PropertyType):
         "authentication_type": "AuthenticationType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     basic: Optional[BasicAuthCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     api_key: Optional[ApiKeyCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     oauth2: Optional[OAuth2Credentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom: Optional[CustomAuthCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     authentication_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1358,9 +1303,7 @@ class CustomConnectorProfileProperties(PropertyType):
         "profile_properties": "ProfileProperties",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     o_auth2_properties: Optional[OAuth2Properties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     profile_properties: Optional[dict[str, str]] = None
 
 
@@ -1373,9 +1316,7 @@ class DatadogConnectorProfileCredentials(PropertyType):
         "api_key": "ApiKey",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     application_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     api_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1387,7 +1328,6 @@ class DatadogConnectorProfileProperties(PropertyType):
         "instance_url": "InstanceUrl",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1399,7 +1339,6 @@ class DynatraceConnectorProfileCredentials(PropertyType):
         "api_token": "ApiToken",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     api_token: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1411,7 +1350,6 @@ class DynatraceConnectorProfileProperties(PropertyType):
         "instance_url": "InstanceUrl",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1427,15 +1365,10 @@ class GoogleAnalyticsConnectorProfileCredentials(PropertyType):
         "connector_o_auth_request": "ConnectorOAuthRequest",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     refresh_token: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_secret: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     access_token: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connector_o_auth_request: Optional[ConnectorOAuthRequest] = None
 
 
@@ -1450,13 +1383,9 @@ class InforNexusConnectorProfileCredentials(PropertyType):
         "datakey": "Datakey",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     access_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_access_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     datakey: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1468,7 +1397,6 @@ class InforNexusConnectorProfileProperties(PropertyType):
         "instance_url": "InstanceUrl",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1483,13 +1411,9 @@ class MarketoConnectorProfileCredentials(PropertyType):
         "connector_o_auth_request": "ConnectorOAuthRequest",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_secret: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     access_token: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connector_o_auth_request: Optional[ConnectorOAuthRequest] = None
 
 
@@ -1501,7 +1425,6 @@ class MarketoConnectorProfileProperties(PropertyType):
         "instance_url": "InstanceUrl",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1517,15 +1440,10 @@ class OAuth2Credentials(PropertyType):
         "client_id": "ClientId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     o_auth_request: Optional[ConnectorOAuthRequest] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     refresh_token: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_secret: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     access_token: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1539,11 +1457,8 @@ class OAuth2Properties(PropertyType):
         "o_auth2_grant_type": "OAuth2GrantType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     token_url_custom_properties: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     token_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     o_auth2_grant_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1559,15 +1474,10 @@ class OAuthCredentials(PropertyType):
         "connector_o_auth_request": "ConnectorOAuthRequest",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     refresh_token: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     access_token: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_secret: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connector_o_auth_request: Optional[ConnectorOAuthRequest] = None
 
 
@@ -1581,11 +1491,8 @@ class OAuthProperties(PropertyType):
         "o_auth_scopes": "OAuthScopes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auth_code_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     token_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     o_auth_scopes: Optional[Union[list[str], Ref]] = None
 
 
@@ -1600,13 +1507,9 @@ class PardotConnectorProfileCredentials(PropertyType):
         "connector_o_auth_request": "ConnectorOAuthRequest",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     refresh_token: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     access_token: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_credentials_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connector_o_auth_request: Optional[ConnectorOAuthRequest] = None
 
 
@@ -1620,11 +1523,8 @@ class PardotConnectorProfileProperties(PropertyType):
         "business_unit_id": "BusinessUnitId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     is_sandbox_environment: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     business_unit_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1637,9 +1537,7 @@ class RedshiftConnectorProfileCredentials(PropertyType):
         "password": "Password",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     username: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     password: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1659,23 +1557,14 @@ class RedshiftConnectorProfileProperties(PropertyType):
         "role_arn": "RoleArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     is_redshift_serverless: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_api_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     workgroup_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cluster_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1688,9 +1577,7 @@ class SAPODataConnectorProfileCredentials(PropertyType):
         "o_auth_credentials": "OAuthCredentials",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     basic_auth_credentials: Optional[BasicAuthCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     o_auth_credentials: Optional[OAuthCredentials] = None
 
 
@@ -1709,21 +1596,13 @@ class SAPODataConnectorProfileProperties(PropertyType):
         "client_number": "ClientNumber",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     application_service_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     application_host_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     o_auth_properties: Optional[OAuthProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     disable_sso: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     logon_language: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     private_link_service_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port_number: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_number: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1740,17 +1619,11 @@ class SalesforceConnectorProfileCredentials(PropertyType):
         "o_auth2_grant_type": "OAuth2GrantType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     jwt_token: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     refresh_token: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     access_token: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_credentials_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connector_o_auth_request: Optional[ConnectorOAuthRequest] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     o_auth2_grant_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1764,11 +1637,8 @@ class SalesforceConnectorProfileProperties(PropertyType):
         "use_private_link_for_metadata_and_authorization": "usePrivateLinkForMetadataAndAuthorization",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     is_sandbox_environment: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     use_private_link_for_metadata_and_authorization: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1782,11 +1652,8 @@ class ServiceNowConnectorProfileCredentials(PropertyType):
         "password": "Password",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     username: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     o_auth2_credentials: Optional[OAuth2Credentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     password: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1798,7 +1665,6 @@ class ServiceNowConnectorProfileProperties(PropertyType):
         "instance_url": "InstanceUrl",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1810,7 +1676,6 @@ class SingularConnectorProfileCredentials(PropertyType):
         "api_key": "ApiKey",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     api_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1825,13 +1690,9 @@ class SlackConnectorProfileCredentials(PropertyType):
         "connector_o_auth_request": "ConnectorOAuthRequest",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_secret: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     access_token: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connector_o_auth_request: Optional[ConnectorOAuthRequest] = None
 
 
@@ -1843,7 +1704,6 @@ class SlackConnectorProfileProperties(PropertyType):
         "instance_url": "InstanceUrl",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1856,9 +1716,7 @@ class SnowflakeConnectorProfileCredentials(PropertyType):
         "password": "Password",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     username: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     password: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1876,19 +1734,12 @@ class SnowflakeConnectorProfileProperties(PropertyType):
         "account_name": "AccountName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     warehouse: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     private_link_service_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stage: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     account_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1900,7 +1751,6 @@ class TrendmicroConnectorProfileCredentials(PropertyType):
         "api_secret_key": "ApiSecretKey",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     api_secret_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1913,9 +1763,7 @@ class VeevaConnectorProfileCredentials(PropertyType):
         "password": "Password",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     username: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     password: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1927,7 +1775,6 @@ class VeevaConnectorProfileProperties(PropertyType):
         "instance_url": "InstanceUrl",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1942,13 +1789,9 @@ class ZendeskConnectorProfileCredentials(PropertyType):
         "connector_o_auth_request": "ConnectorOAuthRequest",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_secret: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     access_token: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connector_o_auth_request: Optional[ConnectorOAuthRequest] = None
 
 
@@ -1960,7 +1803,6 @@ class ZendeskConnectorProfileProperties(PropertyType):
         "instance_url": "InstanceUrl",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1978,17 +1820,11 @@ class ConnectorProfile(CloudFormationResource):
         "connector_profile_config": "ConnectorProfileConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connector_label: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connector_profile_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kms_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connector_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connection_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connector_profile_config: Optional[ConnectorProfileConfig] = None
 
     @property
@@ -2013,9 +1849,7 @@ class AggregationConfig(PropertyType):
         "aggregation_type": "AggregationType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_file_size: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aggregation_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2027,7 +1861,6 @@ class AmplitudeSourceProperties(PropertyType):
         "object": "Object",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2055,39 +1888,22 @@ class ConnectorOperator(PropertyType):
         "salesforce": "Salesforce",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     amplitude: Optional[Union[str, AmplitudeConnectorOperator, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3: Optional[Union[str, S3ConnectorOperator, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     google_analytics: Optional[Union[str, GoogleAnalyticsConnectorOperator, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     service_now: Optional[Union[str, ServiceNowConnectorOperator, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_connector: Optional[Union[str, Operator, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sapo_data: Optional[Union[str, SAPODataConnectorOperator, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pardot: Optional[Union[str, PardotConnectorOperator, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     veeva: Optional[Union[str, VeevaConnectorOperator, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     trendmicro: Optional[Union[str, TrendmicroConnectorOperator, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     datadog: Optional[Union[str, DatadogConnectorOperator, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     marketo: Optional[Union[str, MarketoConnectorOperator, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     singular: Optional[Union[str, SingularConnectorOperator, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     slack: Optional[Union[str, SlackConnectorOperator, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dynatrace: Optional[Union[str, DynatraceConnectorOperator, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     zendesk: Optional[Union[str, ZendeskConnectorOperator, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     infor_nexus: Optional[Union[str, InforNexusConnectorOperator, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     salesforce: Optional[Union[str, SalesforceConnectorOperator, Ref, GetAtt, Sub]] = None
 
 
@@ -2103,15 +1919,10 @@ class CustomConnectorDestinationProperties(PropertyType):
         "custom_properties": "CustomProperties",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     id_field_names: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     entity_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     write_operation_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     error_handling_config: Optional[ErrorHandlingConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_properties: Optional[dict[str, str]] = None
 
 
@@ -2125,11 +1936,8 @@ class CustomConnectorSourceProperties(PropertyType):
         "custom_properties": "CustomProperties",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     entity_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_transfer_api: Optional[DataTransferApi] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_properties: Optional[dict[str, str]] = None
 
 
@@ -2142,9 +1950,7 @@ class DataTransferApi(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, DataTransferApiType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2156,7 +1962,6 @@ class DatadogSourceProperties(PropertyType):
         "object": "Object",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2178,27 +1983,16 @@ class DestinationConnectorProperties(PropertyType):
         "salesforce": "Salesforce",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3: Optional[S3DestinationProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_connector: Optional[CustomConnectorDestinationProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     upsolver: Optional[UpsolverDestinationProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sapo_data: Optional[SAPODataDestinationProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     snowflake: Optional[SnowflakeDestinationProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lookout_metrics: Optional[LookoutMetricsDestinationProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     event_bridge: Optional[EventBridgeDestinationProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     zendesk: Optional[ZendeskDestinationProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     marketo: Optional[MarketoDestinationProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     redshift: Optional[RedshiftDestinationProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     salesforce: Optional[SalesforceDestinationProperties] = None
 
 
@@ -2213,13 +2007,9 @@ class DestinationFlowConfig(PropertyType):
         "destination_connector_properties": "DestinationConnectorProperties",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connector_profile_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     api_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connector_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_connector_properties: Optional[DestinationConnectorProperties] = None
 
 
@@ -2231,7 +2021,6 @@ class DynatraceSourceProperties(PropertyType):
         "object": "Object",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2245,11 +2034,8 @@ class ErrorHandlingConfig(PropertyType):
         "fail_on_first_error": "FailOnFirstError",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     fail_on_first_error: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2262,9 +2048,7 @@ class EventBridgeDestinationProperties(PropertyType):
         "error_handling_config": "ErrorHandlingConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     error_handling_config: Optional[ErrorHandlingConfig] = None
 
 
@@ -2278,11 +2062,8 @@ class GlueDataCatalog(PropertyType):
         "table_prefix": "TablePrefix",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2294,7 +2075,6 @@ class GoogleAnalyticsSourceProperties(PropertyType):
         "object": "Object",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2306,7 +2086,6 @@ class IncrementalPullConfig(PropertyType):
         "datetime_type_field_name": "DatetimeTypeFieldName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     datetime_type_field_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2318,7 +2097,6 @@ class InforNexusSourceProperties(PropertyType):
         "object": "Object",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2330,7 +2108,6 @@ class LookoutMetricsDestinationProperties(PropertyType):
         "object": "Object",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2343,9 +2120,7 @@ class MarketoDestinationProperties(PropertyType):
         "error_handling_config": "ErrorHandlingConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     error_handling_config: Optional[ErrorHandlingConfig] = None
 
 
@@ -2357,7 +2132,6 @@ class MarketoSourceProperties(PropertyType):
         "object": "Object",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2369,7 +2143,6 @@ class MetadataCatalogConfig(PropertyType):
         "glue_data_catalog": "GlueDataCatalog",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     glue_data_catalog: Optional[GlueDataCatalog] = None
 
 
@@ -2381,7 +2154,6 @@ class PardotSourceProperties(PropertyType):
         "object": "Object",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2395,11 +2167,8 @@ class PrefixConfig(PropertyType):
         "prefix_format": "PrefixFormat",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prefix_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     path_prefix_hierarchy: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prefix_format: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2414,13 +2183,9 @@ class RedshiftDestinationProperties(PropertyType):
         "error_handling_config": "ErrorHandlingConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     intermediate_bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     error_handling_config: Optional[ErrorHandlingConfig] = None
 
 
@@ -2434,11 +2199,8 @@ class S3DestinationProperties(PropertyType):
         "s3_output_format_config": "S3OutputFormatConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_output_format_config: Optional[S3OutputFormatConfig] = None
 
 
@@ -2450,7 +2212,6 @@ class S3InputFormatConfig(PropertyType):
         "s3_input_file_type": "S3InputFileType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_input_file_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2465,13 +2226,9 @@ class S3OutputFormatConfig(PropertyType):
         "preserve_source_data_typing": "PreserveSourceDataTyping",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prefix_config: Optional[PrefixConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aggregation_config: Optional[AggregationConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     preserve_source_data_typing: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2485,11 +2242,8 @@ class S3SourceProperties(PropertyType):
         "bucket_prefix": "BucketPrefix",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_input_format_config: Optional[S3InputFormatConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2505,15 +2259,10 @@ class SAPODataDestinationProperties(PropertyType):
         "success_response_handling_config": "SuccessResponseHandlingConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     id_field_names: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     write_operation_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     error_handling_config: Optional[ErrorHandlingConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     success_response_handling_config: Optional[SuccessResponseHandlingConfig] = None
 
 
@@ -2525,7 +2274,6 @@ class SAPODataPaginationConfig(PropertyType):
         "max_page_size": "maxPageSize",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_page_size: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -2537,7 +2285,6 @@ class SAPODataParallelismConfig(PropertyType):
         "max_parallelism": "maxParallelism",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_parallelism: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -2551,11 +2298,8 @@ class SAPODataSourceProperties(PropertyType):
         "parallelism_config": "parallelismConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pagination_config: Optional[SAPODataPaginationConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parallelism_config: Optional[SAPODataParallelismConfig] = None
 
 
@@ -2571,15 +2315,10 @@ class SalesforceDestinationProperties(PropertyType):
         "error_handling_config": "ErrorHandlingConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     id_field_names: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     write_operation_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_transfer_api: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     error_handling_config: Optional[ErrorHandlingConfig] = None
 
 
@@ -2594,13 +2333,9 @@ class SalesforceSourceProperties(PropertyType):
         "enable_dynamic_field_update": "EnableDynamicFieldUpdate",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_deleted_records: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_transfer_api: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_dynamic_field_update: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2619,21 +2354,13 @@ class ScheduledTriggerProperties(PropertyType):
         "flow_error_deactivation_threshold": "FlowErrorDeactivationThreshold",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     schedule_end_time: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     schedule_expression: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     first_execution_from: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     time_zone: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     schedule_start_time: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_pull_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     schedule_offset: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     flow_error_deactivation_threshold: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -2645,7 +2372,6 @@ class ServiceNowSourceProperties(PropertyType):
         "object": "Object",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2657,7 +2383,6 @@ class SingularSourceProperties(PropertyType):
         "object": "Object",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2669,7 +2394,6 @@ class SlackSourceProperties(PropertyType):
         "object": "Object",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2684,13 +2408,9 @@ class SnowflakeDestinationProperties(PropertyType):
         "error_handling_config": "ErrorHandlingConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     intermediate_bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     error_handling_config: Optional[ErrorHandlingConfig] = None
 
 
@@ -2718,39 +2438,22 @@ class SourceConnectorProperties(PropertyType):
         "salesforce": "Salesforce",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     amplitude: Optional[AmplitudeSourceProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3: Optional[S3SourceProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     google_analytics: Optional[GoogleAnalyticsSourceProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     service_now: Optional[ServiceNowSourceProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_connector: Optional[CustomConnectorSourceProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sapo_data: Optional[SAPODataSourceProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pardot: Optional[PardotSourceProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     veeva: Optional[VeevaSourceProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     trendmicro: Optional[TrendmicroSourceProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     datadog: Optional[DatadogSourceProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     marketo: Optional[MarketoSourceProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     singular: Optional[SingularSourceProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     slack: Optional[SlackSourceProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dynatrace: Optional[DynatraceSourceProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     zendesk: Optional[ZendeskSourceProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     infor_nexus: Optional[InforNexusSourceProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     salesforce: Optional[SalesforceSourceProperties] = None
 
 
@@ -2766,15 +2469,10 @@ class SourceFlowConfig(PropertyType):
         "incremental_pull_config": "IncrementalPullConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connector_profile_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     api_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_connector_properties: Optional[SourceConnectorProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connector_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     incremental_pull_config: Optional[IncrementalPullConfig] = None
 
 
@@ -2787,9 +2485,7 @@ class SuccessResponseHandlingConfig(PropertyType):
         "bucket_prefix": "BucketPrefix",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2805,15 +2501,10 @@ class Task(PropertyType):
         "task_properties": "TaskProperties",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_fields: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_field: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connector_operator: Optional[ConnectorOperator] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     task_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     task_properties: Optional[list[TaskPropertiesObject]] = None
 
 
@@ -2826,9 +2517,7 @@ class TaskPropertiesObject(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2840,7 +2529,6 @@ class TrendmicroSourceProperties(PropertyType):
         "object": "Object",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2853,9 +2541,7 @@ class TriggerConfig(PropertyType):
         "trigger_properties": "TriggerProperties",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     trigger_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     trigger_properties: Optional[ScheduledTriggerProperties] = None
 
 
@@ -2869,11 +2555,8 @@ class UpsolverDestinationProperties(PropertyType):
         "s3_output_format_config": "S3OutputFormatConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_output_format_config: Optional[UpsolverS3OutputFormatConfig] = None
 
 
@@ -2887,11 +2570,8 @@ class UpsolverS3OutputFormatConfig(PropertyType):
         "aggregation_config": "AggregationConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prefix_config: Optional[PrefixConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aggregation_config: Optional[AggregationConfig] = None
 
 
@@ -2907,15 +2587,10 @@ class VeevaSourceProperties(PropertyType):
         "include_source_files": "IncludeSourceFiles",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_all_versions: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_renditions: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     document_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_source_files: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2930,13 +2605,9 @@ class ZendeskDestinationProperties(PropertyType):
         "error_handling_config": "ErrorHandlingConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     id_field_names: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     write_operation_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     error_handling_config: Optional[ErrorHandlingConfig] = None
 
 
@@ -2948,7 +2619,6 @@ class ZendeskSourceProperties(PropertyType):
         "object": "Object",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2970,25 +2640,15 @@ class Flow(CloudFormationResource):
         "metadata_catalog_config": "MetadataCatalogConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kms_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tasks: Optional[list[Task]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     flow_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     trigger_config: Optional[TriggerConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     destination_flow_config_list: Optional[list[DestinationFlowConfig]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source_flow_config: Optional[SourceFlowConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     flow_status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     metadata_catalog_config: Optional[MetadataCatalogConfig] = None
 
     @property

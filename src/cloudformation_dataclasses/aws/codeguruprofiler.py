@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:35
+  Generated: 2025-12-17 21:50:30
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CodeGuruProfiler
@@ -137,7 +137,6 @@ class AgentPermissions(PropertyType):
         "principals": "Principals",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     principals: Optional[Union[list[str], Ref]] = None
 
 
@@ -150,9 +149,7 @@ class Channel(PropertyType):
         "channel_id": "channelId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     channel_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     channel_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -169,15 +166,10 @@ class ProfilingGroup(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     anomaly_detection_notification_configuration: Optional[list[Channel]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     agent_permissions: Optional[AgentPermissions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     compute_platform: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     profiling_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property

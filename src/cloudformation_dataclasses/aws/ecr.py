@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:40
+  Generated: 2025-12-17 21:50:31
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ECR
@@ -370,15 +370,10 @@ class RepositoryCatalogData(PropertyType):
         "architectures": "Architectures",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     about_text: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     operating_systems: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     usage_text: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     repository_description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     architectures: Optional[Union[list[str], Ref]] = None
 
 
@@ -394,13 +389,9 @@ class PublicRepository(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     repository_policy_text: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     repository_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     repository_catalog_data: Optional[RepositoryCatalogData] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -425,17 +416,11 @@ class PullThroughCacheRule(CloudFormationResource):
         "ecr_repository_prefix": "EcrRepositoryPrefix",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     upstream_registry_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     custom_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     upstream_repository_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     upstream_registry: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     credential_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ecr_repository_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -449,7 +434,6 @@ class PullTimeUpdateExclusion(CloudFormationResource):
         "principal_arn": "PrincipalArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     principal_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -463,7 +447,6 @@ class RegistryPolicy(CloudFormationResource):
         "policy_text": "PolicyText",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy_text: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
     @property
@@ -483,9 +466,7 @@ class RepositoryFilter(PropertyType):
         "filter": "Filter",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filter_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filter: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -498,9 +479,7 @@ class ScanningRule(PropertyType):
         "scan_frequency": "ScanFrequency",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     repository_filters: Optional[list[RepositoryFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scan_frequency: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -514,9 +493,7 @@ class RegistryScanningConfiguration(CloudFormationResource):
         "rules": "Rules",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     scan_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     rules: Optional[list[ScanningRule]] = None
 
     @property
@@ -535,7 +512,6 @@ class ReplicationConfiguration(PropertyType):
         "rules": "Rules",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rules: Optional[list[ReplicationRule]] = None
 
 
@@ -548,9 +524,7 @@ class ReplicationDestination(PropertyType):
         "registry_id": "RegistryId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     registry_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -563,9 +537,7 @@ class ReplicationRule(PropertyType):
         "destinations": "Destinations",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     repository_filters: Optional[list[RepositoryFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destinations: Optional[list[ReplicationDestination]] = None
 
 
@@ -578,9 +550,7 @@ class RepositoryFilter(PropertyType):
         "filter": "Filter",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filter_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filter: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -593,7 +563,6 @@ class ReplicationConfiguration(CloudFormationResource):
         "replication_configuration": "ReplicationConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     replication_configuration: Optional[ReplicationConfiguration] = None
 
     @property
@@ -613,9 +582,7 @@ class EncryptionConfiguration(PropertyType):
         "kms_key": "KmsKey",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -627,7 +594,6 @@ class ImageScanningConfiguration(PropertyType):
         "scan_on_push": "ScanOnPush",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scan_on_push: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -640,9 +606,7 @@ class ImageTagMutabilityExclusionFilter(PropertyType):
         "image_tag_mutability_exclusion_filter_value": "ImageTagMutabilityExclusionFilterValue",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_tag_mutability_exclusion_filter_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_tag_mutability_exclusion_filter_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -655,9 +619,7 @@ class LifecyclePolicy(PropertyType):
         "registry_id": "RegistryId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lifecycle_policy_text: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     registry_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -678,23 +640,14 @@ class Repository(CloudFormationResource):
         "image_tag_mutability": "ImageTagMutability",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     empty_on_delete: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     image_scanning_configuration: Optional[ImageScanningConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     image_tag_mutability_exclusion_filters: Optional[list[ImageTagMutabilityExclusionFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     encryption_configuration: Optional[EncryptionConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     repository_policy_text: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     lifecycle_policy: Optional[LifecyclePolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     repository_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     image_tag_mutability: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -719,9 +672,7 @@ class EncryptionConfiguration(PropertyType):
         "kms_key": "KmsKey",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -734,9 +685,7 @@ class ImageTagMutabilityExclusionFilter(PropertyType):
         "image_tag_mutability_exclusion_filter_value": "ImageTagMutabilityExclusionFilterValue",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_tag_mutability_exclusion_filter_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_tag_mutability_exclusion_filter_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -758,25 +707,15 @@ class RepositoryCreationTemplate(CloudFormationResource):
         "image_tag_mutability": "ImageTagMutability",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     image_tag_mutability_exclusion_filters: Optional[list[ImageTagMutabilityExclusionFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     custom_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     encryption_configuration: Optional[EncryptionConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     repository_policy: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     lifecycle_policy: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     applied_for: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     image_tag_mutability: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -801,9 +740,7 @@ class RepositoryFilter(PropertyType):
         "filter": "Filter",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filter_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filter: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -816,9 +753,7 @@ class Rule(PropertyType):
         "signing_profile_arn": "SigningProfileArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     repository_filters: Optional[list[RepositoryFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     signing_profile_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -831,7 +766,6 @@ class SigningConfiguration(CloudFormationResource):
         "rules": "Rules",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     rules: Optional[list[Rule]] = None
 
     @property

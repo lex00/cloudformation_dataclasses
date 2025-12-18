@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:44:05
+  Generated: 2025-12-17 21:50:35
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service WAFRegional
@@ -790,15 +790,10 @@ class ByteMatchTuple(PropertyType):
         "field_to_match": "FieldToMatch",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_string: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_string_base64: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     positional_constraint: Optional[Union[str, PositionalConstraint, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformation: Optional[Union[str, TextTransformation, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_to_match: Optional[FieldToMatch] = None
 
 
@@ -811,9 +806,7 @@ class FieldToMatch(PropertyType):
         "data": "Data",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, MatchFieldType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -827,9 +820,7 @@ class ByteMatchSet(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     byte_match_tuples: Optional[list[ByteMatchTuple]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -843,9 +834,7 @@ class GeoMatchConstraint(PropertyType):
         "value": "Value",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, GeoMatchConstraintType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, GeoMatchConstraintValue, Ref, GetAtt, Sub]] = None
 
 
@@ -859,9 +848,7 @@ class GeoMatchSet(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     geo_match_constraints: Optional[list[GeoMatchConstraint]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -875,9 +862,7 @@ class IPSetDescriptor(PropertyType):
         "value": "Value",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, IPSetDescriptorType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -891,9 +876,7 @@ class IPSet(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ip_set_descriptors: Optional[list[IPSetDescriptor]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -908,11 +891,8 @@ class Predicate(PropertyType):
         "negated": "Negated",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, PredicateType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     negated: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -929,15 +909,10 @@ class RateBasedRule(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     metric_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     rate_limit: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     match_predicates: Optional[list[Predicate]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     rate_key: Optional[Union[str, RateKey, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -952,9 +927,7 @@ class RegexPatternSet(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     regex_pattern_strings: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -969,11 +942,8 @@ class Predicate(PropertyType):
         "negated": "Negated",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, PredicateType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     negated: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -988,11 +958,8 @@ class Rule(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     metric_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     predicates: Optional[list[Predicate]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1006,9 +973,7 @@ class FieldToMatch(PropertyType):
         "data": "Data",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, MatchFieldType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1023,13 +988,9 @@ class SizeConstraint(PropertyType):
         "field_to_match": "FieldToMatch",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     comparison_operator: Optional[Union[str, ComparisonOperator, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     size: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformation: Optional[Union[str, TextTransformation, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_to_match: Optional[FieldToMatch] = None
 
 
@@ -1043,9 +1004,7 @@ class SizeConstraintSet(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     size_constraints: Optional[list[SizeConstraint]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1059,9 +1018,7 @@ class FieldToMatch(PropertyType):
         "data": "Data",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, MatchFieldType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1074,9 +1031,7 @@ class SqlInjectionMatchTuple(PropertyType):
         "field_to_match": "FieldToMatch",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformation: Optional[Union[str, TextTransformation, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_to_match: Optional[FieldToMatch] = None
 
 
@@ -1090,9 +1045,7 @@ class SqlInjectionMatchSet(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     sql_injection_match_tuples: Optional[list[SqlInjectionMatchTuple]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1105,7 +1058,6 @@ class Action(PropertyType):
         "type_": "Type",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1119,11 +1071,8 @@ class Rule(PropertyType):
         "rule_id": "RuleId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[Action] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     priority: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rule_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1139,13 +1088,9 @@ class WebACL(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     metric_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     default_action: Optional[Action] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     rules: Optional[list[Rule]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1160,9 +1105,7 @@ class WebACLAssociation(CloudFormationResource):
         "web_acl_id": "WebACLId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     web_acl_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1176,9 +1119,7 @@ class FieldToMatch(PropertyType):
         "data": "Data",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, MatchFieldType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1191,9 +1132,7 @@ class XssMatchTuple(PropertyType):
         "field_to_match": "FieldToMatch",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_transformation: Optional[Union[str, TextTransformation, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_to_match: Optional[FieldToMatch] = None
 
 
@@ -1207,9 +1146,7 @@ class XssMatchSet(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     xss_match_tuples: Optional[list[XssMatchTuple]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 

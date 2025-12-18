@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:31
+  Generated: 2025-12-17 21:50:30
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service B2BI
@@ -921,7 +921,6 @@ class CapabilityConfiguration(PropertyType):
         "edi": "Edi",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     edi: Optional[EdiConfiguration] = None
 
 
@@ -937,15 +936,10 @@ class EdiConfiguration(PropertyType):
         "capability_direction": "CapabilityDirection",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[EdiType] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input_location: Optional[S3Location] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     transformer_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     output_location: Optional[S3Location] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capability_direction: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -957,7 +951,6 @@ class EdiType(PropertyType):
         "x12_details": "X12Details",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     x12_details: Optional[X12Details] = None
 
 
@@ -970,9 +963,7 @@ class S3Location(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -985,9 +976,7 @@ class X12Details(PropertyType):
         "transaction_set": "TransactionSet",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     transaction_set: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1004,15 +993,10 @@ class Capability(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     configuration: Optional[CapabilityConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     instructions_documents: Optional[list[S3Location]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1047,9 +1031,7 @@ class CapabilityOptions(PropertyType):
         "outbound_edi": "OutboundEdi",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     inbound_edi: Optional[InboundEdiOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     outbound_edi: Optional[OutboundEdiOptions] = None
 
 
@@ -1061,7 +1043,6 @@ class InboundEdiOptions(PropertyType):
         "x12": "X12",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     x12: Optional[X12InboundEdiOptions] = None
 
 
@@ -1073,7 +1054,6 @@ class OutboundEdiOptions(PropertyType):
         "x12": "X12",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     x12: Optional[X12Envelope] = None
 
 
@@ -1087,11 +1067,8 @@ class WrapOptions(PropertyType):
         "line_terminator": "LineTerminator",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     line_length: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     wrap_by: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     line_terminator: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1104,9 +1081,7 @@ class X12AcknowledgmentOptions(PropertyType):
         "functional_acknowledgment": "FunctionalAcknowledgment",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     technical_acknowledgment: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     functional_acknowledgment: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1120,11 +1095,8 @@ class X12ControlNumbers(PropertyType):
         "starting_transaction_set_control_number": "StartingTransactionSetControlNumber",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     starting_functional_group_control_number: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     starting_interchange_control_number: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     starting_transaction_set_control_number: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -1138,11 +1110,8 @@ class X12Delimiters(PropertyType):
         "data_element_separator": "DataElementSeparator",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     segment_terminator: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     component_separator: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_element_separator: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1155,9 +1124,7 @@ class X12Envelope(PropertyType):
         "common": "Common",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     wrap_options: Optional[WrapOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     common: Optional[X12OutboundEdiHeaders] = None
 
 
@@ -1171,11 +1138,8 @@ class X12FunctionalGroupHeaders(PropertyType):
         "responsible_agency_code": "ResponsibleAgencyCode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     application_sender_code: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     application_receiver_code: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     responsible_agency_code: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1187,7 +1151,6 @@ class X12InboundEdiOptions(PropertyType):
         "acknowledgment_options": "AcknowledgmentOptions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     acknowledgment_options: Optional[X12AcknowledgmentOptions] = None
 
 
@@ -1205,19 +1168,12 @@ class X12InterchangeControlHeaders(PropertyType):
         "receiver_id_qualifier": "ReceiverIdQualifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     receiver_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     acknowledgment_requested_code: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sender_id_qualifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     usage_indicator_code: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     repetition_separator: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sender_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     receiver_id_qualifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1234,17 +1190,11 @@ class X12OutboundEdiHeaders(PropertyType):
         "gs05_time_format": "Gs05TimeFormat",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     delimiters: Optional[X12Delimiters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     control_numbers: Optional[X12ControlNumbers] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     functional_group_headers: Optional[X12FunctionalGroupHeaders] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interchange_control_headers: Optional[X12InterchangeControlHeaders] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     validate_edi: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     gs05_time_format: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1263,19 +1213,12 @@ class Partnership(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     profile_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     email: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     capabilities: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     phone: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     capability_options: Optional[CapabilityOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1320,17 +1263,11 @@ class Profile(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     logging: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     email: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     business_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     phone: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1369,7 +1306,6 @@ class AdvancedOptions(PropertyType):
         "x12": "X12",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     x12: Optional[X12AdvancedOptions] = None
 
 
@@ -1381,7 +1317,6 @@ class FormatOptions(PropertyType):
         "x12": "X12",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     x12: Optional[X12Details] = None
 
 
@@ -1395,11 +1330,8 @@ class InputConversion(PropertyType):
         "from_format": "FromFormat",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     advanced_options: Optional[AdvancedOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     format_options: Optional[FormatOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     from_format: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1412,9 +1344,7 @@ class Mapping(PropertyType):
         "template": "Template",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     template_language: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     template: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1428,11 +1358,8 @@ class OutputConversion(PropertyType):
         "format_options": "FormatOptions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     advanced_options: Optional[AdvancedOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     to_format: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     format_options: Optional[FormatOptions] = None
 
 
@@ -1445,9 +1372,7 @@ class SampleDocumentKeys(PropertyType):
         "output": "Output",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     output: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1460,9 +1385,7 @@ class SampleDocuments(PropertyType):
         "keys": "Keys",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     keys: Optional[list[SampleDocumentKeys]] = None
 
 
@@ -1475,9 +1398,7 @@ class X12AdvancedOptions(PropertyType):
         "split_options": "SplitOptions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     validation_options: Optional[X12ValidationOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     split_options: Optional[X12SplitOptions] = None
 
 
@@ -1491,11 +1412,8 @@ class X12CodeListValidationRule(PropertyType):
         "element_id": "ElementId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     codes_to_add: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     codes_to_remove: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     element_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1508,9 +1426,7 @@ class X12Details(PropertyType):
         "transaction_set": "TransactionSet",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     transaction_set: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1524,11 +1440,8 @@ class X12ElementLengthValidationRule(PropertyType):
         "element_id": "ElementId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min_length: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_length: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     element_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1541,9 +1454,7 @@ class X12ElementRequirementValidationRule(PropertyType):
         "element_position": "ElementPosition",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     requirement: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     element_position: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1555,7 +1466,6 @@ class X12SplitOptions(PropertyType):
         "split_by": "SplitBy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     split_by: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1567,7 +1477,6 @@ class X12ValidationOptions(PropertyType):
         "validation_rules": "ValidationRules",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     validation_rules: Optional[list[X12ValidationRule]] = None
 
 
@@ -1581,11 +1490,8 @@ class X12ValidationRule(PropertyType):
         "element_length_validation_rule": "ElementLengthValidationRule",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     element_requirement_validation_rule: Optional[X12ElementRequirementValidationRule] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     code_list_validation_rule: Optional[X12CodeListValidationRule] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     element_length_validation_rule: Optional[X12ElementLengthValidationRule] = None
 
 
@@ -1604,19 +1510,12 @@ class Transformer(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     mapping: Optional[Mapping] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     input_conversion: Optional[InputConversion] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     sample_documents: Optional[SampleDocuments] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     output_conversion: Optional[OutputConversion] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property

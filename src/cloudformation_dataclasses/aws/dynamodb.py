@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:40
+  Generated: 2025-12-17 21:50:31
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DynamoDB
@@ -565,9 +565,7 @@ class AttributeDefinition(PropertyType):
         "attribute_name": "AttributeName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attribute_type: Optional[Union[str, AttributeType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attribute_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -582,13 +580,9 @@ class CapacityAutoScalingSettings(PropertyType):
         "max_capacity": "MaxCapacity",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min_capacity: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     seed_capacity: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_tracking_scaling_policy_configuration: Optional[TargetTrackingScalingPolicyConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_capacity: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -601,9 +595,7 @@ class ContributorInsightsSpecification(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -620,17 +612,11 @@ class GlobalSecondaryIndex(PropertyType):
         "write_on_demand_throughput_settings": "WriteOnDemandThroughputSettings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     index_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     projection: Optional[Projection] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_schema: Optional[list[KeySchema]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     warm_throughput: Optional[WarmThroughput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     write_provisioned_throughput_settings: Optional[WriteProvisionedThroughputSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     write_on_demand_throughput_settings: Optional[WriteOnDemandThroughputSettings] = None
 
 
@@ -642,7 +628,6 @@ class GlobalTableWitness(PropertyType):
         "region": "Region",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     region: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -655,9 +640,7 @@ class KeySchema(PropertyType):
         "attribute_name": "AttributeName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_type: Optional[Union[str, KeyType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attribute_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -670,9 +653,7 @@ class KinesisStreamSpecification(PropertyType):
         "stream_arn": "StreamArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     approximate_creation_date_time_precision: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stream_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -686,11 +667,8 @@ class LocalSecondaryIndex(PropertyType):
         "key_schema": "KeySchema",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     index_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     projection: Optional[Projection] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_schema: Optional[list[KeySchema]] = None
 
 
@@ -703,9 +681,7 @@ class PointInTimeRecoverySpecification(PropertyType):
         "recovery_period_in_days": "RecoveryPeriodInDays",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     point_in_time_recovery_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     recovery_period_in_days: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -718,9 +694,7 @@ class Projection(PropertyType):
         "non_key_attributes": "NonKeyAttributes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     projection_type: Optional[Union[str, ProjectionType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     non_key_attributes: Optional[Union[list[str], Ref]] = None
 
 
@@ -732,7 +706,6 @@ class ReadOnDemandThroughputSettings(PropertyType):
         "max_read_request_units": "MaxReadRequestUnits",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_read_request_units: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -745,9 +718,7 @@ class ReadProvisionedThroughputSettings(PropertyType):
         "read_capacity_auto_scaling_settings": "ReadCapacityAutoScalingSettings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     read_capacity_units: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     read_capacity_auto_scaling_settings: Optional[CapacityAutoScalingSettings] = None
 
 
@@ -762,13 +733,9 @@ class ReplicaGlobalSecondaryIndexSpecification(PropertyType):
         "read_on_demand_throughput_settings": "ReadOnDemandThroughputSettings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     index_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     contributor_insights_specification: Optional[ContributorInsightsSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     read_provisioned_throughput_settings: Optional[ReadProvisionedThroughputSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     read_on_demand_throughput_settings: Optional[ReadOnDemandThroughputSettings] = None
 
 
@@ -780,7 +747,6 @@ class ReplicaSSESpecification(PropertyType):
         "kms_master_key_id": "KMSMasterKeyId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_master_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -804,31 +770,18 @@ class ReplicaSpecification(PropertyType):
         "read_on_demand_throughput_settings": "ReadOnDemandThroughputSettings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sse_specification: Optional[ReplicaSSESpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kinesis_stream_specification: Optional[KinesisStreamSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     contributor_insights_specification: Optional[ContributorInsightsSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     point_in_time_recovery_specification: Optional[PointInTimeRecoverySpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     replica_stream_specification: Optional[ReplicaStreamSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     global_secondary_indexes: Optional[list[ReplicaGlobalSecondaryIndexSpecification]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_policy: Optional[ResourcePolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     read_provisioned_throughput_settings: Optional[ReadProvisionedThroughputSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_class: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     deletion_protection_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     read_on_demand_throughput_settings: Optional[ReadOnDemandThroughputSettings] = None
 
 
@@ -840,7 +793,6 @@ class ReplicaStreamSpecification(PropertyType):
         "resource_policy": "ResourcePolicy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_policy: Optional[ResourcePolicy] = None
 
 
@@ -852,7 +804,6 @@ class ResourcePolicy(PropertyType):
         "policy_document": "PolicyDocument",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     policy_document: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
 
@@ -865,9 +816,7 @@ class SSESpecification(PropertyType):
         "sse_type": "SSEType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sse_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sse_type: Optional[Union[str, SSEType, Ref, GetAtt, Sub]] = None
 
 
@@ -879,7 +828,6 @@ class StreamSpecification(PropertyType):
         "stream_view_type": "StreamViewType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stream_view_type: Optional[Union[str, StreamViewType, Ref, GetAtt, Sub]] = None
 
 
@@ -894,13 +842,9 @@ class TargetTrackingScalingPolicyConfiguration(PropertyType):
         "scale_in_cooldown": "ScaleInCooldown",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scale_out_cooldown: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_value: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     disable_scale_in: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scale_in_cooldown: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -913,9 +857,7 @@ class TimeToLiveSpecification(PropertyType):
         "attribute_name": "AttributeName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attribute_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -928,9 +870,7 @@ class WarmThroughput(PropertyType):
         "write_units_per_second": "WriteUnitsPerSecond",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     read_units_per_second: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     write_units_per_second: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -942,7 +882,6 @@ class WriteOnDemandThroughputSettings(PropertyType):
         "max_write_request_units": "MaxWriteRequestUnits",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_write_request_units: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -954,7 +893,6 @@ class WriteProvisionedThroughputSettings(PropertyType):
         "write_capacity_auto_scaling_settings": "WriteCapacityAutoScalingSettings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     write_capacity_auto_scaling_settings: Optional[CapacityAutoScalingSettings] = None
 
 
@@ -981,35 +919,20 @@ class GlobalTable(CloudFormationResource):
         "time_to_live_specification": "TimeToLiveSpecification",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     multi_region_consistency: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     sse_specification: Optional[SSESpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     stream_specification: Optional[StreamSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     warm_throughput: Optional[WarmThroughput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     replicas: Optional[list[ReplicaSpecification]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     write_provisioned_throughput_settings: Optional[WriteProvisionedThroughputSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     write_on_demand_throughput_settings: Optional[WriteOnDemandThroughputSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     global_table_witnesses: Optional[list[GlobalTableWitness]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     attribute_definitions: Optional[list[AttributeDefinition]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     billing_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     global_secondary_indexes: Optional[list[GlobalSecondaryIndex]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     key_schema: Optional[list[KeySchema]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     local_secondary_indexes: Optional[list[LocalSecondaryIndex]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     time_to_live_specification: Optional[TimeToLiveSpecification] = None
 
     @property
@@ -1039,9 +962,7 @@ class AttributeDefinition(PropertyType):
         "attribute_name": "AttributeName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attribute_type: Optional[Union[str, AttributeType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attribute_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1054,9 +975,7 @@ class ContributorInsightsSpecification(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1069,9 +988,7 @@ class Csv(PropertyType):
         "header_list": "HeaderList",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     delimiter: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header_list: Optional[Union[list[str], Ref]] = None
 
 
@@ -1089,19 +1006,12 @@ class GlobalSecondaryIndex(PropertyType):
         "warm_throughput": "WarmThroughput",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     index_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     on_demand_throughput: Optional[OnDemandThroughput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     contributor_insights_specification: Optional[ContributorInsightsSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     projection: Optional[Projection] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     provisioned_throughput: Optional[ProvisionedThroughput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_schema: Optional[list[KeySchema]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     warm_throughput: Optional[WarmThroughput] = None
 
 
@@ -1116,13 +1026,9 @@ class ImportSourceSpecification(PropertyType):
         "input_compression_type": "InputCompressionType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_bucket_source: Optional[S3BucketSource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input_format: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input_format_options: Optional[InputFormatOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input_compression_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1134,7 +1040,6 @@ class InputFormatOptions(PropertyType):
         "csv": "Csv",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     csv: Optional[Csv] = None
 
 
@@ -1147,9 +1052,7 @@ class KeySchema(PropertyType):
         "attribute_name": "AttributeName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_type: Optional[Union[str, KeyType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attribute_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1162,9 +1065,7 @@ class KinesisStreamSpecification(PropertyType):
         "stream_arn": "StreamArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     approximate_creation_date_time_precision: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stream_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1178,11 +1079,8 @@ class LocalSecondaryIndex(PropertyType):
         "key_schema": "KeySchema",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     index_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     projection: Optional[Projection] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_schema: Optional[list[KeySchema]] = None
 
 
@@ -1195,9 +1093,7 @@ class OnDemandThroughput(PropertyType):
         "max_write_request_units": "MaxWriteRequestUnits",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_read_request_units: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_write_request_units: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1210,9 +1106,7 @@ class PointInTimeRecoverySpecification(PropertyType):
         "recovery_period_in_days": "RecoveryPeriodInDays",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     point_in_time_recovery_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     recovery_period_in_days: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1225,9 +1119,7 @@ class Projection(PropertyType):
         "projection_type": "ProjectionType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     non_key_attributes: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     projection_type: Optional[Union[str, ProjectionType, Ref, GetAtt, Sub]] = None
 
 
@@ -1240,9 +1132,7 @@ class ProvisionedThroughput(PropertyType):
         "read_capacity_units": "ReadCapacityUnits",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     write_capacity_units: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     read_capacity_units: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1254,7 +1144,6 @@ class ResourcePolicy(PropertyType):
         "policy_document": "PolicyDocument",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     policy_document: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
 
@@ -1268,11 +1157,8 @@ class S3BucketSource(PropertyType):
         "s3_bucket_owner": "S3BucketOwner",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_bucket: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_key_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_bucket_owner: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1286,11 +1172,8 @@ class SSESpecification(PropertyType):
         "kms_master_key_id": "KMSMasterKeyId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sse_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sse_type: Optional[Union[str, SSEType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_master_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1303,9 +1186,7 @@ class StreamSpecification(PropertyType):
         "resource_policy": "ResourcePolicy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stream_view_type: Optional[Union[str, StreamViewType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_policy: Optional[ResourcePolicy] = None
 
 
@@ -1318,9 +1199,7 @@ class TimeToLiveSpecification(PropertyType):
         "attribute_name": "AttributeName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attribute_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1333,9 +1212,7 @@ class WarmThroughput(PropertyType):
         "write_units_per_second": "WriteUnitsPerSecond",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     read_units_per_second: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     write_units_per_second: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1367,45 +1244,25 @@ class Table(CloudFormationResource):
         "time_to_live_specification": "TimeToLiveSpecification",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     on_demand_throughput: Optional[OnDemandThroughput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     sse_specification: Optional[SSESpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kinesis_stream_specification: Optional[KinesisStreamSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     stream_specification: Optional[StreamSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     contributor_insights_specification: Optional[ContributorInsightsSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     import_source_specification: Optional[ImportSourceSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     point_in_time_recovery_specification: Optional[PointInTimeRecoverySpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     provisioned_throughput: Optional[ProvisionedThroughput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     warm_throughput: Optional[WarmThroughput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     attribute_definitions: Optional[list[AttributeDefinition]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     global_secondary_indexes: Optional[list[GlobalSecondaryIndex]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     billing_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_policy: Optional[ResourcePolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     local_secondary_indexes: Optional[list[LocalSecondaryIndex]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     key_schema: Optional[list[KeySchema]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     deletion_protection_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     table_class: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     time_to_live_specification: Optional[TimeToLiveSpecification] = None
 
     @property

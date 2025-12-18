@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:30
+  Generated: 2025-12-17 21:50:30
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ApplicationInsights
@@ -34,9 +34,7 @@ class Alarm(PropertyType):
         "severity": "Severity",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     alarm_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     severity: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -48,7 +46,6 @@ class AlarmMetric(PropertyType):
         "alarm_metric_name": "AlarmMetricName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     alarm_metric_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -61,9 +58,7 @@ class ComponentConfiguration(PropertyType):
         "configuration_details": "ConfigurationDetails",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sub_component_type_configurations: Optional[list[SubComponentTypeConfiguration]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     configuration_details: Optional[ConfigurationDetails] = None
 
 
@@ -80,17 +75,11 @@ class ComponentMonitoringSetting(PropertyType):
         "component_arn": "ComponentARN",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_component_configuration: Optional[ComponentConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     component_configuration_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_overwrite_component_configuration: Optional[ComponentConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     component_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     component_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -111,25 +100,15 @@ class ConfigurationDetails(PropertyType):
         "jmx_prometheus_exporter": "JMXPrometheusExporter",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     net_weaver_prometheus_exporter: Optional[NetWeaverPrometheusExporter] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     windows_events: Optional[list[WindowsEvent]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     alarm_metrics: Optional[list[AlarmMetric]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     alarms: Optional[list[Alarm]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sql_server_prometheus_exporter: Optional[SQLServerPrometheusExporter] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ha_cluster_prometheus_exporter: Optional[HAClusterPrometheusExporter] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hana_prometheus_exporter: Optional[HANAPrometheusExporter] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     logs: Optional[list[Log]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     processes: Optional[list[Process]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     jmx_prometheus_exporter: Optional[JMXPrometheusExporter] = None
 
 
@@ -142,9 +121,7 @@ class CustomComponent(PropertyType):
         "component_name": "ComponentName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_list: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     component_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -156,7 +133,6 @@ class HAClusterPrometheusExporter(PropertyType):
         "prometheus_port": "PrometheusPort",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prometheus_port: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -172,15 +148,10 @@ class HANAPrometheusExporter(PropertyType):
         "agree_to_install_hanadb_client": "AgreeToInstallHANADBClient",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hana_port: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prometheus_port: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hana_secret_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hanasid: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     agree_to_install_hanadb_client: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -194,11 +165,8 @@ class JMXPrometheusExporter(PropertyType):
         "host_port": "HostPort",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prometheus_port: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     jmxurl: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     host_port: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -214,15 +182,10 @@ class Log(PropertyType):
         "pattern_set": "PatternSet",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encoding: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pattern_set: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -236,11 +199,8 @@ class LogPattern(PropertyType):
         "pattern_name": "PatternName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pattern: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rank: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pattern_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -253,9 +213,7 @@ class LogPatternSet(PropertyType):
         "log_patterns": "LogPatterns",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pattern_set_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_patterns: Optional[list[LogPattern]] = None
 
 
@@ -269,11 +227,8 @@ class NetWeaverPrometheusExporter(PropertyType):
         "sapsid": "SAPSID",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prometheus_port: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_numbers: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sapsid: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -286,9 +241,7 @@ class Process(PropertyType):
         "alarm_metrics": "AlarmMetrics",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     process_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     alarm_metrics: Optional[list[AlarmMetric]] = None
 
 
@@ -301,9 +254,7 @@ class SQLServerPrometheusExporter(PropertyType):
         "sql_secret_name": "SQLSecretName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prometheus_port: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sql_secret_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -318,13 +269,9 @@ class SubComponentConfigurationDetails(PropertyType):
         "processes": "Processes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     windows_events: Optional[list[WindowsEvent]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     alarm_metrics: Optional[list[AlarmMetric]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     logs: Optional[list[Log]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     processes: Optional[list[Process]] = None
 
 
@@ -337,9 +284,7 @@ class SubComponentTypeConfiguration(PropertyType):
         "sub_component_configuration_details": "SubComponentConfigurationDetails",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sub_component_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sub_component_configuration_details: Optional[SubComponentConfigurationDetails] = None
 
 
@@ -354,13 +299,9 @@ class WindowsEvent(PropertyType):
         "pattern_set": "PatternSet",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     event_levels: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     event_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pattern_set: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -384,29 +325,17 @@ class Application(CloudFormationResource):
         "resource_group_name": "ResourceGroupName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auto_configuration_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ops_item_sns_topic_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ops_center_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     custom_components: Optional[list[CustomComponent]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     sns_notification_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     attach_missing_permission: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     log_pattern_sets: Optional[list[LogPatternSet]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     grouping_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     component_monitoring_settings: Optional[list[ComponentMonitoringSetting]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     cwe_monitor_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property

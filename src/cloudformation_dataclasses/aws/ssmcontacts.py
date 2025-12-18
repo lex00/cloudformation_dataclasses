@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:44:02
+  Generated: 2025-12-17 21:50:34
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SSMContacts
@@ -146,9 +146,7 @@ class ChannelTargetInfo(PropertyType):
         "channel_id": "ChannelId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retry_interval_in_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     channel_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -161,9 +159,7 @@ class ContactTargetInfo(PropertyType):
         "is_essential": "IsEssential",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     contact_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     is_essential: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -177,11 +173,8 @@ class Stage(PropertyType):
         "targets": "Targets",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     duration_in_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rotation_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     targets: Optional[list[Targets]] = None
 
 
@@ -194,9 +187,7 @@ class Targets(PropertyType):
         "contact_target_info": "ContactTargetInfo",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     channel_target_info: Optional[ChannelTargetInfo] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     contact_target_info: Optional[ContactTargetInfo] = None
 
 
@@ -213,15 +204,10 @@ class Contact(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_: Optional[Union[str, ContactType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     alias: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     display_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     plan: Optional[list[Stage]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -245,15 +231,10 @@ class ContactChannel(CloudFormationResource):
         "defer_activation": "DeferActivation",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     channel_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     channel_address: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     contact_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     channel_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     defer_activation: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
     @property
@@ -273,9 +254,7 @@ class ChannelTargetInfo(PropertyType):
         "channel_id": "ChannelId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retry_interval_in_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     channel_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -288,9 +267,7 @@ class ContactTargetInfo(PropertyType):
         "is_essential": "IsEssential",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     contact_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     is_essential: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -303,9 +280,7 @@ class Stage(PropertyType):
         "targets": "Targets",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     duration_in_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     targets: Optional[list[Targets]] = None
 
 
@@ -318,9 +293,7 @@ class Targets(PropertyType):
         "contact_target_info": "ContactTargetInfo",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     channel_target_info: Optional[ChannelTargetInfo] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     contact_target_info: Optional[ContactTargetInfo] = None
 
 
@@ -335,11 +308,8 @@ class Plan(CloudFormationResource):
         "contact_id": "ContactId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     rotation_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     stages: Optional[list[Stage]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     contact_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -359,9 +329,7 @@ class CoverageTime(PropertyType):
         "start_time": "StartTime",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     end_time: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start_time: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -374,9 +342,7 @@ class MonthlySetting(PropertyType):
         "hand_off_time": "HandOffTime",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     day_of_month: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hand_off_time: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -393,17 +359,11 @@ class RecurrenceSettings(PropertyType):
         "monthly_settings": "MonthlySettings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     daily_settings: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     number_of_on_calls: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     shift_coverages: Optional[list[ShiftCoverage]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     weekly_settings: Optional[list[WeeklySetting]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     recurrence_multiplier: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     monthly_settings: Optional[list[MonthlySetting]] = None
 
 
@@ -416,9 +376,7 @@ class ShiftCoverage(PropertyType):
         "coverage_times": "CoverageTimes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     day_of_week: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     coverage_times: Optional[list[CoverageTime]] = None
 
 
@@ -431,9 +389,7 @@ class WeeklySetting(PropertyType):
         "hand_off_time": "HandOffTime",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     day_of_week: Optional[Union[str, DayOfWeek, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hand_off_time: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -451,17 +407,11 @@ class Rotation(CloudFormationResource):
         "contact_ids": "ContactIds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     recurrence: Optional[RecurrenceSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     time_zone_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     start_time: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     contact_ids: Optional[Union[list[str], Ref]] = None
 
     @property

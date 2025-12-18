@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:44:06
+  Generated: 2025-12-17 21:50:35
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service WorkspacesInstances
@@ -34,9 +34,7 @@ class TagSpecification(PropertyType):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tags: Optional[list[Tag]] = None
 
 
@@ -57,23 +55,14 @@ class Volume(CloudFormationResource):
         "iops": "Iops",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     size_in_gb: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     snapshot_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     volume_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tag_specifications: Optional[list[TagSpecification]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     encrypted: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     availability_zone: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     throughput: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     iops: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
     @property
@@ -96,13 +85,9 @@ class VolumeAssociation(CloudFormationResource):
         "disassociate_mode": "DisassociateMode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     volume_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     workspace_instance_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     device: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     disassociate_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -118,13 +103,9 @@ class BlockDeviceMapping(PropertyType):
         "device_name": "DeviceName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ebs: Optional[EbsBlockDevice] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     no_device: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     virtual_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     device_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -137,9 +118,7 @@ class CapacityReservationSpecification(PropertyType):
         "capacity_reservation_target": "CapacityReservationTarget",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity_reservation_preference: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity_reservation_target: Optional[CapacityReservationTarget] = None
 
 
@@ -152,9 +131,7 @@ class CapacityReservationTarget(PropertyType):
         "capacity_reservation_id": "CapacityReservationId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity_reservation_resource_group_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity_reservation_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -167,9 +144,7 @@ class CpuOptionsRequest(PropertyType):
         "core_count": "CoreCount",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     threads_per_core: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     core_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -181,7 +156,6 @@ class CreditSpecificationRequest(PropertyType):
         "cpu_credits": "CpuCredits",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cpu_credits: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -193,7 +167,6 @@ class EC2ManagedInstance(PropertyType):
         "instance_id": "InstanceId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -210,17 +183,11 @@ class EbsBlockDevice(PropertyType):
         "volume_size": "VolumeSize",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volume_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encrypted: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     throughput: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     iops: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volume_size: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -232,7 +199,6 @@ class EnclaveOptionsRequest(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -244,7 +210,6 @@ class HibernationOptionsRequest(PropertyType):
         "configured": "Configured",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     configured: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -257,9 +222,7 @@ class IamInstanceProfileSpecification(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -271,7 +234,6 @@ class InstanceMaintenanceOptionsRequest(PropertyType):
         "auto_recovery": "AutoRecovery",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auto_recovery: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -284,9 +246,7 @@ class InstanceMarketOptionsRequest(PropertyType):
         "market_type": "MarketType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     spot_options: Optional[SpotMarketOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     market_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -302,15 +262,10 @@ class InstanceMetadataOptionsRequest(PropertyType):
         "http_endpoint": "HttpEndpoint",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http_put_response_hop_limit: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http_protocol_ipv6: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http_tokens: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_metadata_tags: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http_endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -325,13 +280,9 @@ class InstanceNetworkInterfaceSpecification(PropertyType):
         "subnet_id": "SubnetId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     device_index: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     groups: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnet_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -343,7 +294,6 @@ class InstanceNetworkPerformanceOptionsRequest(PropertyType):
         "bandwidth_weighting": "BandwidthWeighting",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bandwidth_weighting: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -355,7 +305,6 @@ class LicenseConfigurationRequest(PropertyType):
         "license_configuration_arn": "LicenseConfigurationArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     license_configuration_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -392,57 +341,31 @@ class ManagedInstance(PropertyType):
         "credit_specification": "CreditSpecification",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_performance_options: Optional[InstanceNetworkPerformanceOptionsRequest] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tag_specifications: Optional[list[TagSpecification]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_data: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     block_device_mappings: Optional[list[BlockDeviceMapping]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maintenance_options: Optional[InstanceMaintenanceOptionsRequest] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     iam_instance_profile: Optional[IamInstanceProfileSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnet_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ebs_optimized: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     placement: Optional[Placement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ipv6_address_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enclave_options: Optional[EnclaveOptionsRequest] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_interfaces: Optional[list[InstanceNetworkInterfaceSpecification]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     monitoring: Optional[RunInstancesMonitoringEnabled] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hibernation_options: Optional[HibernationOptionsRequest] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     license_specifications: Optional[list[LicenseConfigurationRequest]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metadata_options: Optional[InstanceMetadataOptionsRequest] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     disable_api_stop: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cpu_options: Optional[CpuOptionsRequest] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     private_dns_name_options: Optional[PrivateDnsNameOptionsRequest] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_primary_ipv6: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_market_options: Optional[InstanceMarketOptionsRequest] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity_reservation_specification: Optional[CapacityReservationSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     credit_specification: Optional[CreditSpecificationRequest] = None
 
 
@@ -458,15 +381,10 @@ class Placement(PropertyType):
         "group_id": "GroupId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tenancy: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     partition_number: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     availability_zone: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     group_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -480,11 +398,8 @@ class PrivateDnsNameOptionsRequest(PropertyType):
         "enable_resource_name_dns_aaaa_record": "EnableResourceNameDnsAAAARecord",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_resource_name_dns_a_record: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hostname_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_resource_name_dns_aaaa_record: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -496,7 +411,6 @@ class RunInstancesMonitoringEnabled(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -511,13 +425,9 @@ class SpotMarketOptions(PropertyType):
         "max_price": "MaxPrice",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     valid_until_utc: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     spot_instance_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_interruption_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_price: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -530,9 +440,7 @@ class TagSpecification(PropertyType):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tags: Optional[list[Tag]] = None
 
 
@@ -546,9 +454,7 @@ class WorkspaceInstance(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     managed_instance: Optional[ManagedInstance] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property

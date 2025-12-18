@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:49
+  Generated: 2025-12-17 21:50:32
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Lex
@@ -304,7 +304,6 @@ class AdvancedRecognitionSetting(PropertyType):
         "audio_recognition_strategy": "AudioRecognitionStrategy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     audio_recognition_strategy: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -317,9 +316,7 @@ class AllowedInputTypes(PropertyType):
         "allow_audio_input": "AllowAudioInput",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allow_dtmf_input: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allow_audio_input: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -333,11 +330,8 @@ class AudioAndDTMFInputSpecification(PropertyType):
         "start_timeout_ms": "StartTimeoutMs",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dtmf_specification: Optional[DTMFSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     audio_specification: Optional[AudioSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start_timeout_ms: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -349,7 +343,6 @@ class AudioLogDestination(PropertyType):
         "s3_bucket": "S3Bucket",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_bucket: Optional[S3BucketLogDestination] = None
 
 
@@ -362,9 +355,7 @@ class AudioLogSetting(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination: Optional[AudioLogDestination] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -377,9 +368,7 @@ class AudioSpecification(PropertyType):
         "max_length_ms": "MaxLengthMs",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     end_timeout_ms: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_length_ms: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -391,7 +380,6 @@ class BKBExactResponseFields(PropertyType):
         "answer_field": "AnswerField",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     answer_field: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -404,9 +392,7 @@ class BedrockAgentConfiguration(PropertyType):
         "bedrock_agent_alias_id": "BedrockAgentAliasId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bedrock_agent_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bedrock_agent_alias_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -419,9 +405,7 @@ class BedrockAgentIntentConfiguration(PropertyType):
         "bedrock_agent_intent_knowledge_base_configuration": "BedrockAgentIntentKnowledgeBaseConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bedrock_agent_configuration: Optional[BedrockAgentConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bedrock_agent_intent_knowledge_base_configuration: Optional[BedrockAgentIntentKnowledgeBaseConfiguration] = None
 
 
@@ -434,9 +418,7 @@ class BedrockAgentIntentKnowledgeBaseConfiguration(PropertyType):
         "bedrock_knowledge_base_arn": "BedrockKnowledgeBaseArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bedrock_model_configuration: Optional[BedrockModelSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bedrock_knowledge_base_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -449,9 +431,7 @@ class BedrockGuardrailConfiguration(PropertyType):
         "bedrock_guardrail_identifier": "BedrockGuardrailIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bedrock_guardrail_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bedrock_guardrail_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -465,11 +445,8 @@ class BedrockKnowledgeStoreConfiguration(PropertyType):
         "bedrock_knowledge_base_arn": "BedrockKnowledgeBaseArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bkb_exact_response_fields: Optional[BKBExactResponseFields] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exact_response: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bedrock_knowledge_base_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -484,13 +461,9 @@ class BedrockModelSpecification(PropertyType):
         "bedrock_guardrail_configuration": "BedrockGuardrailConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     model_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bedrock_trace_status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bedrock_model_custom_prompt: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bedrock_guardrail_configuration: Optional[BedrockGuardrailConfiguration] = None
 
 
@@ -503,9 +476,7 @@ class BotAliasLocaleSettings(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     code_hook_specification: Optional[CodeHookSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -518,9 +489,7 @@ class BotAliasLocaleSettingsItem(PropertyType):
         "bot_alias_locale_setting": "BotAliasLocaleSetting",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     locale_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bot_alias_locale_setting: Optional[BotAliasLocaleSettings] = None
 
 
@@ -539,21 +508,13 @@ class BotLocale(PropertyType):
         "voice_settings": "VoiceSettings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     nlu_confidence_threshold: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     locale_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     generative_ai_settings: Optional[GenerativeAISettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_vocabulary: Optional[CustomVocabulary] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     slot_types: Optional[list[SlotType]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     intents: Optional[list[Intent]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     voice_settings: Optional[VoiceSettings] = None
 
 
@@ -566,9 +527,7 @@ class BuildtimeSettings(PropertyType):
         "sample_utterance_generation_specification": "SampleUtteranceGenerationSpecification",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     descriptive_bot_builder_specification: Optional[DescriptiveBotBuilderSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sample_utterance_generation_specification: Optional[SampleUtteranceGenerationSpecification] = None
 
 
@@ -581,9 +540,7 @@ class Button(PropertyType):
         "text": "Text",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -596,9 +553,7 @@ class CloudWatchLogGroupLogDestination(PropertyType):
         "log_prefix": "LogPrefix",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch_log_group_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -610,7 +565,6 @@ class CodeHookSpecification(PropertyType):
         "lambda_code_hook": "LambdaCodeHook",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lambda_code_hook: Optional[LambdaCodeHook] = None
 
 
@@ -622,7 +576,6 @@ class CompositeSlotTypeSetting(PropertyType):
         "sub_slots": "SubSlots",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sub_slots: Optional[list[SubSlotTypeComposition]] = None
 
 
@@ -634,7 +587,6 @@ class Condition(PropertyType):
         "expression_string": "ExpressionString",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     expression_string: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -649,13 +601,9 @@ class ConditionalBranch(PropertyType):
         "next_step": "NextStep",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     condition: Optional[Condition] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     response: Optional[ResponseSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     next_step: Optional[DialogState] = None
 
 
@@ -669,11 +617,8 @@ class ConditionalSpecification(PropertyType):
         "conditional_branches": "ConditionalBranches",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_branch: Optional[DefaultConditionalBranch] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     is_active: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     conditional_branches: Optional[list[ConditionalBranch]] = None
 
 
@@ -686,9 +631,7 @@ class ConversationLogSettings(PropertyType):
         "audio_log_settings": "AudioLogSettings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_log_settings: Optional[list[TextLogSetting]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     audio_log_settings: Optional[list[AudioLogSetting]] = None
 
 
@@ -700,7 +643,6 @@ class CustomPayload(PropertyType):
         "value": "Value",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -712,7 +654,6 @@ class CustomVocabulary(PropertyType):
         "custom_vocabulary_items": "CustomVocabularyItems",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_vocabulary_items: Optional[list[CustomVocabularyItem]] = None
 
 
@@ -726,11 +667,8 @@ class CustomVocabularyItem(PropertyType):
         "weight": "Weight",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     display_as: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     phrase: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     weight: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -745,13 +683,9 @@ class DTMFSpecification(PropertyType):
         "max_length": "MaxLength",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     deletion_character: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     end_timeout_ms: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     end_character: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_length: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -763,7 +697,6 @@ class DataPrivacy(PropertyType):
         "child_directed": "ChildDirected",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     child_directed: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -777,11 +710,8 @@ class DataSourceConfiguration(PropertyType):
         "opensearch_configuration": "OpensearchConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bedrock_knowledge_store_configuration: Optional[BedrockKnowledgeStoreConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kendra_configuration: Optional[QnAKendraConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     opensearch_configuration: Optional[OpensearchConfiguration] = None
 
 
@@ -794,9 +724,7 @@ class DefaultConditionalBranch(PropertyType):
         "next_step": "NextStep",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     response: Optional[ResponseSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     next_step: Optional[DialogState] = None
 
 
@@ -809,9 +737,7 @@ class DescriptiveBotBuilderSpecification(PropertyType):
         "bedrock_model_specification": "BedrockModelSpecification",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bedrock_model_specification: Optional[BedrockModelSpecification] = None
 
 
@@ -825,11 +751,8 @@ class DialogAction(PropertyType):
         "suppress_next_message": "SuppressNextMessage",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     slot_to_elicit: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     suppress_next_message: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -844,13 +767,9 @@ class DialogCodeHookInvocationSetting(PropertyType):
         "post_code_hook_specification": "PostCodeHookSpecification",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_code_hook_invocation: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     invocation_label: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     is_active: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     post_code_hook_specification: Optional[PostDialogCodeHookInvocationSpecification] = None
 
 
@@ -862,7 +781,6 @@ class DialogCodeHookSetting(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -876,11 +794,8 @@ class DialogState(PropertyType):
         "intent": "Intent",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dialog_action: Optional[DialogAction] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     session_attributes: Optional[list[SessionAttribute]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     intent: Optional[IntentOverride] = None
 
 
@@ -893,9 +808,7 @@ class ElicitationCodeHookInvocationSetting(PropertyType):
         "invocation_label": "InvocationLabel",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_code_hook_invocation: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     invocation_label: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -907,7 +820,6 @@ class ErrorLogSettings(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -920,9 +832,7 @@ class ExactResponseFields(PropertyType):
         "answer_field": "AnswerField",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     question_field: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     answer_field: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -934,7 +844,6 @@ class ExternalSourceSetting(PropertyType):
         "grammar_slot_type_setting": "GrammarSlotTypeSetting",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     grammar_slot_type_setting: Optional[GrammarSlotTypeSetting] = None
 
 
@@ -949,13 +858,9 @@ class FulfillmentCodeHookSetting(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     post_fulfillment_status_specification: Optional[PostFulfillmentStatusSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     fulfillment_updates_specification: Optional[FulfillmentUpdatesSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     is_active: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -969,11 +874,8 @@ class FulfillmentStartResponseSpecification(PropertyType):
         "allow_interrupt": "AllowInterrupt",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     delay_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     message_groups: Optional[list[MessageGroup]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allow_interrupt: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -987,11 +889,8 @@ class FulfillmentUpdateResponseSpecification(PropertyType):
         "frequency_in_seconds": "FrequencyInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     message_groups: Optional[list[MessageGroup]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allow_interrupt: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     frequency_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1006,13 +905,9 @@ class FulfillmentUpdatesSpecification(PropertyType):
         "start_response": "StartResponse",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     update_response: Optional[FulfillmentUpdateResponseSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     active: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start_response: Optional[FulfillmentStartResponseSpecification] = None
 
 
@@ -1025,9 +920,7 @@ class GenerativeAISettings(PropertyType):
         "buildtime_settings": "BuildtimeSettings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     runtime_settings: Optional[RuntimeSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     buildtime_settings: Optional[BuildtimeSettings] = None
 
 
@@ -1039,7 +932,6 @@ class GrammarSlotTypeSetting(PropertyType):
         "source": "Source",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source: Optional[GrammarSlotTypeSource] = None
 
 
@@ -1053,11 +945,8 @@ class GrammarSlotTypeSource(PropertyType):
         "s3_object_key": "S3ObjectKey",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_object_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1072,13 +961,9 @@ class ImageResponseCard(PropertyType):
         "buttons": "Buttons",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subtitle: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     title: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     buttons: Optional[list[Button]] = None
 
 
@@ -1093,13 +978,9 @@ class InitialResponseSetting(PropertyType):
         "next_step": "NextStep",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     code_hook: Optional[DialogCodeHookInvocationSetting] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     initial_response: Optional[ResponseSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     conditional: Optional[ConditionalSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     next_step: Optional[DialogState] = None
 
 
@@ -1111,7 +992,6 @@ class InputContext(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1139,39 +1019,22 @@ class Intent(PropertyType):
         "sample_utterances": "SampleUtterances",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     q_in_connect_intent_configuration: Optional[QInConnectIntentConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parent_intent_signature: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     initial_response_setting: Optional[InitialResponseSetting] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bedrock_agent_intent_configuration: Optional[BedrockAgentIntentConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     fulfillment_code_hook: Optional[FulfillmentCodeHookSetting] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     intent_confirmation_setting: Optional[IntentConfirmationSetting] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     slots: Optional[list[Slot]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     qn_a_intent_configuration: Optional[QnAIntentConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dialog_code_hook: Optional[DialogCodeHookSetting] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input_contexts: Optional[list[InputContext]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kendra_configuration: Optional[KendraConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     intent_closing_setting: Optional[IntentClosingSetting] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     output_contexts: Optional[list[OutputContext]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     slot_priorities: Optional[list[SlotPriority]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sample_utterances: Optional[list[SampleUtterance]] = None
 
 
@@ -1186,13 +1049,9 @@ class IntentClosingSetting(PropertyType):
         "next_step": "NextStep",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     is_active: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     closing_response: Optional[ResponseSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     conditional: Optional[ConditionalSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     next_step: Optional[DialogState] = None
 
 
@@ -1216,31 +1075,18 @@ class IntentConfirmationSetting(PropertyType):
         "declination_response": "DeclinationResponse",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prompt_specification: Optional[PromptSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     confirmation_response: Optional[ResponseSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     declination_conditional: Optional[ConditionalSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failure_conditional: Optional[ConditionalSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     confirmation_conditional: Optional[ConditionalSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     is_active: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failure_response: Optional[ResponseSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     code_hook: Optional[DialogCodeHookInvocationSetting] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     declination_next_step: Optional[DialogState] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     elicitation_code_hook: Optional[ElicitationCodeHookInvocationSetting] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     confirmation_next_step: Optional[DialogState] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failure_next_step: Optional[DialogState] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     declination_response: Optional[ResponseSpecification] = None
 
 
@@ -1253,9 +1099,7 @@ class IntentOverride(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     slots: Optional[list[SlotValueOverrideMap]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1269,11 +1113,8 @@ class KendraConfiguration(PropertyType):
         "kendra_index": "KendraIndex",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_filter_string: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_filter_string_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kendra_index: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1286,9 +1127,7 @@ class LambdaCodeHook(PropertyType):
         "code_hook_interface_version": "CodeHookInterfaceVersion",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lambda_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     code_hook_interface_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1303,13 +1142,9 @@ class Message(PropertyType):
         "ssml_message": "SSMLMessage",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_payload: Optional[CustomPayload] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_response_card: Optional[ImageResponseCard] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     plain_text_message: Optional[PlainTextMessage] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ssml_message: Optional[SSMLMessage] = None
 
 
@@ -1322,9 +1157,7 @@ class MessageGroup(PropertyType):
         "variations": "Variations",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     message: Optional[Message] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     variations: Optional[list[Message]] = None
 
 
@@ -1336,7 +1169,6 @@ class MultipleValuesSetting(PropertyType):
         "allow_multiple_values": "AllowMultipleValues",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allow_multiple_values: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1348,7 +1180,6 @@ class NluImprovementSpecification(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1360,7 +1191,6 @@ class ObfuscationSetting(PropertyType):
         "obfuscation_setting_type": "ObfuscationSettingType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     obfuscation_setting_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1376,15 +1206,10 @@ class OpensearchConfiguration(PropertyType):
         "include_fields": "IncludeFields",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     index_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     domain_endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exact_response_fields: Optional[ExactResponseFields] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exact_response: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_fields: Optional[Union[list[str], Ref]] = None
 
 
@@ -1398,11 +1223,8 @@ class OutputContext(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     turns_to_live: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     time_to_live_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1414,7 +1236,6 @@ class PlainTextMessage(PropertyType):
         "value": "Value",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1434,23 +1255,14 @@ class PostDialogCodeHookInvocationSpecification(PropertyType):
         "timeout_conditional": "TimeoutConditional",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     success_response: Optional[ResponseSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failure_conditional: Optional[ConditionalSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout_next_step: Optional[DialogState] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     success_conditional: Optional[ConditionalSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout_response: Optional[ResponseSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     success_next_step: Optional[DialogState] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failure_response: Optional[ResponseSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failure_next_step: Optional[DialogState] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout_conditional: Optional[ConditionalSpecification] = None
 
 
@@ -1470,23 +1282,14 @@ class PostFulfillmentStatusSpecification(PropertyType):
         "timeout_conditional": "TimeoutConditional",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     success_response: Optional[ResponseSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failure_conditional: Optional[ConditionalSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout_next_step: Optional[DialogState] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     success_conditional: Optional[ConditionalSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout_response: Optional[ResponseSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     success_next_step: Optional[DialogState] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failure_response: Optional[ResponseSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failure_next_step: Optional[DialogState] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout_conditional: Optional[ConditionalSpecification] = None
 
 
@@ -1501,13 +1304,9 @@ class PromptAttemptSpecification(PropertyType):
         "audio_and_dtmf_input_specification": "AudioAndDTMFInputSpecification",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_input_specification: Optional[TextInputSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allow_interrupt: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allowed_input_types: Optional[AllowedInputTypes] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     audio_and_dtmf_input_specification: Optional[AudioAndDTMFInputSpecification] = None
 
 
@@ -1523,15 +1322,10 @@ class PromptSpecification(PropertyType):
         "message_selection_strategy": "MessageSelectionStrategy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_retries: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     message_groups_list: Optional[list[MessageGroup]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prompt_attempts_specification: Optional[dict[str, Any]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allow_interrupt: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     message_selection_strategy: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1543,7 +1337,6 @@ class QInConnectAssistantConfiguration(PropertyType):
         "assistant_arn": "AssistantArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     assistant_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1555,7 +1348,6 @@ class QInConnectIntentConfiguration(PropertyType):
         "q_in_connect_assistant_configuration": "QInConnectAssistantConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     q_in_connect_assistant_configuration: Optional[QInConnectAssistantConfiguration] = None
 
 
@@ -1568,9 +1360,7 @@ class QnAIntentConfiguration(PropertyType):
         "data_source_configuration": "DataSourceConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bedrock_model_configuration: Optional[BedrockModelSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_source_configuration: Optional[DataSourceConfiguration] = None
 
 
@@ -1585,13 +1375,9 @@ class QnAKendraConfiguration(PropertyType):
         "exact_response": "ExactResponse",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_filter_string: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_filter_string_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kendra_index: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exact_response: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1603,7 +1389,6 @@ class Replication(PropertyType):
         "replica_regions": "ReplicaRegions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     replica_regions: Optional[Union[list[str], Ref]] = None
 
 
@@ -1616,9 +1401,7 @@ class ResponseSpecification(PropertyType):
         "allow_interrupt": "AllowInterrupt",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     message_groups_list: Optional[list[MessageGroup]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allow_interrupt: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1631,9 +1414,7 @@ class RuntimeSettings(PropertyType):
         "nlu_improvement_specification": "NluImprovementSpecification",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     slot_resolution_improvement_specification: Optional[SlotResolutionImprovementSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     nlu_improvement_specification: Optional[NluImprovementSpecification] = None
 
 
@@ -1647,11 +1428,8 @@ class S3BucketLogDestination(PropertyType):
         "s3_bucket_arn": "S3BucketArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_bucket_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1665,11 +1443,8 @@ class S3Location(PropertyType):
         "s3_object_key": "S3ObjectKey",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_object_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_bucket: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_object_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1681,7 +1456,6 @@ class SSMLMessage(PropertyType):
         "value": "Value",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1693,7 +1467,6 @@ class SampleUtterance(PropertyType):
         "utterance": "Utterance",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     utterance: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1706,9 +1479,7 @@ class SampleUtteranceGenerationSpecification(PropertyType):
         "bedrock_model_specification": "BedrockModelSpecification",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bedrock_model_specification: Optional[BedrockModelSpecification] = None
 
 
@@ -1720,7 +1491,6 @@ class SampleValue(PropertyType):
         "value": "Value",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1732,7 +1502,6 @@ class SentimentAnalysisSettings(PropertyType):
         "detect_sentiment": "DetectSentiment",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     detect_sentiment: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1745,9 +1514,7 @@ class SessionAttribute(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1765,19 +1532,12 @@ class Slot(PropertyType):
         "multiple_values_setting": "MultipleValuesSetting",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     slot_type_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value_elicitation_setting: Optional[SlotValueElicitationSetting] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sub_slot_setting: Optional[SubSlotSetting] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     obfuscation_setting: Optional[ObfuscationSetting] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     multiple_values_setting: Optional[MultipleValuesSetting] = None
 
 
@@ -1796,21 +1556,13 @@ class SlotCaptureSetting(PropertyType):
         "elicitation_code_hook": "ElicitationCodeHook",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capture_conditional: Optional[ConditionalSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failure_conditional: Optional[ConditionalSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capture_response: Optional[ResponseSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capture_next_step: Optional[DialogState] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failure_response: Optional[ResponseSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     code_hook: Optional[DialogCodeHookInvocationSetting] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failure_next_step: Optional[DialogState] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     elicitation_code_hook: Optional[ElicitationCodeHookInvocationSetting] = None
 
 
@@ -1822,7 +1574,6 @@ class SlotDefaultValue(PropertyType):
         "default_value": "DefaultValue",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1834,7 +1585,6 @@ class SlotDefaultValueSpecification(PropertyType):
         "default_value_list": "DefaultValueList",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_value_list: Optional[list[SlotDefaultValue]] = None
 
 
@@ -1847,9 +1597,7 @@ class SlotPriority(PropertyType):
         "slot_name": "SlotName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     priority: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     slot_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1862,9 +1610,7 @@ class SlotResolutionImprovementSpecification(PropertyType):
         "bedrock_model_specification": "BedrockModelSpecification",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bedrock_model_specification: Optional[BedrockModelSpecification] = None
 
 
@@ -1882,19 +1628,12 @@ class SlotType(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     slot_type_values: Optional[list[SlotTypeValue]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parent_slot_type_signature: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value_selection_setting: Optional[SlotValueSelectionSetting] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     composite_slot_type_setting: Optional[CompositeSlotTypeSetting] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     external_source_setting: Optional[ExternalSourceSetting] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1907,9 +1646,7 @@ class SlotTypeValue(PropertyType):
         "sample_value": "SampleValue",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     synonyms: Optional[list[SampleValue]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sample_value: Optional[SampleValue] = None
 
 
@@ -1921,7 +1658,6 @@ class SlotValue(PropertyType):
         "interpreted_value": "InterpretedValue",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interpreted_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1938,17 +1674,11 @@ class SlotValueElicitationSetting(PropertyType):
         "default_value_specification": "DefaultValueSpecification",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prompt_specification: Optional[PromptSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     wait_and_continue_specification: Optional[WaitAndContinueSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     slot_constraint: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     slot_capture_setting: Optional[SlotCaptureSetting] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sample_utterances: Optional[list[SampleUtterance]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_value_specification: Optional[SlotDefaultValueSpecification] = None
 
 
@@ -1962,11 +1692,8 @@ class SlotValueOverride(PropertyType):
         "values": "Values",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     shape: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[SlotValue] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     values: Optional[list[SlotValueOverride]] = None
 
 
@@ -1979,9 +1706,7 @@ class SlotValueOverrideMap(PropertyType):
         "slot_value_override": "SlotValueOverride",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     slot_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     slot_value_override: Optional[SlotValueOverride] = None
 
 
@@ -1993,7 +1718,6 @@ class SlotValueRegexFilter(PropertyType):
         "pattern": "Pattern",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pattern: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2007,11 +1731,8 @@ class SlotValueSelectionSetting(PropertyType):
         "resolution_strategy": "ResolutionStrategy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     advanced_recognition_setting: Optional[AdvancedRecognitionSetting] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     regex_filter: Optional[SlotValueRegexFilter] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resolution_strategy: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2024,9 +1745,7 @@ class Specifications(PropertyType):
         "slot_type_id": "SlotTypeId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value_elicitation_setting: Optional[SubSlotValueElicitationSetting] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     slot_type_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2041,13 +1760,9 @@ class StillWaitingResponseSpecification(PropertyType):
         "frequency_in_seconds": "FrequencyInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     message_groups_list: Optional[list[MessageGroup]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allow_interrupt: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     frequency_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -2060,9 +1775,7 @@ class SubSlotSetting(PropertyType):
         "slot_specifications": "SlotSpecifications",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     expression: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     slot_specifications: Optional[dict[str, Any]] = None
 
 
@@ -2075,9 +1788,7 @@ class SubSlotTypeComposition(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     slot_type_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2092,13 +1803,9 @@ class SubSlotValueElicitationSetting(PropertyType):
         "default_value_specification": "DefaultValueSpecification",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prompt_specification: Optional[PromptSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     wait_and_continue_specification: Optional[WaitAndContinueSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sample_utterances: Optional[list[SampleUtterance]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_value_specification: Optional[SlotDefaultValueSpecification] = None
 
 
@@ -2113,13 +1820,9 @@ class TestBotAliasSettings(PropertyType):
         "sentiment_analysis_settings": "SentimentAnalysisSettings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bot_alias_locale_settings: Optional[list[BotAliasLocaleSettingsItem]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     conversation_log_settings: Optional[ConversationLogSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sentiment_analysis_settings: Optional[SentimentAnalysisSettings] = None
 
 
@@ -2131,7 +1834,6 @@ class TextInputSpecification(PropertyType):
         "start_timeout_ms": "StartTimeoutMs",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start_timeout_ms: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -2143,7 +1845,6 @@ class TextLogDestination(PropertyType):
         "cloud_watch": "CloudWatch",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch: Optional[CloudWatchLogGroupLogDestination] = None
 
 
@@ -2156,9 +1857,7 @@ class TextLogSetting(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination: Optional[TextLogDestination] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2171,9 +1870,7 @@ class VoiceSettings(PropertyType):
         "engine": "Engine",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     voice_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     engine: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2188,13 +1885,9 @@ class WaitAndContinueSpecification(PropertyType):
         "continue_response": "ContinueResponse",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     waiting_response: Optional[ResponseSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     still_waiting_response: Optional[StillWaitingResponseSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     is_active: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     continue_response: Optional[ResponseSpecification] = None
 
 
@@ -2219,31 +1912,18 @@ class Bot(CloudFormationResource):
         "data_privacy": "DataPrivacy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     error_log_settings: Optional[ErrorLogSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     bot_tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     test_bot_alias_tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auto_build_bot_locales: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     bot_locales: Optional[list[BotLocale]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     idle_session_ttl_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     bot_file_s3_location: Optional[S3Location] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     replication: Optional[Replication] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     test_bot_alias_settings: Optional[TestBotAliasSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     data_privacy: Optional[DataPrivacy] = None
 
     @property
@@ -2267,7 +1947,6 @@ class AudioLogDestination(PropertyType):
         "s3_bucket": "S3Bucket",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_bucket: Optional[S3BucketLogDestination] = None
 
 
@@ -2280,9 +1959,7 @@ class AudioLogSetting(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination: Optional[AudioLogDestination] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2295,9 +1972,7 @@ class BotAliasLocaleSettings(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     code_hook_specification: Optional[CodeHookSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2310,9 +1985,7 @@ class BotAliasLocaleSettingsItem(PropertyType):
         "bot_alias_locale_setting": "BotAliasLocaleSetting",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     locale_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bot_alias_locale_setting: Optional[BotAliasLocaleSettings] = None
 
 
@@ -2325,9 +1998,7 @@ class CloudWatchLogGroupLogDestination(PropertyType):
         "log_prefix": "LogPrefix",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch_log_group_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2339,7 +2010,6 @@ class CodeHookSpecification(PropertyType):
         "lambda_code_hook": "LambdaCodeHook",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lambda_code_hook: Optional[LambdaCodeHook] = None
 
 
@@ -2352,9 +2022,7 @@ class ConversationLogSettings(PropertyType):
         "audio_log_settings": "AudioLogSettings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text_log_settings: Optional[list[TextLogSetting]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     audio_log_settings: Optional[list[AudioLogSetting]] = None
 
 
@@ -2367,9 +2035,7 @@ class LambdaCodeHook(PropertyType):
         "code_hook_interface_version": "CodeHookInterfaceVersion",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lambda_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     code_hook_interface_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2383,11 +2049,8 @@ class S3BucketLogDestination(PropertyType):
         "s3_bucket_arn": "S3BucketArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_bucket_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2399,7 +2062,6 @@ class SentimentAnalysisSettings(PropertyType):
         "detect_sentiment": "DetectSentiment",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     detect_sentiment: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2411,7 +2073,6 @@ class TextLogDestination(PropertyType):
         "cloud_watch": "CloudWatch",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch: Optional[CloudWatchLogGroupLogDestination] = None
 
 
@@ -2424,9 +2085,7 @@ class TextLogSetting(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination: Optional[TextLogDestination] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2446,21 +2105,13 @@ class BotAlias(CloudFormationResource):
         "bot_alias_tags": "BotAliasTags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     bot_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     bot_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     bot_alias_locale_settings: Optional[list[BotAliasLocaleSettingsItem]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     conversation_log_settings: Optional[ConversationLogSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     sentiment_analysis_settings: Optional[SentimentAnalysisSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     bot_alias_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     bot_alias_tags: Optional[list[Tag]] = None
 
     @property
@@ -2489,7 +2140,6 @@ class BotVersionLocaleDetails(PropertyType):
         "source_bot_version": "SourceBotVersion",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_bot_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2502,9 +2152,7 @@ class BotVersionLocaleSpecification(PropertyType):
         "bot_version_locale_details": "BotVersionLocaleDetails",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     locale_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bot_version_locale_details: Optional[BotVersionLocaleDetails] = None
 
 
@@ -2519,11 +2167,8 @@ class BotVersion(CloudFormationResource):
         "bot_version_locale_specification": "BotVersionLocaleSpecification",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     bot_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     bot_version_locale_specification: Optional[list[BotVersionLocaleSpecification]] = None
 
     @property
@@ -2544,9 +2189,7 @@ class ResourcePolicy(CloudFormationResource):
         "resource_arn": "ResourceArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:44:03
+  Generated: 2025-12-17 21:50:34
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ServiceDiscovery
@@ -229,11 +229,8 @@ class HttpNamespace(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -260,11 +257,8 @@ class Instance(CloudFormationResource):
         "service_id": "ServiceId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     instance_attributes: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     instance_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     service_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -277,7 +271,6 @@ class PrivateDnsPropertiesMutable(PropertyType):
         "soa": "SOA",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     soa: Optional[SOA] = None
 
 
@@ -289,7 +282,6 @@ class Properties(PropertyType):
         "dns_properties": "DnsProperties",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dns_properties: Optional[PrivateDnsPropertiesMutable] = None
 
 
@@ -301,7 +293,6 @@ class SOA(PropertyType):
         "ttl": "TTL",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ttl: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -318,15 +309,10 @@ class PrivateDnsNamespace(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     properties: Optional[Properties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -355,7 +341,6 @@ class Properties(PropertyType):
         "dns_properties": "DnsProperties",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dns_properties: Optional[PublicDnsPropertiesMutable] = None
 
 
@@ -367,7 +352,6 @@ class PublicDnsPropertiesMutable(PropertyType):
         "soa": "SOA",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     soa: Optional[SOA] = None
 
 
@@ -379,7 +363,6 @@ class SOA(PropertyType):
         "ttl": "TTL",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ttl: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -395,13 +378,9 @@ class PublicDnsNamespace(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     properties: Optional[Properties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -432,11 +411,8 @@ class DnsConfig(PropertyType):
         "namespace_id": "NamespaceId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dns_records: Optional[list[DnsRecord]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     routing_policy: Optional[Union[str, RoutingPolicy, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     namespace_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -449,9 +425,7 @@ class DnsRecord(PropertyType):
         "ttl": "TTL",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, RecordType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ttl: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -465,11 +439,8 @@ class HealthCheckConfig(PropertyType):
         "failure_threshold": "FailureThreshold",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, HealthCheckType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failure_threshold: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -481,7 +452,6 @@ class HealthCheckCustomConfig(PropertyType):
         "failure_threshold": "FailureThreshold",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failure_threshold: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -502,23 +472,14 @@ class Service(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_: Optional[Union[str, ServiceType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     health_check_custom_config: Optional[HealthCheckCustomConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     dns_config: Optional[DnsConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     service_attributes: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     namespace_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     health_check_config: Optional[HealthCheckConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property

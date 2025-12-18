@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:42
+  Generated: 2025-12-17 21:50:31
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Events
@@ -272,17 +272,11 @@ class ApiDestination(CloudFormationResource):
         "invocation_rate_limit_per_second": "InvocationRateLimitPerSecond",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connection_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     invocation_endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     http_method: Optional[Union[str, ApiDestinationHttpMethod, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     invocation_rate_limit_per_second: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
     @property
@@ -312,17 +306,11 @@ class Archive(CloudFormationResource):
         "retention_days": "RetentionDays",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     event_pattern: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kms_key_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     archive_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     retention_days: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
     @property
@@ -342,9 +330,7 @@ class ApiKeyAuthParameters(PropertyType):
         "api_key_name": "ApiKeyName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     api_key_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     api_key_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -360,15 +346,10 @@ class AuthParameters(PropertyType):
         "o_auth_parameters": "OAuthParameters",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     invocation_http_parameters: Optional[ConnectionHttpParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connectivity_parameters: Optional[ConnectivityParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     basic_auth_parameters: Optional[BasicAuthParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     api_key_auth_parameters: Optional[ApiKeyAuthParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     o_auth_parameters: Optional[OAuthParameters] = None
 
 
@@ -381,9 +362,7 @@ class BasicAuthParameters(PropertyType):
         "password": "Password",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     username: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     password: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -396,9 +375,7 @@ class ClientParameters(PropertyType):
         "client_id": "ClientID",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_secret: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -412,11 +389,8 @@ class ConnectionHttpParameters(PropertyType):
         "body_parameters": "BodyParameters",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header_parameters: Optional[list[Parameter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_string_parameters: Optional[list[Parameter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     body_parameters: Optional[list[Parameter]] = None
 
 
@@ -428,7 +402,6 @@ class ConnectivityParameters(PropertyType):
         "resource_parameters": "ResourceParameters",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_parameters: Optional[ResourceParameters] = None
 
 
@@ -440,7 +413,6 @@ class InvocationConnectivityParameters(PropertyType):
         "resource_parameters": "ResourceParameters",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_parameters: Optional[ResourceParameters] = None
 
 
@@ -455,13 +427,9 @@ class OAuthParameters(PropertyType):
         "http_method": "HttpMethod",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_parameters: Optional[ClientParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     o_auth_http_parameters: Optional[ConnectionHttpParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     authorization_endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http_method: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -475,11 +443,8 @@ class Parameter(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     is_value_secret: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -492,9 +457,7 @@ class ResourceParameters(PropertyType):
         "resource_configuration_arn": "ResourceConfigurationArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_association_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_configuration_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -512,17 +475,11 @@ class Connection(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auth_parameters: Optional[AuthParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kms_key_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     invocation_connectivity_parameters: Optional[InvocationConnectivityParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     authorization_type: Optional[Union[str, ConnectionAuthorizationType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -561,7 +518,6 @@ class EndpointEventBus(PropertyType):
         "event_bus_arn": "EventBusArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     event_bus_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -574,9 +530,7 @@ class FailoverConfig(PropertyType):
         "primary": "Primary",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secondary: Optional[Secondary] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     primary: Optional[Primary] = None
 
 
@@ -588,7 +542,6 @@ class Primary(PropertyType):
         "health_check": "HealthCheck",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     health_check: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -600,7 +553,6 @@ class ReplicationConfig(PropertyType):
         "state": "State",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     state: Optional[Union[str, ReplicationState, Ref, GetAtt, Sub]] = None
 
 
@@ -612,7 +564,6 @@ class RoutingConfig(PropertyType):
         "failover_config": "FailoverConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failover_config: Optional[FailoverConfig] = None
 
 
@@ -624,7 +575,6 @@ class Secondary(PropertyType):
         "route": "Route",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     route: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -642,17 +592,11 @@ class Endpoint(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     event_buses: Optional[list[EndpointEventBus]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     replication_config: Optional[ReplicationConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     routing_config: Optional[RoutingConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -691,7 +635,6 @@ class DeadLetterConfig(PropertyType):
         "arn": "Arn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -704,9 +647,7 @@ class LogConfig(PropertyType):
         "level": "Level",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_detail: Optional[Union[str, IncludeDetail, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     level: Optional[Union[str, Level, Ref, GetAtt, Sub]] = None
 
 
@@ -726,21 +667,13 @@ class EventBus(CloudFormationResource):
         "log_config": "LogConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kms_key_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     event_source_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     dead_letter_config: Optional[DeadLetterConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     log_config: Optional[LogConfig] = None
 
     @property
@@ -767,11 +700,8 @@ class EventBusPolicy(CloudFormationResource):
         "statement": "Statement",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     event_bus_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     statement_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     statement: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
 
@@ -784,7 +714,6 @@ class AppSyncParameters(PropertyType):
         "graph_ql_operation": "GraphQLOperation",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     graph_ql_operation: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -798,11 +727,8 @@ class AwsVpcConfiguration(PropertyType):
         "assign_public_ip": "AssignPublicIp",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_groups: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnets: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     assign_public_ip: Optional[Union[str, AssignPublicIp, Ref, GetAtt, Sub]] = None
 
 
@@ -814,7 +740,6 @@ class BatchArrayProperties(PropertyType):
         "size": "Size",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     size: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -829,13 +754,9 @@ class BatchParameters(PropertyType):
         "job_definition": "JobDefinition",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     array_properties: Optional[BatchArrayProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     job_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retry_strategy: Optional[BatchRetryStrategy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     job_definition: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -847,7 +768,6 @@ class BatchRetryStrategy(PropertyType):
         "attempts": "Attempts",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attempts: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -861,11 +781,8 @@ class CapacityProviderStrategyItem(PropertyType):
         "weight": "Weight",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity_provider: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     base: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     weight: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -877,7 +794,6 @@ class DeadLetterConfig(PropertyType):
         "arn": "Arn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -902,33 +818,19 @@ class EcsParameters(PropertyType):
         "task_definition_arn": "TaskDefinitionArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     platform_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     group: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_ecs_managed_tags: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_execute_command: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     placement_constraints: Optional[list[PlacementConstraint]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     propagate_tags: Optional[Union[str, PropagateTags, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     task_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     placement_strategies: Optional[list[PlacementStrategy]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity_provider_strategy: Optional[list[CapacityProviderStrategyItem]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     launch_type: Optional[Union[str, LaunchType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     reference_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tag_list: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_configuration: Optional[NetworkConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     task_definition_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -942,11 +844,8 @@ class HttpParameters(PropertyType):
         "query_string_parameters": "QueryStringParameters",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     path_parameter_values: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header_parameters: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_string_parameters: Optional[dict[str, str]] = None
 
 
@@ -959,9 +858,7 @@ class InputTransformer(PropertyType):
         "input_template": "InputTemplate",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input_paths_map: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input_template: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -973,7 +870,6 @@ class KinesisParameters(PropertyType):
         "partition_key_path": "PartitionKeyPath",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     partition_key_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -985,7 +881,6 @@ class NetworkConfiguration(PropertyType):
         "aws_vpc_configuration": "AwsVpcConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_vpc_configuration: Optional[AwsVpcConfiguration] = None
 
 
@@ -998,9 +893,7 @@ class PlacementConstraint(PropertyType):
         "expression": "Expression",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     expression: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1013,9 +906,7 @@ class PlacementStrategy(PropertyType):
         "type_": "Type",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1033,19 +924,12 @@ class RedshiftDataParameters(PropertyType):
         "with_event": "WithEvent",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     statement_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sqls: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_manager_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     db_user: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sql: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     with_event: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1058,9 +942,7 @@ class RetryPolicy(PropertyType):
         "maximum_event_age_in_seconds": "MaximumEventAgeInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maximum_retry_attempts: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maximum_event_age_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1072,7 +954,6 @@ class RunCommandParameters(PropertyType):
         "run_command_targets": "RunCommandTargets",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     run_command_targets: Optional[list[RunCommandTarget]] = None
 
 
@@ -1085,9 +966,7 @@ class RunCommandTarget(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     values: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1100,9 +979,7 @@ class SageMakerPipelineParameter(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1114,7 +991,6 @@ class SageMakerPipelineParameters(PropertyType):
         "pipeline_parameter_list": "PipelineParameterList",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pipeline_parameter_list: Optional[list[SageMakerPipelineParameter]] = None
 
 
@@ -1126,7 +1002,6 @@ class SqsParameters(PropertyType):
         "message_group_id": "MessageGroupId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     message_group_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1154,39 +1029,22 @@ class Target(PropertyType):
         "retry_policy": "RetryPolicy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http_parameters: Optional[HttpParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dead_letter_config: Optional[DeadLetterConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     run_command_parameters: Optional[RunCommandParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input_transformer: Optional[InputTransformer] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kinesis_parameters: Optional[KinesisParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     redshift_data_parameters: Optional[RedshiftDataParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     app_sync_parameters: Optional[AppSyncParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sqs_parameters: Optional[SqsParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ecs_parameters: Optional[EcsParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     batch_parameters: Optional[BatchParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sage_maker_pipeline_parameters: Optional[SageMakerPipelineParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retry_policy: Optional[RetryPolicy] = None
 
 
@@ -1207,23 +1065,14 @@ class Rule(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     event_bus_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     event_pattern: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     schedule_expression: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     state: Optional[Union[str, RuleState, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     targets: Optional[list[Target]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property

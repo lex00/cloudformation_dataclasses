@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:56
+  Generated: 2025-12-17 21:50:33
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Pipes
@@ -309,11 +309,8 @@ class AwsVpcConfiguration(PropertyType):
         "assign_public_ip": "AssignPublicIp",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_groups: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnets: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     assign_public_ip: Optional[Union[str, AssignPublicIp, Ref, GetAtt, Sub]] = None
 
 
@@ -325,7 +322,6 @@ class BatchArrayProperties(PropertyType):
         "size": "Size",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     size: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -340,13 +336,9 @@ class BatchContainerOverrides(PropertyType):
         "resource_requirements": "ResourceRequirements",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     command: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     environment: Optional[list[BatchEnvironmentVariable]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_requirements: Optional[list[BatchResourceRequirement]] = None
 
 
@@ -359,9 +351,7 @@ class BatchEnvironmentVariable(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -374,9 +364,7 @@ class BatchJobDependency(PropertyType):
         "job_id": "JobId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, BatchJobDependencyType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     job_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -389,9 +377,7 @@ class BatchResourceRequirement(PropertyType):
         "value": "Value",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, BatchResourceRequirementType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -403,7 +389,6 @@ class BatchRetryStrategy(PropertyType):
         "attempts": "Attempts",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attempts: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -417,11 +402,8 @@ class CapacityProviderStrategyItem(PropertyType):
         "base": "Base",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity_provider: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     weight: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     base: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -433,7 +415,6 @@ class CloudwatchLogsLogDestination(PropertyType):
         "log_group_arn": "LogGroupArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_group_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -445,7 +426,6 @@ class DeadLetterConfig(PropertyType):
         "arn": "Arn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -459,11 +439,8 @@ class DimensionMapping(PropertyType):
         "dimension_name": "DimensionName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dimension_value_type: Optional[Union[str, DimensionValueType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dimension_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dimension_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -482,21 +459,13 @@ class EcsContainerOverride(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     memory_reservation: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     command: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     memory: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cpu: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     environment: Optional[list[EcsEnvironmentVariable]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_requirements: Optional[list[EcsResourceRequirement]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     environment_files: Optional[list[EcsEnvironmentFile]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -509,9 +478,7 @@ class EcsEnvironmentFile(PropertyType):
         "value": "Value",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -524,9 +491,7 @@ class EcsEnvironmentVariable(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -538,7 +503,6 @@ class EcsEphemeralStorage(PropertyType):
         "size_in_gi_b": "SizeInGiB",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     size_in_gi_b: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -551,9 +515,7 @@ class EcsInferenceAcceleratorOverride(PropertyType):
         "device_name": "DeviceName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     device_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     device_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -566,9 +528,7 @@ class EcsResourceRequirement(PropertyType):
         "value": "Value",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -586,19 +546,12 @@ class EcsTaskOverride(PropertyType):
         "container_overrides": "ContainerOverrides",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     execution_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     task_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     memory: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cpu: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     inference_accelerator_overrides: Optional[list[EcsInferenceAcceleratorOverride]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ephemeral_storage: Optional[EcsEphemeralStorage] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     container_overrides: Optional[list[EcsContainerOverride]] = None
 
 
@@ -610,7 +563,6 @@ class Filter(PropertyType):
         "pattern": "Pattern",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pattern: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -622,7 +574,6 @@ class FilterCriteria(PropertyType):
         "filters": "Filters",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filters: Optional[list[Filter]] = None
 
 
@@ -634,7 +585,6 @@ class FirehoseLogDestination(PropertyType):
         "delivery_stream_arn": "DeliveryStreamArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     delivery_stream_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -646,7 +596,6 @@ class MQBrokerAccessCredentials(PropertyType):
         "basic_auth": "BasicAuth",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     basic_auth: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -659,9 +608,7 @@ class MSKAccessCredentials(PropertyType):
         "sasl_scram512_auth": "SaslScram512Auth",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_certificate_tls_auth: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sasl_scram512_auth: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -675,11 +622,8 @@ class MultiMeasureAttributeMapping(PropertyType):
         "measure_value": "MeasureValue",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     multi_measure_attribute_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     measure_value_type: Optional[Union[str, MeasureValueType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     measure_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -692,9 +636,7 @@ class MultiMeasureMapping(PropertyType):
         "multi_measure_attribute_mappings": "MultiMeasureAttributeMappings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     multi_measure_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     multi_measure_attribute_mappings: Optional[list[MultiMeasureAttributeMapping]] = None
 
 
@@ -706,7 +648,6 @@ class NetworkConfiguration(PropertyType):
         "awsvpc_configuration": "AwsvpcConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     awsvpc_configuration: Optional[AwsVpcConfiguration] = None
 
 
@@ -720,11 +661,8 @@ class PipeEnrichmentHttpParameters(PropertyType):
         "query_string_parameters": "QueryStringParameters",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     path_parameter_values: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header_parameters: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_string_parameters: Optional[dict[str, str]] = None
 
 
@@ -737,9 +675,7 @@ class PipeEnrichmentParameters(PropertyType):
         "input_template": "InputTemplate",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http_parameters: Optional[PipeEnrichmentHttpParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input_template: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -755,15 +691,10 @@ class PipeLogConfiguration(PropertyType):
         "level": "Level",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     firehose_log_destination: Optional[FirehoseLogDestination] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloudwatch_logs_log_destination: Optional[CloudwatchLogsLogDestination] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_execution_data: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_log_destination: Optional[S3LogDestination] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     level: Optional[Union[str, LogLevel, Ref, GetAtt, Sub]] = None
 
 
@@ -778,13 +709,9 @@ class PipeSourceActiveMQBrokerParameters(PropertyType):
         "maximum_batching_window_in_seconds": "MaximumBatchingWindowInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     batch_size: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     queue_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     credentials: Optional[MQBrokerAccessCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maximum_batching_window_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -803,21 +730,13 @@ class PipeSourceDynamoDBStreamParameters(PropertyType):
         "maximum_batching_window_in_seconds": "MaximumBatchingWindowInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     starting_position: Optional[Union[str, DynamoDBStreamStartPosition, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     batch_size: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maximum_retry_attempts: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     on_partial_batch_item_failure: Optional[Union[str, OnPartialBatchItemFailureStreams, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dead_letter_config: Optional[DeadLetterConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parallelization_factor: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maximum_record_age_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maximum_batching_window_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -837,23 +756,14 @@ class PipeSourceKinesisStreamParameters(PropertyType):
         "maximum_batching_window_in_seconds": "MaximumBatchingWindowInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     starting_position: Optional[Union[str, KinesisStreamStartPosition, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     batch_size: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maximum_retry_attempts: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     on_partial_batch_item_failure: Optional[Union[str, OnPartialBatchItemFailureStreams, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dead_letter_config: Optional[DeadLetterConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parallelization_factor: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maximum_record_age_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     starting_position_timestamp: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maximum_batching_window_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -870,17 +780,11 @@ class PipeSourceManagedStreamingKafkaParameters(PropertyType):
         "maximum_batching_window_in_seconds": "MaximumBatchingWindowInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     starting_position: Optional[Union[str, MSKStartPosition, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     batch_size: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     consumer_group_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     credentials: Optional[MSKAccessCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     topic_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maximum_batching_window_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -899,21 +803,13 @@ class PipeSourceParameters(PropertyType):
         "active_mq_broker_parameters": "ActiveMQBrokerParameters",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     managed_streaming_kafka_parameters: Optional[PipeSourceManagedStreamingKafkaParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dynamo_db_stream_parameters: Optional[PipeSourceDynamoDBStreamParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     self_managed_kafka_parameters: Optional[PipeSourceSelfManagedKafkaParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rabbit_mq_broker_parameters: Optional[PipeSourceRabbitMQBrokerParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sqs_queue_parameters: Optional[PipeSourceSqsQueueParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kinesis_stream_parameters: Optional[PipeSourceKinesisStreamParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filter_criteria: Optional[FilterCriteria] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     active_mq_broker_parameters: Optional[PipeSourceActiveMQBrokerParameters] = None
 
 
@@ -929,15 +825,10 @@ class PipeSourceRabbitMQBrokerParameters(PropertyType):
         "maximum_batching_window_in_seconds": "MaximumBatchingWindowInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     batch_size: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     virtual_host: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     queue_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     credentials: Optional[MQBrokerAccessCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maximum_batching_window_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -957,23 +848,14 @@ class PipeSourceSelfManagedKafkaParameters(PropertyType):
         "maximum_batching_window_in_seconds": "MaximumBatchingWindowInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     starting_position: Optional[Union[str, SelfManagedKafkaStartPosition, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     batch_size: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     consumer_group_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     additional_bootstrap_servers: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc: Optional[SelfManagedKafkaAccessConfigurationVpc] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     credentials: Optional[SelfManagedKafkaAccessConfigurationCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     server_root_ca_certificate: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     topic_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maximum_batching_window_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -986,9 +868,7 @@ class PipeSourceSqsQueueParameters(PropertyType):
         "maximum_batching_window_in_seconds": "MaximumBatchingWindowInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     batch_size: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maximum_batching_window_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1006,19 +886,12 @@ class PipeTargetBatchJobParameters(PropertyType):
         "container_overrides": "ContainerOverrides",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     depends_on: Optional[list[BatchJobDependency]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parameters: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     array_properties: Optional[BatchArrayProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     job_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retry_strategy: Optional[BatchRetryStrategy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     job_definition: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     container_overrides: Optional[BatchContainerOverrides] = None
 
 
@@ -1031,9 +904,7 @@ class PipeTargetCloudWatchLogsParameters(PropertyType):
         "timestamp": "Timestamp",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_stream_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timestamp: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1059,35 +930,20 @@ class PipeTargetEcsTaskParameters(PropertyType):
         "task_definition_arn": "TaskDefinitionArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     platform_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     group: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_ecs_managed_tags: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     task_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_execute_command: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     placement_constraints: Optional[list[PlacementConstraint]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     propagate_tags: Optional[Union[str, PropagateTags, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     placement_strategy: Optional[list[PlacementStrategy]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     launch_type: Optional[Union[str, LaunchType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     capacity_provider_strategy: Optional[list[CapacityProviderStrategyItem]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     reference_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     overrides: Optional[EcsTaskOverride] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_configuration: Optional[NetworkConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     task_definition_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1103,15 +959,10 @@ class PipeTargetEventBridgeEventBusParameters(PropertyType):
         "source": "Source",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     detail_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoint_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     time: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resources: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1125,11 +976,8 @@ class PipeTargetHttpParameters(PropertyType):
         "query_string_parameters": "QueryStringParameters",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     path_parameter_values: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header_parameters: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_string_parameters: Optional[dict[str, str]] = None
 
 
@@ -1141,7 +989,6 @@ class PipeTargetKinesisStreamParameters(PropertyType):
         "partition_key": "PartitionKey",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     partition_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1153,7 +1000,6 @@ class PipeTargetLambdaFunctionParameters(PropertyType):
         "invocation_type": "InvocationType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     invocation_type: Optional[Union[str, PipeTargetInvocationType, Ref, GetAtt, Sub]] = None
 
 
@@ -1177,31 +1023,18 @@ class PipeTargetParameters(PropertyType):
         "ecs_task_parameters": "EcsTaskParameters",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     step_function_state_machine_parameters: Optional[PipeTargetStateMachineParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http_parameters: Optional[PipeTargetHttpParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timestream_parameters: Optional[PipeTargetTimestreamParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input_template: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     event_bridge_event_bus_parameters: Optional[PipeTargetEventBridgeEventBusParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lambda_function_parameters: Optional[PipeTargetLambdaFunctionParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     batch_job_parameters: Optional[PipeTargetBatchJobParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     redshift_data_parameters: Optional[PipeTargetRedshiftDataParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sqs_queue_parameters: Optional[PipeTargetSqsQueueParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch_logs_parameters: Optional[PipeTargetCloudWatchLogsParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kinesis_stream_parameters: Optional[PipeTargetKinesisStreamParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sage_maker_pipeline_parameters: Optional[PipeTargetSageMakerPipelineParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ecs_task_parameters: Optional[PipeTargetEcsTaskParameters] = None
 
 
@@ -1218,17 +1051,11 @@ class PipeTargetRedshiftDataParameters(PropertyType):
         "with_event": "WithEvent",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     statement_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sqls: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_manager_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     db_user: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     with_event: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1240,7 +1067,6 @@ class PipeTargetSageMakerPipelineParameters(PropertyType):
         "pipeline_parameter_list": "PipelineParameterList",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pipeline_parameter_list: Optional[list[SageMakerPipelineParameter]] = None
 
 
@@ -1253,9 +1079,7 @@ class PipeTargetSqsQueueParameters(PropertyType):
         "message_deduplication_id": "MessageDeduplicationId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     message_group_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     message_deduplication_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1267,7 +1091,6 @@ class PipeTargetStateMachineParameters(PropertyType):
         "invocation_type": "InvocationType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     invocation_type: Optional[Union[str, PipeTargetInvocationType, Ref, GetAtt, Sub]] = None
 
 
@@ -1286,21 +1109,13 @@ class PipeTargetTimestreamParameters(PropertyType):
         "single_measure_mappings": "SingleMeasureMappings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     version_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dimension_mappings: Optional[list[DimensionMapping]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     epoch_time_unit: Optional[Union[str, EpochTimeUnit, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     time_field_type: Optional[Union[str, TimeFieldType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timestamp_format: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     multi_measure_mappings: Optional[list[MultiMeasureMapping]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     time_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     single_measure_mappings: Optional[list[SingleMeasureMapping]] = None
 
 
@@ -1313,9 +1128,7 @@ class PlacementConstraint(PropertyType):
         "expression": "Expression",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     expression: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1328,9 +1141,7 @@ class PlacementStrategy(PropertyType):
         "type_": "Type",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1345,13 +1156,9 @@ class S3LogDestination(PropertyType):
         "bucket_owner": "BucketOwner",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     output_format: Optional[Union[str, S3OutputFormat, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_owner: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1364,9 +1171,7 @@ class SageMakerPipelineParameter(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1381,13 +1186,9 @@ class SelfManagedKafkaAccessConfigurationCredentials(PropertyType):
         "sasl_scram512_auth": "SaslScram512Auth",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     basic_auth: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sasl_scram256_auth: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_certificate_tls_auth: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sasl_scram512_auth: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1400,9 +1201,7 @@ class SelfManagedKafkaAccessConfigurationVpc(PropertyType):
         "security_group": "SecurityGroup",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnets: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_group: Optional[Union[list[str], Ref]] = None
 
 
@@ -1416,11 +1215,8 @@ class SingleMeasureMapping(PropertyType):
         "measure_value": "MeasureValue",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     measure_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     measure_value_type: Optional[Union[str, MeasureValueType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     measure_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1445,31 +1241,18 @@ class Pipe(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     enrichment: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kms_key_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     target_parameters: Optional[PipeTargetParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     log_configuration: Optional[PipeLogConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     enrichment_parameters: Optional[PipeEnrichmentParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     target: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     desired_state: Optional[Union[str, RequestedPipeState, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source_parameters: Optional[PipeSourceParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
 
     @property

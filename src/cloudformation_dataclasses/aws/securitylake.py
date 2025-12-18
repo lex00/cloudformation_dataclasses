@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:44:03
+  Generated: 2025-12-17 21:50:34
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SecurityLake
@@ -120,13 +120,9 @@ class AwsLogSource(CloudFormationResource):
         "data_lake_arn": "DataLakeArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     accounts: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     data_lake_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -139,7 +135,6 @@ class EncryptionConfiguration(PropertyType):
         "kms_key_id": "KmsKeyId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -151,7 +146,6 @@ class Expiration(PropertyType):
         "days": "Days",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     days: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -164,9 +158,7 @@ class LifecycleConfiguration(PropertyType):
         "expiration": "Expiration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     transitions: Optional[list[Transitions]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     expiration: Optional[Expiration] = None
 
 
@@ -179,9 +171,7 @@ class ReplicationConfiguration(PropertyType):
         "role_arn": "RoleArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     regions: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -194,9 +184,7 @@ class Transitions(PropertyType):
         "days": "Days",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     storage_class: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     days: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -213,15 +201,10 @@ class DataLake(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     encryption_configuration: Optional[EncryptionConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     lifecycle_configuration: Optional[LifecycleConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     replication_configuration: Optional[ReplicationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     meta_store_manager_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -246,9 +229,7 @@ class AwsLogSource(PropertyType):
         "source_version": "SourceVersion",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -261,9 +242,7 @@ class CustomLogSource(PropertyType):
         "source_version": "SourceVersion",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -276,9 +255,7 @@ class Source(PropertyType):
         "custom_log_source": "CustomLogSource",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_log_source: Optional[AwsLogSource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_log_source: Optional[CustomLogSource] = None
 
 
@@ -291,9 +268,7 @@ class SubscriberIdentity(PropertyType):
         "principal": "Principal",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     external_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     principal: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -312,19 +287,12 @@ class Subscriber(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     subscriber_identity: Optional[SubscriberIdentity] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     subscriber_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     subscriber_description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     access_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     sources: Optional[list[Source]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     data_lake_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -367,15 +335,10 @@ class HttpsNotificationConfiguration(PropertyType):
         "http_method": "HttpMethod",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     authorization_api_key_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     authorization_api_key_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http_method: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -388,9 +351,7 @@ class NotificationConfiguration(PropertyType):
         "sqs_notification_configuration": "SqsNotificationConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     https_notification_configuration: Optional[HttpsNotificationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sqs_notification_configuration: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
 
@@ -404,9 +365,7 @@ class SubscriberNotification(CloudFormationResource):
         "notification_configuration": "NotificationConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     subscriber_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     notification_configuration: Optional[NotificationConfiguration] = None
 
     @property

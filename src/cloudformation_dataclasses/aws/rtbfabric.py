@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:57
+  Generated: 2025-12-17 21:50:34
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service RTBFabric
@@ -164,7 +164,6 @@ class ApplicationLogs(PropertyType):
         "link_application_log_sampling": "LinkApplicationLogSampling",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     link_application_log_sampling: Optional[LinkApplicationLogSampling] = None
 
 
@@ -177,9 +176,7 @@ class LinkApplicationLogSampling(PropertyType):
         "error_log": "ErrorLog",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filter_log: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     error_log: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -192,9 +189,7 @@ class LinkAttributes(PropertyType):
         "customer_provided_id": "CustomerProvidedId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     responder_error_masking: Optional[list[ResponderErrorMaskingForHttpCode]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     customer_provided_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -206,7 +201,6 @@ class LinkLogSettings(PropertyType):
         "application_logs": "ApplicationLogs",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     application_logs: Optional[ApplicationLogs] = None
 
 
@@ -221,13 +215,9 @@ class ResponderErrorMaskingForHttpCode(PropertyType):
         "logging_types": "LoggingTypes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http_code: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     response_logging_percentage: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     logging_types: Optional[Union[list[str], Ref]] = None
 
 
@@ -243,13 +233,9 @@ class InboundExternalLink(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     link_attributes: Optional[LinkAttributes] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     link_log_settings: Optional[LinkLogSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     gateway_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -289,9 +275,7 @@ class Action(PropertyType):
         "header_tag": "HeaderTag",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     no_bid: Optional[NoBidAction] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header_tag: Optional[HeaderTagAction] = None
 
 
@@ -303,7 +287,6 @@ class ApplicationLogs(PropertyType):
         "link_application_log_sampling": "LinkApplicationLogSampling",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     link_application_log_sampling: Optional[LinkApplicationLogSampling] = None
 
 
@@ -315,7 +298,6 @@ class Filter(PropertyType):
         "criteria": "Criteria",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     criteria: Optional[list[FilterCriterion]] = None
 
 
@@ -328,9 +310,7 @@ class FilterCriterion(PropertyType):
         "values": "Values",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     values: Optional[Union[list[str], Ref]] = None
 
 
@@ -343,9 +323,7 @@ class HeaderTagAction(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -358,9 +336,7 @@ class LinkApplicationLogSampling(PropertyType):
         "error_log": "ErrorLog",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filter_log: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     error_log: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -373,9 +349,7 @@ class LinkAttributes(PropertyType):
         "customer_provided_id": "CustomerProvidedId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     responder_error_masking: Optional[list[ResponderErrorMaskingForHttpCode]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     customer_provided_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -387,7 +361,6 @@ class LinkLogSettings(PropertyType):
         "application_logs": "ApplicationLogs",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     application_logs: Optional[ApplicationLogs] = None
 
 
@@ -402,13 +375,9 @@ class ModuleConfiguration(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     depends_on: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     module_parameters: Optional[ModuleParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -421,9 +390,7 @@ class ModuleParameters(PropertyType):
         "open_rtb_attribute": "OpenRtbAttribute",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     no_bid: Optional[NoBidModuleParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     open_rtb_attribute: Optional[OpenRtbAttributeModuleParameters] = None
 
 
@@ -435,7 +402,6 @@ class NoBidAction(PropertyType):
         "no_bid_reason_code": "NoBidReasonCode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     no_bid_reason_code: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -449,11 +415,8 @@ class NoBidModuleParameters(PropertyType):
         "reason": "Reason",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pass_through_percentage: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     reason_code: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     reason: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -468,13 +431,9 @@ class OpenRtbAttributeModuleParameters(PropertyType):
         "filter_configuration": "FilterConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filter_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[Action] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     holdback_percentage: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filter_configuration: Optional[list[Filter]] = None
 
 
@@ -489,13 +448,9 @@ class ResponderErrorMaskingForHttpCode(PropertyType):
         "logging_types": "LoggingTypes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http_code: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     response_logging_percentage: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     logging_types: Optional[Union[list[str], Ref]] = None
 
 
@@ -514,19 +469,12 @@ class Link(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     link_attributes: Optional[LinkAttributes] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     module_configuration_list: Optional[list[ModuleConfiguration]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     http_responder_allowed: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     link_log_settings: Optional[LinkLogSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     peer_gateway_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     gateway_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -570,7 +518,6 @@ class ApplicationLogs(PropertyType):
         "link_application_log_sampling": "LinkApplicationLogSampling",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     link_application_log_sampling: Optional[LinkApplicationLogSampling] = None
 
 
@@ -583,9 +530,7 @@ class LinkApplicationLogSampling(PropertyType):
         "error_log": "ErrorLog",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filter_log: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     error_log: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -598,9 +543,7 @@ class LinkAttributes(PropertyType):
         "customer_provided_id": "CustomerProvidedId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     responder_error_masking: Optional[list[ResponderErrorMaskingForHttpCode]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     customer_provided_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -612,7 +555,6 @@ class LinkLogSettings(PropertyType):
         "application_logs": "ApplicationLogs",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     application_logs: Optional[ApplicationLogs] = None
 
 
@@ -627,13 +569,9 @@ class ResponderErrorMaskingForHttpCode(PropertyType):
         "logging_types": "LoggingTypes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http_code: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     response_logging_percentage: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     logging_types: Optional[Union[list[str], Ref]] = None
 
 
@@ -650,15 +588,10 @@ class OutboundExternalLink(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     link_attributes: Optional[LinkAttributes] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     link_log_settings: Optional[LinkLogSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     public_endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     gateway_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -702,15 +635,10 @@ class RequesterGateway(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     subnet_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     security_group_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -765,9 +693,7 @@ class AutoScalingGroupsConfiguration(PropertyType):
         "role_arn": "RoleArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auto_scaling_group_name_list: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -784,17 +710,11 @@ class EksEndpointsConfiguration(PropertyType):
         "role_arn": "RoleArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cluster_api_server_ca_certificate_chain: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoints_resource_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cluster_api_server_endpoint_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cluster_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoints_resource_namespace: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -807,9 +727,7 @@ class ManagedEndpointConfiguration(PropertyType):
         "auto_scaling_groups_configuration": "AutoScalingGroupsConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     eks_endpoints_configuration: Optional[EksEndpointsConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auto_scaling_groups_configuration: Optional[AutoScalingGroupsConfiguration] = None
 
 
@@ -821,7 +739,6 @@ class TrustStoreConfiguration(PropertyType):
         "certificate_authority_certificates": "CertificateAuthorityCertificates",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     certificate_authority_certificates: Optional[Union[list[str], Ref]] = None
 
 
@@ -843,25 +760,15 @@ class ResponderGateway(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     trust_store_configuration: Optional[TrustStoreConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     managed_endpoint_configuration: Optional[ManagedEndpointConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     protocol: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     subnet_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     security_group_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property

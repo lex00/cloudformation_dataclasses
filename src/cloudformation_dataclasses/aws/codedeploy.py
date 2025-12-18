@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:35
+  Generated: 2025-12-17 21:50:30
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CodeDeploy
@@ -519,11 +519,8 @@ class Application(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     application_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     compute_platform: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
 
@@ -537,9 +534,7 @@ class MinimumHealthyHosts(PropertyType):
         "value": "Value",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -552,9 +547,7 @@ class MinimumHealthyHostsPerZone(PropertyType):
         "value": "Value",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -567,9 +560,7 @@ class TimeBasedCanary(PropertyType):
         "canary_interval": "CanaryInterval",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     canary_percentage: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     canary_interval: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -582,9 +573,7 @@ class TimeBasedLinear(PropertyType):
         "linear_percentage": "LinearPercentage",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     linear_interval: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     linear_percentage: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -598,11 +587,8 @@ class TrafficRoutingConfig(PropertyType):
         "time_based_canary": "TimeBasedCanary",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     time_based_linear: Optional[TimeBasedLinear] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     time_based_canary: Optional[TimeBasedCanary] = None
 
 
@@ -616,11 +602,8 @@ class ZonalConfig(PropertyType):
         "first_zone_monitor_duration_in_seconds": "FirstZoneMonitorDurationInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     monitor_duration_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     minimum_healthy_hosts_per_zone: Optional[MinimumHealthyHostsPerZone] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     first_zone_monitor_duration_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -637,15 +620,10 @@ class DeploymentConfig(CloudFormationResource):
         "minimum_healthy_hosts": "MinimumHealthyHosts",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     compute_platform: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     zonal_config: Optional[ZonalConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     deployment_config_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     traffic_routing_config: Optional[TrafficRoutingConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     minimum_healthy_hosts: Optional[MinimumHealthyHosts] = None
 
 
@@ -658,7 +636,6 @@ class Alarm(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -672,11 +649,8 @@ class AlarmConfiguration(PropertyType):
         "ignore_poll_alarm_failure": "IgnorePollAlarmFailure",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     alarms: Optional[list[Alarm]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ignore_poll_alarm_failure: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -689,9 +663,7 @@ class AutoRollbackConfiguration(PropertyType):
         "events": "Events",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     events: Optional[Union[list[str], Ref]] = None
 
 
@@ -705,11 +677,8 @@ class BlueGreenDeploymentConfiguration(PropertyType):
         "terminate_blue_instances_on_deployment_success": "TerminateBlueInstancesOnDeploymentSuccess",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     deployment_ready_option: Optional[DeploymentReadyOption] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     green_fleet_provisioning_option: Optional[GreenFleetProvisioningOption] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     terminate_blue_instances_on_deployment_success: Optional[BlueInstanceTerminationOption] = None
 
 
@@ -722,9 +691,7 @@ class BlueInstanceTerminationOption(PropertyType):
         "termination_wait_time_in_minutes": "TerminationWaitTimeInMinutes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     termination_wait_time_in_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -738,11 +705,8 @@ class Deployment(PropertyType):
         "revision": "Revision",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ignore_application_stop_failures: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     revision: Optional[RevisionLocation] = None
 
 
@@ -755,9 +719,7 @@ class DeploymentReadyOption(PropertyType):
         "wait_time_in_minutes": "WaitTimeInMinutes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action_on_timeout: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     wait_time_in_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -770,9 +732,7 @@ class DeploymentStyle(PropertyType):
         "deployment_type": "DeploymentType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     deployment_option: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     deployment_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -786,11 +746,8 @@ class EC2TagFilter(PropertyType):
         "value": "Value",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, EC2TagFilterType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -802,7 +759,6 @@ class EC2TagSet(PropertyType):
         "ec2_tag_set_list": "Ec2TagSetList",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ec2_tag_set_list: Optional[list[EC2TagSetListObject]] = None
 
 
@@ -814,7 +770,6 @@ class EC2TagSetListObject(PropertyType):
         "ec2_tag_group": "Ec2TagGroup",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ec2_tag_group: Optional[list[EC2TagFilter]] = None
 
 
@@ -827,9 +782,7 @@ class ECSService(PropertyType):
         "service_name": "ServiceName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cluster_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     service_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -841,7 +794,6 @@ class ELBInfo(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -854,9 +806,7 @@ class GitHubLocation(PropertyType):
         "repository": "Repository",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     commit_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     repository: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -868,7 +818,6 @@ class GreenFleetProvisioningOption(PropertyType):
         "action": "Action",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -882,11 +831,8 @@ class LoadBalancerInfo(PropertyType):
         "target_group_pair_info_list": "TargetGroupPairInfoList",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     elb_info_list: Optional[list[ELBInfo]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_group_info_list: Optional[list[TargetGroupInfo]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_group_pair_info_list: Optional[list[TargetGroupPairInfo]] = None
 
 
@@ -898,7 +844,6 @@ class OnPremisesTagSet(PropertyType):
         "on_premises_tag_set_list": "OnPremisesTagSetList",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     on_premises_tag_set_list: Optional[list[OnPremisesTagSetListObject]] = None
 
 
@@ -910,7 +855,6 @@ class OnPremisesTagSetListObject(PropertyType):
         "on_premises_tag_group": "OnPremisesTagGroup",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     on_premises_tag_group: Optional[list[TagFilter]] = None
 
 
@@ -924,11 +868,8 @@ class RevisionLocation(PropertyType):
         "s3_location": "S3Location",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     git_hub_location: Optional[GitHubLocation] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     revision_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_location: Optional[S3Location] = None
 
 
@@ -944,15 +885,10 @@ class S3Location(PropertyType):
         "version": "Version",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bundle_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     e_tag: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     version: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -966,11 +902,8 @@ class TagFilter(PropertyType):
         "value": "Value",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, TagFilterType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -982,7 +915,6 @@ class TargetGroupInfo(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -996,11 +928,8 @@ class TargetGroupPairInfo(PropertyType):
         "test_traffic_route": "TestTrafficRoute",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prod_traffic_route: Optional[TrafficRoute] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_groups: Optional[list[TargetGroupInfo]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     test_traffic_route: Optional[TrafficRoute] = None
 
 
@@ -1012,7 +941,6 @@ class TrafficRoute(PropertyType):
         "listener_arns": "ListenerArns",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     listener_arns: Optional[Union[list[str], Ref]] = None
 
 
@@ -1026,11 +954,8 @@ class TriggerConfig(PropertyType):
         "trigger_target_arn": "TriggerTargetArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     trigger_events: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     trigger_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     trigger_target_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1062,45 +987,25 @@ class DeploymentGroup(CloudFormationResource):
         "trigger_configurations": "TriggerConfigurations",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     alarm_configuration: Optional[AlarmConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     application_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auto_rollback_configuration: Optional[AutoRollbackConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auto_scaling_groups: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     blue_green_deployment_configuration: Optional[BlueGreenDeploymentConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     deployment: Optional[Deployment] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     deployment_config_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     deployment_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     deployment_style: Optional[DeploymentStyle] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ecs_services: Optional[list[ECSService]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ec2_tag_filters: Optional[list[EC2TagFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ec2_tag_set: Optional[EC2TagSet] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     load_balancer_info: Optional[LoadBalancerInfo] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     on_premises_instance_tag_filters: Optional[list[TagFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     on_premises_tag_set: Optional[OnPremisesTagSet] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     outdated_instances_strategy: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     service_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     termination_hook_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     trigger_configurations: Optional[list[TriggerConfig]] = None
 
 

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:44:01
+  Generated: 2025-12-17 21:50:34
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service S3Vectors
@@ -66,9 +66,7 @@ class EncryptionConfiguration(PropertyType):
         "sse_type": "SseType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sse_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -80,7 +78,6 @@ class MetadataConfiguration(PropertyType):
         "non_filterable_metadata_keys": "NonFilterableMetadataKeys",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     non_filterable_metadata_keys: Optional[Union[list[str], Ref]] = None
 
 
@@ -100,21 +97,13 @@ class Index(CloudFormationResource):
         "dimension": "Dimension",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     distance_metric: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     index_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vector_bucket_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vector_bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     encryption_configuration: Optional[EncryptionConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     data_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     metadata_configuration: Optional[MetadataConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     dimension: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
     @property
@@ -139,9 +128,7 @@ class EncryptionConfiguration(PropertyType):
         "sse_type": "SseType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sse_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -155,9 +142,7 @@ class VectorBucket(CloudFormationResource):
         "encryption_configuration": "EncryptionConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vector_bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     encryption_configuration: Optional[EncryptionConfiguration] = None
 
     @property
@@ -184,11 +169,8 @@ class VectorBucketPolicy(CloudFormationResource):
         "vector_bucket_name": "VectorBucketName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vector_bucket_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vector_bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:44:02
+  Generated: 2025-12-17 21:50:34
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SSMGuiConnect
@@ -34,9 +34,7 @@ class ConnectionRecordingPreferences(PropertyType):
         "recording_destinations": "RecordingDestinations",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     recording_destinations: Optional[RecordingDestinations] = None
 
 
@@ -48,7 +46,6 @@ class RecordingDestinations(PropertyType):
         "s3_buckets": "S3Buckets",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_buckets: Optional[list[S3Bucket]] = None
 
 
@@ -61,9 +58,7 @@ class S3Bucket(PropertyType):
         "bucket_owner": "BucketOwner",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_owner: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -76,7 +71,6 @@ class Preferences(CloudFormationResource):
         "connection_recording_preferences": "ConnectionRecordingPreferences",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connection_recording_preferences: Optional[ConnectionRecordingPreferences] = None
 
     @property

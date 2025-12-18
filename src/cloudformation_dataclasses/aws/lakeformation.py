@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:49
+  Generated: 2025-12-17 21:50:32
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service LakeFormation
@@ -259,7 +259,6 @@ class ColumnWildcard(PropertyType):
         "excluded_column_names": "ExcludedColumnNames",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     excluded_column_names: Optional[Union[list[str], Ref]] = None
 
 
@@ -272,9 +271,7 @@ class RowFilter(PropertyType):
         "filter_expression": "FilterExpression",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     all_rows_wildcard: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filter_expression: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -293,19 +290,12 @@ class DataCellsFilter(CloudFormationResource):
         "column_wildcard": "ColumnWildcard",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     column_names: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     row_filter: Optional[RowFilter] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     database_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     table_catalog_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     column_wildcard: Optional[ColumnWildcard] = None
 
 
@@ -339,7 +329,6 @@ class DataLakePrincipal(PropertyType):
         "data_lake_principal_identifier": "DataLakePrincipalIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_lake_principal_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -359,9 +348,7 @@ class PrincipalPermissions(PropertyType):
         "principal": "Principal",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     permissions: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     principal: Optional[DataLakePrincipal] = None
 
 
@@ -391,27 +378,16 @@ class DataLakeSettings(CloudFormationResource):
         "trusted_resource_owners": "TrustedResourceOwners",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     allow_external_data_filtering: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     external_data_filtering_allow_list: Optional[ExternalDataFilteringAllowList] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     create_table_default_permissions: Optional[CreateTableDefaultPermissions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     mutation_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     parameters: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     read_only_admins: Optional[ReadOnlyAdmins] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     allow_full_table_external_data_access: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     admins: Optional[Admins] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     create_database_default_permissions: Optional[CreateDatabaseDefaultPermissions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     authorized_session_tag_value_list: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     trusted_resource_owners: Optional[Union[list[str], Ref]] = None
 
 
@@ -424,7 +400,6 @@ class ColumnWildcard(PropertyType):
         "excluded_column_names": "ExcludedColumnNames",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     excluded_column_names: Optional[Union[list[str], Ref]] = None
 
 
@@ -436,7 +411,6 @@ class DataLakePrincipal(PropertyType):
         "data_lake_principal_identifier": "DataLakePrincipalIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_lake_principal_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -449,9 +423,7 @@ class DataLocationResource(PropertyType):
         "catalog_id": "CatalogId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_resource: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     catalog_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -464,9 +436,7 @@ class DatabaseResource(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     catalog_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -481,13 +451,9 @@ class Resource(PropertyType):
         "table_with_columns_resource": "TableWithColumnsResource",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_resource: Optional[TableResource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_resource: Optional[DatabaseResource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_location_resource: Optional[DataLocationResource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_with_columns_resource: Optional[TableWithColumnsResource] = None
 
 
@@ -502,13 +468,9 @@ class TableResource(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     catalog_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_wildcard: Optional[TableWildcard] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -531,15 +493,10 @@ class TableWithColumnsResource(PropertyType):
         "column_wildcard": "ColumnWildcard",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     column_names: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     catalog_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     column_wildcard: Optional[ColumnWildcard] = None
 
 
@@ -555,13 +512,9 @@ class Permissions(CloudFormationResource):
         "permissions_with_grant_option": "PermissionsWithGrantOption",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     data_lake_principal: Optional[DataLakePrincipal] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource: Optional[Resource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     permissions: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     permissions_with_grant_option: Optional[Union[list[str], Ref]] = None
 
 
@@ -574,7 +527,6 @@ class ColumnWildcard(PropertyType):
         "excluded_column_names": "ExcludedColumnNames",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     excluded_column_names: Optional[Union[list[str], Ref]] = None
 
 
@@ -589,13 +541,9 @@ class DataCellsFilterResource(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_catalog_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -607,7 +555,6 @@ class DataLakePrincipal(PropertyType):
         "data_lake_principal_identifier": "DataLakePrincipalIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_lake_principal_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -620,9 +567,7 @@ class DataLocationResource(PropertyType):
         "catalog_id": "CatalogId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     catalog_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -635,9 +580,7 @@ class DatabaseResource(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     catalog_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -650,9 +593,7 @@ class LFTag(PropertyType):
         "tag_values": "TagValues",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tag_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tag_values: Optional[Union[list[str], Ref]] = None
 
 
@@ -666,11 +607,8 @@ class LFTagKeyResource(PropertyType):
         "tag_values": "TagValues",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tag_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     catalog_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tag_values: Optional[Union[list[str], Ref]] = None
 
 
@@ -684,11 +622,8 @@ class LFTagPolicyResource(PropertyType):
         "catalog_id": "CatalogId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     expression: Optional[list[LFTag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_type: Optional[Union[str, ResourceType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     catalog_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -707,21 +642,13 @@ class Resource(PropertyType):
         "catalog": "Catalog",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lf_tag: Optional[LFTagKeyResource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table: Optional[TableResource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_cells_filter: Optional[DataCellsFilterResource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_with_columns: Optional[TableWithColumnsResource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lf_tag_policy: Optional[LFTagPolicyResource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database: Optional[DatabaseResource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_location: Optional[DataLocationResource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     catalog: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
 
@@ -736,13 +663,9 @@ class TableResource(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     catalog_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_wildcard: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -758,15 +681,10 @@ class TableWithColumnsResource(PropertyType):
         "column_wildcard": "ColumnWildcard",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     column_names: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     catalog_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     column_wildcard: Optional[ColumnWildcard] = None
 
 
@@ -783,15 +701,10 @@ class PrincipalPermissions(CloudFormationResource):
         "permissions_with_grant_option": "PermissionsWithGrantOption",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource: Optional[Resource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     permissions: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     catalog: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     principal: Optional[DataLakePrincipal] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     permissions_with_grant_option: Optional[Union[list[str], Ref]] = None
 
     @property
@@ -820,15 +733,10 @@ class Resource(CloudFormationResource):
         "role_arn": "RoleArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     with_federation: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     use_service_linked_role: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     hybrid_access_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -844,11 +752,8 @@ class Tag(CloudFormationResource):
         "tag_values": "TagValues",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tag_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     catalog_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tag_values: Optional[Union[list[str], Ref]] = None
 
 
@@ -862,9 +767,7 @@ class DatabaseResource(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     catalog_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -878,11 +781,8 @@ class LFTagPair(PropertyType):
         "tag_values": "TagValues",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tag_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     catalog_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tag_values: Optional[Union[list[str], Ref]] = None
 
 
@@ -897,13 +797,9 @@ class Resource(PropertyType):
         "catalog": "Catalog",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table: Optional[TableResource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_with_columns: Optional[TableWithColumnsResource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database: Optional[DatabaseResource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     catalog: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
 
@@ -918,13 +814,9 @@ class TableResource(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     catalog_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_wildcard: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -939,13 +831,9 @@ class TableWithColumnsResource(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     column_names: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     catalog_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -959,9 +847,7 @@ class TagAssociation(CloudFormationResource):
         "resource": "Resource",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     lf_tags: Optional[list[LFTagPair]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource: Optional[Resource] = None
 
     @property

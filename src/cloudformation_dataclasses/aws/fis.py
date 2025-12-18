@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:43
+  Generated: 2025-12-17 21:50:31
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service FIS
@@ -146,7 +146,6 @@ class CloudWatchDashboard(PropertyType):
         "dashboard_identifier": "DashboardIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dashboard_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -158,7 +157,6 @@ class CloudWatchLogsConfiguration(PropertyType):
         "log_group_arn": "LogGroupArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_group_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -170,7 +168,6 @@ class DataSources(PropertyType):
         "cloud_watch_dashboards": "CloudWatchDashboards",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch_dashboards: Optional[list[CloudWatchDashboard]] = None
 
 
@@ -183,9 +180,7 @@ class ExperimentReportS3Configuration(PropertyType):
         "prefix": "Prefix",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -201,15 +196,10 @@ class ExperimentTemplateAction(PropertyType):
         "start_after": "StartAfter",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parameters: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     targets: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start_after: Optional[Union[list[str], Ref]] = None
 
 
@@ -222,9 +212,7 @@ class ExperimentTemplateExperimentOptions(PropertyType):
         "account_targeting": "AccountTargeting",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     empty_target_resolution_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     account_targeting: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -239,13 +227,9 @@ class ExperimentTemplateExperimentReportConfiguration(PropertyType):
         "pre_experiment_duration": "PreExperimentDuration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_sources: Optional[DataSources] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     post_experiment_duration: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     outputs: Optional[Outputs] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pre_experiment_duration: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -259,11 +243,8 @@ class ExperimentTemplateLogConfiguration(PropertyType):
         "cloud_watch_logs_configuration": "CloudWatchLogsConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_configuration: Optional[S3Configuration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_schema_version: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch_logs_configuration: Optional[CloudWatchLogsConfiguration] = None
 
 
@@ -276,9 +257,7 @@ class ExperimentTemplateStopCondition(PropertyType):
         "source": "Source",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -295,17 +274,11 @@ class ExperimentTemplateTarget(PropertyType):
         "selection_mode": "SelectionMode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filters: Optional[list[ExperimentTemplateTargetFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parameters: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_tags: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_arns: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     selection_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -318,9 +291,7 @@ class ExperimentTemplateTargetFilter(PropertyType):
         "values": "Values",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     values: Optional[Union[list[str], Ref]] = None
 
 
@@ -332,7 +303,6 @@ class Outputs(PropertyType):
         "experiment_report_s3_configuration": "ExperimentReportS3Configuration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     experiment_report_s3_configuration: Optional[ExperimentReportS3Configuration] = None
 
 
@@ -345,9 +315,7 @@ class S3Configuration(PropertyType):
         "prefix": "Prefix",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -368,23 +336,14 @@ class ExperimentTemplate(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     experiment_report_configuration: Optional[ExperimentTemplateExperimentReportConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     actions: Optional[dict[str, Any]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     experiment_options: Optional[ExperimentTemplateExperimentOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     stop_conditions: Optional[list[ExperimentTemplateStopCondition]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     targets: Optional[dict[str, Any]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     log_configuration: Optional[ExperimentTemplateLogConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
 
     @property
@@ -407,13 +366,9 @@ class TargetAccountConfiguration(CloudFormationResource):
         "role_arn": "RoleArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     account_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     experiment_template_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 

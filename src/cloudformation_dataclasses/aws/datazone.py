@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:38
+  Generated: 2025-12-17 21:50:31
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DataZone
@@ -1286,11 +1286,8 @@ class AmazonQPropertiesInput(PropertyType):
         "auth_mode": "AuthMode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     is_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     profile_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auth_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1302,7 +1299,6 @@ class AthenaPropertiesInput(PropertyType):
         "workgroup_name": "WorkgroupName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     workgroup_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1319,17 +1315,11 @@ class AuthenticationConfigurationInput(PropertyType):
         "authentication_type": "AuthenticationType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     o_auth2_properties: Optional[OAuth2Properties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_authentication_credentials: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     basic_authentication_credentials: Optional[BasicAuthenticationCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     authentication_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1342,9 +1332,7 @@ class AuthorizationCodeProperties(PropertyType):
         "redirect_uri": "RedirectUri",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     authorization_code: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     redirect_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1359,13 +1347,9 @@ class AwsLocation(PropertyType):
         "iam_connection_id": "IamConnectionId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     access_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_account_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     iam_connection_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1378,9 +1362,7 @@ class BasicAuthenticationCredentials(PropertyType):
         "password": "Password",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     password: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1401,25 +1383,15 @@ class ConnectionPropertiesInput(PropertyType):
         "redshift_properties": "RedshiftProperties",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     amazon_q_properties: Optional[AmazonQPropertiesInput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     iam_properties: Optional[IamPropertiesInput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_properties: Optional[S3PropertiesInput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     spark_emr_properties: Optional[SparkEmrPropertiesInput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hyper_pod_properties: Optional[HyperPodPropertiesInput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     spark_glue_properties: Optional[SparkGluePropertiesInput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mlflow_properties: Optional[MlflowPropertiesInput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     athena_properties: Optional[AthenaPropertiesInput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     glue_properties: Optional[GluePropertiesInput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     redshift_properties: Optional[RedshiftPropertiesInput] = None
 
 
@@ -1442,29 +1414,17 @@ class GlueConnectionInput(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     python_properties: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     authentication_configuration: Optional[AuthenticationConfigurationInput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     spark_properties: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connection_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match_criteria: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     physical_connection_requirements: Optional[PhysicalConnectionRequirements] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connection_properties: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     athena_properties: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     validate_for_compute_environments: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     validate_credentials: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1479,13 +1439,9 @@ class GlueOAuth2Credentials(PropertyType):
         "access_token": "AccessToken",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_managed_client_application_client_secret: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     jwt_token: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     refresh_token: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     access_token: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1497,7 +1453,6 @@ class GluePropertiesInput(PropertyType):
         "glue_connection_input": "GlueConnectionInput",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     glue_connection_input: Optional[GlueConnectionInput] = None
 
 
@@ -1509,7 +1464,6 @@ class HyperPodPropertiesInput(PropertyType):
         "cluster_name": "ClusterName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cluster_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1521,7 +1475,6 @@ class IamPropertiesInput(PropertyType):
         "glue_lineage_sync_enabled": "GlueLineageSyncEnabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     glue_lineage_sync_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1533,7 +1486,6 @@ class LineageSyncSchedule(PropertyType):
         "schedule": "Schedule",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     schedule: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1545,7 +1497,6 @@ class MlflowPropertiesInput(PropertyType):
         "tracking_server_arn": "TrackingServerArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tracking_server_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1558,9 +1509,7 @@ class OAuth2ClientApplication(PropertyType):
         "user_managed_client_application_client_id": "UserManagedClientApplicationClientId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_managed_client_application_reference: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_managed_client_application_client_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1577,17 +1526,11 @@ class OAuth2Properties(PropertyType):
         "token_url_parameters_map": "TokenUrlParametersMap",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     authorization_code_properties: Optional[AuthorizationCodeProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     o_auth2_client_application: Optional[OAuth2ClientApplication] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     token_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     o_auth2_credentials: Optional[GlueOAuth2Credentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     o_auth2_grant_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     token_url_parameters_map: Optional[dict[str, str]] = None
 
 
@@ -1602,13 +1545,9 @@ class PhysicalConnectionRequirements(PropertyType):
         "subnet_id": "SubnetId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnet_id_list: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     availability_zone: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_group_id_list: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnet_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1621,9 +1560,7 @@ class RedshiftCredentials(PropertyType):
         "username_password": "UsernamePassword",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     username_password: Optional[UsernamePassword] = None
 
 
@@ -1636,9 +1573,7 @@ class RedshiftLineageSyncConfigurationInput(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     schedule: Optional[LineageSyncSchedule] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1655,17 +1590,11 @@ class RedshiftPropertiesInput(PropertyType):
         "lineage_sync": "LineageSync",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     storage: Optional[RedshiftStorageProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     host: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     credentials: Optional[RedshiftCredentials] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lineage_sync: Optional[RedshiftLineageSyncConfigurationInput] = None
 
 
@@ -1678,9 +1607,7 @@ class RedshiftStorageProperties(PropertyType):
         "workgroup_name": "WorkgroupName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cluster_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     workgroup_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1693,9 +1620,7 @@ class S3PropertiesInput(PropertyType):
         "s3_access_grant_location_id": "S3AccessGrantLocationId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_access_grant_location_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1714,21 +1639,13 @@ class SparkEmrPropertiesInput(PropertyType):
         "managed_endpoint_arn": "ManagedEndpointArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compute_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     trusted_certificates_s3_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     java_virtual_env: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     python_virtual_env: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     runtime_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_profile_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     managed_endpoint_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1740,7 +1657,6 @@ class SparkGlueArgs(PropertyType):
         "connection": "Connection",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connection: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1759,21 +1675,13 @@ class SparkGluePropertiesInput(PropertyType):
         "number_of_workers": "NumberOfWorkers",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     worker_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     additional_args: Optional[SparkGlueArgs] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     java_virtual_env: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     glue_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     python_virtual_env: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     idle_timeout: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     glue_connection_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     number_of_workers: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -1786,9 +1694,7 @@ class UsernamePassword(PropertyType):
         "password": "Password",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     username: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     password: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1809,23 +1715,14 @@ class Connection(CloudFormationResource):
         "domain_identifier": "DomainIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     project_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     environment_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     scope: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     props: Optional[ConnectionPropertiesInput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     aws_location: Optional[AwsLocation] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     enable_trusted_identity_propagation: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1876,11 +1773,8 @@ class DataSourceConfigurationInput(PropertyType):
         "sage_maker_run_configuration": "SageMakerRunConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     redshift_run_configuration: Optional[RedshiftRunConfigurationInput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     glue_run_configuration: Optional[GlueRunConfigurationInput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sage_maker_run_configuration: Optional[SageMakerRunConfigurationInput] = None
 
 
@@ -1893,9 +1787,7 @@ class FilterExpression(PropertyType):
         "expression": "Expression",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     expression: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1910,13 +1802,9 @@ class FormInput(PropertyType):
         "form_name": "FormName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_revision: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     content: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     form_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1931,13 +1819,9 @@ class GlueRunConfigurationInput(PropertyType):
         "catalog_name": "CatalogName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_access_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auto_import_data_quality_result: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     relational_filter_configurations: Optional[list[RelationalFilterConfiguration]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     catalog_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1949,7 +1833,6 @@ class RecommendationConfiguration(PropertyType):
         "enable_business_name_generation": "EnableBusinessNameGeneration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_business_name_generation: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1961,7 +1844,6 @@ class RedshiftClusterStorage(PropertyType):
         "cluster_name": "ClusterName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cluster_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1973,7 +1855,6 @@ class RedshiftCredentialConfiguration(PropertyType):
         "secret_manager_arn": "SecretManagerArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_manager_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1988,13 +1869,9 @@ class RedshiftRunConfigurationInput(PropertyType):
         "redshift_storage": "RedshiftStorage",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_access_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     relational_filter_configurations: Optional[list[RelationalFilterConfiguration]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     redshift_credential_configuration: Optional[RedshiftCredentialConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     redshift_storage: Optional[RedshiftStorage] = None
 
 
@@ -2006,7 +1883,6 @@ class RedshiftServerlessStorage(PropertyType):
         "workgroup_name": "WorkgroupName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     workgroup_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2019,9 +1895,7 @@ class RedshiftStorage(PropertyType):
         "redshift_serverless_source": "RedshiftServerlessSource",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     redshift_cluster_source: Optional[RedshiftClusterStorage] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     redshift_serverless_source: Optional[RedshiftServerlessStorage] = None
 
 
@@ -2035,11 +1909,8 @@ class RelationalFilterConfiguration(PropertyType):
         "schema_name": "SchemaName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filter_expressions: Optional[list[FilterExpression]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     schema_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2051,7 +1922,6 @@ class SageMakerRunConfigurationInput(PropertyType):
         "tracking_assets": "TrackingAssets",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tracking_assets: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
 
@@ -2064,9 +1934,7 @@ class ScheduleConfiguration(PropertyType):
         "schedule": "Schedule",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timezone: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     schedule: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2091,31 +1959,18 @@ class DataSource(CloudFormationResource):
         "domain_identifier": "DomainIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     project_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     publish_on_import: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     environment_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     configuration: Optional[DataSourceConfigurationInput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     asset_forms_input: Optional[list[FormInput]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     recommendation: Optional[RecommendationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     enable_setting: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connection_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     schedule: Optional[ScheduleConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -2186,11 +2041,8 @@ class SingleSignOn(PropertyType):
         "idc_instance_arn": "IdcInstanceArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_assignment: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     idc_instance_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2210,21 +2062,13 @@ class Domain(CloudFormationResource):
         "single_sign_on": "SingleSignOn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_execution_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kms_key_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     service_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     single_sign_on: Optional[SingleSignOn] = None
 
     @property
@@ -2282,13 +2126,9 @@ class DomainUnit(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     parent_domain_unit_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -2333,9 +2173,7 @@ class EnvironmentParameter(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2357,25 +2195,15 @@ class Environment(CloudFormationResource):
         "domain_identifier": "DomainIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     project_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     environment_account_region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     user_parameters: Optional[list[EnvironmentParameter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     environment_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     environment_profile_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     glossary_terms: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     environment_account_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -2449,7 +2277,6 @@ class AwsConsoleLinkParameters(PropertyType):
         "uri": "Uri",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2467,17 +2294,11 @@ class EnvironmentActions(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     environment_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     parameters: Optional[AwsConsoleLinkParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -2507,9 +2328,7 @@ class LakeFormationConfiguration(PropertyType):
         "location_registration_role": "LocationRegistrationRole",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     location_registration_exclude_s3_locations: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     location_registration_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2521,7 +2340,6 @@ class ProvisioningConfiguration(PropertyType):
         "lake_formation_configuration": "LakeFormationConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lake_formation_configuration: Optional[LakeFormationConfiguration] = None
 
 
@@ -2534,9 +2352,7 @@ class RegionalParameter(PropertyType):
         "region": "Region",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parameters: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     region: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2556,21 +2372,13 @@ class EnvironmentBlueprintConfiguration(CloudFormationResource):
         "manage_access_role_arn": "ManageAccessRoleArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     regional_parameters: Optional[list[RegionalParameter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     provisioning_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     provisioning_configurations: Optional[list[ProvisioningConfiguration]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     enabled_regions: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     environment_blueprint_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     environment_role_permission_boundary: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     manage_access_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -2605,9 +2413,7 @@ class EnvironmentParameter(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2627,21 +2433,13 @@ class EnvironmentProfile(CloudFormationResource):
         "domain_identifier": "DomainIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     project_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     user_parameters: Optional[list[EnvironmentParameter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     aws_account_region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     aws_account_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     environment_blueprint_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -2690,7 +2488,6 @@ class Model(PropertyType):
         "smithy": "Smithy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     smithy: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2708,17 +2505,11 @@ class FormType(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     model: Optional[Model] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     owning_project_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -2765,11 +2556,8 @@ class GroupProfile(CloudFormationResource):
         "group_identifier": "GroupIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     group_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -2798,7 +2586,6 @@ class OwnerGroupProperties(PropertyType):
         "group_identifier": "GroupIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     group_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2811,9 +2598,7 @@ class OwnerProperties(PropertyType):
         "user": "User",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     group: Optional[OwnerGroupProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user: Optional[OwnerUserProperties] = None
 
 
@@ -2825,7 +2610,6 @@ class OwnerUserProperties(PropertyType):
         "user_identifier": "UserIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2841,13 +2625,9 @@ class Owner(CloudFormationResource):
         "domain_identifier": "DomainIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     entity_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     owner: Optional[OwnerProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     entity_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -2871,7 +2651,6 @@ class AddToProjectMemberPoolPolicyGrantDetail(PropertyType):
         "include_child_domain_units": "IncludeChildDomainUnits",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_child_domain_units: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2883,7 +2662,6 @@ class CreateAssetTypePolicyGrantDetail(PropertyType):
         "include_child_domain_units": "IncludeChildDomainUnits",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_child_domain_units: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2895,7 +2673,6 @@ class CreateDomainUnitPolicyGrantDetail(PropertyType):
         "include_child_domain_units": "IncludeChildDomainUnits",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_child_domain_units: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2907,7 +2684,6 @@ class CreateEnvironmentProfilePolicyGrantDetail(PropertyType):
         "domain_unit_id": "DomainUnitId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     domain_unit_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2919,7 +2695,6 @@ class CreateFormTypePolicyGrantDetail(PropertyType):
         "include_child_domain_units": "IncludeChildDomainUnits",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_child_domain_units: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2931,7 +2706,6 @@ class CreateGlossaryPolicyGrantDetail(PropertyType):
         "include_child_domain_units": "IncludeChildDomainUnits",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_child_domain_units: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2944,9 +2718,7 @@ class CreateProjectFromProjectProfilePolicyGrantDetail(PropertyType):
         "include_child_domain_units": "IncludeChildDomainUnits",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     project_profiles: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_child_domain_units: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2958,7 +2730,6 @@ class CreateProjectPolicyGrantDetail(PropertyType):
         "include_child_domain_units": "IncludeChildDomainUnits",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_child_domain_units: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2971,9 +2742,7 @@ class DomainUnitFilterForProject(PropertyType):
         "include_child_domain_units": "IncludeChildDomainUnits",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     domain_unit: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_child_domain_units: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2985,7 +2754,6 @@ class DomainUnitGrantFilter(PropertyType):
         "all_domain_units_grant_filter": "AllDomainUnitsGrantFilter",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     all_domain_units_grant_filter: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
 
@@ -2999,11 +2767,8 @@ class DomainUnitPolicyGrantPrincipal(PropertyType):
         "domain_unit_identifier": "DomainUnitIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     domain_unit_grant_filter: Optional[DomainUnitGrantFilter] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     domain_unit_designation: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     domain_unit_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -3015,7 +2780,6 @@ class GroupPolicyGrantPrincipal(PropertyType):
         "group_identifier": "GroupIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     group_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -3027,7 +2791,6 @@ class OverrideDomainUnitOwnersPolicyGrantDetail(PropertyType):
         "include_child_domain_units": "IncludeChildDomainUnits",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_child_domain_units: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -3039,7 +2802,6 @@ class OverrideProjectOwnersPolicyGrantDetail(PropertyType):
         "include_child_domain_units": "IncludeChildDomainUnits",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_child_domain_units: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -3063,31 +2825,18 @@ class PolicyGrantDetail(PropertyType):
         "override_domain_unit_owners": "OverrideDomainUnitOwners",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     create_environment_from_blueprint: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     create_glossary: Optional[CreateGlossaryPolicyGrantDetail] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     create_asset_type: Optional[CreateAssetTypePolicyGrantDetail] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     create_domain_unit: Optional[CreateDomainUnitPolicyGrantDetail] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     create_project: Optional[CreateProjectPolicyGrantDetail] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     override_project_owners: Optional[OverrideProjectOwnersPolicyGrantDetail] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     add_to_project_member_pool: Optional[AddToProjectMemberPoolPolicyGrantDetail] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     delegate_create_environment_profile: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     create_project_from_project_profile: Optional[CreateProjectFromProjectProfilePolicyGrantDetail] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     create_environment: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     create_environment_profile: Optional[CreateEnvironmentProfilePolicyGrantDetail] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     create_form_type: Optional[CreateFormTypePolicyGrantDetail] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     override_domain_unit_owners: Optional[OverrideDomainUnitOwnersPolicyGrantDetail] = None
 
 
@@ -3102,13 +2851,9 @@ class PolicyGrantPrincipal(PropertyType):
         "domain_unit": "DomainUnit",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     group: Optional[GroupPolicyGrantPrincipal] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     project: Optional[ProjectPolicyGrantPrincipal] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user: Optional[UserPolicyGrantPrincipal] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     domain_unit: Optional[DomainUnitPolicyGrantPrincipal] = None
 
 
@@ -3120,7 +2865,6 @@ class ProjectGrantFilter(PropertyType):
         "domain_unit_filter": "DomainUnitFilter",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     domain_unit_filter: Optional[DomainUnitFilterForProject] = None
 
 
@@ -3134,11 +2878,8 @@ class ProjectPolicyGrantPrincipal(PropertyType):
         "project_grant_filter": "ProjectGrantFilter",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     project_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     project_designation: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     project_grant_filter: Optional[ProjectGrantFilter] = None
 
 
@@ -3151,9 +2892,7 @@ class UserPolicyGrantPrincipal(PropertyType):
         "user_identifier": "UserIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     all_users_grant_filter: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -3171,17 +2910,11 @@ class PolicyGrant(CloudFormationResource):
         "domain_identifier": "DomainIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     entity_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     entity_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     detail: Optional[PolicyGrantDetail] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     principal: Optional[PolicyGrantPrincipal] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -3212,11 +2945,8 @@ class EnvironmentConfigurationUserParameter(PropertyType):
         "environment_configuration_name": "EnvironmentConfigurationName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     environment_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     environment_parameters: Optional[list[EnvironmentParameter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     environment_configuration_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -3229,9 +2959,7 @@ class EnvironmentParameter(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -3251,21 +2979,13 @@ class Project(CloudFormationResource):
         "domain_identifier": "DomainIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_unit_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     project_profile_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     user_parameters: Optional[list[EnvironmentConfigurationUserParameter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     glossary_terms: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     project_profile_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -3310,9 +3030,7 @@ class Member(PropertyType):
         "group_identifier": "GroupIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     group_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -3328,13 +3046,9 @@ class ProjectMembership(CloudFormationResource):
         "domain_identifier": "DomainIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     project_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     designation: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     member: Optional[Member] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -3358,7 +3072,6 @@ class AwsAccount(PropertyType):
         "aws_account_id": "AwsAccountId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_account_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -3378,23 +3091,14 @@ class EnvironmentConfiguration(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     environment_configuration_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_region: Optional[Region] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_account: Optional[AwsAccount] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     deployment_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     environment_blueprint_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     configuration_parameters: Optional[EnvironmentConfigurationParametersDetails] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     deployment_order: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -3408,11 +3112,8 @@ class EnvironmentConfigurationParameter(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     is_editable: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -3426,11 +3127,8 @@ class EnvironmentConfigurationParametersDetails(PropertyType):
         "ssm_path": "SsmPath",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parameter_overrides: Optional[list[EnvironmentConfigurationParameter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resolved_parameters: Optional[list[EnvironmentConfigurationParameter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ssm_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -3442,7 +3140,6 @@ class Region(PropertyType):
         "region_name": "RegionName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     region_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -3460,17 +3157,11 @@ class ProjectProfile(CloudFormationResource):
         "domain_identifier": "DomainIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     environment_configurations: Optional[list[EnvironmentConfiguration]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_unit_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -3520,9 +3211,7 @@ class SubscriptionTargetForm(PropertyType):
         "form_name": "FormName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     content: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     form_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -3543,23 +3232,14 @@ class SubscriptionTarget(CloudFormationResource):
         "domain_identifier": "DomainIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     environment_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     manage_access_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     subscription_target_config: Optional[list[SubscriptionTargetForm]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     applicable_asset_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     authorized_principals: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     provider: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -3613,7 +3293,6 @@ class IamUserProfileDetails(PropertyType):
         "arn": "Arn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -3627,11 +3306,8 @@ class SsoUserProfileDetails(PropertyType):
         "last_name": "LastName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     username: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     first_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     last_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -3644,9 +3320,7 @@ class UserProfileDetails(PropertyType):
         "sso": "Sso",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     iam: Optional[IamUserProfileDetails] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sso: Optional[SsoUserProfileDetails] = None
 
 
@@ -3662,13 +3336,9 @@ class UserProfile(CloudFormationResource):
         "domain_identifier": "DomainIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     user_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     user_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domain_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property

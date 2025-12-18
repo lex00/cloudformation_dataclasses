@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:44
+  Generated: 2025-12-17 21:50:32
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service GroundStation
@@ -350,7 +350,6 @@ class AntennaDownlinkConfig(PropertyType):
         "spectrum_config": "SpectrumConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     spectrum_config: Optional[SpectrumConfig] = None
 
 
@@ -364,11 +363,8 @@ class AntennaDownlinkDemodDecodeConfig(PropertyType):
         "decode_config": "DecodeConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     demodulation_config: Optional[DemodulationConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     spectrum_config: Optional[SpectrumConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     decode_config: Optional[DecodeConfig] = None
 
 
@@ -382,11 +378,8 @@ class AntennaUplinkConfig(PropertyType):
         "target_eirp": "TargetEirp",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     transmit_disabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     spectrum_config: Optional[UplinkSpectrumConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_eirp: Optional[Eirp] = None
 
 
@@ -404,19 +397,12 @@ class ConfigData(PropertyType):
         "s3_recording_config": "S3RecordingConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dataflow_endpoint_config: Optional[DataflowEndpointConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     uplink_echo_config: Optional[UplinkEchoConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     antenna_downlink_config: Optional[AntennaDownlinkConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     antenna_downlink_demod_decode_config: Optional[AntennaDownlinkDemodDecodeConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tracking_config: Optional[TrackingConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     antenna_uplink_config: Optional[AntennaUplinkConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_recording_config: Optional[S3RecordingConfig] = None
 
 
@@ -429,9 +415,7 @@ class DataflowEndpointConfig(PropertyType):
         "dataflow_endpoint_region": "DataflowEndpointRegion",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dataflow_endpoint_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dataflow_endpoint_region: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -443,7 +427,6 @@ class DecodeConfig(PropertyType):
         "unvalidated_json": "UnvalidatedJSON",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     unvalidated_json: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -455,7 +438,6 @@ class DemodulationConfig(PropertyType):
         "unvalidated_json": "UnvalidatedJSON",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     unvalidated_json: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -468,9 +450,7 @@ class Eirp(PropertyType):
         "units": "Units",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     units: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -483,9 +463,7 @@ class Frequency(PropertyType):
         "units": "Units",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     units: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -498,9 +476,7 @@ class FrequencyBandwidth(PropertyType):
         "units": "Units",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     units: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -514,11 +490,8 @@ class S3RecordingConfig(PropertyType):
         "role_arn": "RoleArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -532,11 +505,8 @@ class SpectrumConfig(PropertyType):
         "center_frequency": "CenterFrequency",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     polarization: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bandwidth: Optional[FrequencyBandwidth] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     center_frequency: Optional[Frequency] = None
 
 
@@ -548,7 +518,6 @@ class TrackingConfig(PropertyType):
         "autotrack": "Autotrack",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     autotrack: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -561,9 +530,7 @@ class UplinkEchoConfig(PropertyType):
         "antenna_uplink_config_arn": "AntennaUplinkConfigArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     antenna_uplink_config_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -576,9 +543,7 @@ class UplinkSpectrumConfig(PropertyType):
         "center_frequency": "CenterFrequency",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     polarization: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     center_frequency: Optional[Frequency] = None
 
 
@@ -593,11 +558,8 @@ class Config(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     config_data: Optional[ConfigData] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -630,15 +592,10 @@ class AwsGroundStationAgentEndpoint(PropertyType):
         "egress_address": "EgressAddress",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     agent_status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ingress_address: Optional[RangedConnectionDetails] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     audit_results: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     egress_address: Optional[ConnectionDetails] = None
 
 
@@ -651,9 +608,7 @@ class ConnectionDetails(PropertyType):
         "mtu": "Mtu",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     socket_address: Optional[SocketAddress] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mtu: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -667,11 +622,8 @@ class DataflowEndpoint(PropertyType):
         "mtu": "Mtu",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     address: Optional[SocketAddress] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mtu: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -685,11 +637,8 @@ class EndpointDetails(PropertyType):
         "security_details": "SecurityDetails",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoint: Optional[DataflowEndpoint] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_ground_station_agent_endpoint: Optional[AwsGroundStationAgentEndpoint] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_details: Optional[SecurityDetails] = None
 
 
@@ -702,9 +651,7 @@ class IntegerRange(PropertyType):
         "maximum": "Maximum",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     minimum: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maximum: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -717,9 +664,7 @@ class RangedConnectionDetails(PropertyType):
         "mtu": "Mtu",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     socket_address: Optional[RangedSocketAddress] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mtu: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -732,9 +677,7 @@ class RangedSocketAddress(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port_range: Optional[IntegerRange] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -748,11 +691,8 @@ class SecurityDetails(PropertyType):
         "role_arn": "RoleArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnet_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_group_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -765,9 +705,7 @@ class SocketAddress(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -783,13 +721,9 @@ class DataflowEndpointGroup(CloudFormationResource):
         "contact_pre_pass_duration_seconds": "ContactPrePassDurationSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     contact_post_pass_duration_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     endpoint_details: Optional[list[EndpointDetails]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     contact_pre_pass_duration_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
     @property
@@ -814,9 +748,7 @@ class DataflowEdge(PropertyType):
         "source": "Source",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -830,11 +762,8 @@ class StreamsKmsKey(PropertyType):
         "kms_alias_name": "KmsAliasName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_alias_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_alias_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -855,23 +784,14 @@ class MissionProfile(CloudFormationResource):
         "contact_pre_pass_duration_seconds": "ContactPrePassDurationSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     streams_kms_key: Optional[StreamsKmsKey] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     contact_post_pass_duration_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     minimum_viable_contact_duration_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     dataflow_edges: Optional[list[DataflowEdge]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     streams_kms_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tracking_config_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     contact_pre_pass_duration_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
     @property

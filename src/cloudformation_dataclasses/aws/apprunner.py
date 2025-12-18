@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:30
+  Generated: 2025-12-17 21:50:30
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AppRunner
@@ -288,15 +288,10 @@ class AutoScalingConfiguration(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     min_size: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     max_concurrency: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auto_scaling_configuration_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     max_size: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -325,7 +320,6 @@ class TraceConfiguration(PropertyType):
         "vendor": "Vendor",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vendor: Optional[Union[str, TracingVendor, Ref, GetAtt, Sub]] = None
 
 
@@ -340,11 +334,8 @@ class ObservabilityConfiguration(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     trace_configuration: Optional[TraceConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     observability_configuration_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -374,9 +365,7 @@ class AuthenticationConfiguration(PropertyType):
         "connection_arn": "ConnectionArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     access_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connection_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -389,9 +378,7 @@ class CodeConfiguration(PropertyType):
         "code_configuration_values": "CodeConfigurationValues",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     configuration_source: Optional[Union[str, ConfigurationSource, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     code_configuration_values: Optional[CodeConfigurationValues] = None
 
 
@@ -408,17 +395,11 @@ class CodeConfigurationValues(PropertyType):
         "build_command": "BuildCommand",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     runtime_environment_secrets: Optional[list[KeyValuePair]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     runtime: Optional[Union[str, Runtime, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start_command: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     runtime_environment_variables: Optional[list[KeyValuePair]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     build_command: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -433,13 +414,9 @@ class CodeRepository(PropertyType):
         "repository_url": "RepositoryUrl",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_code_version: Optional[SourceCodeVersion] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     code_configuration: Optional[CodeConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_directory: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     repository_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -452,9 +429,7 @@ class EgressConfiguration(PropertyType):
         "egress_type": "EgressType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_connector_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     egress_type: Optional[Union[str, EgressType, Ref, GetAtt, Sub]] = None
 
 
@@ -466,7 +441,6 @@ class EncryptionConfiguration(PropertyType):
         "kms_key": "KmsKey",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -483,17 +457,11 @@ class HealthCheckConfiguration(PropertyType):
         "interval": "Interval",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     unhealthy_threshold: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     healthy_threshold: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     protocol: Optional[Union[str, HealthCheckProtocol, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interval: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -508,13 +476,9 @@ class ImageConfiguration(PropertyType):
         "port": "Port",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     runtime_environment_secrets: Optional[list[KeyValuePair]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start_command: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     runtime_environment_variables: Optional[list[KeyValuePair]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -528,11 +492,8 @@ class ImageRepository(PropertyType):
         "image_repository_type": "ImageRepositoryType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_configuration: Optional[ImageConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_repository_type: Optional[Union[str, ImageRepositoryType, Ref, GetAtt, Sub]] = None
 
 
@@ -544,7 +505,6 @@ class IngressConfiguration(PropertyType):
         "is_publicly_accessible": "IsPubliclyAccessible",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     is_publicly_accessible: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -558,11 +518,8 @@ class InstanceConfiguration(PropertyType):
         "cpu": "Cpu",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     memory: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cpu: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -575,9 +532,7 @@ class KeyValuePair(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -591,11 +546,8 @@ class NetworkConfiguration(PropertyType):
         "ingress_configuration": "IngressConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ip_address_type: Optional[Union[str, IpAddressType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     egress_configuration: Optional[EgressConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ingress_configuration: Optional[IngressConfiguration] = None
 
 
@@ -608,9 +560,7 @@ class ServiceObservabilityConfiguration(PropertyType):
         "observability_configuration_arn": "ObservabilityConfigurationArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     observability_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     observability_configuration_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -623,9 +573,7 @@ class SourceCodeVersion(PropertyType):
         "value": "Value",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, SourceCodeVersionType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -640,13 +588,9 @@ class SourceConfiguration(PropertyType):
         "auto_deployments_enabled": "AutoDeploymentsEnabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     authentication_configuration: Optional[AuthenticationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     code_repository: Optional[CodeRepository] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_repository: Optional[ImageRepository] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auto_deployments_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -667,23 +611,14 @@ class Service(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     health_check_configuration: Optional[HealthCheckConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     instance_configuration: Optional[InstanceConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     encryption_configuration: Optional[EncryptionConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     service_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     observability_configuration: Optional[ServiceObservabilityConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source_configuration: Optional[SourceConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auto_scaling_configuration_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     network_configuration: Optional[NetworkConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -721,13 +656,9 @@ class VpcConnector(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     security_groups: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     subnets: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_connector_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -752,9 +683,7 @@ class IngressVpcConfiguration(PropertyType):
         "vpc_endpoint_id": "VpcEndpointId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_endpoint_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -770,13 +699,9 @@ class VpcIngressConnection(CloudFormationResource):
         "ingress_vpc_configuration": "IngressVpcConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_ingress_connection_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     service_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ingress_vpc_configuration: Optional[IngressVpcConfiguration] = None
 
     @property

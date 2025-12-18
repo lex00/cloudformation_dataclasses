@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:42
+  Generated: 2025-12-17 21:50:31
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service EntityResolution
@@ -241,7 +241,6 @@ class IdMappingIncrementalRunConfig(PropertyType):
         "incremental_run_type": "IncrementalRunType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     incremental_run_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -256,13 +255,9 @@ class IdMappingRuleBasedProperties(PropertyType):
         "record_matching_model": "RecordMatchingModel",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attribute_matching_model: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rule_definition_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rules: Optional[list[Rule]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     record_matching_model: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -277,13 +272,9 @@ class IdMappingTechniques(PropertyType):
         "normalization_version": "NormalizationVersion",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rule_based_properties: Optional[IdMappingRuleBasedProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     provider_properties: Optional[ProviderProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     id_mapping_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     normalization_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -297,11 +288,8 @@ class IdMappingWorkflowInputSource(PropertyType):
         "schema_arn": "SchemaArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input_source_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     schema_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -314,9 +302,7 @@ class IdMappingWorkflowOutputSource(PropertyType):
         "output_s3_path": "OutputS3Path",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     output_s3_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -328,7 +314,6 @@ class IntermediateSourceConfiguration(PropertyType):
         "intermediate_s3_path": "IntermediateS3Path",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     intermediate_s3_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -342,11 +327,8 @@ class ProviderProperties(PropertyType):
         "provider_configuration": "ProviderConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     intermediate_source_configuration: Optional[IntermediateSourceConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     provider_service_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     provider_configuration: Optional[dict[str, str]] = None
 
 
@@ -359,9 +341,7 @@ class Rule(PropertyType):
         "rule_name": "RuleName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     matching_keys: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rule_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -381,21 +361,13 @@ class IdMappingWorkflow(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     input_source_config: Optional[list[IdMappingWorkflowInputSource]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     id_mapping_techniques: Optional[IdMappingTechniques] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     workflow_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     output_source_config: Optional[list[IdMappingWorkflowOutputSource]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     id_mapping_incremental_run_config: Optional[IdMappingIncrementalRunConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -426,11 +398,8 @@ class IdNamespaceIdMappingWorkflowProperties(PropertyType):
         "id_mapping_type": "IdMappingType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rule_based_properties: Optional[NamespaceRuleBasedProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     provider_properties: Optional[NamespaceProviderProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     id_mapping_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -443,9 +412,7 @@ class IdNamespaceInputSource(PropertyType):
         "schema_name": "SchemaName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input_source_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     schema_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -458,9 +425,7 @@ class NamespaceProviderProperties(PropertyType):
         "provider_configuration": "ProviderConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     provider_service_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     provider_configuration: Optional[dict[str, str]] = None
 
 
@@ -475,13 +440,9 @@ class NamespaceRuleBasedProperties(PropertyType):
         "rules": "Rules",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attribute_matching_model: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rule_definition_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     record_matching_models: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rules: Optional[list[Rule]] = None
 
 
@@ -494,9 +455,7 @@ class Rule(PropertyType):
         "rule_name": "RuleName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     matching_keys: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rule_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -515,19 +474,12 @@ class IdNamespace(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     id_namespace_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     input_source_config: Optional[list[IdNamespaceInputSource]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     id_mapping_workflow_properties: Optional[list[IdNamespaceIdMappingWorkflowProperties]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -556,7 +508,6 @@ class IncrementalRunConfig(PropertyType):
         "incremental_run_type": "IncrementalRunType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     incremental_run_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -570,11 +521,8 @@ class InputSource(PropertyType):
         "schema_arn": "SchemaArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     apply_normalization: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input_source_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     schema_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -586,7 +534,6 @@ class IntermediateSourceConfiguration(PropertyType):
         "intermediate_s3_path": "IntermediateS3Path",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     intermediate_s3_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -599,9 +546,7 @@ class OutputAttribute(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hashed: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -616,13 +561,9 @@ class OutputSource(PropertyType):
         "apply_normalization": "ApplyNormalization",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     output_s3_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     output: Optional[list[OutputAttribute]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     apply_normalization: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -636,11 +577,8 @@ class ProviderProperties(PropertyType):
         "provider_configuration": "ProviderConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     intermediate_source_configuration: Optional[IntermediateSourceConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     provider_service_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     provider_configuration: Optional[dict[str, str]] = None
 
 
@@ -655,13 +593,9 @@ class ResolutionTechniques(PropertyType):
         "rule_condition_properties": "RuleConditionProperties",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rule_based_properties: Optional[RuleBasedProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     provider_properties: Optional[ProviderProperties] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resolution_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rule_condition_properties: Optional[RuleConditionProperties] = None
 
 
@@ -674,9 +608,7 @@ class Rule(PropertyType):
         "rule_name": "RuleName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     matching_keys: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rule_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -690,11 +622,8 @@ class RuleBasedProperties(PropertyType):
         "rules": "Rules",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attribute_matching_model: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match_purpose: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rules: Optional[list[Rule]] = None
 
 
@@ -707,9 +636,7 @@ class RuleCondition(PropertyType):
         "rule_name": "RuleName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     condition: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rule_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -721,7 +648,6 @@ class RuleConditionProperties(PropertyType):
         "rules": "Rules",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rules: Optional[list[RuleCondition]] = None
 
 
@@ -741,21 +667,13 @@ class MatchingWorkflow(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resolution_techniques: Optional[ResolutionTechniques] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     input_source_config: Optional[list[InputSource]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     workflow_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     incremental_run_config: Optional[IncrementalRunConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     output_source_config: Optional[list[OutputSource]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -790,17 +708,11 @@ class PolicyStatement(CloudFormationResource):
         "principal": "Principal",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     condition: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     action: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     statement_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     effect: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     principal: Optional[Union[list[str], Ref]] = None
 
 
@@ -818,17 +730,11 @@ class SchemaInputAttribute(PropertyType):
         "field_name": "FieldName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sub_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hashed: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -844,13 +750,9 @@ class SchemaMapping(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     mapped_input_fields: Optional[list[SchemaInputAttribute]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     schema_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property

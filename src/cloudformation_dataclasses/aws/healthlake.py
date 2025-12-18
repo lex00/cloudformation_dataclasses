@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:45
+  Generated: 2025-12-17 21:50:32
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service HealthLake
@@ -135,9 +135,7 @@ class CreatedAt(PropertyType):
         "seconds": "Seconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     nanos: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     seconds: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -152,13 +150,9 @@ class IdentityProviderConfiguration(PropertyType):
         "metadata": "Metadata",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     authorization_strategy: Optional[Union[str, AuthorizationStrategy, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     idp_lambda_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     fine_grained_authorization_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metadata: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -171,9 +165,7 @@ class KmsEncryptionConfig(PropertyType):
         "cmk_type": "CmkType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cmk_type: Optional[Union[str, CmkType, Ref, GetAtt, Sub]] = None
 
 
@@ -185,7 +177,6 @@ class PreloadDataConfig(PropertyType):
         "preload_data_type": "PreloadDataType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     preload_data_type: Optional[Union[str, PreloadDataType, Ref, GetAtt, Sub]] = None
 
 
@@ -197,7 +188,6 @@ class SseConfiguration(PropertyType):
         "kms_encryption_config": "KmsEncryptionConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_encryption_config: Optional[KmsEncryptionConfig] = None
 
 
@@ -215,17 +205,11 @@ class FHIRDatastore(CloudFormationResource):
         "sse_configuration": "SseConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     datastore_type_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     datastore_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     identity_provider_configuration: Optional[IdentityProviderConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     preload_data_config: Optional[PreloadDataConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     sse_configuration: Optional[SseConfiguration] = None
 
     @property

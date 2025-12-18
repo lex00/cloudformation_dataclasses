@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:44:03
+  Generated: 2025-12-17 21:50:34
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SecurityHub
@@ -1094,11 +1094,8 @@ class AggregatorV2(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     region_linking_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     linked_regions: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
 
     @property
@@ -1123,9 +1120,7 @@ class AutomationRulesAction(PropertyType):
         "finding_fields_update": "FindingFieldsUpdate",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, AutomationRulesActionType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     finding_fields_update: Optional[AutomationRulesFindingFieldsUpdate] = None
 
 
@@ -1145,23 +1140,14 @@ class AutomationRulesFindingFieldsUpdate(PropertyType):
         "criticality": "Criticality",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     confidence: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     note: Optional[NoteUpdate] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     verification_state: Optional[Union[str, VerificationState, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     related_findings: Optional[list[RelatedFinding]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     workflow: Optional[WorkflowUpdate] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     severity: Optional[SeverityUpdate] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_defined_fields: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     criticality: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1207,75 +1193,40 @@ class AutomationRulesFindingFilters(PropertyType):
         "id": "Id",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     product_arn: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_url: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_details_other: Optional[list[MapFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     product_name: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_tags: Optional[list[MapFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     first_observed_at: Optional[list[DateFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     created_at: Optional[list[DateFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     note_text: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     last_observed_at: Optional[list[DateFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_defined_fields: Optional[list[MapFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     note_updated_at: Optional[list[DateFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compliance_security_control_id: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     company_name: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_region: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     note_updated_by: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     confidence: Optional[list[NumberFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_partition: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     verification_state: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     criticality: Optional[list[NumberFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     severity_label: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     related_findings_product_arn: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compliance_status: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     generator_id: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     record_state: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     title: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_type: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compliance_associated_standards_id: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     updated_at: Optional[list[DateFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     related_findings_id: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     workflow_status: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_id: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_account_id: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     id: Optional[list[StringFilter]] = None
 
 
@@ -1289,11 +1240,8 @@ class DateFilter(PropertyType):
         "end": "End",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     date_range: Optional[DateRange] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     end: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1306,9 +1254,7 @@ class DateRange(PropertyType):
         "unit": "Unit",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     unit: Optional[Union[str, DateRangeUnit, Ref, GetAtt, Sub]] = None
 
 
@@ -1322,11 +1268,8 @@ class MapFilter(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     comparison: Optional[Union[str, MapFilterComparison, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1339,9 +1282,7 @@ class NoteUpdate(PropertyType):
         "text": "Text",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     updated_by: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1355,11 +1296,8 @@ class NumberFilter(PropertyType):
         "lte": "Lte",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     gte: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     eq: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lte: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -1372,9 +1310,7 @@ class RelatedFinding(PropertyType):
         "id": "Id",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     product_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     id: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
 
@@ -1388,11 +1324,8 @@ class SeverityUpdate(PropertyType):
         "product": "Product",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     normalized: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     label: Optional[Union[str, SeverityLabel, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     product: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -1405,9 +1338,7 @@ class StringFilter(PropertyType):
         "value": "Value",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     comparison: Optional[Union[str, StringFilterComparison, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1419,7 +1350,6 @@ class WorkflowUpdate(PropertyType):
         "status": "Status",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     status: Optional[Union[str, WorkflowStatus, Ref, GetAtt, Sub]] = None
 
 
@@ -1439,21 +1369,13 @@ class AutomationRule(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     actions: Optional[list[AutomationRulesAction]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     is_terminal: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     rule_status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     criteria: Optional[AutomationRulesFindingFilters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     rule_order: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     rule_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
 
     @property
@@ -1489,11 +1411,8 @@ class AutomationRulesActionV2(PropertyType):
         "finding_fields_update": "FindingFieldsUpdate",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, AutomationRulesActionTypeV2, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     external_integration_configuration: Optional[ExternalIntegrationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     finding_fields_update: Optional[AutomationRulesFindingFieldsUpdateV2] = None
 
 
@@ -1507,11 +1426,8 @@ class AutomationRulesFindingFieldsUpdateV2(PropertyType):
         "severity_id": "SeverityId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     comment: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     status_id: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     severity_id: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1523,7 +1439,6 @@ class BooleanFilter(PropertyType):
         "value": "Value",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1540,17 +1455,11 @@ class CompositeFilter(PropertyType):
         "map_filters": "MapFilters",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     operator: Optional[Union[str, AllowedOperators, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     string_filters: Optional[list[OcsfStringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     boolean_filters: Optional[list[OcsfBooleanFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     date_filters: Optional[list[OcsfDateFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     number_filters: Optional[list[OcsfNumberFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     map_filters: Optional[list[OcsfMapFilter]] = None
 
 
@@ -1562,7 +1471,6 @@ class Criteria(PropertyType):
         "ocsf_finding_criteria": "OcsfFindingCriteria",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ocsf_finding_criteria: Optional[OcsfFindingFilters] = None
 
 
@@ -1576,11 +1484,8 @@ class DateFilter(PropertyType):
         "end": "End",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     date_range: Optional[DateRange] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     end: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1593,9 +1498,7 @@ class DateRange(PropertyType):
         "unit": "Unit",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     unit: Optional[Union[str, DateRangeUnit, Ref, GetAtt, Sub]] = None
 
 
@@ -1607,7 +1510,6 @@ class ExternalIntegrationConfiguration(PropertyType):
         "connector_arn": "ConnectorArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connector_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1621,11 +1523,8 @@ class MapFilter(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     comparison: Optional[Union[str, MapFilterComparison, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1639,11 +1538,8 @@ class NumberFilter(PropertyType):
         "lte": "Lte",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     gte: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     eq: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lte: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -1656,9 +1552,7 @@ class OcsfBooleanFilter(PropertyType):
         "field_name": "FieldName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filter: Optional[BooleanFilter] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_name: Optional[Union[str, OcsfBooleanField, Ref, GetAtt, Sub]] = None
 
 
@@ -1671,9 +1565,7 @@ class OcsfDateFilter(PropertyType):
         "field_name": "FieldName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filter: Optional[DateFilter] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_name: Optional[Union[str, OcsfDateField, Ref, GetAtt, Sub]] = None
 
 
@@ -1686,9 +1578,7 @@ class OcsfFindingFilters(PropertyType):
         "composite_operator": "CompositeOperator",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     composite_filters: Optional[list[CompositeFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     composite_operator: Optional[Union[str, AllowedOperators, Ref, GetAtt, Sub]] = None
 
 
@@ -1701,9 +1591,7 @@ class OcsfMapFilter(PropertyType):
         "field_name": "FieldName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filter: Optional[MapFilter] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_name: Optional[Union[str, OcsfMapField, Ref, GetAtt, Sub]] = None
 
 
@@ -1716,9 +1604,7 @@ class OcsfNumberFilter(PropertyType):
         "field_name": "FieldName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filter: Optional[NumberFilter] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_name: Optional[Union[str, OcsfNumberField, Ref, GetAtt, Sub]] = None
 
 
@@ -1731,9 +1617,7 @@ class OcsfStringFilter(PropertyType):
         "field_name": "FieldName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filter: Optional[StringFilter] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_name: Optional[Union[str, OcsfStringField, Ref, GetAtt, Sub]] = None
 
 
@@ -1746,9 +1630,7 @@ class StringFilter(PropertyType):
         "value": "Value",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     comparison: Optional[Union[str, StringFilterComparison, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1767,19 +1649,12 @@ class AutomationRuleV2(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     actions: Optional[list[AutomationRulesActionV2]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     rule_status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     criteria: Optional[Criteria] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     rule_order: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     rule_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
 
     @property
@@ -1814,9 +1689,7 @@ class ParameterConfiguration(PropertyType):
         "value": "Value",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value_type: Optional[Union[str, ParameterValueType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[ParameterValue] = None
 
 
@@ -1835,21 +1708,13 @@ class ParameterValue(PropertyType):
         "double": "Double",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enum: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     integer: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     string_list: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enum_list: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     integer_list: Optional[Union[list[int], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     string: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     boolean: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     double: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -1861,7 +1726,6 @@ class Policy(PropertyType):
         "security_hub": "SecurityHub",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_hub: Optional[SecurityHubPolicy] = None
 
 
@@ -1874,9 +1738,7 @@ class SecurityControlCustomParameter(PropertyType):
         "parameters": "Parameters",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_control_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parameters: Optional[dict[str, Any]] = None
 
 
@@ -1890,11 +1752,8 @@ class SecurityControlsConfiguration(PropertyType):
         "security_control_custom_parameters": "SecurityControlCustomParameters",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     disabled_security_control_identifiers: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled_security_control_identifiers: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_control_custom_parameters: Optional[list[SecurityControlCustomParameter]] = None
 
 
@@ -1908,11 +1767,8 @@ class SecurityHubPolicy(PropertyType):
         "security_controls_configuration": "SecurityControlsConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled_standard_identifiers: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     service_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_controls_configuration: Optional[SecurityControlsConfiguration] = None
 
 
@@ -1928,13 +1784,9 @@ class ConfigurationPolicy(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     configuration_policy: Optional[Policy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1977,15 +1829,10 @@ class JiraCloud(PropertyType):
         "cloud_id": "CloudId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     project_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auth_status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auth_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     domain: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1998,9 +1845,7 @@ class Provider(PropertyType):
         "jira_cloud": "JiraCloud",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     service_now: Optional[ServiceNow] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     jira_cloud: Optional[JiraCloud] = None
 
 
@@ -2014,11 +1859,8 @@ class ServiceNow(PropertyType):
         "auth_status": "AuthStatus",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auth_status: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2035,15 +1877,10 @@ class ConnectorV2(CloudFormationResource):
         "provider": "Provider",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kms_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     provider: Optional[Provider] = None
 
     @property
@@ -2118,7 +1955,6 @@ class DelegatedAdmin(CloudFormationResource):
         "admin_account_id": "AdminAccountId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     admin_account_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -2144,9 +1980,7 @@ class FindingAggregator(CloudFormationResource):
         "regions": "Regions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     region_linking_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     regions: Optional[Union[list[str], Ref]] = None
 
     @property
@@ -2174,13 +2008,9 @@ class Hub(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     control_finding_generator: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     enable_default_standards: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auto_enable_controls: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
 
     @property
@@ -2205,7 +2035,6 @@ class HubV2(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
 
     @property
@@ -2328,205 +2157,105 @@ class AwsSecurityFindingFilters(PropertyType):
         "vulnerabilities_fix_available": "VulnerabilitiesFixAvailable",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_aws_ec2_instance_iam_instance_profile_arn: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_url: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     process_name: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     finding_provider_fields_confidence: Optional[list[NumberFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     first_observed_at: Optional[list[DateFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     created_at: Optional[list[DateFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     malware_state: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_defined_fields: Optional[list[MapFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_source_port: Optional[list[NumberFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_aws_iam_user_user_name: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_source_domain: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_partition: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     finding_provider_fields_related_findings_id: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_direction: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     criticality: Optional[list[NumberFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_application_arn: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compliance_security_control_parameters_value: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     severity_label: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     related_findings_product_arn: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_aws_iam_access_key_principal_name: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     threat_intel_indicator_category: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compliance_status: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     threat_intel_indicator_value: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_container_image_name: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     malware_type: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     threat_intel_indicator_source: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_aws_iam_access_key_created_at: Optional[list[DateFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_aws_ec2_instance_type: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     recommendation_text: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_account_name: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     finding_provider_fields_related_findings_product_arn: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_account_id: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     id: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     process_parent_pid: Optional[list[NumberFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_application_name: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     product_arn: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_aws_ec2_instance_ip_v6_addresses: Optional[list[IpFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     malware_name: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_container_launched_at: Optional[list[DateFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     process_pid: Optional[list[NumberFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     note_text: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_aws_ec2_instance_key_name: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     finding_provider_fields_types: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compliance_security_control_id: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     note_updated_by: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     verification_state: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     generator_id: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_type: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_protocol: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     updated_at: Optional[list[DateFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     process_path: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     workflow_status: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_container_name: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_id: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_destination_domain: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     product_name: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_tags: Optional[list[MapFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_aws_ec2_instance_vpc_id: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_aws_s3_bucket_owner_name: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     last_observed_at: Optional[list[DateFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compliance_security_control_parameters_name: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_source_ip_v4: Optional[list[IpFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     process_launched_at: Optional[list[DateFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_aws_ec2_instance_launched_at: Optional[list[DateFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     note_updated_at: Optional[list[DateFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     threat_intel_indicator_type: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     company_name: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_region: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_aws_iam_access_key_status: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_source_ip_v6: Optional[list[IpFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     confidence: Optional[list[NumberFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     product_fields: Optional[list[MapFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     threat_intel_indicator_last_observed_at: Optional[list[DateFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_aws_ec2_instance_subnet_id: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compliance_associated_standards_id: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_aws_ec2_instance_image_id: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_aws_ec2_instance_ip_v4_addresses: Optional[list[IpFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     related_findings_id: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     process_terminated_at: Optional[list[DateFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_container_image_id: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_destination_ip_v4: Optional[list[IpFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     region: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_destination_ip_v6: Optional[list[IpFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vulnerabilities_exploit_available: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     finding_provider_fields_criticality: Optional[list[NumberFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_destination_port: Optional[list[NumberFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_details_other: Optional[list[MapFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     finding_provider_fields_severity_label: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     threat_intel_indicator_source_url: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     finding_provider_fields_severity_original: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     malware_path: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sample: Optional[list[BooleanFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     record_state: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     title: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     workflow_state: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_source_mac: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_aws_s3_bucket_owner_id: Optional[list[StringFilter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vulnerabilities_fix_available: Optional[list[StringFilter]] = None
 
 
@@ -2538,7 +2267,6 @@ class BooleanFilter(PropertyType):
         "value": "Value",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2552,11 +2280,8 @@ class DateFilter(PropertyType):
         "end": "End",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     date_range: Optional[DateRange] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     end: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2569,9 +2294,7 @@ class DateRange(PropertyType):
         "unit": "Unit",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     unit: Optional[Union[str, DateRangeUnit, Ref, GetAtt, Sub]] = None
 
 
@@ -2583,7 +2306,6 @@ class IpFilter(PropertyType):
         "cidr": "Cidr",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cidr: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2597,11 +2319,8 @@ class MapFilter(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     comparison: Optional[Union[str, MapFilterComparison, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2615,11 +2334,8 @@ class NumberFilter(PropertyType):
         "lte": "Lte",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     gte: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     eq: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lte: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -2632,9 +2348,7 @@ class StringFilter(PropertyType):
         "value": "Value",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     comparison: Optional[Union[str, StringFilterComparison, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2649,11 +2363,8 @@ class Insight(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     filters: Optional[AwsSecurityFindingFilters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     group_by_attribute: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -2675,11 +2386,8 @@ class OrganizationConfiguration(CloudFormationResource):
         "auto_enable_standards": "AutoEnableStandards",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auto_enable: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     configuration_type: Optional[Union[str, OrganizationConfigurationConfigurationType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auto_enable_standards: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -2716,11 +2424,8 @@ class PolicyAssociation(CloudFormationResource):
         "target_id": "TargetId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     configuration_policy_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     target_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     target_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -2760,7 +2465,6 @@ class ProductSubscription(CloudFormationResource):
         "product_arn": "ProductArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     product_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -2780,9 +2484,7 @@ class ParameterConfiguration(PropertyType):
         "value": "Value",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value_type: Optional[Union[str, ParameterValueType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[ParameterValue] = None
 
 
@@ -2801,21 +2503,13 @@ class ParameterValue(PropertyType):
         "double": "Double",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enum: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     integer: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     string_list: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enum_list: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     integer_list: Optional[Union[list[int], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     string: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     boolean: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     double: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -2831,13 +2525,9 @@ class SecurityControl(CloudFormationResource):
         "security_control_arn": "SecurityControlArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     security_control_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     last_update_reason: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     parameters: Optional[dict[str, Any]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     security_control_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2851,9 +2541,7 @@ class StandardsControl(PropertyType):
         "reason": "Reason",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     standards_control_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     reason: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2867,9 +2555,7 @@ class Standard(CloudFormationResource):
         "disabled_standards_controls": "DisabledStandardsControls",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     standards_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     disabled_standards_controls: Optional[list[StandardsControl]] = None
 
     @property

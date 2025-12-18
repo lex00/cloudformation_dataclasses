@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:51
+  Generated: 2025-12-17 21:50:33
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ManagedBlockchain
@@ -208,11 +208,8 @@ class Accessor(CloudFormationResource):
         "accessor_type": "AccessorType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     network_type: Optional[Union[str, AccessorNetworkType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     accessor_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -253,11 +250,8 @@ class ApprovalThresholdPolicy(PropertyType):
         "proposal_duration_in_hours": "ProposalDurationInHours",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     threshold_comparator: Optional[Union[str, ThresholdComparator, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     threshold_percentage: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     proposal_duration_in_hours: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -271,11 +265,8 @@ class MemberConfiguration(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     member_framework_configuration: Optional[MemberFrameworkConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -288,9 +279,7 @@ class MemberFabricConfiguration(PropertyType):
         "admin_password": "AdminPassword",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     admin_username: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     admin_password: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -302,7 +291,6 @@ class MemberFrameworkConfiguration(PropertyType):
         "member_fabric_configuration": "MemberFabricConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     member_fabric_configuration: Optional[MemberFabricConfiguration] = None
 
 
@@ -319,17 +307,11 @@ class NetworkConfiguration(PropertyType):
         "network_framework_configuration": "NetworkFrameworkConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     framework_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     voting_policy: Optional[VotingPolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     framework: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_framework_configuration: Optional[NetworkFrameworkConfiguration] = None
 
 
@@ -341,7 +323,6 @@ class NetworkFabricConfiguration(PropertyType):
         "edition": "Edition",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     edition: Optional[Union[str, Edition, Ref, GetAtt, Sub]] = None
 
 
@@ -353,7 +334,6 @@ class NetworkFrameworkConfiguration(PropertyType):
         "network_fabric_configuration": "NetworkFabricConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_fabric_configuration: Optional[NetworkFabricConfiguration] = None
 
 
@@ -365,7 +345,6 @@ class VotingPolicy(PropertyType):
         "approval_threshold_policy": "ApprovalThresholdPolicy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     approval_threshold_policy: Optional[ApprovalThresholdPolicy] = None
 
 
@@ -381,13 +360,9 @@ class Member(CloudFormationResource):
         "invitation_id": "InvitationId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     member_configuration: Optional[MemberConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     network_configuration: Optional[NetworkConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     network_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     invitation_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -412,9 +387,7 @@ class NodeConfiguration(PropertyType):
         "instance_type": "InstanceType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     availability_zone: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -429,11 +402,8 @@ class Node(CloudFormationResource):
         "node_configuration": "NodeConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     member_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     network_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     node_configuration: Optional[NodeConfiguration] = None
 
     @property

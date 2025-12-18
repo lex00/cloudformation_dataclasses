@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:51
+  Generated: 2025-12-17 21:50:33
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MediaConnect
@@ -701,11 +701,8 @@ class BridgeFlowSource(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     flow_vpc_interface_attachment: Optional[VpcInterfaceAttachment] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     flow_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -722,17 +719,11 @@ class BridgeNetworkOutput(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ip_address: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     protocol: Optional[Union[str, Protocol, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ttl: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -749,17 +740,11 @@ class BridgeNetworkSource(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     multicast_source_settings: Optional[MulticastSourceSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     multicast_ip: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     protocol: Optional[Union[str, Protocol, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -771,7 +756,6 @@ class BridgeOutput(PropertyType):
         "network_output": "NetworkOutput",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_output: Optional[BridgeNetworkOutput] = None
 
 
@@ -784,9 +768,7 @@ class BridgeSource(PropertyType):
         "flow_source": "FlowSource",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_source: Optional[BridgeNetworkSource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     flow_source: Optional[BridgeFlowSource] = None
 
 
@@ -798,7 +780,6 @@ class EgressGatewayBridge(PropertyType):
         "max_bitrate": "MaxBitrate",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_bitrate: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -812,11 +793,8 @@ class FailoverConfig(PropertyType):
         "failover_mode": "FailoverMode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     state: Optional[Union[str, State, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_priority: Optional[SourcePriority] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failover_mode: Optional[Union[str, FailoverMode, Ref, GetAtt, Sub]] = None
 
 
@@ -829,9 +807,7 @@ class IngressGatewayBridge(PropertyType):
         "max_bitrate": "MaxBitrate",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_outputs: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_bitrate: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -843,7 +819,6 @@ class MulticastSourceSettings(PropertyType):
         "multicast_source_ip": "MulticastSourceIp",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     multicast_source_ip: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -855,7 +830,6 @@ class SourcePriority(PropertyType):
         "primary_source": "PrimarySource",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     primary_source: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -867,7 +841,6 @@ class VpcInterfaceAttachment(PropertyType):
         "vpc_interface_name": "VpcInterfaceName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_interface_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -886,19 +859,12 @@ class Bridge(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source_failover_config: Optional[FailoverConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ingress_gateway_bridge: Optional[IngressGatewayBridge] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     egress_gateway_bridge: Optional[EgressGatewayBridge] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     outputs: Optional[list[BridgeOutput]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     placement_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     sources: Optional[list[BridgeSource]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -926,15 +892,10 @@ class BridgeNetworkOutput(PropertyType):
         "ttl": "Ttl",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ip_address: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     protocol: Optional[Union[str, Protocol, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ttl: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -949,11 +910,8 @@ class BridgeOutput(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     bridge_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     network_output: Optional[BridgeNetworkOutput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -967,9 +925,7 @@ class BridgeFlowSource(PropertyType):
         "flow_arn": "FlowArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     flow_vpc_interface_attachment: Optional[VpcInterfaceAttachment] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     flow_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -985,15 +941,10 @@ class BridgeNetworkSource(PropertyType):
         "protocol": "Protocol",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     multicast_source_settings: Optional[MulticastSourceSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     multicast_ip: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     protocol: Optional[Union[str, Protocol, Ref, GetAtt, Sub]] = None
 
 
@@ -1005,7 +956,6 @@ class MulticastSourceSettings(PropertyType):
         "multicast_source_ip": "MulticastSourceIp",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     multicast_source_ip: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1017,7 +967,6 @@ class VpcInterfaceAttachment(PropertyType):
         "vpc_interface_name": "VpcInterfaceName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_interface_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1033,13 +982,9 @@ class BridgeSource(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     network_source: Optional[BridgeNetworkSource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     bridge_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     flow_source: Optional[BridgeFlowSource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1052,7 +997,6 @@ class AudioMonitoringSetting(PropertyType):
         "silent_audio": "SilentAudio",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     silent_audio: Optional[SilentAudio] = None
 
 
@@ -1065,9 +1009,7 @@ class BlackFrames(PropertyType):
         "threshold_seconds": "ThresholdSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     state: Optional[Union[str, State, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     threshold_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1087,23 +1029,14 @@ class Encryption(PropertyType):
         "url": "Url",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_type: Optional[Union[str, KeyType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     device_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     constant_initialization_vector: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     algorithm: Optional[Union[str, Algorithm, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     url: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1118,13 +1051,9 @@ class FailoverConfig(PropertyType):
         "recovery_window": "RecoveryWindow",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     state: Optional[Union[str, State, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_priority: Optional[SourcePriority] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failover_mode: Optional[Union[str, FailoverMode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     recovery_window: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1137,9 +1066,7 @@ class FlowTransitEncryption(PropertyType):
         "encryption_key_configuration": "EncryptionKeyConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_key_type: Optional[Union[str, FlowTransitEncryptionKeyType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_key_configuration: Optional[FlowTransitEncryptionKeyConfiguration] = None
 
 
@@ -1152,9 +1079,7 @@ class FlowTransitEncryptionKeyConfiguration(PropertyType):
         "automatic": "Automatic",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secrets_manager: Optional[SecretsManagerEncryptionKeyConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     automatic: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
 
@@ -1172,19 +1097,12 @@ class Fmtp(PropertyType):
         "range": "Range",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     par: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scan_mode: Optional[Union[str, ScanMode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tcs: Optional[Union[str, Tcs, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exact_framerate: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     channel_order: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     colorimetry: Optional[Union[str, Colorimetry, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     range: Optional[Union[str, Range, Ref, GetAtt, Sub]] = None
 
 
@@ -1197,9 +1115,7 @@ class FrozenFrames(PropertyType):
         "threshold_seconds": "ThresholdSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     state: Optional[Union[str, State, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     threshold_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1212,9 +1128,7 @@ class GatewayBridgeSource(PropertyType):
         "vpc_interface_attachment": "VpcInterfaceAttachment",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bridge_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_interface_attachment: Optional[VpcInterfaceAttachment] = None
 
 
@@ -1227,9 +1141,7 @@ class InputConfiguration(PropertyType):
         "interface": "Interface",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input_port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interface: Optional[Interface] = None
 
 
@@ -1241,7 +1153,6 @@ class Interface(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1254,9 +1165,7 @@ class Maintenance(PropertyType):
         "maintenance_start_hour": "MaintenanceStartHour",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maintenance_day: Optional[Union[str, MaintenanceDay, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maintenance_start_hour: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1275,21 +1184,13 @@ class MediaStream(PropertyType):
         "fmt": "Fmt",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     media_stream_type: Optional[Union[str, MediaStreamType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     media_stream_id: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     media_stream_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attributes: Optional[MediaStreamAttributes] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     clock_rate: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     video_format: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     fmt: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1302,9 +1203,7 @@ class MediaStreamAttributes(PropertyType):
         "lang": "Lang",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     fmtp: Optional[Fmtp] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lang: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1318,11 +1217,8 @@ class MediaStreamSourceConfiguration(PropertyType):
         "encoding_name": "EncodingName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     media_stream_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input_configurations: Optional[list[InputConfiguration]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encoding_name: Optional[Union[str, EncodingName, Ref, GetAtt, Sub]] = None
 
 
@@ -1336,11 +1232,8 @@ class NdiConfig(PropertyType):
         "ndi_discovery_servers": "NdiDiscoveryServers",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ndi_state: Optional[Union[str, NdiState, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     machine_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ndi_discovery_servers: Optional[list[NdiDiscoveryServerConfig]] = None
 
 
@@ -1354,11 +1247,8 @@ class NdiDiscoveryServerConfig(PropertyType):
         "vpc_interface_adapter": "VpcInterfaceAdapter",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     discovery_server_address: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     discovery_server_port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_interface_adapter: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1371,9 +1261,7 @@ class SecretsManagerEncryptionKeyConfiguration(PropertyType):
         "role_arn": "RoleArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1386,9 +1274,7 @@ class SilentAudio(PropertyType):
         "threshold_seconds": "ThresholdSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     state: Optional[Union[str, State, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     threshold_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1423,53 +1309,29 @@ class Source(PropertyType):
         "source_ingest_port": "SourceIngestPort",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ingest_ip: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_sync_buffer: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stream_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sender_ip_address: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     router_integration_transit_decryption: Optional[FlowTransitEncryption] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     media_stream_source_configurations: Optional[list[MediaStreamSourceConfiguration]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ingest_port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sender_control_port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     decryption: Optional[Encryption] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     router_integration_state: Optional[Union[str, State, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     gateway_bridge_source: Optional[GatewayBridgeSource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_listener_address: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_listener_port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     whitelist_cidr: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     entitlement_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min_latency: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_interface_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_bitrate: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     protocol: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_latency: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_ingest_port: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1484,13 +1346,9 @@ class SourceMonitoringConfig(PropertyType):
         "thumbnail_state": "ThumbnailState",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     content_quality_analysis_state: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     audio_monitoring_settings: Optional[list[AudioMonitoringSetting]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     video_monitoring_settings: Optional[list[VideoMonitoringSetting]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     thumbnail_state: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1502,7 +1360,6 @@ class SourcePriority(PropertyType):
         "primary_source": "PrimarySource",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     primary_source: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1515,9 +1372,7 @@ class VideoMonitoringSetting(PropertyType):
         "frozen_frames": "FrozenFrames",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     black_frames: Optional[BlackFrames] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     frozen_frames: Optional[FrozenFrames] = None
 
 
@@ -1534,17 +1389,11 @@ class VpcInterface(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_interface_type: Optional[Union[str, NetworkInterfaceType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_interface_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnet_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_group_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1556,7 +1405,6 @@ class VpcInterfaceAttachment(PropertyType):
         "vpc_interface_name": "VpcInterfaceName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_interface_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1578,25 +1426,15 @@ class Flow(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source_monitoring_config: Optional[SourceMonitoringConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source_failover_config: Optional[FailoverConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_interfaces: Optional[list[VpcInterface]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     media_streams: Optional[list[MediaStream]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ndi_config: Optional[NdiConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     availability_zone: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     maintenance: Optional[Maintenance] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source: Optional[Source] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     flow_size: Optional[Union[str, FlowSize, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1653,23 +1491,14 @@ class Encryption(PropertyType):
         "url": "Url",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_type: Optional[Union[str, KeyType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     device_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     constant_initialization_vector: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     algorithm: Optional[Union[str, Algorithm, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     url: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1688,19 +1517,12 @@ class FlowEntitlement(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     data_transfer_subscriber_fee_percent: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     encryption: Optional[Encryption] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     subscribers: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     flow_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     entitlement_status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1721,11 +1543,8 @@ class DestinationConfiguration(PropertyType):
         "interface": "Interface",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_ip: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interface: Optional[Interface] = None
 
 
@@ -1738,9 +1557,7 @@ class EncodingParameters(PropertyType):
         "compression_factor": "CompressionFactor",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encoder_profile: Optional[Union[str, EncoderProfile, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compression_factor: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -1755,13 +1572,9 @@ class Encryption(PropertyType):
         "role_arn": "RoleArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_type: Optional[Union[str, KeyType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     algorithm: Optional[Union[str, Algorithm, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1774,9 +1587,7 @@ class FlowTransitEncryption(PropertyType):
         "encryption_key_configuration": "EncryptionKeyConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_key_type: Optional[Union[str, FlowTransitEncryptionKeyType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_key_configuration: Optional[FlowTransitEncryptionKeyConfiguration] = None
 
 
@@ -1789,9 +1600,7 @@ class FlowTransitEncryptionKeyConfiguration(PropertyType):
         "automatic": "Automatic",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secrets_manager: Optional[SecretsManagerEncryptionKeyConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     automatic: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
 
@@ -1803,7 +1612,6 @@ class Interface(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1818,13 +1626,9 @@ class MediaStreamOutputConfiguration(PropertyType):
         "destination_configurations": "DestinationConfigurations",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encoding_parameters: Optional[EncodingParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     media_stream_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encoding_name: Optional[Union[str, EncodingName, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_configurations: Optional[list[DestinationConfiguration]] = None
 
 
@@ -1837,9 +1641,7 @@ class SecretsManagerEncryptionKeyConfiguration(PropertyType):
         "role_arn": "RoleArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1851,7 +1653,6 @@ class VpcInterfaceAttachment(PropertyType):
         "vpc_interface_name": "VpcInterfaceName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_interface_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1883,45 +1684,25 @@ class FlowOutput(CloudFormationResource):
         "cidr_allow_list": "CidrAllowList",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     destination: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     smoothing_latency: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     stream_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ndi_speed_hq_quality: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     remote_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     media_stream_output_configurations: Optional[list[MediaStreamOutputConfiguration]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     encryption: Optional[Encryption] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     router_integration_state: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     output_status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_interface_attachment: Optional[VpcInterfaceAttachment] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     min_latency: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     router_integration_transit_encryption: Optional[FlowTransitEncryption] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     protocol: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     flow_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ndi_program_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     max_latency: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     cidr_allow_list: Optional[Union[list[str], Ref]] = None
 
     @property
@@ -1948,23 +1729,14 @@ class Encryption(PropertyType):
         "url": "Url",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_type: Optional[Union[str, KeyType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     device_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     constant_initialization_vector: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     algorithm: Optional[Union[str, Algorithm, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     url: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1977,9 +1749,7 @@ class GatewayBridgeSource(PropertyType):
         "vpc_interface_attachment": "VpcInterfaceAttachment",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bridge_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_interface_attachment: Optional[VpcInterfaceAttachment] = None
 
 
@@ -1991,7 +1761,6 @@ class VpcInterfaceAttachment(PropertyType):
         "vpc_interface_name": "VpcInterfaceName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_interface_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2021,41 +1790,23 @@ class FlowSource(CloudFormationResource):
         "max_latency": "MaxLatency",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     stream_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     sender_ip_address: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ingest_port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     sender_control_port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     decryption: Optional[Encryption] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     gateway_bridge_source: Optional[GatewayBridgeSource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source_listener_address: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source_listener_port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     whitelist_cidr: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     entitlement_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     min_latency: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_interface_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     max_bitrate: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     protocol: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     flow_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     max_latency: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
     @property
@@ -2089,15 +1840,10 @@ class FlowVpcInterface(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     subnet_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     flow_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     security_group_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -2117,9 +1863,7 @@ class GatewayNetwork(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cidr_block: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2134,11 +1878,8 @@ class Gateway(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     networks: Optional[list[GatewayNetwork]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     egress_cidr_blocks: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -2165,13 +1906,9 @@ class FailoverRouterInputConfiguration(PropertyType):
         "primary_source_index": "PrimarySourceIndex",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_interface_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_priority_mode: Optional[Union[str, FailoverInputSourcePriorityMode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     protocol_configurations: Optional[list[FailoverRouterInputProtocolConfiguration]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     primary_source_index: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -2186,13 +1923,9 @@ class FailoverRouterInputProtocolConfiguration(PropertyType):
         "rtp": "Rtp",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     srt_caller: Optional[SrtCallerRouterInputConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     srt_listener: Optional[SrtListenerRouterInputConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rist: Optional[RistRouterInputConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rtp: Optional[RtpRouterInputConfiguration] = None
 
 
@@ -2205,9 +1938,7 @@ class FlowTransitEncryption(PropertyType):
         "encryption_key_configuration": "EncryptionKeyConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_key_type: Optional[Union[str, FlowTransitEncryptionKeyType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_key_configuration: Optional[FlowTransitEncryptionKeyConfiguration] = None
 
 
@@ -2220,9 +1951,7 @@ class FlowTransitEncryptionKeyConfiguration(PropertyType):
         "automatic": "Automatic",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secrets_manager: Optional[SecretsManagerEncryptionKeyConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     automatic: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
 
@@ -2235,9 +1964,7 @@ class MaintenanceConfiguration(PropertyType):
         "preferred_day_time": "PreferredDayTime",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     preferred_day_time: Optional[PreferredDayTimeMaintenanceConfiguration] = None
 
 
@@ -2251,11 +1978,8 @@ class MediaConnectFlowRouterInputConfiguration(PropertyType):
         "flow_arn": "FlowArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     flow_output_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_transit_decryption: Optional[FlowTransitEncryption] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     flow_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2269,11 +1993,8 @@ class MergeRouterInputConfiguration(PropertyType):
         "protocol_configurations": "ProtocolConfigurations",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     merge_recovery_window_milliseconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_interface_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     protocol_configurations: Optional[list[MergeRouterInputProtocolConfiguration]] = None
 
 
@@ -2286,9 +2007,7 @@ class MergeRouterInputProtocolConfiguration(PropertyType):
         "rtp": "Rtp",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rist: Optional[RistRouterInputConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rtp: Optional[RtpRouterInputConfiguration] = None
 
 
@@ -2301,9 +2020,7 @@ class PreferredDayTimeMaintenanceConfiguration(PropertyType):
         "day": "Day",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     time: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     day: Optional[Union[str, Day, Ref, GetAtt, Sub]] = None
 
 
@@ -2316,9 +2033,7 @@ class RistRouterInputConfiguration(PropertyType):
         "recovery_latency_milliseconds": "RecoveryLatencyMilliseconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     recovery_latency_milliseconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -2333,13 +2048,9 @@ class RouterInputConfiguration(PropertyType):
         "standard": "Standard",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     media_connect_flow: Optional[MediaConnectFlowRouterInputConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failover: Optional[FailoverRouterInputConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     merge: Optional[MergeRouterInputConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     standard: Optional[StandardRouterInputConfiguration] = None
 
 
@@ -2354,13 +2065,9 @@ class RouterInputProtocolConfiguration(PropertyType):
         "rtp": "Rtp",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     srt_caller: Optional[SrtCallerRouterInputConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     srt_listener: Optional[SrtListenerRouterInputConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rist: Optional[RistRouterInputConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rtp: Optional[RtpRouterInputConfiguration] = None
 
 
@@ -2373,9 +2080,7 @@ class RouterInputTransitEncryption(PropertyType):
         "encryption_key_configuration": "EncryptionKeyConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_key_type: Optional[Union[str, RouterInputTransitEncryptionKeyType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_key_configuration: Optional[RouterInputTransitEncryptionKeyConfiguration] = None
 
 
@@ -2388,9 +2093,7 @@ class RouterInputTransitEncryptionKeyConfiguration(PropertyType):
         "automatic": "Automatic",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secrets_manager: Optional[SecretsManagerEncryptionKeyConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     automatic: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
 
@@ -2403,9 +2106,7 @@ class RtpRouterInputConfiguration(PropertyType):
         "port": "Port",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     forward_error_correction: Optional[Union[str, ForwardErrorCorrectionState, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -2418,9 +2119,7 @@ class SecretsManagerEncryptionKeyConfiguration(PropertyType):
         "role_arn": "RoleArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2436,15 +2135,10 @@ class SrtCallerRouterInputConfiguration(PropertyType):
         "minimum_latency_milliseconds": "MinimumLatencyMilliseconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_address: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stream_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     decryption_configuration: Optional[SrtDecryptionConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     minimum_latency_milliseconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -2456,7 +2150,6 @@ class SrtDecryptionConfiguration(PropertyType):
         "encryption_key": "EncryptionKey",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_key: Optional[SecretsManagerEncryptionKeyConfiguration] = None
 
 
@@ -2470,11 +2163,8 @@ class SrtListenerRouterInputConfiguration(PropertyType):
         "minimum_latency_milliseconds": "MinimumLatencyMilliseconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     decryption_configuration: Optional[SrtDecryptionConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     minimum_latency_milliseconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -2488,11 +2178,8 @@ class StandardRouterInputConfiguration(PropertyType):
         "protocol": "Protocol",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     protocol_configuration: Optional[RouterInputProtocolConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_interface_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     protocol: Optional[Union[str, RouterInputProtocol, Ref, GetAtt, Sub]] = None
 
 
@@ -2514,25 +2201,15 @@ class RouterInput(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     routing_scope: Optional[Union[str, RoutingScope, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     transit_encryption: Optional[RouterInputTransitEncryption] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     configuration: Optional[RouterInputConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tier: Optional[Union[str, RouterInputTier, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     region_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     maximum_bitrate: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     availability_zone: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     maintenance_configuration: Optional[MaintenanceConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -2591,7 +2268,6 @@ class PublicRouterNetworkInterfaceConfiguration(PropertyType):
         "allow_rules": "AllowRules",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allow_rules: Optional[list[PublicRouterNetworkInterfaceRule]] = None
 
 
@@ -2603,7 +2279,6 @@ class PublicRouterNetworkInterfaceRule(PropertyType):
         "cidr": "Cidr",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cidr: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2616,9 +2291,7 @@ class RouterNetworkInterfaceConfiguration(PropertyType):
         "public": "Public",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc: Optional[VpcRouterNetworkInterfaceConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     public: Optional[PublicRouterNetworkInterfaceConfiguration] = None
 
 
@@ -2631,9 +2304,7 @@ class VpcRouterNetworkInterfaceConfiguration(PropertyType):
         "security_group_ids": "SecurityGroupIds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnet_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_group_ids: Optional[Union[list[str], Ref]] = None
 
 
@@ -2649,13 +2320,9 @@ class RouterNetworkInterface(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     configuration: Optional[RouterNetworkInterfaceConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     region_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -2710,9 +2377,7 @@ class FlowTransitEncryption(PropertyType):
         "encryption_key_configuration": "EncryptionKeyConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_key_type: Optional[Union[str, FlowTransitEncryptionKeyType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_key_configuration: Optional[FlowTransitEncryptionKeyConfiguration] = None
 
 
@@ -2725,9 +2390,7 @@ class FlowTransitEncryptionKeyConfiguration(PropertyType):
         "automatic": "Automatic",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secrets_manager: Optional[SecretsManagerEncryptionKeyConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     automatic: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
 
@@ -2740,9 +2403,7 @@ class MaintenanceConfiguration(PropertyType):
         "preferred_day_time": "PreferredDayTime",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     preferred_day_time: Optional[PreferredDayTimeMaintenanceConfiguration] = None
 
 
@@ -2756,11 +2417,8 @@ class MediaConnectFlowRouterOutputConfiguration(PropertyType):
         "destination_transit_encryption": "DestinationTransitEncryption",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     flow_source_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     flow_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_transit_encryption: Optional[FlowTransitEncryption] = None
 
 
@@ -2774,11 +2432,8 @@ class MediaLiveInputRouterOutputConfiguration(PropertyType):
         "destination_transit_encryption": "DestinationTransitEncryption",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     media_live_input_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     media_live_pipeline_id: Optional[Union[str, MediaLiveInputPipelineId, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_transit_encryption: Optional[MediaLiveTransitEncryption] = None
 
 
@@ -2791,9 +2446,7 @@ class MediaLiveTransitEncryption(PropertyType):
         "encryption_key_configuration": "EncryptionKeyConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_key_type: Optional[Union[str, MediaLiveTransitEncryptionKeyType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_key_configuration: Optional[MediaLiveTransitEncryptionKeyConfiguration] = None
 
 
@@ -2806,9 +2459,7 @@ class MediaLiveTransitEncryptionKeyConfiguration(PropertyType):
         "automatic": "Automatic",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secrets_manager: Optional[SecretsManagerEncryptionKeyConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     automatic: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
 
@@ -2821,9 +2472,7 @@ class PreferredDayTimeMaintenanceConfiguration(PropertyType):
         "day": "Day",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     time: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     day: Optional[Union[str, Day, Ref, GetAtt, Sub]] = None
 
 
@@ -2836,9 +2485,7 @@ class RistRouterOutputConfiguration(PropertyType):
         "destination_address": "DestinationAddress",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_address: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2852,11 +2499,8 @@ class RouterOutputConfiguration(PropertyType):
         "standard": "Standard",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     media_live_input: Optional[MediaLiveInputRouterOutputConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     media_connect_flow: Optional[MediaConnectFlowRouterOutputConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     standard: Optional[StandardRouterOutputConfiguration] = None
 
 
@@ -2871,13 +2515,9 @@ class RouterOutputProtocolConfiguration(PropertyType):
         "rtp": "Rtp",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     srt_caller: Optional[SrtCallerRouterOutputConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     srt_listener: Optional[SrtListenerRouterOutputConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rist: Optional[RistRouterOutputConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rtp: Optional[RtpRouterOutputConfiguration] = None
 
 
@@ -2891,11 +2531,8 @@ class RtpRouterOutputConfiguration(PropertyType):
         "destination_address": "DestinationAddress",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     forward_error_correction: Optional[Union[str, ForwardErrorCorrectionState, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_address: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2908,9 +2545,7 @@ class SecretsManagerEncryptionKeyConfiguration(PropertyType):
         "role_arn": "RoleArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2926,15 +2561,10 @@ class SrtCallerRouterOutputConfiguration(PropertyType):
         "destination_address": "DestinationAddress",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stream_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_configuration: Optional[SrtEncryptionConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     minimum_latency_milliseconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_address: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2946,7 +2576,6 @@ class SrtEncryptionConfiguration(PropertyType):
         "encryption_key": "EncryptionKey",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_key: Optional[SecretsManagerEncryptionKeyConfiguration] = None
 
 
@@ -2960,11 +2589,8 @@ class SrtListenerRouterOutputConfiguration(PropertyType):
         "minimum_latency_milliseconds": "MinimumLatencyMilliseconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_configuration: Optional[SrtEncryptionConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     minimum_latency_milliseconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -2978,11 +2604,8 @@ class StandardRouterOutputConfiguration(PropertyType):
         "protocol": "Protocol",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     protocol_configuration: Optional[RouterOutputProtocolConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_interface_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     protocol: Optional[Union[str, RouterOutputProtocol, Ref, GetAtt, Sub]] = None
 
 
@@ -3003,23 +2626,14 @@ class RouterOutput(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     routing_scope: Optional[Union[str, RoutingScope, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     configuration: Optional[RouterOutputConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tier: Optional[Union[str, RouterOutputTier, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     region_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     maximum_bitrate: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     availability_zone: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     maintenance_configuration: Optional[MaintenanceConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:55
+  Generated: 2025-12-17 21:50:33
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service PCAConnectorSCEP
@@ -35,9 +35,7 @@ class Challenge(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connector_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
 
     @property
@@ -57,9 +55,7 @@ class IntuneConfiguration(PropertyType):
         "domain": "Domain",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     azure_application_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     domain: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -71,7 +67,6 @@ class MobileDeviceManagement(PropertyType):
         "intune": "Intune",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     intune: Optional[IntuneConfiguration] = None
 
 
@@ -85,11 +80,8 @@ class OpenIdConfiguration(PropertyType):
         "subject": "Subject",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     issuer: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     audience: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subject: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -104,11 +96,8 @@ class Connector(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     certificate_authority_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     mobile_device_management: Optional[MobileDeviceManagement] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
 
     @property

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:54
+  Generated: 2025-12-17 21:50:33
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ObservabilityAdmin
@@ -299,9 +299,7 @@ class CentralizationRule(PropertyType):
         "source": "Source",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination: Optional[CentralizationRuleDestination] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source: Optional[CentralizationRuleSource] = None
 
 
@@ -315,11 +313,8 @@ class CentralizationRuleDestination(PropertyType):
         "region": "Region",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     account: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_logs_configuration: Optional[DestinationLogsConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     region: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -333,11 +328,8 @@ class CentralizationRuleSource(PropertyType):
         "regions": "Regions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scope: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_logs_configuration: Optional[SourceLogsConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     regions: Optional[Union[list[str], Ref]] = None
 
 
@@ -350,9 +342,7 @@ class DestinationLogsConfiguration(PropertyType):
         "backup_configuration": "BackupConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     logs_encryption_configuration: Optional[LogsEncryptionConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     backup_configuration: Optional[LogsBackupConfiguration] = None
 
 
@@ -365,9 +355,7 @@ class LogsBackupConfiguration(PropertyType):
         "region": "Region",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     region: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -381,11 +369,8 @@ class LogsEncryptionConfiguration(PropertyType):
         "encryption_conflict_resolution_strategy": "EncryptionConflictResolutionStrategy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_strategy: Optional[Union[str, EncryptionStrategy, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_conflict_resolution_strategy: Optional[Union[str, EncryptionConflictResolutionStrategy, Ref, GetAtt, Sub]] = None
 
 
@@ -398,9 +383,7 @@ class SourceLogsConfiguration(PropertyType):
         "log_group_selection_criteria": "LogGroupSelectionCriteria",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encrypted_log_group_strategy: Optional[Union[str, EncryptedLogGroupStrategy, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_group_selection_criteria: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -415,11 +398,8 @@ class OrganizationCentralizationRule(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     rule: Optional[CentralizationRule] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     rule_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -438,7 +418,6 @@ class ActionCondition(PropertyType):
         "action": "Action",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[Union[str, Action, Ref, GetAtt, Sub]] = None
 
 
@@ -451,9 +430,7 @@ class AdvancedEventSelector(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_selectors: Optional[list[AdvancedFieldSelector]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -471,19 +448,12 @@ class AdvancedFieldSelector(PropertyType):
         "not_equals": "NotEquals",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     equals: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     not_starts_with: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     not_ends_with: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     starts_with: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ends_with: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     not_equals: Optional[Union[list[str], Ref]] = None
 
 
@@ -495,7 +465,6 @@ class CloudtrailParameters(PropertyType):
         "advanced_event_selectors": "AdvancedEventSelectors",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     advanced_event_selectors: Optional[list[AdvancedEventSelector]] = None
 
 
@@ -508,9 +477,7 @@ class Condition(PropertyType):
         "action_condition": "ActionCondition",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     label_name_condition: Optional[LabelNameCondition] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action_condition: Optional[ActionCondition] = None
 
 
@@ -523,9 +490,7 @@ class ELBLoadBalancerLoggingParameters(PropertyType):
         "output_format": "OutputFormat",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_delimiter: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     output_format: Optional[Union[str, OutputFormat, Ref, GetAtt, Sub]] = None
 
 
@@ -540,13 +505,9 @@ class FieldToMatch(PropertyType):
         "single_header": "SingleHeader",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     uri_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_string: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     method: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     single_header: Optional[SingleHeader] = None
 
 
@@ -560,11 +521,8 @@ class Filter(PropertyType):
         "conditions": "Conditions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     requirement: Optional[Union[str, FilterRequirement, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     behavior: Optional[Union[str, FilterBehavior, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     conditions: Optional[list[Condition]] = None
 
 
@@ -576,7 +534,6 @@ class LabelNameCondition(PropertyType):
         "label_name": "LabelName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     label_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -589,9 +546,7 @@ class LoggingFilter(PropertyType):
         "default_behavior": "DefaultBehavior",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filters: Optional[list[Filter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_behavior: Optional[Union[str, FilterBehavior, Ref, GetAtt, Sub]] = None
 
 
@@ -603,7 +558,6 @@ class SingleHeader(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -621,19 +575,12 @@ class TelemetryDestinationConfiguration(PropertyType):
         "destination_type": "DestinationType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retention_in_days: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_pattern: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     elb_load_balancer_logging_parameters: Optional[ELBLoadBalancerLoggingParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_flow_log_parameters: Optional[VPCFlowLogParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloudtrail_parameters: Optional[CloudtrailParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     waf_logging_parameters: Optional[WAFLoggingParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_type: Optional[Union[str, DestinationType, Ref, GetAtt, Sub]] = None
 
 
@@ -650,17 +597,11 @@ class TelemetryRule(PropertyType):
         "telemetry_type": "TelemetryType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     telemetry_source_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_configuration: Optional[TelemetryDestinationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scope: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     selection_criteria: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_type: Optional[Union[str, ResourceType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     telemetry_type: Optional[Union[str, TelemetryType, Ref, GetAtt, Sub]] = None
 
 
@@ -674,11 +615,8 @@ class VPCFlowLogParameters(PropertyType):
         "traffic_type": "TrafficType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_format: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_aggregation_interval: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     traffic_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -692,11 +630,8 @@ class WAFLoggingParameters(PropertyType):
         "log_type": "LogType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     redacted_fields: Optional[list[FieldToMatch]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     logging_filter: Optional[LoggingFilter] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_type: Optional[Union[str, WAFLogType, Ref, GetAtt, Sub]] = None
 
 
@@ -711,11 +646,8 @@ class OrganizationTelemetryRule(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     rule: Optional[TelemetryRule] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     rule_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -735,9 +667,7 @@ class EncryptionConfig(PropertyType):
         "sse_algorithm": "SseAlgorithm",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sse_algorithm: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -751,11 +681,8 @@ class LogSource(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -771,13 +698,9 @@ class S3TableIntegration(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     log_sources: Optional[list[LogSource]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     encryption: Optional[EncryptionConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -803,21 +726,13 @@ class TelemetryPipeline(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     status: Optional[Union[str, TelemetryPipelineStatus, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     last_update_time_stamp: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     created_time_stamp: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     configuration: Optional[TelemetryPipelineConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     status_reason: Optional[TelemetryPipelineStatusReason] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -829,7 +744,6 @@ class TelemetryPipelineConfiguration(PropertyType):
         "body": "Body",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     body: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -841,7 +755,6 @@ class TelemetryPipelineStatusReason(PropertyType):
         "description": "Description",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -856,11 +769,8 @@ class TelemetryPipelines(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     configuration: Optional[TelemetryPipelineConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -954,7 +864,6 @@ class ActionCondition(PropertyType):
         "action": "Action",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[Union[str, Action, Ref, GetAtt, Sub]] = None
 
 
@@ -967,9 +876,7 @@ class AdvancedEventSelector(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_selectors: Optional[list[AdvancedFieldSelector]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -987,19 +894,12 @@ class AdvancedFieldSelector(PropertyType):
         "not_equals": "NotEquals",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     equals: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     not_starts_with: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     not_ends_with: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     starts_with: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ends_with: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     not_equals: Optional[Union[list[str], Ref]] = None
 
 
@@ -1011,7 +911,6 @@ class CloudtrailParameters(PropertyType):
         "advanced_event_selectors": "AdvancedEventSelectors",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     advanced_event_selectors: Optional[list[AdvancedEventSelector]] = None
 
 
@@ -1024,9 +923,7 @@ class Condition(PropertyType):
         "action_condition": "ActionCondition",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     label_name_condition: Optional[LabelNameCondition] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action_condition: Optional[ActionCondition] = None
 
 
@@ -1039,9 +936,7 @@ class ELBLoadBalancerLoggingParameters(PropertyType):
         "output_format": "OutputFormat",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_delimiter: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     output_format: Optional[Union[str, OutputFormat, Ref, GetAtt, Sub]] = None
 
 
@@ -1056,13 +951,9 @@ class FieldToMatch(PropertyType):
         "single_header": "SingleHeader",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     uri_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_string: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     method: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     single_header: Optional[SingleHeader] = None
 
 
@@ -1076,11 +967,8 @@ class Filter(PropertyType):
         "conditions": "Conditions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     requirement: Optional[Union[str, FilterRequirement, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     behavior: Optional[Union[str, FilterBehavior, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     conditions: Optional[list[Condition]] = None
 
 
@@ -1092,7 +980,6 @@ class LabelNameCondition(PropertyType):
         "label_name": "LabelName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     label_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1104,7 +991,6 @@ class LogDeliveryParameters(PropertyType):
         "log_types": "LogTypes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_types: Optional[Union[list[str], Ref]] = None
 
 
@@ -1117,9 +1003,7 @@ class LoggingFilter(PropertyType):
         "default_behavior": "DefaultBehavior",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filters: Optional[list[Filter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_behavior: Optional[Union[str, FilterBehavior, Ref, GetAtt, Sub]] = None
 
 
@@ -1131,7 +1015,6 @@ class SingleHeader(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1150,21 +1033,13 @@ class TelemetryDestinationConfiguration(PropertyType):
         "destination_type": "DestinationType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retention_in_days: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_pattern: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     elb_load_balancer_logging_parameters: Optional[ELBLoadBalancerLoggingParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_flow_log_parameters: Optional[VPCFlowLogParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloudtrail_parameters: Optional[CloudtrailParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     waf_logging_parameters: Optional[WAFLoggingParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_delivery_parameters: Optional[LogDeliveryParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_type: Optional[Union[str, DestinationType, Ref, GetAtt, Sub]] = None
 
 
@@ -1180,15 +1055,10 @@ class TelemetryRule(PropertyType):
         "telemetry_type": "TelemetryType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     telemetry_source_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_configuration: Optional[TelemetryDestinationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     selection_criteria: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_type: Optional[Union[str, ResourceType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     telemetry_type: Optional[Union[str, TelemetryType, Ref, GetAtt, Sub]] = None
 
 
@@ -1202,11 +1072,8 @@ class VPCFlowLogParameters(PropertyType):
         "traffic_type": "TrafficType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_format: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_aggregation_interval: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     traffic_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1220,11 +1087,8 @@ class WAFLoggingParameters(PropertyType):
         "log_type": "LogType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     redacted_fields: Optional[list[FieldToMatch]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     logging_filter: Optional[LoggingFilter] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_type: Optional[Union[str, WAFLogType, Ref, GetAtt, Sub]] = None
 
 
@@ -1239,11 +1103,8 @@ class TelemetryRule(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     rule: Optional[TelemetryRule] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     rule_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property

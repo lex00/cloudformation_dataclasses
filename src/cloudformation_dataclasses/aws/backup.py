@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:31
+  Generated: 2025-12-17 21:50:30
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Backup
@@ -504,9 +504,7 @@ class AdvancedBackupSettingResourceType(PropertyType):
         "resource_type": "ResourceType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     backup_options: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -520,11 +518,8 @@ class BackupPlanResourceType(PropertyType):
         "backup_plan_rule": "BackupPlanRule",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     backup_plan_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     advanced_backup_settings: Optional[list[AdvancedBackupSettingResourceType]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     backup_plan_rule: Optional[list[BackupRuleResourceType]] = None
 
 
@@ -547,29 +542,17 @@ class BackupRuleResourceType(PropertyType):
         "rule_name": "RuleName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     completion_window_minutes: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     schedule_expression: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     recovery_point_tags: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     copy_actions: Optional[list[CopyActionResourceType]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_continuous_backup: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lifecycle: Optional[LifecycleResourceType] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     index_actions: Optional[list[IndexActionsResourceType]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_backup_vault: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start_window_minutes: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     schedule_expression_timezone: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_logically_air_gapped_backup_vault_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rule_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -582,9 +565,7 @@ class CopyActionResourceType(PropertyType):
         "destination_backup_vault_arn": "DestinationBackupVaultArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lifecycle: Optional[LifecycleResourceType] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_backup_vault_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -596,7 +577,6 @@ class IndexActionsResourceType(PropertyType):
         "resource_types": "ResourceTypes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_types: Optional[Union[list[str], Ref]] = None
 
 
@@ -610,11 +590,8 @@ class LifecycleResourceType(PropertyType):
         "move_to_cold_storage_after_days": "MoveToColdStorageAfterDays",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     opt_in_to_archive_for_supported_resources: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     delete_after_days: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     move_to_cold_storage_after_days: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -628,9 +605,7 @@ class BackupPlan(CloudFormationResource):
         "backup_plan_tags": "BackupPlanTags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     backup_plan: Optional[BackupPlanResourceType] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     backup_plan_tags: Optional[dict[str, str]] = None
 
     @property
@@ -664,17 +639,11 @@ class BackupSelectionResourceType(PropertyType):
         "conditions": "Conditions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     list_of_tags: Optional[list[ConditionResourceType]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     not_resources: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     selection_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     iam_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resources: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     conditions: Optional[Conditions] = None
 
 
@@ -687,9 +656,7 @@ class ConditionParameter(PropertyType):
         "condition_key": "ConditionKey",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     condition_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     condition_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -703,11 +670,8 @@ class ConditionResourceType(PropertyType):
         "condition_type": "ConditionType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     condition_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     condition_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     condition_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -722,13 +686,9 @@ class Conditions(PropertyType):
         "string_not_equals": "StringNotEquals",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     string_equals: Optional[list[ConditionParameter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     string_not_like: Optional[list[ConditionParameter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     string_like: Optional[list[ConditionParameter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     string_not_equals: Optional[list[ConditionParameter]] = None
 
 
@@ -742,9 +702,7 @@ class BackupSelection(CloudFormationResource):
         "backup_plan_id": "BackupPlanId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     backup_selection: Optional[BackupSelectionResourceType] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     backup_plan_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -775,11 +733,8 @@ class LockConfigurationType(PropertyType):
         "min_retention_days": "MinRetentionDays",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     changeable_for_days: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_retention_days: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min_retention_days: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -792,9 +747,7 @@ class NotificationObjectType(PropertyType):
         "backup_vault_events": "BackupVaultEvents",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sns_topic_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     backup_vault_events: Optional[Union[list[str], Ref]] = None
 
 
@@ -812,17 +765,11 @@ class BackupVault(CloudFormationResource):
         "access_policy": "AccessPolicy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     backup_vault_tags: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     backup_vault_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     encryption_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     lock_configuration: Optional[LockConfigurationType] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     notifications: Optional[NotificationObjectType] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     access_policy: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
     @property
@@ -847,9 +794,7 @@ class ControlInputParameter(PropertyType):
         "parameter_name": "ParameterName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parameter_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parameter_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -863,11 +808,8 @@ class ControlScope(PropertyType):
         "compliance_resource_ids": "ComplianceResourceIds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compliance_resource_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compliance_resource_ids: Optional[Union[list[str], Ref]] = None
 
 
@@ -881,11 +823,8 @@ class FrameworkControl(PropertyType):
         "control_scope": "ControlScope",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     control_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     control_input_parameters: Optional[list[ControlInputParameter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     control_scope: Optional[ControlScope] = None
 
 
@@ -901,13 +840,9 @@ class Framework(CloudFormationResource):
         "framework_description": "FrameworkDescription",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     framework_controls: Optional[list[FrameworkControl]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     framework_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     framework_tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     framework_description: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -942,9 +877,7 @@ class NotificationObjectType(PropertyType):
         "backup_vault_events": "BackupVaultEvents",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sns_topic_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     backup_vault_events: Optional[Union[list[str], Ref]] = None
 
 
@@ -964,21 +897,13 @@ class LogicallyAirGappedBackupVault(CloudFormationResource):
         "access_policy": "AccessPolicy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     backup_vault_tags: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     backup_vault_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     encryption_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     max_retention_days: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     min_retention_days: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     notifications: Optional[NotificationObjectType] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     mpa_approval_team_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     access_policy: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
     @property
@@ -1009,11 +934,8 @@ class ReportDeliveryChannel(PropertyType):
         "s3_bucket_name": "S3BucketName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_key_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     formats: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1029,15 +951,10 @@ class ReportSetting(PropertyType):
         "accounts": "Accounts",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     framework_arns: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     report_template: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     organization_units: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     regions: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     accounts: Optional[Union[list[str], Ref]] = None
 
 
@@ -1054,15 +971,10 @@ class ReportPlan(CloudFormationResource):
         "report_plan_tags": "ReportPlanTags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     report_setting: Optional[ReportSetting] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     report_plan_description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     report_plan_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     report_delivery_channel: Optional[ReportDeliveryChannel] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     report_plan_tags: Optional[list[Tag]] = None
 
     @property
@@ -1085,15 +997,10 @@ class RestoreTestingRecoveryPointSelection(PropertyType):
         "algorithm": "Algorithm",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     selection_window_days: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     recovery_point_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_vaults: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exclude_vaults: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     algorithm: Optional[Union[str, RestoreTestingRecoveryPointSelectionAlgorithm, Ref, GetAtt, Sub]] = None
 
 
@@ -1111,17 +1018,11 @@ class RestoreTestingPlan(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     schedule_expression: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     start_window_hours: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     recovery_point_selection: Optional[RestoreTestingRecoveryPointSelection] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     restore_testing_plan_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     schedule_expression_timezone: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -1141,9 +1042,7 @@ class KeyValue(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1156,9 +1055,7 @@ class ProtectedResourceConditions(PropertyType):
         "string_not_equals": "StringNotEquals",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     string_equals: Optional[list[KeyValue]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     string_not_equals: Optional[list[KeyValue]] = None
 
 
@@ -1178,21 +1075,13 @@ class RestoreTestingSelection(CloudFormationResource):
         "validation_window_hours": "ValidationWindowHours",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     protected_resource_conditions: Optional[ProtectedResourceConditions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     protected_resource_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     restore_metadata_overrides: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     restore_testing_selection_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     protected_resource_arns: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     restore_testing_plan_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     iam_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     validation_window_hours: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 

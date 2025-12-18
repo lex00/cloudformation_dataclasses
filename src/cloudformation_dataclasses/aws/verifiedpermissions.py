@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:44:05
+  Generated: 2025-12-17 21:50:35
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service VerifiedPermissions
@@ -125,7 +125,6 @@ class CognitoGroupConfiguration(PropertyType):
         "group_entity_type": "GroupEntityType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     group_entity_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -139,11 +138,8 @@ class CognitoUserPoolConfiguration(PropertyType):
         "client_ids": "ClientIds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_pool_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     group_configuration: Optional[CognitoGroupConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_ids: Optional[Union[list[str], Ref]] = None
 
 
@@ -156,9 +152,7 @@ class IdentitySourceConfiguration(PropertyType):
         "open_id_connect_configuration": "OpenIdConnectConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cognito_user_pool_configuration: Optional[CognitoUserPoolConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     open_id_connect_configuration: Optional[OpenIdConnectConfiguration] = None
 
 
@@ -171,9 +165,7 @@ class OpenIdConnectAccessTokenConfiguration(PropertyType):
         "principal_id_claim": "PrincipalIdClaim",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     audiences: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     principal_id_claim: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -188,13 +180,9 @@ class OpenIdConnectConfiguration(PropertyType):
         "entity_id_prefix": "EntityIdPrefix",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     issuer: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     token_selection: Optional[OpenIdConnectTokenSelection] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     group_configuration: Optional[OpenIdConnectGroupConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     entity_id_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -207,9 +195,7 @@ class OpenIdConnectGroupConfiguration(PropertyType):
         "group_claim": "GroupClaim",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     group_entity_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     group_claim: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -222,9 +208,7 @@ class OpenIdConnectIdentityTokenConfiguration(PropertyType):
         "principal_id_claim": "PrincipalIdClaim",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     principal_id_claim: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -237,9 +221,7 @@ class OpenIdConnectTokenSelection(PropertyType):
         "identity_token_only": "IdentityTokenOnly",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     access_token_only: Optional[OpenIdConnectAccessTokenConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     identity_token_only: Optional[OpenIdConnectIdentityTokenConfiguration] = None
 
 
@@ -254,11 +236,8 @@ class IdentitySource(CloudFormationResource):
         "policy_store_id": "PolicyStoreId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     principal_entity_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     configuration: Optional[IdentitySourceConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy_store_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -278,9 +257,7 @@ class EntityIdentifier(PropertyType):
         "entity_id": "EntityId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     entity_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     entity_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -293,9 +270,7 @@ class PolicyDefinition(PropertyType):
         "template_linked": "TemplateLinked",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     static: Optional[StaticPolicyDefinition] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     template_linked: Optional[TemplateLinkedPolicyDefinition] = None
 
 
@@ -308,9 +283,7 @@ class StaticPolicyDefinition(PropertyType):
         "statement": "Statement",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     statement: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -324,11 +297,8 @@ class TemplateLinkedPolicyDefinition(PropertyType):
         "principal": "Principal",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource: Optional[EntityIdentifier] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     policy_template_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     principal: Optional[EntityIdentifier] = None
 
 
@@ -342,9 +312,7 @@ class Policy(CloudFormationResource):
         "policy_store_id": "PolicyStoreId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     definition: Optional[PolicyDefinition] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy_store_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -368,7 +336,6 @@ class DeletionProtection(PropertyType):
         "mode": "Mode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -381,9 +348,7 @@ class SchemaDefinition(PropertyType):
         "cedar_format": "CedarFormat",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cedar_json: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cedar_format: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -395,7 +360,6 @@ class ValidationSettings(PropertyType):
         "mode": "Mode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -412,15 +376,10 @@ class PolicyStore(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     validation_settings: Optional[ValidationSettings] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     schema: Optional[SchemaDefinition] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     deletion_protection: Optional[DeletionProtection] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -447,11 +406,8 @@ class PolicyTemplate(CloudFormationResource):
         "policy_store_id": "PolicyStoreId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     statement: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy_store_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property

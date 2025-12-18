@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:37
+  Generated: 2025-12-17 21:50:31
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ConnectCampaigns
@@ -117,7 +117,6 @@ class AgentlessDialerConfig(PropertyType):
         "dialing_capacity": "DialingCapacity",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dialing_capacity: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -130,9 +129,7 @@ class AnswerMachineDetectionConfig(PropertyType):
         "await_answer_machine_prompt": "AwaitAnswerMachinePrompt",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_answer_machine_detection: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     await_answer_machine_prompt: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -146,11 +143,8 @@ class DialerConfig(PropertyType):
         "progressive_dialer_config": "ProgressiveDialerConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     agentless_dialer_config: Optional[AgentlessDialerConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     predictive_dialer_config: Optional[PredictiveDialerConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     progressive_dialer_config: Optional[ProgressiveDialerConfig] = None
 
 
@@ -165,13 +159,9 @@ class OutboundCallConfig(PropertyType):
         "connect_source_phone_number": "ConnectSourcePhoneNumber",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connect_contact_flow_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connect_queue_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     answer_machine_detection_config: Optional[AnswerMachineDetectionConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connect_source_phone_number: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -184,9 +174,7 @@ class PredictiveDialerConfig(PropertyType):
         "bandwidth_allocation": "BandwidthAllocation",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dialing_capacity: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bandwidth_allocation: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -199,9 +187,7 @@ class ProgressiveDialerConfig(PropertyType):
         "bandwidth_allocation": "BandwidthAllocation",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dialing_capacity: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bandwidth_allocation: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -218,15 +204,10 @@ class Campaign(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     outbound_call_config: Optional[OutboundCallConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connect_instance_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     dialer_config: Optional[DialerConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property

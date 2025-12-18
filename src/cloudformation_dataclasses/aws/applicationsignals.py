@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:30
+  Generated: 2025-12-17 21:50:30
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ApplicationSignals
@@ -51,11 +51,8 @@ class GroupingAttributeDefinition(PropertyType):
         "default_grouping_value": "DefaultGroupingValue",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     grouping_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     grouping_source_keys: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_grouping_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -68,7 +65,6 @@ class GroupingConfiguration(CloudFormationResource):
         "grouping_attribute_definitions": "GroupingAttributeDefinitions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     grouping_attribute_definitions: Optional[list[GroupingAttributeDefinition]] = None
 
     @property
@@ -92,7 +88,6 @@ class BurnRateConfiguration(PropertyType):
         "look_back_window_minutes": "LookBackWindowMinutes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     look_back_window_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -106,11 +101,8 @@ class CalendarInterval(PropertyType):
         "duration": "Duration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     duration_unit: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start_time: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     duration: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -123,9 +115,7 @@ class DependencyConfig(PropertyType):
         "dependency_operation_name": "DependencyOperationName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dependency_key_attributes: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dependency_operation_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -138,9 +128,7 @@ class Dimension(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -155,13 +143,9 @@ class ExclusionWindow(PropertyType):
         "reason": "Reason",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     window: Optional[Window] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     recurrence_rule: Optional[RecurrenceRule] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start_time: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     reason: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -175,11 +159,8 @@ class Goal(PropertyType):
         "interval": "Interval",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     warning_threshold: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attainment_goal: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interval: Optional[Interval] = None
 
 
@@ -192,9 +173,7 @@ class Interval(PropertyType):
         "calendar_interval": "CalendarInterval",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rolling_interval: Optional[RollingInterval] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     calendar_interval: Optional[CalendarInterval] = None
 
 
@@ -208,11 +187,8 @@ class Metric(PropertyType):
         "namespace": "Namespace",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dimensions: Optional[list[Dimension]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     namespace: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -228,15 +204,10 @@ class MetricDataQuery(PropertyType):
         "id": "Id",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     account_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     return_data: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     expression: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric_stat: Optional[MetricStat] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -251,13 +222,9 @@ class MetricStat(PropertyType):
         "unit": "Unit",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stat: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     period: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric: Optional[Metric] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     unit: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -270,9 +237,7 @@ class MonitoredRequestCountMetric(PropertyType):
         "bad_count_metric": "BadCountMetric",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     good_count_metric: Optional[list[MetricDataQuery]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bad_count_metric: Optional[list[MetricDataQuery]] = None
 
 
@@ -284,7 +249,6 @@ class RecurrenceRule(PropertyType):
         "expression": "Expression",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     expression: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -298,11 +262,8 @@ class RequestBasedSli(PropertyType):
         "metric_threshold": "MetricThreshold",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     comparison_operator: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     request_based_sli_metric: Optional[RequestBasedSliMetric] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric_threshold: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -319,17 +280,11 @@ class RequestBasedSliMetric(PropertyType):
         "dependency_config": "DependencyConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     monitored_request_count_metric: Optional[MonitoredRequestCountMetric] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     operation_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     total_request_count_metric: Optional[list[MetricDataQuery]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_attributes: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dependency_config: Optional[DependencyConfig] = None
 
 
@@ -342,9 +297,7 @@ class RollingInterval(PropertyType):
         "duration": "Duration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     duration_unit: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     duration: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -358,11 +311,8 @@ class Sli(PropertyType):
         "metric_threshold": "MetricThreshold",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     comparison_operator: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sli_metric: Optional[SliMetric] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric_threshold: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -380,19 +330,12 @@ class SliMetric(PropertyType):
         "dependency_config": "DependencyConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     statistic: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     operation_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_attributes: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     period_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric_data_queries: Optional[list[MetricDataQuery]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dependency_config: Optional[DependencyConfig] = None
 
 
@@ -405,9 +348,7 @@ class Window(PropertyType):
         "duration": "Duration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     duration_unit: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     duration: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -427,21 +368,13 @@ class ServiceLevelObjective(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     burn_rate_configurations: Optional[list[BurnRateConfiguration]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     sli: Optional[Sli] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     goal: Optional[Goal] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     request_based_sli: Optional[RequestBasedSli] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     exclusion_windows: Optional[list[ExclusionWindow]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property

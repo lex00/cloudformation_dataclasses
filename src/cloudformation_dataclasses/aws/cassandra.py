@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:33
+  Generated: 2025-12-17 21:50:30
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Cassandra
@@ -34,9 +34,7 @@ class ReplicationSpecification(PropertyType):
         "region_list": "RegionList",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     replication_strategy: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     region_list: Optional[Union[list[str], Ref]] = None
 
 
@@ -52,13 +50,9 @@ class Keyspace(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     client_side_timestamps_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     keyspace_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     replication_specification: Optional[ReplicationSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
 
@@ -74,13 +68,9 @@ class AutoScalingSetting(PropertyType):
         "auto_scaling_disabled": "AutoScalingDisabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maximum_units: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scaling_policy: Optional[ScalingPolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     minimum_units: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auto_scaling_disabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -93,9 +83,7 @@ class AutoScalingSpecification(PropertyType):
         "write_capacity_auto_scaling": "WriteCapacityAutoScaling",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     read_capacity_auto_scaling: Optional[AutoScalingSetting] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     write_capacity_auto_scaling: Optional[AutoScalingSetting] = None
 
 
@@ -108,9 +96,7 @@ class BillingMode(PropertyType):
         "provisioned_throughput": "ProvisionedThroughput",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     provisioned_throughput: Optional[ProvisionedThroughput] = None
 
 
@@ -124,11 +110,8 @@ class CdcSpecification(PropertyType):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     view_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tags: Optional[list[Tag]] = None
 
 
@@ -141,9 +124,7 @@ class ClusteringKeyColumn(PropertyType):
         "column": "Column",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     order_by: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     column: Optional[Column] = None
 
 
@@ -156,9 +137,7 @@ class Column(PropertyType):
         "column_type": "ColumnType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     column_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     column_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -171,9 +150,7 @@ class EncryptionSpecification(PropertyType):
         "kms_key_identifier": "KmsKeyIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -186,9 +163,7 @@ class ProvisionedThroughput(PropertyType):
         "read_capacity_units": "ReadCapacityUnits",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     write_capacity_units: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     read_capacity_units: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -202,11 +177,8 @@ class ReplicaSpecification(PropertyType):
         "read_capacity_auto_scaling": "ReadCapacityAutoScaling",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     read_capacity_units: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     read_capacity_auto_scaling: Optional[AutoScalingSetting] = None
 
 
@@ -218,7 +190,6 @@ class ScalingPolicy(PropertyType):
         "target_tracking_scaling_policy_configuration": "TargetTrackingScalingPolicyConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_tracking_scaling_policy_configuration: Optional[TargetTrackingScalingPolicyConfiguration] = None
 
 
@@ -233,13 +204,9 @@ class TargetTrackingScalingPolicyConfiguration(PropertyType):
         "scale_in_cooldown": "ScaleInCooldown",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scale_out_cooldown: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_value: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     disable_scale_in: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scale_in_cooldown: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -252,9 +219,7 @@ class WarmThroughput(PropertyType):
         "write_units_per_second": "WriteUnitsPerSecond",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     read_units_per_second: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     write_units_per_second: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -281,35 +246,20 @@ class Table(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     replica_specifications: Optional[list[ReplicaSpecification]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     clustering_key_columns: Optional[list[ClusteringKeyColumn]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     warm_throughput: Optional[WarmThroughput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     keyspace_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     encryption_specification: Optional[EncryptionSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     point_in_time_recovery_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     cdc_specification: Optional[CdcSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auto_scaling_specifications: Optional[AutoScalingSpecification] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     client_side_timestamps_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     partition_key_columns: Optional[list[Column]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     billing_mode: Optional[BillingMode] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     default_time_to_live: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     regular_columns: Optional[list[Column]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
 
@@ -323,9 +273,7 @@ class Field(PropertyType):
         "field_type": "FieldType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -340,11 +288,8 @@ class Type(CloudFormationResource):
         "keyspace_name": "KeyspaceName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     fields: Optional[list[Field]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     keyspace_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:49
+  Generated: 2025-12-17 21:50:32
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service KinesisFirehose
@@ -436,9 +436,7 @@ class AmazonOpenSearchServerlessBufferingHints(PropertyType):
         "size_in_m_bs": "SizeInMBs",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interval_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     size_in_m_bs: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -459,25 +457,15 @@ class AmazonOpenSearchServerlessDestinationConfiguration(PropertyType):
         "s3_backup_mode": "S3BackupMode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     index_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_configuration: Optional[S3DestinationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     buffering_hints: Optional[AmazonOpenSearchServerlessBufferingHints] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retry_options: Optional[AmazonOpenSearchServerlessRetryOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     collection_endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_configuration: Optional[VpcConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     processing_configuration: Optional[ProcessingConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch_logging_options: Optional[CloudWatchLoggingOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_backup_mode: Optional[Union[str, AmazonOpenSearchServerlessS3BackupMode, Ref, GetAtt, Sub]] = None
 
 
@@ -489,7 +477,6 @@ class AmazonOpenSearchServerlessRetryOptions(PropertyType):
         "duration_in_seconds": "DurationInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     duration_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -502,9 +489,7 @@ class AmazonopensearchserviceBufferingHints(PropertyType):
         "size_in_m_bs": "SizeInMBs",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interval_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     size_in_m_bs: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -529,33 +514,19 @@ class AmazonopensearchserviceDestinationConfiguration(PropertyType):
         "cloud_watch_logging_options": "CloudWatchLoggingOptions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     index_rotation_period: Optional[Union[str, AmazonopensearchserviceIndexRotationPeriod, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     processing_configuration: Optional[ProcessingConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cluster_endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     domain_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_backup_mode: Optional[Union[str, AmazonopensearchserviceS3BackupMode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     index_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     document_id_options: Optional[DocumentIdOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_configuration: Optional[S3DestinationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     buffering_hints: Optional[AmazonopensearchserviceBufferingHints] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retry_options: Optional[AmazonopensearchserviceRetryOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_configuration: Optional[VpcConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch_logging_options: Optional[CloudWatchLoggingOptions] = None
 
 
@@ -567,7 +538,6 @@ class AmazonopensearchserviceRetryOptions(PropertyType):
         "duration_in_seconds": "DurationInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     duration_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -580,9 +550,7 @@ class AuthenticationConfiguration(PropertyType):
         "role_arn": "RoleARN",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connectivity: Optional[Union[str, Connectivity, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -595,9 +563,7 @@ class BufferingHints(PropertyType):
         "size_in_m_bs": "SizeInMBs",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interval_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     size_in_m_bs: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -610,9 +576,7 @@ class CatalogConfiguration(PropertyType):
         "warehouse_location": "WarehouseLocation",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     catalog_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     warehouse_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -626,11 +590,8 @@ class CloudWatchLoggingOptions(PropertyType):
         "log_group_name": "LogGroupName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_stream_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -644,11 +605,8 @@ class CopyCommand(PropertyType):
         "data_table_columns": "DataTableColumns",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     copy_options: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_table_columns: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -663,13 +621,9 @@ class DataFormatConversionConfiguration(PropertyType):
         "output_format_configuration": "OutputFormatConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input_format_configuration: Optional[InputFormatConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     schema_configuration: Optional[SchemaConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     output_format_configuration: Optional[OutputFormatConfiguration] = None
 
 
@@ -682,9 +636,7 @@ class DatabaseColumns(PropertyType):
         "include": "Include",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exclude: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include: Optional[Union[list[str], Ref]] = None
 
 
@@ -696,7 +648,6 @@ class DatabaseSourceAuthenticationConfiguration(PropertyType):
         "secrets_manager_configuration": "SecretsManagerConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secrets_manager_configuration: Optional[SecretsManagerConfiguration] = None
 
 
@@ -720,31 +671,18 @@ class DatabaseSourceConfiguration(PropertyType):
         "database_source_vpc_configuration": "DatabaseSourceVPCConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     digest: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     public_certificate: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     columns: Optional[DatabaseColumns] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, DatabaseType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     surrogate_keys: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     databases: Optional[Databases] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ssl_mode: Optional[Union[str, SSLMode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     snapshot_watermark_table: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_source_authentication_configuration: Optional[DatabaseSourceAuthenticationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tables: Optional[DatabaseTables] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_source_vpc_configuration: Optional[DatabaseSourceVPCConfiguration] = None
 
 
@@ -756,7 +694,6 @@ class DatabaseSourceVPCConfiguration(PropertyType):
         "vpc_endpoint_service_name": "VpcEndpointServiceName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_endpoint_service_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -769,9 +706,7 @@ class DatabaseTables(PropertyType):
         "include": "Include",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exclude: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include: Optional[Union[list[str], Ref]] = None
 
 
@@ -784,9 +719,7 @@ class Databases(PropertyType):
         "include": "Include",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exclude: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include: Optional[Union[list[str], Ref]] = None
 
 
@@ -799,9 +732,7 @@ class DeliveryStreamEncryptionConfigurationInput(PropertyType):
         "key_arn": "KeyARN",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_type: Optional[Union[str, KeyType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -814,9 +745,7 @@ class Deserializer(PropertyType):
         "open_x_json_ser_de": "OpenXJsonSerDe",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hive_json_ser_de: Optional[HiveJsonSerDe] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     open_x_json_ser_de: Optional[OpenXJsonSerDe] = None
 
 
@@ -832,15 +761,10 @@ class DestinationTableConfiguration(PropertyType):
         "partition_spec": "PartitionSpec",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_database_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_error_output_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     unique_keys: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     partition_spec: Optional[PartitionSpec] = None
 
 
@@ -852,7 +776,6 @@ class DirectPutSourceConfiguration(PropertyType):
         "throughput_hint_in_m_bs": "ThroughputHintInMBs",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     throughput_hint_in_m_bs: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -864,7 +787,6 @@ class DocumentIdOptions(PropertyType):
         "default_document_id_format": "DefaultDocumentIdFormat",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_document_id_format: Optional[Union[str, DefaultDocumentIdFormat, Ref, GetAtt, Sub]] = None
 
 
@@ -877,9 +799,7 @@ class DynamicPartitioningConfiguration(PropertyType):
         "retry_options": "RetryOptions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retry_options: Optional[RetryOptions] = None
 
 
@@ -892,9 +812,7 @@ class ElasticsearchBufferingHints(PropertyType):
         "size_in_m_bs": "SizeInMBs",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interval_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     size_in_m_bs: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -919,33 +837,19 @@ class ElasticsearchDestinationConfiguration(PropertyType):
         "cloud_watch_logging_options": "CloudWatchLoggingOptions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     index_rotation_period: Optional[Union[str, ElasticsearchIndexRotationPeriod, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     processing_configuration: Optional[ProcessingConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cluster_endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     domain_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_backup_mode: Optional[Union[str, ElasticsearchS3BackupMode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     index_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     document_id_options: Optional[DocumentIdOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_configuration: Optional[S3DestinationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     buffering_hints: Optional[ElasticsearchBufferingHints] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retry_options: Optional[ElasticsearchRetryOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_configuration: Optional[VpcConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch_logging_options: Optional[CloudWatchLoggingOptions] = None
 
 
@@ -957,7 +861,6 @@ class ElasticsearchRetryOptions(PropertyType):
         "duration_in_seconds": "DurationInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     duration_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -970,9 +873,7 @@ class EncryptionConfiguration(PropertyType):
         "no_encryption_config": "NoEncryptionConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_encryption_config: Optional[KMSEncryptionConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     no_encryption_config: Optional[Union[str, NoEncryptionConfig, Ref, GetAtt, Sub]] = None
 
 
@@ -998,35 +899,20 @@ class ExtendedS3DestinationConfiguration(PropertyType):
         "cloud_watch_logging_options": "CloudWatchLoggingOptions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     error_output_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_backup_configuration: Optional[S3DestinationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compression_format: Optional[Union[str, CompressionFormat, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_format_conversion_configuration: Optional[DataFormatConversionConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_configuration: Optional[EncryptionConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_time_zone: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dynamic_partitioning_configuration: Optional[DynamicPartitioningConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     processing_configuration: Optional[ProcessingConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_backup_mode: Optional[Union[str, S3BackupMode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     buffering_hints: Optional[BufferingHints] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file_extension: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch_logging_options: Optional[CloudWatchLoggingOptions] = None
 
 
@@ -1038,7 +924,6 @@ class HiveJsonSerDe(PropertyType):
         "timestamp_formats": "TimestampFormats",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timestamp_formats: Optional[Union[list[str], Ref]] = None
 
 
@@ -1051,9 +936,7 @@ class HttpEndpointCommonAttribute(PropertyType):
         "attribute_name": "AttributeName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attribute_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attribute_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1067,11 +950,8 @@ class HttpEndpointConfiguration(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     access_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1092,25 +972,15 @@ class HttpEndpointDestinationConfiguration(PropertyType):
         "s3_backup_mode": "S3BackupMode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     request_configuration: Optional[HttpEndpointRequestConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_configuration: Optional[S3DestinationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     buffering_hints: Optional[BufferingHints] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retry_options: Optional[RetryOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secrets_manager_configuration: Optional[SecretsManagerConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoint_configuration: Optional[HttpEndpointConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     processing_configuration: Optional[ProcessingConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch_logging_options: Optional[CloudWatchLoggingOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_backup_mode: Optional[Union[str, HttpEndpointS3BackupMode, Ref, GetAtt, Sub]] = None
 
 
@@ -1123,9 +993,7 @@ class HttpEndpointRequestConfiguration(PropertyType):
         "content_encoding": "ContentEncoding",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     common_attributes: Optional[list[HttpEndpointCommonAttribute]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     content_encoding: Optional[Union[str, ContentEncoding, Ref, GetAtt, Sub]] = None
 
 
@@ -1148,29 +1016,17 @@ class IcebergDestinationConfiguration(PropertyType):
         "role_arn": "RoleARN",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     catalog_configuration: Optional[CatalogConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_configuration: Optional[S3DestinationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_table_configuration_list: Optional[list[DestinationTableConfiguration]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     buffering_hints: Optional[BufferingHints] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_creation_configuration: Optional[TableCreationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retry_options: Optional[RetryOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_backup_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     processing_configuration: Optional[ProcessingConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     schema_evolution_configuration: Optional[SchemaEvolutionConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     append_only: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch_logging_options: Optional[CloudWatchLoggingOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1182,7 +1038,6 @@ class InputFormatConfiguration(PropertyType):
         "deserializer": "Deserializer",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     deserializer: Optional[Deserializer] = None
 
 
@@ -1194,7 +1049,6 @@ class KMSEncryptionConfig(PropertyType):
         "awskms_key_arn": "AWSKMSKeyARN",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     awskms_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1207,9 +1061,7 @@ class KinesisStreamSourceConfiguration(PropertyType):
         "role_arn": "RoleARN",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kinesis_stream_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1224,13 +1076,9 @@ class MSKSourceConfiguration(PropertyType):
         "topic_name": "TopicName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     authentication_configuration: Optional[AuthenticationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     read_from_timestamp: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     msk_cluster_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     topic_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1244,11 +1092,8 @@ class OpenXJsonSerDe(PropertyType):
         "case_insensitive": "CaseInsensitive",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     convert_dots_in_json_keys_to_underscores: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     column_to_json_key_mappings: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     case_insensitive: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1269,25 +1114,15 @@ class OrcSerDe(PropertyType):
         "dictionary_key_threshold": "DictionaryKeyThreshold",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     padding_tolerance: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compression: Optional[Union[str, OrcCompression, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stripe_size_bytes: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bloom_filter_columns: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bloom_filter_false_positive_probability: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_padding: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     format_version: Optional[Union[str, OrcFormatVersion, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     row_index_stride: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     block_size_bytes: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dictionary_key_threshold: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -1299,7 +1134,6 @@ class OutputFormatConfiguration(PropertyType):
         "serializer": "Serializer",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     serializer: Optional[Serializer] = None
 
 
@@ -1316,17 +1150,11 @@ class ParquetSerDe(PropertyType):
         "writer_version": "WriterVersion",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compression: Optional[Union[str, ParquetCompression, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     block_size_bytes: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_dictionary_compression: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     page_size_bytes: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_padding_bytes: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     writer_version: Optional[Union[str, ParquetWriterVersion, Ref, GetAtt, Sub]] = None
 
 
@@ -1338,7 +1166,6 @@ class PartitionField(PropertyType):
         "source_name": "SourceName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1350,7 +1177,6 @@ class PartitionSpec(PropertyType):
         "identity": "Identity",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     identity: Optional[list[PartitionField]] = None
 
 
@@ -1363,9 +1189,7 @@ class ProcessingConfiguration(PropertyType):
         "processors": "Processors",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     processors: Optional[list[Processor]] = None
 
 
@@ -1378,9 +1202,7 @@ class Processor(PropertyType):
         "parameters": "Parameters",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, ProcessorType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parameters: Optional[list[ProcessorParameter]] = None
 
 
@@ -1393,9 +1215,7 @@ class ProcessorParameter(PropertyType):
         "parameter_name": "ParameterName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parameter_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parameter_name: Optional[Union[str, ProcessorParameterName, Ref, GetAtt, Sub]] = None
 
 
@@ -1418,29 +1238,17 @@ class RedshiftDestinationConfiguration(PropertyType):
         "s3_backup_mode": "S3BackupMode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_backup_configuration: Optional[S3DestinationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_configuration: Optional[S3DestinationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     username: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     copy_command: Optional[CopyCommand] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retry_options: Optional[RedshiftRetryOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secrets_manager_configuration: Optional[SecretsManagerConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     processing_configuration: Optional[ProcessingConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch_logging_options: Optional[CloudWatchLoggingOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cluster_jdbcurl: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     password: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_backup_mode: Optional[Union[str, RedshiftS3BackupMode, Ref, GetAtt, Sub]] = None
 
 
@@ -1452,7 +1260,6 @@ class RedshiftRetryOptions(PropertyType):
         "duration_in_seconds": "DurationInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     duration_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1464,7 +1271,6 @@ class RetryOptions(PropertyType):
         "duration_in_seconds": "DurationInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     duration_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1483,21 +1289,13 @@ class S3DestinationConfiguration(PropertyType):
         "role_arn": "RoleARN",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     error_output_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     buffering_hints: Optional[BufferingHints] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compression_format: Optional[Union[str, CompressionFormat, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_configuration: Optional[EncryptionConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch_logging_options: Optional[CloudWatchLoggingOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1514,17 +1312,11 @@ class SchemaConfiguration(PropertyType):
         "role_arn": "RoleARN",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     version_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     catalog_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1536,7 +1328,6 @@ class SchemaEvolutionConfiguration(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1550,11 +1341,8 @@ class SecretsManagerConfiguration(PropertyType):
         "role_arn": "RoleARN",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1567,9 +1355,7 @@ class Serializer(PropertyType):
         "parquet_ser_de": "ParquetSerDe",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     orc_ser_de: Optional[OrcSerDe] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parquet_ser_de: Optional[ParquetSerDe] = None
 
 
@@ -1582,9 +1368,7 @@ class SnowflakeBufferingHints(PropertyType):
         "size_in_m_bs": "SizeInMBs",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interval_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     size_in_m_bs: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1615,45 +1399,25 @@ class SnowflakeDestinationConfiguration(PropertyType):
         "cloud_watch_logging_options": "CloudWatchLoggingOptions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     private_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     table: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     snowflake_vpc_configuration: Optional[SnowflakeVpcConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_loading_option: Optional[Union[str, SnowflakeDataLoadingOption, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     schema: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     content_column_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secrets_manager_configuration: Optional[SecretsManagerConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     snowflake_role_configuration: Optional[SnowflakeRoleConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     processing_configuration: Optional[ProcessingConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     account_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_backup_mode: Optional[Union[str, SnowflakeS3BackupMode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_configuration: Optional[S3DestinationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     buffering_hints: Optional[SnowflakeBufferingHints] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     meta_data_column_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     database: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retry_options: Optional[SnowflakeRetryOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_passphrase: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch_logging_options: Optional[CloudWatchLoggingOptions] = None
 
 
@@ -1665,7 +1429,6 @@ class SnowflakeRetryOptions(PropertyType):
         "duration_in_seconds": "DurationInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     duration_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1678,9 +1441,7 @@ class SnowflakeRoleConfiguration(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     snowflake_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1692,7 +1453,6 @@ class SnowflakeVpcConfiguration(PropertyType):
         "private_link_vpce_id": "PrivateLinkVpceId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     private_link_vpce_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1705,9 +1465,7 @@ class SplunkBufferingHints(PropertyType):
         "size_in_m_bs": "SizeInMBs",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interval_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     size_in_m_bs: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1729,27 +1487,16 @@ class SplunkDestinationConfiguration(PropertyType):
         "s3_backup_mode": "S3BackupMode",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hec_endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_configuration: Optional[S3DestinationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     buffering_hints: Optional[SplunkBufferingHints] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hec_token: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retry_options: Optional[SplunkRetryOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hec_endpoint_type: Optional[Union[str, HECEndpointType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secrets_manager_configuration: Optional[SecretsManagerConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hec_acknowledgment_timeout_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     processing_configuration: Optional[ProcessingConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch_logging_options: Optional[CloudWatchLoggingOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_backup_mode: Optional[Union[str, SplunkS3BackupMode, Ref, GetAtt, Sub]] = None
 
 
@@ -1761,7 +1508,6 @@ class SplunkRetryOptions(PropertyType):
         "duration_in_seconds": "DurationInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     duration_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1773,7 +1519,6 @@ class TableCreationConfiguration(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1787,11 +1532,8 @@ class VpcConfiguration(PropertyType):
         "role_arn": "RoleARN",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnet_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_group_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1821,41 +1563,23 @@ class DeliveryStream(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     delivery_stream_encryption_configuration_input: Optional[DeliveryStreamEncryptionConfigurationInput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     http_endpoint_destination_configuration: Optional[HttpEndpointDestinationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kinesis_stream_source_configuration: Optional[KinesisStreamSourceConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     delivery_stream_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     iceberg_destination_configuration: Optional[IcebergDestinationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     redshift_destination_configuration: Optional[RedshiftDestinationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     amazonopensearchservice_destination_configuration: Optional[AmazonopensearchserviceDestinationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     msk_source_configuration: Optional[MSKSourceConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     direct_put_source_configuration: Optional[DirectPutSourceConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     splunk_destination_configuration: Optional[SplunkDestinationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     extended_s3_destination_configuration: Optional[ExtendedS3DestinationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     amazon_open_search_serverless_destination_configuration: Optional[AmazonOpenSearchServerlessDestinationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     elasticsearch_destination_configuration: Optional[ElasticsearchDestinationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     snowflake_destination_configuration: Optional[SnowflakeDestinationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     database_source_configuration: Optional[DatabaseSourceConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     s3_destination_configuration: Optional[S3DestinationConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     delivery_stream_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property

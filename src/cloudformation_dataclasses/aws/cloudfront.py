@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:34
+  Generated: 2025-12-17 21:50:30
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CloudFront
@@ -607,23 +607,14 @@ class AnycastIpList(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ip_address_type: Optional[Union[str, IpAddressType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ip_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     anycast_ips: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     last_modified_time: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ipam_cidr_config_results: Optional[list[IpamCidrConfigResult]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -636,9 +627,7 @@ class IpamCidrConfig(PropertyType):
         "ipam_pool_arn": "IpamPoolArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cidr: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ipam_pool_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -653,13 +642,9 @@ class IpamCidrConfigResult(PropertyType):
         "ipam_pool_arn": "IpamPoolArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     anycast_ip: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cidr: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ipam_pool_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -671,7 +656,6 @@ class Tags(PropertyType):
         "items": "Items",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     items: Optional[list[Tag]] = None
 
 
@@ -688,15 +672,10 @@ class AnycastIpList(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ip_address_type: Optional[Union[str, IpAddressType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ip_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ipam_cidr_configs: Optional[list[IpamCidrConfig]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[Tags] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -780,17 +759,11 @@ class CachePolicyConfig(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     comment: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min_ttl: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_ttl: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parameters_in_cache_key_and_forwarded_to_origin: Optional[ParametersInCacheKeyAndForwardedToOrigin] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_ttl: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -803,9 +776,7 @@ class CookiesConfig(PropertyType):
         "cookie_behavior": "CookieBehavior",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cookies: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cookie_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -818,9 +789,7 @@ class HeadersConfig(PropertyType):
         "header_behavior": "HeaderBehavior",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     headers: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -836,15 +805,10 @@ class ParametersInCacheKeyAndForwardedToOrigin(PropertyType):
         "query_strings_config": "QueryStringsConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_accept_encoding_brotli: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     headers_config: Optional[HeadersConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cookies_config: Optional[CookiesConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_accept_encoding_gzip: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_strings_config: Optional[QueryStringsConfig] = None
 
 
@@ -857,9 +821,7 @@ class QueryStringsConfig(PropertyType):
         "query_string_behavior": "QueryStringBehavior",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_strings: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_string_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -872,7 +834,6 @@ class CachePolicy(CloudFormationResource):
         "cache_policy_config": "CachePolicyConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     cache_policy_config: Optional[CachePolicyConfig] = None
 
     @property
@@ -896,7 +857,6 @@ class CloudFrontOriginAccessIdentityConfig(PropertyType):
         "comment": "Comment",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     comment: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -909,7 +869,6 @@ class CloudFrontOriginAccessIdentity(CloudFormationResource):
         "cloud_front_origin_access_identity_config": "CloudFrontOriginAccessIdentityConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     cloud_front_origin_access_identity_config: Optional[CloudFrontOriginAccessIdentityConfig] = None
 
     @property
@@ -935,11 +894,8 @@ class ConnectionFunctionConfig(PropertyType):
         "key_value_store_associations": "KeyValueStoreAssociations",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     comment: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     runtime: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_value_store_associations: Optional[list[KeyValueStoreAssociation]] = None
 
 
@@ -951,7 +907,6 @@ class KeyValueStoreAssociation(PropertyType):
         "key_value_store_arn": "KeyValueStoreARN",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_value_store_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -968,15 +923,10 @@ class ConnectionFunction(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connection_function_config: Optional[ConnectionFunctionConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auto_publish: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connection_function_code: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1030,15 +980,10 @@ class ConnectionGroup(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ipv6_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     anycast_ip_list_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -1097,17 +1042,11 @@ class ContinuousDeploymentPolicyConfig(PropertyType):
         "single_weight_policy_config": "SingleWeightPolicyConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     single_header_policy_config: Optional[SingleHeaderPolicyConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     staging_distribution_dns_names: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     traffic_config: Optional[TrafficConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     single_weight_policy_config: Optional[SingleWeightPolicyConfig] = None
 
 
@@ -1120,9 +1059,7 @@ class SessionStickinessConfig(PropertyType):
         "maximum_ttl": "MaximumTTL",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     idle_ttl: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maximum_ttl: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1135,9 +1072,7 @@ class SingleHeaderConfig(PropertyType):
         "value": "Value",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1150,9 +1085,7 @@ class SingleHeaderPolicyConfig(PropertyType):
         "value": "Value",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1165,9 +1098,7 @@ class SingleWeightConfig(PropertyType):
         "weight": "Weight",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     session_stickiness_config: Optional[SessionStickinessConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     weight: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -1180,9 +1111,7 @@ class SingleWeightPolicyConfig(PropertyType):
         "weight": "Weight",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     session_stickiness_config: Optional[SessionStickinessConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     weight: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -1196,11 +1125,8 @@ class TrafficConfig(PropertyType):
         "single_header_config": "SingleHeaderConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     single_weight_config: Optional[SingleWeightConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, ContinuousDeploymentPolicyType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     single_header_config: Optional[SingleHeaderConfig] = None
 
 
@@ -1213,7 +1139,6 @@ class ContinuousDeploymentPolicy(CloudFormationResource):
         "continuous_deployment_policy_config": "ContinuousDeploymentPolicyConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     continuous_deployment_policy_config: Optional[ContinuousDeploymentPolicyConfig] = None
 
     @property
@@ -1257,47 +1182,26 @@ class CacheBehavior(PropertyType):
         "max_ttl": "MaxTTL",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compress: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     function_associations: Optional[list[FunctionAssociation]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lambda_function_associations: Optional[list[LambdaFunctionAssociation]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_origin_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     viewer_protocol_policy: Optional[Union[str, ViewerProtocolPolicy, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     response_headers_policy_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     grpc_config: Optional[GrpcConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     realtime_log_config_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     trusted_signers: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_ttl: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_level_encryption_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     trusted_key_groups: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allowed_methods: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     path_pattern: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cached_methods: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     smooth_streaming: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     forwarded_values: Optional[ForwardedValues] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     origin_request_policy_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min_ttl: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cache_policy_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_ttl: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -1309,7 +1213,6 @@ class ConnectionFunctionAssociation(PropertyType):
         "id": "Id",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1322,9 +1225,7 @@ class Cookies(PropertyType):
         "forward": "Forward",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     whitelisted_names: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     forward: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1339,13 +1240,9 @@ class CustomErrorResponse(PropertyType):
         "response_page_path": "ResponsePagePath",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     response_code: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     error_caching_min_ttl: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     error_code: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     response_page_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1363,19 +1260,12 @@ class CustomOriginConfig(PropertyType):
         "origin_protocol_policy": "OriginProtocolPolicy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ip_address_type: Optional[Union[str, IpAddressType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     origin_read_timeout: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     https_port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     origin_keepalive_timeout: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     origin_ssl_protocols: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http_port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     origin_protocol_policy: Optional[Union[str, OriginProtocolPolicy, Ref, GetAtt, Sub]] = None
 
 
@@ -1406,45 +1296,25 @@ class DefaultCacheBehavior(PropertyType):
         "max_ttl": "MaxTTL",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     compress: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     function_associations: Optional[list[FunctionAssociation]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lambda_function_associations: Optional[list[LambdaFunctionAssociation]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_origin_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     viewer_protocol_policy: Optional[Union[str, ViewerProtocolPolicy, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     response_headers_policy_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     grpc_config: Optional[GrpcConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     realtime_log_config_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     trusted_signers: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_ttl: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     field_level_encryption_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     trusted_key_groups: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     allowed_methods: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cached_methods: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     smooth_streaming: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     forwarded_values: Optional[ForwardedValues] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     origin_request_policy_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min_ttl: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cache_policy_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_ttl: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -1456,7 +1326,6 @@ class Definition(PropertyType):
         "string_schema": "StringSchema",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     string_schema: Optional[StringSchema] = None
 
 
@@ -1493,57 +1362,31 @@ class DistributionConfig(PropertyType):
         "web_acl_id": "WebACLId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     price_class: Optional[Union[str, PriceClass, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     staging: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_error_responses: Optional[list[CustomErrorResponse]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     continuous_deployment_policy_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     origin_groups: Optional[OriginGroups] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connection_function_association: Optional[ConnectionFunctionAssociation] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ipv6_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tenant_config: Optional[TenantConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cnam_es: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     viewer_mtls_config: Optional[ViewerMtlsConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http_version: Optional[Union[str, HttpVersion, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     restrictions: Optional[Restrictions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cache_behaviors: Optional[list[CacheBehavior]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     logging: Optional[Logging] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     comment: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_root_object: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     origins: Optional[list[Origin]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     viewer_certificate: Optional[ViewerCertificate] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     anycast_ip_list_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_origin: Optional[LegacyCustomOrigin] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_origin: Optional[LegacyS3Origin] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_cache_behavior: Optional[DefaultCacheBehavior] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aliases: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connection_mode: Optional[Union[str, ConnectionMode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     web_acl_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1558,13 +1401,9 @@ class ForwardedValues(PropertyType):
         "query_string_cache_keys": "QueryStringCacheKeys",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cookies: Optional[Cookies] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     headers: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_string: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_string_cache_keys: Optional[Union[list[str], Ref]] = None
 
 
@@ -1577,9 +1416,7 @@ class FunctionAssociation(PropertyType):
         "event_type": "EventType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     function_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     event_type: Optional[Union[str, EventType, Ref, GetAtt, Sub]] = None
 
 
@@ -1592,9 +1429,7 @@ class GeoRestriction(PropertyType):
         "restriction_type": "RestrictionType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     locations: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     restriction_type: Optional[Union[str, GeoRestrictionType, Ref, GetAtt, Sub]] = None
 
 
@@ -1606,7 +1441,6 @@ class GrpcConfig(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1620,11 +1454,8 @@ class LambdaFunctionAssociation(PropertyType):
         "lambda_function_arn": "LambdaFunctionARN",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_body: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     event_type: Optional[Union[str, EventType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lambda_function_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1640,15 +1471,10 @@ class LegacyCustomOrigin(PropertyType):
         "origin_protocol_policy": "OriginProtocolPolicy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     https_port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     origin_ssl_protocols: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dns_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http_port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     origin_protocol_policy: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1661,9 +1487,7 @@ class LegacyS3Origin(PropertyType):
         "dns_name": "DNSName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     origin_access_identity: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dns_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1677,11 +1501,8 @@ class Logging(PropertyType):
         "prefix": "Prefix",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_cookies: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1704,29 +1525,17 @@ class Origin(PropertyType):
         "custom_origin_config": "CustomOriginConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connection_timeout: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     origin_access_control_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connection_attempts: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     origin_custom_headers: Optional[list[OriginCustomHeader]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     domain_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     origin_shield: Optional[OriginShield] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_origin_config: Optional[S3OriginConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_origin_config: Optional[VpcOriginConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     origin_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     response_completion_timeout: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_origin_config: Optional[CustomOriginConfig] = None
 
 
@@ -1739,9 +1548,7 @@ class OriginCustomHeader(PropertyType):
         "header_name": "HeaderName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1756,13 +1563,9 @@ class OriginGroup(PropertyType):
         "members": "Members",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     selection_criteria: Optional[Union[str, OriginGroupSelectionCriteria, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failover_criteria: Optional[OriginGroupFailoverCriteria] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     members: Optional[OriginGroupMembers] = None
 
 
@@ -1774,7 +1577,6 @@ class OriginGroupFailoverCriteria(PropertyType):
         "status_codes": "StatusCodes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     status_codes: Optional[StatusCodes] = None
 
 
@@ -1786,7 +1588,6 @@ class OriginGroupMember(PropertyType):
         "origin_id": "OriginId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     origin_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1799,9 +1600,7 @@ class OriginGroupMembers(PropertyType):
         "items": "Items",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     quantity: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     items: Optional[list[OriginGroupMember]] = None
 
 
@@ -1814,9 +1613,7 @@ class OriginGroups(PropertyType):
         "items": "Items",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     quantity: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     items: Optional[list[OriginGroup]] = None
 
 
@@ -1829,9 +1626,7 @@ class OriginShield(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     origin_shield_region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1844,9 +1639,7 @@ class ParameterDefinition(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     definition: Optional[Definition] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1858,7 +1651,6 @@ class Restrictions(PropertyType):
         "geo_restriction": "GeoRestriction",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     geo_restriction: Optional[GeoRestriction] = None
 
 
@@ -1871,9 +1663,7 @@ class S3OriginConfig(PropertyType):
         "origin_access_identity": "OriginAccessIdentity",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     origin_read_timeout: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     origin_access_identity: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1886,9 +1676,7 @@ class StatusCodes(PropertyType):
         "items": "Items",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     quantity: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     items: Optional[Union[list[int], Ref]] = None
 
 
@@ -1902,11 +1690,8 @@ class StringSchema(PropertyType):
         "required": "Required",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     comment: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     required: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1918,7 +1703,6 @@ class TenantConfig(PropertyType):
         "parameter_definitions": "ParameterDefinitions",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parameter_definitions: Optional[list[ParameterDefinition]] = None
 
 
@@ -1932,11 +1716,8 @@ class TrustStoreConfig(PropertyType):
         "advertise_trust_store_ca_names": "AdvertiseTrustStoreCaNames",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     trust_store_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ignore_certificate_expiry: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     advertise_trust_store_ca_names: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1952,15 +1733,10 @@ class ViewerCertificate(PropertyType):
         "acm_certificate_arn": "AcmCertificateArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     iam_certificate_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ssl_support_method: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     minimum_protocol_version: Optional[Union[str, MinimumProtocolVersion, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_front_default_certificate: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     acm_certificate_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1973,9 +1749,7 @@ class ViewerMtlsConfig(PropertyType):
         "trust_store_config": "TrustStoreConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mode: Optional[Union[str, ViewerMtlsMode, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     trust_store_config: Optional[TrustStoreConfig] = None
 
 
@@ -1990,13 +1764,9 @@ class VpcOriginConfig(PropertyType):
         "owner_account_id": "OwnerAccountId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     origin_read_timeout: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_origin_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     origin_keepalive_timeout: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     owner_account_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2010,9 +1780,7 @@ class Distribution(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     distribution_config: Optional[DistributionConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -2036,7 +1804,6 @@ class Certificate(PropertyType):
         "arn": "Arn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2050,11 +1817,8 @@ class Customizations(PropertyType):
         "certificate": "Certificate",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     web_acl: Optional[WebAclCustomization] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     geo_restrictions: Optional[GeoRestrictionCustomization] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     certificate: Optional[Certificate] = None
 
 
@@ -2067,9 +1831,7 @@ class DomainResult(PropertyType):
         "domain": "Domain",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     status: Optional[Union[str, DomainStatus, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     domain: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2082,9 +1844,7 @@ class GeoRestrictionCustomization(PropertyType):
         "restriction_type": "RestrictionType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     locations: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     restriction_type: Optional[Union[str, GeoRestrictionType, Ref, GetAtt, Sub]] = None
 
 
@@ -2098,11 +1858,8 @@ class ManagedCertificateRequest(PropertyType):
         "primary_domain_name": "PrimaryDomainName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     certificate_transparency_logging_preference: Optional[Union[str, CertificateTransparencyLoggingPreference, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     validation_token_host: Optional[Union[str, ValidationTokenHost, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     primary_domain_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2115,9 +1872,7 @@ class Parameter(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2130,9 +1885,7 @@ class WebAclCustomization(PropertyType):
         "arn": "Arn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[Union[str, CustomizationActionType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2153,23 +1906,14 @@ class DistributionTenant(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     domains: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     parameters: Optional[list[Parameter]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     customizations: Optional[Customizations] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     managed_certificate_request: Optional[ManagedCertificateRequest] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     distribution_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connection_group_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -2220,11 +1964,8 @@ class FunctionConfig(PropertyType):
         "key_value_store_associations": "KeyValueStoreAssociations",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     comment: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     runtime: Optional[Union[str, FunctionRuntime, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_value_store_associations: Optional[list[KeyValueStoreAssociation]] = None
 
 
@@ -2236,7 +1977,6 @@ class FunctionMetadata(PropertyType):
         "function_arn": "FunctionARN",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     function_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2248,7 +1988,6 @@ class KeyValueStoreAssociation(PropertyType):
         "key_value_store_arn": "KeyValueStoreARN",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_value_store_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2265,15 +2004,10 @@ class Function(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     function_config: Optional[FunctionConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     function_metadata: Optional[FunctionMetadata] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auto_publish: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     function_code: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -2304,11 +2038,8 @@ class KeyGroupConfig(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     comment: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     items: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2321,7 +2052,6 @@ class KeyGroup(CloudFormationResource):
         "key_group_config": "KeyGroupConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     key_group_config: Optional[KeyGroupConfig] = None
 
     @property
@@ -2346,9 +2076,7 @@ class ImportSource(PropertyType):
         "source_type": "SourceType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_type: Optional[Union[str, ImportSourceType, Ref, GetAtt, Sub]] = None
 
 
@@ -2363,11 +2091,8 @@ class KeyValueStore(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     comment: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     import_source: Optional[ImportSource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -2396,7 +2121,6 @@ class MonitoringSubscription(PropertyType):
         "realtime_metrics_subscription_config": "RealtimeMetricsSubscriptionConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     realtime_metrics_subscription_config: Optional[RealtimeMetricsSubscriptionConfig] = None
 
 
@@ -2408,7 +2132,6 @@ class RealtimeMetricsSubscriptionConfig(PropertyType):
         "realtime_metrics_subscription_status": "RealtimeMetricsSubscriptionStatus",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     realtime_metrics_subscription_status: Optional[Union[str, RealtimeMetricsSubscriptionStatus, Ref, GetAtt, Sub]] = None
 
 
@@ -2422,9 +2145,7 @@ class MonitoringSubscription(CloudFormationResource):
         "distribution_id": "DistributionId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     monitoring_subscription: Optional[MonitoringSubscription] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     distribution_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2441,15 +2162,10 @@ class OriginAccessControlConfig(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     signing_behavior: Optional[Union[str, OriginAccessControlSigningBehaviors, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     origin_access_control_origin_type: Optional[Union[str, OriginAccessControlOriginTypes, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     signing_protocol: Optional[Union[str, OriginAccessControlSigningProtocols, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2462,7 +2178,6 @@ class OriginAccessControl(CloudFormationResource):
         "origin_access_control_config": "OriginAccessControlConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     origin_access_control_config: Optional[OriginAccessControlConfig] = None
 
     @property
@@ -2482,9 +2197,7 @@ class CookiesConfig(PropertyType):
         "cookie_behavior": "CookieBehavior",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cookies: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cookie_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2497,9 +2210,7 @@ class HeadersConfig(PropertyType):
         "header_behavior": "HeaderBehavior",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     headers: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2515,15 +2226,10 @@ class OriginRequestPolicyConfig(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     comment: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     headers_config: Optional[HeadersConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cookies_config: Optional[CookiesConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_strings_config: Optional[QueryStringsConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2536,9 +2242,7 @@ class QueryStringsConfig(PropertyType):
         "query_string_behavior": "QueryStringBehavior",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_strings: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_string_behavior: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2551,7 +2255,6 @@ class OriginRequestPolicy(CloudFormationResource):
         "origin_request_policy_config": "OriginRequestPolicyConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     origin_request_policy_config: Optional[OriginRequestPolicyConfig] = None
 
     @property
@@ -2578,13 +2281,9 @@ class PublicKeyConfig(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     comment: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     caller_reference: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encoded_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2597,7 +2296,6 @@ class PublicKey(CloudFormationResource):
         "public_key_config": "PublicKeyConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     public_key_config: Optional[PublicKeyConfig] = None
 
     @property
@@ -2622,9 +2320,7 @@ class EndPoint(PropertyType):
         "stream_type": "StreamType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kinesis_stream_config: Optional[KinesisStreamConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stream_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2637,9 +2333,7 @@ class KinesisStreamConfig(PropertyType):
         "role_arn": "RoleArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stream_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2655,13 +2349,9 @@ class RealtimeLogConfig(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     fields: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     end_points: Optional[list[EndPoint]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     sampling_rate: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -2680,7 +2370,6 @@ class AccessControlAllowHeaders(PropertyType):
         "items": "Items",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     items: Optional[Union[list[str], Ref]] = None
 
 
@@ -2692,7 +2381,6 @@ class AccessControlAllowMethods(PropertyType):
         "items": "Items",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     items: Optional[Union[list[str], Ref]] = None
 
 
@@ -2704,7 +2392,6 @@ class AccessControlAllowOrigins(PropertyType):
         "items": "Items",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     items: Optional[Union[list[str], Ref]] = None
 
 
@@ -2716,7 +2403,6 @@ class AccessControlExposeHeaders(PropertyType):
         "items": "Items",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     items: Optional[Union[list[str], Ref]] = None
 
 
@@ -2729,9 +2415,7 @@ class ContentSecurityPolicy(PropertyType):
         "override": "Override",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     content_security_policy: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     override: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2743,7 +2427,6 @@ class ContentTypeOptions(PropertyType):
         "override": "Override",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     override: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2761,19 +2444,12 @@ class CorsConfig(PropertyType):
         "access_control_max_age_sec": "AccessControlMaxAgeSec",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     access_control_allow_credentials: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     access_control_allow_headers: Optional[AccessControlAllowHeaders] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     origin_override: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     access_control_allow_methods: Optional[AccessControlAllowMethods] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     access_control_expose_headers: Optional[AccessControlExposeHeaders] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     access_control_allow_origins: Optional[AccessControlAllowOrigins] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     access_control_max_age_sec: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -2787,11 +2463,8 @@ class CustomHeader(PropertyType):
         "override": "Override",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     override: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2803,7 +2476,6 @@ class CustomHeadersConfig(PropertyType):
         "items": "Items",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     items: Optional[list[CustomHeader]] = None
 
 
@@ -2816,9 +2488,7 @@ class FrameOptions(PropertyType):
         "override": "Override",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     frame_option: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     override: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2831,9 +2501,7 @@ class ReferrerPolicy(PropertyType):
         "referrer_policy": "ReferrerPolicy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     override: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     referrer_policy: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2845,7 +2513,6 @@ class RemoveHeader(PropertyType):
         "header": "Header",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     header: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2857,7 +2524,6 @@ class RemoveHeadersConfig(PropertyType):
         "items": "Items",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     items: Optional[list[RemoveHeader]] = None
 
 
@@ -2875,19 +2541,12 @@ class ResponseHeadersPolicyConfig(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     comment: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_headers_config: Optional[SecurityHeadersConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     remove_headers_config: Optional[RemoveHeadersConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cors_config: Optional[CorsConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     server_timing_headers_config: Optional[ServerTimingHeadersConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_headers_config: Optional[CustomHeadersConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2904,17 +2563,11 @@ class SecurityHeadersConfig(PropertyType):
         "referrer_policy": "ReferrerPolicy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     content_security_policy: Optional[ContentSecurityPolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     frame_options: Optional[FrameOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     content_type_options: Optional[ContentTypeOptions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     strict_transport_security: Optional[StrictTransportSecurity] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     xss_protection: Optional[XSSProtection] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     referrer_policy: Optional[ReferrerPolicy] = None
 
 
@@ -2927,9 +2580,7 @@ class ServerTimingHeadersConfig(PropertyType):
         "sampling_rate": "SamplingRate",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sampling_rate: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -2944,13 +2595,9 @@ class StrictTransportSecurity(PropertyType):
         "override": "Override",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     preload: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     access_control_max_age_sec: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_subdomains: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     override: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2965,13 +2612,9 @@ class XSSProtection(PropertyType):
         "mode_block": "ModeBlock",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     report_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     override: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     protection: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mode_block: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -2984,7 +2627,6 @@ class ResponseHeadersPolicy(CloudFormationResource):
         "response_headers_policy_config": "ResponseHeadersPolicyConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     response_headers_policy_config: Optional[ResponseHeadersPolicyConfig] = None
 
     @property
@@ -3010,11 +2652,8 @@ class Logging(PropertyType):
         "prefix": "Prefix",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -3027,9 +2666,7 @@ class S3Origin(PropertyType):
         "origin_access_identity": "OriginAccessIdentity",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     domain_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     origin_access_identity: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -3047,19 +2684,12 @@ class StreamingDistributionConfig(PropertyType):
         "trusted_signers": "TrustedSigners",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     logging: Optional[Logging] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     comment: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     price_class: Optional[Union[str, PriceClass, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_origin: Optional[S3Origin] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aliases: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     trusted_signers: Optional[TrustedSigners] = None
 
 
@@ -3072,9 +2702,7 @@ class TrustedSigners(PropertyType):
         "aws_account_numbers": "AwsAccountNumbers",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_account_numbers: Optional[Union[list[str], Ref]] = None
 
 
@@ -3088,9 +2716,7 @@ class StreamingDistribution(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     streaming_distribution_config: Optional[StreamingDistributionConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -3112,13 +2738,9 @@ class CaCertificatesBundleS3Location(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -3130,7 +2752,6 @@ class CaCertificatesBundleSource(PropertyType):
         "ca_certificates_bundle_s3_location": "CaCertificatesBundleS3Location",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ca_certificates_bundle_s3_location: Optional[CaCertificatesBundleS3Location] = None
 
 
@@ -3145,11 +2766,8 @@ class TrustStore(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ca_certificates_bundle_source: Optional[CaCertificatesBundleSource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -3198,17 +2816,11 @@ class VpcOriginEndpointConfig(PropertyType):
         "origin_protocol_policy": "OriginProtocolPolicy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     https_port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     origin_ssl_protocols: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http_port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     origin_protocol_policy: Optional[Union[str, OriginProtocolPolicy, Ref, GetAtt, Sub]] = None
 
 
@@ -3222,9 +2834,7 @@ class VpcOrigin(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_origin_endpoint_config: Optional[VpcOriginEndpointConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property

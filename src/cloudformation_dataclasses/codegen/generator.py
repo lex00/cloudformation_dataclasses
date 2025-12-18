@@ -239,11 +239,6 @@ def generate_property_type_class(
                 enum_mappings=enum_mappings,
             )
 
-            # Add comment if documentation exists
-            if prop.documentation:
-                doc_line = prop.documentation.split("\n")[0][:60]
-                lines.append(f"{indent}    # {doc_line}")
-
             # Add field - make all optional for consistency
             lines.append(f"{indent}    {snake_name}: Optional[{python_type}] = None")
 
@@ -315,11 +310,6 @@ def generate_resource_class(
                 struct_name=class_name,
                 enum_mappings=enum_mappings,
             )
-
-            # Add comment
-            if prop.documentation:
-                doc_line = prop.documentation.split("\n")[0][:70]
-                lines.append(f"    # {doc_line}")
 
             # Add field - make all optional to avoid dataclass inheritance issues
             # Even "required" fields can be optional in wrapper dataclasses

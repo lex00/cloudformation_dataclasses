@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:29
+  Generated: 2025-12-17 21:50:30
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AppMesh
@@ -267,9 +267,7 @@ class GatewayRouteHostnameMatch(PropertyType):
         "exact": "Exact",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     suffix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exact: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -281,7 +279,6 @@ class GatewayRouteHostnameRewrite(PropertyType):
         "default_target_hostname": "DefaultTargetHostname",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_target_hostname: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -297,15 +294,10 @@ class GatewayRouteMetadataMatch(PropertyType):
         "range": "Range",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     suffix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     regex: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exact: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     range: Optional[GatewayRouteRangeMatch] = None
 
 
@@ -318,9 +310,7 @@ class GatewayRouteRangeMatch(PropertyType):
         "end": "End",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     end: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -335,13 +325,9 @@ class GatewayRouteSpec(PropertyType):
         "grpc_route": "GrpcRoute",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http_route: Optional[HttpGatewayRoute] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     priority: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http2_route: Optional[HttpGatewayRoute] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     grpc_route: Optional[GrpcGatewayRoute] = None
 
 
@@ -354,9 +340,7 @@ class GatewayRouteTarget(PropertyType):
         "virtual_service": "VirtualService",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     virtual_service: Optional[GatewayRouteVirtualService] = None
 
 
@@ -368,7 +352,6 @@ class GatewayRouteVirtualService(PropertyType):
         "virtual_service_name": "VirtualServiceName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     virtual_service_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -381,9 +364,7 @@ class GrpcGatewayRoute(PropertyType):
         "match": "Match",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[GrpcGatewayRouteAction] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match: Optional[GrpcGatewayRouteMatch] = None
 
 
@@ -396,9 +377,7 @@ class GrpcGatewayRouteAction(PropertyType):
         "rewrite": "Rewrite",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target: Optional[GatewayRouteTarget] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rewrite: Optional[GrpcGatewayRouteRewrite] = None
 
 
@@ -413,13 +392,9 @@ class GrpcGatewayRouteMatch(PropertyType):
         "metadata": "Metadata",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     service_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hostname: Optional[GatewayRouteHostnameMatch] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metadata: Optional[list[GrpcGatewayRouteMetadata]] = None
 
 
@@ -433,11 +408,8 @@ class GrpcGatewayRouteMetadata(PropertyType):
         "match": "Match",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     invert: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match: Optional[GatewayRouteMetadataMatch] = None
 
 
@@ -449,7 +421,6 @@ class GrpcGatewayRouteRewrite(PropertyType):
         "hostname": "Hostname",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hostname: Optional[GatewayRouteHostnameRewrite] = None
 
 
@@ -462,9 +433,7 @@ class HttpGatewayRoute(PropertyType):
         "match": "Match",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[HttpGatewayRouteAction] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match: Optional[HttpGatewayRouteMatch] = None
 
 
@@ -477,9 +446,7 @@ class HttpGatewayRouteAction(PropertyType):
         "rewrite": "Rewrite",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target: Optional[GatewayRouteTarget] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rewrite: Optional[HttpGatewayRouteRewrite] = None
 
 
@@ -493,11 +460,8 @@ class HttpGatewayRouteHeader(PropertyType):
         "match": "Match",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     invert: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match: Optional[HttpGatewayRouteHeaderMatch] = None
 
 
@@ -513,15 +477,10 @@ class HttpGatewayRouteHeaderMatch(PropertyType):
         "range": "Range",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     suffix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     regex: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exact: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     range: Optional[GatewayRouteRangeMatch] = None
 
 
@@ -539,19 +498,12 @@ class HttpGatewayRouteMatch(PropertyType):
         "query_parameters": "QueryParameters",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     path: Optional[HttpPathMatch] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     headers: Optional[list[HttpGatewayRouteHeader]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hostname: Optional[GatewayRouteHostnameMatch] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     method: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_parameters: Optional[list[QueryParameter]] = None
 
 
@@ -563,7 +515,6 @@ class HttpGatewayRoutePathRewrite(PropertyType):
         "exact": "Exact",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exact: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -576,9 +527,7 @@ class HttpGatewayRoutePrefixRewrite(PropertyType):
         "default_prefix": "DefaultPrefix",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     default_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -592,11 +541,8 @@ class HttpGatewayRouteRewrite(PropertyType):
         "prefix": "Prefix",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     path: Optional[HttpGatewayRoutePathRewrite] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hostname: Optional[GatewayRouteHostnameRewrite] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prefix: Optional[HttpGatewayRoutePrefixRewrite] = None
 
 
@@ -609,9 +555,7 @@ class HttpPathMatch(PropertyType):
         "exact": "Exact",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     regex: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exact: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -623,7 +567,6 @@ class HttpQueryParameterMatch(PropertyType):
         "exact": "Exact",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exact: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -636,9 +579,7 @@ class QueryParameter(PropertyType):
         "match": "Match",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match: Optional[HttpQueryParameterMatch] = None
 
 
@@ -656,17 +597,11 @@ class GatewayRoute(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     mesh_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     virtual_gateway_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     mesh_owner: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     gateway_route_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     spec: Optional[GatewayRouteSpec] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -715,7 +650,6 @@ class EgressFilter(PropertyType):
         "type_": "Type",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -727,7 +661,6 @@ class MeshServiceDiscovery(PropertyType):
         "ip_preference": "IpPreference",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ip_preference: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -740,9 +673,7 @@ class MeshSpec(PropertyType):
         "service_discovery": "ServiceDiscovery",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     egress_filter: Optional[EgressFilter] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     service_discovery: Optional[MeshServiceDiscovery] = None
 
 
@@ -757,11 +688,8 @@ class Mesh(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     mesh_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     spec: Optional[MeshSpec] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -801,9 +729,7 @@ class Duration(PropertyType):
         "unit": "Unit",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     unit: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -819,15 +745,10 @@ class GrpcRetryPolicy(PropertyType):
         "tcp_retry_events": "TcpRetryEvents",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_retries: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     per_retry_timeout: Optional[Duration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     grpc_retry_events: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http_retry_events: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tcp_retry_events: Optional[Union[list[str], Ref]] = None
 
 
@@ -842,13 +763,9 @@ class GrpcRoute(PropertyType):
         "match": "Match",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[GrpcRouteAction] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout: Optional[GrpcTimeout] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retry_policy: Optional[GrpcRetryPolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match: Optional[GrpcRouteMatch] = None
 
 
@@ -860,7 +777,6 @@ class GrpcRouteAction(PropertyType):
         "weighted_targets": "WeightedTargets",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     weighted_targets: Optional[list[WeightedTarget]] = None
 
 
@@ -875,13 +791,9 @@ class GrpcRouteMatch(PropertyType):
         "method_name": "MethodName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     service_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metadata: Optional[list[GrpcRouteMetadata]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     method_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -895,11 +807,8 @@ class GrpcRouteMetadata(PropertyType):
         "match": "Match",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     invert: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match: Optional[GrpcRouteMetadataMatchMethod] = None
 
 
@@ -915,15 +824,10 @@ class GrpcRouteMetadataMatchMethod(PropertyType):
         "range": "Range",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     suffix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     regex: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exact: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     range: Optional[MatchRange] = None
 
 
@@ -936,9 +840,7 @@ class GrpcTimeout(PropertyType):
         "idle": "Idle",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     per_request: Optional[Duration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     idle: Optional[Duration] = None
 
 
@@ -954,15 +856,10 @@ class HeaderMatchMethod(PropertyType):
         "range": "Range",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     suffix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     regex: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exact: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     range: Optional[MatchRange] = None
 
 
@@ -975,9 +872,7 @@ class HttpPathMatch(PropertyType):
         "exact": "Exact",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     regex: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exact: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -989,7 +884,6 @@ class HttpQueryParameterMatch(PropertyType):
         "exact": "Exact",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exact: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1004,13 +898,9 @@ class HttpRetryPolicy(PropertyType):
         "tcp_retry_events": "TcpRetryEvents",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_retries: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     per_retry_timeout: Optional[Duration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http_retry_events: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tcp_retry_events: Optional[Union[list[str], Ref]] = None
 
 
@@ -1025,13 +915,9 @@ class HttpRoute(PropertyType):
         "match": "Match",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[HttpRouteAction] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout: Optional[HttpTimeout] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retry_policy: Optional[HttpRetryPolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match: Optional[HttpRouteMatch] = None
 
 
@@ -1043,7 +929,6 @@ class HttpRouteAction(PropertyType):
         "weighted_targets": "WeightedTargets",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     weighted_targets: Optional[list[WeightedTarget]] = None
 
 
@@ -1057,11 +942,8 @@ class HttpRouteHeader(PropertyType):
         "match": "Match",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     invert: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match: Optional[HeaderMatchMethod] = None
 
 
@@ -1079,19 +961,12 @@ class HttpRouteMatch(PropertyType):
         "query_parameters": "QueryParameters",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     path: Optional[HttpPathMatch] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scheme: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     headers: Optional[list[HttpRouteHeader]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     method: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     query_parameters: Optional[list[QueryParameter]] = None
 
 
@@ -1104,9 +979,7 @@ class HttpTimeout(PropertyType):
         "idle": "Idle",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     per_request: Optional[Duration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     idle: Optional[Duration] = None
 
 
@@ -1119,9 +992,7 @@ class MatchRange(PropertyType):
         "end": "End",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     start: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     end: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1134,9 +1005,7 @@ class QueryParameter(PropertyType):
         "match": "Match",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match: Optional[HttpQueryParameterMatch] = None
 
 
@@ -1152,15 +1021,10 @@ class RouteSpec(PropertyType):
         "tcp_route": "TcpRoute",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http_route: Optional[HttpRoute] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     priority: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http2_route: Optional[HttpRoute] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     grpc_route: Optional[GrpcRoute] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tcp_route: Optional[TcpRoute] = None
 
 
@@ -1174,11 +1038,8 @@ class TcpRoute(PropertyType):
         "match": "Match",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[TcpRouteAction] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout: Optional[TcpTimeout] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match: Optional[TcpRouteMatch] = None
 
 
@@ -1190,7 +1051,6 @@ class TcpRouteAction(PropertyType):
         "weighted_targets": "WeightedTargets",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     weighted_targets: Optional[list[WeightedTarget]] = None
 
 
@@ -1202,7 +1062,6 @@ class TcpRouteMatch(PropertyType):
         "port": "Port",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1214,7 +1073,6 @@ class TcpTimeout(PropertyType):
         "idle": "Idle",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     idle: Optional[Duration] = None
 
 
@@ -1228,11 +1086,8 @@ class WeightedTarget(PropertyType):
         "weight": "Weight",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     virtual_node: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     weight: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1250,17 +1105,11 @@ class Route(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     mesh_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     virtual_router_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     mesh_owner: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     route_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     spec: Optional[RouteSpec] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -1310,9 +1159,7 @@ class JsonFormatRef(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1325,9 +1172,7 @@ class LoggingFormat(PropertyType):
         "json": "Json",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     json: Optional[list[JsonFormatRef]] = None
 
 
@@ -1339,7 +1184,6 @@ class SubjectAlternativeNameMatchers(PropertyType):
         "exact": "Exact",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exact: Optional[Union[list[str], Ref]] = None
 
 
@@ -1351,7 +1195,6 @@ class SubjectAlternativeNames(PropertyType):
         "match": "Match",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match: Optional[SubjectAlternativeNameMatchers] = None
 
 
@@ -1363,7 +1206,6 @@ class VirtualGatewayAccessLog(PropertyType):
         "file": "File",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file: Optional[VirtualGatewayFileAccessLog] = None
 
 
@@ -1375,7 +1217,6 @@ class VirtualGatewayBackendDefaults(PropertyType):
         "client_policy": "ClientPolicy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_policy: Optional[VirtualGatewayClientPolicy] = None
 
 
@@ -1387,7 +1228,6 @@ class VirtualGatewayClientPolicy(PropertyType):
         "tls": "TLS",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tls: Optional[VirtualGatewayClientPolicyTls] = None
 
 
@@ -1402,13 +1242,9 @@ class VirtualGatewayClientPolicyTls(PropertyType):
         "certificate": "Certificate",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     validation: Optional[VirtualGatewayTlsValidationContext] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enforce: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ports: Optional[Union[list[int], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     certificate: Optional[VirtualGatewayClientTlsCertificate] = None
 
 
@@ -1421,9 +1257,7 @@ class VirtualGatewayClientTlsCertificate(PropertyType):
         "file": "File",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sds: Optional[VirtualGatewayListenerTlsSdsCertificate] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file: Optional[VirtualGatewayListenerTlsFileCertificate] = None
 
 
@@ -1437,11 +1271,8 @@ class VirtualGatewayConnectionPool(PropertyType):
         "grpc": "GRPC",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http2: Optional[VirtualGatewayHttp2ConnectionPool] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http: Optional[VirtualGatewayHttpConnectionPool] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     grpc: Optional[VirtualGatewayGrpcConnectionPool] = None
 
 
@@ -1454,9 +1285,7 @@ class VirtualGatewayFileAccessLog(PropertyType):
         "format": "Format",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     format: Optional[LoggingFormat] = None
 
 
@@ -1468,7 +1297,6 @@ class VirtualGatewayGrpcConnectionPool(PropertyType):
         "max_requests": "MaxRequests",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_requests: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1486,19 +1314,12 @@ class VirtualGatewayHealthCheckPolicy(PropertyType):
         "interval_millis": "IntervalMillis",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     unhealthy_threshold: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     healthy_threshold: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout_millis: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     protocol: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interval_millis: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1510,7 +1331,6 @@ class VirtualGatewayHttp2ConnectionPool(PropertyType):
         "max_requests": "MaxRequests",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_requests: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1523,9 +1343,7 @@ class VirtualGatewayHttpConnectionPool(PropertyType):
         "max_pending_requests": "MaxPendingRequests",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_connections: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_pending_requests: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1540,13 +1358,9 @@ class VirtualGatewayListener(PropertyType):
         "port_mapping": "PortMapping",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connection_pool: Optional[VirtualGatewayConnectionPool] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     health_check: Optional[VirtualGatewayHealthCheckPolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tls: Optional[VirtualGatewayListenerTls] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port_mapping: Optional[VirtualGatewayPortMapping] = None
 
 
@@ -1560,11 +1374,8 @@ class VirtualGatewayListenerTls(PropertyType):
         "certificate": "Certificate",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     validation: Optional[VirtualGatewayListenerTlsValidationContext] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     certificate: Optional[VirtualGatewayListenerTlsCertificate] = None
 
 
@@ -1576,7 +1387,6 @@ class VirtualGatewayListenerTlsAcmCertificate(PropertyType):
         "certificate_arn": "CertificateArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     certificate_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1590,11 +1400,8 @@ class VirtualGatewayListenerTlsCertificate(PropertyType):
         "file": "File",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sds: Optional[VirtualGatewayListenerTlsSdsCertificate] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     acm: Optional[VirtualGatewayListenerTlsAcmCertificate] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file: Optional[VirtualGatewayListenerTlsFileCertificate] = None
 
 
@@ -1607,9 +1414,7 @@ class VirtualGatewayListenerTlsFileCertificate(PropertyType):
         "certificate_chain": "CertificateChain",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     private_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     certificate_chain: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1621,7 +1426,6 @@ class VirtualGatewayListenerTlsSdsCertificate(PropertyType):
         "secret_name": "SecretName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1634,9 +1438,7 @@ class VirtualGatewayListenerTlsValidationContext(PropertyType):
         "trust": "Trust",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subject_alternative_names: Optional[SubjectAlternativeNames] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     trust: Optional[VirtualGatewayListenerTlsValidationContextTrust] = None
 
 
@@ -1649,9 +1451,7 @@ class VirtualGatewayListenerTlsValidationContextTrust(PropertyType):
         "file": "File",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sds: Optional[VirtualGatewayTlsValidationContextSdsTrust] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file: Optional[VirtualGatewayTlsValidationContextFileTrust] = None
 
 
@@ -1663,7 +1463,6 @@ class VirtualGatewayLogging(PropertyType):
         "access_log": "AccessLog",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     access_log: Optional[VirtualGatewayAccessLog] = None
 
 
@@ -1676,9 +1475,7 @@ class VirtualGatewayPortMapping(PropertyType):
         "protocol": "Protocol",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     protocol: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1692,11 +1489,8 @@ class VirtualGatewaySpec(PropertyType):
         "backend_defaults": "BackendDefaults",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     logging: Optional[VirtualGatewayLogging] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     listeners: Optional[list[VirtualGatewayListener]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     backend_defaults: Optional[VirtualGatewayBackendDefaults] = None
 
 
@@ -1709,9 +1503,7 @@ class VirtualGatewayTlsValidationContext(PropertyType):
         "trust": "Trust",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subject_alternative_names: Optional[SubjectAlternativeNames] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     trust: Optional[VirtualGatewayTlsValidationContextTrust] = None
 
 
@@ -1723,7 +1515,6 @@ class VirtualGatewayTlsValidationContextAcmTrust(PropertyType):
         "certificate_authority_arns": "CertificateAuthorityArns",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     certificate_authority_arns: Optional[Union[list[str], Ref]] = None
 
 
@@ -1735,7 +1526,6 @@ class VirtualGatewayTlsValidationContextFileTrust(PropertyType):
         "certificate_chain": "CertificateChain",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     certificate_chain: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1747,7 +1537,6 @@ class VirtualGatewayTlsValidationContextSdsTrust(PropertyType):
         "secret_name": "SecretName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1761,11 +1550,8 @@ class VirtualGatewayTlsValidationContextTrust(PropertyType):
         "file": "File",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sds: Optional[VirtualGatewayTlsValidationContextSdsTrust] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     acm: Optional[VirtualGatewayTlsValidationContextAcmTrust] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file: Optional[VirtualGatewayTlsValidationContextFileTrust] = None
 
 
@@ -1782,15 +1568,10 @@ class VirtualGateway(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     virtual_gateway_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     mesh_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     mesh_owner: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     spec: Optional[VirtualGatewaySpec] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -1834,7 +1615,6 @@ class AccessLog(PropertyType):
         "file": "File",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file: Optional[FileAccessLog] = None
 
 
@@ -1847,9 +1627,7 @@ class AwsCloudMapInstanceAttribute(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1864,13 +1642,9 @@ class AwsCloudMapServiceDiscovery(PropertyType):
         "attributes": "Attributes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     namespace_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     service_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ip_preference: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attributes: Optional[list[AwsCloudMapInstanceAttribute]] = None
 
 
@@ -1882,7 +1656,6 @@ class Backend(PropertyType):
         "virtual_service": "VirtualService",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     virtual_service: Optional[VirtualServiceBackend] = None
 
 
@@ -1894,7 +1667,6 @@ class BackendDefaults(PropertyType):
         "client_policy": "ClientPolicy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_policy: Optional[ClientPolicy] = None
 
 
@@ -1906,7 +1678,6 @@ class ClientPolicy(PropertyType):
         "tls": "TLS",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tls: Optional[ClientPolicyTls] = None
 
 
@@ -1921,13 +1692,9 @@ class ClientPolicyTls(PropertyType):
         "certificate": "Certificate",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     validation: Optional[TlsValidationContext] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enforce: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ports: Optional[Union[list[int], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     certificate: Optional[ClientTlsCertificate] = None
 
 
@@ -1940,9 +1707,7 @@ class ClientTlsCertificate(PropertyType):
         "file": "File",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sds: Optional[ListenerTlsSdsCertificate] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file: Optional[ListenerTlsFileCertificate] = None
 
 
@@ -1956,11 +1721,8 @@ class DnsServiceDiscovery(PropertyType):
         "response_type": "ResponseType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ip_preference: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hostname: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     response_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1973,9 +1735,7 @@ class Duration(PropertyType):
         "unit": "Unit",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     unit: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1988,9 +1748,7 @@ class FileAccessLog(PropertyType):
         "format": "Format",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     format: Optional[LoggingFormat] = None
 
 
@@ -2003,9 +1761,7 @@ class GrpcTimeout(PropertyType):
         "idle": "Idle",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     per_request: Optional[Duration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     idle: Optional[Duration] = None
 
 
@@ -2023,19 +1779,12 @@ class HealthCheck(PropertyType):
         "interval_millis": "IntervalMillis",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     unhealthy_threshold: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     healthy_threshold: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout_millis: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     protocol: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interval_millis: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -2048,9 +1797,7 @@ class HttpTimeout(PropertyType):
         "idle": "Idle",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     per_request: Optional[Duration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     idle: Optional[Duration] = None
 
 
@@ -2063,9 +1810,7 @@ class JsonFormatRef(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2082,17 +1827,11 @@ class Listener(PropertyType):
         "outlier_detection": "OutlierDetection",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connection_pool: Optional[VirtualNodeConnectionPool] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout: Optional[ListenerTimeout] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     health_check: Optional[HealthCheck] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tls: Optional[ListenerTls] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port_mapping: Optional[PortMapping] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     outlier_detection: Optional[OutlierDetection] = None
 
 
@@ -2107,13 +1846,9 @@ class ListenerTimeout(PropertyType):
         "grpc": "GRPC",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tcp: Optional[TcpTimeout] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http2: Optional[HttpTimeout] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http: Optional[HttpTimeout] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     grpc: Optional[GrpcTimeout] = None
 
 
@@ -2127,11 +1862,8 @@ class ListenerTls(PropertyType):
         "certificate": "Certificate",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     validation: Optional[ListenerTlsValidationContext] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     certificate: Optional[ListenerTlsCertificate] = None
 
 
@@ -2143,7 +1875,6 @@ class ListenerTlsAcmCertificate(PropertyType):
         "certificate_arn": "CertificateArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     certificate_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2157,11 +1888,8 @@ class ListenerTlsCertificate(PropertyType):
         "file": "File",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sds: Optional[ListenerTlsSdsCertificate] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     acm: Optional[ListenerTlsAcmCertificate] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file: Optional[ListenerTlsFileCertificate] = None
 
 
@@ -2174,9 +1902,7 @@ class ListenerTlsFileCertificate(PropertyType):
         "certificate_chain": "CertificateChain",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     private_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     certificate_chain: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2188,7 +1914,6 @@ class ListenerTlsSdsCertificate(PropertyType):
         "secret_name": "SecretName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2201,9 +1926,7 @@ class ListenerTlsValidationContext(PropertyType):
         "trust": "Trust",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subject_alternative_names: Optional[SubjectAlternativeNames] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     trust: Optional[ListenerTlsValidationContextTrust] = None
 
 
@@ -2216,9 +1939,7 @@ class ListenerTlsValidationContextTrust(PropertyType):
         "file": "File",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sds: Optional[TlsValidationContextSdsTrust] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file: Optional[TlsValidationContextFileTrust] = None
 
 
@@ -2230,7 +1951,6 @@ class Logging(PropertyType):
         "access_log": "AccessLog",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     access_log: Optional[AccessLog] = None
 
 
@@ -2243,9 +1963,7 @@ class LoggingFormat(PropertyType):
         "json": "Json",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     text: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     json: Optional[list[JsonFormatRef]] = None
 
 
@@ -2260,13 +1978,9 @@ class OutlierDetection(PropertyType):
         "interval": "Interval",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_ejection_percent: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     base_ejection_duration: Optional[Duration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_server_errors: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interval: Optional[Duration] = None
 
 
@@ -2279,9 +1993,7 @@ class PortMapping(PropertyType):
         "protocol": "Protocol",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     protocol: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2294,9 +2006,7 @@ class ServiceDiscovery(PropertyType):
         "aws_cloud_map": "AWSCloudMap",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dns: Optional[DnsServiceDiscovery] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws_cloud_map: Optional[AwsCloudMapServiceDiscovery] = None
 
 
@@ -2308,7 +2018,6 @@ class SubjectAlternativeNameMatchers(PropertyType):
         "exact": "Exact",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exact: Optional[Union[list[str], Ref]] = None
 
 
@@ -2320,7 +2029,6 @@ class SubjectAlternativeNames(PropertyType):
         "match": "Match",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     match: Optional[SubjectAlternativeNameMatchers] = None
 
 
@@ -2332,7 +2040,6 @@ class TcpTimeout(PropertyType):
         "idle": "Idle",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     idle: Optional[Duration] = None
 
 
@@ -2345,9 +2052,7 @@ class TlsValidationContext(PropertyType):
         "trust": "Trust",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subject_alternative_names: Optional[SubjectAlternativeNames] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     trust: Optional[TlsValidationContextTrust] = None
 
 
@@ -2359,7 +2064,6 @@ class TlsValidationContextAcmTrust(PropertyType):
         "certificate_authority_arns": "CertificateAuthorityArns",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     certificate_authority_arns: Optional[Union[list[str], Ref]] = None
 
 
@@ -2371,7 +2075,6 @@ class TlsValidationContextFileTrust(PropertyType):
         "certificate_chain": "CertificateChain",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     certificate_chain: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2383,7 +2086,6 @@ class TlsValidationContextSdsTrust(PropertyType):
         "secret_name": "SecretName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2397,11 +2099,8 @@ class TlsValidationContextTrust(PropertyType):
         "file": "File",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sds: Optional[TlsValidationContextSdsTrust] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     acm: Optional[TlsValidationContextAcmTrust] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file: Optional[TlsValidationContextFileTrust] = None
 
 
@@ -2416,13 +2115,9 @@ class VirtualNodeConnectionPool(PropertyType):
         "grpc": "GRPC",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tcp: Optional[VirtualNodeTcpConnectionPool] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http2: Optional[VirtualNodeHttp2ConnectionPool] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     http: Optional[VirtualNodeHttpConnectionPool] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     grpc: Optional[VirtualNodeGrpcConnectionPool] = None
 
 
@@ -2434,7 +2129,6 @@ class VirtualNodeGrpcConnectionPool(PropertyType):
         "max_requests": "MaxRequests",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_requests: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -2446,7 +2140,6 @@ class VirtualNodeHttp2ConnectionPool(PropertyType):
         "max_requests": "MaxRequests",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_requests: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -2459,9 +2152,7 @@ class VirtualNodeHttpConnectionPool(PropertyType):
         "max_pending_requests": "MaxPendingRequests",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_connections: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_pending_requests: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -2477,15 +2168,10 @@ class VirtualNodeSpec(PropertyType):
         "service_discovery": "ServiceDiscovery",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     logging: Optional[Logging] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     backends: Optional[list[Backend]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     listeners: Optional[list[Listener]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     backend_defaults: Optional[BackendDefaults] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     service_discovery: Optional[ServiceDiscovery] = None
 
 
@@ -2497,7 +2183,6 @@ class VirtualNodeTcpConnectionPool(PropertyType):
         "max_connections": "MaxConnections",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_connections: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -2510,9 +2195,7 @@ class VirtualServiceBackend(PropertyType):
         "virtual_service_name": "VirtualServiceName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_policy: Optional[ClientPolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     virtual_service_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2529,15 +2212,10 @@ class VirtualNode(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     mesh_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     mesh_owner: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     spec: Optional[VirtualNodeSpec] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     virtual_node_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -2582,9 +2260,7 @@ class PortMapping(PropertyType):
         "protocol": "Protocol",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     protocol: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2596,7 +2272,6 @@ class VirtualRouterListener(PropertyType):
         "port_mapping": "PortMapping",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     port_mapping: Optional[PortMapping] = None
 
 
@@ -2608,7 +2283,6 @@ class VirtualRouterSpec(PropertyType):
         "listeners": "Listeners",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     listeners: Optional[list[VirtualRouterListener]] = None
 
 
@@ -2625,15 +2299,10 @@ class VirtualRouter(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     mesh_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     virtual_router_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     mesh_owner: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     spec: Optional[VirtualRouterSpec] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -2677,7 +2346,6 @@ class VirtualNodeServiceProvider(PropertyType):
         "virtual_node_name": "VirtualNodeName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     virtual_node_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2689,7 +2357,6 @@ class VirtualRouterServiceProvider(PropertyType):
         "virtual_router_name": "VirtualRouterName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     virtual_router_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -2702,9 +2369,7 @@ class VirtualServiceProvider(PropertyType):
         "virtual_router": "VirtualRouter",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     virtual_node: Optional[VirtualNodeServiceProvider] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     virtual_router: Optional[VirtualRouterServiceProvider] = None
 
 
@@ -2716,7 +2381,6 @@ class VirtualServiceSpec(PropertyType):
         "provider": "Provider",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     provider: Optional[VirtualServiceProvider] = None
 
 
@@ -2733,15 +2397,10 @@ class VirtualService(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     mesh_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     mesh_owner: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     virtual_service_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     spec: Optional[VirtualServiceSpec] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property

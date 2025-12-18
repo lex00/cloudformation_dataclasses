@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:39
+  Generated: 2025-12-17 21:50:31
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DevOpsAgent
@@ -35,9 +35,7 @@ class AgentSpace(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -75,15 +73,10 @@ class AWSConfiguration(PropertyType):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     assumable_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     account_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resources: Optional[list[AWSResource]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     account_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tags: Optional[list[KeyValuePair]] = None
 
 
@@ -97,11 +90,8 @@ class AWSResource(PropertyType):
         "resource_metadata": "ResourceMetadata",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_metadata: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
 
@@ -115,11 +105,8 @@ class DynatraceConfiguration(PropertyType):
         "enable_webhook_updates": "EnableWebhookUpdates",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     env_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resources: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_webhook_updates: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -131,7 +118,6 @@ class EventChannelConfiguration(PropertyType):
         "enable_webhook_updates": "EnableWebhookUpdates",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_webhook_updates: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -146,13 +132,9 @@ class GitHubConfiguration(PropertyType):
         "repo_id": "RepoId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     owner: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     owner_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     repo_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     repo_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -167,13 +149,9 @@ class GitLabConfiguration(PropertyType):
         "enable_webhook_updates": "EnableWebhookUpdates",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     project_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     project_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_webhook_updates: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -186,9 +164,7 @@ class KeyValuePair(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -204,15 +180,10 @@ class MCPServerConfiguration(PropertyType):
         "enable_webhook_updates": "EnableWebhookUpdates",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tools: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_webhook_updates: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -227,13 +198,9 @@ class MCPServerDatadogConfiguration(PropertyType):
         "enable_webhook_updates": "EnableWebhookUpdates",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_webhook_updates: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -246,9 +213,7 @@ class MCPServerNewRelicConfiguration(PropertyType):
         "endpoint": "Endpoint",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     account_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -263,13 +228,9 @@ class MCPServerSplunkConfiguration(PropertyType):
         "enable_webhook_updates": "EnableWebhookUpdates",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_webhook_updates: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -292,29 +253,17 @@ class ServiceConfiguration(PropertyType):
         "git_lab": "GitLab",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mcp_server: Optional[MCPServerConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     event_channel: Optional[EventChannelConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     service_now: Optional[ServiceNowConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_aws: Optional[SourceAwsConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     slack: Optional[SlackConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     git_hub: Optional[GitHubConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mcp_server_datadog: Optional[MCPServerDatadogConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dynatrace: Optional[DynatraceConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mcp_server_splunk: Optional[MCPServerSplunkConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     aws: Optional[AWSConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mcp_server_new_relic: Optional[MCPServerNewRelicConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     git_lab: Optional[GitLabConfiguration] = None
 
 
@@ -327,9 +276,7 @@ class ServiceNowConfiguration(PropertyType):
         "enable_webhook_updates": "EnableWebhookUpdates",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_webhook_updates: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -342,9 +289,7 @@ class SlackChannel(PropertyType):
         "channel_id": "ChannelId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     channel_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     channel_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -358,11 +303,8 @@ class SlackConfiguration(PropertyType):
         "workspace_name": "WorkspaceName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     transmission_target: Optional[SlackTransmissionTarget] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     workspace_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     workspace_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -374,7 +316,6 @@ class SlackTransmissionTarget(PropertyType):
         "incident_response_target": "IncidentResponseTarget",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     incident_response_target: Optional[SlackChannel] = None
 
 
@@ -390,15 +331,10 @@ class SourceAwsConfiguration(PropertyType):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     assumable_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     account_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resources: Optional[list[AWSResource]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     account_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tags: Optional[list[KeyValuePair]] = None
 
 
@@ -414,13 +350,9 @@ class Association(CloudFormationResource):
         "service_id": "ServiceId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     configuration: Optional[ServiceConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     linked_association_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     agent_space_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     service_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property

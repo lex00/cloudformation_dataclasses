@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:52
+  Generated: 2025-12-17 21:50:33
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MediaPackage
@@ -243,9 +243,7 @@ class EgressEndpoint(PropertyType):
         "url": "Url",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     packaging_configuration_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     url: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -264,19 +262,12 @@ class Asset(CloudFormationResource):
         "source_role_arn": "SourceRoleArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     packaging_group_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     egress_endpoints: Optional[list[EgressEndpoint]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -300,7 +291,6 @@ class HlsIngest(PropertyType):
         "ingest_endpoints": "ingestEndpoints",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ingest_endpoints: Optional[list[IngestEndpoint]] = None
 
 
@@ -315,13 +305,9 @@ class IngestEndpoint(PropertyType):
         "password": "Password",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     username: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     password: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -333,7 +319,6 @@ class LogConfiguration(PropertyType):
         "log_group_name": "LogGroupName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -351,17 +336,11 @@ class Channel(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     ingress_access_logs: Optional[LogConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     hls_ingest: Optional[HlsIngest] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     egress_access_logs: Optional[LogConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -381,9 +360,7 @@ class Authorization(PropertyType):
         "cdn_identifier_secret": "CdnIdentifierSecret",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secrets_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cdn_identifier_secret: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -398,13 +375,9 @@ class CmafEncryption(PropertyType):
         "encryption_method": "EncryptionMethod",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_rotation_interval_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     speke_key_provider: Optional[SpekeKeyProvider] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     constant_initialization_vector: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_method: Optional[Union[str, CmafEncryptionMethod, Ref, GetAtt, Sub]] = None
 
 
@@ -420,15 +393,10 @@ class CmafPackage(PropertyType):
         "hls_manifests": "HlsManifests",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     segment_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stream_selection: Optional[StreamSelection] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     segment_duration_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption: Optional[CmafEncryption] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hls_manifests: Optional[list[HlsManifest]] = None
 
 
@@ -441,9 +409,7 @@ class DashEncryption(PropertyType):
         "speke_key_provider": "SpekeKeyProvider",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_rotation_interval_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     speke_key_provider: Optional[SpekeKeyProvider] = None
 
 
@@ -470,37 +436,21 @@ class DashPackage(PropertyType):
         "utc_timing_uri": "UtcTimingUri",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manifest_window_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ads_on_delivery_restrictions: Optional[Union[str, AdsOnDeliveryRestrictions, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manifest_layout: Optional[Union[str, ManifestLayout, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stream_selection: Optional[StreamSelection] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_iframe_only_stream: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     segment_template_format: Optional[Union[str, SegmentTemplateFormat, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption: Optional[DashEncryption] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ad_triggers: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     profile: Optional[Union[str, Profile, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     period_triggers: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     suggested_presentation_delay_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     utc_timing: Optional[Union[str, UtcTiming, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min_buffer_time_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     segment_duration_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min_update_period_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     utc_timing_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -523,15 +473,10 @@ class HlsEncryption(PropertyType):
         "encryption_method": "EncryptionMethod",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_rotation_interval_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     repeat_ext_x_key: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     constant_initialization_vector: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     speke_key_provider: Optional[SpekeKeyProvider] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_method: Optional[Union[str, EncryptionMethod, Ref, GetAtt, Sub]] = None
 
 
@@ -552,25 +497,15 @@ class HlsManifest(PropertyType):
         "url": "Url",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ads_on_delivery_restrictions: Optional[Union[str, AdsOnDeliveryRestrictions, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manifest_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ad_markers: Optional[Union[str, AdMarkers, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     program_date_time_interval_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     playlist_window_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_iframe_only_stream: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     playlist_type: Optional[Union[str, PlaylistType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ad_triggers: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     url: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -593,29 +528,17 @@ class HlsPackage(PropertyType):
         "include_dvb_subtitles": "IncludeDvbSubtitles",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ads_on_delivery_restrictions: Optional[Union[str, AdsOnDeliveryRestrictions, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ad_markers: Optional[Union[str, AdMarkers, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     program_date_time_interval_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stream_selection: Optional[StreamSelection] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     playlist_window_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_iframe_only_stream: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     use_audio_rendition_group: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     segment_duration_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption: Optional[HlsEncryption] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     playlist_type: Optional[Union[str, PlaylistType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ad_triggers: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_dvb_subtitles: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -627,7 +550,6 @@ class MssEncryption(PropertyType):
         "speke_key_provider": "SpekeKeyProvider",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     speke_key_provider: Optional[SpekeKeyProvider] = None
 
 
@@ -642,13 +564,9 @@ class MssPackage(PropertyType):
         "encryption": "Encryption",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manifest_window_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stream_selection: Optional[StreamSelection] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     segment_duration_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption: Optional[MssEncryption] = None
 
 
@@ -665,17 +583,11 @@ class SpekeKeyProvider(PropertyType):
         "certificate_arn": "CertificateArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     system_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_contract_configuration: Optional[EncryptionContractConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     url: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     certificate_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -689,11 +601,8 @@ class StreamSelection(PropertyType):
         "max_video_bits_per_second": "MaxVideoBitsPerSecond",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min_video_bits_per_second: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stream_order: Optional[Union[str, StreamOrder, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_video_bits_per_second: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -719,33 +628,19 @@ class OriginEndpoint(CloudFormationResource):
         "startover_window_seconds": "StartoverWindowSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     mss_package: Optional[MssPackage] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     channel_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     time_delay_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     origination: Optional[Union[str, Origination, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     authorization: Optional[Authorization] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     manifest_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     cmaf_package: Optional[CmafPackage] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     whitelist: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     hls_package: Optional[HlsPackage] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     dash_package: Optional[DashPackage] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     startover_window_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
     @property
@@ -769,7 +664,6 @@ class CmafEncryption(PropertyType):
         "speke_key_provider": "SpekeKeyProvider",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     speke_key_provider: Optional[SpekeKeyProvider] = None
 
 
@@ -784,13 +678,9 @@ class CmafPackage(PropertyType):
         "include_encoder_configuration_in_segments": "IncludeEncoderConfigurationInSegments",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     segment_duration_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption: Optional[CmafEncryption] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hls_manifests: Optional[list[HlsManifest]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_encoder_configuration_in_segments: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -802,7 +692,6 @@ class DashEncryption(PropertyType):
         "speke_key_provider": "SpekeKeyProvider",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     speke_key_provider: Optional[SpekeKeyProvider] = None
 
 
@@ -819,17 +708,11 @@ class DashManifest(PropertyType):
         "profile": "Profile",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scte_markers_source: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manifest_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manifest_layout: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stream_selection: Optional[StreamSelection] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min_buffer_time_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     profile: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -847,19 +730,12 @@ class DashPackage(PropertyType):
         "dash_manifests": "DashManifests",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     period_triggers: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_iframe_only_stream: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     segment_duration_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption: Optional[DashEncryption] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     segment_template_format: Optional[Union[str, SegmentTemplateFormat, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_encoder_configuration_in_segments: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dash_manifests: Optional[list[DashManifest]] = None
 
 
@@ -872,9 +748,7 @@ class EncryptionContractConfiguration(PropertyType):
         "preset_speke20_video": "PresetSpeke20Video",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     preset_speke20_audio: Optional[Union[str, PresetSpeke20Audio, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     preset_speke20_video: Optional[Union[str, PresetSpeke20Video, Ref, GetAtt, Sub]] = None
 
 
@@ -888,11 +762,8 @@ class HlsEncryption(PropertyType):
         "encryption_method": "EncryptionMethod",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     constant_initialization_vector: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     speke_key_provider: Optional[SpekeKeyProvider] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_method: Optional[Union[str, EncryptionMethod, Ref, GetAtt, Sub]] = None
 
 
@@ -909,17 +780,11 @@ class HlsManifest(PropertyType):
         "include_iframe_only_stream": "IncludeIframeOnlyStream",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ad_markers: Optional[Union[str, AdMarkers, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manifest_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     program_date_time_interval_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stream_selection: Optional[StreamSelection] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     repeat_ext_x_key: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_iframe_only_stream: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -935,15 +800,10 @@ class HlsPackage(PropertyType):
         "include_dvb_subtitles": "IncludeDvbSubtitles",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     use_audio_rendition_group: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     segment_duration_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption: Optional[HlsEncryption] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hls_manifests: Optional[list[HlsManifest]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     include_dvb_subtitles: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -955,7 +815,6 @@ class MssEncryption(PropertyType):
         "speke_key_provider": "SpekeKeyProvider",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     speke_key_provider: Optional[SpekeKeyProvider] = None
 
 
@@ -968,9 +827,7 @@ class MssManifest(PropertyType):
         "stream_selection": "StreamSelection",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manifest_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stream_selection: Optional[StreamSelection] = None
 
 
@@ -984,11 +841,8 @@ class MssPackage(PropertyType):
         "encryption": "Encryption",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mss_manifests: Optional[list[MssManifest]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     segment_duration_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption: Optional[MssEncryption] = None
 
 
@@ -1003,13 +857,9 @@ class SpekeKeyProvider(PropertyType):
         "url": "Url",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     system_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_contract_configuration: Optional[EncryptionContractConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     url: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1023,11 +873,8 @@ class StreamSelection(PropertyType):
         "max_video_bits_per_second": "MaxVideoBitsPerSecond",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min_video_bits_per_second: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stream_order: Optional[Union[str, StreamOrder, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_video_bits_per_second: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -1046,19 +893,12 @@ class PackagingConfiguration(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     mss_package: Optional[MssPackage] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     cmaf_package: Optional[CmafPackage] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     hls_package: Optional[HlsPackage] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     packaging_group_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     dash_package: Optional[DashPackage] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -1078,9 +918,7 @@ class Authorization(PropertyType):
         "cdn_identifier_secret": "CdnIdentifierSecret",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secrets_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cdn_identifier_secret: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1092,7 +930,6 @@ class LogConfiguration(PropertyType):
         "log_group_name": "LogGroupName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -1108,13 +945,9 @@ class PackagingGroup(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     authorization: Optional[Authorization] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     egress_access_logs: Optional[LogConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property

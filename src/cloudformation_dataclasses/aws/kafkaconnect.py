@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:48
+  Generated: 2025-12-17 21:50:32
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service KafkaConnect
@@ -180,9 +180,7 @@ class ApacheKafkaCluster(PropertyType):
         "bootstrap_servers": "BootstrapServers",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc: Optional[Vpc] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bootstrap_servers: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -198,15 +196,10 @@ class AutoScaling(PropertyType):
         "mcu_count": "McuCount",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scale_out_policy: Optional[ScaleOutPolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scale_in_policy: Optional[ScaleInPolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_worker_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min_worker_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mcu_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -219,9 +212,7 @@ class Capacity(PropertyType):
         "auto_scaling": "AutoScaling",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     provisioned_capacity: Optional[ProvisionedCapacity] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     auto_scaling: Optional[AutoScaling] = None
 
 
@@ -234,9 +225,7 @@ class CloudWatchLogsLogDelivery(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_group: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -249,9 +238,7 @@ class CustomPlugin(PropertyType):
         "revision": "Revision",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_plugin_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     revision: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -264,9 +251,7 @@ class FirehoseLogDelivery(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     delivery_stream: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -278,7 +263,6 @@ class KafkaCluster(PropertyType):
         "apache_kafka_cluster": "ApacheKafkaCluster",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     apache_kafka_cluster: Optional[ApacheKafkaCluster] = None
 
 
@@ -290,7 +274,6 @@ class KafkaClusterClientAuthentication(PropertyType):
         "authentication_type": "AuthenticationType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     authentication_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -302,7 +285,6 @@ class KafkaClusterEncryptionInTransit(PropertyType):
         "encryption_type": "EncryptionType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -314,7 +296,6 @@ class LogDelivery(PropertyType):
         "worker_log_delivery": "WorkerLogDelivery",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     worker_log_delivery: Optional[WorkerLogDelivery] = None
 
 
@@ -326,7 +307,6 @@ class Plugin(PropertyType):
         "custom_plugin": "CustomPlugin",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     custom_plugin: Optional[CustomPlugin] = None
 
 
@@ -339,9 +319,7 @@ class ProvisionedCapacity(PropertyType):
         "mcu_count": "McuCount",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     worker_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mcu_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -355,11 +333,8 @@ class S3LogDelivery(PropertyType):
         "prefix": "Prefix",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -371,7 +346,6 @@ class ScaleInPolicy(PropertyType):
         "cpu_utilization_percentage": "CpuUtilizationPercentage",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cpu_utilization_percentage: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -383,7 +357,6 @@ class ScaleOutPolicy(PropertyType):
         "cpu_utilization_percentage": "CpuUtilizationPercentage",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cpu_utilization_percentage: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -396,9 +369,7 @@ class Vpc(PropertyType):
         "subnets": "Subnets",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_groups: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnets: Optional[Union[list[str], Ref]] = None
 
 
@@ -411,9 +382,7 @@ class WorkerConfiguration(PropertyType):
         "worker_configuration_arn": "WorkerConfigurationArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     revision: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     worker_configuration_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -427,11 +396,8 @@ class WorkerLogDelivery(PropertyType):
         "cloud_watch_logs": "CloudWatchLogs",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3: Optional[S3LogDelivery] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     firehose: Optional[FirehoseLogDelivery] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch_logs: Optional[CloudWatchLogsLogDelivery] = None
 
 
@@ -456,31 +422,18 @@ class Connector(CloudFormationResource):
         "plugins": "Plugins",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kafka_cluster: Optional[KafkaCluster] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kafka_connect_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connector_configuration: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     log_delivery: Optional[LogDelivery] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     worker_configuration: Optional[WorkerConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     capacity: Optional[Capacity] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kafka_cluster_encryption_in_transit: Optional[KafkaClusterEncryptionInTransit] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connector_description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kafka_cluster_client_authentication: Optional[KafkaClusterClientAuthentication] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connector_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     service_execution_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     plugins: Optional[list[Plugin]] = None
 
     @property
@@ -500,9 +453,7 @@ class CustomPluginFileDescription(PropertyType):
         "file_size": "FileSize",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file_md5: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file_size: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -514,7 +465,6 @@ class CustomPluginLocation(PropertyType):
         "s3_location": "S3Location",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_location: Optional[S3Location] = None
 
 
@@ -528,11 +478,8 @@ class S3Location(PropertyType):
         "object_version": "ObjectVersion",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     file_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     object_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -549,15 +496,10 @@ class CustomPlugin(CloudFormationResource):
         "location": "Location",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     content_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     location: Optional[CustomPluginLocation] = None
 
     @property
@@ -600,13 +542,9 @@ class WorkerConfiguration(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     properties_file_content: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property

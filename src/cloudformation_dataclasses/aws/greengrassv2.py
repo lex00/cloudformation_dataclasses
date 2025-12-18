@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:44
+  Generated: 2025-12-17 21:50:32
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service GreengrassV2
@@ -283,9 +283,7 @@ class ComponentDependencyRequirement(PropertyType):
         "dependency_type": "DependencyType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     version_requirement: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dependency_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -298,9 +296,7 @@ class ComponentPlatform(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attributes: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -315,13 +311,9 @@ class LambdaContainerParams(PropertyType):
         "devices": "Devices",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volumes: Optional[list[LambdaVolumeMount]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     mount_ro_sysfs: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     memory_size_in_kb: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     devices: Optional[list[LambdaDeviceMount]] = None
 
 
@@ -335,11 +327,8 @@ class LambdaDeviceMount(PropertyType):
         "permission": "Permission",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     add_group_owner: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     permission: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -352,9 +341,7 @@ class LambdaEventSource(PropertyType):
         "topic": "Topic",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     topic: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -376,27 +363,16 @@ class LambdaExecutionParameters(PropertyType):
         "max_idle_time_in_seconds": "MaxIdleTimeInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_instances_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     environment_variables: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     event_sources: Optional[list[LambdaEventSource]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     pinned: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exec_args: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     linux_process_params: Optional[LambdaLinuxProcessParams] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     input_payload_encoding_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_queue_size: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     status_timeout_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_idle_time_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -413,17 +389,11 @@ class LambdaFunctionRecipeSource(PropertyType):
         "component_version": "ComponentVersion",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     component_dependencies: Optional[dict[str, Any]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     component_lambda_parameters: Optional[LambdaExecutionParameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     lambda_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     component_platforms: Optional[list[ComponentPlatform]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     component_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     component_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -436,9 +406,7 @@ class LambdaLinuxProcessParams(PropertyType):
         "container_params": "ContainerParams",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     isolation_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     container_params: Optional[LambdaContainerParams] = None
 
 
@@ -453,13 +421,9 @@ class LambdaVolumeMount(PropertyType):
         "permission": "Permission",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     destination_path: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     add_group_owner: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     permission: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -474,11 +438,8 @@ class ComponentVersion(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     lambda_function: Optional[LambdaFunctionRecipeSource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     inline_recipe: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
 
     @property
@@ -508,9 +469,7 @@ class ComponentConfigurationUpdate(PropertyType):
         "reset": "Reset",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     merge: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     reset: Optional[Union[list[str], Ref]] = None
 
 
@@ -524,11 +483,8 @@ class ComponentDeploymentSpecification(PropertyType):
         "component_version": "ComponentVersion",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     run_with: Optional[ComponentRunWith] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     configuration_update: Optional[ComponentConfigurationUpdate] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     component_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -542,11 +498,8 @@ class ComponentRunWith(PropertyType):
         "posix_user": "PosixUser",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     windows_user: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     system_resource_limits: Optional[SystemResourceLimits] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     posix_user: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -559,9 +512,7 @@ class DeploymentComponentUpdatePolicy(PropertyType):
         "timeout_in_seconds": "TimeoutInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -573,7 +524,6 @@ class DeploymentConfigurationValidationPolicy(PropertyType):
         "timeout_in_seconds": "TimeoutInSeconds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -587,11 +537,8 @@ class DeploymentIoTJobConfiguration(PropertyType):
         "abort_config": "AbortConfig",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     job_executions_rollout_config: Optional[IoTJobExecutionsRolloutConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timeout_config: Optional[IoTJobTimeoutConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     abort_config: Optional[IoTJobAbortConfig] = None
 
 
@@ -605,11 +552,8 @@ class DeploymentPolicies(PropertyType):
         "failure_handling_policy": "FailureHandlingPolicy",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     component_update_policy: Optional[DeploymentComponentUpdatePolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     configuration_validation_policy: Optional[DeploymentConfigurationValidationPolicy] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failure_handling_policy: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -621,7 +565,6 @@ class IoTJobAbortConfig(PropertyType):
         "criteria_list": "CriteriaList",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     criteria_list: Optional[list[IoTJobAbortCriteria]] = None
 
 
@@ -636,13 +579,9 @@ class IoTJobAbortCriteria(PropertyType):
         "min_number_of_executed_things": "MinNumberOfExecutedThings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failure_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     action: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     threshold_percentage: Optional[Union[float, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     min_number_of_executed_things: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -655,9 +594,7 @@ class IoTJobExecutionsRolloutConfig(PropertyType):
         "exponential_rate": "ExponentialRate",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maximum_per_minute: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exponential_rate: Optional[IoTJobExponentialRolloutRate] = None
 
 
@@ -671,11 +608,8 @@ class IoTJobExponentialRolloutRate(PropertyType):
         "increment_factor": "IncrementFactor",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rate_increase_criteria: Optional[IoTJobRateIncreaseCriteria] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     base_rate_per_minute: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     increment_factor: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -688,9 +622,7 @@ class IoTJobRateIncreaseCriteria(PropertyType):
         "number_of_notified_things": "NumberOfNotifiedThings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     number_of_succeeded_things: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     number_of_notified_things: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -702,7 +634,6 @@ class IoTJobTimeoutConfig(PropertyType):
         "in_progress_timeout_in_minutes": "InProgressTimeoutInMinutes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     in_progress_timeout_in_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -715,9 +646,7 @@ class SystemResourceLimits(PropertyType):
         "cpus": "Cpus",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     memory: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cpus: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
 
@@ -736,19 +665,12 @@ class Deployment(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     components: Optional[dict[str, Any]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     deployment_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     iot_job_configuration: Optional[DeploymentIoTJobConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     deployment_policies: Optional[DeploymentPolicies] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     target_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     parent_target_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
 
     @property

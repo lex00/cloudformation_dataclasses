@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:51
+  Generated: 2025-12-17 21:50:33
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service MSK
@@ -250,9 +250,7 @@ class BatchScramSecret(CloudFormationResource):
         "secret_arn_list": "SecretArnList",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     cluster_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     secret_arn_list: Optional[Union[list[str], Ref]] = None
 
 
@@ -267,11 +265,8 @@ class BrokerLogs(PropertyType):
         "cloud_watch_logs": "CloudWatchLogs",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3: Optional[S3] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     firehose: Optional[Firehose] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch_logs: Optional[CloudWatchLogs] = None
 
 
@@ -288,17 +283,11 @@ class BrokerNodeGroupInfo(PropertyType):
         "instance_type": "InstanceType",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_groups: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_subnets: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connectivity_info: Optional[ConnectivityInfo] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     storage_info: Optional[StorageInfo] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     broker_az_distribution: Optional[Union[str, BrokerAZDistribution, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -312,11 +301,8 @@ class ClientAuthentication(PropertyType):
         "tls": "Tls",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sasl: Optional[Sasl] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     unauthenticated: Optional[Unauthenticated] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tls: Optional[Tls] = None
 
 
@@ -329,9 +315,7 @@ class CloudWatchLogs(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_group: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -344,9 +328,7 @@ class ConfigurationInfo(PropertyType):
         "arn": "Arn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     revision: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -360,11 +342,8 @@ class ConnectivityInfo(PropertyType):
         "public_access": "PublicAccess",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     network_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_connectivity: Optional[VpcConnectivity] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     public_access: Optional[PublicAccess] = None
 
 
@@ -377,9 +356,7 @@ class EBSStorageInfo(PropertyType):
         "volume_size": "VolumeSize",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     provisioned_throughput: Optional[ProvisionedThroughput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volume_size: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -391,7 +368,6 @@ class EncryptionAtRest(PropertyType):
         "data_volume_kms_key_id": "DataVolumeKMSKeyId",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     data_volume_kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -404,9 +380,7 @@ class EncryptionInTransit(PropertyType):
         "in_cluster": "InCluster",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_broker: Optional[Union[str, ClientBroker, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     in_cluster: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -419,9 +393,7 @@ class EncryptionInfo(PropertyType):
         "encryption_in_transit": "EncryptionInTransit",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_at_rest: Optional[EncryptionAtRest] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_in_transit: Optional[EncryptionInTransit] = None
 
 
@@ -434,9 +406,7 @@ class Firehose(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     delivery_stream: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -448,7 +418,6 @@ class Iam(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -460,7 +429,6 @@ class JmxExporter(PropertyType):
         "enabled_in_broker": "EnabledInBroker",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled_in_broker: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -472,7 +440,6 @@ class LoggingInfo(PropertyType):
         "broker_logs": "BrokerLogs",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     broker_logs: Optional[BrokerLogs] = None
 
 
@@ -484,7 +451,6 @@ class NodeExporter(PropertyType):
         "enabled_in_broker": "EnabledInBroker",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled_in_broker: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -496,7 +462,6 @@ class OpenMonitoring(PropertyType):
         "prometheus": "Prometheus",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prometheus: Optional[Prometheus] = None
 
 
@@ -509,9 +474,7 @@ class Prometheus(PropertyType):
         "node_exporter": "NodeExporter",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     jmx_exporter: Optional[JmxExporter] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     node_exporter: Optional[NodeExporter] = None
 
 
@@ -524,9 +487,7 @@ class ProvisionedThroughput(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     volume_throughput: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -538,7 +499,6 @@ class PublicAccess(PropertyType):
         "type_": "Type",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -550,7 +510,6 @@ class Rebalancing(PropertyType):
         "status": "Status",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     status: Optional[Union[str, RebalancingStatus, Ref, GetAtt, Sub]] = None
 
 
@@ -564,11 +523,8 @@ class S3(PropertyType):
         "prefix": "Prefix",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -581,9 +537,7 @@ class Sasl(PropertyType):
         "scram": "Scram",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     iam: Optional[Iam] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scram: Optional[Scram] = None
 
 
@@ -595,7 +549,6 @@ class Scram(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -607,7 +560,6 @@ class StorageInfo(PropertyType):
         "ebs_storage_info": "EBSStorageInfo",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ebs_storage_info: Optional[EBSStorageInfo] = None
 
 
@@ -620,9 +572,7 @@ class Tls(PropertyType):
         "certificate_authority_arn_list": "CertificateAuthorityArnList",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     certificate_authority_arn_list: Optional[Union[list[str], Ref]] = None
 
 
@@ -634,7 +584,6 @@ class Unauthenticated(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -646,7 +595,6 @@ class VpcConnectivity(PropertyType):
         "client_authentication": "ClientAuthentication",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     client_authentication: Optional[VpcConnectivityClientAuthentication] = None
 
 
@@ -659,9 +607,7 @@ class VpcConnectivityClientAuthentication(PropertyType):
         "tls": "Tls",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sasl: Optional[VpcConnectivitySasl] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tls: Optional[VpcConnectivityTls] = None
 
 
@@ -673,7 +619,6 @@ class VpcConnectivityIam(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -686,9 +631,7 @@ class VpcConnectivitySasl(PropertyType):
         "scram": "Scram",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     iam: Optional[VpcConnectivityIam] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scram: Optional[VpcConnectivityScram] = None
 
 
@@ -700,7 +643,6 @@ class VpcConnectivityScram(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -712,7 +654,6 @@ class VpcConnectivityTls(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -737,31 +678,18 @@ class Cluster(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kafka_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     number_of_broker_nodes: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     rebalancing: Optional[Rebalancing] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     encryption_info: Optional[EncryptionInfo] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     open_monitoring: Optional[OpenMonitoring] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     storage_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     configuration_info: Optional[ConfigurationInfo] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     broker_node_group_info: Optional[BrokerNodeGroupInfo] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     enhanced_monitoring: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     cluster_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     client_authentication: Optional[ClientAuthentication] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     logging_info: Optional[LoggingInfo] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
 
     @property
@@ -787,9 +715,7 @@ class ClusterPolicy(CloudFormationResource):
         "cluster_arn": "ClusterArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     cluster_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -810,11 +736,8 @@ class LatestRevision(PropertyType):
         "creation_time": "CreationTime",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     revision: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     creation_time: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -831,15 +754,10 @@ class Configuration(CloudFormationResource):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     latest_revision: Optional[LatestRevision] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     server_properties: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kafka_versions_list: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -873,7 +791,6 @@ class AmazonMskCluster(PropertyType):
         "msk_cluster_arn": "MskClusterArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     msk_cluster_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -888,13 +805,9 @@ class ConsumerGroupReplication(PropertyType):
         "detect_and_copy_new_consumer_groups": "DetectAndCopyNewConsumerGroups",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     consumer_groups_to_replicate: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     consumer_groups_to_exclude: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     synchronise_consumer_group_offsets: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     detect_and_copy_new_consumer_groups: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -907,9 +820,7 @@ class KafkaCluster(PropertyType):
         "amazon_msk_cluster": "AmazonMskCluster",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vpc_config: Optional[KafkaClusterClientVpcConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     amazon_msk_cluster: Optional[AmazonMskCluster] = None
 
 
@@ -922,9 +833,7 @@ class KafkaClusterClientVpcConfig(PropertyType):
         "subnet_ids": "SubnetIds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_group_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnet_ids: Optional[Union[list[str], Ref]] = None
 
 
@@ -940,15 +849,10 @@ class ReplicationInfo(PropertyType):
         "target_kafka_cluster_arn": "TargetKafkaClusterArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_compression_type: Optional[Union[str, TargetCompressionType, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     topic_replication: Optional[TopicReplication] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     consumer_group_replication: Optional[ConsumerGroupReplication] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_kafka_cluster_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_kafka_cluster_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -960,7 +864,6 @@ class ReplicationStartingPosition(PropertyType):
         "type_": "Type",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, ReplicationStartingPositionType, Ref, GetAtt, Sub]] = None
 
 
@@ -972,7 +875,6 @@ class ReplicationTopicNameConfiguration(PropertyType):
         "type_": "Type",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, ReplicationTopicNameConfigurationType, Ref, GetAtt, Sub]] = None
 
 
@@ -990,19 +892,12 @@ class TopicReplication(PropertyType):
         "copy_access_control_lists_for_topics": "CopyAccessControlListsForTopics",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     starting_position: Optional[ReplicationStartingPosition] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     topics_to_replicate: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     topics_to_exclude: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     topic_name_configuration: Optional[ReplicationTopicNameConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     copy_topic_configurations: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     detect_and_copy_new_topics: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     copy_access_control_lists_for_topics: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1020,17 +915,11 @@ class Replicator(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     service_execution_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     replicator_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     replication_info_list: Optional[list[ReplicationInfo]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kafka_clusters: Optional[list[KafkaCluster]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
@@ -1054,7 +943,6 @@ class ClientAuthentication(PropertyType):
         "sasl": "Sasl",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sasl: Optional[Sasl] = None
 
 
@@ -1066,7 +954,6 @@ class Iam(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -1078,7 +965,6 @@ class Sasl(PropertyType):
         "iam": "Iam",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     iam: Optional[Iam] = None
 
 
@@ -1091,9 +977,7 @@ class VpcConfig(PropertyType):
         "subnet_ids": "SubnetIds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_groups: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnet_ids: Optional[Union[list[str], Ref]] = None
 
 
@@ -1109,13 +993,9 @@ class ServerlessCluster(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_configs: Optional[list[VpcConfig]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     cluster_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     client_authentication: Optional[ClientAuthentication] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
 
     @property
@@ -1140,17 +1020,11 @@ class VpcConnection(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     security_groups: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     target_cluster_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     client_subnets: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     authentication: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
 
     @property

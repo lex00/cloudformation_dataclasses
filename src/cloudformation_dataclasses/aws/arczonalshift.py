@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:28
+  Generated: 2025-12-17 21:50:29
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ARCZonalShift
@@ -34,7 +34,6 @@ class AutoshiftObserverNotificationStatus(CloudFormationResource):
         "status": "Status",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     status: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
     @property
@@ -59,9 +58,7 @@ class ControlCondition(PropertyType):
         "alarm_identifier": "AlarmIdentifier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     alarm_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -76,13 +73,9 @@ class PracticeRunConfiguration(PropertyType):
         "blocked_windows": "BlockedWindows",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     blocked_dates: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     outcome_alarms: Optional[list[ControlCondition]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     blocking_alarms: Optional[list[ControlCondition]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     blocked_windows: Optional[Union[list[str], Ref]] = None
 
 
@@ -97,11 +90,8 @@ class ZonalAutoshiftConfiguration(CloudFormationResource):
         "practice_run_configuration": "PracticeRunConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     zonal_autoshift_status: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     practice_run_configuration: Optional[PracticeRunConfiguration] = None
 
 

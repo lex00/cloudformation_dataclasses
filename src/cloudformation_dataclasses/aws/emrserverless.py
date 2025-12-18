@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:41
+  Generated: 2025-12-17 21:50:31
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service EMRServerless
@@ -33,7 +33,6 @@ class AutoStartConfiguration(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -46,9 +45,7 @@ class AutoStopConfiguration(PropertyType):
         "idle_timeout_minutes": "IdleTimeoutMinutes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     idle_timeout_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -64,15 +61,10 @@ class CloudWatchLoggingConfiguration(PropertyType):
         "log_type_map": "LogTypeMap",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_stream_name_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_type_map: Optional[list[LogTypeMapKeyValuePair]] = None
 
 
@@ -86,11 +78,8 @@ class ConfigurationObject(PropertyType):
         "configurations": "Configurations",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     classification: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     properties: Optional[dict[str, str]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     configurations: Optional[list[ConfigurationObject]] = None
 
 
@@ -102,7 +91,6 @@ class IdentityCenterConfiguration(PropertyType):
         "identity_center_instance_arn": "IdentityCenterInstanceArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     identity_center_instance_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -114,7 +102,6 @@ class ImageConfigurationInput(PropertyType):
         "image_uri": "ImageUri",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -127,9 +114,7 @@ class InitialCapacityConfig(PropertyType):
         "worker_count": "WorkerCount",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     worker_configuration: Optional[WorkerConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     worker_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -142,9 +127,7 @@ class InitialCapacityConfigKeyValuePair(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[InitialCapacityConfig] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -157,9 +140,7 @@ class InteractiveConfiguration(PropertyType):
         "livy_endpoint_enabled": "LivyEndpointEnabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     studio_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     livy_endpoint_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -172,9 +153,7 @@ class LogTypeMapKeyValuePair(PropertyType):
         "key": "Key",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -187,9 +166,7 @@ class ManagedPersistenceMonitoringConfiguration(PropertyType):
         "enabled": "Enabled",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -203,11 +180,8 @@ class MaximumAllowedResources(PropertyType):
         "disk": "Disk",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     memory: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cpu: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     disk: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -222,13 +196,9 @@ class MonitoringConfiguration(PropertyType):
         "cloud_watch_logging_configuration": "CloudWatchLoggingConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_monitoring_configuration: Optional[S3MonitoringConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     prometheus_monitoring_configuration: Optional[PrometheusMonitoringConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     managed_persistence_monitoring_configuration: Optional[ManagedPersistenceMonitoringConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_watch_logging_configuration: Optional[CloudWatchLoggingConfiguration] = None
 
 
@@ -241,9 +211,7 @@ class NetworkConfiguration(PropertyType):
         "security_group_ids": "SecurityGroupIds",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnet_ids: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_group_ids: Optional[Union[list[str], Ref]] = None
 
 
@@ -255,7 +223,6 @@ class PrometheusMonitoringConfiguration(PropertyType):
         "remote_write_url": "RemoteWriteUrl",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     remote_write_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -268,9 +235,7 @@ class S3MonitoringConfiguration(PropertyType):
         "encryption_key_arn": "EncryptionKeyArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_uri: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -283,9 +248,7 @@ class SchedulerConfiguration(PropertyType):
         "max_concurrent_runs": "MaxConcurrentRuns",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     queue_timeout_minutes: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     max_concurrent_runs: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -300,13 +263,9 @@ class WorkerConfiguration(PropertyType):
         "disk": "Disk",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     disk_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     memory: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cpu: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     disk: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -318,7 +277,6 @@ class WorkerTypeSpecificationInput(PropertyType):
         "image_configuration": "ImageConfiguration",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     image_configuration: Optional[ImageConfigurationInput] = None
 
 
@@ -347,39 +305,22 @@ class Application(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auto_start_configuration: Optional[AutoStartConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     architecture: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     worker_type_specifications: Optional[dict[str, Any]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     monitoring_configuration: Optional[MonitoringConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     maximum_capacity: Optional[MaximumAllowedResources] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auto_stop_configuration: Optional[AutoStopConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     runtime_configuration: Optional[list[ConfigurationObject]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     scheduler_configuration: Optional[SchedulerConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     initial_capacity: Optional[list[InitialCapacityConfigKeyValuePair]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     interactive_configuration: Optional[InteractiveConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     image_configuration: Optional[ImageConfigurationInput] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     network_configuration: Optional[NetworkConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     release_label: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     identity_center_configuration: Optional[IdentityCenterConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property

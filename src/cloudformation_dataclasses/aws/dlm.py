@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:38
+  Generated: 2025-12-17 21:50:31
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DLM
@@ -182,9 +182,7 @@ class Action(PropertyType):
         "name": "Name",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cross_region_copy: Optional[list[CrossRegionCopyAction]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -196,7 +194,6 @@ class ArchiveRetainRule(PropertyType):
         "retention_archive_tier": "RetentionArchiveTier",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retention_archive_tier: Optional[RetentionArchiveTier] = None
 
 
@@ -208,7 +205,6 @@ class ArchiveRule(PropertyType):
         "retain_rule": "RetainRule",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retain_rule: Optional[ArchiveRetainRule] = None
 
 
@@ -225,17 +221,11 @@ class CreateRule(PropertyType):
         "location": "Location",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interval_unit: Optional[Union[str, IntervalUnitValues, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     scripts: Optional[list[Script]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     times: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cron_expression: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interval: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     location: Optional[Union[str, LocationValues, Ref, GetAtt, Sub]] = None
 
 
@@ -249,11 +239,8 @@ class CrossRegionCopyAction(PropertyType):
         "retain_rule": "RetainRule",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_configuration: Optional[EncryptionConfiguration] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retain_rule: Optional[CrossRegionCopyRetainRule] = None
 
 
@@ -266,9 +253,7 @@ class CrossRegionCopyDeprecateRule(PropertyType):
         "interval": "Interval",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interval_unit: Optional[Union[str, RetentionIntervalUnitValues, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interval: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -281,9 +266,7 @@ class CrossRegionCopyRetainRule(PropertyType):
         "interval": "Interval",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interval_unit: Optional[Union[str, RetentionIntervalUnitValues, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interval: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -301,19 +284,12 @@ class CrossRegionCopyRule(PropertyType):
         "copy_tags": "CopyTags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     deprecate_rule: Optional[CrossRegionCopyDeprecateRule] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encrypted: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cmk_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retain_rule: Optional[CrossRegionCopyRetainRule] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     copy_tags: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -325,7 +301,6 @@ class CrossRegionCopyTarget(PropertyType):
         "target_region": "TargetRegion",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_region: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -346,11 +321,8 @@ class DeprecateRule(PropertyType):
         "interval": "Interval",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interval_unit: Optional[Union[str, RetentionIntervalUnitValues, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interval: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -363,9 +335,7 @@ class EncryptionConfiguration(PropertyType):
         "cmk_arn": "CmkArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encrypted: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cmk_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -379,11 +349,8 @@ class EventParameters(PropertyType):
         "description_regex": "DescriptionRegex",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     event_type: Optional[Union[str, EventTypeValues, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     snapshot_owner: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     description_regex: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -396,9 +363,7 @@ class EventSource(PropertyType):
         "parameters": "Parameters",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, EventSourceValues, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parameters: Optional[EventParameters] = None
 
 
@@ -426,11 +391,8 @@ class Exclusions(PropertyType):
         "exclude_volume_types": "ExcludeVolumeTypes",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exclude_boot_volumes: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exclude_tags: Optional[ExcludeTags] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exclude_volume_types: Optional[ExcludeVolumeTypesList] = None
 
 
@@ -445,13 +407,9 @@ class FastRestoreRule(PropertyType):
         "interval": "Interval",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interval_unit: Optional[Union[str, RetentionIntervalUnitValues, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     availability_zones: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interval: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -465,11 +423,8 @@ class Parameters(PropertyType):
         "no_reboot": "NoReboot",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exclude_boot_volume: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exclude_data_volume_tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     no_reboot: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -496,37 +451,21 @@ class PolicyDetails(PropertyType):
         "copy_tags": "CopyTags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     policy_language: Optional[Union[str, PolicyLanguageValues, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_types: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     schedules: Optional[list[Schedule]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     policy_type: Optional[Union[str, PolicyTypeValues, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     create_interval: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     parameters: Optional[Parameters] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     extend_deletion: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     exclusions: Optional[Exclusions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     actions: Optional[list[Action]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_type: Optional[Union[str, ResourceTypeValues, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retain_interval: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     event_source: Optional[EventSource] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cross_region_copy_targets: Optional[CrossRegionCopyTargets] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     resource_locations: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     copy_tags: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -540,11 +479,8 @@ class RetainRule(PropertyType):
         "interval": "Interval",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interval_unit: Optional[Union[str, RetentionIntervalUnitValues, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interval: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -558,11 +494,8 @@ class RetentionArchiveTier(PropertyType):
         "interval": "Interval",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interval_unit: Optional[Union[str, RetentionIntervalUnitValues, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     interval: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -584,27 +517,16 @@ class Schedule(PropertyType):
         "copy_tags": "CopyTags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     share_rules: Optional[list[ShareRule]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     deprecate_rule: Optional[DeprecateRule] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tags_to_add: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     create_rule: Optional[CreateRule] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     variable_tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     fast_restore_rule: Optional[FastRestoreRule] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     archive_rule: Optional[ArchiveRule] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     retain_rule: Optional[RetainRule] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cross_region_copy_rules: Optional[list[CrossRegionCopyRule]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     copy_tags: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -621,17 +543,11 @@ class Script(PropertyType):
         "execute_operation_on_script_failure": "ExecuteOperationOnScriptFailure",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     execution_handler_service: Optional[Union[str, ExecutionHandlerServiceValues, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     execution_timeout: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stages: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     execution_handler: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     maximum_retry_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     execute_operation_on_script_failure: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
 
@@ -645,11 +561,8 @@ class ShareRule(PropertyType):
         "unshare_interval": "UnshareInterval",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_accounts: Optional[Union[list[str], Ref]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     unshare_interval_unit: Optional[Union[str, RetentionIntervalUnitValues, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     unshare_interval: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
 
@@ -680,29 +593,17 @@ class LifecyclePolicy(CloudFormationResource):
         "copy_tags": "CopyTags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     execution_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     default_policy: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     create_interval: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     extend_deletion: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     exclusions: Optional[Exclusions] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     state: Optional[Union[str, GettablePolicyStateValues, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     cross_region_copy_targets: Optional[CrossRegionCopyTargets] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy_details: Optional[PolicyDetails] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     retain_interval: Optional[Union[int, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     copy_tags: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
     @property

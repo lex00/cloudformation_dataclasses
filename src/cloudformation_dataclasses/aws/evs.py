@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 21:43:41
+  Generated: 2025-12-17 21:50:31
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service EVS
@@ -142,11 +142,8 @@ class Check(PropertyType):
         "result": "Result",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     impaired_since: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     result: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -158,7 +155,6 @@ class ConnectivityInfo(PropertyType):
         "private_route_server_peerings": "PrivateRouteServerPeerings",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     private_route_server_peerings: Optional[Union[list[str], Ref]] = None
 
 
@@ -174,15 +170,10 @@ class HostInfoForCreate(PropertyType):
         "host_name": "HostName",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dedicated_host_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     placement_group_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     instance_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     host_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -194,7 +185,6 @@ class InitialVlanInfo(PropertyType):
         "cidr": "Cidr",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cidr: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -217,29 +207,17 @@ class InitialVlans(PropertyType):
         "nsx_up_link": "NsxUpLink",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vmk_management: Optional[InitialVlanInfo] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     v_tep: Optional[InitialVlanInfo] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     expansion_vlan2: Optional[InitialVlanInfo] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     v_san: Optional[InitialVlanInfo] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     v_motion: Optional[InitialVlanInfo] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     is_hcx_public: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hcx: Optional[InitialVlanInfo] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     edge_v_tep: Optional[InitialVlanInfo] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     hcx_network_acl_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     expansion_vlan1: Optional[InitialVlanInfo] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vm_management: Optional[InitialVlanInfo] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     nsx_up_link: Optional[InitialVlanInfo] = None
 
 
@@ -252,9 +230,7 @@ class LicenseInfo(PropertyType):
         "vsan_key": "VsanKey",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     solution_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vsan_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -266,7 +242,6 @@ class Secret(PropertyType):
         "secret_arn": "SecretArn",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -278,7 +253,6 @@ class ServiceAccessSecurityGroups(PropertyType):
         "security_groups": "SecurityGroups",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     security_groups: Optional[Union[list[str], Ref]] = None
 
 
@@ -298,23 +272,14 @@ class VcfHostnames(PropertyType):
         "cloud_builder": "CloudBuilder",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     nsx: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     v_center: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     nsx_manager1: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     nsx_edge1: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     nsx_manager3: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sddc_manager: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     nsx_manager2: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     nsx_edge2: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     cloud_builder: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
 
@@ -340,33 +305,19 @@ class Environment(CloudFormationResource):
         "tags": "Tags",
     }
 
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     license_info: Optional[LicenseInfo] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     hosts: Optional[list[HostInfoForCreate]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     site_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     environment_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connectivity_info: Optional[ConnectivityInfo] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     initial_vlans: Optional[InitialVlans] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     service_access_security_groups: Optional[ServiceAccessSecurityGroups] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     terms_accepted: Optional[Union[bool, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vcf_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vcf_hostnames: Optional[VcfHostnames] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     service_access_subnet_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
     @property
