@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:35
+  Generated: 2025-12-17 21:37:32
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service BackupGateway
@@ -30,6 +30,15 @@ class Hypervisor(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backu"""
 
     resource_type: ClassVar[str] = "AWS::BackupGateway::Hypervisor"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "kms_key_arn": "KmsKeyArn",
+        "username": "Username",
+        "host": "Host",
+        "log_group_arn": "LogGroupArn",
+        "tags": "Tags",
+        "name": "Name",
+        "password": "Password",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kms_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -45,98 +54,6 @@ class Hypervisor(CloudFormationResource):
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     password: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.kms_key_arn is not None:
-            # Serialize kms_key_arn (handle intrinsic functions)
-            if hasattr(self.kms_key_arn, 'to_dict'):
-                props["KmsKeyArn"] = self.kms_key_arn.to_dict()
-            elif isinstance(self.kms_key_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['KmsKeyArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.kms_key_arn
-                ]
-            else:
-                props["KmsKeyArn"] = self.kms_key_arn
-
-        if self.username is not None:
-            # Serialize username (handle intrinsic functions)
-            if hasattr(self.username, 'to_dict'):
-                props["Username"] = self.username.to_dict()
-            elif isinstance(self.username, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Username'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.username
-                ]
-            else:
-                props["Username"] = self.username
-
-        if self.host is not None:
-            # Serialize host (handle intrinsic functions)
-            if hasattr(self.host, 'to_dict'):
-                props["Host"] = self.host.to_dict()
-            elif isinstance(self.host, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Host'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.host
-                ]
-            else:
-                props["Host"] = self.host
-
-        if self.log_group_arn is not None:
-            # Serialize log_group_arn (handle intrinsic functions)
-            if hasattr(self.log_group_arn, 'to_dict'):
-                props["LogGroupArn"] = self.log_group_arn.to_dict()
-            elif isinstance(self.log_group_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['LogGroupArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.log_group_arn
-                ]
-            else:
-                props["LogGroupArn"] = self.log_group_arn
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        if self.password is not None:
-            # Serialize password (handle intrinsic functions)
-            if hasattr(self.password, 'to_dict'):
-                props["Password"] = self.password.to_dict()
-            elif isinstance(self.password, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Password'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.password
-                ]
-            else:
-                props["Password"] = self.password
-
-        return props
 
     @property
     def attr_hypervisor_arn(self) -> GetAtt:

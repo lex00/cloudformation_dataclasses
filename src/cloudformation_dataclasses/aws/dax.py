@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:35
+  Generated: 2025-12-17 21:37:38
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service DAX
@@ -109,24 +109,30 @@ SUBNET_GROUP = SourceType.SUBNET_GROUP
 class SSESpecification:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dax"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "sse_enabled": "SSEEnabled",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sse_enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.sse_enabled is not None:
-            if hasattr(self.sse_enabled, 'to_dict'):
-                props['SSEEnabled'] = self.sse_enabled.to_dict()
-            elif isinstance(self.sse_enabled, list):
-                props['SSEEnabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.sse_enabled
-                ]
-            else:
-                props['SSEEnabled'] = self.sse_enabled
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -135,6 +141,23 @@ class Cluster(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-c"""
 
     resource_type: ClassVar[str] = "AWS::DAX::Cluster"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "sse_specification": "SSESpecification",
+        "description": "Description",
+        "replication_factor": "ReplicationFactor",
+        "parameter_group_name": "ParameterGroupName",
+        "availability_zones": "AvailabilityZones",
+        "iam_role_arn": "IAMRoleARN",
+        "subnet_group_name": "SubnetGroupName",
+        "preferred_maintenance_window": "PreferredMaintenanceWindow",
+        "cluster_endpoint_encryption_type": "ClusterEndpointEncryptionType",
+        "notification_topic_arn": "NotificationTopicARN",
+        "security_group_ids": "SecurityGroupIds",
+        "network_type": "NetworkType",
+        "node_type": "NodeType",
+        "cluster_name": "ClusterName",
+        "tags": "Tags",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     sse_specification: Optional[SSESpecification] = None
@@ -167,202 +190,6 @@ class Cluster(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.sse_specification is not None:
-            # Serialize sse_specification (handle intrinsic functions)
-            if hasattr(self.sse_specification, 'to_dict'):
-                props["SSESpecification"] = self.sse_specification.to_dict()
-            elif isinstance(self.sse_specification, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SSESpecification'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.sse_specification
-                ]
-            else:
-                props["SSESpecification"] = self.sse_specification
-
-        if self.description is not None:
-            # Serialize description (handle intrinsic functions)
-            if hasattr(self.description, 'to_dict'):
-                props["Description"] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props["Description"] = self.description
-
-        if self.replication_factor is not None:
-            # Serialize replication_factor (handle intrinsic functions)
-            if hasattr(self.replication_factor, 'to_dict'):
-                props["ReplicationFactor"] = self.replication_factor.to_dict()
-            elif isinstance(self.replication_factor, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ReplicationFactor'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.replication_factor
-                ]
-            else:
-                props["ReplicationFactor"] = self.replication_factor
-
-        if self.parameter_group_name is not None:
-            # Serialize parameter_group_name (handle intrinsic functions)
-            if hasattr(self.parameter_group_name, 'to_dict'):
-                props["ParameterGroupName"] = self.parameter_group_name.to_dict()
-            elif isinstance(self.parameter_group_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ParameterGroupName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.parameter_group_name
-                ]
-            else:
-                props["ParameterGroupName"] = self.parameter_group_name
-
-        if self.availability_zones is not None:
-            # Serialize availability_zones (handle intrinsic functions)
-            if hasattr(self.availability_zones, 'to_dict'):
-                props["AvailabilityZones"] = self.availability_zones.to_dict()
-            elif isinstance(self.availability_zones, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AvailabilityZones'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.availability_zones
-                ]
-            else:
-                props["AvailabilityZones"] = self.availability_zones
-
-        if self.iam_role_arn is not None:
-            # Serialize iam_role_arn (handle intrinsic functions)
-            if hasattr(self.iam_role_arn, 'to_dict'):
-                props["IAMRoleARN"] = self.iam_role_arn.to_dict()
-            elif isinstance(self.iam_role_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['IAMRoleARN'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.iam_role_arn
-                ]
-            else:
-                props["IAMRoleARN"] = self.iam_role_arn
-
-        if self.subnet_group_name is not None:
-            # Serialize subnet_group_name (handle intrinsic functions)
-            if hasattr(self.subnet_group_name, 'to_dict'):
-                props["SubnetGroupName"] = self.subnet_group_name.to_dict()
-            elif isinstance(self.subnet_group_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SubnetGroupName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.subnet_group_name
-                ]
-            else:
-                props["SubnetGroupName"] = self.subnet_group_name
-
-        if self.preferred_maintenance_window is not None:
-            # Serialize preferred_maintenance_window (handle intrinsic functions)
-            if hasattr(self.preferred_maintenance_window, 'to_dict'):
-                props["PreferredMaintenanceWindow"] = self.preferred_maintenance_window.to_dict()
-            elif isinstance(self.preferred_maintenance_window, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['PreferredMaintenanceWindow'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.preferred_maintenance_window
-                ]
-            else:
-                props["PreferredMaintenanceWindow"] = self.preferred_maintenance_window
-
-        if self.cluster_endpoint_encryption_type is not None:
-            # Serialize cluster_endpoint_encryption_type (handle intrinsic functions)
-            if hasattr(self.cluster_endpoint_encryption_type, 'to_dict'):
-                props["ClusterEndpointEncryptionType"] = self.cluster_endpoint_encryption_type.to_dict()
-            elif isinstance(self.cluster_endpoint_encryption_type, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ClusterEndpointEncryptionType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.cluster_endpoint_encryption_type
-                ]
-            else:
-                props["ClusterEndpointEncryptionType"] = self.cluster_endpoint_encryption_type
-
-        if self.notification_topic_arn is not None:
-            # Serialize notification_topic_arn (handle intrinsic functions)
-            if hasattr(self.notification_topic_arn, 'to_dict'):
-                props["NotificationTopicARN"] = self.notification_topic_arn.to_dict()
-            elif isinstance(self.notification_topic_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['NotificationTopicARN'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.notification_topic_arn
-                ]
-            else:
-                props["NotificationTopicARN"] = self.notification_topic_arn
-
-        if self.security_group_ids is not None:
-            # Serialize security_group_ids (handle intrinsic functions)
-            if hasattr(self.security_group_ids, 'to_dict'):
-                props["SecurityGroupIds"] = self.security_group_ids.to_dict()
-            elif isinstance(self.security_group_ids, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SecurityGroupIds'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.security_group_ids
-                ]
-            else:
-                props["SecurityGroupIds"] = self.security_group_ids
-
-        if self.network_type is not None:
-            # Serialize network_type (handle intrinsic functions)
-            if hasattr(self.network_type, 'to_dict'):
-                props["NetworkType"] = self.network_type.to_dict()
-            elif isinstance(self.network_type, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['NetworkType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.network_type
-                ]
-            else:
-                props["NetworkType"] = self.network_type
-
-        if self.node_type is not None:
-            # Serialize node_type (handle intrinsic functions)
-            if hasattr(self.node_type, 'to_dict'):
-                props["NodeType"] = self.node_type.to_dict()
-            elif isinstance(self.node_type, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['NodeType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.node_type
-                ]
-            else:
-                props["NodeType"] = self.node_type
-
-        if self.cluster_name is not None:
-            # Serialize cluster_name (handle intrinsic functions)
-            if hasattr(self.cluster_name, 'to_dict'):
-                props["ClusterName"] = self.cluster_name.to_dict()
-            elif isinstance(self.cluster_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ClusterName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.cluster_name
-                ]
-            else:
-                props["ClusterName"] = self.cluster_name
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
-
     @property
     def attr_cluster_discovery_endpoint_url(self) -> GetAtt:
         """Get the ClusterDiscoveryEndpointURL attribute."""
@@ -386,6 +213,11 @@ class ParameterGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-p"""
 
     resource_type: ClassVar[str] = "AWS::DAX::ParameterGroup"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "parameter_name_values": "ParameterNameValues",
+        "description": "Description",
+        "parameter_group_name": "ParameterGroupName",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     parameter_name_values: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
@@ -394,51 +226,6 @@ class ParameterGroup(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     parameter_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.parameter_name_values is not None:
-            # Serialize parameter_name_values (handle intrinsic functions)
-            if hasattr(self.parameter_name_values, 'to_dict'):
-                props["ParameterNameValues"] = self.parameter_name_values.to_dict()
-            elif isinstance(self.parameter_name_values, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ParameterNameValues'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.parameter_name_values
-                ]
-            else:
-                props["ParameterNameValues"] = self.parameter_name_values
-
-        if self.description is not None:
-            # Serialize description (handle intrinsic functions)
-            if hasattr(self.description, 'to_dict'):
-                props["Description"] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props["Description"] = self.description
-
-        if self.parameter_group_name is not None:
-            # Serialize parameter_group_name (handle intrinsic functions)
-            if hasattr(self.parameter_group_name, 'to_dict'):
-                props["ParameterGroupName"] = self.parameter_group_name.to_dict()
-            elif isinstance(self.parameter_group_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ParameterGroupName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.parameter_group_name
-                ]
-            else:
-                props["ParameterGroupName"] = self.parameter_group_name
-
-        return props
-
 
 
 @dataclass
@@ -446,6 +233,11 @@ class SubnetGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-s"""
 
     resource_type: ClassVar[str] = "AWS::DAX::SubnetGroup"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "description": "Description",
+        "subnet_group_name": "SubnetGroupName",
+        "subnet_ids": "SubnetIds",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -453,50 +245,5 @@ class SubnetGroup(CloudFormationResource):
     subnet_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     subnet_ids: Optional[Union[list[str], Ref]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.description is not None:
-            # Serialize description (handle intrinsic functions)
-            if hasattr(self.description, 'to_dict'):
-                props["Description"] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props["Description"] = self.description
-
-        if self.subnet_group_name is not None:
-            # Serialize subnet_group_name (handle intrinsic functions)
-            if hasattr(self.subnet_group_name, 'to_dict'):
-                props["SubnetGroupName"] = self.subnet_group_name.to_dict()
-            elif isinstance(self.subnet_group_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SubnetGroupName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.subnet_group_name
-                ]
-            else:
-                props["SubnetGroupName"] = self.subnet_group_name
-
-        if self.subnet_ids is not None:
-            # Serialize subnet_ids (handle intrinsic functions)
-            if hasattr(self.subnet_ids, 'to_dict'):
-                props["SubnetIds"] = self.subnet_ids.to_dict()
-            elif isinstance(self.subnet_ids, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SubnetIds'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.subnet_ids
-                ]
-            else:
-                props["SubnetIds"] = self.subnet_ids
-
-        return props
 
 

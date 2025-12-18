@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:38
+  Generated: 2025-12-17 21:37:53
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service NeptuneGraph
@@ -29,24 +29,30 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 class VectorSearchConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nep"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "vector_search_dimension": "VectorSearchDimension",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     vector_search_dimension: Optional[Union[int, Ref, GetAtt, Sub]] = None
+
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.vector_search_dimension is not None:
-            if hasattr(self.vector_search_dimension, 'to_dict'):
-                props['VectorSearchDimension'] = self.vector_search_dimension.to_dict()
-            elif isinstance(self.vector_search_dimension, list):
-                props['VectorSearchDimension'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.vector_search_dimension
-                ]
-            else:
-                props['VectorSearchDimension'] = self.vector_search_dimension
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -55,6 +61,15 @@ class Graph(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptu"""
 
     resource_type: ClassVar[str] = "AWS::NeptuneGraph::Graph"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "public_connectivity": "PublicConnectivity",
+        "graph_name": "GraphName",
+        "replica_count": "ReplicaCount",
+        "provisioned_memory": "ProvisionedMemory",
+        "deletion_protection": "DeletionProtection",
+        "vector_search_configuration": "VectorSearchConfiguration",
+        "tags": "Tags",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     public_connectivity: Optional[Union[bool, Ref, GetAtt, Sub]] = None
@@ -70,98 +85,6 @@ class Graph(CloudFormationResource):
     vector_search_configuration: Optional[VectorSearchConfiguration] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.public_connectivity is not None:
-            # Serialize public_connectivity (handle intrinsic functions)
-            if hasattr(self.public_connectivity, 'to_dict'):
-                props["PublicConnectivity"] = self.public_connectivity.to_dict()
-            elif isinstance(self.public_connectivity, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['PublicConnectivity'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.public_connectivity
-                ]
-            else:
-                props["PublicConnectivity"] = self.public_connectivity
-
-        if self.graph_name is not None:
-            # Serialize graph_name (handle intrinsic functions)
-            if hasattr(self.graph_name, 'to_dict'):
-                props["GraphName"] = self.graph_name.to_dict()
-            elif isinstance(self.graph_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['GraphName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.graph_name
-                ]
-            else:
-                props["GraphName"] = self.graph_name
-
-        if self.replica_count is not None:
-            # Serialize replica_count (handle intrinsic functions)
-            if hasattr(self.replica_count, 'to_dict'):
-                props["ReplicaCount"] = self.replica_count.to_dict()
-            elif isinstance(self.replica_count, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ReplicaCount'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.replica_count
-                ]
-            else:
-                props["ReplicaCount"] = self.replica_count
-
-        if self.provisioned_memory is not None:
-            # Serialize provisioned_memory (handle intrinsic functions)
-            if hasattr(self.provisioned_memory, 'to_dict'):
-                props["ProvisionedMemory"] = self.provisioned_memory.to_dict()
-            elif isinstance(self.provisioned_memory, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ProvisionedMemory'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.provisioned_memory
-                ]
-            else:
-                props["ProvisionedMemory"] = self.provisioned_memory
-
-        if self.deletion_protection is not None:
-            # Serialize deletion_protection (handle intrinsic functions)
-            if hasattr(self.deletion_protection, 'to_dict'):
-                props["DeletionProtection"] = self.deletion_protection.to_dict()
-            elif isinstance(self.deletion_protection, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DeletionProtection'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.deletion_protection
-                ]
-            else:
-                props["DeletionProtection"] = self.deletion_protection
-
-        if self.vector_search_configuration is not None:
-            # Serialize vector_search_configuration (handle intrinsic functions)
-            if hasattr(self.vector_search_configuration, 'to_dict'):
-                props["VectorSearchConfiguration"] = self.vector_search_configuration.to_dict()
-            elif isinstance(self.vector_search_configuration, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['VectorSearchConfiguration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.vector_search_configuration
-                ]
-            else:
-                props["VectorSearchConfiguration"] = self.vector_search_configuration
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_endpoint(self) -> GetAtt:
@@ -186,6 +109,12 @@ class PrivateGraphEndpoint(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptu"""
 
     resource_type: ClassVar[str] = "AWS::NeptuneGraph::PrivateGraphEndpoint"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "vpc_id": "VpcId",
+        "graph_identifier": "GraphIdentifier",
+        "security_group_ids": "SecurityGroupIds",
+        "subnet_ids": "SubnetIds",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vpc_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -195,64 +124,6 @@ class PrivateGraphEndpoint(CloudFormationResource):
     security_group_ids: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     subnet_ids: Optional[Union[list[str], Ref]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.vpc_id is not None:
-            # Serialize vpc_id (handle intrinsic functions)
-            if hasattr(self.vpc_id, 'to_dict'):
-                props["VpcId"] = self.vpc_id.to_dict()
-            elif isinstance(self.vpc_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['VpcId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.vpc_id
-                ]
-            else:
-                props["VpcId"] = self.vpc_id
-
-        if self.graph_identifier is not None:
-            # Serialize graph_identifier (handle intrinsic functions)
-            if hasattr(self.graph_identifier, 'to_dict'):
-                props["GraphIdentifier"] = self.graph_identifier.to_dict()
-            elif isinstance(self.graph_identifier, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['GraphIdentifier'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.graph_identifier
-                ]
-            else:
-                props["GraphIdentifier"] = self.graph_identifier
-
-        if self.security_group_ids is not None:
-            # Serialize security_group_ids (handle intrinsic functions)
-            if hasattr(self.security_group_ids, 'to_dict'):
-                props["SecurityGroupIds"] = self.security_group_ids.to_dict()
-            elif isinstance(self.security_group_ids, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SecurityGroupIds'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.security_group_ids
-                ]
-            else:
-                props["SecurityGroupIds"] = self.security_group_ids
-
-        if self.subnet_ids is not None:
-            # Serialize subnet_ids (handle intrinsic functions)
-            if hasattr(self.subnet_ids, 'to_dict'):
-                props["SubnetIds"] = self.subnet_ids.to_dict()
-            elif isinstance(self.subnet_ids, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SubnetIds'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.subnet_ids
-                ]
-            else:
-                props["SubnetIds"] = self.subnet_ids
-
-        return props
 
     @property
     def attr_vpc_endpoint_id(self) -> GetAtt:

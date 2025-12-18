@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:37
+  Generated: 2025-12-17 21:37:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Kinesis
@@ -159,43 +159,15 @@ class ResourcePolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kines"""
 
     resource_type: ClassVar[str] = "AWS::Kinesis::ResourcePolicy"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "resource_arn": "ResourceArn",
+        "resource_policy": "ResourcePolicy",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_policy: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.resource_arn is not None:
-            # Serialize resource_arn (handle intrinsic functions)
-            if hasattr(self.resource_arn, 'to_dict'):
-                props["ResourceArn"] = self.resource_arn.to_dict()
-            elif isinstance(self.resource_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ResourceArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.resource_arn
-                ]
-            else:
-                props["ResourceArn"] = self.resource_arn
-
-        if self.resource_policy is not None:
-            # Serialize resource_policy (handle intrinsic functions)
-            if hasattr(self.resource_policy, 'to_dict'):
-                props["ResourcePolicy"] = self.resource_policy.to_dict()
-            elif isinstance(self.resource_policy, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ResourcePolicy'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.resource_policy
-                ]
-            else:
-                props["ResourcePolicy"] = self.resource_policy
-
-        return props
 
 
 
@@ -203,37 +175,33 @@ class ResourcePolicy(CloudFormationResource):
 class StreamEncryption:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "encryption_type": "EncryptionType",
+        "key_id": "KeyId",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.encryption_type is not None:
-            if hasattr(self.encryption_type, 'to_dict'):
-                props['EncryptionType'] = self.encryption_type.to_dict()
-            elif isinstance(self.encryption_type, list):
-                props['EncryptionType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.encryption_type
-                ]
-            else:
-                props['EncryptionType'] = self.encryption_type
-
-        if self.key_id is not None:
-            if hasattr(self.key_id, 'to_dict'):
-                props['KeyId'] = self.key_id.to_dict()
-            elif isinstance(self.key_id, list):
-                props['KeyId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.key_id
-                ]
-            else:
-                props['KeyId'] = self.key_id
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -241,24 +209,30 @@ class StreamEncryption:
 class StreamModeDetails:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "stream_mode": "StreamMode",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     stream_mode: Optional[Union[str, StreamMode, Ref, GetAtt, Sub]] = None
+
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.stream_mode is not None:
-            if hasattr(self.stream_mode, 'to_dict'):
-                props['StreamMode'] = self.stream_mode.to_dict()
-            elif isinstance(self.stream_mode, list):
-                props['StreamMode'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.stream_mode
-                ]
-            else:
-                props['StreamMode'] = self.stream_mode
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -266,37 +240,33 @@ class StreamModeDetails:
 class WarmThroughputObject:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kin"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "current_mi_bps": "CurrentMiBps",
+        "target_mi_bps": "TargetMiBps",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     current_mi_bps: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_mi_bps: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.current_mi_bps is not None:
-            if hasattr(self.current_mi_bps, 'to_dict'):
-                props['CurrentMiBps'] = self.current_mi_bps.to_dict()
-            elif isinstance(self.current_mi_bps, list):
-                props['CurrentMiBps'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.current_mi_bps
-                ]
-            else:
-                props['CurrentMiBps'] = self.current_mi_bps
-
-        if self.target_mi_bps is not None:
-            if hasattr(self.target_mi_bps, 'to_dict'):
-                props['TargetMiBps'] = self.target_mi_bps.to_dict()
-            elif isinstance(self.target_mi_bps, list):
-                props['TargetMiBps'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.target_mi_bps
-                ]
-            else:
-                props['TargetMiBps'] = self.target_mi_bps
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -305,6 +275,17 @@ class Stream(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kines"""
 
     resource_type: ClassVar[str] = "AWS::Kinesis::Stream"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "stream_mode_details": "StreamModeDetails",
+        "stream_encryption": "StreamEncryption",
+        "warm_throughput_mi_bps": "WarmThroughputMiBps",
+        "max_record_size_in_ki_b": "MaxRecordSizeInKiB",
+        "retention_period_hours": "RetentionPeriodHours",
+        "desired_shard_level_metrics": "DesiredShardLevelMetrics",
+        "tags": "Tags",
+        "name": "Name",
+        "shard_count": "ShardCount",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     stream_mode_details: Optional[StreamModeDetails] = None
@@ -324,124 +305,6 @@ class Stream(CloudFormationResource):
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     shard_count: Optional[Union[int, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.stream_mode_details is not None:
-            # Serialize stream_mode_details (handle intrinsic functions)
-            if hasattr(self.stream_mode_details, 'to_dict'):
-                props["StreamModeDetails"] = self.stream_mode_details.to_dict()
-            elif isinstance(self.stream_mode_details, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['StreamModeDetails'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.stream_mode_details
-                ]
-            else:
-                props["StreamModeDetails"] = self.stream_mode_details
-
-        if self.stream_encryption is not None:
-            # Serialize stream_encryption (handle intrinsic functions)
-            if hasattr(self.stream_encryption, 'to_dict'):
-                props["StreamEncryption"] = self.stream_encryption.to_dict()
-            elif isinstance(self.stream_encryption, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['StreamEncryption'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.stream_encryption
-                ]
-            else:
-                props["StreamEncryption"] = self.stream_encryption
-
-        if self.warm_throughput_mi_bps is not None:
-            # Serialize warm_throughput_mi_bps (handle intrinsic functions)
-            if hasattr(self.warm_throughput_mi_bps, 'to_dict'):
-                props["WarmThroughputMiBps"] = self.warm_throughput_mi_bps.to_dict()
-            elif isinstance(self.warm_throughput_mi_bps, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['WarmThroughputMiBps'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.warm_throughput_mi_bps
-                ]
-            else:
-                props["WarmThroughputMiBps"] = self.warm_throughput_mi_bps
-
-        if self.max_record_size_in_ki_b is not None:
-            # Serialize max_record_size_in_ki_b (handle intrinsic functions)
-            if hasattr(self.max_record_size_in_ki_b, 'to_dict'):
-                props["MaxRecordSizeInKiB"] = self.max_record_size_in_ki_b.to_dict()
-            elif isinstance(self.max_record_size_in_ki_b, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['MaxRecordSizeInKiB'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.max_record_size_in_ki_b
-                ]
-            else:
-                props["MaxRecordSizeInKiB"] = self.max_record_size_in_ki_b
-
-        if self.retention_period_hours is not None:
-            # Serialize retention_period_hours (handle intrinsic functions)
-            if hasattr(self.retention_period_hours, 'to_dict'):
-                props["RetentionPeriodHours"] = self.retention_period_hours.to_dict()
-            elif isinstance(self.retention_period_hours, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['RetentionPeriodHours'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.retention_period_hours
-                ]
-            else:
-                props["RetentionPeriodHours"] = self.retention_period_hours
-
-        if self.desired_shard_level_metrics is not None:
-            # Serialize desired_shard_level_metrics (handle intrinsic functions)
-            if hasattr(self.desired_shard_level_metrics, 'to_dict'):
-                props["DesiredShardLevelMetrics"] = self.desired_shard_level_metrics.to_dict()
-            elif isinstance(self.desired_shard_level_metrics, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DesiredShardLevelMetrics'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.desired_shard_level_metrics
-                ]
-            else:
-                props["DesiredShardLevelMetrics"] = self.desired_shard_level_metrics
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        if self.shard_count is not None:
-            # Serialize shard_count (handle intrinsic functions)
-            if hasattr(self.shard_count, 'to_dict'):
-                props["ShardCount"] = self.shard_count.to_dict()
-            elif isinstance(self.shard_count, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ShardCount'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.shard_count
-                ]
-            else:
-                props["ShardCount"] = self.shard_count
-
-        return props
 
     @property
     def attr_warm_throughput_object__current_mi_bps(self) -> GetAtt:
@@ -471,6 +334,11 @@ class StreamConsumer(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kines"""
 
     resource_type: ClassVar[str] = "AWS::Kinesis::StreamConsumer"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "consumer_name": "ConsumerName",
+        "stream_arn": "StreamARN",
+        "tags": "Tags",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     consumer_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -478,46 +346,6 @@ class StreamConsumer(CloudFormationResource):
     stream_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.consumer_name is not None:
-            # Serialize consumer_name (handle intrinsic functions)
-            if hasattr(self.consumer_name, 'to_dict'):
-                props["ConsumerName"] = self.consumer_name.to_dict()
-            elif isinstance(self.consumer_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ConsumerName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.consumer_name
-                ]
-            else:
-                props["ConsumerName"] = self.consumer_name
-
-        if self.stream_arn is not None:
-            # Serialize stream_arn (handle intrinsic functions)
-            if hasattr(self.stream_arn, 'to_dict'):
-                props["StreamARN"] = self.stream_arn.to_dict()
-            elif isinstance(self.stream_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['StreamARN'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.stream_arn
-                ]
-            else:
-                props["StreamARN"] = self.stream_arn
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_consumer_creation_timestamp(self) -> GetAtt:

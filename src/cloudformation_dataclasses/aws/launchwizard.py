@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:37
+  Generated: 2025-12-17 21:37:50
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service LaunchWizard
@@ -29,37 +29,33 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 class Tags:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lau"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "value": "Value",
+        "key": "Key",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     key: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.value is not None:
-            if hasattr(self.value, 'to_dict'):
-                props['Value'] = self.value.to_dict()
-            elif isinstance(self.value, list):
-                props['Value'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.value
-                ]
-            else:
-                props['Value'] = self.value
-
-        if self.key is not None:
-            if hasattr(self.key, 'to_dict'):
-                props['Key'] = self.key.to_dict()
-            elif isinstance(self.key, list):
-                props['Key'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.key
-                ]
-            else:
-                props['Key'] = self.key
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -68,6 +64,13 @@ class Deployment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-launc"""
 
     resource_type: ClassVar[str] = "AWS::LaunchWizard::Deployment"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "specifications": "Specifications",
+        "workload_name": "WorkloadName",
+        "tags": "Tags",
+        "deployment_pattern_name": "DeploymentPatternName",
+        "name": "Name",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     specifications: Optional[dict[str, str]] = None
@@ -79,72 +82,6 @@ class Deployment(CloudFormationResource):
     deployment_pattern_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.specifications is not None:
-            # Serialize specifications (handle intrinsic functions)
-            if hasattr(self.specifications, 'to_dict'):
-                props["Specifications"] = self.specifications.to_dict()
-            elif isinstance(self.specifications, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Specifications'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.specifications
-                ]
-            else:
-                props["Specifications"] = self.specifications
-
-        if self.workload_name is not None:
-            # Serialize workload_name (handle intrinsic functions)
-            if hasattr(self.workload_name, 'to_dict'):
-                props["WorkloadName"] = self.workload_name.to_dict()
-            elif isinstance(self.workload_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['WorkloadName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.workload_name
-                ]
-            else:
-                props["WorkloadName"] = self.workload_name
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.deployment_pattern_name is not None:
-            # Serialize deployment_pattern_name (handle intrinsic functions)
-            if hasattr(self.deployment_pattern_name, 'to_dict'):
-                props["DeploymentPatternName"] = self.deployment_pattern_name.to_dict()
-            elif isinstance(self.deployment_pattern_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DeploymentPatternName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.deployment_pattern_name
-                ]
-            else:
-                props["DeploymentPatternName"] = self.deployment_pattern_name
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        return props
 
     @property
     def attr_status(self) -> GetAtt:

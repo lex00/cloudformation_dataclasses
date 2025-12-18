@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:38
+  Generated: 2025-12-17 21:37:55
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Organizations
@@ -554,6 +554,13 @@ class Account(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organ"""
 
     resource_type: ClassVar[str] = "AWS::Organizations::Account"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "role_name": "RoleName",
+        "email": "Email",
+        "parent_ids": "ParentIds",
+        "tags": "Tags",
+        "account_name": "AccountName",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     role_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -565,72 +572,6 @@ class Account(CloudFormationResource):
     tags: Optional[list[Tag]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     account_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.role_name is not None:
-            # Serialize role_name (handle intrinsic functions)
-            if hasattr(self.role_name, 'to_dict'):
-                props["RoleName"] = self.role_name.to_dict()
-            elif isinstance(self.role_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['RoleName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.role_name
-                ]
-            else:
-                props["RoleName"] = self.role_name
-
-        if self.email is not None:
-            # Serialize email (handle intrinsic functions)
-            if hasattr(self.email, 'to_dict'):
-                props["Email"] = self.email.to_dict()
-            elif isinstance(self.email, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Email'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.email
-                ]
-            else:
-                props["Email"] = self.email
-
-        if self.parent_ids is not None:
-            # Serialize parent_ids (handle intrinsic functions)
-            if hasattr(self.parent_ids, 'to_dict'):
-                props["ParentIds"] = self.parent_ids.to_dict()
-            elif isinstance(self.parent_ids, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ParentIds'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.parent_ids
-                ]
-            else:
-                props["ParentIds"] = self.parent_ids
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.account_name is not None:
-            # Serialize account_name (handle intrinsic functions)
-            if hasattr(self.account_name, 'to_dict'):
-                props["AccountName"] = self.account_name.to_dict()
-            elif isinstance(self.account_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AccountName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.account_name
-                ]
-            else:
-                props["AccountName"] = self.account_name
-
-        return props
 
     @property
     def attr_joined_method(self) -> GetAtt:
@@ -670,28 +611,12 @@ class Organization(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organ"""
 
     resource_type: ClassVar[str] = "AWS::Organizations::Organization"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "feature_set": "FeatureSet",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     feature_set: Optional[Union[str, OrganizationFeatureSet, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.feature_set is not None:
-            # Serialize feature_set (handle intrinsic functions)
-            if hasattr(self.feature_set, 'to_dict'):
-                props["FeatureSet"] = self.feature_set.to_dict()
-            elif isinstance(self.feature_set, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['FeatureSet'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.feature_set
-                ]
-            else:
-                props["FeatureSet"] = self.feature_set
-
-        return props
 
     @property
     def attr_root_id(self) -> GetAtt:
@@ -731,6 +656,11 @@ class OrganizationalUnit(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organ"""
 
     resource_type: ClassVar[str] = "AWS::Organizations::OrganizationalUnit"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "parent_id": "ParentId",
+        "tags": "Tags",
+        "name": "Name",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     parent_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -738,46 +668,6 @@ class OrganizationalUnit(CloudFormationResource):
     tags: Optional[list[Tag]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.parent_id is not None:
-            # Serialize parent_id (handle intrinsic functions)
-            if hasattr(self.parent_id, 'to_dict'):
-                props["ParentId"] = self.parent_id.to_dict()
-            elif isinstance(self.parent_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ParentId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.parent_id
-                ]
-            else:
-                props["ParentId"] = self.parent_id
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        return props
 
     @property
     def attr_id(self) -> GetAtt:
@@ -797,6 +687,14 @@ class Policy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organ"""
 
     resource_type: ClassVar[str] = "AWS::Organizations::Policy"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "type_": "Type",
+        "target_ids": "TargetIds",
+        "description": "Description",
+        "content": "Content",
+        "tags": "Tags",
+        "name": "Name",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -810,85 +708,6 @@ class Policy(CloudFormationResource):
     tags: Optional[list[Tag]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.type_ is not None:
-            # Serialize type_ (handle intrinsic functions)
-            if hasattr(self.type_, 'to_dict'):
-                props["Type"] = self.type_.to_dict()
-            elif isinstance(self.type_, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Type'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.type_
-                ]
-            else:
-                props["Type"] = self.type_
-
-        if self.target_ids is not None:
-            # Serialize target_ids (handle intrinsic functions)
-            if hasattr(self.target_ids, 'to_dict'):
-                props["TargetIds"] = self.target_ids.to_dict()
-            elif isinstance(self.target_ids, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['TargetIds'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.target_ids
-                ]
-            else:
-                props["TargetIds"] = self.target_ids
-
-        if self.description is not None:
-            # Serialize description (handle intrinsic functions)
-            if hasattr(self.description, 'to_dict'):
-                props["Description"] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props["Description"] = self.description
-
-        if self.content is not None:
-            # Serialize content (handle intrinsic functions)
-            if hasattr(self.content, 'to_dict'):
-                props["Content"] = self.content.to_dict()
-            elif isinstance(self.content, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Content'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.content
-                ]
-            else:
-                props["Content"] = self.content
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        return props
 
     @property
     def attr_id(self) -> GetAtt:
@@ -913,38 +732,15 @@ class ResourcePolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organ"""
 
     resource_type: ClassVar[str] = "AWS::Organizations::ResourcePolicy"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "content": "Content",
+        "tags": "Tags",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     content: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.content is not None:
-            # Serialize content (handle intrinsic functions)
-            if hasattr(self.content, 'to_dict'):
-                props["Content"] = self.content.to_dict()
-            elif isinstance(self.content, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Content'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.content
-                ]
-            else:
-                props["Content"] = self.content
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_id(self) -> GetAtt:

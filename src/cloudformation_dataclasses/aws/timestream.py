@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:39
+  Generated: 2025-12-17 21:38:05
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Timestream
@@ -151,6 +151,11 @@ class Database(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-times"""
 
     resource_type: ClassVar[str] = "AWS::Timestream::Database"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "kms_key_id": "KmsKeyId",
+        "database_name": "DatabaseName",
+        "tags": "Tags",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -158,46 +163,6 @@ class Database(CloudFormationResource):
     database_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.kms_key_id is not None:
-            # Serialize kms_key_id (handle intrinsic functions)
-            if hasattr(self.kms_key_id, 'to_dict'):
-                props["KmsKeyId"] = self.kms_key_id.to_dict()
-            elif isinstance(self.kms_key_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['KmsKeyId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.kms_key_id
-                ]
-            else:
-                props["KmsKeyId"] = self.kms_key_id
-
-        if self.database_name is not None:
-            # Serialize database_name (handle intrinsic functions)
-            if hasattr(self.database_name, 'to_dict'):
-                props["DatabaseName"] = self.database_name.to_dict()
-            elif isinstance(self.database_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DatabaseName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.database_name
-                ]
-            else:
-                props["DatabaseName"] = self.database_name
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_arn(self) -> GetAtt:
@@ -211,24 +176,30 @@ class Database(CloudFormationResource):
 class LogDeliveryConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "s3_configuration": "S3Configuration",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_configuration: Optional[S3Configuration] = None
+
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.s3_configuration is not None:
-            if hasattr(self.s3_configuration, 'to_dict'):
-                props['S3Configuration'] = self.s3_configuration.to_dict()
-            elif isinstance(self.s3_configuration, list):
-                props['S3Configuration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.s3_configuration
-                ]
-            else:
-                props['S3Configuration'] = self.s3_configuration
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -236,37 +207,33 @@ class LogDeliveryConfiguration:
 class S3Configuration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "bucket_name": "BucketName",
+        "enabled": "Enabled",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.bucket_name is not None:
-            if hasattr(self.bucket_name, 'to_dict'):
-                props['BucketName'] = self.bucket_name.to_dict()
-            elif isinstance(self.bucket_name, list):
-                props['BucketName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.bucket_name
-                ]
-            else:
-                props['BucketName'] = self.bucket_name
-
-        if self.enabled is not None:
-            if hasattr(self.enabled, 'to_dict'):
-                props['Enabled'] = self.enabled.to_dict()
-            elif isinstance(self.enabled, list):
-                props['Enabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enabled
-                ]
-            else:
-                props['Enabled'] = self.enabled
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -275,6 +242,25 @@ class InfluxDBInstance(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-times"""
 
     resource_type: ClassVar[str] = "AWS::Timestream::InfluxDBInstance"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "db_parameter_group_identifier": "DbParameterGroupIdentifier",
+        "organization": "Organization",
+        "port": "Port",
+        "db_instance_type": "DbInstanceType",
+        "vpc_subnet_ids": "VpcSubnetIds",
+        "deployment_type": "DeploymentType",
+        "allocated_storage": "AllocatedStorage",
+        "name": "Name",
+        "db_storage_type": "DbStorageType",
+        "log_delivery_configuration": "LogDeliveryConfiguration",
+        "username": "Username",
+        "bucket": "Bucket",
+        "vpc_security_group_ids": "VpcSecurityGroupIds",
+        "network_type": "NetworkType",
+        "publicly_accessible": "PubliclyAccessible",
+        "tags": "Tags",
+        "password": "Password",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     db_parameter_group_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -310,228 +296,6 @@ class InfluxDBInstance(CloudFormationResource):
     tags: Optional[list[Tag]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     password: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.db_parameter_group_identifier is not None:
-            # Serialize db_parameter_group_identifier (handle intrinsic functions)
-            if hasattr(self.db_parameter_group_identifier, 'to_dict'):
-                props["DbParameterGroupIdentifier"] = self.db_parameter_group_identifier.to_dict()
-            elif isinstance(self.db_parameter_group_identifier, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DbParameterGroupIdentifier'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.db_parameter_group_identifier
-                ]
-            else:
-                props["DbParameterGroupIdentifier"] = self.db_parameter_group_identifier
-
-        if self.organization is not None:
-            # Serialize organization (handle intrinsic functions)
-            if hasattr(self.organization, 'to_dict'):
-                props["Organization"] = self.organization.to_dict()
-            elif isinstance(self.organization, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Organization'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.organization
-                ]
-            else:
-                props["Organization"] = self.organization
-
-        if self.port is not None:
-            # Serialize port (handle intrinsic functions)
-            if hasattr(self.port, 'to_dict'):
-                props["Port"] = self.port.to_dict()
-            elif isinstance(self.port, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Port'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.port
-                ]
-            else:
-                props["Port"] = self.port
-
-        if self.db_instance_type is not None:
-            # Serialize db_instance_type (handle intrinsic functions)
-            if hasattr(self.db_instance_type, 'to_dict'):
-                props["DbInstanceType"] = self.db_instance_type.to_dict()
-            elif isinstance(self.db_instance_type, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DbInstanceType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.db_instance_type
-                ]
-            else:
-                props["DbInstanceType"] = self.db_instance_type
-
-        if self.vpc_subnet_ids is not None:
-            # Serialize vpc_subnet_ids (handle intrinsic functions)
-            if hasattr(self.vpc_subnet_ids, 'to_dict'):
-                props["VpcSubnetIds"] = self.vpc_subnet_ids.to_dict()
-            elif isinstance(self.vpc_subnet_ids, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['VpcSubnetIds'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.vpc_subnet_ids
-                ]
-            else:
-                props["VpcSubnetIds"] = self.vpc_subnet_ids
-
-        if self.deployment_type is not None:
-            # Serialize deployment_type (handle intrinsic functions)
-            if hasattr(self.deployment_type, 'to_dict'):
-                props["DeploymentType"] = self.deployment_type.to_dict()
-            elif isinstance(self.deployment_type, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DeploymentType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.deployment_type
-                ]
-            else:
-                props["DeploymentType"] = self.deployment_type
-
-        if self.allocated_storage is not None:
-            # Serialize allocated_storage (handle intrinsic functions)
-            if hasattr(self.allocated_storage, 'to_dict'):
-                props["AllocatedStorage"] = self.allocated_storage.to_dict()
-            elif isinstance(self.allocated_storage, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AllocatedStorage'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.allocated_storage
-                ]
-            else:
-                props["AllocatedStorage"] = self.allocated_storage
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        if self.db_storage_type is not None:
-            # Serialize db_storage_type (handle intrinsic functions)
-            if hasattr(self.db_storage_type, 'to_dict'):
-                props["DbStorageType"] = self.db_storage_type.to_dict()
-            elif isinstance(self.db_storage_type, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DbStorageType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.db_storage_type
-                ]
-            else:
-                props["DbStorageType"] = self.db_storage_type
-
-        if self.log_delivery_configuration is not None:
-            # Serialize log_delivery_configuration (handle intrinsic functions)
-            if hasattr(self.log_delivery_configuration, 'to_dict'):
-                props["LogDeliveryConfiguration"] = self.log_delivery_configuration.to_dict()
-            elif isinstance(self.log_delivery_configuration, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['LogDeliveryConfiguration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.log_delivery_configuration
-                ]
-            else:
-                props["LogDeliveryConfiguration"] = self.log_delivery_configuration
-
-        if self.username is not None:
-            # Serialize username (handle intrinsic functions)
-            if hasattr(self.username, 'to_dict'):
-                props["Username"] = self.username.to_dict()
-            elif isinstance(self.username, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Username'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.username
-                ]
-            else:
-                props["Username"] = self.username
-
-        if self.bucket is not None:
-            # Serialize bucket (handle intrinsic functions)
-            if hasattr(self.bucket, 'to_dict'):
-                props["Bucket"] = self.bucket.to_dict()
-            elif isinstance(self.bucket, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Bucket'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.bucket
-                ]
-            else:
-                props["Bucket"] = self.bucket
-
-        if self.vpc_security_group_ids is not None:
-            # Serialize vpc_security_group_ids (handle intrinsic functions)
-            if hasattr(self.vpc_security_group_ids, 'to_dict'):
-                props["VpcSecurityGroupIds"] = self.vpc_security_group_ids.to_dict()
-            elif isinstance(self.vpc_security_group_ids, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['VpcSecurityGroupIds'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.vpc_security_group_ids
-                ]
-            else:
-                props["VpcSecurityGroupIds"] = self.vpc_security_group_ids
-
-        if self.network_type is not None:
-            # Serialize network_type (handle intrinsic functions)
-            if hasattr(self.network_type, 'to_dict'):
-                props["NetworkType"] = self.network_type.to_dict()
-            elif isinstance(self.network_type, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['NetworkType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.network_type
-                ]
-            else:
-                props["NetworkType"] = self.network_type
-
-        if self.publicly_accessible is not None:
-            # Serialize publicly_accessible (handle intrinsic functions)
-            if hasattr(self.publicly_accessible, 'to_dict'):
-                props["PubliclyAccessible"] = self.publicly_accessible.to_dict()
-            elif isinstance(self.publicly_accessible, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['PubliclyAccessible'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.publicly_accessible
-                ]
-            else:
-                props["PubliclyAccessible"] = self.publicly_accessible
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.password is not None:
-            # Serialize password (handle intrinsic functions)
-            if hasattr(self.password, 'to_dict'):
-                props["Password"] = self.password.to_dict()
-            elif isinstance(self.password, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Password'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.password
-                ]
-            else:
-                props["Password"] = self.password
-
-        return props
 
     @property
     def attr_status(self) -> GetAtt:
@@ -575,37 +339,33 @@ class InfluxDBInstance(CloudFormationResource):
 class DimensionMapping:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "dimension_value_type": "DimensionValueType",
+        "name": "Name",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dimension_value_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.dimension_value_type is not None:
-            if hasattr(self.dimension_value_type, 'to_dict'):
-                props['DimensionValueType'] = self.dimension_value_type.to_dict()
-            elif isinstance(self.dimension_value_type, list):
-                props['DimensionValueType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.dimension_value_type
-                ]
-            else:
-                props['DimensionValueType'] = self.dimension_value_type
-
-        if self.name is not None:
-            if hasattr(self.name, 'to_dict'):
-                props['Name'] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props['Name'] = self.name
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -613,30 +373,44 @@ class DimensionMapping:
 class ErrorReportConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "s3_configuration": "S3Configuration",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_configuration: Optional[S3Configuration] = None
+
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.s3_configuration is not None:
-            if hasattr(self.s3_configuration, 'to_dict'):
-                props['S3Configuration'] = self.s3_configuration.to_dict()
-            elif isinstance(self.s3_configuration, list):
-                props['S3Configuration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.s3_configuration
-                ]
-            else:
-                props['S3Configuration'] = self.s3_configuration
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
 @dataclass
 class MixedMeasureMapping:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "measure_name": "MeasureName",
+        "source_column": "SourceColumn",
+        "target_measure_name": "TargetMeasureName",
+        "measure_value_type": "MeasureValueType",
+        "multi_measure_attribute_mappings": "MultiMeasureAttributeMappings",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     measure_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -649,71 +423,35 @@ class MixedMeasureMapping:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     multi_measure_attribute_mappings: Optional[list[MultiMeasureAttributeMapping]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.measure_name is not None:
-            if hasattr(self.measure_name, 'to_dict'):
-                props['MeasureName'] = self.measure_name.to_dict()
-            elif isinstance(self.measure_name, list):
-                props['MeasureName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.measure_name
-                ]
-            else:
-                props['MeasureName'] = self.measure_name
-
-        if self.source_column is not None:
-            if hasattr(self.source_column, 'to_dict'):
-                props['SourceColumn'] = self.source_column.to_dict()
-            elif isinstance(self.source_column, list):
-                props['SourceColumn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.source_column
-                ]
-            else:
-                props['SourceColumn'] = self.source_column
-
-        if self.target_measure_name is not None:
-            if hasattr(self.target_measure_name, 'to_dict'):
-                props['TargetMeasureName'] = self.target_measure_name.to_dict()
-            elif isinstance(self.target_measure_name, list):
-                props['TargetMeasureName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.target_measure_name
-                ]
-            else:
-                props['TargetMeasureName'] = self.target_measure_name
-
-        if self.measure_value_type is not None:
-            if hasattr(self.measure_value_type, 'to_dict'):
-                props['MeasureValueType'] = self.measure_value_type.to_dict()
-            elif isinstance(self.measure_value_type, list):
-                props['MeasureValueType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.measure_value_type
-                ]
-            else:
-                props['MeasureValueType'] = self.measure_value_type
-
-        if self.multi_measure_attribute_mappings is not None:
-            if hasattr(self.multi_measure_attribute_mappings, 'to_dict'):
-                props['MultiMeasureAttributeMappings'] = self.multi_measure_attribute_mappings.to_dict()
-            elif isinstance(self.multi_measure_attribute_mappings, list):
-                props['MultiMeasureAttributeMappings'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.multi_measure_attribute_mappings
-                ]
-            else:
-                props['MultiMeasureAttributeMappings'] = self.multi_measure_attribute_mappings
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
 @dataclass
 class MultiMeasureAttributeMapping:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "source_column": "SourceColumn",
+        "target_multi_measure_attribute_name": "TargetMultiMeasureAttributeName",
+        "measure_value_type": "MeasureValueType",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_column: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -722,43 +460,23 @@ class MultiMeasureAttributeMapping:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     measure_value_type: Optional[Union[str, ScalarMeasureValueType, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.source_column is not None:
-            if hasattr(self.source_column, 'to_dict'):
-                props['SourceColumn'] = self.source_column.to_dict()
-            elif isinstance(self.source_column, list):
-                props['SourceColumn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.source_column
-                ]
-            else:
-                props['SourceColumn'] = self.source_column
-
-        if self.target_multi_measure_attribute_name is not None:
-            if hasattr(self.target_multi_measure_attribute_name, 'to_dict'):
-                props['TargetMultiMeasureAttributeName'] = self.target_multi_measure_attribute_name.to_dict()
-            elif isinstance(self.target_multi_measure_attribute_name, list):
-                props['TargetMultiMeasureAttributeName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.target_multi_measure_attribute_name
-                ]
-            else:
-                props['TargetMultiMeasureAttributeName'] = self.target_multi_measure_attribute_name
-
-        if self.measure_value_type is not None:
-            if hasattr(self.measure_value_type, 'to_dict'):
-                props['MeasureValueType'] = self.measure_value_type.to_dict()
-            elif isinstance(self.measure_value_type, list):
-                props['MeasureValueType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.measure_value_type
-                ]
-            else:
-                props['MeasureValueType'] = self.measure_value_type
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -766,37 +484,33 @@ class MultiMeasureAttributeMapping:
 class MultiMeasureMappings:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "target_multi_measure_name": "TargetMultiMeasureName",
+        "multi_measure_attribute_mappings": "MultiMeasureAttributeMappings",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_multi_measure_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     multi_measure_attribute_mappings: Optional[list[MultiMeasureAttributeMapping]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.target_multi_measure_name is not None:
-            if hasattr(self.target_multi_measure_name, 'to_dict'):
-                props['TargetMultiMeasureName'] = self.target_multi_measure_name.to_dict()
-            elif isinstance(self.target_multi_measure_name, list):
-                props['TargetMultiMeasureName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.target_multi_measure_name
-                ]
-            else:
-                props['TargetMultiMeasureName'] = self.target_multi_measure_name
-
-        if self.multi_measure_attribute_mappings is not None:
-            if hasattr(self.multi_measure_attribute_mappings, 'to_dict'):
-                props['MultiMeasureAttributeMappings'] = self.multi_measure_attribute_mappings.to_dict()
-            elif isinstance(self.multi_measure_attribute_mappings, list):
-                props['MultiMeasureAttributeMappings'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.multi_measure_attribute_mappings
-                ]
-            else:
-                props['MultiMeasureAttributeMappings'] = self.multi_measure_attribute_mappings
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -804,30 +518,42 @@ class MultiMeasureMappings:
 class NotificationConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "sns_configuration": "SnsConfiguration",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sns_configuration: Optional[SnsConfiguration] = None
+
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.sns_configuration is not None:
-            if hasattr(self.sns_configuration, 'to_dict'):
-                props['SnsConfiguration'] = self.sns_configuration.to_dict()
-            elif isinstance(self.sns_configuration, list):
-                props['SnsConfiguration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.sns_configuration
-                ]
-            else:
-                props['SnsConfiguration'] = self.sns_configuration
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
 @dataclass
 class S3Configuration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "bucket_name": "BucketName",
+        "object_key_prefix": "ObjectKeyPrefix",
+        "encryption_option": "EncryptionOption",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -836,43 +562,23 @@ class S3Configuration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_option: Optional[Union[str, S3EncryptionOption, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.bucket_name is not None:
-            if hasattr(self.bucket_name, 'to_dict'):
-                props['BucketName'] = self.bucket_name.to_dict()
-            elif isinstance(self.bucket_name, list):
-                props['BucketName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.bucket_name
-                ]
-            else:
-                props['BucketName'] = self.bucket_name
-
-        if self.object_key_prefix is not None:
-            if hasattr(self.object_key_prefix, 'to_dict'):
-                props['ObjectKeyPrefix'] = self.object_key_prefix.to_dict()
-            elif isinstance(self.object_key_prefix, list):
-                props['ObjectKeyPrefix'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.object_key_prefix
-                ]
-            else:
-                props['ObjectKeyPrefix'] = self.object_key_prefix
-
-        if self.encryption_option is not None:
-            if hasattr(self.encryption_option, 'to_dict'):
-                props['EncryptionOption'] = self.encryption_option.to_dict()
-            elif isinstance(self.encryption_option, list):
-                props['EncryptionOption'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.encryption_option
-                ]
-            else:
-                props['EncryptionOption'] = self.encryption_option
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -880,24 +586,30 @@ class S3Configuration:
 class ScheduleConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "schedule_expression": "ScheduleExpression",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     schedule_expression: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.schedule_expression is not None:
-            if hasattr(self.schedule_expression, 'to_dict'):
-                props['ScheduleExpression'] = self.schedule_expression.to_dict()
-            elif isinstance(self.schedule_expression, list):
-                props['ScheduleExpression'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.schedule_expression
-                ]
-            else:
-                props['ScheduleExpression'] = self.schedule_expression
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -905,24 +617,30 @@ class ScheduleConfiguration:
 class SnsConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "topic_arn": "TopicArn",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     topic_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.topic_arn is not None:
-            if hasattr(self.topic_arn, 'to_dict'):
-                props['TopicArn'] = self.topic_arn.to_dict()
-            elif isinstance(self.topic_arn, list):
-                props['TopicArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.topic_arn
-                ]
-            else:
-                props['TopicArn'] = self.topic_arn
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -930,30 +648,46 @@ class SnsConfiguration:
 class TargetConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "timestream_configuration": "TimestreamConfiguration",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     timestream_configuration: Optional[TimestreamConfiguration] = None
+
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.timestream_configuration is not None:
-            if hasattr(self.timestream_configuration, 'to_dict'):
-                props['TimestreamConfiguration'] = self.timestream_configuration.to_dict()
-            elif isinstance(self.timestream_configuration, list):
-                props['TimestreamConfiguration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.timestream_configuration
-                ]
-            else:
-                props['TimestreamConfiguration'] = self.timestream_configuration
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
 @dataclass
 class TimestreamConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "time_column": "TimeColumn",
+        "table_name": "TableName",
+        "dimension_mappings": "DimensionMappings",
+        "mixed_measure_mappings": "MixedMeasureMappings",
+        "measure_name_column": "MeasureNameColumn",
+        "database_name": "DatabaseName",
+        "multi_measure_mappings": "MultiMeasureMappings",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     time_column: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -970,87 +704,23 @@ class TimestreamConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     multi_measure_mappings: Optional[MultiMeasureMappings] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.time_column is not None:
-            if hasattr(self.time_column, 'to_dict'):
-                props['TimeColumn'] = self.time_column.to_dict()
-            elif isinstance(self.time_column, list):
-                props['TimeColumn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.time_column
-                ]
-            else:
-                props['TimeColumn'] = self.time_column
-
-        if self.table_name is not None:
-            if hasattr(self.table_name, 'to_dict'):
-                props['TableName'] = self.table_name.to_dict()
-            elif isinstance(self.table_name, list):
-                props['TableName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.table_name
-                ]
-            else:
-                props['TableName'] = self.table_name
-
-        if self.dimension_mappings is not None:
-            if hasattr(self.dimension_mappings, 'to_dict'):
-                props['DimensionMappings'] = self.dimension_mappings.to_dict()
-            elif isinstance(self.dimension_mappings, list):
-                props['DimensionMappings'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.dimension_mappings
-                ]
-            else:
-                props['DimensionMappings'] = self.dimension_mappings
-
-        if self.mixed_measure_mappings is not None:
-            if hasattr(self.mixed_measure_mappings, 'to_dict'):
-                props['MixedMeasureMappings'] = self.mixed_measure_mappings.to_dict()
-            elif isinstance(self.mixed_measure_mappings, list):
-                props['MixedMeasureMappings'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.mixed_measure_mappings
-                ]
-            else:
-                props['MixedMeasureMappings'] = self.mixed_measure_mappings
-
-        if self.measure_name_column is not None:
-            if hasattr(self.measure_name_column, 'to_dict'):
-                props['MeasureNameColumn'] = self.measure_name_column.to_dict()
-            elif isinstance(self.measure_name_column, list):
-                props['MeasureNameColumn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.measure_name_column
-                ]
-            else:
-                props['MeasureNameColumn'] = self.measure_name_column
-
-        if self.database_name is not None:
-            if hasattr(self.database_name, 'to_dict'):
-                props['DatabaseName'] = self.database_name.to_dict()
-            elif isinstance(self.database_name, list):
-                props['DatabaseName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.database_name
-                ]
-            else:
-                props['DatabaseName'] = self.database_name
-
-        if self.multi_measure_mappings is not None:
-            if hasattr(self.multi_measure_mappings, 'to_dict'):
-                props['MultiMeasureMappings'] = self.multi_measure_mappings.to_dict()
-            elif isinstance(self.multi_measure_mappings, list):
-                props['MultiMeasureMappings'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.multi_measure_mappings
-                ]
-            else:
-                props['MultiMeasureMappings'] = self.multi_measure_mappings
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -1059,6 +729,18 @@ class ScheduledQuery(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-times"""
 
     resource_type: ClassVar[str] = "AWS::Timestream::ScheduledQuery"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "scheduled_query_execution_role_arn": "ScheduledQueryExecutionRoleArn",
+        "error_report_configuration": "ErrorReportConfiguration",
+        "schedule_configuration": "ScheduleConfiguration",
+        "target_configuration": "TargetConfiguration",
+        "kms_key_id": "KmsKeyId",
+        "query_string": "QueryString",
+        "notification_configuration": "NotificationConfiguration",
+        "scheduled_query_name": "ScheduledQueryName",
+        "client_token": "ClientToken",
+        "tags": "Tags",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     scheduled_query_execution_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -1080,137 +762,6 @@ class ScheduledQuery(CloudFormationResource):
     client_token: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.scheduled_query_execution_role_arn is not None:
-            # Serialize scheduled_query_execution_role_arn (handle intrinsic functions)
-            if hasattr(self.scheduled_query_execution_role_arn, 'to_dict'):
-                props["ScheduledQueryExecutionRoleArn"] = self.scheduled_query_execution_role_arn.to_dict()
-            elif isinstance(self.scheduled_query_execution_role_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ScheduledQueryExecutionRoleArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.scheduled_query_execution_role_arn
-                ]
-            else:
-                props["ScheduledQueryExecutionRoleArn"] = self.scheduled_query_execution_role_arn
-
-        if self.error_report_configuration is not None:
-            # Serialize error_report_configuration (handle intrinsic functions)
-            if hasattr(self.error_report_configuration, 'to_dict'):
-                props["ErrorReportConfiguration"] = self.error_report_configuration.to_dict()
-            elif isinstance(self.error_report_configuration, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ErrorReportConfiguration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.error_report_configuration
-                ]
-            else:
-                props["ErrorReportConfiguration"] = self.error_report_configuration
-
-        if self.schedule_configuration is not None:
-            # Serialize schedule_configuration (handle intrinsic functions)
-            if hasattr(self.schedule_configuration, 'to_dict'):
-                props["ScheduleConfiguration"] = self.schedule_configuration.to_dict()
-            elif isinstance(self.schedule_configuration, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ScheduleConfiguration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.schedule_configuration
-                ]
-            else:
-                props["ScheduleConfiguration"] = self.schedule_configuration
-
-        if self.target_configuration is not None:
-            # Serialize target_configuration (handle intrinsic functions)
-            if hasattr(self.target_configuration, 'to_dict'):
-                props["TargetConfiguration"] = self.target_configuration.to_dict()
-            elif isinstance(self.target_configuration, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['TargetConfiguration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.target_configuration
-                ]
-            else:
-                props["TargetConfiguration"] = self.target_configuration
-
-        if self.kms_key_id is not None:
-            # Serialize kms_key_id (handle intrinsic functions)
-            if hasattr(self.kms_key_id, 'to_dict'):
-                props["KmsKeyId"] = self.kms_key_id.to_dict()
-            elif isinstance(self.kms_key_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['KmsKeyId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.kms_key_id
-                ]
-            else:
-                props["KmsKeyId"] = self.kms_key_id
-
-        if self.query_string is not None:
-            # Serialize query_string (handle intrinsic functions)
-            if hasattr(self.query_string, 'to_dict'):
-                props["QueryString"] = self.query_string.to_dict()
-            elif isinstance(self.query_string, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['QueryString'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.query_string
-                ]
-            else:
-                props["QueryString"] = self.query_string
-
-        if self.notification_configuration is not None:
-            # Serialize notification_configuration (handle intrinsic functions)
-            if hasattr(self.notification_configuration, 'to_dict'):
-                props["NotificationConfiguration"] = self.notification_configuration.to_dict()
-            elif isinstance(self.notification_configuration, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['NotificationConfiguration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.notification_configuration
-                ]
-            else:
-                props["NotificationConfiguration"] = self.notification_configuration
-
-        if self.scheduled_query_name is not None:
-            # Serialize scheduled_query_name (handle intrinsic functions)
-            if hasattr(self.scheduled_query_name, 'to_dict'):
-                props["ScheduledQueryName"] = self.scheduled_query_name.to_dict()
-            elif isinstance(self.scheduled_query_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ScheduledQueryName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.scheduled_query_name
-                ]
-            else:
-                props["ScheduledQueryName"] = self.scheduled_query_name
-
-        if self.client_token is not None:
-            # Serialize client_token (handle intrinsic functions)
-            if hasattr(self.client_token, 'to_dict'):
-                props["ClientToken"] = self.client_token.to_dict()
-            elif isinstance(self.client_token, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ClientToken'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.client_token
-                ]
-            else:
-                props["ClientToken"] = self.client_token
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_sq_schedule_configuration(self) -> GetAtt:
@@ -1264,24 +815,30 @@ class ScheduledQuery(CloudFormationResource):
 class MagneticStoreRejectedDataLocation:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "s3_configuration": "S3Configuration",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_configuration: Optional[S3Configuration] = None
+
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.s3_configuration is not None:
-            if hasattr(self.s3_configuration, 'to_dict'):
-                props['S3Configuration'] = self.s3_configuration.to_dict()
-            elif isinstance(self.s3_configuration, list):
-                props['S3Configuration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.s3_configuration
-                ]
-            else:
-                props['S3Configuration'] = self.s3_configuration
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -1289,43 +846,45 @@ class MagneticStoreRejectedDataLocation:
 class MagneticStoreWriteProperties:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "enable_magnetic_store_writes": "EnableMagneticStoreWrites",
+        "magnetic_store_rejected_data_location": "MagneticStoreRejectedDataLocation",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_magnetic_store_writes: Optional[Union[bool, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     magnetic_store_rejected_data_location: Optional[MagneticStoreRejectedDataLocation] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.enable_magnetic_store_writes is not None:
-            if hasattr(self.enable_magnetic_store_writes, 'to_dict'):
-                props['EnableMagneticStoreWrites'] = self.enable_magnetic_store_writes.to_dict()
-            elif isinstance(self.enable_magnetic_store_writes, list):
-                props['EnableMagneticStoreWrites'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enable_magnetic_store_writes
-                ]
-            else:
-                props['EnableMagneticStoreWrites'] = self.enable_magnetic_store_writes
-
-        if self.magnetic_store_rejected_data_location is not None:
-            if hasattr(self.magnetic_store_rejected_data_location, 'to_dict'):
-                props['MagneticStoreRejectedDataLocation'] = self.magnetic_store_rejected_data_location.to_dict()
-            elif isinstance(self.magnetic_store_rejected_data_location, list):
-                props['MagneticStoreRejectedDataLocation'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.magnetic_store_rejected_data_location
-                ]
-            else:
-                props['MagneticStoreRejectedDataLocation'] = self.magnetic_store_rejected_data_location
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
 @dataclass
 class PartitionKey:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "type_": "Type",
+        "enforcement_in_record": "EnforcementInRecord",
+        "name": "Name",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, PartitionKeyType, Ref, GetAtt, Sub]] = None
@@ -1334,43 +893,23 @@ class PartitionKey:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.type_ is not None:
-            if hasattr(self.type_, 'to_dict'):
-                props['Type'] = self.type_.to_dict()
-            elif isinstance(self.type_, list):
-                props['Type'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.type_
-                ]
-            else:
-                props['Type'] = self.type_
-
-        if self.enforcement_in_record is not None:
-            if hasattr(self.enforcement_in_record, 'to_dict'):
-                props['EnforcementInRecord'] = self.enforcement_in_record.to_dict()
-            elif isinstance(self.enforcement_in_record, list):
-                props['EnforcementInRecord'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enforcement_in_record
-                ]
-            else:
-                props['EnforcementInRecord'] = self.enforcement_in_record
-
-        if self.name is not None:
-            if hasattr(self.name, 'to_dict'):
-                props['Name'] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props['Name'] = self.name
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -1378,43 +917,46 @@ class PartitionKey:
 class RetentionProperties:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "magnetic_store_retention_period_in_days": "MagneticStoreRetentionPeriodInDays",
+        "memory_store_retention_period_in_hours": "MemoryStoreRetentionPeriodInHours",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     magnetic_store_retention_period_in_days: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     memory_store_retention_period_in_hours: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.magnetic_store_retention_period_in_days is not None:
-            if hasattr(self.magnetic_store_retention_period_in_days, 'to_dict'):
-                props['MagneticStoreRetentionPeriodInDays'] = self.magnetic_store_retention_period_in_days.to_dict()
-            elif isinstance(self.magnetic_store_retention_period_in_days, list):
-                props['MagneticStoreRetentionPeriodInDays'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.magnetic_store_retention_period_in_days
-                ]
-            else:
-                props['MagneticStoreRetentionPeriodInDays'] = self.magnetic_store_retention_period_in_days
-
-        if self.memory_store_retention_period_in_hours is not None:
-            if hasattr(self.memory_store_retention_period_in_hours, 'to_dict'):
-                props['MemoryStoreRetentionPeriodInHours'] = self.memory_store_retention_period_in_hours.to_dict()
-            elif isinstance(self.memory_store_retention_period_in_hours, list):
-                props['MemoryStoreRetentionPeriodInHours'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.memory_store_retention_period_in_hours
-                ]
-            else:
-                props['MemoryStoreRetentionPeriodInHours'] = self.memory_store_retention_period_in_hours
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
 @dataclass
 class S3Configuration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "bucket_name": "BucketName",
+        "kms_key_id": "KmsKeyId",
+        "object_key_prefix": "ObjectKeyPrefix",
+        "encryption_option": "EncryptionOption",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -1425,54 +967,23 @@ class S3Configuration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_option: Optional[Union[str, S3EncryptionOption, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.bucket_name is not None:
-            if hasattr(self.bucket_name, 'to_dict'):
-                props['BucketName'] = self.bucket_name.to_dict()
-            elif isinstance(self.bucket_name, list):
-                props['BucketName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.bucket_name
-                ]
-            else:
-                props['BucketName'] = self.bucket_name
-
-        if self.kms_key_id is not None:
-            if hasattr(self.kms_key_id, 'to_dict'):
-                props['KmsKeyId'] = self.kms_key_id.to_dict()
-            elif isinstance(self.kms_key_id, list):
-                props['KmsKeyId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.kms_key_id
-                ]
-            else:
-                props['KmsKeyId'] = self.kms_key_id
-
-        if self.object_key_prefix is not None:
-            if hasattr(self.object_key_prefix, 'to_dict'):
-                props['ObjectKeyPrefix'] = self.object_key_prefix.to_dict()
-            elif isinstance(self.object_key_prefix, list):
-                props['ObjectKeyPrefix'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.object_key_prefix
-                ]
-            else:
-                props['ObjectKeyPrefix'] = self.object_key_prefix
-
-        if self.encryption_option is not None:
-            if hasattr(self.encryption_option, 'to_dict'):
-                props['EncryptionOption'] = self.encryption_option.to_dict()
-            elif isinstance(self.encryption_option, list):
-                props['EncryptionOption'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.encryption_option
-                ]
-            else:
-                props['EncryptionOption'] = self.encryption_option
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -1480,24 +991,30 @@ class S3Configuration:
 class Schema:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-tim"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "composite_partition_key": "CompositePartitionKey",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     composite_partition_key: Optional[list[PartitionKey]] = None
+
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.composite_partition_key is not None:
-            if hasattr(self.composite_partition_key, 'to_dict'):
-                props['CompositePartitionKey'] = self.composite_partition_key.to_dict()
-            elif isinstance(self.composite_partition_key, list):
-                props['CompositePartitionKey'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.composite_partition_key
-                ]
-            else:
-                props['CompositePartitionKey'] = self.composite_partition_key
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -1506,6 +1023,14 @@ class Table(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-times"""
 
     resource_type: ClassVar[str] = "AWS::Timestream::Table"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "table_name": "TableName",
+        "retention_properties": "RetentionProperties",
+        "schema": "Schema",
+        "database_name": "DatabaseName",
+        "tags": "Tags",
+        "magnetic_store_write_properties": "MagneticStoreWriteProperties",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -1519,85 +1044,6 @@ class Table(CloudFormationResource):
     tags: Optional[list[Tag]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     magnetic_store_write_properties: Optional[MagneticStoreWriteProperties] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.table_name is not None:
-            # Serialize table_name (handle intrinsic functions)
-            if hasattr(self.table_name, 'to_dict'):
-                props["TableName"] = self.table_name.to_dict()
-            elif isinstance(self.table_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['TableName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.table_name
-                ]
-            else:
-                props["TableName"] = self.table_name
-
-        if self.retention_properties is not None:
-            # Serialize retention_properties (handle intrinsic functions)
-            if hasattr(self.retention_properties, 'to_dict'):
-                props["RetentionProperties"] = self.retention_properties.to_dict()
-            elif isinstance(self.retention_properties, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['RetentionProperties'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.retention_properties
-                ]
-            else:
-                props["RetentionProperties"] = self.retention_properties
-
-        if self.schema is not None:
-            # Serialize schema (handle intrinsic functions)
-            if hasattr(self.schema, 'to_dict'):
-                props["Schema"] = self.schema.to_dict()
-            elif isinstance(self.schema, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Schema'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.schema
-                ]
-            else:
-                props["Schema"] = self.schema
-
-        if self.database_name is not None:
-            # Serialize database_name (handle intrinsic functions)
-            if hasattr(self.database_name, 'to_dict'):
-                props["DatabaseName"] = self.database_name.to_dict()
-            elif isinstance(self.database_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DatabaseName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.database_name
-                ]
-            else:
-                props["DatabaseName"] = self.database_name
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.magnetic_store_write_properties is not None:
-            # Serialize magnetic_store_write_properties (handle intrinsic functions)
-            if hasattr(self.magnetic_store_write_properties, 'to_dict'):
-                props["MagneticStoreWriteProperties"] = self.magnetic_store_write_properties.to_dict()
-            elif isinstance(self.magnetic_store_write_properties, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['MagneticStoreWriteProperties'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.magnetic_store_write_properties
-                ]
-            else:
-                props["MagneticStoreWriteProperties"] = self.magnetic_store_write_properties
-
-        return props
 
     @property
     def attr_arn(self) -> GetAtt:

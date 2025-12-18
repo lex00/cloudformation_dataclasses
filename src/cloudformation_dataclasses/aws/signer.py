@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:39
+  Generated: 2025-12-17 21:38:04
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Signer
@@ -106,6 +106,13 @@ class ProfilePermission(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signe"""
 
     resource_type: ClassVar[str] = "AWS::Signer::ProfilePermission"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "action": "Action",
+        "statement_id": "StatementId",
+        "profile_name": "ProfileName",
+        "principal": "Principal",
+        "profile_version": "ProfileVersion",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     action: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -118,114 +125,39 @@ class ProfilePermission(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     profile_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.action is not None:
-            # Serialize action (handle intrinsic functions)
-            if hasattr(self.action, 'to_dict'):
-                props["Action"] = self.action.to_dict()
-            elif isinstance(self.action, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Action'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.action
-                ]
-            else:
-                props["Action"] = self.action
-
-        if self.statement_id is not None:
-            # Serialize statement_id (handle intrinsic functions)
-            if hasattr(self.statement_id, 'to_dict'):
-                props["StatementId"] = self.statement_id.to_dict()
-            elif isinstance(self.statement_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['StatementId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.statement_id
-                ]
-            else:
-                props["StatementId"] = self.statement_id
-
-        if self.profile_name is not None:
-            # Serialize profile_name (handle intrinsic functions)
-            if hasattr(self.profile_name, 'to_dict'):
-                props["ProfileName"] = self.profile_name.to_dict()
-            elif isinstance(self.profile_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ProfileName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.profile_name
-                ]
-            else:
-                props["ProfileName"] = self.profile_name
-
-        if self.principal is not None:
-            # Serialize principal (handle intrinsic functions)
-            if hasattr(self.principal, 'to_dict'):
-                props["Principal"] = self.principal.to_dict()
-            elif isinstance(self.principal, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Principal'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.principal
-                ]
-            else:
-                props["Principal"] = self.principal
-
-        if self.profile_version is not None:
-            # Serialize profile_version (handle intrinsic functions)
-            if hasattr(self.profile_version, 'to_dict'):
-                props["ProfileVersion"] = self.profile_version.to_dict()
-            elif isinstance(self.profile_version, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ProfileVersion'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.profile_version
-                ]
-            else:
-                props["ProfileVersion"] = self.profile_version
-
-        return props
-
 
 
 @dataclass
 class SignatureValidityPeriod:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sig"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "type_": "Type",
+        "value": "Value",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     value: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.type_ is not None:
-            if hasattr(self.type_, 'to_dict'):
-                props['Type'] = self.type_.to_dict()
-            elif isinstance(self.type_, list):
-                props['Type'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.type_
-                ]
-            else:
-                props['Type'] = self.type_
-
-        if self.value is not None:
-            if hasattr(self.value, 'to_dict'):
-                props['Value'] = self.value.to_dict()
-            elif isinstance(self.value, list):
-                props['Value'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.value
-                ]
-            else:
-                props['Value'] = self.value
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -234,6 +166,11 @@ class SigningProfile(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signe"""
 
     resource_type: ClassVar[str] = "AWS::Signer::SigningProfile"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "signature_validity_period": "SignatureValidityPeriod",
+        "platform_id": "PlatformId",
+        "tags": "Tags",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     signature_validity_period: Optional[SignatureValidityPeriod] = None
@@ -241,46 +178,6 @@ class SigningProfile(CloudFormationResource):
     platform_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.signature_validity_period is not None:
-            # Serialize signature_validity_period (handle intrinsic functions)
-            if hasattr(self.signature_validity_period, 'to_dict'):
-                props["SignatureValidityPeriod"] = self.signature_validity_period.to_dict()
-            elif isinstance(self.signature_validity_period, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SignatureValidityPeriod'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.signature_validity_period
-                ]
-            else:
-                props["SignatureValidityPeriod"] = self.signature_validity_period
-
-        if self.platform_id is not None:
-            # Serialize platform_id (handle intrinsic functions)
-            if hasattr(self.platform_id, 'to_dict'):
-                props["PlatformId"] = self.platform_id.to_dict()
-            elif isinstance(self.platform_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['PlatformId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.platform_id
-                ]
-            else:
-                props["PlatformId"] = self.platform_id
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_profile_version_arn(self) -> GetAtt:

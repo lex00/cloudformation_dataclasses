@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:37
+  Generated: 2025-12-17 21:37:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Inspector
@@ -405,43 +405,15 @@ class AssessmentTarget(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspe"""
 
     resource_type: ClassVar[str] = "AWS::Inspector::AssessmentTarget"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "assessment_target_name": "AssessmentTargetName",
+        "resource_group_arn": "ResourceGroupArn",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     assessment_target_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_group_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.assessment_target_name is not None:
-            # Serialize assessment_target_name (handle intrinsic functions)
-            if hasattr(self.assessment_target_name, 'to_dict'):
-                props["AssessmentTargetName"] = self.assessment_target_name.to_dict()
-            elif isinstance(self.assessment_target_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AssessmentTargetName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.assessment_target_name
-                ]
-            else:
-                props["AssessmentTargetName"] = self.assessment_target_name
-
-        if self.resource_group_arn is not None:
-            # Serialize resource_group_arn (handle intrinsic functions)
-            if hasattr(self.resource_group_arn, 'to_dict'):
-                props["ResourceGroupArn"] = self.resource_group_arn.to_dict()
-            elif isinstance(self.resource_group_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ResourceGroupArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.resource_group_arn
-                ]
-            else:
-                props["ResourceGroupArn"] = self.resource_group_arn
-
-        return props
 
     @property
     def attr_arn(self) -> GetAtt:
@@ -456,6 +428,13 @@ class AssessmentTemplate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspe"""
 
     resource_type: ClassVar[str] = "AWS::Inspector::AssessmentTemplate"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "assessment_target_arn": "AssessmentTargetArn",
+        "duration_in_seconds": "DurationInSeconds",
+        "assessment_template_name": "AssessmentTemplateName",
+        "rules_package_arns": "RulesPackageArns",
+        "user_attributes_for_findings": "UserAttributesForFindings",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     assessment_target_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -467,77 +446,6 @@ class AssessmentTemplate(CloudFormationResource):
     rules_package_arns: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     user_attributes_for_findings: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.assessment_target_arn is not None:
-            # Serialize assessment_target_arn (handle intrinsic functions)
-            if hasattr(self.assessment_target_arn, 'to_dict'):
-                props["AssessmentTargetArn"] = self.assessment_target_arn.to_dict()
-            elif isinstance(self.assessment_target_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AssessmentTargetArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.assessment_target_arn
-                ]
-            else:
-                props["AssessmentTargetArn"] = self.assessment_target_arn
-
-        if self.duration_in_seconds is not None:
-            # Serialize duration_in_seconds (handle intrinsic functions)
-            if hasattr(self.duration_in_seconds, 'to_dict'):
-                props["DurationInSeconds"] = self.duration_in_seconds.to_dict()
-            elif isinstance(self.duration_in_seconds, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DurationInSeconds'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.duration_in_seconds
-                ]
-            else:
-                props["DurationInSeconds"] = self.duration_in_seconds
-
-        if self.assessment_template_name is not None:
-            # Serialize assessment_template_name (handle intrinsic functions)
-            if hasattr(self.assessment_template_name, 'to_dict'):
-                props["AssessmentTemplateName"] = self.assessment_template_name.to_dict()
-            elif isinstance(self.assessment_template_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AssessmentTemplateName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.assessment_template_name
-                ]
-            else:
-                props["AssessmentTemplateName"] = self.assessment_template_name
-
-        if self.rules_package_arns is not None:
-            # Serialize rules_package_arns (handle intrinsic functions)
-            if hasattr(self.rules_package_arns, 'to_dict'):
-                props["RulesPackageArns"] = self.rules_package_arns.to_dict()
-            elif isinstance(self.rules_package_arns, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['RulesPackageArns'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.rules_package_arns
-                ]
-            else:
-                props["RulesPackageArns"] = self.rules_package_arns
-
-        if self.user_attributes_for_findings is not None:
-            # Serialize user_attributes_for_findings (handle intrinsic functions)
-            if hasattr(self.user_attributes_for_findings, 'to_dict'):
-                props["UserAttributesForFindings"] = self.user_attributes_for_findings.to_dict()
-            elif isinstance(self.user_attributes_for_findings, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['UserAttributesForFindings'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.user_attributes_for_findings
-                ]
-            else:
-                props["UserAttributesForFindings"] = self.user_attributes_for_findings
-
-        return props
 
     @property
     def attr_arn(self) -> GetAtt:
@@ -552,28 +460,12 @@ class ResourceGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspe"""
 
     resource_type: ClassVar[str] = "AWS::Inspector::ResourceGroup"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "resource_group_tags": "ResourceGroupTags",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     resource_group_tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.resource_group_tags is not None:
-            # Serialize resource_group_tags (handle intrinsic functions)
-            if hasattr(self.resource_group_tags, 'to_dict'):
-                props["ResourceGroupTags"] = self.resource_group_tags.to_dict()
-            elif isinstance(self.resource_group_tags, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ResourceGroupTags'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.resource_group_tags
-                ]
-            else:
-                props["ResourceGroupTags"] = self.resource_group_tags
-
-        return props
 
     @property
     def attr_arn(self) -> GetAtt:

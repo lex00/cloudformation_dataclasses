@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:35
+  Generated: 2025-12-17 21:37:33
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CUR
@@ -171,6 +171,21 @@ class ReportDefinition(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cur-r"""
 
     resource_type: ClassVar[str] = "AWS::CUR::ReportDefinition"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "compression": "Compression",
+        "refresh_closed_reports": "RefreshClosedReports",
+        "report_versioning": "ReportVersioning",
+        "s3_prefix": "S3Prefix",
+        "additional_schema_elements": "AdditionalSchemaElements",
+        "additional_artifacts": "AdditionalArtifacts",
+        "report_name": "ReportName",
+        "format": "Format",
+        "s3_bucket": "S3Bucket",
+        "s3_region": "S3Region",
+        "time_unit": "TimeUnit",
+        "billing_view_arn": "BillingViewArn",
+        "tags": "Tags",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     compression: Optional[Union[str, CompressionFormat, Ref, GetAtt, Sub]] = None
@@ -198,175 +213,5 @@ class ReportDefinition(CloudFormationResource):
     billing_view_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.compression is not None:
-            # Serialize compression (handle intrinsic functions)
-            if hasattr(self.compression, 'to_dict'):
-                props["Compression"] = self.compression.to_dict()
-            elif isinstance(self.compression, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Compression'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.compression
-                ]
-            else:
-                props["Compression"] = self.compression
-
-        if self.refresh_closed_reports is not None:
-            # Serialize refresh_closed_reports (handle intrinsic functions)
-            if hasattr(self.refresh_closed_reports, 'to_dict'):
-                props["RefreshClosedReports"] = self.refresh_closed_reports.to_dict()
-            elif isinstance(self.refresh_closed_reports, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['RefreshClosedReports'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.refresh_closed_reports
-                ]
-            else:
-                props["RefreshClosedReports"] = self.refresh_closed_reports
-
-        if self.report_versioning is not None:
-            # Serialize report_versioning (handle intrinsic functions)
-            if hasattr(self.report_versioning, 'to_dict'):
-                props["ReportVersioning"] = self.report_versioning.to_dict()
-            elif isinstance(self.report_versioning, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ReportVersioning'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.report_versioning
-                ]
-            else:
-                props["ReportVersioning"] = self.report_versioning
-
-        if self.s3_prefix is not None:
-            # Serialize s3_prefix (handle intrinsic functions)
-            if hasattr(self.s3_prefix, 'to_dict'):
-                props["S3Prefix"] = self.s3_prefix.to_dict()
-            elif isinstance(self.s3_prefix, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['S3Prefix'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.s3_prefix
-                ]
-            else:
-                props["S3Prefix"] = self.s3_prefix
-
-        if self.additional_schema_elements is not None:
-            # Serialize additional_schema_elements (handle intrinsic functions)
-            if hasattr(self.additional_schema_elements, 'to_dict'):
-                props["AdditionalSchemaElements"] = self.additional_schema_elements.to_dict()
-            elif isinstance(self.additional_schema_elements, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AdditionalSchemaElements'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.additional_schema_elements
-                ]
-            else:
-                props["AdditionalSchemaElements"] = self.additional_schema_elements
-
-        if self.additional_artifacts is not None:
-            # Serialize additional_artifacts (handle intrinsic functions)
-            if hasattr(self.additional_artifacts, 'to_dict'):
-                props["AdditionalArtifacts"] = self.additional_artifacts.to_dict()
-            elif isinstance(self.additional_artifacts, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AdditionalArtifacts'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.additional_artifacts
-                ]
-            else:
-                props["AdditionalArtifacts"] = self.additional_artifacts
-
-        if self.report_name is not None:
-            # Serialize report_name (handle intrinsic functions)
-            if hasattr(self.report_name, 'to_dict'):
-                props["ReportName"] = self.report_name.to_dict()
-            elif isinstance(self.report_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ReportName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.report_name
-                ]
-            else:
-                props["ReportName"] = self.report_name
-
-        if self.format is not None:
-            # Serialize format (handle intrinsic functions)
-            if hasattr(self.format, 'to_dict'):
-                props["Format"] = self.format.to_dict()
-            elif isinstance(self.format, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Format'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.format
-                ]
-            else:
-                props["Format"] = self.format
-
-        if self.s3_bucket is not None:
-            # Serialize s3_bucket (handle intrinsic functions)
-            if hasattr(self.s3_bucket, 'to_dict'):
-                props["S3Bucket"] = self.s3_bucket.to_dict()
-            elif isinstance(self.s3_bucket, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['S3Bucket'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.s3_bucket
-                ]
-            else:
-                props["S3Bucket"] = self.s3_bucket
-
-        if self.s3_region is not None:
-            # Serialize s3_region (handle intrinsic functions)
-            if hasattr(self.s3_region, 'to_dict'):
-                props["S3Region"] = self.s3_region.to_dict()
-            elif isinstance(self.s3_region, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['S3Region'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.s3_region
-                ]
-            else:
-                props["S3Region"] = self.s3_region
-
-        if self.time_unit is not None:
-            # Serialize time_unit (handle intrinsic functions)
-            if hasattr(self.time_unit, 'to_dict'):
-                props["TimeUnit"] = self.time_unit.to_dict()
-            elif isinstance(self.time_unit, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['TimeUnit'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.time_unit
-                ]
-            else:
-                props["TimeUnit"] = self.time_unit
-
-        if self.billing_view_arn is not None:
-            # Serialize billing_view_arn (handle intrinsic functions)
-            if hasattr(self.billing_view_arn, 'to_dict'):
-                props["BillingViewArn"] = self.billing_view_arn.to_dict()
-            elif isinstance(self.billing_view_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['BillingViewArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.billing_view_arn
-                ]
-            else:
-                props["BillingViewArn"] = self.billing_view_arn
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
 

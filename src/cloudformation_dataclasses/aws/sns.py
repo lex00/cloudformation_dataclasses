@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:39
+  Generated: 2025-12-17 21:38:02
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SNS
@@ -99,6 +99,19 @@ class Subscription(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-s"""
 
     resource_type: ClassVar[str] = "AWS::SNS::Subscription"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "replay_policy": "ReplayPolicy",
+        "raw_message_delivery": "RawMessageDelivery",
+        "endpoint": "Endpoint",
+        "filter_policy": "FilterPolicy",
+        "topic_arn": "TopicArn",
+        "redrive_policy": "RedrivePolicy",
+        "delivery_policy": "DeliveryPolicy",
+        "region": "Region",
+        "subscription_role_arn": "SubscriptionRoleArn",
+        "filter_policy_scope": "FilterPolicyScope",
+        "protocol": "Protocol",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     replay_policy: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
@@ -123,155 +136,6 @@ class Subscription(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     protocol: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.replay_policy is not None:
-            # Serialize replay_policy (handle intrinsic functions)
-            if hasattr(self.replay_policy, 'to_dict'):
-                props["ReplayPolicy"] = self.replay_policy.to_dict()
-            elif isinstance(self.replay_policy, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ReplayPolicy'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.replay_policy
-                ]
-            else:
-                props["ReplayPolicy"] = self.replay_policy
-
-        if self.raw_message_delivery is not None:
-            # Serialize raw_message_delivery (handle intrinsic functions)
-            if hasattr(self.raw_message_delivery, 'to_dict'):
-                props["RawMessageDelivery"] = self.raw_message_delivery.to_dict()
-            elif isinstance(self.raw_message_delivery, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['RawMessageDelivery'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.raw_message_delivery
-                ]
-            else:
-                props["RawMessageDelivery"] = self.raw_message_delivery
-
-        if self.endpoint is not None:
-            # Serialize endpoint (handle intrinsic functions)
-            if hasattr(self.endpoint, 'to_dict'):
-                props["Endpoint"] = self.endpoint.to_dict()
-            elif isinstance(self.endpoint, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Endpoint'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.endpoint
-                ]
-            else:
-                props["Endpoint"] = self.endpoint
-
-        if self.filter_policy is not None:
-            # Serialize filter_policy (handle intrinsic functions)
-            if hasattr(self.filter_policy, 'to_dict'):
-                props["FilterPolicy"] = self.filter_policy.to_dict()
-            elif isinstance(self.filter_policy, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['FilterPolicy'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.filter_policy
-                ]
-            else:
-                props["FilterPolicy"] = self.filter_policy
-
-        if self.topic_arn is not None:
-            # Serialize topic_arn (handle intrinsic functions)
-            if hasattr(self.topic_arn, 'to_dict'):
-                props["TopicArn"] = self.topic_arn.to_dict()
-            elif isinstance(self.topic_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['TopicArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.topic_arn
-                ]
-            else:
-                props["TopicArn"] = self.topic_arn
-
-        if self.redrive_policy is not None:
-            # Serialize redrive_policy (handle intrinsic functions)
-            if hasattr(self.redrive_policy, 'to_dict'):
-                props["RedrivePolicy"] = self.redrive_policy.to_dict()
-            elif isinstance(self.redrive_policy, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['RedrivePolicy'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.redrive_policy
-                ]
-            else:
-                props["RedrivePolicy"] = self.redrive_policy
-
-        if self.delivery_policy is not None:
-            # Serialize delivery_policy (handle intrinsic functions)
-            if hasattr(self.delivery_policy, 'to_dict'):
-                props["DeliveryPolicy"] = self.delivery_policy.to_dict()
-            elif isinstance(self.delivery_policy, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DeliveryPolicy'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.delivery_policy
-                ]
-            else:
-                props["DeliveryPolicy"] = self.delivery_policy
-
-        if self.region is not None:
-            # Serialize region (handle intrinsic functions)
-            if hasattr(self.region, 'to_dict'):
-                props["Region"] = self.region.to_dict()
-            elif isinstance(self.region, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Region'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.region
-                ]
-            else:
-                props["Region"] = self.region
-
-        if self.subscription_role_arn is not None:
-            # Serialize subscription_role_arn (handle intrinsic functions)
-            if hasattr(self.subscription_role_arn, 'to_dict'):
-                props["SubscriptionRoleArn"] = self.subscription_role_arn.to_dict()
-            elif isinstance(self.subscription_role_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SubscriptionRoleArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.subscription_role_arn
-                ]
-            else:
-                props["SubscriptionRoleArn"] = self.subscription_role_arn
-
-        if self.filter_policy_scope is not None:
-            # Serialize filter_policy_scope (handle intrinsic functions)
-            if hasattr(self.filter_policy_scope, 'to_dict'):
-                props["FilterPolicyScope"] = self.filter_policy_scope.to_dict()
-            elif isinstance(self.filter_policy_scope, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['FilterPolicyScope'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.filter_policy_scope
-                ]
-            else:
-                props["FilterPolicyScope"] = self.filter_policy_scope
-
-        if self.protocol is not None:
-            # Serialize protocol (handle intrinsic functions)
-            if hasattr(self.protocol, 'to_dict'):
-                props["Protocol"] = self.protocol.to_dict()
-            elif isinstance(self.protocol, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Protocol'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.protocol
-                ]
-            else:
-                props["Protocol"] = self.protocol
-
-        return props
-
     @property
     def attr_arn(self) -> GetAtt:
         """Get the Arn attribute."""
@@ -284,6 +148,13 @@ class Subscription(CloudFormationResource):
 class LoggingConfig:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "failure_feedback_role_arn": "FailureFeedbackRoleArn",
+        "success_feedback_sample_rate": "SuccessFeedbackSampleRate",
+        "success_feedback_role_arn": "SuccessFeedbackRoleArn",
+        "protocol": "Protocol",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     failure_feedback_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -293,54 +164,23 @@ class LoggingConfig:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     protocol: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.failure_feedback_role_arn is not None:
-            if hasattr(self.failure_feedback_role_arn, 'to_dict'):
-                props['FailureFeedbackRoleArn'] = self.failure_feedback_role_arn.to_dict()
-            elif isinstance(self.failure_feedback_role_arn, list):
-                props['FailureFeedbackRoleArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.failure_feedback_role_arn
-                ]
-            else:
-                props['FailureFeedbackRoleArn'] = self.failure_feedback_role_arn
-
-        if self.success_feedback_sample_rate is not None:
-            if hasattr(self.success_feedback_sample_rate, 'to_dict'):
-                props['SuccessFeedbackSampleRate'] = self.success_feedback_sample_rate.to_dict()
-            elif isinstance(self.success_feedback_sample_rate, list):
-                props['SuccessFeedbackSampleRate'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.success_feedback_sample_rate
-                ]
-            else:
-                props['SuccessFeedbackSampleRate'] = self.success_feedback_sample_rate
-
-        if self.success_feedback_role_arn is not None:
-            if hasattr(self.success_feedback_role_arn, 'to_dict'):
-                props['SuccessFeedbackRoleArn'] = self.success_feedback_role_arn.to_dict()
-            elif isinstance(self.success_feedback_role_arn, list):
-                props['SuccessFeedbackRoleArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.success_feedback_role_arn
-                ]
-            else:
-                props['SuccessFeedbackRoleArn'] = self.success_feedback_role_arn
-
-        if self.protocol is not None:
-            if hasattr(self.protocol, 'to_dict'):
-                props['Protocol'] = self.protocol.to_dict()
-            elif isinstance(self.protocol, list):
-                props['Protocol'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.protocol
-                ]
-            else:
-                props['Protocol'] = self.protocol
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -348,37 +188,33 @@ class LoggingConfig:
 class Subscription:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "endpoint": "Endpoint",
+        "protocol": "Protocol",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     protocol: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.endpoint is not None:
-            if hasattr(self.endpoint, 'to_dict'):
-                props['Endpoint'] = self.endpoint.to_dict()
-            elif isinstance(self.endpoint, list):
-                props['Endpoint'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.endpoint
-                ]
-            else:
-                props['Endpoint'] = self.endpoint
-
-        if self.protocol is not None:
-            if hasattr(self.protocol, 'to_dict'):
-                props['Protocol'] = self.protocol.to_dict()
-            elif isinstance(self.protocol, list):
-                props['Protocol'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.protocol
-                ]
-            else:
-                props['Protocol'] = self.protocol
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -387,6 +223,21 @@ class Topic(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-t"""
 
     resource_type: ClassVar[str] = "AWS::SNS::Topic"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "kms_master_key_id": "KmsMasterKeyId",
+        "tracing_config": "TracingConfig",
+        "fifo_topic": "FifoTopic",
+        "data_protection_policy": "DataProtectionPolicy",
+        "topic_name": "TopicName",
+        "signature_version": "SignatureVersion",
+        "delivery_status_logging": "DeliveryStatusLogging",
+        "display_name": "DisplayName",
+        "content_based_deduplication": "ContentBasedDeduplication",
+        "subscription": "Subscription",
+        "fifo_throughput_scope": "FifoThroughputScope",
+        "tags": "Tags",
+        "archive_policy": "ArchivePolicy",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     kms_master_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -415,176 +266,6 @@ class Topic(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     archive_policy: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
 
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.kms_master_key_id is not None:
-            # Serialize kms_master_key_id (handle intrinsic functions)
-            if hasattr(self.kms_master_key_id, 'to_dict'):
-                props["KmsMasterKeyId"] = self.kms_master_key_id.to_dict()
-            elif isinstance(self.kms_master_key_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['KmsMasterKeyId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.kms_master_key_id
-                ]
-            else:
-                props["KmsMasterKeyId"] = self.kms_master_key_id
-
-        if self.tracing_config is not None:
-            # Serialize tracing_config (handle intrinsic functions)
-            if hasattr(self.tracing_config, 'to_dict'):
-                props["TracingConfig"] = self.tracing_config.to_dict()
-            elif isinstance(self.tracing_config, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['TracingConfig'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.tracing_config
-                ]
-            else:
-                props["TracingConfig"] = self.tracing_config
-
-        if self.fifo_topic is not None:
-            # Serialize fifo_topic (handle intrinsic functions)
-            if hasattr(self.fifo_topic, 'to_dict'):
-                props["FifoTopic"] = self.fifo_topic.to_dict()
-            elif isinstance(self.fifo_topic, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['FifoTopic'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.fifo_topic
-                ]
-            else:
-                props["FifoTopic"] = self.fifo_topic
-
-        if self.data_protection_policy is not None:
-            # Serialize data_protection_policy (handle intrinsic functions)
-            if hasattr(self.data_protection_policy, 'to_dict'):
-                props["DataProtectionPolicy"] = self.data_protection_policy.to_dict()
-            elif isinstance(self.data_protection_policy, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DataProtectionPolicy'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.data_protection_policy
-                ]
-            else:
-                props["DataProtectionPolicy"] = self.data_protection_policy
-
-        if self.topic_name is not None:
-            # Serialize topic_name (handle intrinsic functions)
-            if hasattr(self.topic_name, 'to_dict'):
-                props["TopicName"] = self.topic_name.to_dict()
-            elif isinstance(self.topic_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['TopicName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.topic_name
-                ]
-            else:
-                props["TopicName"] = self.topic_name
-
-        if self.signature_version is not None:
-            # Serialize signature_version (handle intrinsic functions)
-            if hasattr(self.signature_version, 'to_dict'):
-                props["SignatureVersion"] = self.signature_version.to_dict()
-            elif isinstance(self.signature_version, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SignatureVersion'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.signature_version
-                ]
-            else:
-                props["SignatureVersion"] = self.signature_version
-
-        if self.delivery_status_logging is not None:
-            # Serialize delivery_status_logging (handle intrinsic functions)
-            if hasattr(self.delivery_status_logging, 'to_dict'):
-                props["DeliveryStatusLogging"] = self.delivery_status_logging.to_dict()
-            elif isinstance(self.delivery_status_logging, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DeliveryStatusLogging'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.delivery_status_logging
-                ]
-            else:
-                props["DeliveryStatusLogging"] = self.delivery_status_logging
-
-        if self.display_name is not None:
-            # Serialize display_name (handle intrinsic functions)
-            if hasattr(self.display_name, 'to_dict'):
-                props["DisplayName"] = self.display_name.to_dict()
-            elif isinstance(self.display_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DisplayName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.display_name
-                ]
-            else:
-                props["DisplayName"] = self.display_name
-
-        if self.content_based_deduplication is not None:
-            # Serialize content_based_deduplication (handle intrinsic functions)
-            if hasattr(self.content_based_deduplication, 'to_dict'):
-                props["ContentBasedDeduplication"] = self.content_based_deduplication.to_dict()
-            elif isinstance(self.content_based_deduplication, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ContentBasedDeduplication'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.content_based_deduplication
-                ]
-            else:
-                props["ContentBasedDeduplication"] = self.content_based_deduplication
-
-        if self.subscription is not None:
-            # Serialize subscription (handle intrinsic functions)
-            if hasattr(self.subscription, 'to_dict'):
-                props["Subscription"] = self.subscription.to_dict()
-            elif isinstance(self.subscription, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Subscription'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.subscription
-                ]
-            else:
-                props["Subscription"] = self.subscription
-
-        if self.fifo_throughput_scope is not None:
-            # Serialize fifo_throughput_scope (handle intrinsic functions)
-            if hasattr(self.fifo_throughput_scope, 'to_dict'):
-                props["FifoThroughputScope"] = self.fifo_throughput_scope.to_dict()
-            elif isinstance(self.fifo_throughput_scope, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['FifoThroughputScope'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.fifo_throughput_scope
-                ]
-            else:
-                props["FifoThroughputScope"] = self.fifo_throughput_scope
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.archive_policy is not None:
-            # Serialize archive_policy (handle intrinsic functions)
-            if hasattr(self.archive_policy, 'to_dict'):
-                props["ArchivePolicy"] = self.archive_policy.to_dict()
-            elif isinstance(self.archive_policy, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ArchivePolicy'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.archive_policy
-                ]
-            else:
-                props["ArchivePolicy"] = self.archive_policy
-
-        return props
-
     @property
     def attr_topic_arn(self) -> GetAtt:
         """Get the TopicArn attribute."""
@@ -603,43 +284,15 @@ class TopicInlinePolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-t"""
 
     resource_type: ClassVar[str] = "AWS::SNS::TopicInlinePolicy"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "topic_arn": "TopicArn",
+        "policy_document": "PolicyDocument",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     topic_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy_document: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.topic_arn is not None:
-            # Serialize topic_arn (handle intrinsic functions)
-            if hasattr(self.topic_arn, 'to_dict'):
-                props["TopicArn"] = self.topic_arn.to_dict()
-            elif isinstance(self.topic_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['TopicArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.topic_arn
-                ]
-            else:
-                props["TopicArn"] = self.topic_arn
-
-        if self.policy_document is not None:
-            # Serialize policy_document (handle intrinsic functions)
-            if hasattr(self.policy_document, 'to_dict'):
-                props["PolicyDocument"] = self.policy_document.to_dict()
-            elif isinstance(self.policy_document, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['PolicyDocument'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.policy_document
-                ]
-            else:
-                props["PolicyDocument"] = self.policy_document
-
-        return props
 
 
 
@@ -648,43 +301,15 @@ class TopicPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-t"""
 
     resource_type: ClassVar[str] = "AWS::SNS::TopicPolicy"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "topics": "Topics",
+        "policy_document": "PolicyDocument",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     topics: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy_document: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.topics is not None:
-            # Serialize topics (handle intrinsic functions)
-            if hasattr(self.topics, 'to_dict'):
-                props["Topics"] = self.topics.to_dict()
-            elif isinstance(self.topics, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Topics'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.topics
-                ]
-            else:
-                props["Topics"] = self.topics
-
-        if self.policy_document is not None:
-            # Serialize policy_document (handle intrinsic functions)
-            if hasattr(self.policy_document, 'to_dict'):
-                props["PolicyDocument"] = self.policy_document.to_dict()
-            elif isinstance(self.policy_document, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['PolicyDocument'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.policy_document
-                ]
-            else:
-                props["PolicyDocument"] = self.policy_document
-
-        return props
 
     @property
     def attr_id(self) -> GetAtt:

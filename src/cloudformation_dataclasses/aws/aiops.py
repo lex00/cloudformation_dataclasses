@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:34
+  Generated: 2025-12-17 21:37:28
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service AIOps
@@ -45,37 +45,33 @@ CUSTOMER_MANAGED_KMS_KEY = EncryptionConfigurationType.CUSTOMER_MANAGED_KMS_KEY
 class ChatbotNotificationChannel:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aio"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "sns_topic_arn": "SNSTopicArn",
+        "chat_configuration_arns": "ChatConfigurationArns",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sns_topic_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     chat_configuration_arns: Optional[Union[list[str], Ref]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.sns_topic_arn is not None:
-            if hasattr(self.sns_topic_arn, 'to_dict'):
-                props['SNSTopicArn'] = self.sns_topic_arn.to_dict()
-            elif isinstance(self.sns_topic_arn, list):
-                props['SNSTopicArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.sns_topic_arn
-                ]
-            else:
-                props['SNSTopicArn'] = self.sns_topic_arn
-
-        if self.chat_configuration_arns is not None:
-            if hasattr(self.chat_configuration_arns, 'to_dict'):
-                props['ChatConfigurationArns'] = self.chat_configuration_arns.to_dict()
-            elif isinstance(self.chat_configuration_arns, list):
-                props['ChatConfigurationArns'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.chat_configuration_arns
-                ]
-            else:
-                props['ChatConfigurationArns'] = self.chat_configuration_arns
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -83,24 +79,30 @@ class ChatbotNotificationChannel:
 class CrossAccountConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aio"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "source_role_arn": "SourceRoleArn",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     source_role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.source_role_arn is not None:
-            if hasattr(self.source_role_arn, 'to_dict'):
-                props['SourceRoleArn'] = self.source_role_arn.to_dict()
-            elif isinstance(self.source_role_arn, list):
-                props['SourceRoleArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.source_role_arn
-                ]
-            else:
-                props['SourceRoleArn'] = self.source_role_arn
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -108,37 +110,33 @@ class CrossAccountConfiguration:
 class EncryptionConfigMap:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aio"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "encryption_configuration_type": "EncryptionConfigurationType",
+        "kms_key_id": "KmsKeyId",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     encryption_configuration_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.encryption_configuration_type is not None:
-            if hasattr(self.encryption_configuration_type, 'to_dict'):
-                props['EncryptionConfigurationType'] = self.encryption_configuration_type.to_dict()
-            elif isinstance(self.encryption_configuration_type, list):
-                props['EncryptionConfigurationType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.encryption_configuration_type
-                ]
-            else:
-                props['EncryptionConfigurationType'] = self.encryption_configuration_type
-
-        if self.kms_key_id is not None:
-            if hasattr(self.kms_key_id, 'to_dict'):
-                props['KmsKeyId'] = self.kms_key_id.to_dict()
-            elif isinstance(self.kms_key_id, list):
-                props['KmsKeyId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.kms_key_id
-                ]
-            else:
-                props['KmsKeyId'] = self.kms_key_id
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -147,6 +145,18 @@ class InvestigationGroup(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aiops"""
 
     resource_type: ClassVar[str] = "AWS::AIOps::InvestigationGroup"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "retention_in_days": "RetentionInDays",
+        "cross_account_configurations": "CrossAccountConfigurations",
+        "investigation_group_policy": "InvestigationGroupPolicy",
+        "chatbot_notification_channels": "ChatbotNotificationChannels",
+        "is_cloud_trail_event_history_enabled": "IsCloudTrailEventHistoryEnabled",
+        "tag_key_boundaries": "TagKeyBoundaries",
+        "encryption_config": "EncryptionConfig",
+        "role_arn": "RoleArn",
+        "tags": "Tags",
+        "name": "Name",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     retention_in_days: Optional[Union[int, Ref, GetAtt, Sub]] = None
@@ -168,137 +178,6 @@ class InvestigationGroup(CloudFormationResource):
     tags: Optional[list[Tag]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.retention_in_days is not None:
-            # Serialize retention_in_days (handle intrinsic functions)
-            if hasattr(self.retention_in_days, 'to_dict'):
-                props["RetentionInDays"] = self.retention_in_days.to_dict()
-            elif isinstance(self.retention_in_days, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['RetentionInDays'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.retention_in_days
-                ]
-            else:
-                props["RetentionInDays"] = self.retention_in_days
-
-        if self.cross_account_configurations is not None:
-            # Serialize cross_account_configurations (handle intrinsic functions)
-            if hasattr(self.cross_account_configurations, 'to_dict'):
-                props["CrossAccountConfigurations"] = self.cross_account_configurations.to_dict()
-            elif isinstance(self.cross_account_configurations, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['CrossAccountConfigurations'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.cross_account_configurations
-                ]
-            else:
-                props["CrossAccountConfigurations"] = self.cross_account_configurations
-
-        if self.investigation_group_policy is not None:
-            # Serialize investigation_group_policy (handle intrinsic functions)
-            if hasattr(self.investigation_group_policy, 'to_dict'):
-                props["InvestigationGroupPolicy"] = self.investigation_group_policy.to_dict()
-            elif isinstance(self.investigation_group_policy, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['InvestigationGroupPolicy'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.investigation_group_policy
-                ]
-            else:
-                props["InvestigationGroupPolicy"] = self.investigation_group_policy
-
-        if self.chatbot_notification_channels is not None:
-            # Serialize chatbot_notification_channels (handle intrinsic functions)
-            if hasattr(self.chatbot_notification_channels, 'to_dict'):
-                props["ChatbotNotificationChannels"] = self.chatbot_notification_channels.to_dict()
-            elif isinstance(self.chatbot_notification_channels, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ChatbotNotificationChannels'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.chatbot_notification_channels
-                ]
-            else:
-                props["ChatbotNotificationChannels"] = self.chatbot_notification_channels
-
-        if self.is_cloud_trail_event_history_enabled is not None:
-            # Serialize is_cloud_trail_event_history_enabled (handle intrinsic functions)
-            if hasattr(self.is_cloud_trail_event_history_enabled, 'to_dict'):
-                props["IsCloudTrailEventHistoryEnabled"] = self.is_cloud_trail_event_history_enabled.to_dict()
-            elif isinstance(self.is_cloud_trail_event_history_enabled, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['IsCloudTrailEventHistoryEnabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.is_cloud_trail_event_history_enabled
-                ]
-            else:
-                props["IsCloudTrailEventHistoryEnabled"] = self.is_cloud_trail_event_history_enabled
-
-        if self.tag_key_boundaries is not None:
-            # Serialize tag_key_boundaries (handle intrinsic functions)
-            if hasattr(self.tag_key_boundaries, 'to_dict'):
-                props["TagKeyBoundaries"] = self.tag_key_boundaries.to_dict()
-            elif isinstance(self.tag_key_boundaries, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['TagKeyBoundaries'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.tag_key_boundaries
-                ]
-            else:
-                props["TagKeyBoundaries"] = self.tag_key_boundaries
-
-        if self.encryption_config is not None:
-            # Serialize encryption_config (handle intrinsic functions)
-            if hasattr(self.encryption_config, 'to_dict'):
-                props["EncryptionConfig"] = self.encryption_config.to_dict()
-            elif isinstance(self.encryption_config, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['EncryptionConfig'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.encryption_config
-                ]
-            else:
-                props["EncryptionConfig"] = self.encryption_config
-
-        if self.role_arn is not None:
-            # Serialize role_arn (handle intrinsic functions)
-            if hasattr(self.role_arn, 'to_dict'):
-                props["RoleArn"] = self.role_arn.to_dict()
-            elif isinstance(self.role_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['RoleArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.role_arn
-                ]
-            else:
-                props["RoleArn"] = self.role_arn
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        return props
 
     @property
     def attr_last_modified_by(self) -> GetAtt:

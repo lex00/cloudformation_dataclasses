@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:38
+  Generated: 2025-12-17 21:38:00
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Route53Profiles
@@ -65,38 +65,15 @@ class Profile(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53Profiles::Profile"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "tags": "Tags",
+        "name": "Name",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        return props
 
     @property
     def attr_id(self) -> GetAtt:
@@ -121,6 +98,13 @@ class ProfileAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53Profiles::ProfileAssociation"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "profile_id": "ProfileId",
+        "resource_id": "ResourceId",
+        "arn": "Arn",
+        "tags": "Tags",
+        "name": "Name",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     profile_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -132,72 +116,6 @@ class ProfileAssociation(CloudFormationResource):
     tags: Optional[list[Tag]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.profile_id is not None:
-            # Serialize profile_id (handle intrinsic functions)
-            if hasattr(self.profile_id, 'to_dict'):
-                props["ProfileId"] = self.profile_id.to_dict()
-            elif isinstance(self.profile_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ProfileId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.profile_id
-                ]
-            else:
-                props["ProfileId"] = self.profile_id
-
-        if self.resource_id is not None:
-            # Serialize resource_id (handle intrinsic functions)
-            if hasattr(self.resource_id, 'to_dict'):
-                props["ResourceId"] = self.resource_id.to_dict()
-            elif isinstance(self.resource_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ResourceId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.resource_id
-                ]
-            else:
-                props["ResourceId"] = self.resource_id
-
-        if self.arn is not None:
-            # Serialize arn (handle intrinsic functions)
-            if hasattr(self.arn, 'to_dict'):
-                props["Arn"] = self.arn.to_dict()
-            elif isinstance(self.arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Arn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.arn
-                ]
-            else:
-                props["Arn"] = self.arn
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        return props
 
     @property
     def attr_id(self) -> GetAtt:
@@ -212,6 +130,12 @@ class ProfileResourceAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route"""
 
     resource_type: ClassVar[str] = "AWS::Route53Profiles::ProfileResourceAssociation"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "profile_id": "ProfileId",
+        "resource_arn": "ResourceArn",
+        "resource_properties": "ResourceProperties",
+        "name": "Name",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     profile_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -221,64 +145,6 @@ class ProfileResourceAssociation(CloudFormationResource):
     resource_properties: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.profile_id is not None:
-            # Serialize profile_id (handle intrinsic functions)
-            if hasattr(self.profile_id, 'to_dict'):
-                props["ProfileId"] = self.profile_id.to_dict()
-            elif isinstance(self.profile_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ProfileId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.profile_id
-                ]
-            else:
-                props["ProfileId"] = self.profile_id
-
-        if self.resource_arn is not None:
-            # Serialize resource_arn (handle intrinsic functions)
-            if hasattr(self.resource_arn, 'to_dict'):
-                props["ResourceArn"] = self.resource_arn.to_dict()
-            elif isinstance(self.resource_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ResourceArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.resource_arn
-                ]
-            else:
-                props["ResourceArn"] = self.resource_arn
-
-        if self.resource_properties is not None:
-            # Serialize resource_properties (handle intrinsic functions)
-            if hasattr(self.resource_properties, 'to_dict'):
-                props["ResourceProperties"] = self.resource_properties.to_dict()
-            elif isinstance(self.resource_properties, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ResourceProperties'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.resource_properties
-                ]
-            else:
-                props["ResourceProperties"] = self.resource_properties
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        return props
 
     @property
     def attr_resource_type(self) -> GetAtt:

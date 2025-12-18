@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:39
+  Generated: 2025-12-17 21:38:01
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service S3Vectors
@@ -61,37 +61,33 @@ AWS_KMS = SseType.AWS_KMS
 class EncryptionConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3v"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "kms_key_arn": "KmsKeyArn",
+        "sse_type": "SseType",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sse_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.kms_key_arn is not None:
-            if hasattr(self.kms_key_arn, 'to_dict'):
-                props['KmsKeyArn'] = self.kms_key_arn.to_dict()
-            elif isinstance(self.kms_key_arn, list):
-                props['KmsKeyArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.kms_key_arn
-                ]
-            else:
-                props['KmsKeyArn'] = self.kms_key_arn
-
-        if self.sse_type is not None:
-            if hasattr(self.sse_type, 'to_dict'):
-                props['SseType'] = self.sse_type.to_dict()
-            elif isinstance(self.sse_type, list):
-                props['SseType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.sse_type
-                ]
-            else:
-                props['SseType'] = self.sse_type
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -99,24 +95,30 @@ class EncryptionConfiguration:
 class MetadataConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3v"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "non_filterable_metadata_keys": "NonFilterableMetadataKeys",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     non_filterable_metadata_keys: Optional[Union[list[str], Ref]] = None
+
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.non_filterable_metadata_keys is not None:
-            if hasattr(self.non_filterable_metadata_keys, 'to_dict'):
-                props['NonFilterableMetadataKeys'] = self.non_filterable_metadata_keys.to_dict()
-            elif isinstance(self.non_filterable_metadata_keys, list):
-                props['NonFilterableMetadataKeys'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.non_filterable_metadata_keys
-                ]
-            else:
-                props['NonFilterableMetadataKeys'] = self.non_filterable_metadata_keys
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -125,6 +127,16 @@ class Index(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3vec"""
 
     resource_type: ClassVar[str] = "AWS::S3Vectors::Index"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "distance_metric": "DistanceMetric",
+        "index_name": "IndexName",
+        "vector_bucket_arn": "VectorBucketArn",
+        "vector_bucket_name": "VectorBucketName",
+        "encryption_configuration": "EncryptionConfiguration",
+        "data_type": "DataType",
+        "metadata_configuration": "MetadataConfiguration",
+        "dimension": "Dimension",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     distance_metric: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -143,116 +155,6 @@ class Index(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     dimension: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.distance_metric is not None:
-            # Serialize distance_metric (handle intrinsic functions)
-            if hasattr(self.distance_metric, 'to_dict'):
-                props["DistanceMetric"] = self.distance_metric.to_dict()
-            elif isinstance(self.distance_metric, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DistanceMetric'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.distance_metric
-                ]
-            else:
-                props["DistanceMetric"] = self.distance_metric
-
-        if self.index_name is not None:
-            # Serialize index_name (handle intrinsic functions)
-            if hasattr(self.index_name, 'to_dict'):
-                props["IndexName"] = self.index_name.to_dict()
-            elif isinstance(self.index_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['IndexName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.index_name
-                ]
-            else:
-                props["IndexName"] = self.index_name
-
-        if self.vector_bucket_arn is not None:
-            # Serialize vector_bucket_arn (handle intrinsic functions)
-            if hasattr(self.vector_bucket_arn, 'to_dict'):
-                props["VectorBucketArn"] = self.vector_bucket_arn.to_dict()
-            elif isinstance(self.vector_bucket_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['VectorBucketArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.vector_bucket_arn
-                ]
-            else:
-                props["VectorBucketArn"] = self.vector_bucket_arn
-
-        if self.vector_bucket_name is not None:
-            # Serialize vector_bucket_name (handle intrinsic functions)
-            if hasattr(self.vector_bucket_name, 'to_dict'):
-                props["VectorBucketName"] = self.vector_bucket_name.to_dict()
-            elif isinstance(self.vector_bucket_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['VectorBucketName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.vector_bucket_name
-                ]
-            else:
-                props["VectorBucketName"] = self.vector_bucket_name
-
-        if self.encryption_configuration is not None:
-            # Serialize encryption_configuration (handle intrinsic functions)
-            if hasattr(self.encryption_configuration, 'to_dict'):
-                props["EncryptionConfiguration"] = self.encryption_configuration.to_dict()
-            elif isinstance(self.encryption_configuration, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['EncryptionConfiguration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.encryption_configuration
-                ]
-            else:
-                props["EncryptionConfiguration"] = self.encryption_configuration
-
-        if self.data_type is not None:
-            # Serialize data_type (handle intrinsic functions)
-            if hasattr(self.data_type, 'to_dict'):
-                props["DataType"] = self.data_type.to_dict()
-            elif isinstance(self.data_type, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DataType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.data_type
-                ]
-            else:
-                props["DataType"] = self.data_type
-
-        if self.metadata_configuration is not None:
-            # Serialize metadata_configuration (handle intrinsic functions)
-            if hasattr(self.metadata_configuration, 'to_dict'):
-                props["MetadataConfiguration"] = self.metadata_configuration.to_dict()
-            elif isinstance(self.metadata_configuration, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['MetadataConfiguration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.metadata_configuration
-                ]
-            else:
-                props["MetadataConfiguration"] = self.metadata_configuration
-
-        if self.dimension is not None:
-            # Serialize dimension (handle intrinsic functions)
-            if hasattr(self.dimension, 'to_dict'):
-                props["Dimension"] = self.dimension.to_dict()
-            elif isinstance(self.dimension, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Dimension'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.dimension
-                ]
-            else:
-                props["Dimension"] = self.dimension
-
-        return props
-
     @property
     def attr_index_arn(self) -> GetAtt:
         """Get the IndexArn attribute."""
@@ -270,37 +172,33 @@ class Index(CloudFormationResource):
 class EncryptionConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3v"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "kms_key_arn": "KmsKeyArn",
+        "sse_type": "SseType",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sse_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.kms_key_arn is not None:
-            if hasattr(self.kms_key_arn, 'to_dict'):
-                props['KmsKeyArn'] = self.kms_key_arn.to_dict()
-            elif isinstance(self.kms_key_arn, list):
-                props['KmsKeyArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.kms_key_arn
-                ]
-            else:
-                props['KmsKeyArn'] = self.kms_key_arn
-
-        if self.sse_type is not None:
-            if hasattr(self.sse_type, 'to_dict'):
-                props['SseType'] = self.sse_type.to_dict()
-            elif isinstance(self.sse_type, list):
-                props['SseType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.sse_type
-                ]
-            else:
-                props['SseType'] = self.sse_type
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -309,43 +207,15 @@ class VectorBucket(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3vec"""
 
     resource_type: ClassVar[str] = "AWS::S3Vectors::VectorBucket"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "vector_bucket_name": "VectorBucketName",
+        "encryption_configuration": "EncryptionConfiguration",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vector_bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     encryption_configuration: Optional[EncryptionConfiguration] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.vector_bucket_name is not None:
-            # Serialize vector_bucket_name (handle intrinsic functions)
-            if hasattr(self.vector_bucket_name, 'to_dict'):
-                props["VectorBucketName"] = self.vector_bucket_name.to_dict()
-            elif isinstance(self.vector_bucket_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['VectorBucketName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.vector_bucket_name
-                ]
-            else:
-                props["VectorBucketName"] = self.vector_bucket_name
-
-        if self.encryption_configuration is not None:
-            # Serialize encryption_configuration (handle intrinsic functions)
-            if hasattr(self.encryption_configuration, 'to_dict'):
-                props["EncryptionConfiguration"] = self.encryption_configuration.to_dict()
-            elif isinstance(self.encryption_configuration, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['EncryptionConfiguration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.encryption_configuration
-                ]
-            else:
-                props["EncryptionConfiguration"] = self.encryption_configuration
-
-        return props
 
     @property
     def attr_vector_bucket_arn(self) -> GetAtt:
@@ -365,6 +235,11 @@ class VectorBucketPolicy(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3vec"""
 
     resource_type: ClassVar[str] = "AWS::S3Vectors::VectorBucketPolicy"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "policy": "Policy",
+        "vector_bucket_arn": "VectorBucketArn",
+        "vector_bucket_name": "VectorBucketName",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
@@ -372,50 +247,5 @@ class VectorBucketPolicy(CloudFormationResource):
     vector_bucket_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     vector_bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.policy is not None:
-            # Serialize policy (handle intrinsic functions)
-            if hasattr(self.policy, 'to_dict'):
-                props["Policy"] = self.policy.to_dict()
-            elif isinstance(self.policy, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Policy'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.policy
-                ]
-            else:
-                props["Policy"] = self.policy
-
-        if self.vector_bucket_arn is not None:
-            # Serialize vector_bucket_arn (handle intrinsic functions)
-            if hasattr(self.vector_bucket_arn, 'to_dict'):
-                props["VectorBucketArn"] = self.vector_bucket_arn.to_dict()
-            elif isinstance(self.vector_bucket_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['VectorBucketArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.vector_bucket_arn
-                ]
-            else:
-                props["VectorBucketArn"] = self.vector_bucket_arn
-
-        if self.vector_bucket_name is not None:
-            # Serialize vector_bucket_name (handle intrinsic functions)
-            if hasattr(self.vector_bucket_name, 'to_dict'):
-                props["VectorBucketName"] = self.vector_bucket_name.to_dict()
-            elif isinstance(self.vector_bucket_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['VectorBucketName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.vector_bucket_name
-                ]
-            else:
-                props["VectorBucketName"] = self.vector_bucket_name
-
-        return props
 
 

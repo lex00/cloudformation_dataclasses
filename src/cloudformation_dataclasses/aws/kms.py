@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:37
+  Generated: 2025-12-17 21:37:48
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service KMS
@@ -487,43 +487,15 @@ class Alias(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-a"""
 
     resource_type: ClassVar[str] = "AWS::KMS::Alias"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "target_key_id": "TargetKeyId",
+        "alias_name": "AliasName",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     target_key_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     alias_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.target_key_id is not None:
-            # Serialize target_key_id (handle intrinsic functions)
-            if hasattr(self.target_key_id, 'to_dict'):
-                props["TargetKeyId"] = self.target_key_id.to_dict()
-            elif isinstance(self.target_key_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['TargetKeyId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.target_key_id
-                ]
-            else:
-                props["TargetKeyId"] = self.target_key_id
-
-        if self.alias_name is not None:
-            # Serialize alias_name (handle intrinsic functions)
-            if hasattr(self.alias_name, 'to_dict'):
-                props["AliasName"] = self.alias_name.to_dict()
-            elif isinstance(self.alias_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AliasName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.alias_name
-                ]
-            else:
-                props["AliasName"] = self.alias_name
-
-        return props
 
 
 
@@ -532,6 +504,20 @@ class Key(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-k"""
 
     resource_type: ClassVar[str] = "AWS::KMS::Key"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "origin": "Origin",
+        "multi_region": "MultiRegion",
+        "description": "Description",
+        "pending_window_in_days": "PendingWindowInDays",
+        "bypass_policy_lockout_safety_check": "BypassPolicyLockoutSafetyCheck",
+        "key_policy": "KeyPolicy",
+        "key_spec": "KeySpec",
+        "enabled": "Enabled",
+        "key_usage": "KeyUsage",
+        "rotation_period_in_days": "RotationPeriodInDays",
+        "enable_key_rotation": "EnableKeyRotation",
+        "tags": "Tags",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     origin: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -558,163 +544,6 @@ class Key(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
 
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.origin is not None:
-            # Serialize origin (handle intrinsic functions)
-            if hasattr(self.origin, 'to_dict'):
-                props["Origin"] = self.origin.to_dict()
-            elif isinstance(self.origin, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Origin'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.origin
-                ]
-            else:
-                props["Origin"] = self.origin
-
-        if self.multi_region is not None:
-            # Serialize multi_region (handle intrinsic functions)
-            if hasattr(self.multi_region, 'to_dict'):
-                props["MultiRegion"] = self.multi_region.to_dict()
-            elif isinstance(self.multi_region, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['MultiRegion'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.multi_region
-                ]
-            else:
-                props["MultiRegion"] = self.multi_region
-
-        if self.description is not None:
-            # Serialize description (handle intrinsic functions)
-            if hasattr(self.description, 'to_dict'):
-                props["Description"] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props["Description"] = self.description
-
-        if self.pending_window_in_days is not None:
-            # Serialize pending_window_in_days (handle intrinsic functions)
-            if hasattr(self.pending_window_in_days, 'to_dict'):
-                props["PendingWindowInDays"] = self.pending_window_in_days.to_dict()
-            elif isinstance(self.pending_window_in_days, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['PendingWindowInDays'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.pending_window_in_days
-                ]
-            else:
-                props["PendingWindowInDays"] = self.pending_window_in_days
-
-        if self.bypass_policy_lockout_safety_check is not None:
-            # Serialize bypass_policy_lockout_safety_check (handle intrinsic functions)
-            if hasattr(self.bypass_policy_lockout_safety_check, 'to_dict'):
-                props["BypassPolicyLockoutSafetyCheck"] = self.bypass_policy_lockout_safety_check.to_dict()
-            elif isinstance(self.bypass_policy_lockout_safety_check, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['BypassPolicyLockoutSafetyCheck'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.bypass_policy_lockout_safety_check
-                ]
-            else:
-                props["BypassPolicyLockoutSafetyCheck"] = self.bypass_policy_lockout_safety_check
-
-        if self.key_policy is not None:
-            # Serialize key_policy (handle intrinsic functions)
-            if hasattr(self.key_policy, 'to_dict'):
-                props["KeyPolicy"] = self.key_policy.to_dict()
-            elif isinstance(self.key_policy, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['KeyPolicy'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.key_policy
-                ]
-            else:
-                props["KeyPolicy"] = self.key_policy
-
-        if self.key_spec is not None:
-            # Serialize key_spec (handle intrinsic functions)
-            if hasattr(self.key_spec, 'to_dict'):
-                props["KeySpec"] = self.key_spec.to_dict()
-            elif isinstance(self.key_spec, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['KeySpec'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.key_spec
-                ]
-            else:
-                props["KeySpec"] = self.key_spec
-
-        if self.enabled is not None:
-            # Serialize enabled (handle intrinsic functions)
-            if hasattr(self.enabled, 'to_dict'):
-                props["Enabled"] = self.enabled.to_dict()
-            elif isinstance(self.enabled, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Enabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enabled
-                ]
-            else:
-                props["Enabled"] = self.enabled
-
-        if self.key_usage is not None:
-            # Serialize key_usage (handle intrinsic functions)
-            if hasattr(self.key_usage, 'to_dict'):
-                props["KeyUsage"] = self.key_usage.to_dict()
-            elif isinstance(self.key_usage, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['KeyUsage'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.key_usage
-                ]
-            else:
-                props["KeyUsage"] = self.key_usage
-
-        if self.rotation_period_in_days is not None:
-            # Serialize rotation_period_in_days (handle intrinsic functions)
-            if hasattr(self.rotation_period_in_days, 'to_dict'):
-                props["RotationPeriodInDays"] = self.rotation_period_in_days.to_dict()
-            elif isinstance(self.rotation_period_in_days, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['RotationPeriodInDays'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.rotation_period_in_days
-                ]
-            else:
-                props["RotationPeriodInDays"] = self.rotation_period_in_days
-
-        if self.enable_key_rotation is not None:
-            # Serialize enable_key_rotation (handle intrinsic functions)
-            if hasattr(self.enable_key_rotation, 'to_dict'):
-                props["EnableKeyRotation"] = self.enable_key_rotation.to_dict()
-            elif isinstance(self.enable_key_rotation, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['EnableKeyRotation'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enable_key_rotation
-                ]
-            else:
-                props["EnableKeyRotation"] = self.enable_key_rotation
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
-
     @property
     def attr_key_id(self) -> GetAtt:
         """Get the KeyId attribute."""
@@ -733,6 +562,14 @@ class ReplicaKey(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-r"""
 
     resource_type: ClassVar[str] = "AWS::KMS::ReplicaKey"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "description": "Description",
+        "pending_window_in_days": "PendingWindowInDays",
+        "key_policy": "KeyPolicy",
+        "primary_key_arn": "PrimaryKeyArn",
+        "enabled": "Enabled",
+        "tags": "Tags",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -746,85 +583,6 @@ class ReplicaKey(CloudFormationResource):
     enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.description is not None:
-            # Serialize description (handle intrinsic functions)
-            if hasattr(self.description, 'to_dict'):
-                props["Description"] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props["Description"] = self.description
-
-        if self.pending_window_in_days is not None:
-            # Serialize pending_window_in_days (handle intrinsic functions)
-            if hasattr(self.pending_window_in_days, 'to_dict'):
-                props["PendingWindowInDays"] = self.pending_window_in_days.to_dict()
-            elif isinstance(self.pending_window_in_days, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['PendingWindowInDays'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.pending_window_in_days
-                ]
-            else:
-                props["PendingWindowInDays"] = self.pending_window_in_days
-
-        if self.key_policy is not None:
-            # Serialize key_policy (handle intrinsic functions)
-            if hasattr(self.key_policy, 'to_dict'):
-                props["KeyPolicy"] = self.key_policy.to_dict()
-            elif isinstance(self.key_policy, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['KeyPolicy'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.key_policy
-                ]
-            else:
-                props["KeyPolicy"] = self.key_policy
-
-        if self.primary_key_arn is not None:
-            # Serialize primary_key_arn (handle intrinsic functions)
-            if hasattr(self.primary_key_arn, 'to_dict'):
-                props["PrimaryKeyArn"] = self.primary_key_arn.to_dict()
-            elif isinstance(self.primary_key_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['PrimaryKeyArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.primary_key_arn
-                ]
-            else:
-                props["PrimaryKeyArn"] = self.primary_key_arn
-
-        if self.enabled is not None:
-            # Serialize enabled (handle intrinsic functions)
-            if hasattr(self.enabled, 'to_dict'):
-                props["Enabled"] = self.enabled.to_dict()
-            elif isinstance(self.enabled, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Enabled'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enabled
-                ]
-            else:
-                props["Enabled"] = self.enabled
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_key_id(self) -> GetAtt:

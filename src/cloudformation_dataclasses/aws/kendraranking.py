@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:37
+  Generated: 2025-12-17 21:37:49
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service KendraRanking
@@ -29,24 +29,30 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 class CapacityUnitsConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ken"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "rescore_capacity_units": "RescoreCapacityUnits",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     rescore_capacity_units: Optional[Union[int, Ref, GetAtt, Sub]] = None
+
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.rescore_capacity_units is not None:
-            if hasattr(self.rescore_capacity_units, 'to_dict'):
-                props['RescoreCapacityUnits'] = self.rescore_capacity_units.to_dict()
-            elif isinstance(self.rescore_capacity_units, list):
-                props['RescoreCapacityUnits'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.rescore_capacity_units
-                ]
-            else:
-                props['RescoreCapacityUnits'] = self.rescore_capacity_units
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -55,6 +61,12 @@ class ExecutionPlan(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendr"""
 
     resource_type: ClassVar[str] = "AWS::KendraRanking::ExecutionPlan"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "description": "Description",
+        "capacity_units": "CapacityUnits",
+        "tags": "Tags",
+        "name": "Name",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -64,59 +76,6 @@ class ExecutionPlan(CloudFormationResource):
     tags: Optional[list[Tag]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.description is not None:
-            # Serialize description (handle intrinsic functions)
-            if hasattr(self.description, 'to_dict'):
-                props["Description"] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props["Description"] = self.description
-
-        if self.capacity_units is not None:
-            # Serialize capacity_units (handle intrinsic functions)
-            if hasattr(self.capacity_units, 'to_dict'):
-                props["CapacityUnits"] = self.capacity_units.to_dict()
-            elif isinstance(self.capacity_units, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['CapacityUnits'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.capacity_units
-                ]
-            else:
-                props["CapacityUnits"] = self.capacity_units
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        return props
 
     @property
     def attr_id(self) -> GetAtt:

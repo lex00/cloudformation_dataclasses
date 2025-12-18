@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:36
+  Generated: 2025-12-17 21:37:46
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service IdentityStore
@@ -104,6 +104,11 @@ class Group(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ident"""
 
     resource_type: ClassVar[str] = "AWS::IdentityStore::Group"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "description": "Description",
+        "display_name": "DisplayName",
+        "identity_store_id": "IdentityStoreId",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -111,51 +116,6 @@ class Group(CloudFormationResource):
     display_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     identity_store_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.description is not None:
-            # Serialize description (handle intrinsic functions)
-            if hasattr(self.description, 'to_dict'):
-                props["Description"] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props["Description"] = self.description
-
-        if self.display_name is not None:
-            # Serialize display_name (handle intrinsic functions)
-            if hasattr(self.display_name, 'to_dict'):
-                props["DisplayName"] = self.display_name.to_dict()
-            elif isinstance(self.display_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DisplayName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.display_name
-                ]
-            else:
-                props["DisplayName"] = self.display_name
-
-        if self.identity_store_id is not None:
-            # Serialize identity_store_id (handle intrinsic functions)
-            if hasattr(self.identity_store_id, 'to_dict'):
-                props["IdentityStoreId"] = self.identity_store_id.to_dict()
-            elif isinstance(self.identity_store_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['IdentityStoreId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.identity_store_id
-                ]
-            else:
-                props["IdentityStoreId"] = self.identity_store_id
-
-        return props
 
     @property
     def attr_group_id(self) -> GetAtt:
@@ -169,24 +129,30 @@ class Group(CloudFormationResource):
 class MemberId:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ide"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "user_id": "UserId",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     user_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.user_id is not None:
-            if hasattr(self.user_id, 'to_dict'):
-                props['UserId'] = self.user_id.to_dict()
-            elif isinstance(self.user_id, list):
-                props['UserId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.user_id
-                ]
-            else:
-                props['UserId'] = self.user_id
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -195,6 +161,11 @@ class GroupMembership(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ident"""
 
     resource_type: ClassVar[str] = "AWS::IdentityStore::GroupMembership"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "member_id": "MemberId",
+        "identity_store_id": "IdentityStoreId",
+        "group_id": "GroupId",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     member_id: Optional[MemberId] = None
@@ -202,51 +173,6 @@ class GroupMembership(CloudFormationResource):
     identity_store_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     group_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.member_id is not None:
-            # Serialize member_id (handle intrinsic functions)
-            if hasattr(self.member_id, 'to_dict'):
-                props["MemberId"] = self.member_id.to_dict()
-            elif isinstance(self.member_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['MemberId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.member_id
-                ]
-            else:
-                props["MemberId"] = self.member_id
-
-        if self.identity_store_id is not None:
-            # Serialize identity_store_id (handle intrinsic functions)
-            if hasattr(self.identity_store_id, 'to_dict'):
-                props["IdentityStoreId"] = self.identity_store_id.to_dict()
-            elif isinstance(self.identity_store_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['IdentityStoreId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.identity_store_id
-                ]
-            else:
-                props["IdentityStoreId"] = self.identity_store_id
-
-        if self.group_id is not None:
-            # Serialize group_id (handle intrinsic functions)
-            if hasattr(self.group_id, 'to_dict'):
-                props["GroupId"] = self.group_id.to_dict()
-            elif isinstance(self.group_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['GroupId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.group_id
-                ]
-            else:
-                props["GroupId"] = self.group_id
-
-        return props
 
     @property
     def attr_membership_id(self) -> GetAtt:

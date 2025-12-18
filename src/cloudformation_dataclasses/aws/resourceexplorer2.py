@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:38
+  Generated: 2025-12-17 21:37:59
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ResourceExplorer2
@@ -30,28 +30,12 @@ class DefaultViewAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resou"""
 
     resource_type: ClassVar[str] = "AWS::ResourceExplorer2::DefaultViewAssociation"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "view_arn": "ViewArn",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     view_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.view_arn is not None:
-            # Serialize view_arn (handle intrinsic functions)
-            if hasattr(self.view_arn, 'to_dict'):
-                props["ViewArn"] = self.view_arn.to_dict()
-            elif isinstance(self.view_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ViewArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.view_arn
-                ]
-            else:
-                props["ViewArn"] = self.view_arn
-
-        return props
 
     @property
     def attr_associated_aws_principal(self) -> GetAtt:
@@ -66,38 +50,15 @@ class Index(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resou"""
 
     resource_type: ClassVar[str] = "AWS::ResourceExplorer2::Index"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "type_": "Type",
+        "tags": "Tags",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     type_: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.type_ is not None:
-            # Serialize type_ (handle intrinsic functions)
-            if hasattr(self.type_, 'to_dict'):
-                props["Type"] = self.type_.to_dict()
-            elif isinstance(self.type_, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Type'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.type_
-                ]
-            else:
-                props["Type"] = self.type_
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_arn(self) -> GetAtt:
@@ -116,24 +77,30 @@ class Index(CloudFormationResource):
 class IncludedProperty:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-res"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "name": "Name",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.name is not None:
-            if hasattr(self.name, 'to_dict'):
-                props['Name'] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props['Name'] = self.name
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -141,24 +108,30 @@ class IncludedProperty:
 class SearchFilter:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-res"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "filter_string": "FilterString",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filter_string: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.filter_string is not None:
-            if hasattr(self.filter_string, 'to_dict'):
-                props['FilterString'] = self.filter_string.to_dict()
-            elif isinstance(self.filter_string, list):
-                props['FilterString'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.filter_string
-                ]
-            else:
-                props['FilterString'] = self.filter_string
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -167,6 +140,13 @@ class View(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resou"""
 
     resource_type: ClassVar[str] = "AWS::ResourceExplorer2::View"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "filters": "Filters",
+        "scope": "Scope",
+        "included_properties": "IncludedProperties",
+        "tags": "Tags",
+        "view_name": "ViewName",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     filters: Optional[SearchFilter] = None
@@ -178,72 +158,6 @@ class View(CloudFormationResource):
     tags: Optional[dict[str, str]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     view_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.filters is not None:
-            # Serialize filters (handle intrinsic functions)
-            if hasattr(self.filters, 'to_dict'):
-                props["Filters"] = self.filters.to_dict()
-            elif isinstance(self.filters, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Filters'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.filters
-                ]
-            else:
-                props["Filters"] = self.filters
-
-        if self.scope is not None:
-            # Serialize scope (handle intrinsic functions)
-            if hasattr(self.scope, 'to_dict'):
-                props["Scope"] = self.scope.to_dict()
-            elif isinstance(self.scope, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Scope'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.scope
-                ]
-            else:
-                props["Scope"] = self.scope
-
-        if self.included_properties is not None:
-            # Serialize included_properties (handle intrinsic functions)
-            if hasattr(self.included_properties, 'to_dict'):
-                props["IncludedProperties"] = self.included_properties.to_dict()
-            elif isinstance(self.included_properties, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['IncludedProperties'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.included_properties
-                ]
-            else:
-                props["IncludedProperties"] = self.included_properties
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.view_name is not None:
-            # Serialize view_name (handle intrinsic functions)
-            if hasattr(self.view_name, 'to_dict'):
-                props["ViewName"] = self.view_name.to_dict()
-            elif isinstance(self.view_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ViewName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.view_name
-                ]
-            else:
-                props["ViewName"] = self.view_name
-
-        return props
 
     @property
     def attr_view_arn(self) -> GetAtt:

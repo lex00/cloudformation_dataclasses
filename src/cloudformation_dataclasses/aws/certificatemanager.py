@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:35
+  Generated: 2025-12-17 21:37:34
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CertificateManager
@@ -299,24 +299,30 @@ HTTP = ValidationMethod.HTTP
 class ExpiryEventsConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cer"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "days_before_expiry": "DaysBeforeExpiry",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     days_before_expiry: Optional[Union[int, Ref, GetAtt, Sub]] = None
+
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.days_before_expiry is not None:
-            if hasattr(self.days_before_expiry, 'to_dict'):
-                props['DaysBeforeExpiry'] = self.days_before_expiry.to_dict()
-            elif isinstance(self.days_before_expiry, list):
-                props['DaysBeforeExpiry'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.days_before_expiry
-                ]
-            else:
-                props['DaysBeforeExpiry'] = self.days_before_expiry
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -325,28 +331,12 @@ class Account(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certi"""
 
     resource_type: ClassVar[str] = "AWS::CertificateManager::Account"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "expiry_events_configuration": "ExpiryEventsConfiguration",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     expiry_events_configuration: Optional[ExpiryEventsConfiguration] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.expiry_events_configuration is not None:
-            # Serialize expiry_events_configuration (handle intrinsic functions)
-            if hasattr(self.expiry_events_configuration, 'to_dict'):
-                props["ExpiryEventsConfiguration"] = self.expiry_events_configuration.to_dict()
-            elif isinstance(self.expiry_events_configuration, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ExpiryEventsConfiguration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.expiry_events_configuration
-                ]
-            else:
-                props["ExpiryEventsConfiguration"] = self.expiry_events_configuration
-
-        return props
 
     @property
     def attr_account_id(self) -> GetAtt:
@@ -360,6 +350,12 @@ class Account(CloudFormationResource):
 class DomainValidationOption:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cer"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "domain_name": "DomainName",
+        "hosted_zone_id": "HostedZoneId",
+        "validation_domain": "ValidationDomain",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     domain_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -367,43 +363,23 @@ class DomainValidationOption:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     validation_domain: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.domain_name is not None:
-            if hasattr(self.domain_name, 'to_dict'):
-                props['DomainName'] = self.domain_name.to_dict()
-            elif isinstance(self.domain_name, list):
-                props['DomainName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.domain_name
-                ]
-            else:
-                props['DomainName'] = self.domain_name
-
-        if self.hosted_zone_id is not None:
-            if hasattr(self.hosted_zone_id, 'to_dict'):
-                props['HostedZoneId'] = self.hosted_zone_id.to_dict()
-            elif isinstance(self.hosted_zone_id, list):
-                props['HostedZoneId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.hosted_zone_id
-                ]
-            else:
-                props['HostedZoneId'] = self.hosted_zone_id
-
-        if self.validation_domain is not None:
-            if hasattr(self.validation_domain, 'to_dict'):
-                props['ValidationDomain'] = self.validation_domain.to_dict()
-            elif isinstance(self.validation_domain, list):
-                props['ValidationDomain'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.validation_domain
-                ]
-            else:
-                props['ValidationDomain'] = self.validation_domain
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -412,6 +388,17 @@ class Certificate(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certi"""
 
     resource_type: ClassVar[str] = "AWS::CertificateManager::Certificate"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "certificate_authority_arn": "CertificateAuthorityArn",
+        "certificate_export": "CertificateExport",
+        "certificate_transparency_logging_preference": "CertificateTransparencyLoggingPreference",
+        "domain_name": "DomainName",
+        "domain_validation_options": "DomainValidationOptions",
+        "key_algorithm": "KeyAlgorithm",
+        "subject_alternative_names": "SubjectAlternativeNames",
+        "tags": "Tags",
+        "validation_method": "ValidationMethod",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     certificate_authority_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -431,123 +418,5 @@ class Certificate(CloudFormationResource):
     tags: Optional[list[Tag]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     validation_method: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.certificate_authority_arn is not None:
-            # Serialize certificate_authority_arn (handle intrinsic functions)
-            if hasattr(self.certificate_authority_arn, 'to_dict'):
-                props["CertificateAuthorityArn"] = self.certificate_authority_arn.to_dict()
-            elif isinstance(self.certificate_authority_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['CertificateAuthorityArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.certificate_authority_arn
-                ]
-            else:
-                props["CertificateAuthorityArn"] = self.certificate_authority_arn
-
-        if self.certificate_export is not None:
-            # Serialize certificate_export (handle intrinsic functions)
-            if hasattr(self.certificate_export, 'to_dict'):
-                props["CertificateExport"] = self.certificate_export.to_dict()
-            elif isinstance(self.certificate_export, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['CertificateExport'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.certificate_export
-                ]
-            else:
-                props["CertificateExport"] = self.certificate_export
-
-        if self.certificate_transparency_logging_preference is not None:
-            # Serialize certificate_transparency_logging_preference (handle intrinsic functions)
-            if hasattr(self.certificate_transparency_logging_preference, 'to_dict'):
-                props["CertificateTransparencyLoggingPreference"] = self.certificate_transparency_logging_preference.to_dict()
-            elif isinstance(self.certificate_transparency_logging_preference, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['CertificateTransparencyLoggingPreference'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.certificate_transparency_logging_preference
-                ]
-            else:
-                props["CertificateTransparencyLoggingPreference"] = self.certificate_transparency_logging_preference
-
-        if self.domain_name is not None:
-            # Serialize domain_name (handle intrinsic functions)
-            if hasattr(self.domain_name, 'to_dict'):
-                props["DomainName"] = self.domain_name.to_dict()
-            elif isinstance(self.domain_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DomainName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.domain_name
-                ]
-            else:
-                props["DomainName"] = self.domain_name
-
-        if self.domain_validation_options is not None:
-            # Serialize domain_validation_options (handle intrinsic functions)
-            if hasattr(self.domain_validation_options, 'to_dict'):
-                props["DomainValidationOptions"] = self.domain_validation_options.to_dict()
-            elif isinstance(self.domain_validation_options, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DomainValidationOptions'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.domain_validation_options
-                ]
-            else:
-                props["DomainValidationOptions"] = self.domain_validation_options
-
-        if self.key_algorithm is not None:
-            # Serialize key_algorithm (handle intrinsic functions)
-            if hasattr(self.key_algorithm, 'to_dict'):
-                props["KeyAlgorithm"] = self.key_algorithm.to_dict()
-            elif isinstance(self.key_algorithm, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['KeyAlgorithm'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.key_algorithm
-                ]
-            else:
-                props["KeyAlgorithm"] = self.key_algorithm
-
-        if self.subject_alternative_names is not None:
-            # Serialize subject_alternative_names (handle intrinsic functions)
-            if hasattr(self.subject_alternative_names, 'to_dict'):
-                props["SubjectAlternativeNames"] = self.subject_alternative_names.to_dict()
-            elif isinstance(self.subject_alternative_names, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SubjectAlternativeNames'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.subject_alternative_names
-                ]
-            else:
-                props["SubjectAlternativeNames"] = self.subject_alternative_names
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.validation_method is not None:
-            # Serialize validation_method (handle intrinsic functions)
-            if hasattr(self.validation_method, 'to_dict'):
-                props["ValidationMethod"] = self.validation_method.to_dict()
-            elif isinstance(self.validation_method, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ValidationMethod'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.validation_method
-                ]
-            else:
-                props["ValidationMethod"] = self.validation_method
-
-        return props
 
 

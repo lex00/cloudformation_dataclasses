@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:38
+  Generated: 2025-12-17 21:37:56
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Panorama
@@ -397,24 +397,30 @@ OTHER = ValidationExceptionReason.OTHER
 class ManifestOverridesPayload:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pan"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "payload_data": "PayloadData",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     payload_data: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.payload_data is not None:
-            if hasattr(self.payload_data, 'to_dict'):
-                props['PayloadData'] = self.payload_data.to_dict()
-            elif isinstance(self.payload_data, list):
-                props['PayloadData'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.payload_data
-                ]
-            else:
-                props['PayloadData'] = self.payload_data
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -422,24 +428,30 @@ class ManifestOverridesPayload:
 class ManifestPayload:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pan"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "payload_data": "PayloadData",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     payload_data: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.payload_data is not None:
-            if hasattr(self.payload_data, 'to_dict'):
-                props['PayloadData'] = self.payload_data.to_dict()
-            elif isinstance(self.payload_data, list):
-                props['PayloadData'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.payload_data
-                ]
-            else:
-                props['PayloadData'] = self.payload_data
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -448,6 +460,16 @@ class ApplicationInstance(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panor"""
 
     resource_type: ClassVar[str] = "AWS::Panorama::ApplicationInstance"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "default_runtime_context_device": "DefaultRuntimeContextDevice",
+        "description": "Description",
+        "application_instance_id_to_replace": "ApplicationInstanceIdToReplace",
+        "manifest_overrides_payload": "ManifestOverridesPayload",
+        "runtime_role_arn": "RuntimeRoleArn",
+        "manifest_payload": "ManifestPayload",
+        "tags": "Tags",
+        "name": "Name",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     default_runtime_context_device: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -465,111 +487,6 @@ class ApplicationInstance(CloudFormationResource):
     tags: Optional[list[Tag]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.default_runtime_context_device is not None:
-            # Serialize default_runtime_context_device (handle intrinsic functions)
-            if hasattr(self.default_runtime_context_device, 'to_dict'):
-                props["DefaultRuntimeContextDevice"] = self.default_runtime_context_device.to_dict()
-            elif isinstance(self.default_runtime_context_device, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DefaultRuntimeContextDevice'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.default_runtime_context_device
-                ]
-            else:
-                props["DefaultRuntimeContextDevice"] = self.default_runtime_context_device
-
-        if self.description is not None:
-            # Serialize description (handle intrinsic functions)
-            if hasattr(self.description, 'to_dict'):
-                props["Description"] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props["Description"] = self.description
-
-        if self.application_instance_id_to_replace is not None:
-            # Serialize application_instance_id_to_replace (handle intrinsic functions)
-            if hasattr(self.application_instance_id_to_replace, 'to_dict'):
-                props["ApplicationInstanceIdToReplace"] = self.application_instance_id_to_replace.to_dict()
-            elif isinstance(self.application_instance_id_to_replace, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ApplicationInstanceIdToReplace'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.application_instance_id_to_replace
-                ]
-            else:
-                props["ApplicationInstanceIdToReplace"] = self.application_instance_id_to_replace
-
-        if self.manifest_overrides_payload is not None:
-            # Serialize manifest_overrides_payload (handle intrinsic functions)
-            if hasattr(self.manifest_overrides_payload, 'to_dict'):
-                props["ManifestOverridesPayload"] = self.manifest_overrides_payload.to_dict()
-            elif isinstance(self.manifest_overrides_payload, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ManifestOverridesPayload'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.manifest_overrides_payload
-                ]
-            else:
-                props["ManifestOverridesPayload"] = self.manifest_overrides_payload
-
-        if self.runtime_role_arn is not None:
-            # Serialize runtime_role_arn (handle intrinsic functions)
-            if hasattr(self.runtime_role_arn, 'to_dict'):
-                props["RuntimeRoleArn"] = self.runtime_role_arn.to_dict()
-            elif isinstance(self.runtime_role_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['RuntimeRoleArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.runtime_role_arn
-                ]
-            else:
-                props["RuntimeRoleArn"] = self.runtime_role_arn
-
-        if self.manifest_payload is not None:
-            # Serialize manifest_payload (handle intrinsic functions)
-            if hasattr(self.manifest_payload, 'to_dict'):
-                props["ManifestPayload"] = self.manifest_payload.to_dict()
-            elif isinstance(self.manifest_payload, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ManifestPayload'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.manifest_payload
-                ]
-            else:
-                props["ManifestPayload"] = self.manifest_payload
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        return props
 
     @property
     def attr_default_runtime_context_device_name(self) -> GetAtt:
@@ -618,6 +535,14 @@ class ApplicationInstance(CloudFormationResource):
 class StorageLocation:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pan"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "repo_prefix_location": "RepoPrefixLocation",
+        "generated_prefix_location": "GeneratedPrefixLocation",
+        "binary_prefix_location": "BinaryPrefixLocation",
+        "bucket": "Bucket",
+        "manifest_prefix_location": "ManifestPrefixLocation",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     repo_prefix_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -629,65 +554,23 @@ class StorageLocation:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     manifest_prefix_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.repo_prefix_location is not None:
-            if hasattr(self.repo_prefix_location, 'to_dict'):
-                props['RepoPrefixLocation'] = self.repo_prefix_location.to_dict()
-            elif isinstance(self.repo_prefix_location, list):
-                props['RepoPrefixLocation'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.repo_prefix_location
-                ]
-            else:
-                props['RepoPrefixLocation'] = self.repo_prefix_location
-
-        if self.generated_prefix_location is not None:
-            if hasattr(self.generated_prefix_location, 'to_dict'):
-                props['GeneratedPrefixLocation'] = self.generated_prefix_location.to_dict()
-            elif isinstance(self.generated_prefix_location, list):
-                props['GeneratedPrefixLocation'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.generated_prefix_location
-                ]
-            else:
-                props['GeneratedPrefixLocation'] = self.generated_prefix_location
-
-        if self.binary_prefix_location is not None:
-            if hasattr(self.binary_prefix_location, 'to_dict'):
-                props['BinaryPrefixLocation'] = self.binary_prefix_location.to_dict()
-            elif isinstance(self.binary_prefix_location, list):
-                props['BinaryPrefixLocation'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.binary_prefix_location
-                ]
-            else:
-                props['BinaryPrefixLocation'] = self.binary_prefix_location
-
-        if self.bucket is not None:
-            if hasattr(self.bucket, 'to_dict'):
-                props['Bucket'] = self.bucket.to_dict()
-            elif isinstance(self.bucket, list):
-                props['Bucket'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.bucket
-                ]
-            else:
-                props['Bucket'] = self.bucket
-
-        if self.manifest_prefix_location is not None:
-            if hasattr(self.manifest_prefix_location, 'to_dict'):
-                props['ManifestPrefixLocation'] = self.manifest_prefix_location.to_dict()
-            elif isinstance(self.manifest_prefix_location, list):
-                props['ManifestPrefixLocation'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.manifest_prefix_location
-                ]
-            else:
-                props['ManifestPrefixLocation'] = self.manifest_prefix_location
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -696,6 +579,11 @@ class Package(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panor"""
 
     resource_type: ClassVar[str] = "AWS::Panorama::Package"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "package_name": "PackageName",
+        "storage_location": "StorageLocation",
+        "tags": "Tags",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     package_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -703,46 +591,6 @@ class Package(CloudFormationResource):
     storage_location: Optional[StorageLocation] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.package_name is not None:
-            # Serialize package_name (handle intrinsic functions)
-            if hasattr(self.package_name, 'to_dict'):
-                props["PackageName"] = self.package_name.to_dict()
-            elif isinstance(self.package_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['PackageName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.package_name
-                ]
-            else:
-                props["PackageName"] = self.package_name
-
-        if self.storage_location is not None:
-            # Serialize storage_location (handle intrinsic functions)
-            if hasattr(self.storage_location, 'to_dict'):
-                props["StorageLocation"] = self.storage_location.to_dict()
-            elif isinstance(self.storage_location, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['StorageLocation'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.storage_location
-                ]
-            else:
-                props["StorageLocation"] = self.storage_location
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_created_time(self) -> GetAtt:
@@ -792,6 +640,14 @@ class PackageVersion(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panor"""
 
     resource_type: ClassVar[str] = "AWS::Panorama::PackageVersion"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "updated_latest_patch_version": "UpdatedLatestPatchVersion",
+        "patch_version": "PatchVersion",
+        "mark_latest": "MarkLatest",
+        "package_id": "PackageId",
+        "owner_account": "OwnerAccount",
+        "package_version": "PackageVersion",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     updated_latest_patch_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -805,90 +661,6 @@ class PackageVersion(CloudFormationResource):
     owner_account: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     package_version: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.updated_latest_patch_version is not None:
-            # Serialize updated_latest_patch_version (handle intrinsic functions)
-            if hasattr(self.updated_latest_patch_version, 'to_dict'):
-                props["UpdatedLatestPatchVersion"] = self.updated_latest_patch_version.to_dict()
-            elif isinstance(self.updated_latest_patch_version, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['UpdatedLatestPatchVersion'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.updated_latest_patch_version
-                ]
-            else:
-                props["UpdatedLatestPatchVersion"] = self.updated_latest_patch_version
-
-        if self.patch_version is not None:
-            # Serialize patch_version (handle intrinsic functions)
-            if hasattr(self.patch_version, 'to_dict'):
-                props["PatchVersion"] = self.patch_version.to_dict()
-            elif isinstance(self.patch_version, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['PatchVersion'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.patch_version
-                ]
-            else:
-                props["PatchVersion"] = self.patch_version
-
-        if self.mark_latest is not None:
-            # Serialize mark_latest (handle intrinsic functions)
-            if hasattr(self.mark_latest, 'to_dict'):
-                props["MarkLatest"] = self.mark_latest.to_dict()
-            elif isinstance(self.mark_latest, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['MarkLatest'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.mark_latest
-                ]
-            else:
-                props["MarkLatest"] = self.mark_latest
-
-        if self.package_id is not None:
-            # Serialize package_id (handle intrinsic functions)
-            if hasattr(self.package_id, 'to_dict'):
-                props["PackageId"] = self.package_id.to_dict()
-            elif isinstance(self.package_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['PackageId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.package_id
-                ]
-            else:
-                props["PackageId"] = self.package_id
-
-        if self.owner_account is not None:
-            # Serialize owner_account (handle intrinsic functions)
-            if hasattr(self.owner_account, 'to_dict'):
-                props["OwnerAccount"] = self.owner_account.to_dict()
-            elif isinstance(self.owner_account, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['OwnerAccount'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.owner_account
-                ]
-            else:
-                props["OwnerAccount"] = self.owner_account
-
-        if self.package_version is not None:
-            # Serialize package_version (handle intrinsic functions)
-            if hasattr(self.package_version, 'to_dict'):
-                props["PackageVersion"] = self.package_version.to_dict()
-            elif isinstance(self.package_version, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['PackageVersion'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.package_version
-                ]
-            else:
-                props["PackageVersion"] = self.package_version
-
-        return props
 
     @property
     def attr_status(self) -> GetAtt:

@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:35
+  Generated: 2025-12-17 21:37:36
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service CodeStarNotifications
@@ -29,37 +29,33 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 class Target:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cod"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "target_type": "TargetType",
+        "target_address": "TargetAddress",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     target_address: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.target_type is not None:
-            if hasattr(self.target_type, 'to_dict'):
-                props['TargetType'] = self.target_type.to_dict()
-            elif isinstance(self.target_type, list):
-                props['TargetType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.target_type
-                ]
-            else:
-                props['TargetType'] = self.target_type
-
-        if self.target_address is not None:
-            if hasattr(self.target_address, 'to_dict'):
-                props['TargetAddress'] = self.target_address.to_dict()
-            elif isinstance(self.target_address, list):
-                props['TargetAddress'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.target_address
-                ]
-            else:
-                props['TargetAddress'] = self.target_address
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -68,6 +64,18 @@ class NotificationRule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codes"""
 
     resource_type: ClassVar[str] = "AWS::CodeStarNotifications::NotificationRule"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "event_type_ids": "EventTypeIds",
+        "status": "Status",
+        "created_by": "CreatedBy",
+        "detail_type": "DetailType",
+        "resource": "Resource",
+        "event_type_id": "EventTypeId",
+        "target_address": "TargetAddress",
+        "targets": "Targets",
+        "tags": "Tags",
+        "name": "Name",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     event_type_ids: Optional[Union[list[str], Ref]] = None
@@ -89,137 +97,6 @@ class NotificationRule(CloudFormationResource):
     tags: Optional[dict[str, str]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.event_type_ids is not None:
-            # Serialize event_type_ids (handle intrinsic functions)
-            if hasattr(self.event_type_ids, 'to_dict'):
-                props["EventTypeIds"] = self.event_type_ids.to_dict()
-            elif isinstance(self.event_type_ids, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['EventTypeIds'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.event_type_ids
-                ]
-            else:
-                props["EventTypeIds"] = self.event_type_ids
-
-        if self.status is not None:
-            # Serialize status (handle intrinsic functions)
-            if hasattr(self.status, 'to_dict'):
-                props["Status"] = self.status.to_dict()
-            elif isinstance(self.status, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Status'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.status
-                ]
-            else:
-                props["Status"] = self.status
-
-        if self.created_by is not None:
-            # Serialize created_by (handle intrinsic functions)
-            if hasattr(self.created_by, 'to_dict'):
-                props["CreatedBy"] = self.created_by.to_dict()
-            elif isinstance(self.created_by, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['CreatedBy'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.created_by
-                ]
-            else:
-                props["CreatedBy"] = self.created_by
-
-        if self.detail_type is not None:
-            # Serialize detail_type (handle intrinsic functions)
-            if hasattr(self.detail_type, 'to_dict'):
-                props["DetailType"] = self.detail_type.to_dict()
-            elif isinstance(self.detail_type, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DetailType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.detail_type
-                ]
-            else:
-                props["DetailType"] = self.detail_type
-
-        if self.resource is not None:
-            # Serialize resource (handle intrinsic functions)
-            if hasattr(self.resource, 'to_dict'):
-                props["Resource"] = self.resource.to_dict()
-            elif isinstance(self.resource, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Resource'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.resource
-                ]
-            else:
-                props["Resource"] = self.resource
-
-        if self.event_type_id is not None:
-            # Serialize event_type_id (handle intrinsic functions)
-            if hasattr(self.event_type_id, 'to_dict'):
-                props["EventTypeId"] = self.event_type_id.to_dict()
-            elif isinstance(self.event_type_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['EventTypeId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.event_type_id
-                ]
-            else:
-                props["EventTypeId"] = self.event_type_id
-
-        if self.target_address is not None:
-            # Serialize target_address (handle intrinsic functions)
-            if hasattr(self.target_address, 'to_dict'):
-                props["TargetAddress"] = self.target_address.to_dict()
-            elif isinstance(self.target_address, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['TargetAddress'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.target_address
-                ]
-            else:
-                props["TargetAddress"] = self.target_address
-
-        if self.targets is not None:
-            # Serialize targets (handle intrinsic functions)
-            if hasattr(self.targets, 'to_dict'):
-                props["Targets"] = self.targets.to_dict()
-            elif isinstance(self.targets, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Targets'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.targets
-                ]
-            else:
-                props["Targets"] = self.targets
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        return props
 
     @property
     def attr_arn(self) -> GetAtt:

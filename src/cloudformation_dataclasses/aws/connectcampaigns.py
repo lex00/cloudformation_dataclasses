@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:35
+  Generated: 2025-12-17 21:37:37
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ConnectCampaigns
@@ -113,24 +113,30 @@ FAILED = InstanceOnboardingJobStatusCode.FAILED
 class AgentlessDialerConfig:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "dialing_capacity": "DialingCapacity",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dialing_capacity: Optional[Union[float, Ref, GetAtt, Sub]] = None
+
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.dialing_capacity is not None:
-            if hasattr(self.dialing_capacity, 'to_dict'):
-                props['DialingCapacity'] = self.dialing_capacity.to_dict()
-            elif isinstance(self.dialing_capacity, list):
-                props['DialingCapacity'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.dialing_capacity
-                ]
-            else:
-                props['DialingCapacity'] = self.dialing_capacity
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -138,43 +144,45 @@ class AgentlessDialerConfig:
 class AnswerMachineDetectionConfig:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "enable_answer_machine_detection": "EnableAnswerMachineDetection",
+        "await_answer_machine_prompt": "AwaitAnswerMachinePrompt",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     enable_answer_machine_detection: Optional[Union[bool, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     await_answer_machine_prompt: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.enable_answer_machine_detection is not None:
-            if hasattr(self.enable_answer_machine_detection, 'to_dict'):
-                props['EnableAnswerMachineDetection'] = self.enable_answer_machine_detection.to_dict()
-            elif isinstance(self.enable_answer_machine_detection, list):
-                props['EnableAnswerMachineDetection'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.enable_answer_machine_detection
-                ]
-            else:
-                props['EnableAnswerMachineDetection'] = self.enable_answer_machine_detection
-
-        if self.await_answer_machine_prompt is not None:
-            if hasattr(self.await_answer_machine_prompt, 'to_dict'):
-                props['AwaitAnswerMachinePrompt'] = self.await_answer_machine_prompt.to_dict()
-            elif isinstance(self.await_answer_machine_prompt, list):
-                props['AwaitAnswerMachinePrompt'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.await_answer_machine_prompt
-                ]
-            else:
-                props['AwaitAnswerMachinePrompt'] = self.await_answer_machine_prompt
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
 @dataclass
 class DialerConfig:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "agentless_dialer_config": "AgentlessDialerConfig",
+        "predictive_dialer_config": "PredictiveDialerConfig",
+        "progressive_dialer_config": "ProgressiveDialerConfig",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     agentless_dialer_config: Optional[AgentlessDialerConfig] = None
@@ -183,49 +191,36 @@ class DialerConfig:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     progressive_dialer_config: Optional[ProgressiveDialerConfig] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.agentless_dialer_config is not None:
-            if hasattr(self.agentless_dialer_config, 'to_dict'):
-                props['AgentlessDialerConfig'] = self.agentless_dialer_config.to_dict()
-            elif isinstance(self.agentless_dialer_config, list):
-                props['AgentlessDialerConfig'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.agentless_dialer_config
-                ]
-            else:
-                props['AgentlessDialerConfig'] = self.agentless_dialer_config
-
-        if self.predictive_dialer_config is not None:
-            if hasattr(self.predictive_dialer_config, 'to_dict'):
-                props['PredictiveDialerConfig'] = self.predictive_dialer_config.to_dict()
-            elif isinstance(self.predictive_dialer_config, list):
-                props['PredictiveDialerConfig'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.predictive_dialer_config
-                ]
-            else:
-                props['PredictiveDialerConfig'] = self.predictive_dialer_config
-
-        if self.progressive_dialer_config is not None:
-            if hasattr(self.progressive_dialer_config, 'to_dict'):
-                props['ProgressiveDialerConfig'] = self.progressive_dialer_config.to_dict()
-            elif isinstance(self.progressive_dialer_config, list):
-                props['ProgressiveDialerConfig'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.progressive_dialer_config
-                ]
-            else:
-                props['ProgressiveDialerConfig'] = self.progressive_dialer_config
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
 @dataclass
 class OutboundCallConfig:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "connect_contact_flow_arn": "ConnectContactFlowArn",
+        "connect_queue_arn": "ConnectQueueArn",
+        "answer_machine_detection_config": "AnswerMachineDetectionConfig",
+        "connect_source_phone_number": "ConnectSourcePhoneNumber",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connect_contact_flow_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -236,54 +231,23 @@ class OutboundCallConfig:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     connect_source_phone_number: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.connect_contact_flow_arn is not None:
-            if hasattr(self.connect_contact_flow_arn, 'to_dict'):
-                props['ConnectContactFlowArn'] = self.connect_contact_flow_arn.to_dict()
-            elif isinstance(self.connect_contact_flow_arn, list):
-                props['ConnectContactFlowArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.connect_contact_flow_arn
-                ]
-            else:
-                props['ConnectContactFlowArn'] = self.connect_contact_flow_arn
-
-        if self.connect_queue_arn is not None:
-            if hasattr(self.connect_queue_arn, 'to_dict'):
-                props['ConnectQueueArn'] = self.connect_queue_arn.to_dict()
-            elif isinstance(self.connect_queue_arn, list):
-                props['ConnectQueueArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.connect_queue_arn
-                ]
-            else:
-                props['ConnectQueueArn'] = self.connect_queue_arn
-
-        if self.answer_machine_detection_config is not None:
-            if hasattr(self.answer_machine_detection_config, 'to_dict'):
-                props['AnswerMachineDetectionConfig'] = self.answer_machine_detection_config.to_dict()
-            elif isinstance(self.answer_machine_detection_config, list):
-                props['AnswerMachineDetectionConfig'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.answer_machine_detection_config
-                ]
-            else:
-                props['AnswerMachineDetectionConfig'] = self.answer_machine_detection_config
-
-        if self.connect_source_phone_number is not None:
-            if hasattr(self.connect_source_phone_number, 'to_dict'):
-                props['ConnectSourcePhoneNumber'] = self.connect_source_phone_number.to_dict()
-            elif isinstance(self.connect_source_phone_number, list):
-                props['ConnectSourcePhoneNumber'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.connect_source_phone_number
-                ]
-            else:
-                props['ConnectSourcePhoneNumber'] = self.connect_source_phone_number
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -291,37 +255,33 @@ class OutboundCallConfig:
 class PredictiveDialerConfig:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "dialing_capacity": "DialingCapacity",
+        "bandwidth_allocation": "BandwidthAllocation",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dialing_capacity: Optional[Union[float, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bandwidth_allocation: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.dialing_capacity is not None:
-            if hasattr(self.dialing_capacity, 'to_dict'):
-                props['DialingCapacity'] = self.dialing_capacity.to_dict()
-            elif isinstance(self.dialing_capacity, list):
-                props['DialingCapacity'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.dialing_capacity
-                ]
-            else:
-                props['DialingCapacity'] = self.dialing_capacity
-
-        if self.bandwidth_allocation is not None:
-            if hasattr(self.bandwidth_allocation, 'to_dict'):
-                props['BandwidthAllocation'] = self.bandwidth_allocation.to_dict()
-            elif isinstance(self.bandwidth_allocation, list):
-                props['BandwidthAllocation'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.bandwidth_allocation
-                ]
-            else:
-                props['BandwidthAllocation'] = self.bandwidth_allocation
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -329,37 +289,33 @@ class PredictiveDialerConfig:
 class ProgressiveDialerConfig:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-con"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "dialing_capacity": "DialingCapacity",
+        "bandwidth_allocation": "BandwidthAllocation",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dialing_capacity: Optional[Union[float, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bandwidth_allocation: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.dialing_capacity is not None:
-            if hasattr(self.dialing_capacity, 'to_dict'):
-                props['DialingCapacity'] = self.dialing_capacity.to_dict()
-            elif isinstance(self.dialing_capacity, list):
-                props['DialingCapacity'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.dialing_capacity
-                ]
-            else:
-                props['DialingCapacity'] = self.dialing_capacity
-
-        if self.bandwidth_allocation is not None:
-            if hasattr(self.bandwidth_allocation, 'to_dict'):
-                props['BandwidthAllocation'] = self.bandwidth_allocation.to_dict()
-            elif isinstance(self.bandwidth_allocation, list):
-                props['BandwidthAllocation'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.bandwidth_allocation
-                ]
-            else:
-                props['BandwidthAllocation'] = self.bandwidth_allocation
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -368,6 +324,13 @@ class Campaign(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-conne"""
 
     resource_type: ClassVar[str] = "AWS::ConnectCampaigns::Campaign"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "outbound_call_config": "OutboundCallConfig",
+        "connect_instance_arn": "ConnectInstanceArn",
+        "dialer_config": "DialerConfig",
+        "tags": "Tags",
+        "name": "Name",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     outbound_call_config: Optional[OutboundCallConfig] = None
@@ -379,72 +342,6 @@ class Campaign(CloudFormationResource):
     tags: Optional[list[Tag]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.outbound_call_config is not None:
-            # Serialize outbound_call_config (handle intrinsic functions)
-            if hasattr(self.outbound_call_config, 'to_dict'):
-                props["OutboundCallConfig"] = self.outbound_call_config.to_dict()
-            elif isinstance(self.outbound_call_config, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['OutboundCallConfig'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.outbound_call_config
-                ]
-            else:
-                props["OutboundCallConfig"] = self.outbound_call_config
-
-        if self.connect_instance_arn is not None:
-            # Serialize connect_instance_arn (handle intrinsic functions)
-            if hasattr(self.connect_instance_arn, 'to_dict'):
-                props["ConnectInstanceArn"] = self.connect_instance_arn.to_dict()
-            elif isinstance(self.connect_instance_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ConnectInstanceArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.connect_instance_arn
-                ]
-            else:
-                props["ConnectInstanceArn"] = self.connect_instance_arn
-
-        if self.dialer_config is not None:
-            # Serialize dialer_config (handle intrinsic functions)
-            if hasattr(self.dialer_config, 'to_dict'):
-                props["DialerConfig"] = self.dialer_config.to_dict()
-            elif isinstance(self.dialer_config, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DialerConfig'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.dialer_config
-                ]
-            else:
-                props["DialerConfig"] = self.dialer_config
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        return props
 
     @property
     def attr_arn(self) -> GetAtt:

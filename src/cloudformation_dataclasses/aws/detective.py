@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:36
+  Generated: 2025-12-17 21:37:39
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Detective
@@ -195,38 +195,15 @@ class Graph(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detec"""
 
     resource_type: ClassVar[str] = "AWS::Detective::Graph"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "auto_enable_members": "AutoEnableMembers",
+        "tags": "Tags",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     auto_enable_members: Optional[Union[bool, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.auto_enable_members is not None:
-            # Serialize auto_enable_members (handle intrinsic functions)
-            if hasattr(self.auto_enable_members, 'to_dict'):
-                props["AutoEnableMembers"] = self.auto_enable_members.to_dict()
-            elif isinstance(self.auto_enable_members, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AutoEnableMembers'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.auto_enable_members
-                ]
-            else:
-                props["AutoEnableMembers"] = self.auto_enable_members
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_arn(self) -> GetAtt:
@@ -241,6 +218,13 @@ class MemberInvitation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detec"""
 
     resource_type: ClassVar[str] = "AWS::Detective::MemberInvitation"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "member_id": "MemberId",
+        "message": "Message",
+        "graph_arn": "GraphArn",
+        "disable_email_notification": "DisableEmailNotification",
+        "member_email_address": "MemberEmailAddress",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     member_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -253,77 +237,6 @@ class MemberInvitation(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     member_email_address: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.member_id is not None:
-            # Serialize member_id (handle intrinsic functions)
-            if hasattr(self.member_id, 'to_dict'):
-                props["MemberId"] = self.member_id.to_dict()
-            elif isinstance(self.member_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['MemberId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.member_id
-                ]
-            else:
-                props["MemberId"] = self.member_id
-
-        if self.message is not None:
-            # Serialize message (handle intrinsic functions)
-            if hasattr(self.message, 'to_dict'):
-                props["Message"] = self.message.to_dict()
-            elif isinstance(self.message, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Message'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.message
-                ]
-            else:
-                props["Message"] = self.message
-
-        if self.graph_arn is not None:
-            # Serialize graph_arn (handle intrinsic functions)
-            if hasattr(self.graph_arn, 'to_dict'):
-                props["GraphArn"] = self.graph_arn.to_dict()
-            elif isinstance(self.graph_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['GraphArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.graph_arn
-                ]
-            else:
-                props["GraphArn"] = self.graph_arn
-
-        if self.disable_email_notification is not None:
-            # Serialize disable_email_notification (handle intrinsic functions)
-            if hasattr(self.disable_email_notification, 'to_dict'):
-                props["DisableEmailNotification"] = self.disable_email_notification.to_dict()
-            elif isinstance(self.disable_email_notification, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DisableEmailNotification'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.disable_email_notification
-                ]
-            else:
-                props["DisableEmailNotification"] = self.disable_email_notification
-
-        if self.member_email_address is not None:
-            # Serialize member_email_address (handle intrinsic functions)
-            if hasattr(self.member_email_address, 'to_dict'):
-                props["MemberEmailAddress"] = self.member_email_address.to_dict()
-            elif isinstance(self.member_email_address, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['MemberEmailAddress'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.member_email_address
-                ]
-            else:
-                props["MemberEmailAddress"] = self.member_email_address
-
-        return props
-
 
 
 @dataclass
@@ -331,28 +244,12 @@ class OrganizationAdmin(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detec"""
 
     resource_type: ClassVar[str] = "AWS::Detective::OrganizationAdmin"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "account_id": "AccountId",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     account_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.account_id is not None:
-            # Serialize account_id (handle intrinsic functions)
-            if hasattr(self.account_id, 'to_dict'):
-                props["AccountId"] = self.account_id.to_dict()
-            elif isinstance(self.account_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AccountId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.account_id
-                ]
-            else:
-                props["AccountId"] = self.account_id
-
-        return props
 
     @property
     def attr_graph_arn(self) -> GetAtt:

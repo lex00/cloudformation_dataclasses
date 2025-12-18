@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:38
+  Generated: 2025-12-17 21:37:54
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Notifications
@@ -263,43 +263,15 @@ class ChannelAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notif"""
 
     resource_type: ClassVar[str] = "AWS::Notifications::ChannelAssociation"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "notification_configuration_arn": "NotificationConfigurationArn",
+        "arn": "Arn",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     notification_configuration_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.notification_configuration_arn is not None:
-            # Serialize notification_configuration_arn (handle intrinsic functions)
-            if hasattr(self.notification_configuration_arn, 'to_dict'):
-                props["NotificationConfigurationArn"] = self.notification_configuration_arn.to_dict()
-            elif isinstance(self.notification_configuration_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['NotificationConfigurationArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.notification_configuration_arn
-                ]
-            else:
-                props["NotificationConfigurationArn"] = self.notification_configuration_arn
-
-        if self.arn is not None:
-            # Serialize arn (handle intrinsic functions)
-            if hasattr(self.arn, 'to_dict'):
-                props["Arn"] = self.arn.to_dict()
-            elif isinstance(self.arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Arn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.arn
-                ]
-            else:
-                props["Arn"] = self.arn
-
-        return props
 
 
 
@@ -307,37 +279,33 @@ class ChannelAssociation(CloudFormationResource):
 class EventRuleStatusSummary:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-not"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "status": "Status",
+        "reason": "Reason",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     status: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     reason: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.status is not None:
-            if hasattr(self.status, 'to_dict'):
-                props['Status'] = self.status.to_dict()
-            elif isinstance(self.status, list):
-                props['Status'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.status
-                ]
-            else:
-                props['Status'] = self.status
-
-        if self.reason is not None:
-            if hasattr(self.reason, 'to_dict'):
-                props['Reason'] = self.reason.to_dict()
-            elif isinstance(self.reason, list):
-                props['Reason'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.reason
-                ]
-            else:
-                props['Reason'] = self.reason
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -346,6 +314,13 @@ class EventRule(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notif"""
 
     resource_type: ClassVar[str] = "AWS::Notifications::EventRule"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "event_pattern": "EventPattern",
+        "event_type": "EventType",
+        "notification_configuration_arn": "NotificationConfigurationArn",
+        "regions": "Regions",
+        "source": "Source",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     event_pattern: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -357,77 +332,6 @@ class EventRule(CloudFormationResource):
     regions: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     source: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.event_pattern is not None:
-            # Serialize event_pattern (handle intrinsic functions)
-            if hasattr(self.event_pattern, 'to_dict'):
-                props["EventPattern"] = self.event_pattern.to_dict()
-            elif isinstance(self.event_pattern, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['EventPattern'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.event_pattern
-                ]
-            else:
-                props["EventPattern"] = self.event_pattern
-
-        if self.event_type is not None:
-            # Serialize event_type (handle intrinsic functions)
-            if hasattr(self.event_type, 'to_dict'):
-                props["EventType"] = self.event_type.to_dict()
-            elif isinstance(self.event_type, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['EventType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.event_type
-                ]
-            else:
-                props["EventType"] = self.event_type
-
-        if self.notification_configuration_arn is not None:
-            # Serialize notification_configuration_arn (handle intrinsic functions)
-            if hasattr(self.notification_configuration_arn, 'to_dict'):
-                props["NotificationConfigurationArn"] = self.notification_configuration_arn.to_dict()
-            elif isinstance(self.notification_configuration_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['NotificationConfigurationArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.notification_configuration_arn
-                ]
-            else:
-                props["NotificationConfigurationArn"] = self.notification_configuration_arn
-
-        if self.regions is not None:
-            # Serialize regions (handle intrinsic functions)
-            if hasattr(self.regions, 'to_dict'):
-                props["Regions"] = self.regions.to_dict()
-            elif isinstance(self.regions, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Regions'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.regions
-                ]
-            else:
-                props["Regions"] = self.regions
-
-        if self.source is not None:
-            # Serialize source (handle intrinsic functions)
-            if hasattr(self.source, 'to_dict'):
-                props["Source"] = self.source.to_dict()
-            elif isinstance(self.source, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Source'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.source
-                ]
-            else:
-                props["Source"] = self.source
-
-        return props
 
     @property
     def attr_status_summary_by_region(self) -> GetAtt:
@@ -457,43 +361,15 @@ class ManagedNotificationAccountContactAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notif"""
 
     resource_type: ClassVar[str] = "AWS::Notifications::ManagedNotificationAccountContactAssociation"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "contact_identifier": "ContactIdentifier",
+        "managed_notification_configuration_arn": "ManagedNotificationConfigurationArn",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     contact_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     managed_notification_configuration_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.contact_identifier is not None:
-            # Serialize contact_identifier (handle intrinsic functions)
-            if hasattr(self.contact_identifier, 'to_dict'):
-                props["ContactIdentifier"] = self.contact_identifier.to_dict()
-            elif isinstance(self.contact_identifier, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ContactIdentifier'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.contact_identifier
-                ]
-            else:
-                props["ContactIdentifier"] = self.contact_identifier
-
-        if self.managed_notification_configuration_arn is not None:
-            # Serialize managed_notification_configuration_arn (handle intrinsic functions)
-            if hasattr(self.managed_notification_configuration_arn, 'to_dict'):
-                props["ManagedNotificationConfigurationArn"] = self.managed_notification_configuration_arn.to_dict()
-            elif isinstance(self.managed_notification_configuration_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ManagedNotificationConfigurationArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.managed_notification_configuration_arn
-                ]
-            else:
-                props["ManagedNotificationConfigurationArn"] = self.managed_notification_configuration_arn
-
-        return props
 
 
 
@@ -502,43 +378,15 @@ class ManagedNotificationAdditionalChannelAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notif"""
 
     resource_type: ClassVar[str] = "AWS::Notifications::ManagedNotificationAdditionalChannelAssociation"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "channel_arn": "ChannelArn",
+        "managed_notification_configuration_arn": "ManagedNotificationConfigurationArn",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     channel_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     managed_notification_configuration_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.channel_arn is not None:
-            # Serialize channel_arn (handle intrinsic functions)
-            if hasattr(self.channel_arn, 'to_dict'):
-                props["ChannelArn"] = self.channel_arn.to_dict()
-            elif isinstance(self.channel_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ChannelArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.channel_arn
-                ]
-            else:
-                props["ChannelArn"] = self.channel_arn
-
-        if self.managed_notification_configuration_arn is not None:
-            # Serialize managed_notification_configuration_arn (handle intrinsic functions)
-            if hasattr(self.managed_notification_configuration_arn, 'to_dict'):
-                props["ManagedNotificationConfigurationArn"] = self.managed_notification_configuration_arn.to_dict()
-            elif isinstance(self.managed_notification_configuration_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ManagedNotificationConfigurationArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.managed_notification_configuration_arn
-                ]
-            else:
-                props["ManagedNotificationConfigurationArn"] = self.managed_notification_configuration_arn
-
-        return props
 
 
 
@@ -547,6 +395,12 @@ class NotificationConfiguration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notif"""
 
     resource_type: ClassVar[str] = "AWS::Notifications::NotificationConfiguration"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "description": "Description",
+        "aggregation_duration": "AggregationDuration",
+        "tags": "Tags",
+        "name": "Name",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -556,59 +410,6 @@ class NotificationConfiguration(CloudFormationResource):
     tags: Optional[list[Tag]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.description is not None:
-            # Serialize description (handle intrinsic functions)
-            if hasattr(self.description, 'to_dict'):
-                props["Description"] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props["Description"] = self.description
-
-        if self.aggregation_duration is not None:
-            # Serialize aggregation_duration (handle intrinsic functions)
-            if hasattr(self.aggregation_duration, 'to_dict'):
-                props["AggregationDuration"] = self.aggregation_duration.to_dict()
-            elif isinstance(self.aggregation_duration, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AggregationDuration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.aggregation_duration
-                ]
-            else:
-                props["AggregationDuration"] = self.aggregation_duration
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        return props
 
     @property
     def attr_status(self) -> GetAtt:
@@ -632,37 +433,33 @@ class NotificationConfiguration(CloudFormationResource):
 class NotificationHubStatusSummary:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-not"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "notification_hub_status": "NotificationHubStatus",
+        "notification_hub_status_reason": "NotificationHubStatusReason",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     notification_hub_status: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     notification_hub_status_reason: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.notification_hub_status is not None:
-            if hasattr(self.notification_hub_status, 'to_dict'):
-                props['NotificationHubStatus'] = self.notification_hub_status.to_dict()
-            elif isinstance(self.notification_hub_status, list):
-                props['NotificationHubStatus'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.notification_hub_status
-                ]
-            else:
-                props['NotificationHubStatus'] = self.notification_hub_status
-
-        if self.notification_hub_status_reason is not None:
-            if hasattr(self.notification_hub_status_reason, 'to_dict'):
-                props['NotificationHubStatusReason'] = self.notification_hub_status_reason.to_dict()
-            elif isinstance(self.notification_hub_status_reason, list):
-                props['NotificationHubStatusReason'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.notification_hub_status_reason
-                ]
-            else:
-                props['NotificationHubStatusReason'] = self.notification_hub_status_reason
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -671,28 +468,12 @@ class NotificationHub(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notif"""
 
     resource_type: ClassVar[str] = "AWS::Notifications::NotificationHub"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "region": "Region",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     region: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.region is not None:
-            # Serialize region (handle intrinsic functions)
-            if hasattr(self.region, 'to_dict'):
-                props["Region"] = self.region.to_dict()
-            elif isinstance(self.region, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Region'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.region
-                ]
-            else:
-                props["Region"] = self.region
-
-        return props
 
     @property
     def attr_notification_hub_status_summary__notification_hub_status(self) -> GetAtt:
@@ -722,42 +503,14 @@ class OrganizationalUnitAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notif"""
 
     resource_type: ClassVar[str] = "AWS::Notifications::OrganizationalUnitAssociation"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "organizational_unit_id": "OrganizationalUnitId",
+        "notification_configuration_arn": "NotificationConfigurationArn",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     organizational_unit_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     notification_configuration_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.organizational_unit_id is not None:
-            # Serialize organizational_unit_id (handle intrinsic functions)
-            if hasattr(self.organizational_unit_id, 'to_dict'):
-                props["OrganizationalUnitId"] = self.organizational_unit_id.to_dict()
-            elif isinstance(self.organizational_unit_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['OrganizationalUnitId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.organizational_unit_id
-                ]
-            else:
-                props["OrganizationalUnitId"] = self.organizational_unit_id
-
-        if self.notification_configuration_arn is not None:
-            # Serialize notification_configuration_arn (handle intrinsic functions)
-            if hasattr(self.notification_configuration_arn, 'to_dict'):
-                props["NotificationConfigurationArn"] = self.notification_configuration_arn.to_dict()
-            elif isinstance(self.notification_configuration_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['NotificationConfigurationArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.notification_configuration_arn
-                ]
-            else:
-                props["NotificationConfigurationArn"] = self.notification_configuration_arn
-
-        return props
 
 

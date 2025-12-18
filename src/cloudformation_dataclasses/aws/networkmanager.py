@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:38
+  Generated: 2025-12-17 21:37:54
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service NetworkManager
@@ -543,30 +543,42 @@ OTHER = ValidationExceptionReason.OTHER
 class ConnectAttachmentOptions:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "protocol": "Protocol",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     protocol: Optional[Union[str, TunnelProtocol, Ref, GetAtt, Sub]] = None
+
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.protocol is not None:
-            if hasattr(self.protocol, 'to_dict'):
-                props['Protocol'] = self.protocol.to_dict()
-            elif isinstance(self.protocol, list):
-                props['Protocol'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.protocol
-                ]
-            else:
-                props['Protocol'] = self.protocol
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
 @dataclass
 class ProposedNetworkFunctionGroupChange:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "tags": "Tags",
+        "network_function_group_name": "NetworkFunctionGroupName",
+        "attachment_policy_rule_number": "AttachmentPolicyRuleNumber",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tags: Optional[list[Tag]] = None
@@ -575,49 +587,35 @@ class ProposedNetworkFunctionGroupChange:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attachment_policy_rule_number: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.tags is not None:
-            if hasattr(self.tags, 'to_dict'):
-                props['Tags'] = self.tags.to_dict()
-            elif isinstance(self.tags, list):
-                props['Tags'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.tags
-                ]
-            else:
-                props['Tags'] = self.tags
-
-        if self.network_function_group_name is not None:
-            if hasattr(self.network_function_group_name, 'to_dict'):
-                props['NetworkFunctionGroupName'] = self.network_function_group_name.to_dict()
-            elif isinstance(self.network_function_group_name, list):
-                props['NetworkFunctionGroupName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.network_function_group_name
-                ]
-            else:
-                props['NetworkFunctionGroupName'] = self.network_function_group_name
-
-        if self.attachment_policy_rule_number is not None:
-            if hasattr(self.attachment_policy_rule_number, 'to_dict'):
-                props['AttachmentPolicyRuleNumber'] = self.attachment_policy_rule_number.to_dict()
-            elif isinstance(self.attachment_policy_rule_number, list):
-                props['AttachmentPolicyRuleNumber'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.attachment_policy_rule_number
-                ]
-            else:
-                props['AttachmentPolicyRuleNumber'] = self.attachment_policy_rule_number
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
 @dataclass
 class ProposedSegmentChange:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "segment_name": "SegmentName",
+        "tags": "Tags",
+        "attachment_policy_rule_number": "AttachmentPolicyRuleNumber",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     segment_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -626,43 +624,23 @@ class ProposedSegmentChange:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attachment_policy_rule_number: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.segment_name is not None:
-            if hasattr(self.segment_name, 'to_dict'):
-                props['SegmentName'] = self.segment_name.to_dict()
-            elif isinstance(self.segment_name, list):
-                props['SegmentName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.segment_name
-                ]
-            else:
-                props['SegmentName'] = self.segment_name
-
-        if self.tags is not None:
-            if hasattr(self.tags, 'to_dict'):
-                props['Tags'] = self.tags.to_dict()
-            elif isinstance(self.tags, list):
-                props['Tags'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.tags
-                ]
-            else:
-                props['Tags'] = self.tags
-
-        if self.attachment_policy_rule_number is not None:
-            if hasattr(self.attachment_policy_rule_number, 'to_dict'):
-                props['AttachmentPolicyRuleNumber'] = self.attachment_policy_rule_number.to_dict()
-            elif isinstance(self.attachment_policy_rule_number, list):
-                props['AttachmentPolicyRuleNumber'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.attachment_policy_rule_number
-                ]
-            else:
-                props['AttachmentPolicyRuleNumber'] = self.attachment_policy_rule_number
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -671,6 +649,17 @@ class ConnectAttachment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::ConnectAttachment"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "proposed_segment_change": "ProposedSegmentChange",
+        "options": "Options",
+        "transport_attachment_id": "TransportAttachmentId",
+        "core_network_id": "CoreNetworkId",
+        "proposed_network_function_group_change": "ProposedNetworkFunctionGroupChange",
+        "routing_policy_label": "RoutingPolicyLabel",
+        "network_function_group_name": "NetworkFunctionGroupName",
+        "tags": "Tags",
+        "edge_location": "EdgeLocation",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     proposed_segment_change: Optional[ProposedSegmentChange] = None
@@ -690,124 +679,6 @@ class ConnectAttachment(CloudFormationResource):
     tags: Optional[list[Tag]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     edge_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.proposed_segment_change is not None:
-            # Serialize proposed_segment_change (handle intrinsic functions)
-            if hasattr(self.proposed_segment_change, 'to_dict'):
-                props["ProposedSegmentChange"] = self.proposed_segment_change.to_dict()
-            elif isinstance(self.proposed_segment_change, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ProposedSegmentChange'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.proposed_segment_change
-                ]
-            else:
-                props["ProposedSegmentChange"] = self.proposed_segment_change
-
-        if self.options is not None:
-            # Serialize options (handle intrinsic functions)
-            if hasattr(self.options, 'to_dict'):
-                props["Options"] = self.options.to_dict()
-            elif isinstance(self.options, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Options'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.options
-                ]
-            else:
-                props["Options"] = self.options
-
-        if self.transport_attachment_id is not None:
-            # Serialize transport_attachment_id (handle intrinsic functions)
-            if hasattr(self.transport_attachment_id, 'to_dict'):
-                props["TransportAttachmentId"] = self.transport_attachment_id.to_dict()
-            elif isinstance(self.transport_attachment_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['TransportAttachmentId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.transport_attachment_id
-                ]
-            else:
-                props["TransportAttachmentId"] = self.transport_attachment_id
-
-        if self.core_network_id is not None:
-            # Serialize core_network_id (handle intrinsic functions)
-            if hasattr(self.core_network_id, 'to_dict'):
-                props["CoreNetworkId"] = self.core_network_id.to_dict()
-            elif isinstance(self.core_network_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['CoreNetworkId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.core_network_id
-                ]
-            else:
-                props["CoreNetworkId"] = self.core_network_id
-
-        if self.proposed_network_function_group_change is not None:
-            # Serialize proposed_network_function_group_change (handle intrinsic functions)
-            if hasattr(self.proposed_network_function_group_change, 'to_dict'):
-                props["ProposedNetworkFunctionGroupChange"] = self.proposed_network_function_group_change.to_dict()
-            elif isinstance(self.proposed_network_function_group_change, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ProposedNetworkFunctionGroupChange'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.proposed_network_function_group_change
-                ]
-            else:
-                props["ProposedNetworkFunctionGroupChange"] = self.proposed_network_function_group_change
-
-        if self.routing_policy_label is not None:
-            # Serialize routing_policy_label (handle intrinsic functions)
-            if hasattr(self.routing_policy_label, 'to_dict'):
-                props["RoutingPolicyLabel"] = self.routing_policy_label.to_dict()
-            elif isinstance(self.routing_policy_label, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['RoutingPolicyLabel'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.routing_policy_label
-                ]
-            else:
-                props["RoutingPolicyLabel"] = self.routing_policy_label
-
-        if self.network_function_group_name is not None:
-            # Serialize network_function_group_name (handle intrinsic functions)
-            if hasattr(self.network_function_group_name, 'to_dict'):
-                props["NetworkFunctionGroupName"] = self.network_function_group_name.to_dict()
-            elif isinstance(self.network_function_group_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['NetworkFunctionGroupName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.network_function_group_name
-                ]
-            else:
-                props["NetworkFunctionGroupName"] = self.network_function_group_name
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.edge_location is not None:
-            # Serialize edge_location (handle intrinsic functions)
-            if hasattr(self.edge_location, 'to_dict'):
-                props["EdgeLocation"] = self.edge_location.to_dict()
-            elif isinstance(self.edge_location, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['EdgeLocation'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.edge_location
-                ]
-            else:
-                props["EdgeLocation"] = self.edge_location
-
-        return props
 
     @property
     def attr_resource_arn(self) -> GetAtt:
@@ -871,30 +742,43 @@ class ConnectAttachment(CloudFormationResource):
 class BgpOptions:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "peer_asn": "PeerAsn",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     peer_asn: Optional[Union[float, Ref, GetAtt, Sub]] = None
+
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.peer_asn is not None:
-            if hasattr(self.peer_asn, 'to_dict'):
-                props['PeerAsn'] = self.peer_asn.to_dict()
-            elif isinstance(self.peer_asn, list):
-                props['PeerAsn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.peer_asn
-                ]
-            else:
-                props['PeerAsn'] = self.peer_asn
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
 @dataclass
 class ConnectPeerBgpConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "peer_address": "PeerAddress",
+        "core_network_address": "CoreNetworkAddress",
+        "peer_asn": "PeerAsn",
+        "core_network_asn": "CoreNetworkAsn",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     peer_address: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -905,60 +789,37 @@ class ConnectPeerBgpConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     core_network_asn: Optional[Union[float, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.peer_address is not None:
-            if hasattr(self.peer_address, 'to_dict'):
-                props['PeerAddress'] = self.peer_address.to_dict()
-            elif isinstance(self.peer_address, list):
-                props['PeerAddress'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.peer_address
-                ]
-            else:
-                props['PeerAddress'] = self.peer_address
-
-        if self.core_network_address is not None:
-            if hasattr(self.core_network_address, 'to_dict'):
-                props['CoreNetworkAddress'] = self.core_network_address.to_dict()
-            elif isinstance(self.core_network_address, list):
-                props['CoreNetworkAddress'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.core_network_address
-                ]
-            else:
-                props['CoreNetworkAddress'] = self.core_network_address
-
-        if self.peer_asn is not None:
-            if hasattr(self.peer_asn, 'to_dict'):
-                props['PeerAsn'] = self.peer_asn.to_dict()
-            elif isinstance(self.peer_asn, list):
-                props['PeerAsn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.peer_asn
-                ]
-            else:
-                props['PeerAsn'] = self.peer_asn
-
-        if self.core_network_asn is not None:
-            if hasattr(self.core_network_asn, 'to_dict'):
-                props['CoreNetworkAsn'] = self.core_network_asn.to_dict()
-            elif isinstance(self.core_network_asn, list):
-                props['CoreNetworkAsn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.core_network_asn
-                ]
-            else:
-                props['CoreNetworkAsn'] = self.core_network_asn
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
 @dataclass
 class ConnectPeerConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "bgp_configurations": "BgpConfigurations",
+        "peer_address": "PeerAddress",
+        "core_network_address": "CoreNetworkAddress",
+        "inside_cidr_blocks": "InsideCidrBlocks",
+        "protocol": "Protocol",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bgp_configurations: Optional[list[ConnectPeerBgpConfiguration]] = None
@@ -971,65 +832,23 @@ class ConnectPeerConfiguration:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     protocol: Optional[Union[str, TunnelProtocol, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.bgp_configurations is not None:
-            if hasattr(self.bgp_configurations, 'to_dict'):
-                props['BgpConfigurations'] = self.bgp_configurations.to_dict()
-            elif isinstance(self.bgp_configurations, list):
-                props['BgpConfigurations'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.bgp_configurations
-                ]
-            else:
-                props['BgpConfigurations'] = self.bgp_configurations
-
-        if self.peer_address is not None:
-            if hasattr(self.peer_address, 'to_dict'):
-                props['PeerAddress'] = self.peer_address.to_dict()
-            elif isinstance(self.peer_address, list):
-                props['PeerAddress'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.peer_address
-                ]
-            else:
-                props['PeerAddress'] = self.peer_address
-
-        if self.core_network_address is not None:
-            if hasattr(self.core_network_address, 'to_dict'):
-                props['CoreNetworkAddress'] = self.core_network_address.to_dict()
-            elif isinstance(self.core_network_address, list):
-                props['CoreNetworkAddress'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.core_network_address
-                ]
-            else:
-                props['CoreNetworkAddress'] = self.core_network_address
-
-        if self.inside_cidr_blocks is not None:
-            if hasattr(self.inside_cidr_blocks, 'to_dict'):
-                props['InsideCidrBlocks'] = self.inside_cidr_blocks.to_dict()
-            elif isinstance(self.inside_cidr_blocks, list):
-                props['InsideCidrBlocks'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.inside_cidr_blocks
-                ]
-            else:
-                props['InsideCidrBlocks'] = self.inside_cidr_blocks
-
-        if self.protocol is not None:
-            if hasattr(self.protocol, 'to_dict'):
-                props['Protocol'] = self.protocol.to_dict()
-            elif isinstance(self.protocol, list):
-                props['Protocol'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.protocol
-                ]
-            else:
-                props['Protocol'] = self.protocol
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -1038,6 +857,15 @@ class ConnectPeer(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::ConnectPeer"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "connect_attachment_id": "ConnectAttachmentId",
+        "peer_address": "PeerAddress",
+        "subnet_arn": "SubnetArn",
+        "core_network_address": "CoreNetworkAddress",
+        "bgp_options": "BgpOptions",
+        "inside_cidr_blocks": "InsideCidrBlocks",
+        "tags": "Tags",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connect_attachment_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -1053,98 +881,6 @@ class ConnectPeer(CloudFormationResource):
     inside_cidr_blocks: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.connect_attachment_id is not None:
-            # Serialize connect_attachment_id (handle intrinsic functions)
-            if hasattr(self.connect_attachment_id, 'to_dict'):
-                props["ConnectAttachmentId"] = self.connect_attachment_id.to_dict()
-            elif isinstance(self.connect_attachment_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ConnectAttachmentId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.connect_attachment_id
-                ]
-            else:
-                props["ConnectAttachmentId"] = self.connect_attachment_id
-
-        if self.peer_address is not None:
-            # Serialize peer_address (handle intrinsic functions)
-            if hasattr(self.peer_address, 'to_dict'):
-                props["PeerAddress"] = self.peer_address.to_dict()
-            elif isinstance(self.peer_address, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['PeerAddress'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.peer_address
-                ]
-            else:
-                props["PeerAddress"] = self.peer_address
-
-        if self.subnet_arn is not None:
-            # Serialize subnet_arn (handle intrinsic functions)
-            if hasattr(self.subnet_arn, 'to_dict'):
-                props["SubnetArn"] = self.subnet_arn.to_dict()
-            elif isinstance(self.subnet_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SubnetArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.subnet_arn
-                ]
-            else:
-                props["SubnetArn"] = self.subnet_arn
-
-        if self.core_network_address is not None:
-            # Serialize core_network_address (handle intrinsic functions)
-            if hasattr(self.core_network_address, 'to_dict'):
-                props["CoreNetworkAddress"] = self.core_network_address.to_dict()
-            elif isinstance(self.core_network_address, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['CoreNetworkAddress'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.core_network_address
-                ]
-            else:
-                props["CoreNetworkAddress"] = self.core_network_address
-
-        if self.bgp_options is not None:
-            # Serialize bgp_options (handle intrinsic functions)
-            if hasattr(self.bgp_options, 'to_dict'):
-                props["BgpOptions"] = self.bgp_options.to_dict()
-            elif isinstance(self.bgp_options, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['BgpOptions'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.bgp_options
-                ]
-            else:
-                props["BgpOptions"] = self.bgp_options
-
-        if self.inside_cidr_blocks is not None:
-            # Serialize inside_cidr_blocks (handle intrinsic functions)
-            if hasattr(self.inside_cidr_blocks, 'to_dict'):
-                props["InsideCidrBlocks"] = self.inside_cidr_blocks.to_dict()
-            elif isinstance(self.inside_cidr_blocks, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['InsideCidrBlocks'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.inside_cidr_blocks
-                ]
-            else:
-                props["InsideCidrBlocks"] = self.inside_cidr_blocks
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_configuration__bgp_configurations(self) -> GetAtt:
@@ -1213,6 +949,12 @@ class ConnectPeer(CloudFormationResource):
 class CoreNetworkEdge:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "inside_cidr_blocks": "InsideCidrBlocks",
+        "asn": "Asn",
+        "edge_location": "EdgeLocation",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     inside_cidr_blocks: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1220,49 +962,35 @@ class CoreNetworkEdge:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     edge_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.inside_cidr_blocks is not None:
-            if hasattr(self.inside_cidr_blocks, 'to_dict'):
-                props['InsideCidrBlocks'] = self.inside_cidr_blocks.to_dict()
-            elif isinstance(self.inside_cidr_blocks, list):
-                props['InsideCidrBlocks'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.inside_cidr_blocks
-                ]
-            else:
-                props['InsideCidrBlocks'] = self.inside_cidr_blocks
-
-        if self.asn is not None:
-            if hasattr(self.asn, 'to_dict'):
-                props['Asn'] = self.asn.to_dict()
-            elif isinstance(self.asn, list):
-                props['Asn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.asn
-                ]
-            else:
-                props['Asn'] = self.asn
-
-        if self.edge_location is not None:
-            if hasattr(self.edge_location, 'to_dict'):
-                props['EdgeLocation'] = self.edge_location.to_dict()
-            elif isinstance(self.edge_location, list):
-                props['EdgeLocation'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.edge_location
-                ]
-            else:
-                props['EdgeLocation'] = self.edge_location
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
 @dataclass
 class CoreNetworkNetworkFunctionGroup:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "edge_locations": "EdgeLocations",
+        "segments": "Segments",
+        "name": "Name",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     edge_locations: Optional[Union[list[str], Ref]] = None
@@ -1271,49 +999,35 @@ class CoreNetworkNetworkFunctionGroup:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.edge_locations is not None:
-            if hasattr(self.edge_locations, 'to_dict'):
-                props['EdgeLocations'] = self.edge_locations.to_dict()
-            elif isinstance(self.edge_locations, list):
-                props['EdgeLocations'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.edge_locations
-                ]
-            else:
-                props['EdgeLocations'] = self.edge_locations
-
-        if self.segments is not None:
-            if hasattr(self.segments, 'to_dict'):
-                props['Segments'] = self.segments.to_dict()
-            elif isinstance(self.segments, list):
-                props['Segments'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.segments
-                ]
-            else:
-                props['Segments'] = self.segments
-
-        if self.name is not None:
-            if hasattr(self.name, 'to_dict'):
-                props['Name'] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props['Name'] = self.name
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
 @dataclass
 class CoreNetworkSegment:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "edge_locations": "EdgeLocations",
+        "shared_segments": "SharedSegments",
+        "name": "Name",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     edge_locations: Optional[Union[list[str], Ref]] = None
@@ -1322,43 +1036,23 @@ class CoreNetworkSegment:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.edge_locations is not None:
-            if hasattr(self.edge_locations, 'to_dict'):
-                props['EdgeLocations'] = self.edge_locations.to_dict()
-            elif isinstance(self.edge_locations, list):
-                props['EdgeLocations'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.edge_locations
-                ]
-            else:
-                props['EdgeLocations'] = self.edge_locations
-
-        if self.shared_segments is not None:
-            if hasattr(self.shared_segments, 'to_dict'):
-                props['SharedSegments'] = self.shared_segments.to_dict()
-            elif isinstance(self.shared_segments, list):
-                props['SharedSegments'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.shared_segments
-                ]
-            else:
-                props['SharedSegments'] = self.shared_segments
-
-        if self.name is not None:
-            if hasattr(self.name, 'to_dict'):
-                props['Name'] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props['Name'] = self.name
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -1366,37 +1060,33 @@ class CoreNetworkSegment:
 class Segments:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "send_to": "SendTo",
+        "send_via": "SendVia",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     send_to: Optional[Union[list[str], Ref]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     send_via: Optional[Union[list[str], Ref]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.send_to is not None:
-            if hasattr(self.send_to, 'to_dict'):
-                props['SendTo'] = self.send_to.to_dict()
-            elif isinstance(self.send_to, list):
-                props['SendTo'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.send_to
-                ]
-            else:
-                props['SendTo'] = self.send_to
-
-        if self.send_via is not None:
-            if hasattr(self.send_via, 'to_dict'):
-                props['SendVia'] = self.send_via.to_dict()
-            elif isinstance(self.send_via, list):
-                props['SendVia'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.send_via
-                ]
-            else:
-                props['SendVia'] = self.send_via
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -1405,6 +1095,12 @@ class CoreNetwork(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::CoreNetwork"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "global_network_id": "GlobalNetworkId",
+        "description": "Description",
+        "policy_document": "PolicyDocument",
+        "tags": "Tags",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     global_network_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -1414,59 +1110,6 @@ class CoreNetwork(CloudFormationResource):
     policy_document: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.global_network_id is not None:
-            # Serialize global_network_id (handle intrinsic functions)
-            if hasattr(self.global_network_id, 'to_dict'):
-                props["GlobalNetworkId"] = self.global_network_id.to_dict()
-            elif isinstance(self.global_network_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['GlobalNetworkId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.global_network_id
-                ]
-            else:
-                props["GlobalNetworkId"] = self.global_network_id
-
-        if self.description is not None:
-            # Serialize description (handle intrinsic functions)
-            if hasattr(self.description, 'to_dict'):
-                props["Description"] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props["Description"] = self.description
-
-        if self.policy_document is not None:
-            # Serialize policy_document (handle intrinsic functions)
-            if hasattr(self.policy_document, 'to_dict'):
-                props["PolicyDocument"] = self.policy_document.to_dict()
-            elif isinstance(self.policy_document, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['PolicyDocument'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.policy_document
-                ]
-            else:
-                props["PolicyDocument"] = self.policy_document
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_core_network_id(self) -> GetAtt:
@@ -1516,6 +1159,11 @@ class CoreNetworkPrefixListAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::CoreNetworkPrefixListAssociation"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "core_network_id": "CoreNetworkId",
+        "prefix_list_arn": "PrefixListArn",
+        "prefix_list_alias": "PrefixListAlias",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     core_network_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -1524,51 +1172,6 @@ class CoreNetworkPrefixListAssociation(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     prefix_list_alias: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.core_network_id is not None:
-            # Serialize core_network_id (handle intrinsic functions)
-            if hasattr(self.core_network_id, 'to_dict'):
-                props["CoreNetworkId"] = self.core_network_id.to_dict()
-            elif isinstance(self.core_network_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['CoreNetworkId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.core_network_id
-                ]
-            else:
-                props["CoreNetworkId"] = self.core_network_id
-
-        if self.prefix_list_arn is not None:
-            # Serialize prefix_list_arn (handle intrinsic functions)
-            if hasattr(self.prefix_list_arn, 'to_dict'):
-                props["PrefixListArn"] = self.prefix_list_arn.to_dict()
-            elif isinstance(self.prefix_list_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['PrefixListArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.prefix_list_arn
-                ]
-            else:
-                props["PrefixListArn"] = self.prefix_list_arn
-
-        if self.prefix_list_alias is not None:
-            # Serialize prefix_list_alias (handle intrinsic functions)
-            if hasattr(self.prefix_list_alias, 'to_dict'):
-                props["PrefixListAlias"] = self.prefix_list_alias.to_dict()
-            elif isinstance(self.prefix_list_alias, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['PrefixListAlias'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.prefix_list_alias
-                ]
-            else:
-                props["PrefixListAlias"] = self.prefix_list_alias
-
-        return props
-
 
 
 @dataclass
@@ -1576,6 +1179,12 @@ class CustomerGatewayAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::CustomerGatewayAssociation"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "global_network_id": "GlobalNetworkId",
+        "device_id": "DeviceId",
+        "customer_gateway_arn": "CustomerGatewayArn",
+        "link_id": "LinkId",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     global_network_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -1586,107 +1195,51 @@ class CustomerGatewayAssociation(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     link_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.global_network_id is not None:
-            # Serialize global_network_id (handle intrinsic functions)
-            if hasattr(self.global_network_id, 'to_dict'):
-                props["GlobalNetworkId"] = self.global_network_id.to_dict()
-            elif isinstance(self.global_network_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['GlobalNetworkId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.global_network_id
-                ]
-            else:
-                props["GlobalNetworkId"] = self.global_network_id
-
-        if self.device_id is not None:
-            # Serialize device_id (handle intrinsic functions)
-            if hasattr(self.device_id, 'to_dict'):
-                props["DeviceId"] = self.device_id.to_dict()
-            elif isinstance(self.device_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DeviceId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.device_id
-                ]
-            else:
-                props["DeviceId"] = self.device_id
-
-        if self.customer_gateway_arn is not None:
-            # Serialize customer_gateway_arn (handle intrinsic functions)
-            if hasattr(self.customer_gateway_arn, 'to_dict'):
-                props["CustomerGatewayArn"] = self.customer_gateway_arn.to_dict()
-            elif isinstance(self.customer_gateway_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['CustomerGatewayArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.customer_gateway_arn
-                ]
-            else:
-                props["CustomerGatewayArn"] = self.customer_gateway_arn
-
-        if self.link_id is not None:
-            # Serialize link_id (handle intrinsic functions)
-            if hasattr(self.link_id, 'to_dict'):
-                props["LinkId"] = self.link_id.to_dict()
-            elif isinstance(self.link_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['LinkId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.link_id
-                ]
-            else:
-                props["LinkId"] = self.link_id
-
-        return props
-
 
 
 @dataclass
 class AWSLocation:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "zone": "Zone",
+        "subnet_arn": "SubnetArn",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     zone: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     subnet_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.zone is not None:
-            if hasattr(self.zone, 'to_dict'):
-                props['Zone'] = self.zone.to_dict()
-            elif isinstance(self.zone, list):
-                props['Zone'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.zone
-                ]
-            else:
-                props['Zone'] = self.zone
-
-        if self.subnet_arn is not None:
-            if hasattr(self.subnet_arn, 'to_dict'):
-                props['SubnetArn'] = self.subnet_arn.to_dict()
-            elif isinstance(self.subnet_arn, list):
-                props['SubnetArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.subnet_arn
-                ]
-            else:
-                props['SubnetArn'] = self.subnet_arn
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
 @dataclass
 class Location:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "address": "Address",
+        "latitude": "Latitude",
+        "longitude": "Longitude",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     address: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -1695,43 +1248,23 @@ class Location:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     longitude: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.address is not None:
-            if hasattr(self.address, 'to_dict'):
-                props['Address'] = self.address.to_dict()
-            elif isinstance(self.address, list):
-                props['Address'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.address
-                ]
-            else:
-                props['Address'] = self.address
-
-        if self.latitude is not None:
-            if hasattr(self.latitude, 'to_dict'):
-                props['Latitude'] = self.latitude.to_dict()
-            elif isinstance(self.latitude, list):
-                props['Latitude'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.latitude
-                ]
-            else:
-                props['Latitude'] = self.latitude
-
-        if self.longitude is not None:
-            if hasattr(self.longitude, 'to_dict'):
-                props['Longitude'] = self.longitude.to_dict()
-            elif isinstance(self.longitude, list):
-                props['Longitude'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.longitude
-                ]
-            else:
-                props['Longitude'] = self.longitude
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -1740,6 +1273,18 @@ class Device(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::Device"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "site_id": "SiteId",
+        "aws_location": "AWSLocation",
+        "type_": "Type",
+        "description": "Description",
+        "global_network_id": "GlobalNetworkId",
+        "serial_number": "SerialNumber",
+        "model": "Model",
+        "vendor": "Vendor",
+        "tags": "Tags",
+        "location": "Location",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     site_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -1761,137 +1306,6 @@ class Device(CloudFormationResource):
     tags: Optional[list[Tag]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     location: Optional[Location] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.site_id is not None:
-            # Serialize site_id (handle intrinsic functions)
-            if hasattr(self.site_id, 'to_dict'):
-                props["SiteId"] = self.site_id.to_dict()
-            elif isinstance(self.site_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SiteId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.site_id
-                ]
-            else:
-                props["SiteId"] = self.site_id
-
-        if self.aws_location is not None:
-            # Serialize aws_location (handle intrinsic functions)
-            if hasattr(self.aws_location, 'to_dict'):
-                props["AWSLocation"] = self.aws_location.to_dict()
-            elif isinstance(self.aws_location, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['AWSLocation'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.aws_location
-                ]
-            else:
-                props["AWSLocation"] = self.aws_location
-
-        if self.type_ is not None:
-            # Serialize type_ (handle intrinsic functions)
-            if hasattr(self.type_, 'to_dict'):
-                props["Type"] = self.type_.to_dict()
-            elif isinstance(self.type_, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Type'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.type_
-                ]
-            else:
-                props["Type"] = self.type_
-
-        if self.description is not None:
-            # Serialize description (handle intrinsic functions)
-            if hasattr(self.description, 'to_dict'):
-                props["Description"] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props["Description"] = self.description
-
-        if self.global_network_id is not None:
-            # Serialize global_network_id (handle intrinsic functions)
-            if hasattr(self.global_network_id, 'to_dict'):
-                props["GlobalNetworkId"] = self.global_network_id.to_dict()
-            elif isinstance(self.global_network_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['GlobalNetworkId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.global_network_id
-                ]
-            else:
-                props["GlobalNetworkId"] = self.global_network_id
-
-        if self.serial_number is not None:
-            # Serialize serial_number (handle intrinsic functions)
-            if hasattr(self.serial_number, 'to_dict'):
-                props["SerialNumber"] = self.serial_number.to_dict()
-            elif isinstance(self.serial_number, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SerialNumber'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.serial_number
-                ]
-            else:
-                props["SerialNumber"] = self.serial_number
-
-        if self.model is not None:
-            # Serialize model (handle intrinsic functions)
-            if hasattr(self.model, 'to_dict'):
-                props["Model"] = self.model.to_dict()
-            elif isinstance(self.model, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Model'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.model
-                ]
-            else:
-                props["Model"] = self.model
-
-        if self.vendor is not None:
-            # Serialize vendor (handle intrinsic functions)
-            if hasattr(self.vendor, 'to_dict'):
-                props["Vendor"] = self.vendor.to_dict()
-            elif isinstance(self.vendor, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Vendor'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.vendor
-                ]
-            else:
-                props["Vendor"] = self.vendor
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.location is not None:
-            # Serialize location (handle intrinsic functions)
-            if hasattr(self.location, 'to_dict'):
-                props["Location"] = self.location.to_dict()
-            elif isinstance(self.location, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Location'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.location
-                ]
-            else:
-                props["Location"] = self.location
-
-        return props
 
     @property
     def attr_device_arn(self) -> GetAtt:
@@ -1920,6 +1334,12 @@ class Device(CloudFormationResource):
 class ProposedNetworkFunctionGroupChange:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "tags": "Tags",
+        "network_function_group_name": "NetworkFunctionGroupName",
+        "attachment_policy_rule_number": "AttachmentPolicyRuleNumber",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tags: Optional[list[Tag]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -1927,49 +1347,35 @@ class ProposedNetworkFunctionGroupChange:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attachment_policy_rule_number: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.tags is not None:
-            if hasattr(self.tags, 'to_dict'):
-                props['Tags'] = self.tags.to_dict()
-            elif isinstance(self.tags, list):
-                props['Tags'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.tags
-                ]
-            else:
-                props['Tags'] = self.tags
-
-        if self.network_function_group_name is not None:
-            if hasattr(self.network_function_group_name, 'to_dict'):
-                props['NetworkFunctionGroupName'] = self.network_function_group_name.to_dict()
-            elif isinstance(self.network_function_group_name, list):
-                props['NetworkFunctionGroupName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.network_function_group_name
-                ]
-            else:
-                props['NetworkFunctionGroupName'] = self.network_function_group_name
-
-        if self.attachment_policy_rule_number is not None:
-            if hasattr(self.attachment_policy_rule_number, 'to_dict'):
-                props['AttachmentPolicyRuleNumber'] = self.attachment_policy_rule_number.to_dict()
-            elif isinstance(self.attachment_policy_rule_number, list):
-                props['AttachmentPolicyRuleNumber'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.attachment_policy_rule_number
-                ]
-            else:
-                props['AttachmentPolicyRuleNumber'] = self.attachment_policy_rule_number
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
 @dataclass
 class ProposedSegmentChange:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "segment_name": "SegmentName",
+        "tags": "Tags",
+        "attachment_policy_rule_number": "AttachmentPolicyRuleNumber",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     segment_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -1978,43 +1384,23 @@ class ProposedSegmentChange:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attachment_policy_rule_number: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.segment_name is not None:
-            if hasattr(self.segment_name, 'to_dict'):
-                props['SegmentName'] = self.segment_name.to_dict()
-            elif isinstance(self.segment_name, list):
-                props['SegmentName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.segment_name
-                ]
-            else:
-                props['SegmentName'] = self.segment_name
-
-        if self.tags is not None:
-            if hasattr(self.tags, 'to_dict'):
-                props['Tags'] = self.tags.to_dict()
-            elif isinstance(self.tags, list):
-                props['Tags'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.tags
-                ]
-            else:
-                props['Tags'] = self.tags
-
-        if self.attachment_policy_rule_number is not None:
-            if hasattr(self.attachment_policy_rule_number, 'to_dict'):
-                props['AttachmentPolicyRuleNumber'] = self.attachment_policy_rule_number.to_dict()
-            elif isinstance(self.attachment_policy_rule_number, list):
-                props['AttachmentPolicyRuleNumber'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.attachment_policy_rule_number
-                ]
-            else:
-                props['AttachmentPolicyRuleNumber'] = self.attachment_policy_rule_number
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -2023,6 +1409,15 @@ class DirectConnectGatewayAttachment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::DirectConnectGatewayAttachment"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "proposed_segment_change": "ProposedSegmentChange",
+        "core_network_id": "CoreNetworkId",
+        "proposed_network_function_group_change": "ProposedNetworkFunctionGroupChange",
+        "edge_locations": "EdgeLocations",
+        "direct_connect_gateway_arn": "DirectConnectGatewayArn",
+        "routing_policy_label": "RoutingPolicyLabel",
+        "tags": "Tags",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     proposed_segment_change: Optional[ProposedSegmentChange] = None
@@ -2038,98 +1433,6 @@ class DirectConnectGatewayAttachment(CloudFormationResource):
     routing_policy_label: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.proposed_segment_change is not None:
-            # Serialize proposed_segment_change (handle intrinsic functions)
-            if hasattr(self.proposed_segment_change, 'to_dict'):
-                props["ProposedSegmentChange"] = self.proposed_segment_change.to_dict()
-            elif isinstance(self.proposed_segment_change, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ProposedSegmentChange'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.proposed_segment_change
-                ]
-            else:
-                props["ProposedSegmentChange"] = self.proposed_segment_change
-
-        if self.core_network_id is not None:
-            # Serialize core_network_id (handle intrinsic functions)
-            if hasattr(self.core_network_id, 'to_dict'):
-                props["CoreNetworkId"] = self.core_network_id.to_dict()
-            elif isinstance(self.core_network_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['CoreNetworkId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.core_network_id
-                ]
-            else:
-                props["CoreNetworkId"] = self.core_network_id
-
-        if self.proposed_network_function_group_change is not None:
-            # Serialize proposed_network_function_group_change (handle intrinsic functions)
-            if hasattr(self.proposed_network_function_group_change, 'to_dict'):
-                props["ProposedNetworkFunctionGroupChange"] = self.proposed_network_function_group_change.to_dict()
-            elif isinstance(self.proposed_network_function_group_change, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ProposedNetworkFunctionGroupChange'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.proposed_network_function_group_change
-                ]
-            else:
-                props["ProposedNetworkFunctionGroupChange"] = self.proposed_network_function_group_change
-
-        if self.edge_locations is not None:
-            # Serialize edge_locations (handle intrinsic functions)
-            if hasattr(self.edge_locations, 'to_dict'):
-                props["EdgeLocations"] = self.edge_locations.to_dict()
-            elif isinstance(self.edge_locations, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['EdgeLocations'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.edge_locations
-                ]
-            else:
-                props["EdgeLocations"] = self.edge_locations
-
-        if self.direct_connect_gateway_arn is not None:
-            # Serialize direct_connect_gateway_arn (handle intrinsic functions)
-            if hasattr(self.direct_connect_gateway_arn, 'to_dict'):
-                props["DirectConnectGatewayArn"] = self.direct_connect_gateway_arn.to_dict()
-            elif isinstance(self.direct_connect_gateway_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DirectConnectGatewayArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.direct_connect_gateway_arn
-                ]
-            else:
-                props["DirectConnectGatewayArn"] = self.direct_connect_gateway_arn
-
-        if self.routing_policy_label is not None:
-            # Serialize routing_policy_label (handle intrinsic functions)
-            if hasattr(self.routing_policy_label, 'to_dict'):
-                props["RoutingPolicyLabel"] = self.routing_policy_label.to_dict()
-            elif isinstance(self.routing_policy_label, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['RoutingPolicyLabel'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.routing_policy_label
-                ]
-            else:
-                props["RoutingPolicyLabel"] = self.routing_policy_label
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_resource_arn(self) -> GetAtt:
@@ -2199,6 +1502,12 @@ class GlobalNetwork(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::GlobalNetwork"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "description": "Description",
+        "state": "State",
+        "created_at": "CreatedAt",
+        "tags": "Tags",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -2208,59 +1517,6 @@ class GlobalNetwork(CloudFormationResource):
     created_at: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.description is not None:
-            # Serialize description (handle intrinsic functions)
-            if hasattr(self.description, 'to_dict'):
-                props["Description"] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props["Description"] = self.description
-
-        if self.state is not None:
-            # Serialize state (handle intrinsic functions)
-            if hasattr(self.state, 'to_dict'):
-                props["State"] = self.state.to_dict()
-            elif isinstance(self.state, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['State'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.state
-                ]
-            else:
-                props["State"] = self.state
-
-        if self.created_at is not None:
-            # Serialize created_at (handle intrinsic functions)
-            if hasattr(self.created_at, 'to_dict'):
-                props["CreatedAt"] = self.created_at.to_dict()
-            elif isinstance(self.created_at, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['CreatedAt'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.created_at
-                ]
-            else:
-                props["CreatedAt"] = self.created_at
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_id(self) -> GetAtt:
@@ -2279,37 +1535,33 @@ class GlobalNetwork(CloudFormationResource):
 class Bandwidth:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "download_speed": "DownloadSpeed",
+        "upload_speed": "UploadSpeed",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     download_speed: Optional[Union[int, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     upload_speed: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.download_speed is not None:
-            if hasattr(self.download_speed, 'to_dict'):
-                props['DownloadSpeed'] = self.download_speed.to_dict()
-            elif isinstance(self.download_speed, list):
-                props['DownloadSpeed'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.download_speed
-                ]
-            else:
-                props['DownloadSpeed'] = self.download_speed
-
-        if self.upload_speed is not None:
-            if hasattr(self.upload_speed, 'to_dict'):
-                props['UploadSpeed'] = self.upload_speed.to_dict()
-            elif isinstance(self.upload_speed, list):
-                props['UploadSpeed'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.upload_speed
-                ]
-            else:
-                props['UploadSpeed'] = self.upload_speed
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -2318,6 +1570,15 @@ class Link(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::Link"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "site_id": "SiteId",
+        "type_": "Type",
+        "global_network_id": "GlobalNetworkId",
+        "description": "Description",
+        "bandwidth": "Bandwidth",
+        "tags": "Tags",
+        "provider": "Provider",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     site_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -2333,98 +1594,6 @@ class Link(CloudFormationResource):
     tags: Optional[list[Tag]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     provider: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.site_id is not None:
-            # Serialize site_id (handle intrinsic functions)
-            if hasattr(self.site_id, 'to_dict'):
-                props["SiteId"] = self.site_id.to_dict()
-            elif isinstance(self.site_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SiteId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.site_id
-                ]
-            else:
-                props["SiteId"] = self.site_id
-
-        if self.type_ is not None:
-            # Serialize type_ (handle intrinsic functions)
-            if hasattr(self.type_, 'to_dict'):
-                props["Type"] = self.type_.to_dict()
-            elif isinstance(self.type_, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Type'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.type_
-                ]
-            else:
-                props["Type"] = self.type_
-
-        if self.global_network_id is not None:
-            # Serialize global_network_id (handle intrinsic functions)
-            if hasattr(self.global_network_id, 'to_dict'):
-                props["GlobalNetworkId"] = self.global_network_id.to_dict()
-            elif isinstance(self.global_network_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['GlobalNetworkId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.global_network_id
-                ]
-            else:
-                props["GlobalNetworkId"] = self.global_network_id
-
-        if self.description is not None:
-            # Serialize description (handle intrinsic functions)
-            if hasattr(self.description, 'to_dict'):
-                props["Description"] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props["Description"] = self.description
-
-        if self.bandwidth is not None:
-            # Serialize bandwidth (handle intrinsic functions)
-            if hasattr(self.bandwidth, 'to_dict'):
-                props["Bandwidth"] = self.bandwidth.to_dict()
-            elif isinstance(self.bandwidth, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Bandwidth'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.bandwidth
-                ]
-            else:
-                props["Bandwidth"] = self.bandwidth
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.provider is not None:
-            # Serialize provider (handle intrinsic functions)
-            if hasattr(self.provider, 'to_dict'):
-                props["Provider"] = self.provider.to_dict()
-            elif isinstance(self.provider, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Provider'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.provider
-                ]
-            else:
-                props["Provider"] = self.provider
-
-        return props
 
     @property
     def attr_link_arn(self) -> GetAtt:
@@ -2454,6 +1623,11 @@ class LinkAssociation(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::LinkAssociation"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "global_network_id": "GlobalNetworkId",
+        "device_id": "DeviceId",
+        "link_id": "LinkId",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     global_network_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -2462,56 +1636,17 @@ class LinkAssociation(CloudFormationResource):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     link_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.global_network_id is not None:
-            # Serialize global_network_id (handle intrinsic functions)
-            if hasattr(self.global_network_id, 'to_dict'):
-                props["GlobalNetworkId"] = self.global_network_id.to_dict()
-            elif isinstance(self.global_network_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['GlobalNetworkId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.global_network_id
-                ]
-            else:
-                props["GlobalNetworkId"] = self.global_network_id
-
-        if self.device_id is not None:
-            # Serialize device_id (handle intrinsic functions)
-            if hasattr(self.device_id, 'to_dict'):
-                props["DeviceId"] = self.device_id.to_dict()
-            elif isinstance(self.device_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DeviceId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.device_id
-                ]
-            else:
-                props["DeviceId"] = self.device_id
-
-        if self.link_id is not None:
-            # Serialize link_id (handle intrinsic functions)
-            if hasattr(self.link_id, 'to_dict'):
-                props["LinkId"] = self.link_id.to_dict()
-            elif isinstance(self.link_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['LinkId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.link_id
-                ]
-            else:
-                props["LinkId"] = self.link_id
-
-        return props
-
 
 
 @dataclass
 class Location:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "address": "Address",
+        "latitude": "Latitude",
+        "longitude": "Longitude",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     address: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -2520,43 +1655,23 @@ class Location:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     longitude: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.address is not None:
-            if hasattr(self.address, 'to_dict'):
-                props['Address'] = self.address.to_dict()
-            elif isinstance(self.address, list):
-                props['Address'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.address
-                ]
-            else:
-                props['Address'] = self.address
-
-        if self.latitude is not None:
-            if hasattr(self.latitude, 'to_dict'):
-                props['Latitude'] = self.latitude.to_dict()
-            elif isinstance(self.latitude, list):
-                props['Latitude'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.latitude
-                ]
-            else:
-                props['Latitude'] = self.latitude
-
-        if self.longitude is not None:
-            if hasattr(self.longitude, 'to_dict'):
-                props['Longitude'] = self.longitude.to_dict()
-            elif isinstance(self.longitude, list):
-                props['Longitude'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.longitude
-                ]
-            else:
-                props['Longitude'] = self.longitude
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -2565,6 +1680,12 @@ class Site(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::Site"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "description": "Description",
+        "global_network_id": "GlobalNetworkId",
+        "tags": "Tags",
+        "location": "Location",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     description: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -2574,59 +1695,6 @@ class Site(CloudFormationResource):
     tags: Optional[list[Tag]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     location: Optional[Location] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.description is not None:
-            # Serialize description (handle intrinsic functions)
-            if hasattr(self.description, 'to_dict'):
-                props["Description"] = self.description.to_dict()
-            elif isinstance(self.description, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Description'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.description
-                ]
-            else:
-                props["Description"] = self.description
-
-        if self.global_network_id is not None:
-            # Serialize global_network_id (handle intrinsic functions)
-            if hasattr(self.global_network_id, 'to_dict'):
-                props["GlobalNetworkId"] = self.global_network_id.to_dict()
-            elif isinstance(self.global_network_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['GlobalNetworkId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.global_network_id
-                ]
-            else:
-                props["GlobalNetworkId"] = self.global_network_id
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.location is not None:
-            # Serialize location (handle intrinsic functions)
-            if hasattr(self.location, 'to_dict'):
-                props["Location"] = self.location.to_dict()
-            elif isinstance(self.location, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Location'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.location
-                ]
-            else:
-                props["Location"] = self.location
-
-        return props
 
     @property
     def attr_site_id(self) -> GetAtt:
@@ -2655,6 +1723,12 @@ class Site(CloudFormationResource):
 class ProposedNetworkFunctionGroupChange:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "tags": "Tags",
+        "network_function_group_name": "NetworkFunctionGroupName",
+        "attachment_policy_rule_number": "AttachmentPolicyRuleNumber",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tags: Optional[list[Tag]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -2662,49 +1736,35 @@ class ProposedNetworkFunctionGroupChange:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attachment_policy_rule_number: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.tags is not None:
-            if hasattr(self.tags, 'to_dict'):
-                props['Tags'] = self.tags.to_dict()
-            elif isinstance(self.tags, list):
-                props['Tags'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.tags
-                ]
-            else:
-                props['Tags'] = self.tags
-
-        if self.network_function_group_name is not None:
-            if hasattr(self.network_function_group_name, 'to_dict'):
-                props['NetworkFunctionGroupName'] = self.network_function_group_name.to_dict()
-            elif isinstance(self.network_function_group_name, list):
-                props['NetworkFunctionGroupName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.network_function_group_name
-                ]
-            else:
-                props['NetworkFunctionGroupName'] = self.network_function_group_name
-
-        if self.attachment_policy_rule_number is not None:
-            if hasattr(self.attachment_policy_rule_number, 'to_dict'):
-                props['AttachmentPolicyRuleNumber'] = self.attachment_policy_rule_number.to_dict()
-            elif isinstance(self.attachment_policy_rule_number, list):
-                props['AttachmentPolicyRuleNumber'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.attachment_policy_rule_number
-                ]
-            else:
-                props['AttachmentPolicyRuleNumber'] = self.attachment_policy_rule_number
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
 @dataclass
 class ProposedSegmentChange:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "segment_name": "SegmentName",
+        "tags": "Tags",
+        "attachment_policy_rule_number": "AttachmentPolicyRuleNumber",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     segment_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -2713,43 +1773,23 @@ class ProposedSegmentChange:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attachment_policy_rule_number: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.segment_name is not None:
-            if hasattr(self.segment_name, 'to_dict'):
-                props['SegmentName'] = self.segment_name.to_dict()
-            elif isinstance(self.segment_name, list):
-                props['SegmentName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.segment_name
-                ]
-            else:
-                props['SegmentName'] = self.segment_name
-
-        if self.tags is not None:
-            if hasattr(self.tags, 'to_dict'):
-                props['Tags'] = self.tags.to_dict()
-            elif isinstance(self.tags, list):
-                props['Tags'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.tags
-                ]
-            else:
-                props['Tags'] = self.tags
-
-        if self.attachment_policy_rule_number is not None:
-            if hasattr(self.attachment_policy_rule_number, 'to_dict'):
-                props['AttachmentPolicyRuleNumber'] = self.attachment_policy_rule_number.to_dict()
-            elif isinstance(self.attachment_policy_rule_number, list):
-                props['AttachmentPolicyRuleNumber'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.attachment_policy_rule_number
-                ]
-            else:
-                props['AttachmentPolicyRuleNumber'] = self.attachment_policy_rule_number
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -2758,6 +1798,15 @@ class SiteToSiteVpnAttachment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::SiteToSiteVpnAttachment"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "proposed_segment_change": "ProposedSegmentChange",
+        "core_network_id": "CoreNetworkId",
+        "proposed_network_function_group_change": "ProposedNetworkFunctionGroupChange",
+        "vpn_connection_arn": "VpnConnectionArn",
+        "routing_policy_label": "RoutingPolicyLabel",
+        "network_function_group_name": "NetworkFunctionGroupName",
+        "tags": "Tags",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     proposed_segment_change: Optional[ProposedSegmentChange] = None
@@ -2773,98 +1822,6 @@ class SiteToSiteVpnAttachment(CloudFormationResource):
     network_function_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.proposed_segment_change is not None:
-            # Serialize proposed_segment_change (handle intrinsic functions)
-            if hasattr(self.proposed_segment_change, 'to_dict'):
-                props["ProposedSegmentChange"] = self.proposed_segment_change.to_dict()
-            elif isinstance(self.proposed_segment_change, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ProposedSegmentChange'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.proposed_segment_change
-                ]
-            else:
-                props["ProposedSegmentChange"] = self.proposed_segment_change
-
-        if self.core_network_id is not None:
-            # Serialize core_network_id (handle intrinsic functions)
-            if hasattr(self.core_network_id, 'to_dict'):
-                props["CoreNetworkId"] = self.core_network_id.to_dict()
-            elif isinstance(self.core_network_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['CoreNetworkId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.core_network_id
-                ]
-            else:
-                props["CoreNetworkId"] = self.core_network_id
-
-        if self.proposed_network_function_group_change is not None:
-            # Serialize proposed_network_function_group_change (handle intrinsic functions)
-            if hasattr(self.proposed_network_function_group_change, 'to_dict'):
-                props["ProposedNetworkFunctionGroupChange"] = self.proposed_network_function_group_change.to_dict()
-            elif isinstance(self.proposed_network_function_group_change, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ProposedNetworkFunctionGroupChange'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.proposed_network_function_group_change
-                ]
-            else:
-                props["ProposedNetworkFunctionGroupChange"] = self.proposed_network_function_group_change
-
-        if self.vpn_connection_arn is not None:
-            # Serialize vpn_connection_arn (handle intrinsic functions)
-            if hasattr(self.vpn_connection_arn, 'to_dict'):
-                props["VpnConnectionArn"] = self.vpn_connection_arn.to_dict()
-            elif isinstance(self.vpn_connection_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['VpnConnectionArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.vpn_connection_arn
-                ]
-            else:
-                props["VpnConnectionArn"] = self.vpn_connection_arn
-
-        if self.routing_policy_label is not None:
-            # Serialize routing_policy_label (handle intrinsic functions)
-            if hasattr(self.routing_policy_label, 'to_dict'):
-                props["RoutingPolicyLabel"] = self.routing_policy_label.to_dict()
-            elif isinstance(self.routing_policy_label, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['RoutingPolicyLabel'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.routing_policy_label
-                ]
-            else:
-                props["RoutingPolicyLabel"] = self.routing_policy_label
-
-        if self.network_function_group_name is not None:
-            # Serialize network_function_group_name (handle intrinsic functions)
-            if hasattr(self.network_function_group_name, 'to_dict'):
-                props["NetworkFunctionGroupName"] = self.network_function_group_name.to_dict()
-            elif isinstance(self.network_function_group_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['NetworkFunctionGroupName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.network_function_group_name
-                ]
-            else:
-                props["NetworkFunctionGroupName"] = self.network_function_group_name
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_resource_arn(self) -> GetAtt:
@@ -2934,6 +1891,11 @@ class TransitGatewayPeering(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::TransitGatewayPeering"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "core_network_id": "CoreNetworkId",
+        "transit_gateway_arn": "TransitGatewayArn",
+        "tags": "Tags",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     core_network_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -2941,46 +1903,6 @@ class TransitGatewayPeering(CloudFormationResource):
     transit_gateway_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.core_network_id is not None:
-            # Serialize core_network_id (handle intrinsic functions)
-            if hasattr(self.core_network_id, 'to_dict'):
-                props["CoreNetworkId"] = self.core_network_id.to_dict()
-            elif isinstance(self.core_network_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['CoreNetworkId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.core_network_id
-                ]
-            else:
-                props["CoreNetworkId"] = self.core_network_id
-
-        if self.transit_gateway_arn is not None:
-            # Serialize transit_gateway_arn (handle intrinsic functions)
-            if hasattr(self.transit_gateway_arn, 'to_dict'):
-                props["TransitGatewayArn"] = self.transit_gateway_arn.to_dict()
-            elif isinstance(self.transit_gateway_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['TransitGatewayArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.transit_gateway_arn
-                ]
-            else:
-                props["TransitGatewayArn"] = self.transit_gateway_arn
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_resource_arn(self) -> GetAtt:
@@ -3040,49 +1962,27 @@ class TransitGatewayRegistration(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::TransitGatewayRegistration"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "global_network_id": "GlobalNetworkId",
+        "transit_gateway_arn": "TransitGatewayArn",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     global_network_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     transit_gateway_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.global_network_id is not None:
-            # Serialize global_network_id (handle intrinsic functions)
-            if hasattr(self.global_network_id, 'to_dict'):
-                props["GlobalNetworkId"] = self.global_network_id.to_dict()
-            elif isinstance(self.global_network_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['GlobalNetworkId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.global_network_id
-                ]
-            else:
-                props["GlobalNetworkId"] = self.global_network_id
-
-        if self.transit_gateway_arn is not None:
-            # Serialize transit_gateway_arn (handle intrinsic functions)
-            if hasattr(self.transit_gateway_arn, 'to_dict'):
-                props["TransitGatewayArn"] = self.transit_gateway_arn.to_dict()
-            elif isinstance(self.transit_gateway_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['TransitGatewayArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.transit_gateway_arn
-                ]
-            else:
-                props["TransitGatewayArn"] = self.transit_gateway_arn
-
-        return props
-
 
 
 @dataclass
 class ProposedNetworkFunctionGroupChange:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "tags": "Tags",
+        "network_function_group_name": "NetworkFunctionGroupName",
+        "attachment_policy_rule_number": "AttachmentPolicyRuleNumber",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tags: Optional[list[Tag]] = None
@@ -3091,49 +1991,35 @@ class ProposedNetworkFunctionGroupChange:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attachment_policy_rule_number: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.tags is not None:
-            if hasattr(self.tags, 'to_dict'):
-                props['Tags'] = self.tags.to_dict()
-            elif isinstance(self.tags, list):
-                props['Tags'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.tags
-                ]
-            else:
-                props['Tags'] = self.tags
-
-        if self.network_function_group_name is not None:
-            if hasattr(self.network_function_group_name, 'to_dict'):
-                props['NetworkFunctionGroupName'] = self.network_function_group_name.to_dict()
-            elif isinstance(self.network_function_group_name, list):
-                props['NetworkFunctionGroupName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.network_function_group_name
-                ]
-            else:
-                props['NetworkFunctionGroupName'] = self.network_function_group_name
-
-        if self.attachment_policy_rule_number is not None:
-            if hasattr(self.attachment_policy_rule_number, 'to_dict'):
-                props['AttachmentPolicyRuleNumber'] = self.attachment_policy_rule_number.to_dict()
-            elif isinstance(self.attachment_policy_rule_number, list):
-                props['AttachmentPolicyRuleNumber'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.attachment_policy_rule_number
-                ]
-            else:
-                props['AttachmentPolicyRuleNumber'] = self.attachment_policy_rule_number
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
 @dataclass
 class ProposedSegmentChange:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "segment_name": "SegmentName",
+        "tags": "Tags",
+        "attachment_policy_rule_number": "AttachmentPolicyRuleNumber",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     segment_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -3142,43 +2028,23 @@ class ProposedSegmentChange:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attachment_policy_rule_number: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.segment_name is not None:
-            if hasattr(self.segment_name, 'to_dict'):
-                props['SegmentName'] = self.segment_name.to_dict()
-            elif isinstance(self.segment_name, list):
-                props['SegmentName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.segment_name
-                ]
-            else:
-                props['SegmentName'] = self.segment_name
-
-        if self.tags is not None:
-            if hasattr(self.tags, 'to_dict'):
-                props['Tags'] = self.tags.to_dict()
-            elif isinstance(self.tags, list):
-                props['Tags'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.tags
-                ]
-            else:
-                props['Tags'] = self.tags
-
-        if self.attachment_policy_rule_number is not None:
-            if hasattr(self.attachment_policy_rule_number, 'to_dict'):
-                props['AttachmentPolicyRuleNumber'] = self.attachment_policy_rule_number.to_dict()
-            elif isinstance(self.attachment_policy_rule_number, list):
-                props['AttachmentPolicyRuleNumber'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.attachment_policy_rule_number
-                ]
-            else:
-                props['AttachmentPolicyRuleNumber'] = self.attachment_policy_rule_number
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -3187,6 +2053,15 @@ class TransitGatewayRouteTableAttachment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::TransitGatewayRouteTableAttachment"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "proposed_segment_change": "ProposedSegmentChange",
+        "transit_gateway_route_table_arn": "TransitGatewayRouteTableArn",
+        "proposed_network_function_group_change": "ProposedNetworkFunctionGroupChange",
+        "peering_id": "PeeringId",
+        "routing_policy_label": "RoutingPolicyLabel",
+        "network_function_group_name": "NetworkFunctionGroupName",
+        "tags": "Tags",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     proposed_segment_change: Optional[ProposedSegmentChange] = None
@@ -3202,98 +2077,6 @@ class TransitGatewayRouteTableAttachment(CloudFormationResource):
     network_function_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.proposed_segment_change is not None:
-            # Serialize proposed_segment_change (handle intrinsic functions)
-            if hasattr(self.proposed_segment_change, 'to_dict'):
-                props["ProposedSegmentChange"] = self.proposed_segment_change.to_dict()
-            elif isinstance(self.proposed_segment_change, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ProposedSegmentChange'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.proposed_segment_change
-                ]
-            else:
-                props["ProposedSegmentChange"] = self.proposed_segment_change
-
-        if self.transit_gateway_route_table_arn is not None:
-            # Serialize transit_gateway_route_table_arn (handle intrinsic functions)
-            if hasattr(self.transit_gateway_route_table_arn, 'to_dict'):
-                props["TransitGatewayRouteTableArn"] = self.transit_gateway_route_table_arn.to_dict()
-            elif isinstance(self.transit_gateway_route_table_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['TransitGatewayRouteTableArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.transit_gateway_route_table_arn
-                ]
-            else:
-                props["TransitGatewayRouteTableArn"] = self.transit_gateway_route_table_arn
-
-        if self.proposed_network_function_group_change is not None:
-            # Serialize proposed_network_function_group_change (handle intrinsic functions)
-            if hasattr(self.proposed_network_function_group_change, 'to_dict'):
-                props["ProposedNetworkFunctionGroupChange"] = self.proposed_network_function_group_change.to_dict()
-            elif isinstance(self.proposed_network_function_group_change, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ProposedNetworkFunctionGroupChange'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.proposed_network_function_group_change
-                ]
-            else:
-                props["ProposedNetworkFunctionGroupChange"] = self.proposed_network_function_group_change
-
-        if self.peering_id is not None:
-            # Serialize peering_id (handle intrinsic functions)
-            if hasattr(self.peering_id, 'to_dict'):
-                props["PeeringId"] = self.peering_id.to_dict()
-            elif isinstance(self.peering_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['PeeringId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.peering_id
-                ]
-            else:
-                props["PeeringId"] = self.peering_id
-
-        if self.routing_policy_label is not None:
-            # Serialize routing_policy_label (handle intrinsic functions)
-            if hasattr(self.routing_policy_label, 'to_dict'):
-                props["RoutingPolicyLabel"] = self.routing_policy_label.to_dict()
-            elif isinstance(self.routing_policy_label, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['RoutingPolicyLabel'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.routing_policy_label
-                ]
-            else:
-                props["RoutingPolicyLabel"] = self.routing_policy_label
-
-        if self.network_function_group_name is not None:
-            # Serialize network_function_group_name (handle intrinsic functions)
-            if hasattr(self.network_function_group_name, 'to_dict'):
-                props["NetworkFunctionGroupName"] = self.network_function_group_name.to_dict()
-            elif isinstance(self.network_function_group_name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['NetworkFunctionGroupName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.network_function_group_name
-                ]
-            else:
-                props["NetworkFunctionGroupName"] = self.network_function_group_name
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_core_network_id(self) -> GetAtt:
@@ -3367,6 +2150,12 @@ class TransitGatewayRouteTableAttachment(CloudFormationResource):
 class ProposedNetworkFunctionGroupChange:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "tags": "Tags",
+        "network_function_group_name": "NetworkFunctionGroupName",
+        "attachment_policy_rule_number": "AttachmentPolicyRuleNumber",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     tags: Optional[list[Tag]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -3374,49 +2163,35 @@ class ProposedNetworkFunctionGroupChange:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attachment_policy_rule_number: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.tags is not None:
-            if hasattr(self.tags, 'to_dict'):
-                props['Tags'] = self.tags.to_dict()
-            elif isinstance(self.tags, list):
-                props['Tags'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.tags
-                ]
-            else:
-                props['Tags'] = self.tags
-
-        if self.network_function_group_name is not None:
-            if hasattr(self.network_function_group_name, 'to_dict'):
-                props['NetworkFunctionGroupName'] = self.network_function_group_name.to_dict()
-            elif isinstance(self.network_function_group_name, list):
-                props['NetworkFunctionGroupName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.network_function_group_name
-                ]
-            else:
-                props['NetworkFunctionGroupName'] = self.network_function_group_name
-
-        if self.attachment_policy_rule_number is not None:
-            if hasattr(self.attachment_policy_rule_number, 'to_dict'):
-                props['AttachmentPolicyRuleNumber'] = self.attachment_policy_rule_number.to_dict()
-            elif isinstance(self.attachment_policy_rule_number, list):
-                props['AttachmentPolicyRuleNumber'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.attachment_policy_rule_number
-                ]
-            else:
-                props['AttachmentPolicyRuleNumber'] = self.attachment_policy_rule_number
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
 @dataclass
 class ProposedSegmentChange:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "segment_name": "SegmentName",
+        "tags": "Tags",
+        "attachment_policy_rule_number": "AttachmentPolicyRuleNumber",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     segment_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -3425,49 +2200,36 @@ class ProposedSegmentChange:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     attachment_policy_rule_number: Optional[Union[int, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.segment_name is not None:
-            if hasattr(self.segment_name, 'to_dict'):
-                props['SegmentName'] = self.segment_name.to_dict()
-            elif isinstance(self.segment_name, list):
-                props['SegmentName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.segment_name
-                ]
-            else:
-                props['SegmentName'] = self.segment_name
-
-        if self.tags is not None:
-            if hasattr(self.tags, 'to_dict'):
-                props['Tags'] = self.tags.to_dict()
-            elif isinstance(self.tags, list):
-                props['Tags'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.tags
-                ]
-            else:
-                props['Tags'] = self.tags
-
-        if self.attachment_policy_rule_number is not None:
-            if hasattr(self.attachment_policy_rule_number, 'to_dict'):
-                props['AttachmentPolicyRuleNumber'] = self.attachment_policy_rule_number.to_dict()
-            elif isinstance(self.attachment_policy_rule_number, list):
-                props['AttachmentPolicyRuleNumber'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.attachment_policy_rule_number
-                ]
-            else:
-                props['AttachmentPolicyRuleNumber'] = self.attachment_policy_rule_number
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
 @dataclass
 class VpcOptions:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-net"""
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "ipv6_support": "Ipv6Support",
+        "appliance_mode_support": "ApplianceModeSupport",
+        "security_group_referencing_support": "SecurityGroupReferencingSupport",
+        "dns_support": "DnsSupport",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ipv6_support: Optional[Union[bool, Ref, GetAtt, Sub]] = None
@@ -3478,54 +2240,23 @@ class VpcOptions:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     dns_support: Optional[Union[bool, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.ipv6_support is not None:
-            if hasattr(self.ipv6_support, 'to_dict'):
-                props['Ipv6Support'] = self.ipv6_support.to_dict()
-            elif isinstance(self.ipv6_support, list):
-                props['Ipv6Support'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.ipv6_support
-                ]
-            else:
-                props['Ipv6Support'] = self.ipv6_support
-
-        if self.appliance_mode_support is not None:
-            if hasattr(self.appliance_mode_support, 'to_dict'):
-                props['ApplianceModeSupport'] = self.appliance_mode_support.to_dict()
-            elif isinstance(self.appliance_mode_support, list):
-                props['ApplianceModeSupport'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.appliance_mode_support
-                ]
-            else:
-                props['ApplianceModeSupport'] = self.appliance_mode_support
-
-        if self.security_group_referencing_support is not None:
-            if hasattr(self.security_group_referencing_support, 'to_dict'):
-                props['SecurityGroupReferencingSupport'] = self.security_group_referencing_support.to_dict()
-            elif isinstance(self.security_group_referencing_support, list):
-                props['SecurityGroupReferencingSupport'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.security_group_referencing_support
-                ]
-            else:
-                props['SecurityGroupReferencingSupport'] = self.security_group_referencing_support
-
-        if self.dns_support is not None:
-            if hasattr(self.dns_support, 'to_dict'):
-                props['DnsSupport'] = self.dns_support.to_dict()
-            elif isinstance(self.dns_support, list):
-                props['DnsSupport'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.dns_support
-                ]
-            else:
-                props['DnsSupport'] = self.dns_support
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -3534,6 +2265,16 @@ class VpcAttachment(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-netwo"""
 
     resource_type: ClassVar[str] = "AWS::NetworkManager::VpcAttachment"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "proposed_segment_change": "ProposedSegmentChange",
+        "subnet_arns": "SubnetArns",
+        "options": "Options",
+        "core_network_id": "CoreNetworkId",
+        "proposed_network_function_group_change": "ProposedNetworkFunctionGroupChange",
+        "routing_policy_label": "RoutingPolicyLabel",
+        "vpc_arn": "VpcArn",
+        "tags": "Tags",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     proposed_segment_change: Optional[ProposedSegmentChange] = None
@@ -3551,111 +2292,6 @@ class VpcAttachment(CloudFormationResource):
     vpc_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[list[Tag]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.proposed_segment_change is not None:
-            # Serialize proposed_segment_change (handle intrinsic functions)
-            if hasattr(self.proposed_segment_change, 'to_dict'):
-                props["ProposedSegmentChange"] = self.proposed_segment_change.to_dict()
-            elif isinstance(self.proposed_segment_change, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ProposedSegmentChange'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.proposed_segment_change
-                ]
-            else:
-                props["ProposedSegmentChange"] = self.proposed_segment_change
-
-        if self.subnet_arns is not None:
-            # Serialize subnet_arns (handle intrinsic functions)
-            if hasattr(self.subnet_arns, 'to_dict'):
-                props["SubnetArns"] = self.subnet_arns.to_dict()
-            elif isinstance(self.subnet_arns, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SubnetArns'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.subnet_arns
-                ]
-            else:
-                props["SubnetArns"] = self.subnet_arns
-
-        if self.options is not None:
-            # Serialize options (handle intrinsic functions)
-            if hasattr(self.options, 'to_dict'):
-                props["Options"] = self.options.to_dict()
-            elif isinstance(self.options, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Options'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.options
-                ]
-            else:
-                props["Options"] = self.options
-
-        if self.core_network_id is not None:
-            # Serialize core_network_id (handle intrinsic functions)
-            if hasattr(self.core_network_id, 'to_dict'):
-                props["CoreNetworkId"] = self.core_network_id.to_dict()
-            elif isinstance(self.core_network_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['CoreNetworkId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.core_network_id
-                ]
-            else:
-                props["CoreNetworkId"] = self.core_network_id
-
-        if self.proposed_network_function_group_change is not None:
-            # Serialize proposed_network_function_group_change (handle intrinsic functions)
-            if hasattr(self.proposed_network_function_group_change, 'to_dict'):
-                props["ProposedNetworkFunctionGroupChange"] = self.proposed_network_function_group_change.to_dict()
-            elif isinstance(self.proposed_network_function_group_change, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ProposedNetworkFunctionGroupChange'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.proposed_network_function_group_change
-                ]
-            else:
-                props["ProposedNetworkFunctionGroupChange"] = self.proposed_network_function_group_change
-
-        if self.routing_policy_label is not None:
-            # Serialize routing_policy_label (handle intrinsic functions)
-            if hasattr(self.routing_policy_label, 'to_dict'):
-                props["RoutingPolicyLabel"] = self.routing_policy_label.to_dict()
-            elif isinstance(self.routing_policy_label, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['RoutingPolicyLabel'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.routing_policy_label
-                ]
-            else:
-                props["RoutingPolicyLabel"] = self.routing_policy_label
-
-        if self.vpc_arn is not None:
-            # Serialize vpc_arn (handle intrinsic functions)
-            if hasattr(self.vpc_arn, 'to_dict'):
-                props["VpcArn"] = self.vpc_arn.to_dict()
-            elif isinstance(self.vpc_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['VpcArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.vpc_arn
-                ]
-            else:
-                props["VpcArn"] = self.vpc_arn
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_attachment_type(self) -> GetAtt:

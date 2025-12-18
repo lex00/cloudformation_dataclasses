@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:39
+  Generated: 2025-12-17 21:38:02
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SSMGuiConnect
@@ -29,37 +29,33 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 class ConnectionRecordingPreferences:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "kms_key_arn": "KMSKeyArn",
+        "recording_destinations": "RecordingDestinations",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     kms_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     recording_destinations: Optional[RecordingDestinations] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.kms_key_arn is not None:
-            if hasattr(self.kms_key_arn, 'to_dict'):
-                props['KMSKeyArn'] = self.kms_key_arn.to_dict()
-            elif isinstance(self.kms_key_arn, list):
-                props['KMSKeyArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.kms_key_arn
-                ]
-            else:
-                props['KMSKeyArn'] = self.kms_key_arn
-
-        if self.recording_destinations is not None:
-            if hasattr(self.recording_destinations, 'to_dict'):
-                props['RecordingDestinations'] = self.recording_destinations.to_dict()
-            elif isinstance(self.recording_destinations, list):
-                props['RecordingDestinations'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.recording_destinations
-                ]
-            else:
-                props['RecordingDestinations'] = self.recording_destinations
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -67,24 +63,30 @@ class ConnectionRecordingPreferences:
 class RecordingDestinations:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "s3_buckets": "S3Buckets",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     s3_buckets: Optional[list[S3Bucket]] = None
+
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.s3_buckets is not None:
-            if hasattr(self.s3_buckets, 'to_dict'):
-                props['S3Buckets'] = self.s3_buckets.to_dict()
-            elif isinstance(self.s3_buckets, list):
-                props['S3Buckets'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.s3_buckets
-                ]
-            else:
-                props['S3Buckets'] = self.s3_buckets
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -92,37 +94,33 @@ class RecordingDestinations:
 class S3Bucket:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "bucket_name": "BucketName",
+        "bucket_owner": "BucketOwner",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     bucket_owner: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.bucket_name is not None:
-            if hasattr(self.bucket_name, 'to_dict'):
-                props['BucketName'] = self.bucket_name.to_dict()
-            elif isinstance(self.bucket_name, list):
-                props['BucketName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.bucket_name
-                ]
-            else:
-                props['BucketName'] = self.bucket_name
-
-        if self.bucket_owner is not None:
-            if hasattr(self.bucket_owner, 'to_dict'):
-                props['BucketOwner'] = self.bucket_owner.to_dict()
-            elif isinstance(self.bucket_owner, list):
-                props['BucketOwner'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.bucket_owner
-                ]
-            else:
-                props['BucketOwner'] = self.bucket_owner
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -131,28 +129,12 @@ class Preferences(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmgu"""
 
     resource_type: ClassVar[str] = "AWS::SSMGuiConnect::Preferences"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "connection_recording_preferences": "ConnectionRecordingPreferences",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     connection_recording_preferences: Optional[ConnectionRecordingPreferences] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.connection_recording_preferences is not None:
-            # Serialize connection_recording_preferences (handle intrinsic functions)
-            if hasattr(self.connection_recording_preferences, 'to_dict'):
-                props["ConnectionRecordingPreferences"] = self.connection_recording_preferences.to_dict()
-            elif isinstance(self.connection_recording_preferences, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ConnectionRecordingPreferences'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.connection_recording_preferences
-                ]
-            else:
-                props["ConnectionRecordingPreferences"] = self.connection_recording_preferences
-
-        return props
 
     @property
     def attr_account_id(self) -> GetAtt:

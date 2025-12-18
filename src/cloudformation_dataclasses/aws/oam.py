@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:38
+  Generated: 2025-12-17 21:37:54
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service Oam
@@ -55,37 +55,33 @@ AWS_APPLICATIONSIGNALS_SERVICELEVELOBJECTIVE = ResourceType.AWS_APPLICATIONSIGNA
 class LinkConfiguration:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-oam"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "log_group_configuration": "LogGroupConfiguration",
+        "metric_configuration": "MetricConfiguration",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     log_group_configuration: Optional[LinkFilter] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     metric_configuration: Optional[LinkFilter] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.log_group_configuration is not None:
-            if hasattr(self.log_group_configuration, 'to_dict'):
-                props['LogGroupConfiguration'] = self.log_group_configuration.to_dict()
-            elif isinstance(self.log_group_configuration, list):
-                props['LogGroupConfiguration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.log_group_configuration
-                ]
-            else:
-                props['LogGroupConfiguration'] = self.log_group_configuration
-
-        if self.metric_configuration is not None:
-            if hasattr(self.metric_configuration, 'to_dict'):
-                props['MetricConfiguration'] = self.metric_configuration.to_dict()
-            elif isinstance(self.metric_configuration, list):
-                props['MetricConfiguration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.metric_configuration
-                ]
-            else:
-                props['MetricConfiguration'] = self.metric_configuration
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -93,24 +89,30 @@ class LinkConfiguration:
 class LinkFilter:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-oam"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "filter": "Filter",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     filter: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.filter is not None:
-            if hasattr(self.filter, 'to_dict'):
-                props['Filter'] = self.filter.to_dict()
-            elif isinstance(self.filter, list):
-                props['Filter'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.filter
-                ]
-            else:
-                props['Filter'] = self.filter
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -119,6 +121,13 @@ class Link(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-oam-l"""
 
     resource_type: ClassVar[str] = "AWS::Oam::Link"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "sink_identifier": "SinkIdentifier",
+        "label_template": "LabelTemplate",
+        "resource_types": "ResourceTypes",
+        "link_configuration": "LinkConfiguration",
+        "tags": "Tags",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     sink_identifier: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -130,72 +139,6 @@ class Link(CloudFormationResource):
     link_configuration: Optional[LinkConfiguration] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     tags: Optional[dict[str, str]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.sink_identifier is not None:
-            # Serialize sink_identifier (handle intrinsic functions)
-            if hasattr(self.sink_identifier, 'to_dict'):
-                props["SinkIdentifier"] = self.sink_identifier.to_dict()
-            elif isinstance(self.sink_identifier, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SinkIdentifier'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.sink_identifier
-                ]
-            else:
-                props["SinkIdentifier"] = self.sink_identifier
-
-        if self.label_template is not None:
-            # Serialize label_template (handle intrinsic functions)
-            if hasattr(self.label_template, 'to_dict'):
-                props["LabelTemplate"] = self.label_template.to_dict()
-            elif isinstance(self.label_template, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['LabelTemplate'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.label_template
-                ]
-            else:
-                props["LabelTemplate"] = self.label_template
-
-        if self.resource_types is not None:
-            # Serialize resource_types (handle intrinsic functions)
-            if hasattr(self.resource_types, 'to_dict'):
-                props["ResourceTypes"] = self.resource_types.to_dict()
-            elif isinstance(self.resource_types, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ResourceTypes'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.resource_types
-                ]
-            else:
-                props["ResourceTypes"] = self.resource_types
-
-        if self.link_configuration is not None:
-            # Serialize link_configuration (handle intrinsic functions)
-            if hasattr(self.link_configuration, 'to_dict'):
-                props["LinkConfiguration"] = self.link_configuration.to_dict()
-            elif isinstance(self.link_configuration, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['LinkConfiguration'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.link_configuration
-                ]
-            else:
-                props["LinkConfiguration"] = self.link_configuration
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        return props
 
     @property
     def attr_label(self) -> GetAtt:
@@ -215,6 +158,11 @@ class Sink(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-oam-s"""
 
     resource_type: ClassVar[str] = "AWS::Oam::Sink"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "policy": "Policy",
+        "tags": "Tags",
+        "name": "Name",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     policy: Optional[Union[dict[str, Any], Ref, GetAtt, Sub]] = None
@@ -222,46 +170,6 @@ class Sink(CloudFormationResource):
     tags: Optional[dict[str, str]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     name: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.policy is not None:
-            # Serialize policy (handle intrinsic functions)
-            if hasattr(self.policy, 'to_dict'):
-                props["Policy"] = self.policy.to_dict()
-            elif isinstance(self.policy, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Policy'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.policy
-                ]
-            else:
-                props["Policy"] = self.policy
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.name is not None:
-            # Serialize name (handle intrinsic functions)
-            if hasattr(self.name, 'to_dict'):
-                props["Name"] = self.name.to_dict()
-            elif isinstance(self.name, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Name'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.name
-                ]
-            else:
-                props["Name"] = self.name
-
-        return props
 
     @property
     def attr_arn(self) -> GetAtt:

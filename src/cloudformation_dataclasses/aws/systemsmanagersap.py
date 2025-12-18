@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-17 16:59:39
+  Generated: 2025-12-17 21:38:05
 
 To regenerate this file:
     uv run python -m cloudformation_dataclasses.codegen.generator --service SystemsManagerSAP
@@ -29,6 +29,12 @@ from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 class ComponentInfo:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sys"""
 
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "ec2_instance_id": "Ec2InstanceId",
+        "component_type": "ComponentType",
+        "sid": "Sid",
+    }
+
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     ec2_instance_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
@@ -36,49 +42,35 @@ class ComponentInfo:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     sid: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.ec2_instance_id is not None:
-            if hasattr(self.ec2_instance_id, 'to_dict'):
-                props['Ec2InstanceId'] = self.ec2_instance_id.to_dict()
-            elif isinstance(self.ec2_instance_id, list):
-                props['Ec2InstanceId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.ec2_instance_id
-                ]
-            else:
-                props['Ec2InstanceId'] = self.ec2_instance_id
-
-        if self.component_type is not None:
-            if hasattr(self.component_type, 'to_dict'):
-                props['ComponentType'] = self.component_type.to_dict()
-            elif isinstance(self.component_type, list):
-                props['ComponentType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.component_type
-                ]
-            else:
-                props['ComponentType'] = self.component_type
-
-        if self.sid is not None:
-            if hasattr(self.sid, 'to_dict'):
-                props['Sid'] = self.sid.to_dict()
-            elif isinstance(self.sid, list):
-                props['Sid'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.sid
-                ]
-            else:
-                props['Sid'] = self.sid
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
 @dataclass
 class Credential:
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sys"""
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "secret_id": "SecretId",
+        "database_name": "DatabaseName",
+        "credential_type": "CredentialType",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     secret_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
@@ -87,43 +79,23 @@ class Credential:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuid
     credential_type: Optional[Union[str, Ref, GetAtt, Sub]] = None
 
+    def _serialize_value(self, value: Any) -> Any:
+        """Recursively serialize a value."""
+        if hasattr(value, 'to_dict'):
+            return value.to_dict()
+        if isinstance(value, list):
+            return [self._serialize_value(item) for item in value]
+        if isinstance(value, dict):
+            return {k: self._serialize_value(v) for k, v in value.items()}
+        return value
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation format."""
         props: dict[str, Any] = {}
-
-        if self.secret_id is not None:
-            if hasattr(self.secret_id, 'to_dict'):
-                props['SecretId'] = self.secret_id.to_dict()
-            elif isinstance(self.secret_id, list):
-                props['SecretId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.secret_id
-                ]
-            else:
-                props['SecretId'] = self.secret_id
-
-        if self.database_name is not None:
-            if hasattr(self.database_name, 'to_dict'):
-                props['DatabaseName'] = self.database_name.to_dict()
-            elif isinstance(self.database_name, list):
-                props['DatabaseName'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.database_name
-                ]
-            else:
-                props['DatabaseName'] = self.database_name
-
-        if self.credential_type is not None:
-            if hasattr(self.credential_type, 'to_dict'):
-                props['CredentialType'] = self.credential_type.to_dict()
-            elif isinstance(self.credential_type, list):
-                props['CredentialType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.credential_type
-                ]
-            else:
-                props['CredentialType'] = self.credential_type
-
+        for field_name, cf_name in self._property_mappings.items():
+            value = getattr(self, field_name, None)
+            if value is not None:
+                props[cf_name] = self._serialize_value(value)
         return props
 
 
@@ -132,6 +104,17 @@ class Application(CloudFormationResource):
     """http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-syste"""
 
     resource_type: ClassVar[str] = "AWS::SystemsManagerSAP::Application"
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "instances": "Instances",
+        "application_type": "ApplicationType",
+        "database_arn": "DatabaseArn",
+        "sap_instance_number": "SapInstanceNumber",
+        "application_id": "ApplicationId",
+        "credentials": "Credentials",
+        "tags": "Tags",
+        "components_info": "ComponentsInfo",
+        "sid": "Sid",
+    }
 
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     instances: Optional[Union[list[str], Ref]] = None
@@ -151,124 +134,6 @@ class Application(CloudFormationResource):
     components_info: Optional[list[ComponentInfo]] = None
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-reso
     sid: Optional[Union[str, Ref, GetAtt, Sub]] = None
-
-    def _get_properties(self) -> dict[str, Any]:
-        """Serialize resource properties to CloudFormation format."""
-        props: dict[str, Any] = {}
-
-        if self.instances is not None:
-            # Serialize instances (handle intrinsic functions)
-            if hasattr(self.instances, 'to_dict'):
-                props["Instances"] = self.instances.to_dict()
-            elif isinstance(self.instances, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Instances'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.instances
-                ]
-            else:
-                props["Instances"] = self.instances
-
-        if self.application_type is not None:
-            # Serialize application_type (handle intrinsic functions)
-            if hasattr(self.application_type, 'to_dict'):
-                props["ApplicationType"] = self.application_type.to_dict()
-            elif isinstance(self.application_type, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ApplicationType'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.application_type
-                ]
-            else:
-                props["ApplicationType"] = self.application_type
-
-        if self.database_arn is not None:
-            # Serialize database_arn (handle intrinsic functions)
-            if hasattr(self.database_arn, 'to_dict'):
-                props["DatabaseArn"] = self.database_arn.to_dict()
-            elif isinstance(self.database_arn, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['DatabaseArn'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.database_arn
-                ]
-            else:
-                props["DatabaseArn"] = self.database_arn
-
-        if self.sap_instance_number is not None:
-            # Serialize sap_instance_number (handle intrinsic functions)
-            if hasattr(self.sap_instance_number, 'to_dict'):
-                props["SapInstanceNumber"] = self.sap_instance_number.to_dict()
-            elif isinstance(self.sap_instance_number, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['SapInstanceNumber'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.sap_instance_number
-                ]
-            else:
-                props["SapInstanceNumber"] = self.sap_instance_number
-
-        if self.application_id is not None:
-            # Serialize application_id (handle intrinsic functions)
-            if hasattr(self.application_id, 'to_dict'):
-                props["ApplicationId"] = self.application_id.to_dict()
-            elif isinstance(self.application_id, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ApplicationId'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.application_id
-                ]
-            else:
-                props["ApplicationId"] = self.application_id
-
-        if self.credentials is not None:
-            # Serialize credentials (handle intrinsic functions)
-            if hasattr(self.credentials, 'to_dict'):
-                props["Credentials"] = self.credentials.to_dict()
-            elif isinstance(self.credentials, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Credentials'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.credentials
-                ]
-            else:
-                props["Credentials"] = self.credentials
-
-        # Serialize tags - use all_tags to include context tags
-        merged_tags = self.all_tags
-        if merged_tags:
-            props['Tags'] = [
-                item.to_dict() if hasattr(item, 'to_dict') else item
-                for item in merged_tags
-            ]
-
-        if self.components_info is not None:
-            # Serialize components_info (handle intrinsic functions)
-            if hasattr(self.components_info, 'to_dict'):
-                props["ComponentsInfo"] = self.components_info.to_dict()
-            elif isinstance(self.components_info, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['ComponentsInfo'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.components_info
-                ]
-            else:
-                props["ComponentsInfo"] = self.components_info
-
-        if self.sid is not None:
-            # Serialize sid (handle intrinsic functions)
-            if hasattr(self.sid, 'to_dict'):
-                props["Sid"] = self.sid.to_dict()
-            elif isinstance(self.sid, list):
-                # Serialize list items (may contain intrinsic functions)
-                props['Sid'] = [
-                    item.to_dict() if hasattr(item, 'to_dict') else item
-                    for item in self.sid
-                ]
-            else:
-                props["Sid"] = self.sid
-
-        return props
 
     @property
     def attr_arn(self) -> GetAtt:
