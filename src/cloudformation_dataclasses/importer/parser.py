@@ -36,11 +36,41 @@ def to_snake_case(name: str) -> str:
 def sanitize_python_name(name: str) -> str:
     """Handle Python keyword conflicts."""
     PYTHON_KEYWORDS = {
-        "and", "as", "assert", "async", "await", "break", "class", "continue",
-        "def", "del", "elif", "else", "except", "finally", "for", "from",
-        "global", "if", "import", "in", "is", "lambda", "nonlocal", "not",
-        "or", "pass", "raise", "return", "try", "while", "with", "yield",
-        "type", "match", "case",
+        "and",
+        "as",
+        "assert",
+        "async",
+        "await",
+        "break",
+        "class",
+        "continue",
+        "def",
+        "del",
+        "elif",
+        "else",
+        "except",
+        "finally",
+        "for",
+        "from",
+        "global",
+        "if",
+        "import",
+        "in",
+        "is",
+        "lambda",
+        "nonlocal",
+        "not",
+        "or",
+        "pass",
+        "raise",
+        "return",
+        "try",
+        "while",
+        "with",
+        "yield",
+        "type",
+        "match",
+        "case",
     }
     if name in PYTHON_KEYWORDS:
         return f"{name}_"
@@ -249,13 +279,18 @@ def _resolve_long_form_intrinsics(value: Any) -> Any:
                 if intrinsic_name == "Sub":
                     if isinstance(resolved_val, str):
                         return IRIntrinsic(IntrinsicType.SUB, resolved_val)
-                    return IRIntrinsic(IntrinsicType.SUB, (resolved_val[0], resolved_val[1] if len(resolved_val) > 1 else {}))
+                    return IRIntrinsic(
+                        IntrinsicType.SUB,
+                        (resolved_val[0], resolved_val[1] if len(resolved_val) > 1 else {}),
+                    )
 
                 if intrinsic_name == "Join":
                     return IRIntrinsic(IntrinsicType.JOIN, (resolved_val[0], resolved_val[1]))
 
                 if intrinsic_name == "Select":
-                    return IRIntrinsic(IntrinsicType.SELECT, (int(resolved_val[0]), resolved_val[1]))
+                    return IRIntrinsic(
+                        IntrinsicType.SELECT, (int(resolved_val[0]), resolved_val[1])
+                    )
 
                 if intrinsic_name == "GetAZs":
                     return IRIntrinsic(IntrinsicType.GET_AZS, resolved_val if resolved_val else "")
@@ -273,7 +308,10 @@ def _resolve_long_form_intrinsics(value: Any) -> Any:
                     return IRIntrinsic(IntrinsicType.OR, resolved_val)
 
                 if intrinsic_name == "Not":
-                    return IRIntrinsic(IntrinsicType.NOT, resolved_val[0] if isinstance(resolved_val, list) else resolved_val)
+                    return IRIntrinsic(
+                        IntrinsicType.NOT,
+                        resolved_val[0] if isinstance(resolved_val, list) else resolved_val,
+                    )
 
                 if intrinsic_name == "FindInMap":
                     return IRIntrinsic(IntrinsicType.FIND_IN_MAP, tuple(resolved_val[:3]))

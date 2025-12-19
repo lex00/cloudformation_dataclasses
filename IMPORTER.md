@@ -15,8 +15,11 @@ uv pip install cloudformation-dataclasses[importer]
 ## Quick Start
 
 ```bash
-# Convert a template to Python
+# Convert a template to Python (after pip install)
 cfn-import template.yaml -o my_stack.py
+
+# Or if working from source with uv
+uv run cfn-import template.yaml -o my_stack.py
 
 # Read from stdin, write to stdout
 cat template.yaml | cfn-import -

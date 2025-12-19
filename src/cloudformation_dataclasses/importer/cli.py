@@ -30,13 +30,15 @@ def main(argv: list[str] | None = None) -> int:
     )
 
     parser.add_argument(
-        "-o", "--output",
+        "-o",
+        "--output",
         metavar="PATH",
         help="Output file path (default: stdout)",
     )
 
     parser.add_argument(
-        "-m", "--mode",
+        "-m",
+        "--mode",
         choices=["block", "brief", "mixed"],
         default="block",
         help="Output mode: block (declarative classes), brief (imperative), mixed (default: block)",

@@ -12,7 +12,6 @@ from cloudformation_dataclasses.importer.ir import (
     IRMapping,
     IROutput,
     IRParameter,
-    IRProperty,
     IRResource,
     IRTemplate,
 )
@@ -125,6 +124,7 @@ def _analyze_reuse(template: IRTemplate) -> dict[str, int]:
 
 def _tag_class_name(key: str, value: str) -> str:
     """Generate a class name for a tag."""
+
     # Convert key and value to PascalCase
     def to_pascal(s: str) -> str:
         return "".join(word.title() for word in re.sub(r"[^a-zA-Z0-9]", " ", s).split())
@@ -221,18 +221,18 @@ def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str:
     if intrinsic.type == IntrinsicType.SUB:
         ctx.add_intrinsic_import("Sub")
         if isinstance(intrinsic.args, str):
-            return f'Sub({_escape_string(intrinsic.args)})'
+            return f"Sub({_escape_string(intrinsic.args)})"
         template_str, variables = intrinsic.args
         if variables:
             vars_str = _value_to_python(variables, ctx)
-            return f'Sub({_escape_string(template_str)}, {vars_str})'
-        return f'Sub({_escape_string(template_str)})'
+            return f"Sub({_escape_string(template_str)}, {vars_str})"
+        return f"Sub({_escape_string(template_str)})"
 
     if intrinsic.type == IntrinsicType.JOIN:
         ctx.add_intrinsic_import("Join")
         delimiter, values = intrinsic.args
         values_str = _value_to_python(values, ctx)
-        return f'Join({_escape_string(delimiter)}, {values_str})'
+        return f"Join({_escape_string(delimiter)}, {values_str})"
 
     if intrinsic.type == IntrinsicType.SELECT:
         ctx.add_intrinsic_import("Select")
@@ -244,7 +244,7 @@ def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str:
         ctx.add_intrinsic_import("GetAZs")
         region = intrinsic.args
         if region:
-            return f'GetAZs({_escape_string(region)})'
+            return f"GetAZs({_escape_string(region)})"
         return "GetAZs()"
 
     if intrinsic.type == IntrinsicType.IF:
@@ -307,7 +307,7 @@ def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str:
         ctx.add_intrinsic_import("Split")
         delimiter, source = intrinsic.args
         source_str = _value_to_python(source, ctx)
-        return f'Split({_escape_string(delimiter)}, {source_str})'
+        return f"Split({_escape_string(delimiter)}, {source_str})"
 
     if intrinsic.type == IntrinsicType.TRANSFORM:
         ctx.add_intrinsic_import("Transform")
@@ -499,7 +499,7 @@ def _tag_to_python_mixed(tag: dict[str, Any], ctx: CodegenContext) -> str:
     else:
         # Inline the tag
         ctx.add_import("cloudformation_dataclasses.core", "Tag")
-        return f'Tag(key={_escape_string(key)}, value={_escape_string(value)})'
+        return f"Tag(key={_escape_string(key)}, value={_escape_string(value)})"
 
 
 def _is_policy_document(value: dict[str, Any]) -> bool:
@@ -514,9 +514,7 @@ def _is_policy_document(value: dict[str, Any]) -> bool:
 def _is_policy_statement(value: dict[str, Any]) -> bool:
     """Check if a dict looks like an IAM policy statement."""
     return (
-        isinstance(value, dict)
-        and "Effect" in value
-        and value.get("Effect") in ("Allow", "Deny")
+        isinstance(value, dict) and "Effect" in value and value.get("Effect") in ("Allow", "Deny")
     )
 
 
@@ -563,9 +561,10 @@ def _statement_to_python_mixed(stmt: dict[str, Any], ctx: CodegenContext, indent
         return f"PolicyStatement(\n{inner_indent}{args_str},\n{indent_str})"
 
 
-def _policy_document_to_python_mixed(doc: dict[str, Any], ctx: CodegenContext, indent: int = 0) -> str:
+def _policy_document_to_python_mixed(
+    doc: dict[str, Any], ctx: CodegenContext, indent: int = 0
+) -> str:
     """Convert a policy document dict to PolicyDocument code."""
-    indent_str = "    " * indent
     inner_indent = "    " * (indent + 1)
 
     ctx.add_import("cloudformation_dataclasses.core", "PolicyDocument")
@@ -699,7 +698,9 @@ def _generate_template_class(template: IRTemplate, ctx: CodegenContext) -> str:
     # Determine class name from source file
     if template.source_file and template.source_file not in ("<string>", "<stream>"):
         # Extract name from path
-        name = re.sub(r"[^a-zA-Z0-9]", "_", template.source_file.rsplit("/", 1)[-1].rsplit(".", 1)[0])
+        name = re.sub(
+            r"[^a-zA-Z0-9]", "_", template.source_file.rsplit("/", 1)[-1].rsplit(".", 1)[0]
+        )
         name = "".join(word.title() for word in name.split("_"))
         class_name = f"{name}Template"
     else:
@@ -904,7 +905,9 @@ def _generate_imports(ctx: CodegenContext) -> str:
     if ctx.intrinsic_imports:
         sorted_intrinsics = sorted(ctx.intrinsic_imports)
         if len(sorted_intrinsics) <= 3:
-            lines.append(f"from cloudformation_dataclasses.intrinsics import {', '.join(sorted_intrinsics)}")
+            lines.append(
+                f"from cloudformation_dataclasses.intrinsics import {', '.join(sorted_intrinsics)}"
+            )
         else:
             lines.append("from cloudformation_dataclasses.intrinsics import (")
             for name in sorted_intrinsics:
@@ -1036,18 +1039,22 @@ def _generate_block_mode(
     sections.extend(class_sections)
 
     # Build template function
-    sections.append(f"""
+    sections.append(
+        f"""
 def build_template() -> Template:
     \"\"\"Build the CloudFormation template.\"\"\"
-    return {template_class_name}().resource""")
+    return {template_class_name}().resource"""
+    )
 
     # Main block
     if include_main:
-        sections.append("""
+        sections.append(
+            """
 if __name__ == "__main__":
     import json
     template = build_template()
-    print(json.dumps(template.to_dict(), indent=2))""")
+    print(json.dumps(template.to_dict(), indent=2))"""
+        )
 
     return "\n\n\n".join(sections) + "\n"
 
@@ -1086,10 +1093,12 @@ def _generate_brief_mode(
 
     # Main block
     if include_main:
-        sections.append("""
+        sections.append(
+            """
 if __name__ == "__main__":
     import json
-    print(json.dumps(template.to_dict(), indent=2))""")
+    print(json.dumps(template.to_dict(), indent=2))"""
+        )
 
     return "\n\n\n".join(sections) + "\n"
 
@@ -1150,17 +1159,21 @@ def _generate_mixed_mode(
     sections.extend(class_sections)
 
     # Build template function
-    sections.append(f"""
+    sections.append(
+        f"""
 def build_template() -> Template:
     \"\"\"Build the CloudFormation template.\"\"\"
-    return {template_class_name}().resource""")
+    return {template_class_name}().resource"""
+    )
 
     # Main block
     if include_main:
-        sections.append("""
+        sections.append(
+            """
 if __name__ == "__main__":
     import json
     template = build_template()
-    print(json.dumps(template.to_dict(), indent=2))""")
+    print(json.dumps(template.to_dict(), indent=2))"""
+        )
 
     return "\n\n\n".join(sections) + "\n"

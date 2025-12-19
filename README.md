@@ -253,8 +253,11 @@ Convert existing CloudFormation YAML/JSON templates to Python code:
 # Install with importer support
 pip install cloudformation-dataclasses[importer]
 
-# Convert a template
+# Convert a template (after pip install)
 cfn-import template.yaml -o my_stack.py
+
+# Or if working from source with uv
+uv run cfn-import template.yaml -o my_stack.py
 
 # Different output modes
 cfn-import template.yaml --mode block   # Default: declarative classes
