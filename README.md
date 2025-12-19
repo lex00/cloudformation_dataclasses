@@ -51,12 +51,12 @@ pip install -e .
 ```python
 from cloudformation_dataclasses import __version__, print_version_info
 
-print(__version__)  # Package version: 0.3.2
+print(__version__)  # Package version: 0.4.0
 print_version_info()  # Detailed version information
 ```
 
-**Current Release: v0.3.2**
-- Package: `0.3.2`
+**Current Release: v0.4.0**
+- Package: `0.4.0`
 - CloudFormation Spec Date: `2025.12.11` (from AWS Last-Modified header)
 - Generator: `1.0.0`
 - Available Resources: All 262 AWS services (1,502 resource types)

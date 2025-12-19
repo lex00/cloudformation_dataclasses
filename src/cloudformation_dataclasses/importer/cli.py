@@ -4,6 +4,7 @@ import argparse
 import sys
 from pathlib import Path
 
+from cloudformation_dataclasses import __version__
 from cloudformation_dataclasses.importer.codegen import generate_code
 from cloudformation_dataclasses.importer.parser import parse_template
 
@@ -53,7 +54,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--version",
         action="version",
-        version="%(prog)s 0.1.0",
+        version=f"%(prog)s {__version__}",
     )
 
     args = parser.parse_args(argv)
