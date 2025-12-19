@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: S3 bucket with parameter reference
+
+Parameters:
+  BucketNameParam:
+    Type: String
+    Description: Name of the bucket
+    Default: my-default-bucket
+
+Resources:
+  MyBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref BucketNameParam
+
+Outputs:
+  BucketArn:
+    Value: !GetAtt MyBucket.Arn
+    Description: ARN of the bucket

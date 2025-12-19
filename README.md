@@ -243,6 +243,44 @@ class MySpecial:
     naming_pattern = "{resource_name}-{stage}"  # Override context pattern
 ```
 
+## Tools
+
+### Template Importer
+
+Convert existing CloudFormation YAML/JSON templates to Python code:
+
+```bash
+# Install with importer support
+pip install cloudformation-dataclasses[importer]
+
+# Convert a template
+cfn-import template.yaml -o my_stack.py
+
+# Different output modes
+cfn-import template.yaml --mode block   # Default: declarative classes
+cfn-import template.yaml --mode brief   # Imperative style
+cfn-import template.yaml --mode mixed   # Hybrid (inlines tags, policies)
+```
+
+See **[IMPORTER.md](IMPORTER.md)** for full documentation.
+
+### Code Generator
+
+Auto-generate Python classes from AWS CloudFormation specifications:
+
+```bash
+# Regenerate all services from latest spec
+./scripts/regenerate.sh --all
+
+# Regenerate specific service
+./scripts/regenerate.sh S3
+
+# Check for spec updates
+uv run python -m cloudformation_dataclasses.codegen.spec_parser check
+```
+
+See **[GENERATOR.md](GENERATOR.md)** for full documentation.
+
 ## Project Status
 
 🚧 **Alpha** - Under active development
@@ -257,6 +295,7 @@ class MySpecial:
 - ✅ **Complete intrinsic functions** - Ref, GetAtt, Sub, Join, If, Select, Split, etc.
 - ✅ **Template system** - Template, Parameter, Output, Condition, Mapping with validation
 - ✅ **Code generator** - Auto-generate from CloudFormation specs with full serialization
+- ✅ **Template importer** - Convert YAML/JSON templates to Python (block, brief, mixed modes)
 - ✅ **All AWS services** - Complete generation of all 262 AWS services (1,502 resource types)
 - ✅ **Comprehensive test suite** - 128 tests covering framework, intrinsics, wrapper pattern, and S3 integration
 - ✅ **Inline dict support** - Tags and simple properties work with inline dicts
@@ -430,6 +469,8 @@ cloudformation_dataclasses/
 ## Documentation
 
 - **User Guide**: [README.md](README.md) - This file (getting started, examples, usage)
+- **Template Importer**: [IMPORTER.md](IMPORTER.md) - Convert CloudFormation templates to Python
+- **Code Generator**: [GENERATOR.md](GENERATOR.md) - Generate Python classes from AWS specs
 - **Developer Guide**: [DEVELOPERS.md](DEVELOPERS.md) - Building, testing, and publishing
 - **Changelog**: [CHANGELOG.md](CHANGELOG.md) - Version history and release notes
 - **Project Checklist**: [CHECKLIST.md](CHECKLIST.md) - Implementation progress

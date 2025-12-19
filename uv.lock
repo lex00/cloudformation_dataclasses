@@ -117,8 +117,12 @@ dev = [
     { name = "mypy" },
     { name = "pytest" },
     { name = "pytest-cov" },
+    { name = "pyyaml" },
     { name = "requests" },
     { name = "ruff" },
+]
+importer = [
+    { name = "pyyaml" },
 ]
 yaml = [
     { name = "pyyaml" },
@@ -140,11 +144,13 @@ requires-dist = [
     { name = "mypy", marker = "extra == 'dev'", specifier = ">=1.8" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=7.4" },
     { name = "pytest-cov", marker = "extra == 'dev'", specifier = ">=4.1" },
+    { name = "pyyaml", marker = "extra == 'dev'", specifier = ">=6.0" },
+    { name = "pyyaml", marker = "extra == 'importer'", specifier = ">=6.0" },
     { name = "pyyaml", marker = "extra == 'yaml'", specifier = ">=6.0" },
     { name = "requests", marker = "extra == 'dev'", specifier = ">=2.31" },
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.1" },
 ]
-provides-extras = ["yaml", "dev"]
+provides-extras = ["yaml", "importer", "dev"]
 
 [package.metadata.requires-dev]
 dev = [

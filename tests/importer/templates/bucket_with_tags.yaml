@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: S3 buckets with tags for mixed mode testing
+
+Resources:
+  ProdBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: prod-bucket
+      Tags:
+        - Key: Environment
+          Value: Production
+        - Key: Team
+          Value: Platform
+
+  StagingBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: staging-bucket
+      Tags:
+        - Key: Environment
+          Value: Staging
+        - Key: Team
+          Value: Platform
+
+  DevBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: dev-bucket
+      Tags:
+        - Key: Environment
+          Value: Development

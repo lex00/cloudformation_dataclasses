@@ -1,0 +1,38 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Template with various intrinsic functions
+
+Parameters:
+  Environment:
+    Type: String
+    AllowedValues:
+      - dev
+      - prod
+    Default: dev
+
+Conditions:
+  IsProd:
+    !Equals [!Ref Environment, prod]
+
+Resources:
+  MyBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "${AWS::StackName}-${Environment}-bucket"
+      Tags:
+        - Key: Environment
+          Value: !Ref Environment
+
+  MyQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: !Join
+        - "-"
+        - - !Ref AWS::StackName
+          - queue
+      VisibilityTimeout: !If [IsProd, 300, 30]
+
+Outputs:
+  BucketArn:
+    Value: !GetAtt MyBucket.Arn
+  QueueUrl:
+    Value: !Ref MyQueue
