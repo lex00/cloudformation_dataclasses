@@ -9,8 +9,17 @@ from cloudformation_dataclasses.core.base import (
     Tag,
 )
 from cloudformation_dataclasses.core.constants import (
+    ARN_EQUALS,
+    ARN_LIKE,
+    BOOL,
+    IP_ADDRESS,
     NUMBER,
     STRING,
+    STRING_EQUALS,
+    STRING_LIKE,
+    STRING_NOT_EQUALS,
+    STRING_NOT_LIKE,
+    ConditionOperator,
     ParameterType,
 )
 from cloudformation_dataclasses.core.template import (
@@ -27,10 +36,15 @@ from cloudformation_dataclasses.core.wrapper import (
 )
 
 __all__ = [
+    "ARN_EQUALS",
+    "ARN_LIKE",
+    "BOOL",
     "CloudFormationResource",
     "Condition",
+    "ConditionOperator",
     "DenyStatement",
     "DeploymentContext",
+    "IP_ADDRESS",
     "Mapping",
     "NUMBER",
     "Output",
@@ -39,6 +53,10 @@ __all__ = [
     "PolicyDocument",
     "PolicyStatement",
     "STRING",
+    "STRING_EQUALS",
+    "STRING_LIKE",
+    "STRING_NOT_EQUALS",
+    "STRING_NOT_LIKE",
     "Tag",
     "Template",
     "cloudformation_dataclass",
