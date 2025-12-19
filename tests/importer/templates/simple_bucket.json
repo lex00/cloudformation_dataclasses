@@ -1,0 +1,18 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Simple S3 bucket in JSON",
+  "Resources": {
+    "MyBucket": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketName": "my-json-bucket"
+      }
+    }
+  },
+  "Outputs": {
+    "BucketName": {
+      "Value": {"Ref": "MyBucket"},
+      "Description": "Name of the bucket"
+    }
+  }
+}

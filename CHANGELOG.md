@@ -15,6 +15,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.4.0] - 2025-12-18
+
+### Added
+- **CloudFormation Template Importer** (`cfn-import` CLI tool)
+  - Convert existing YAML/JSON CloudFormation templates to Python code
+  - Three output modes:
+    - **Block mode** (default): Declarative wrapper classes with `@cloudformation_dataclass`
+    - **Brief mode**: Imperative style with direct variable assignments
+    - **Mixed mode**: Hybrid approach with intelligent inlining
+  - Mixed mode features:
+    - Tag reuse detection: tags used 2+ times become wrapper classes, unique tags are inlined as `Tag()`
+    - Policy document handling: converts to `PolicyDocument` and `PolicyStatement` classes
+  - Supports all CloudFormation intrinsic functions (!Ref, !GetAtt, !Sub, !Join, !If, etc.)
+  - Topological sorting ensures resources are defined before their dependencies
+  - Supports stdin/stdout for pipeline usage
+- Comprehensive importer documentation ([IMPORTER.md](IMPORTER.md))
+- Importer test suite (71 tests)
+
+### Changed
+- Updated README.md with Tools section for importer and generator
+- Documentation now clarifies `uv run cfn-import` usage for development from source
+
+---
+
 ## [0.3.4] - 2025-12-17
 
 ### Changed
@@ -267,7 +291,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 This project uses three independent versions:
 
-1. **Package Version** (0.3.4) - Semantic versioning for the package
+1. **Package Version** (0.4.0) - Semantic versioning for the package
    - MAJOR: Breaking API changes
    - MINOR: New features, backward compatible
    - PATCH: Bug fixes, backward compatible

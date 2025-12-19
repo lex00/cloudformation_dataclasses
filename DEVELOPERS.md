@@ -310,7 +310,7 @@ The project uses **three independent versions**:
 1. **Package Version** (`pyproject.toml`)
    ```toml
    [project]
-   version = "0.3.2"
+   version = "0.4.0"
    ```
 
 2. **CloudFormation Spec Date** (`config.py`)
@@ -389,22 +389,43 @@ git commit -m "Fix S3 property serialization (generator v1.0.1)"
 
 #### Updating Package Version
 
+When bumping the package version, update these files:
+
+| File | What to Update |
+|------|----------------|
+| `pyproject.toml` | `version = "X.Y.Z"` |
+| `src/cloudformation_dataclasses/__version__.py` | `__version__ = "X.Y.Z"` |
+| `README.md` | Version references in "Check Installed Version" and "Current Release" sections |
+| `CHANGELOG.md` | Add new version section, update version in "Version Numbering" |
+
 ```bash
-# 1. Update version in pyproject.toml
-# version = "0.2.0"
+# 1. Update pyproject.toml
+# [project]
+# version = "0.4.0"
 
-# 2. Update version in __version__.py
-# __version__ = "0.2.0"
+# 2. Update __version__.py
+# __version__ = "0.4.0"
 
-# 3. Update version in __init__.py docstring
-# Package: 0.2.0
+# 3. Update README.md version references
+# - print(__version__)  # Package version: 0.4.0
+# - **Current Release: v0.4.0**
+# - Package: `0.4.0`
 
-# 4. Build and test
+# 4. Update CHANGELOG.md
+# - Add new ## [0.4.0] - YYYY-MM-DD section
+# - Update Package Version example in Version Numbering section
+
+# 5. Build and test
 ./scripts/build.sh
 
-# 5. Commit
-git commit -m "Bump version to 0.2.0"
+# 6. Verify version is correct
+uv run python -c "from cloudformation_dataclasses import __version__; print(__version__)"
+
+# 7. Commit
+git commit -m "Bump version to 0.4.0"
 ```
+
+**Note**: The `cfn-import` CLI automatically uses the version from `__version__.py`, so no separate update is needed there.
 
 ---
 
@@ -677,5 +698,5 @@ uv run python -m cloudformation_dataclasses.codegen.spec_parser version
 
 ---
 
-**Last Updated**: 2025-12-17
-**For**: v0.3.2 (spec-2025.12.11_gen-1.0.0)
+**Last Updated**: 2025-12-18
+**For**: v0.4.0 (spec-2025.12.11_gen-1.0.0)

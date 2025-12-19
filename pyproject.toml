@@ -1,6 +1,6 @@
 [project]
 name = "cloudformation_dataclasses"
-version = "0.3.4"  # Package version (independent of spec/generator versions)
+version = "0.4.0"  # Package version (independent of spec/generator versions)
 description = "Python dataclasses for AWS CloudFormation template synthesis"
 readme = "README.md"
 authors = [
@@ -25,6 +25,9 @@ dependencies = []  # Zero runtime dependencies!
 yaml = [
     "pyyaml>=6.0",  # For YAML template serialization
 ]
+importer = [
+    "pyyaml>=6.0",  # For parsing CloudFormation YAML templates
+]
 dev = [
     # Development/build-time only - NOT shipped with the package
     "mypy>=1.8",
@@ -34,7 +37,11 @@ dev = [
     "black>=23.12",
     "requests>=2.31",  # For downloading CloudFormation specs during codegen
     "botocore>=1.35.0",  # For extracting AWS enum values during codegen
+    "pyyaml>=6.0",  # For importer tests
 ]
+
+[project.scripts]
+cfn-import = "cloudformation_dataclasses.importer.cli:main"
 
 [project.urls]
 Homepage = "https://github.com/lex00/cloudformation_dataclasses"
