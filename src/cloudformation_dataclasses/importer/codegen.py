@@ -9,6 +9,9 @@ from cloudformation_dataclasses.constants import (
     CONDITION_OPERATOR_MAP,
     PARAMETER_TYPE_MAP,
     PSEUDO_PARAMETER_MAP,
+    find_property_type_for_cf_keys,
+    get_property_type_info,
+    resolve_resource_type,
 )
 from cloudformation_dataclasses.importer.ir import (
     IntrinsicType,
@@ -32,53 +35,6 @@ class OutputMode(Enum):
 
 
 # =============================================================================
-# Resource Type Registry
-# =============================================================================
-
-# Map resource types to (module, class_name)
-# This is populated dynamically from aws modules
-_RESOURCE_TYPE_MAP: dict[str, tuple[str, str]] = {}
-
-
-def _build_resource_type_map() -> None:
-    """Build mapping from CloudFormation types to Python classes."""
-    global _RESOURCE_TYPE_MAP
-    if _RESOURCE_TYPE_MAP:
-        return  # Already built
-
-    try:
-        from cloudformation_dataclasses import aws
-
-        for module_name in dir(aws):
-            if module_name.startswith("_"):
-                continue
-            module = getattr(aws, module_name)
-            if not hasattr(module, "__file__"):
-                continue
-
-            for class_name in dir(module):
-                if class_name.startswith("_"):
-                    continue
-                cls = getattr(module, class_name)
-                if hasattr(cls, "resource_type") and isinstance(cls.resource_type, str):
-                    resource_type = cls.resource_type
-                    _RESOURCE_TYPE_MAP[resource_type] = (module_name, class_name)
-    except ImportError:
-        pass  # AWS modules not available
-
-
-def resolve_resource_type(resource_type: str) -> Optional[tuple[str, str]]:
-    """
-    Resolve a CloudFormation resource type to Python module and class.
-
-    Returns:
-        Tuple of (module_name, class_name) or None if unknown
-    """
-    _build_resource_type_map()
-    return _RESOURCE_TYPE_MAP.get(resource_type)
-
-
-# =============================================================================
 # Code Generation Context
 # =============================================================================
 
@@ -99,6 +55,13 @@ class CodegenContext:
 
     # For mixed mode: track reuse counts
     tag_reuse: dict[str, int] = field(default_factory=dict)  # "Key:Value" -> count
+
+    # Current module being generated (for PropertyType resolution)
+    current_module: Optional[str] = None
+
+    # For block mode: collect PropertyType wrapper class definitions
+    # These are generated during resource class generation and inserted before resources
+    property_type_class_defs: list[str] = field(default_factory=list)
 
     def add_import(self, module: str, name: str) -> None:
         """Add an import to track."""
@@ -161,6 +124,308 @@ def _tag_signature(tag: dict[str, Any]) -> str:
 # =============================================================================
 # Value Serialization
 # =============================================================================
+
+# Known enum mappings: (module, enum_class) -> {string_value: constant_name}
+# Used during code generation to convert string literals to enum references
+KNOWN_ENUMS: dict[tuple[str, str], dict[str, str]] = {
+    # S3 enums
+    ("s3", "ServerSideEncryption"): {
+        "AES256": "AES256",
+        "aws:kms": "AWS_KMS",
+        "aws:kms:dsse": "AWS_KMS_DSSE",
+    },
+    ("s3", "BucketVersioningStatus"): {
+        "Enabled": "ENABLED",
+        "Suspended": "SUSPENDED",
+    },
+    ("s3", "ObjectLockEnabled"): {
+        "Enabled": "ENABLED",
+    },
+    ("s3", "ObjectLockMode"): {
+        "COMPLIANCE": "COMPLIANCE",
+        "GOVERNANCE": "GOVERNANCE",
+    },
+    ("s3", "ObjectLockRetentionMode"): {
+        "COMPLIANCE": "COMPLIANCE",
+        "GOVERNANCE": "GOVERNANCE",
+    },
+    ("s3", "ReplicationRuleStatus"): {
+        "Enabled": "ENABLED",
+        "Disabled": "DISABLED",
+    },
+    # DynamoDB enums
+    ("dynamodb", "KeyType"): {
+        "HASH": "HASH",
+        "RANGE": "RANGE",
+    },
+    ("dynamodb", "AttributeType"): {
+        "S": "S",
+        "N": "N",
+        "B": "B",
+    },
+    ("dynamodb", "BillingMode"): {
+        "PROVISIONED": "PROVISIONED",
+        "PAY_PER_REQUEST": "PAY_PER_REQUEST",
+    },
+    ("dynamodb", "ProjectionType"): {
+        "ALL": "ALL",
+        "KEYS_ONLY": "KEYS_ONLY",
+        "INCLUDE": "INCLUDE",
+    },
+    ("dynamodb", "StreamViewType"): {
+        "KEYS_ONLY": "KEYS_ONLY",
+        "NEW_IMAGE": "NEW_IMAGE",
+        "OLD_IMAGE": "OLD_IMAGE",
+        "NEW_AND_OLD_IMAGES": "NEW_AND_OLD_IMAGES",
+    },
+    # Lambda enums
+    ("lambda_", "Runtime"): {
+        "python3.8": "PYTHON3_8",
+        "python3.9": "PYTHON3_9",
+        "python3.10": "PYTHON3_10",
+        "python3.11": "PYTHON3_11",
+        "python3.12": "PYTHON3_12",
+        "python3.13": "PYTHON3_13",
+        "nodejs18.x": "NODEJS18_X",
+        "nodejs20.x": "NODEJS20_X",
+        "nodejs22.x": "NODEJS22_X",
+    },
+}
+
+
+# Known type wrapper names to skip when extracting class names
+_SKIP_TYPE_NAMES = frozenset({
+    "Optional", "Union", "Any", "Ref", "GetAtt", "Sub", "ClassVar",
+    "List", "Dict", "Set", "Tuple", "Callable", "Sequence", "Mapping",
+    "list", "dict", "set", "tuple", "bool", "str", "int", "float",
+})
+
+
+def _extract_class_from_type_hint(type_hint: Optional[str]) -> Optional[str]:
+    """
+    Extract a PropertyType class name from a type annotation string.
+
+    Args:
+        type_hint: Type annotation like "Optional[BucketEncryption]" or
+                   "Optional[list[ServerSideEncryptionRule]]"
+
+    Returns:
+        Class name (e.g., "BucketEncryption") or None if no class found.
+    """
+    if not type_hint:
+        return None
+
+    # Find all PascalCase identifiers in the type hint
+    for match in re.finditer(r"\b([A-Z][a-zA-Z0-9]*)\b", type_hint):
+        class_name = match.group(1)
+        if class_name not in _SKIP_TYPE_NAMES:
+            return class_name
+
+    return None
+
+
+def _extract_enum_from_type_hint(type_hint: str) -> Optional[tuple[str, str]]:
+    """
+    Extract enum class name from a type annotation string.
+
+    Args:
+        type_hint: Type annotation like "Optional[Union[str, ServerSideEncryption, Ref, ...]]"
+
+    Returns:
+        Tuple of (module, enum_class) if found, None otherwise.
+    """
+    # Look for known enum class names in the type hint
+    for (module, enum_class), _ in KNOWN_ENUMS.items():
+        if enum_class in type_hint:
+            return (module, enum_class)
+    return None
+
+
+def _try_convert_to_enum(
+    value: str, type_hint: Optional[str], ctx: CodegenContext
+) -> Optional[str]:
+    """
+    Try to convert a string value to an enum constant reference.
+
+    Args:
+        value: The string value to convert
+        type_hint: Type annotation string (if known)
+        ctx: Code generation context
+
+    Returns:
+        Enum reference string (e.g., "ServerSideEncryption.AES256") or None
+    """
+    if not type_hint:
+        return None
+
+    enum_info = _extract_enum_from_type_hint(type_hint)
+    if not enum_info:
+        return None
+
+    module, enum_class = enum_info
+    enum_values = KNOWN_ENUMS.get((module, enum_class))
+    if not enum_values or value not in enum_values:
+        return None
+
+    const_name = enum_values[value]
+    # Add import
+    full_module = f"cloudformation_dataclasses.aws.{module}"
+    ctx.add_import(full_module, enum_class)
+    return f"{enum_class}.{const_name}"
+
+
+def _value_to_python_typed(
+    value: Any,
+    ctx: CodegenContext,
+    indent: int = 0,
+    expected_type: Optional[str] = None,
+    expected_module: Optional[str] = None,
+    expected_class: Optional[str] = None,
+) -> str:
+    """
+    Convert a value to Python source code, using PropertyType classes when possible.
+
+    Args:
+        value: The value to convert
+        ctx: Code generation context
+        indent: Current indentation level
+        expected_type: Type annotation string (for enum detection)
+        expected_module: Expected module for PropertyType (e.g., "s3")
+        expected_class: Expected PropertyType class name (e.g., "BucketEncryption")
+
+    Returns:
+        Python source code string
+    """
+    indent_str = "    " * indent
+
+    if isinstance(value, IRIntrinsic):
+        return _intrinsic_to_python(value, ctx)
+
+    if value is None:
+        return "None"
+
+    if isinstance(value, bool):
+        return "True" if value else "False"
+
+    if isinstance(value, (int, float)):
+        return str(value)
+
+    if isinstance(value, str):
+        # Try enum conversion if we have type information
+        if expected_type:
+            enum_ref = _try_convert_to_enum(value, expected_type, ctx)
+            if enum_ref:
+                return enum_ref
+        return _escape_string(value)
+
+    if isinstance(value, list):
+        if not value:
+            return "[]"
+
+        # Check if this is a list of PropertyTypes
+        inner_type = None
+        inner_module = None
+        inner_class = None
+        if expected_type:
+            # Extract inner type from list[...] annotation
+            list_match = re.match(r".*list\[(\w+)\].*", expected_type, re.IGNORECASE)
+            if list_match:
+                inner_class = list_match.group(1)
+                # Try to find this PropertyType
+                if expected_module:
+                    info = get_property_type_info(expected_module, inner_class)
+                    if info:
+                        inner_module = expected_module
+
+        items = []
+        for item in value:
+            item_str = _value_to_python_typed(
+                item, ctx, indent + 1,
+                expected_type=inner_type,
+                expected_module=inner_module,
+                expected_class=inner_class,
+            )
+            items.append(item_str)
+
+        if len(items) == 1:
+            return f"[{items[0]}]"
+        inner = f",\n{indent_str}    ".join(items)
+        return f"[\n{indent_str}    {inner},\n{indent_str}]"
+
+    if isinstance(value, dict):
+        if not value:
+            return "{}"
+
+        # Try to match to a PropertyType
+        cf_keys = set(value.keys())
+        module_hint = expected_module or ctx.current_module
+
+        # If we have an expected class, check if it matches
+        property_type_info = None
+        pt_module = None
+        pt_class = None
+
+        if expected_class and expected_module:
+            property_type_info = get_property_type_info(expected_module, expected_class)
+            if property_type_info:
+                pt_module = expected_module
+                pt_class = expected_class
+        else:
+            # Try to find a matching PropertyType
+            match = find_property_type_for_cf_keys(cf_keys, module_hint=module_hint)
+            if match:
+                pt_module, pt_class = match
+                property_type_info = get_property_type_info(pt_module, pt_class)
+
+        if property_type_info and pt_module and pt_class:
+            # Convert to PropertyType constructor
+            cf_to_python = property_type_info["cf_to_python"]
+            field_types = property_type_info["field_types"]
+
+            # Build constructor arguments
+            args = []
+            for cf_key, val in value.items():
+                if cf_key in cf_to_python:
+                    python_field = cf_to_python[cf_key]
+                    field_type = field_types.get(python_field)
+
+                    # Check if field type references another PropertyType
+                    nested_module = None
+                    nested_class = _extract_class_from_type_hint(field_type)
+                    if nested_class:
+                        nested_module = pt_module
+
+                    val_str = _value_to_python_typed(
+                        val, ctx, indent + 1,
+                        expected_type=field_type,
+                        expected_module=nested_module,
+                        expected_class=nested_class,
+                    )
+                    args.append(f"{python_field}={val_str}")
+                else:
+                    # Unknown key - still include it but as-is
+                    val_str = _value_to_python_typed(val, ctx, indent + 1)
+                    args.append(f"# Unknown: {cf_key}={val_str}")
+
+            # Add import for PropertyType
+            full_module = f"cloudformation_dataclasses.aws.{pt_module}"
+            ctx.add_import(full_module, pt_class)
+
+            if len(args) == 1:
+                return f"{pt_class}({args[0]})"
+            inner = f",\n{indent_str}    ".join(args)
+            return f"{pt_class}(\n{indent_str}    {inner},\n{indent_str})"
+
+        # No PropertyType match - fall back to dict
+        items = []
+        for k, v in value.items():
+            key_str = _escape_string(k) if isinstance(k, str) else str(k)
+            val_str = _value_to_python_typed(v, ctx, indent + 1)
+            items.append(f"{key_str}: {val_str}")
+        inner = f",\n{indent_str}    ".join(items)
+        return f"{{\n{indent_str}    {inner},\n{indent_str}}}"
+
+    return repr(value)
 
 
 def _escape_string(s: str) -> str:
@@ -345,6 +610,321 @@ def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str:
 
 
 # =============================================================================
+# Block Mode PropertyType Wrapper Generation
+# =============================================================================
+
+
+def _property_value_to_python_block(
+    value: Any,
+    parent_logical_id: str,
+    property_path: str,
+    expected_type: Optional[str],
+    expected_module: Optional[str],
+    ctx: CodegenContext,
+) -> str:
+    """
+    Convert a property value to Python code in block mode.
+
+    For PropertyTypes: generates separate wrapper class, returns class name.
+    For primitives/enums: returns literal value.
+    For lists of PropertyTypes: returns [WrapperClassName].
+    """
+    if isinstance(value, IRIntrinsic):
+        return _intrinsic_to_python(value, ctx)
+
+    if value is None:
+        return "None"
+
+    if isinstance(value, bool):
+        return "True" if value else "False"
+
+    if isinstance(value, (int, float)):
+        return str(value)
+
+    if isinstance(value, str):
+        # Try enum conversion
+        if expected_type:
+            enum_ref = _try_convert_to_enum(value, expected_type, ctx)
+            if enum_ref:
+                return enum_ref
+        return _escape_string(value)
+
+    if isinstance(value, list):
+        if not value:
+            return "[]"
+
+        # Extract inner type from list[...] annotation
+        inner_class = None
+        if expected_type:
+            list_match = re.match(r".*list\[(\w+)\].*", expected_type, re.IGNORECASE)
+            if list_match:
+                inner_class = list_match.group(1)
+
+        # Check if items are PropertyTypes
+        items = []
+        for i, item in enumerate(value):
+            item_str = _property_value_to_python_block(
+                item,
+                parent_logical_id,
+                f"{property_path}.{i}",
+                f"Optional[{inner_class}]" if inner_class else expected_type,
+                expected_module,
+                ctx,
+            )
+            items.append(item_str)
+
+        if len(items) == 1:
+            return f"[{items[0]}]"
+        return "[" + ", ".join(items) + "]"
+
+    if isinstance(value, dict):
+        # Handle policy documents specially - generate PolicyDocument/PolicyStatement wrappers
+        if _is_policy_document(value):
+            return _generate_policy_document_wrapper_block(
+                value, parent_logical_id, property_path, ctx
+            )
+
+        # Try to match to PropertyType
+        expected_class = _extract_class_from_type_hint(expected_type)
+
+        if expected_class and expected_module:
+            pt_info = get_property_type_info(expected_module, expected_class)
+            if pt_info:
+                # Generate wrapper class, return class name
+                class_name = _generate_property_type_wrapper(
+                    value,
+                    parent_logical_id,
+                    property_path,
+                    expected_module,
+                    expected_class,
+                    ctx,
+                )
+                return class_name
+
+        # Try to find matching PropertyType by keys
+        cf_keys = set(value.keys())
+        match = find_property_type_for_cf_keys(cf_keys, module_hint=expected_module)
+        if match:
+            pt_module, pt_class = match
+            class_name = _generate_property_type_wrapper(
+                value,
+                parent_logical_id,
+                property_path,
+                pt_module,
+                pt_class,
+                ctx,
+            )
+            return class_name
+
+        # Fall back to dict literal
+        return _value_to_python(value, ctx, indent=1)
+
+    return repr(value)
+
+
+def _generate_property_type_wrapper(
+    value: dict[str, Any],
+    parent_logical_id: str,
+    property_path: str,
+    pt_module: str,
+    pt_class: str,
+    ctx: CodegenContext,
+) -> str:
+    """
+    Generate a @cloudformation_dataclass wrapper for a PropertyType value.
+
+    Returns the generated class name.
+    """
+    # Generate class name: {ParentLogicalId}{PropertyTypeName}
+    class_name = f"{parent_logical_id}{pt_class}"
+
+    # Handle name collisions by appending index
+    if class_name in ctx.generated_classes:
+        i = 1
+        while f"{class_name}{i}" in ctx.generated_classes:
+            i += 1
+        class_name = f"{class_name}{i}"
+
+    ctx.generated_classes.add(class_name)
+
+    # Get PropertyType info for field mapping
+    property_type_info = get_property_type_info(pt_module, pt_class)
+    if not property_type_info:
+        # Fallback if no info available - return as dict
+        return _value_to_python(value, ctx, indent=1)
+
+    cf_to_python = property_type_info["cf_to_python"]
+    field_types = property_type_info["field_types"]
+
+    lines = []
+    lines.append(f"    resource: {pt_class}")
+
+    # Add import for PropertyType
+    ctx.add_import(f"cloudformation_dataclasses.aws.{pt_module}", pt_class)
+
+    # Convert each field
+    for cf_key, val in value.items():
+        if cf_key in cf_to_python:
+            python_field = cf_to_python[cf_key]
+            field_type = field_types.get(python_field)
+
+            # Recursively handle nested PropertyTypes
+            val_str = _property_value_to_python_block(
+                val,
+                parent_logical_id,
+                f"{property_path}.{python_field}",
+                field_type,
+                pt_module,
+                ctx,
+            )
+            lines.append(f"    {python_field} = {val_str}")
+        else:
+            # Unknown key - still include it but as comment
+            val_str = _value_to_python(val, ctx, indent=1)
+            lines.append(f"    # Unknown CF key: {cf_key} = {val_str}")
+
+    # Add import for decorator
+    ctx.add_import("cloudformation_dataclasses.core", "cloudformation_dataclass")
+
+    # Store class definition
+    class_def = f"@cloudformation_dataclass\nclass {class_name}:\n" + "\n".join(lines)
+    ctx.property_type_class_defs.append(class_def)
+
+    return class_name
+
+
+def _generate_policy_statement_wrapper_block(
+    stmt: dict[str, Any],
+    parent_logical_id: str,
+    property_path: str,
+    stmt_index: int,
+    ctx: CodegenContext,
+) -> str:
+    """
+    Generate a @cloudformation_dataclass wrapper for a PolicyStatement.
+
+    Returns the generated class name.
+    """
+    # Generate class name based on effect and index
+    effect = stmt.get("Effect", "Allow")
+    base_name = "Deny" if effect == "Deny" else "Allow"
+    class_name = f"{parent_logical_id}{base_name}Statement{stmt_index}"
+
+    # Handle name collisions
+    if class_name in ctx.generated_classes:
+        i = 1
+        while f"{class_name}_{i}" in ctx.generated_classes:
+            i += 1
+        class_name = f"{class_name}_{i}"
+
+    ctx.generated_classes.add(class_name)
+
+    # Add imports
+    if effect == "Deny":
+        ctx.add_import("cloudformation_dataclasses.core", "DenyStatement")
+        base_class = "DenyStatement"
+    else:
+        ctx.add_import("cloudformation_dataclasses.core", "PolicyStatement")
+        base_class = "PolicyStatement"
+    ctx.add_import("cloudformation_dataclasses.core", "cloudformation_dataclass")
+
+    lines = []
+    lines.append(f"    resource: {base_class}")
+
+    # Map statement fields to PolicyStatement attributes
+    # Note: We use _value_to_python here (not _property_value_to_python_block)
+    # because principal/action/resource are plain values, not PropertyTypes
+    if "Sid" in stmt:
+        lines.append(f"    sid = {_escape_string(stmt['Sid'])}")
+
+    if "Principal" in stmt:
+        principal_str = _value_to_python(stmt["Principal"], ctx, indent=1)
+        lines.append(f"    principal = {principal_str}")
+
+    if "Action" in stmt:
+        action_str = _value_to_python(stmt["Action"], ctx, indent=1)
+        lines.append(f"    action = {action_str}")
+
+    if "Resource" in stmt:
+        resource_str = _value_to_python(stmt["Resource"], ctx, indent=1)
+        lines.append(f"    resource_arn = {resource_str}")
+
+    if "Condition" in stmt:
+        condition_str = _condition_to_python(stmt["Condition"], ctx, indent=1)
+        lines.append(f"    condition = {condition_str}")
+
+    # Store class definition
+    class_def = f"@cloudformation_dataclass\nclass {class_name}:\n" + "\n".join(lines)
+    ctx.property_type_class_defs.append(class_def)
+
+    return class_name
+
+
+def _generate_policy_document_wrapper_block(
+    doc: dict[str, Any],
+    parent_logical_id: str,
+    property_path: str,
+    ctx: CodegenContext,
+) -> str:
+    """
+    Generate a @cloudformation_dataclass wrapper for a PolicyDocument.
+
+    Returns the generated class name.
+    """
+    # Generate class name
+    # Convert property_path to PascalCase for class name suffix
+    path_suffix = "".join(word.title() for word in property_path.replace(".", "_").split("_"))
+    class_name = f"{parent_logical_id}{path_suffix}"
+
+    # Handle name collisions
+    if class_name in ctx.generated_classes:
+        i = 1
+        while f"{class_name}{i}" in ctx.generated_classes:
+            i += 1
+        class_name = f"{class_name}{i}"
+
+    ctx.generated_classes.add(class_name)
+
+    # Add imports
+    ctx.add_import("cloudformation_dataclasses.core", "PolicyDocument")
+    ctx.add_import("cloudformation_dataclasses.core", "cloudformation_dataclass")
+
+    lines = []
+    lines.append("    resource: PolicyDocument")
+
+    # Handle version if not default
+    version = doc.get("Version", "2012-10-17")
+    if version != "2012-10-17":
+        lines.append(f"    version = {_escape_string(version)}")
+
+    # Generate wrapper classes for each statement
+    statements = doc.get("Statement", [])
+    if statements:
+        stmt_class_names = []
+        for i, stmt in enumerate(statements):
+            if isinstance(stmt, dict):
+                stmt_class = _generate_policy_statement_wrapper_block(
+                    stmt, parent_logical_id, f"{property_path}.statement.{i}",
+                    i, ctx
+                )
+                stmt_class_names.append(stmt_class)
+            else:
+                # Handle non-dict statements (unlikely but possible)
+                stmt_class_names.append(repr(stmt))
+
+        if len(stmt_class_names) == 1:
+            lines.append(f"    statement = [{stmt_class_names[0]}]")
+        else:
+            lines.append(f"    statement = [{', '.join(stmt_class_names)}]")
+
+    # Store class definition
+    class_def = f"@cloudformation_dataclass\nclass {class_name}:\n" + "\n".join(lines)
+    ctx.property_type_class_defs.append(class_def)
+
+    return class_name
+
+
+# =============================================================================
 # Block Mode Class Generation
 # =============================================================================
 
@@ -408,19 +988,62 @@ def _generate_resource_class(resource: IRResource, ctx: CodegenContext) -> str:
 
     # Resolve resource type
     resolved = resolve_resource_type(resource.resource_type)
+    resource_module = None
+    resource_field_types: dict[str, str] = {}
+
     if resolved:
         module, class_name = resolved
+        resource_module = module
+        ctx.current_module = module
         ctx.add_import(f"cloudformation_dataclasses.aws.{module}", class_name)
         lines.append(f"    resource: {class_name}")
+
+        # Get field type information for this resource class
+        # We need to scan the resource class for _property_mappings and field types
+        try:
+            import cloudformation_dataclasses.aws as aws_pkg
+            from pathlib import Path
+            aws_dir = Path(aws_pkg.__file__).parent
+            py_file = aws_dir / f"{module}.py"
+            if py_file.exists():
+                content = py_file.read_text()
+                # Find the resource class and its field types
+                in_target_class = False
+                brace_depth = 0
+                for line in content.split("\n"):
+                    if f"class {class_name}(" in line:
+                        in_target_class = True
+                        continue
+                    if in_target_class:
+                        if line.startswith("class ") and f"class {class_name}(" not in line:
+                            break  # Hit another class
+                        # Look for field type annotations
+                        field_match = re.match(r"^\s+(\w+):\s*(.+?)\s*(?:=|$)", line)
+                        if field_match:
+                            field_name, type_annotation = field_match.groups()
+                            if not field_name.startswith("_"):
+                                resource_field_types[field_name] = type_annotation
+        except Exception:
+            pass  # Continue without field types
     else:
         # Unknown resource type - use comment
         lines.append(f"    # Unknown resource type: {resource.resource_type}")
         lines.append("    resource: CloudFormationResource")
         ctx.add_import("cloudformation_dataclasses.core", "CloudFormationResource")
 
-    # Properties
+    # Properties - use block mode converter to generate PropertyType wrapper classes
     for prop in resource.properties.values():
-        value_str = _value_to_python(prop.value, ctx, indent=1)
+        # Get the expected type for this property
+        expected_type = resource_field_types.get(prop.python_name)
+
+        value_str = _property_value_to_python_block(
+            prop.value,
+            resource.logical_id,
+            prop.python_name,
+            expected_type,
+            resource_module,
+            ctx,
+        )
         lines.append(f"    {prop.python_name} = {value_str}")
 
     # Resource-level attributes
@@ -1096,10 +1719,19 @@ def _generate_block_mode(
         class_sections.append(_generate_condition_class(condition, ctx))
 
     # Resources (in dependency order)
+    # For each resource, first insert any PropertyType wrappers generated for it,
+    # then the resource class itself. This ensures proper ordering since
+    # PropertyType wrappers may use ref() to reference other resources.
     sorted_resources = _topological_sort(template)
     for resource_id in sorted_resources:
         resource = template.resources[resource_id]
-        class_sections.append(_generate_resource_class(resource, ctx))
+        # Clear PropertyType class defs before generating this resource
+        ctx.property_type_class_defs = []
+        resource_class = _generate_resource_class(resource, ctx)
+        # Add PropertyType wrappers for this resource (generated during resource class generation)
+        class_sections.extend(ctx.property_type_class_defs)
+        # Then add the resource class itself
+        class_sections.append(resource_class)
 
     # Outputs
     for output in template.outputs.values():

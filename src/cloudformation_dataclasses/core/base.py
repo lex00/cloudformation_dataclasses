@@ -109,7 +109,7 @@ class PolicyStatement:
         if self.resource_arn is not None:
             stmt["Resource"] = self._serialize_value(self.resource_arn)
         if self.condition is not None:
-            stmt["Condition"] = self.condition
+            stmt["Condition"] = self._serialize_value(self.condition)
 
         return stmt
 

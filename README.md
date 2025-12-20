@@ -498,6 +498,7 @@ cloudformation_dataclasses/
 - **User Guide**: [README.md](README.md) - This file (getting started, examples, usage)
 - **Template Importer**: [docs/IMPORTER.md](docs/IMPORTER.md) - Convert CloudFormation templates to Python
 - **Linter**: [docs/LINTER.md](docs/LINTER.md) - Detect and fix common mistakes in code
+- **Import Workflow**: [docs/IMPORT_WORKFLOW.md](docs/IMPORT_WORKFLOW.md) - Workflow for importing third-party templates
 - **AI Prompting Guide**: [docs/AI_PROMPTING_GUIDE.md](docs/AI_PROMPTING_GUIDE.md) - Tips for AI assistants
 - **Code Generator**: [docs/GENERATOR.md](docs/GENERATOR.md) - Generate Python classes from AWS specs
 - **Developer Guide**: [docs/DEVELOPERS.md](docs/DEVELOPERS.md) - Building, testing, and publishing

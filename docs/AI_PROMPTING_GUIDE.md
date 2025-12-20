@@ -165,3 +165,21 @@ from cloudformation_dataclasses.aws.lambda_ import:
 - Runtime.PYTHON3_12 / .NODEJS20_X / etc.
 - Architecture.X86_64 / .ARM64
 ```
+
+---
+
+## Importing Third-Party Templates
+
+When importing CloudFormation templates from external sources (AWS examples, GitHub repos, etc.), use the [Import Workflow](IMPORT_WORKFLOW.md) for a structured approach that:
+
+1. Uses the linter to detect and fix type-safe constant opportunities
+2. Discovers missing enums/constants and improves the tools
+3. Creates proper test coverage and documentation
+
+---
+
+## See Also
+
+- [LINTER.md](LINTER.md) - Linter rules and auto-fix capabilities
+- [IMPORTER.md](IMPORTER.md) - cfn-import command usage
+- [IMPORT_WORKFLOW.md](IMPORT_WORKFLOW.md) - Full workflow for third-party templates

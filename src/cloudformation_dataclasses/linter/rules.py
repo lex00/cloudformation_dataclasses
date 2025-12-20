@@ -222,12 +222,18 @@ class RefShouldBePseudoParameter(LintRule):
 class StringShouldBeEnum(LintRule):
     """Detect string literals that should be enum constants.
 
-    This rule works by pattern matching known enum values in assignments.
-    For runtime checking (with type introspection), use the linter's
-    runtime analysis features.
+    This rule works by pattern matching known enum values in assignments,
+    keyword arguments, and dict key-value pairs.
 
-    Detects: sse_algorithm = "AES256"
-    Suggests: sse_algorithm = ServerSideEncryption.AES256
+    Detects:
+    - sse_algorithm = "AES256"
+    - {'SSEAlgorithm': 'AES256'}
+    - {'Status': 'Enabled'}
+
+    Suggests:
+    - sse_algorithm = ServerSideEncryption.AES256
+    - {'SSEAlgorithm': ServerSideEncryption.AES256}
+    - {'Status': BucketVersioningStatus.ENABLED}
 
     Note: This rule uses static analysis with known patterns.
     The linter core can do deeper runtime analysis when the classes are available.
@@ -236,10 +242,10 @@ class StringShouldBeEnum(LintRule):
     rule_id = "CFD004"
     description = "Use enum constants instead of string literals"
 
-    # Known enum patterns: field_name -> (enum_class, {value: constant_name})
-    # This is populated from botocore-generated modules
+    # Known enum patterns: field_name -> (enum_class, module, {value: constant_name})
+    # Keys can be snake_case (Python) or PascalCase (CloudFormation)
     KNOWN_ENUMS: dict[str, tuple[str, str, dict[str, str]]] = {
-        # S3 enums
+        # S3 enums - snake_case keys
         "sse_algorithm": (
             "ServerSideEncryption",
             "cloudformation_dataclasses.aws.s3",
@@ -303,6 +309,73 @@ class StringShouldBeEnum(LintRule):
         ),
     }
 
+    # CloudFormation PascalCase keys -> (enum_class, module, {value: constant_name})
+    # These are used inside dict literals with CloudFormation property names
+    KNOWN_DICT_KEYS: dict[str, tuple[str, str, dict[str, str]]] = {
+        # S3 properties
+        "SSEAlgorithm": (
+            "ServerSideEncryption",
+            "cloudformation_dataclasses.aws.s3",
+            {"AES256": "AES256", "aws:kms": "AWS_KMS", "aws:kms:dsse": "AWS_KMS_DSSE"},
+        ),
+        "Status": (
+            "BucketVersioningStatus",
+            "cloudformation_dataclasses.aws.s3",
+            {"Enabled": "ENABLED", "Suspended": "SUSPENDED"},
+        ),
+        # DynamoDB properties
+        "KeyType": (
+            "KeyType",
+            "cloudformation_dataclasses.aws.dynamodb",
+            {"HASH": "HASH", "RANGE": "RANGE"},
+        ),
+        "AttributeType": (
+            "AttributeType",
+            "cloudformation_dataclasses.aws.dynamodb",
+            {"S": "S", "N": "N", "B": "B"},
+        ),
+        "BillingMode": (
+            "BillingMode",
+            "cloudformation_dataclasses.aws.dynamodb",
+            {"PROVISIONED": "PROVISIONED", "PAY_PER_REQUEST": "PAY_PER_REQUEST"},
+        ),
+        "ProjectionType": (
+            "ProjectionType",
+            "cloudformation_dataclasses.aws.dynamodb",
+            {"ALL": "ALL", "KEYS_ONLY": "KEYS_ONLY", "INCLUDE": "INCLUDE"},
+        ),
+        "StreamViewType": (
+            "StreamViewType",
+            "cloudformation_dataclasses.aws.dynamodb",
+            {
+                "KEYS_ONLY": "KEYS_ONLY",
+                "NEW_IMAGE": "NEW_IMAGE",
+                "OLD_IMAGE": "OLD_IMAGE",
+                "NEW_AND_OLD_IMAGES": "NEW_AND_OLD_IMAGES",
+            },
+        ),
+        # Lambda properties
+        "Runtime": (
+            "Runtime",
+            "cloudformation_dataclasses.aws.lambda_",
+            {
+                "python3.8": "PYTHON3_8",
+                "python3.9": "PYTHON3_9",
+                "python3.10": "PYTHON3_10",
+                "python3.11": "PYTHON3_11",
+                "python3.12": "PYTHON3_12",
+                "nodejs18.x": "NODEJS18_X",
+                "nodejs20.x": "NODEJS20_X",
+            },
+        ),
+        # EC2 / VPC properties
+        "IpProtocol": (
+            "IpProtocol",
+            "cloudformation_dataclasses.core.constants",
+            {"tcp": "TCP", "udp": "UDP", "icmp": "ICMP", "icmpv6": "ICMPV6", "-1": "ALL"},
+        ),
+    }
+
     def check(self, context: LintContext) -> list[LintIssue]:
         issues = []
 
@@ -356,6 +429,32 @@ class StringShouldBeEnum(LintRule):
                                         fix_imports=[import_stmt],
                                     )
                                 )
+
+            # Check dict literals: {'SSEAlgorithm': 'AES256'}
+            if isinstance(node, ast.Dict):
+                for key, val in zip(node.keys, node.values):
+                    if isinstance(key, ast.Constant) and isinstance(key.value, str):
+                        key_str = key.value
+                        if key_str in self.KNOWN_DICT_KEYS:
+                            if isinstance(val, ast.Constant) and isinstance(val.value, str):
+                                value = val.value
+                                enum_class, module, value_map = self.KNOWN_DICT_KEYS[key_str]
+                                if value in value_map:
+                                    const_name = value_map[value]
+                                    suggestion = f"{enum_class}.{const_name}"
+                                    import_stmt = f"from {module} import {enum_class}"
+
+                                    issues.append(
+                                        LintIssue(
+                                            rule_id=self.rule_id,
+                                            message=f"Use {suggestion} instead of '{value}'",
+                                            line=val.lineno,
+                                            column=val.col_offset,
+                                            original=f'"{value}"',
+                                            suggestion=suggestion,
+                                            fix_imports=[import_stmt],
+                                        )
+                                    )
 
         return issues
 
