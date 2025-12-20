@@ -7,7 +7,7 @@ Demonstrates the CloudFormation dataclass pattern with:
 - Declarative wrapper classes for bucket configuration (reusable)
 - IAM policy document with type-safe policy statements
 - Resource references using ref() for cross-resource dependencies
-- Fully declarative template definition
+- Auto-registration with Template.from_registry()
 
 Key pattern: Declarative wrapper classes for clean, reusable infrastructure code.
 """
@@ -18,24 +18,11 @@ from .bucket_policy import MyDataPolicy
 from .context import ctx
 
 
-# =============================================================================
-# Template
-# =============================================================================
-
-
-@cloudformation_dataclass
-class S3BucketTemplate:
-    """
-    S3 bucket with encryption-required policy template.
-
-    Demonstrates fully declarative template definition with:
-    - Resources as class references
-    - Automatic resource naming from deployment context
-    """
-
-    resource: Template
-    description = "S3 bucket with encryption-required policy"
-    resources = [MyData, MyDataPolicy]
+def build_template() -> Template:
+    """Build the S3 bucket template using auto-registered resources."""
+    return Template.from_registry(
+        description="S3 bucket with encryption-required policy",
+    )
 
 
 def main() -> None:
@@ -58,8 +45,8 @@ def main() -> None:
         print(f"  • {tag.key}: {tag.value}")
     print()
 
-    # Generate CloudFormation template (declarative)
-    template = S3BucketTemplate().resource
+    # Generate CloudFormation template using auto-registration
+    template = build_template()
 
     # Validate template
     errors = template.validate()

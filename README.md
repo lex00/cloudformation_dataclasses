@@ -496,6 +496,7 @@ cloudformation_dataclasses/
 ## Documentation
 
 - **User Guide**: [README.md](README.md) - This file (getting started, examples, usage)
+- **Resource Registry**: [docs/REGISTRY.md](docs/REGISTRY.md) - Auto-registration and multi-file organization
 - **Template Importer**: [docs/IMPORTER.md](docs/IMPORTER.md) - Convert CloudFormation templates to Python
 - **Linter**: [docs/LINTER.md](docs/LINTER.md) - Detect and fix common mistakes in code
 - **Import Workflow**: [docs/IMPORT_WORKFLOW.md](docs/IMPORT_WORKFLOW.md) - Workflow for importing third-party templates

@@ -22,6 +22,7 @@ from cloudformation_dataclasses.core.constants import (
     ConditionOperator,
     ParameterType,
 )
+from cloudformation_dataclasses.core.registry import ResourceRegistry, registry
 from cloudformation_dataclasses.core.template import (
     Condition,
     Mapping,
@@ -52,6 +53,7 @@ __all__ = [
     "ParameterType",
     "PolicyDocument",
     "PolicyStatement",
+    "ResourceRegistry",
     "STRING",
     "STRING_EQUALS",
     "STRING_LIKE",
@@ -62,4 +64,5 @@ __all__ = [
     "cloudformation_dataclass",
     "get_att",
     "ref",
+    "registry",
 ]

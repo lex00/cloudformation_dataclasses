@@ -168,12 +168,17 @@ def is_wrapper_dataclass(cls: Type[Any]) -> bool:
         return False
 
 
-def cloudformation_dataclass(maybe_cls: Type[Any] | None = None):
+def cloudformation_dataclass(maybe_cls: Type[Any] | None = None, *, register: bool = True):
     """
     Decorator that enables the CloudFormation dataclass pattern.
 
     This decorator automatically applies @dataclass, so you only need @cloudformation_dataclass.
     It modifies the class so that the 'resource' or 'context' field has a default value.
+
+    Resources are automatically registered with the global registry, enabling:
+    - Multi-file template organization
+    - Type-based queries (e.g., get all DynamoDB tables)
+    - Automatic template building via Template.from_registry()
 
     Usage:
         >>> from cloudformation_dataclasses.core import cloudformation_dataclass
@@ -188,6 +193,9 @@ def cloudformation_dataclass(maybe_cls: Type[Any] | None = None):
 
     Args:
         maybe_cls: The class to wrap (used when decorator is called without parens)
+        register: If True (default), auto-register with global registry.
+                  Only top-level CloudFormation resources are registered
+                  (not PropertyTypes like BucketEncryption).
 
     Returns:
         The decorator function or the modified class
@@ -278,6 +286,20 @@ def cloudformation_dataclass(maybe_cls: Type[Any] | None = None):
 
         # Apply @dataclass decorator
         cls = make_dataclass(cls)
+
+        # Auto-register if requested
+        # Only register top-level CloudFormation resources (not PropertyTypes)
+        if register:
+            from cloudformation_dataclasses.core.registry import registry
+
+            # Get the wrapped resource type
+            wrapped_type = get_wrapped_resource_type(cls)
+            if wrapped_type is not None:
+                # Only register if the wrapped type has a resource_type attribute
+                # This filters out PropertyTypes, PolicyDocument, etc.
+                cf_type = getattr(wrapped_type, "resource_type", None)
+                if cf_type:
+                    registry.register(cls, cf_type)
 
         return cls
 

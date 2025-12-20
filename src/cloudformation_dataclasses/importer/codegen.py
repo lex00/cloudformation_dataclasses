@@ -1374,50 +1374,24 @@ def _generate_resource_class_mixed(resource: IRResource, ctx: CodegenContext) ->
     return f"@cloudformation_dataclass\nclass {resource.logical_id}:\n" + "\n".join(lines)
 
 
-def _generate_template_class(template: IRTemplate, ctx: CodegenContext) -> str:
-    """Generate the main template wrapper class."""
-    lines = []
+def _generate_template_class(template: IRTemplate, ctx: CodegenContext) -> tuple[str, str]:
+    """Generate template build info (description and parameters list).
 
-    # Determine class name from source file
+    Resources are auto-registered via @cloudformation_dataclass, so we use
+    Template.from_registry() instead of generating a template wrapper class.
+    """
+    # Determine template name from source file
     if template.source_file and template.source_file not in ("<string>", "<stream>"):
         # Extract name from path
         name = re.sub(
             r"[^a-zA-Z0-9]", "_", template.source_file.rsplit("/", 1)[-1].rsplit(".", 1)[0]
         )
         name = "".join(word.title() for word in name.split("_"))
-        class_name = f"{name}Template"
+        template_name = f"{name}Template"
     else:
-        class_name = "GeneratedTemplate"
+        template_name = "GeneratedTemplate"
 
-    # Docstring
-    if ctx.include_docstrings and template.description:
-        lines.append(f'    """{template.description}"""')
-        lines.append("")
-
-    ctx.add_import("cloudformation_dataclasses.core", "Template")
-    lines.append("    resource: Template")
-
-    if template.description:
-        lines.append(f"    description = {_escape_string(template.description)}")
-
-    # Parameters
-    if template.parameters:
-        param_list = ", ".join(template.parameters.keys())
-        lines.append(f"    parameters = [{param_list}]")
-
-    # Resources
-    if template.resources:
-        resource_list = ", ".join(template.resources.keys())
-        lines.append(f"    resources = [{resource_list}]")
-
-    # Outputs
-    if template.outputs:
-        output_list = ", ".join(f"{lid}Output" for lid in template.outputs.keys())
-        lines.append(f"    outputs = [{output_list}]")
-
-    ctx.add_import("cloudformation_dataclasses.core", "cloudformation_dataclass")
-
-    return f"@cloudformation_dataclass\nclass {class_name}:\n" + "\n".join(lines), class_name
+    return "", template_name
 
 
 # =============================================================================
@@ -1737,22 +1711,49 @@ def _generate_block_mode(
     for output in template.outputs.values():
         class_sections.append(_generate_output_class(output, ctx))
 
-    # Template class
-    template_class, template_class_name = _generate_template_class(template, ctx)
-    class_sections.append(template_class)
+    # No template wrapper class - resources auto-register via @cloudformation_dataclass
+    # Use Template.from_registry() in build_template()
 
     # Now generate imports
+    ctx.add_import("cloudformation_dataclasses.core", "Template")
     sections.append(_generate_imports(ctx))
 
-    # Add class sections
-    sections.extend(class_sections)
+    # Add class sections (filter out empty strings)
+    sections.extend(s for s in class_sections if s)
 
-    # Build template function
+    # Build template function using Template.from_registry()
+    # Build parameter list if any
+    param_list = ""
+    if template.parameters:
+        param_names = ", ".join(template.parameters.keys())
+        param_list = f"parameters=[{param_names}]"
+
+    # Build output list if any
+    output_list = ""
+    if template.outputs:
+        output_names = ", ".join(f"{lid}Output" for lid in template.outputs.keys())
+        output_list = f"outputs=[{output_names}]"
+
+    # Build the from_registry call
+    args = []
+    if template.description:
+        args.append(f"description={_escape_string(template.description)}")
+    if param_list:
+        args.append(param_list)
+    if output_list:
+        args.append(output_list)
+
+    if args:
+        args_str = ",\n        ".join(args)
+        from_registry_call = f"Template.from_registry(\n        {args_str},\n    )"
+    else:
+        from_registry_call = "Template.from_registry()"
+
     sections.append(
         f"""
 def build_template() -> Template:
     \"\"\"Build the CloudFormation template.\"\"\"
-    return {template_class_name}().resource"""
+    return {from_registry_call}"""
     )
 
     # Main block
@@ -1857,22 +1858,49 @@ def _generate_mixed_mode(
     for output in template.outputs.values():
         class_sections.append(_generate_output_class(output, ctx))
 
-    # Template class
-    template_class, template_class_name = _generate_template_class(template, ctx)
-    class_sections.append(template_class)
+    # No template wrapper class - resources auto-register via @cloudformation_dataclass
+    # Use Template.from_registry() in build_template()
 
     # Now generate imports
+    ctx.add_import("cloudformation_dataclasses.core", "Template")
     sections.append(_generate_imports(ctx))
 
-    # Add class sections
-    sections.extend(class_sections)
+    # Add class sections (filter out empty strings)
+    sections.extend(s for s in class_sections if s)
 
-    # Build template function
+    # Build template function using Template.from_registry()
+    # Build parameter list if any
+    param_list = ""
+    if template.parameters:
+        param_names = ", ".join(template.parameters.keys())
+        param_list = f"parameters=[{param_names}]"
+
+    # Build output list if any
+    output_list = ""
+    if template.outputs:
+        output_names = ", ".join(f"{lid}Output" for lid in template.outputs.keys())
+        output_list = f"outputs=[{output_names}]"
+
+    # Build the from_registry call
+    args = []
+    if template.description:
+        args.append(f"description={_escape_string(template.description)}")
+    if param_list:
+        args.append(param_list)
+    if output_list:
+        args.append(output_list)
+
+    if args:
+        args_str = ",\n        ".join(args)
+        from_registry_call = f"Template.from_registry(\n        {args_str},\n    )"
+    else:
+        from_registry_call = "Template.from_registry()"
+
     sections.append(
         f"""
 def build_template() -> Template:
     \"\"\"Build the CloudFormation template.\"\"\"
-    return {template_class_name}().resource"""
+    return {from_registry_call}"""
     )
 
     # Main block

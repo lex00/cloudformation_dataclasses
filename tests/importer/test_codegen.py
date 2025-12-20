@@ -36,9 +36,11 @@ class TestGenerateSimpleBucket:
         assert "resource: Output" in code
         assert "ref(MyBucket)" in code
 
-    def test_has_template_class(self, code):
-        assert "class SimpleBucketTemplate:" in code
-        assert "resource: Template" in code
+    def test_uses_template_from_registry(self, code):
+        # Template class is no longer generated - resources auto-register
+        # and we use Template.from_registry() to build the template
+        assert "Template.from_registry(" in code
+        assert "class SimpleBucketTemplate:" not in code
 
     def test_has_build_function(self, code):
         assert "def build_template()" in code
