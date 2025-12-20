@@ -17,6 +17,8 @@ from cloudformation_dataclasses.aws.s3 import (
 from cloudformation_dataclasses.core import (
     # Parameter types
     STRING,
+    # Condition operators
+    BOOL,
     # Core constructs
     DenyStatement,
     DeploymentContext,
@@ -48,6 +50,8 @@ __all__ = [
     # Enum constants
     "BucketVersioningStatus",
     "ServerSideEncryption",
+    # Condition operators
+    "BOOL",
     # Core
     "DenyStatement",
     "DeploymentContext",

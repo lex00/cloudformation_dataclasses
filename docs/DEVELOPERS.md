@@ -79,6 +79,12 @@ cloudformation_dataclasses/
 │   │   ├── spec_parser.py              # CloudFormation spec parser
 │   │   ├── botocore_enums.py           # Botocore enum extraction
 │   │   └── generator.py                # AWS resource generator
+│   ├── linter/                         # Linter for detecting/fixing common mistakes
+│   │   ├── __init__.py                 # Public API: lint_code(), fix_code()
+│   │   ├── rules.py                    # Lint rules (CFD001-CFD005)
+│   │   └── introspection.py            # Type introspection utilities
+│   ├── constants/                      # Shared constant mappings
+│   │   └── __init__.py                 # Condition operators, pseudo-params, etc.
 │   ├── aws/                            # Generated AWS resources (262 services)
 │   │   ├── s3.py                       # S3 resources
 │   │   ├── dynamodb.py                 # DynamoDB resources
@@ -228,7 +234,7 @@ The generator combines two data sources to produce type-safe Python modules:
 1. **CloudFormation Resource Specification** - Defines resource types, properties, and structure
 2. **Botocore Service Models** - Provides enum values and property-to-enum mappings
 
-For detailed architecture documentation, see [GENERATOR.md](GENERATOR.md).
+For detailed architecture documentation, see [GENERATOR.md](./GENERATOR.md).
 
 ### CloudFormation Spec Version
 
@@ -691,9 +697,12 @@ uv run python -m cloudformation_dataclasses.codegen.spec_parser version
 
 ## Additional Resources
 
-- **User Guide**: [README.md](README.md) - End-user documentation
-- **Generator Docs**: [GENERATOR.md](GENERATOR.md) - Code generator architecture
-- **Changelog**: [CHANGELOG.md](CHANGELOG.md) - Version history and release notes
+- **User Guide**: [README.md](../README.md) - End-user documentation
+- **Template Importer**: [IMPORTER.md](./IMPORTER.md) - Convert CloudFormation templates to Python
+- **Linter**: [LINTER.md](./LINTER.md) - Detect and fix common mistakes
+- **AI Prompting Guide**: [AI_PROMPTING_GUIDE.md](./AI_PROMPTING_GUIDE.md) - Tips for AI assistants
+- **Generator Docs**: [GENERATOR.md](./GENERATOR.md) - Code generator architecture
+- **Changelog**: [CHANGELOG.md](../CHANGELOG.md) - Version history and release notes
 - **CloudFormation Docs**: https://docs.aws.amazon.com/AWSCloudFormation/
 
 ---

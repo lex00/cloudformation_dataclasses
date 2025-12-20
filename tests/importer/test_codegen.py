@@ -62,7 +62,7 @@ class TestGenerateBucketWithRef:
     def test_has_parameter_class(self, code):
         assert "class BucketNameParam:" in code
         assert "resource: Parameter" in code
-        assert "type = 'String'" in code
+        assert "type = STRING" in code  # Uses constant instead of string
         assert "default = 'my-default-bucket'" in code
 
     def test_has_ref_to_parameter(self, code):
@@ -89,6 +89,10 @@ class TestGenerateIntrinsics:
 
     def test_has_join(self, code):
         assert "Join(" in code
+
+    def test_uses_pseudo_parameter_constant(self, code):
+        # !Ref AWS::StackName should become AWS_STACK_NAME constant
+        assert "AWS_STACK_NAME" in code
 
     def test_has_if(self, code):
         assert "If(" in code
@@ -263,9 +267,17 @@ class TestMixedModeWithPolicies:
     def test_statement_has_condition(self, code):
         assert "condition={" in code
 
+    def test_condition_uses_constant(self, code):
+        # Should use BOOL constant instead of "Bool" string
+        assert "BOOL:" in code
+        assert '"Bool"' not in code
+
     def test_imports_policy_classes(self, code):
         assert "PolicyDocument" in code
         assert "PolicyStatement" in code
+
+    def test_imports_condition_operator(self, code):
+        assert "BOOL" in code
 
     def test_generated_code_is_valid_python(self, code):
         compile(code, "<test>", "exec")

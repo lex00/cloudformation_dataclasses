@@ -40,9 +40,28 @@ Options:
   -o, --output PATH          Output file path (default: stdout)
   -m, --mode MODE            Output mode: block, brief, mixed (default: block)
   --no-main                  Omit if __name__ == '__main__' block
+  --lint                     Run linter on generated code (default: enabled)
+  --no-lint                  Disable linter (output raw generated code)
   --version                  Show version and exit
   --help                     Show this message and exit
 ```
+
+### Linter Integration
+
+By default, the importer runs the linter on generated code to replace string literals with type-safe constants. For example:
+
+- `"Bool"` → `BOOL` (condition operators)
+- `"String"` → `STRING` (parameter types)
+- `Ref("AWS::Region")` → `AWS_REGION` (pseudo-parameters)
+- `"AES256"` → `ServerSideEncryption.AES256` (service enums)
+
+To disable linting and see the raw generated code:
+
+```bash
+cfn-import template.yaml --no-lint -o output.py
+```
+
+See [LINTER.md](./LINTER.md) for more details on the linter.
 
 ### Examples
 
@@ -436,9 +455,10 @@ Defines dataclasses for the parsed template structure:
 
 **codegen.py** - Code Generator
 
-- `generate_code(template, mode="block", include_main=True)` - Main entry point
+- `generate_code(template, mode="block", include_main=True, lint=True)` - Main entry point
 - Supports block, brief, and mixed output modes
 - Handles imports, class generation, and formatting
+- When `lint=True` (default), runs the linter to replace string literals with type-safe constants
 
 **cli.py** - Command Line Interface
 
@@ -610,9 +630,12 @@ Resources:
 """
 template = parse_template(yaml_content, source_name="inline.yaml")
 
-# Generate code
+# Generate code (linter enabled by default)
 code = generate_code(template, mode="block", include_main=True)
 print(code)
+
+# Disable linter to see raw generated code
+code = generate_code(template, mode="block", lint=False)
 
 # Access the IR directly
 for name, resource in template.resources.items():

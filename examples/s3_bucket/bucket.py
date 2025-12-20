@@ -28,7 +28,7 @@ class MyServerSideEncryptionByDefault:
     """AES256 encryption configuration."""
 
     resource: ServerSideEncryptionByDefault
-    sse_algorithm = "AES256"
+    sse_algorithm = ServerSideEncryption.AES256
 
 
 @cloudformation_dataclass

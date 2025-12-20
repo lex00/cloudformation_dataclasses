@@ -30,7 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Supports all CloudFormation intrinsic functions (!Ref, !GetAtt, !Sub, !Join, !If, etc.)
   - Topological sorting ensures resources are defined before their dependencies
   - Supports stdin/stdout for pipeline usage
-- Comprehensive importer documentation ([IMPORTER.md](IMPORTER.md))
+- Comprehensive importer documentation ([docs/IMPORTER.md](docs/IMPORTER.md))
 - Importer test suite (71 tests)
 
 ### Changed
@@ -230,8 +230,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 **Documentation**
 - Comprehensive README with examples
-- Developer guide (DEVELOPERS.md)
-- Project checklist (CHECKLIST.md)
+- Developer guide (docs/DEVELOPERS.md)
+- Project checklist (docs/CHECKLIST.md)
 - S3 bucket example with encryption and policies
 
 **Repository Management**
@@ -350,7 +350,7 @@ Combined version format: `spec-{SPEC_DATE}_gen-{GEN_VERSION}`
 - [PyPI](https://pypi.org/project/cloudformation-dataclasses/)
 - [GitHub](https://github.com/lex00/cloudformation_dataclasses)
 - [Documentation](README.md)
-- [Developer Guide](DEVELOPERS.md)
+- [Developer Guide](docs/DEVELOPERS.md)
 
 ---
 

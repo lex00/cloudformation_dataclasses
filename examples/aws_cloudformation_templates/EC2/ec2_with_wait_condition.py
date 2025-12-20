@@ -12,6 +12,9 @@ Demonstrates:
 
 from . import *  # noqa: F403
 
+from cloudformation_dataclasses.core.constants import IpProtocol
+from cloudformation_dataclasses.core.constants import ParameterType
+
 
 # =============================================================================
 # Parameters
@@ -67,7 +70,7 @@ class ImageId:
     """AMI ID for the instance."""
 
     resource: Parameter
-    type = "AWS::EC2::Image::Id"
+    type = ParameterType.AWS_EC2_IMAGE_ID
     description = "AMI ID for the instance"
 
 
@@ -113,7 +116,7 @@ class HTTPIngress:
     """Ingress rule for HTTP access."""
 
     resource: Ingress
-    ip_protocol = "tcp"
+    ip_protocol = IpProtocol.TCP
     from_port = 80
     to_port = 80
     cidr_ip = "0.0.0.0/0"
@@ -124,7 +127,7 @@ class HTTPSIngress:
     """Ingress rule for HTTPS access."""
 
     resource: Ingress
-    ip_protocol = "tcp"
+    ip_protocol = IpProtocol.TCP
     from_port = 443
     to_port = 443
     cidr_ip = "0.0.0.0/0"
@@ -135,7 +138,7 @@ class ICMPIngress:
     """Ingress rule for ICMP (ping) access."""
 
     resource: Ingress
-    ip_protocol = "icmp"
+    ip_protocol = IpProtocol.ICMP
     from_port = -1
     to_port = -1
     cidr_ip = "0.0.0.0/0"
@@ -146,7 +149,7 @@ class SSHIngress:
     """Ingress rule for SSH access."""
 
     resource: Ingress
-    ip_protocol = "tcp"
+    ip_protocol = IpProtocol.TCP
     from_port = 22
     to_port = 22
     cidr_ip = ref(SSHLocation)

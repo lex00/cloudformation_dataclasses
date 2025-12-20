@@ -51,6 +51,21 @@ def main(argv: list[str] | None = None) -> int:
         help="Omit if __name__ == '__main__' block",
     )
 
+    lint_group = parser.add_mutually_exclusive_group()
+    lint_group.add_argument(
+        "--lint",
+        action="store_true",
+        dest="lint",
+        default=True,
+        help="Run linter on generated code to use type-safe constants (default: enabled)",
+    )
+    lint_group.add_argument(
+        "--no-lint",
+        action="store_false",
+        dest="lint",
+        help="Disable linter (output raw generated code)",
+    )
+
     parser.add_argument(
         "--version",
         action="version",
@@ -72,7 +87,9 @@ def main(argv: list[str] | None = None) -> int:
             template = parse_template(input_path)
 
         # Generate code
-        code = generate_code(template, mode=args.mode, include_main=not args.no_main)
+        code = generate_code(
+            template, mode=args.mode, include_main=not args.no_main, lint=args.lint
+        )
 
         # Output
         if args.output:

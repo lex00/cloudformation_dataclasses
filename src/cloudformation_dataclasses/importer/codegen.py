@@ -5,6 +5,11 @@ from dataclasses import dataclass, field
 from enum import Enum
 from typing import Any, Literal, Optional
 
+from cloudformation_dataclasses.constants import (
+    CONDITION_OPERATOR_MAP,
+    PARAMETER_TYPE_MAP,
+    PSEUDO_PARAMETER_MAP,
+)
 from cloudformation_dataclasses.importer.ir import (
     IntrinsicType,
     IRCondition,
@@ -103,6 +108,22 @@ class CodegenContext:
         """Add an intrinsic function import."""
         self.intrinsic_imports.add(name)
 
+    def add_condition_operator_import(self, const_name: str) -> None:
+        """Add a condition operator constant import."""
+        if const_name.startswith("ConditionOperator."):
+            self.add_import("cloudformation_dataclasses.core", "ConditionOperator")
+        else:
+            # It's an alias like STRING_EQUALS, BOOL, etc.
+            self.add_import("cloudformation_dataclasses.core", const_name)
+
+    def add_parameter_type_import(self, const_name: str) -> None:
+        """Add a parameter type constant import."""
+        if const_name.startswith("ParameterType."):
+            self.add_import("cloudformation_dataclasses.core", "ParameterType")
+        else:
+            # It's an alias like STRING, NUMBER
+            self.add_import("cloudformation_dataclasses.core", const_name)
+
 
 def _analyze_reuse(template: IRTemplate) -> dict[str, int]:
     """Analyze tag reuse for mixed mode decisions."""
@@ -200,7 +221,12 @@ def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str:
         target = intrinsic.args
         # Check if it's a parameter, resource, or pseudo-parameter
         if target.startswith("AWS::"):
-            # Pseudo-parameter
+            # Pseudo-parameter - use constant if available
+            if target in PSEUDO_PARAMETER_MAP:
+                const_name = PSEUDO_PARAMETER_MAP[target]
+                ctx.add_intrinsic_import(const_name)
+                return const_name
+            # Unknown pseudo-parameter
             ctx.add_intrinsic_import("Ref")
             return f'Ref("{target}")'
         if target in ctx.template.parameters:
@@ -336,8 +362,13 @@ def _generate_parameter_class(param: IRParameter, ctx: CodegenContext) -> str:
     ctx.add_import("cloudformation_dataclasses.core", "Parameter")
     lines.append("    resource: Parameter")
 
-    # Type
-    lines.append(f"    type = {_escape_string(param.type)}")
+    # Type - use constant if available
+    if param.type in PARAMETER_TYPE_MAP:
+        const_name = PARAMETER_TYPE_MAP[param.type]
+        ctx.add_parameter_type_import(const_name)
+        lines.append(f"    type = {const_name}")
+    else:
+        lines.append(f"    type = {_escape_string(param.type)}")
 
     # Optional fields
     if param.description:
@@ -518,6 +549,35 @@ def _is_policy_statement(value: dict[str, Any]) -> bool:
     )
 
 
+def _condition_to_python(
+    condition: dict[str, Any], ctx: CodegenContext, indent: int = 0
+) -> str:
+    """Convert a policy condition dict to Python code with operator constants.
+
+    Transforms: {"Bool": {"key": "value"}} -> {BOOL: {"key": "value"}}
+    """
+    indent_str = "    " * indent
+
+    if not condition:
+        return "{}"
+
+    items = []
+    for operator, conditions in condition.items():
+        # Use constant if available, otherwise string
+        if operator in CONDITION_OPERATOR_MAP:
+            const_name = CONDITION_OPERATOR_MAP[operator]
+            ctx.add_condition_operator_import(const_name)
+            key_str = const_name
+        else:
+            key_str = _escape_string(operator)
+
+        val_str = _value_to_python_mixed(conditions, ctx, indent + 1)
+        items.append(f"{key_str}: {val_str}")
+
+    inner = f",\n{indent_str}    ".join(items)
+    return f"{{\n{indent_str}    {inner},\n{indent_str}}}"
+
+
 def _statement_to_python_mixed(stmt: dict[str, Any], ctx: CodegenContext, indent: int = 0) -> str:
     """Convert a policy statement dict to PolicyStatement code."""
     indent_str = "    " * indent
@@ -551,7 +611,7 @@ def _statement_to_python_mixed(stmt: dict[str, Any], ctx: CodegenContext, indent
 
     if "Condition" in stmt:
         condition = stmt["Condition"]
-        condition_str = _value_to_python_mixed(condition, ctx, indent + 1)
+        condition_str = _condition_to_python(condition, ctx, indent + 1)
         args.append(f"condition={condition_str}")
 
     if len(args) <= 2:
@@ -747,7 +807,13 @@ def _generate_parameter_imperative(param: IRParameter, ctx: CodegenContext) -> s
     ctx.add_import("cloudformation_dataclasses.core", "Parameter")
 
     args = [f'logical_id="{param.logical_id}"']
-    args.append(f"type={_escape_string(param.type)}")
+    # Type - use constant if available
+    if param.type in PARAMETER_TYPE_MAP:
+        const_name = PARAMETER_TYPE_MAP[param.type]
+        ctx.add_parameter_type_import(const_name)
+        args.append(f"type={const_name}")
+    else:
+        args.append(f"type={_escape_string(param.type)}")
 
     if param.description:
         args.append(f"description={_escape_string(param.description)}")
@@ -954,6 +1020,7 @@ def generate_code(
     template: IRTemplate,
     mode: Literal["block", "brief", "mixed"] = "block",
     include_main: bool = True,
+    lint: bool = True,
 ) -> str:
     """
     Generate Python code from analyzed IR.
@@ -962,6 +1029,8 @@ def generate_code(
         template: Parsed IRTemplate
         mode: Output mode - "block" (declarative), "brief" (imperative), or "mixed"
         include_main: Include if __name__ == "__main__" block
+        lint: Run linter on generated code to apply fixes (default: True).
+              This catches any string literals that should use type-safe constants.
 
     Returns:
         Complete Python module source code
@@ -990,11 +1059,19 @@ def generate_code(
         sections.append('"""Generated by cfn-import."""')
 
     if output_mode == OutputMode.BRIEF:
-        return _generate_brief_mode(template, ctx, sections, include_main)
+        code = _generate_brief_mode(template, ctx, sections, include_main)
     elif output_mode == OutputMode.MIXED:
-        return _generate_mixed_mode(template, ctx, sections, include_main)
+        code = _generate_mixed_mode(template, ctx, sections, include_main)
     else:
-        return _generate_block_mode(template, ctx, sections, include_main)
+        code = _generate_block_mode(template, ctx, sections, include_main)
+
+    # Optionally run linter to fix any remaining issues
+    if lint:
+        from cloudformation_dataclasses.linter import fix_code
+
+        code = fix_code(code, add_imports=True)
+
+    return code
 
 
 def _generate_block_mode(

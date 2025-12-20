@@ -101,10 +101,12 @@ class ProdDeploymentContext:
 ctx = ProdDeploymentContext()
 
 # bucket.py - Nested encryption configuration using wrapper dataclasses
+from cloudformation_dataclasses.aws.s3 import ServerSideEncryption
+
 @cloudformation_dataclass
 class MyServerSideEncryptionByDefault:
     resource: ServerSideEncryptionByDefault
-    sse_algorithm = "AES256"
+    sse_algorithm = ServerSideEncryption.AES256  # Use enum constant instead of string
 
 @cloudformation_dataclass
 class MyServerSideEncryptionRule:
@@ -265,7 +267,28 @@ cfn-import template.yaml --mode brief   # Imperative style
 cfn-import template.yaml --mode mixed   # Hybrid (inlines tags, policies)
 ```
 
-See **[IMPORTER.md](IMPORTER.md)** for full documentation.
+See **[docs/IMPORTER.md](docs/IMPORTER.md)** for full documentation.
+
+### Linter
+
+Detect and fix common mistakes in cloudformation_dataclasses code:
+
+```python
+from cloudformation_dataclasses.linter import lint_code, fix_code
+
+# Detect issues
+issues = lint_code('''
+    sse_algorithm = "AES256"  # Should be ServerSideEncryption.AES256
+    condition = {"Bool": {"key": "value"}}  # Should be {BOOL: ...}
+''')
+for issue in issues:
+    print(f"{issue.line}: {issue.message}")
+
+# Auto-fix code
+fixed = fix_code(code)  # Adds proper constants and imports
+```
+
+The linter is integrated with `cfn-import` and runs automatically by default. See **[docs/LINTER.md](docs/LINTER.md)** for full documentation.
 
 ### Code Generator
 
@@ -282,7 +305,7 @@ Auto-generate Python classes from AWS CloudFormation specifications:
 uv run python -m cloudformation_dataclasses.codegen.spec_parser check
 ```
 
-See **[GENERATOR.md](GENERATOR.md)** for full documentation.
+See **[docs/GENERATOR.md](docs/GENERATOR.md)** for full documentation.
 
 ## Project Status
 
@@ -299,6 +322,7 @@ See **[GENERATOR.md](GENERATOR.md)** for full documentation.
 - ✅ **Template system** - Template, Parameter, Output, Condition, Mapping with validation
 - ✅ **Code generator** - Auto-generate from CloudFormation specs with full serialization
 - ✅ **Template importer** - Convert YAML/JSON templates to Python (block, brief, mixed modes)
+- ✅ **Linter** - Detect and fix common mistakes (string literals → type-safe constants)
 - ✅ **All AWS services** - Complete generation of all 262 AWS services (1,502 resource types)
 - ✅ **Comprehensive test suite** - 128 tests covering framework, intrinsics, wrapper pattern, and S3 integration
 - ✅ **Inline dict support** - Tags and simple properties work with inline dicts
@@ -460,7 +484,7 @@ cloudformation_dataclasses/
 │   └── aws/               # Generated resources
 ├── tests/                 # Framework validation tests
 ├── examples/              # Usage examples with focused tests
-├── CLAUDE.md              # Development guide
+├── docs/                  # Documentation
 └── README.md              # This file
 ```
 
@@ -472,11 +496,13 @@ cloudformation_dataclasses/
 ## Documentation
 
 - **User Guide**: [README.md](README.md) - This file (getting started, examples, usage)
-- **Template Importer**: [IMPORTER.md](IMPORTER.md) - Convert CloudFormation templates to Python
-- **Code Generator**: [GENERATOR.md](GENERATOR.md) - Generate Python classes from AWS specs
-- **Developer Guide**: [DEVELOPERS.md](DEVELOPERS.md) - Building, testing, and publishing
+- **Template Importer**: [docs/IMPORTER.md](docs/IMPORTER.md) - Convert CloudFormation templates to Python
+- **Linter**: [docs/LINTER.md](docs/LINTER.md) - Detect and fix common mistakes in code
+- **AI Prompting Guide**: [docs/AI_PROMPTING_GUIDE.md](docs/AI_PROMPTING_GUIDE.md) - Tips for AI assistants
+- **Code Generator**: [docs/GENERATOR.md](docs/GENERATOR.md) - Generate Python classes from AWS specs
+- **Developer Guide**: [docs/DEVELOPERS.md](docs/DEVELOPERS.md) - Building, testing, and publishing
 - **Changelog**: [CHANGELOG.md](CHANGELOG.md) - Version history and release notes
-- **Project Checklist**: [CHECKLIST.md](CHECKLIST.md) - Implementation progress
+- **Project Checklist**: [docs/CHECKLIST.md](docs/CHECKLIST.md) - Implementation progress
 - **CloudFormation Spec**: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification.html
 
 ## License

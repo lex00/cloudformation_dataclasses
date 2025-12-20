@@ -95,7 +95,7 @@ class AES256Encryption:
     """AES256 server-side encryption configuration."""
 
     resource: ServerSideEncryptionByDefault
-    sse_algorithm = "AES256"
+    sse_algorithm = ServerSideEncryption.AES256
 
 
 @cloudformation_dataclass
@@ -213,7 +213,7 @@ class DenyNonHttpsStatement:
     action = "s3:*"
     resource_arn = [bucket_arn(), bucket_objects_arn()]
     principal = "*"
-    condition = {"Bool": {"aws:SecureTransport": "false"}}
+    condition = {BOOL: {"aws:SecureTransport": "false"}}
 
 
 # =============================================================================

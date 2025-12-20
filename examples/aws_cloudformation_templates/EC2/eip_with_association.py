@@ -11,6 +11,8 @@ Demonstrates:
 
 from . import *  # noqa: F403
 
+from cloudformation_dataclasses.core.constants import IpProtocol
+
 
 # =============================================================================
 # Parameters
@@ -94,7 +96,7 @@ class SSHIngress:
     """Ingress rule for SSH access."""
 
     resource: Ingress
-    ip_protocol = "tcp"
+    ip_protocol = IpProtocol.TCP
     from_port = 22
     to_port = 22
     cidr_ip = ref(SSHLocation)
