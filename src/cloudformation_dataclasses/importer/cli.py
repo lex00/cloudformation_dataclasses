@@ -5,10 +5,13 @@ from __future__ import annotations
 import argparse
 import logging
 import re
+import shutil
 import sys
 from dataclasses import dataclass
 from importlib import resources
 from pathlib import Path
+
+from cloudformation_dataclasses.importer.ir import IRTemplate
 
 from cloudformation_dataclasses import __version__
 from cloudformation_dataclasses.importer.codegen import generate_code, generate_package
@@ -24,43 +27,105 @@ class Attribution:
     license_type: str | None = None
 
 
-def detect_attribution(source_dir: Path) -> Attribution:
-    """Check source folder for README/LICENSE and extract attribution info."""
-    readme = source_dir / "README.md"
-    license_file = source_dir / "LICENSE"
+def _get_git_remote_url(git_dir: Path) -> str | None:
+    """Extract origin URL from .git/config file."""
+    config_file = git_dir / "config"
+    if not config_file.exists():
+        return None
 
+    try:
+        content = config_file.read_text()
+        # Look for [remote "origin"] section and extract url
+        in_origin = False
+        for line in content.splitlines():
+            if line.strip() == '[remote "origin"]':
+                in_origin = True
+            elif line.startswith("[") and in_origin:
+                break
+            elif in_origin and line.strip().startswith("url ="):
+                url = line.split("=", 1)[1].strip()
+                # Convert git@ URLs to https://
+                if url.startswith("git@github.com:"):
+                    url = url.replace("git@github.com:", "https://github.com/")
+                elif url.startswith("git@gitlab.com:"):
+                    url = url.replace("git@gitlab.com:", "https://gitlab.com/")
+                # Remove .git suffix
+                if url.endswith(".git"):
+                    url = url[:-4]
+                return url
+    except Exception:
+        pass
+    return None
+
+
+def detect_attribution(source_dir: Path) -> Attribution:
+    """Check source folder (and parent directories) for .git/README/LICENSE.
+
+    Walks up the directory tree to find attribution files, stopping at
+    the first directory that contains a .git folder, README.md, or LICENSE.
+    Git remote origin takes priority over URLs found in README.
+    """
     source_url = None
     project_name = None
     license_type = None
 
-    if readme.exists():
-        content = readme.read_text()
-        # Extract GitHub/GitLab URL
-        url_match = re.search(
-            r"https?://(?:github|gitlab)\.com/[^\s\)\]]+", content
-        )
-        if url_match:
-            source_url = url_match.group(0).rstrip("/.")
+    # Walk up directory tree to find .git/README/LICENSE (up to 5 levels)
+    current = source_dir.resolve()
+    for _ in range(5):
+        readme = current / "README.md"
+        git_dir = current / ".git"
 
-        # Try to extract project name from first heading
-        heading_match = re.search(r"^#\s+(.+)$", content, re.MULTILINE)
-        if heading_match:
-            project_name = heading_match.group(1).strip()
+        # Check for LICENSE with various extensions
+        license_file = None
+        for name in ("LICENSE", "LICENSE.txt", "LICENSE.md"):
+            candidate = current / name
+            if candidate.exists():
+                license_file = candidate
+                break
 
-    if license_file.exists():
-        content = license_file.read_text()
-        # Detect common license types
-        if "Apache License" in content and "Version 2.0" in content:
-            license_type = "Apache-2.0"
-        elif "MIT License" in content or "Permission is hereby granted, free of charge" in content:
-            license_type = "MIT"
-        elif "GNU GENERAL PUBLIC LICENSE" in content:
-            if "Version 3" in content:
-                license_type = "GPL-3.0"
-            elif "Version 2" in content:
-                license_type = "GPL-2.0"
-        elif "BSD" in content:
-            license_type = "BSD"
+        # Git remote origin takes priority for source URL
+        if git_dir.exists():
+            source_url = _get_git_remote_url(git_dir)
+
+        if readme.exists():
+            content = readme.read_text()
+            # Only use README URL if no git remote found
+            if not source_url:
+                url_match = re.search(
+                    r"https?://(?:github|gitlab)\.com/[^\s\)\]]+", content
+                )
+                if url_match:
+                    source_url = url_match.group(0).rstrip("/.")
+
+            # Try to extract project name from first heading
+            heading_match = re.search(r"^#\s+(.+)$", content, re.MULTILINE)
+            if heading_match:
+                project_name = heading_match.group(1).strip()
+
+        if license_file:
+            content = license_file.read_text()
+            # Detect common license types
+            if "Apache License" in content and "Version 2.0" in content:
+                license_type = "Apache-2.0"
+            elif "MIT License" in content or "Permission is hereby granted, free of charge" in content:
+                license_type = "MIT"
+            elif "GNU GENERAL PUBLIC LICENSE" in content:
+                if "Version 3" in content:
+                    license_type = "GPL-3.0"
+                elif "Version 2" in content:
+                    license_type = "GPL-2.0"
+            elif "BSD" in content:
+                license_type = "BSD"
+
+        # If we found any attribution info, stop walking up
+        if source_url or project_name or license_type:
+            break
+
+        # Move to parent directory
+        parent = current.parent
+        if parent == current:  # Reached filesystem root
+            break
+        current = parent
 
     return Attribution(
         source_url=source_url,
@@ -255,23 +320,25 @@ def run_single_import(
             template = parse_template(input_path)
 
         if use_package:
-            # Generate package (multiple files)
-            files = generate_package(template)
-
             # Write files to output directory
             assert output_arg is not None  # Guaranteed by use_package logic above
             output_dir = Path(output_arg)
             output_dir.mkdir(parents=True, exist_ok=True)
 
+            # Get project name from output directory (used for nested package structure)
+            project_name = output_dir.name
+
+            # Generate package (multiple files) with nested structure
+            files = generate_package(template, package_name=project_name)
+
             for filename, file_content in files.items():
                 file_path = output_dir / filename
-                # Create parent directories if needed (e.g., for resources/foo.py)
+                # Create parent directories if needed (e.g., for package_name/resources/foo.py)
                 file_path.parent.mkdir(parents=True, exist_ok=True)
                 file_path.write_text(file_content)
                 log(f"Generated: {file_path}")
 
             # Generate IDE support files from shared package templates
-            project_name = output_dir.name
             variables = {
                 "project_name": project_name,
                 "ProjectName": _to_pascal_case(project_name),
@@ -285,16 +352,33 @@ def run_single_import(
             for file_path in ide_files:
                 log(f"Generated: {file_path}")
 
-            # Generate README with attribution if provided
-            if attribution and (attribution.source_url or attribution.project_name):
-                readme_path = output_dir / "README.md"
-                readme_content = _generate_readme_with_attribution(
-                    project_name=project_name,
-                    source_file=Path(input_arg).name if input_arg != "-" else "template",
-                    attribution=attribution,
-                )
-                readme_path.write_text(readme_content)
-                log(f"Generated: {readme_path}")
+            # Copy original template to original/ subfolder
+            if input_arg != "-":
+                original_dir = output_dir / "original"
+                original_dir.mkdir(exist_ok=True)
+                shutil.copy(input_path, original_dir / input_path.name)
+                log(f"Generated: {original_dir / input_path.name}")
+
+            # Always generate README with resource table
+            source_file = Path(input_arg).name if input_arg != "-" else "template"
+            readme_path = output_dir / "README.md"
+            readme_content = _generate_readme(
+                project_name=project_name,
+                source_file=source_file,
+                template=template,
+                attribution=attribution,
+            )
+            readme_path.write_text(readme_content)
+            log(f"Generated: {readme_path}")
+
+            # Generate test files
+            if not skip_checks:
+                test_files = _generate_tests(project_name, template)
+                for test_filename, test_content in test_files.items():
+                    test_path = output_dir / test_filename
+                    test_path.parent.mkdir(parents=True, exist_ok=True)
+                    test_path.write_text(test_content)
+                    log(f"Generated: {test_path}")
 
         else:
             # Generate single file
@@ -327,45 +411,118 @@ def run_single_import(
         return 1
 
 
-def _generate_readme_with_attribution(
+def _generate_readme(
     project_name: str,
     source_file: str,
-    attribution: Attribution,
+    template: IRTemplate,
+    attribution: Attribution | None = None,
 ) -> str:
-    """Generate README.md with attribution info."""
+    """Generate README.md with resource table and optional attribution."""
     lines = [f"# {_to_pascal_case(project_name)}", ""]
 
     # Attribution section
-    if attribution.source_url:
+    if attribution and attribution.source_url:
         lines.append(f"Migrated from [{source_file}]({attribution.source_url}).")
     else:
         lines.append(f"Imported from `{source_file}`.")
     lines.append("")
 
-    if attribution.project_name:
-        lines.append(f"**Source**: {attribution.project_name}")
-    if attribution.license_type:
-        lines.append(f"**License**: {attribution.license_type}")
-    if attribution.project_name or attribution.license_type:
-        lines.append("")
+    if attribution:
+        if attribution.project_name:
+            lines.append(f"**Source**: {attribution.project_name}")
+        if attribution.license_type:
+            lines.append(f"**License**: {attribution.license_type}")
+        if attribution.project_name or attribution.license_type:
+            lines.append("")
 
     # Usage section
     lines.extend([
-        "## Run Tests",
+        "**Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**",
+        "",
+        "## Usage",
+        "",
+        "This is a portable Python package. You can copy this folder into another",
+        "project and use it directly.",
+        "",
+        "### Run Tests",
         "",
         "```bash",
-        f"uv run pytest {project_name}/tests/ -v",
+        "uv run pytest tests/ -v",
         "```",
         "",
-        "## Generate Template",
+        "### Generate Template",
         "",
         "```bash",
-        f"uv run python -m {project_name}.main",
+        f"uv run python -m {project_name}",
+        "```",
+        "",
+        "### Install as Dependency",
+        "",
+        "```bash",
+        "pip install .",
         "```",
         "",
     ])
 
+    # Resource table
+    if template.resources:
+        lines.extend([
+            "## Resources",
+            "",
+            "| Logical ID | Type |",
+            "|------------|------|",
+        ])
+        for name, resource in template.resources.items():
+            lines.append(f"| `{name}` | {resource.resource_type} |")
+        lines.append("")
+
     return "\n".join(lines)
+
+
+def _generate_tests(
+    project_name: str,
+    template: IRTemplate,
+) -> dict[str, str]:
+    """Generate test files for the package.
+
+    Returns:
+        Dictionary of filename -> content for test files.
+    """
+    pascal_name = _to_pascal_case(project_name)
+    resource_count = len(template.resources)
+
+    init_content = f'"""Tests for {project_name} example."""\n'
+
+    test_content = f'''"""Tests for {project_name} example."""
+
+import pytest
+
+from {project_name}.main import build_template
+
+
+class Test{pascal_name}:
+    """Test {project_name} example."""
+
+    @pytest.fixture
+    def template(self):
+        """Build template."""
+        return build_template()
+
+    def test_validates(self, template):
+        """Template should pass validation."""
+        errors = template.validate()
+        assert errors == [], f"Validation errors: {{errors}}"
+
+    def test_resource_count(self, template):
+        """Verify expected number of resources."""
+        output = template.to_dict()
+        assert len(output["Resources"]) == {resource_count}
+'''
+
+    return {
+        "tests/__init__.py": init_content,
+        f"tests/test_{project_name}.py": test_content,
+    }
 
 
 def run_batch_import(
@@ -393,6 +550,13 @@ def run_batch_import(
         t for t in templates
         if t.suffix in (".yaml", ".yml")
         or (t.suffix == ".json" and t.name != "package.json")
+    ]
+
+    # Prefer YAML over JSON when both exist (skip duplicate JSON files)
+    yaml_stems = {t.stem for t in templates if t.suffix in (".yaml", ".yml")}
+    templates = [
+        t for t in templates
+        if t.suffix in (".yaml", ".yml") or t.stem not in yaml_stems
     ]
 
     if not templates:

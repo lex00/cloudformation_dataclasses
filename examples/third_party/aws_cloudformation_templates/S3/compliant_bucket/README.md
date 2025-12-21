@@ -1,50 +1,44 @@
-# Compliant Bucket
+# CompliantBucket
 
-Migrated from [compliant-bucket.yaml](https://github.com/aws-cloudformation/aws-cloudformation-templates/blob/main/S3/compliant-bucket.yaml).
+Migrated from [compliant-bucket.yaml](https://github.com/aws-cloudformation/aws-cloudformation-templates).
 
-**Original Author/Source**: AWS CloudFormation Templates (Apache-2.0)
+**Source**: AWS CloudFormation Sample Templates
+**License**: Apache-2.0
 
-A secure S3 bucket that passes default security scanning checks. Includes:
-- A primary bucket with replication enabled
-- A replica bucket in the same region
-- An access log bucket
-- Server-side encryption (AES256)
-- Public access blocked
-- Bucket policies requiring secure transport
-- Object lock with COMPLIANCE retention
+**Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
-## Features Demonstrated
+## Usage
 
-- `get_att()` with `ARN` constant for type-safe attribute access
-- `ref()` for resource references (auto-detected from implicit refs)
-- `Join()` for ARN wildcard patterns (e.g., `bucket-arn/*`)
-- `BucketVersioningStatus` enum for versioning configuration
-- `ServerSideEncryption` enum for SSE algorithm
-- Nested PolicyDocument with DenyStatement and PolicyStatement
-- Cross-resource dependencies (bucket policies, replication role)
+This is a portable Python package. You can copy this folder into another
+project and use it directly.
 
-## Run Tests
+### Run Tests
 
 ```bash
-uv run pytest examples/third_party/aws_cloudformation_templates/S3/compliant_bucket/tests/ -v
+uv run pytest tests/ -v
 ```
 
-## Generate Template
+### Generate Template
 
 ```bash
-uv run python -m third_party.aws_cloudformation_templates.S3.compliant_bucket.main
+uv run python -m compliant_bucket
+```
+
+### Install as Dependency
+
+```bash
+pip install .
 ```
 
 ## Resources
 
-| Logical ID | Type | Description |
-|------------|------|-------------|
-| `AppName` | Parameter | Application name prefix for resource naming |
-| `ObjectStorageBucket` | AWS::S3::Bucket | Primary bucket with replication |
-| `ObjectStorageLogBucket` | AWS::S3::Bucket | Access log bucket |
-| `ObjectStorageReplicaBucket` | AWS::S3::Bucket | Replication destination bucket |
-| `ObjectStorageBucketPolicyPolicy` | AWS::S3::BucketPolicy | Policy for primary bucket |
-| `ObjectStorageLogBucketPolicyPolicy` | AWS::S3::BucketPolicy | Policy for log bucket |
-| `ObjectStorageReplicaBucketPolicyPolicy` | AWS::S3::BucketPolicy | Policy for replica bucket |
-| `ObjectStorageReplicationRole` | AWS::IAM::Role | IAM role for replication |
-| `ObjectStorageReplicationPolicy` | AWS::IAM::RolePolicy | Policy for replication role |
+| Logical ID | Type |
+|------------|------|
+| `ObjectStorageBucket` | AWS::S3::Bucket |
+| `ObjectStorageBucketPolicyPolicy` | AWS::S3::BucketPolicy |
+| `ObjectStorageLogBucket` | AWS::S3::Bucket |
+| `ObjectStorageLogBucketPolicyPolicy` | AWS::S3::BucketPolicy |
+| `ObjectStorageReplicaBucket` | AWS::S3::Bucket |
+| `ObjectStorageReplicaBucketPolicyPolicy` | AWS::S3::BucketPolicy |
+| `ObjectStorageReplicationPolicy` | AWS::IAM::RolePolicy |
+| `ObjectStorageReplicationRole` | AWS::IAM::Role |

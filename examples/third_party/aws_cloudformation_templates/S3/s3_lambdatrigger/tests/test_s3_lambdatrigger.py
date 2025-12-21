@@ -1,12 +1,12 @@
-"""Tests for compliant_bucket example."""
+"""Tests for s3_lambdatrigger example."""
 
 import pytest
 
-from compliant_bucket.main import build_template
+from s3_lambdatrigger.main import build_template
 
 
-class TestCompliantBucket:
-    """Test compliant_bucket example."""
+class TestS3Lambdatrigger:
+    """Test s3_lambdatrigger example."""
 
     @pytest.fixture
     def template(self):
@@ -21,4 +21,4 @@ class TestCompliantBucket:
     def test_resource_count(self, template):
         """Verify expected number of resources."""
         output = template.to_dict()
-        assert len(output["Resources"]) == 8
+        assert len(output["Resources"]) == 4

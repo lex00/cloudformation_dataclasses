@@ -1,12 +1,12 @@
-"""Tests for compliant_bucket example."""
+"""Tests for compliant_static_website example."""
 
 import pytest
 
-from compliant_bucket.main import build_template
+from compliant_static_website.main import build_template
 
 
-class TestCompliantBucket:
-    """Test compliant_bucket example."""
+class TestCompliantStaticWebsite:
+    """Test compliant_static_website example."""
 
     @pytest.fixture
     def template(self):
@@ -21,4 +21,4 @@ class TestCompliantBucket:
     def test_resource_count(self, template):
         """Verify expected number of resources."""
         output = template.to_dict()
-        assert len(output["Resources"]) == 8
+        assert len(output["Resources"]) == 18

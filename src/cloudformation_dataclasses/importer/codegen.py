@@ -2269,12 +2269,15 @@ def _generate_main_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
     lines.append(f"    return {from_registry_call}")
     lines.append("")
     lines.append("")
-
-    # Main block
-    lines.append('if __name__ == "__main__":')
+    lines.append("def main() -> None:")
+    lines.append('    """Print the CloudFormation template as JSON."""')
     lines.append("    import json")
     lines.append("    template = build_template()")
     lines.append("    print(json.dumps(template.to_dict(), indent=2))")
+    lines.append("")
+    lines.append("")
+    lines.append('if __name__ == "__main__":')
+    lines.append("    main()")
 
     return "\n".join(lines) + "\n"
 
@@ -2305,20 +2308,22 @@ def _find_resource_references_in_outputs(template: IRTemplate) -> set[str]:
     return refs
 
 
-def generate_package(template: IRTemplate) -> dict[str, str]:
+def generate_package(template: IRTemplate, package_name: str) -> dict[str, str]:
     """
     Generate a Python package from template (multi-file output).
 
     Args:
         template: Parsed IRTemplate
+        package_name: Name of the Python package (used as subdirectory prefix)
 
     Returns:
-        Dict mapping filename to content:
-        - "__init__.py": Centralized imports
-        - "config.py": Parameters, Mappings, Conditions
-        - "resources/": Directory with one file per resource
-        - "outputs.py": Output definitions (if any)
-        - "main.py": build_template + entry point
+        Dict mapping filename to content, with all files prefixed by package_name/:
+        - "{package_name}/__init__.py": Centralized imports
+        - "{package_name}/config.py": Parameters, Mappings, Conditions
+        - "{package_name}/resources/": Directory with one file per resource
+        - "{package_name}/outputs.py": Output definitions (if any)
+        - "{package_name}/main.py": build_template + entry point
+        - "{package_name}/__main__.py": Entry point for python -m
     """
     pkg_ctx = PackageContext(template=template)
 
@@ -2342,18 +2347,28 @@ def generate_package(template: IRTemplate) -> dict[str, str]:
     # Generate __init__.py last (after all imports collected)
     init_content = _generate_init_py(pkg_ctx, template)
 
+    # Generate __main__.py for `python -m package_name` support
+    dunder_main_content = f'''"""Allow running as: python -m {package_name}."""
+from .main import main
+
+main()
+'''
+
+    # Prefix all files with package_name/ for nested package structure
     files = {
-        "__init__.py": init_content,
-        "config.py": config_content,
-        "main.py": main_content,
+        f"{package_name}/__init__.py": init_content,
+        f"{package_name}/__main__.py": dunder_main_content,
+        f"{package_name}/config.py": config_content,
+        f"{package_name}/main.py": main_content,
     }
 
     # Add outputs.py if there are outputs
     if outputs_content:
-        files["outputs.py"] = outputs_content
+        files[f"{package_name}/outputs.py"] = outputs_content
 
-    # Add all resource files
-    files.update(resource_files)
+    # Add all resource files (already have resources/ prefix, add package_name/)
+    for filename, content in resource_files.items():
+        files[f"{package_name}/{filename}"] = content
 
     return files
 

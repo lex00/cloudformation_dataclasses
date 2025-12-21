@@ -1,5 +1,5 @@
 [project]
-name = "compliant_static_website"
+name = "s3_lambdatrigger"
 version = "0.1.0"
 requires-python = ">=3.13"
 dependencies = [
@@ -7,17 +7,17 @@ dependencies = [
 ]
 
 [project.scripts]
-compliant_static_website = "compliant_static_website.main:main"
+s3_lambdatrigger = "s3_lambdatrigger.main:main"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["compliant_static_website"]
+packages = ["s3_lambdatrigger"]
 
 [tool.hatch.build.targets.sdist]
-include = ["compliant_static_website/**/*.py", "compliant_static_website/resources/"]
+include = ["s3_lambdatrigger/**/*.py", "s3_lambdatrigger/resources/"]
 
 [dependency-groups]
 dev = [
