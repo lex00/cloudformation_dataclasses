@@ -1,555 +1,102 @@
 # CloudFormation Dataclasses
 
-**Python dataclasses for AWS CloudFormation template synthesis**
-
-A pure Python library that uses dataclasses as a declarative interface for AWS CloudFormation template generation. Zero runtime dependencies, fully type-safe, IDE-friendly.
+**Type-safe Python dataclasses for AWS CloudFormation templates**
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Features
+Write CloudFormation templates as Python dataclasses. Get full IDE autocomplete, type checking, and zero runtime dependencies.
 
-- 🎯 **Declarative Block Syntax** - Infrastructure as typed dataclass fields
-- 🔒 **Type-Safe** - Full Python type hints with mypy/pyright support
-- 🚀 **Zero Runtime Dependencies** - Core package has no dependencies
-- 🤖 **Auto-Generated** - All AWS resources generated from official CloudFormation specs
-- 💡 **IDE-Friendly** - Full autocomplete and type checking in VS Code, PyCharm, etc.
-- 📦 **Pure Python** - No Node.js required (unlike AWS CDK)
-- 🔄 **Always Current** - Easy regeneration from latest AWS specs
-
-## Installation
-
-### From PyPI (when published)
-
-```bash
-# Core package (zero runtime dependencies)
-pip install cloudformation_dataclasses
-
-# With YAML support
-pip install cloudformation_dataclasses[yaml]
-
-# Development dependencies
-pip install cloudformation_dataclasses[dev]
-```
-
-### From Source
-
-```bash
-# Clone repository
-git clone https://github.com/lex00/cloudformation_dataclasses.git
-cd cloudformation_dataclasses
-
-# Install with uv (recommended)
-uv sync
-
-# Or with pip
-pip install -e .
-```
-
-### Check Installed Version
+## Quick Example
 
 ```python
-from cloudformation_dataclasses import __version__, print_version_info
+from cloudformation_dataclasses.core import *
+from cloudformation_dataclasses.aws.s3 import *
+from cloudformation_dataclasses.intrinsics import Sub
 
-print(__version__)  # Package version: 0.4.0
-print_version_info()  # Detailed version information
-```
-
-**Current Release: v0.4.0**
-- Package: `0.4.0`
-- CloudFormation Spec Date: `2025.12.11` (from AWS Last-Modified header)
-- Generator: `1.0.0`
-- Available Resources: All 262 AWS services (1,502 resource types)
-
-## Quick Start
-
-### Simple Example
-
-```python
+# S3 bucket with AES-256 encryption
 @cloudformation_dataclass
-class MyAppBucket:
-    resource: Bucket
-
-bucket = MyAppBucket()
-template = Template(description="S3 bucket for application data")
-template.add_resource(bucket)
-
-print(template.to_json())
-```
-
-### Complete Example
-
-See [examples/with_context/s3_bucket/](examples/with_context/s3_bucket/) for a complete modular example with deployment context, encryption, and bucket policies.
-
-```python
-# context.py - Deployment context with environment defaults and shared tags
-@cloudformation_dataclass
-class ProdDeploymentContext:
-    context: DeploymentContext
-    project_name: str = "analytics"  # Top-level project name
-    component: str = "DataPlatform"
-    stage: str = "prod"
-    deployment_name: str = "001"
-    deployment_group: str = "blue"  # For blue/green deployments
-    region: str = "us-east-1"
-    tags = [
-        {"Key": "Environment", "Value": "Production"},
-        {"Key": "Project", "Value": "MyApplication"},
-        {"Key": "ManagedBy", "Value": "cloudformation-dataclasses"},
-    ]
-
-ctx = ProdDeploymentContext()
-
-# bucket.py - Nested encryption configuration using wrapper dataclasses
-from cloudformation_dataclasses.aws.s3 import ServerSideEncryption
-
-@cloudformation_dataclass
-class MyServerSideEncryptionByDefault:
+class MyEncryption:
     resource: ServerSideEncryptionByDefault
-    sse_algorithm = ServerSideEncryption.AES256  # Use enum constant instead of string
+    sse_algorithm = ServerSideEncryption.AES256
 
 @cloudformation_dataclass
-class MyServerSideEncryptionRule:
+class MyEncryptionRule:
     resource: ServerSideEncryptionRule
-    server_side_encryption_by_default = MyServerSideEncryptionByDefault
+    server_side_encryption_by_default = MyEncryption
 
 @cloudformation_dataclass
 class MyBucketEncryption:
     resource: BucketEncryption
-    server_side_encryption_configuration = [MyServerSideEncryptionRule]
+    server_side_encryption_configuration = [MyEncryptionRule]
 
-# S3 bucket with context, tags, encryption, and versioning
 @cloudformation_dataclass
 class MyData:
     resource: Bucket
-    context = ctx
-    tags = [{"Key": "DataClassification", "Value": "sensitive"}]
     bucket_encryption = MyBucketEncryption
-    versioning_configuration = {"Status": "Enabled"}
 
-# bucket_policy.py - Bucket policy requiring encrypted uploads
-from cloudformation_dataclasses.intrinsics import Sub
-
+# Policy that denies unencrypted uploads
 @cloudformation_dataclass
-class DenyUnencryptedUploadsStatement:
+class DenyUnencryptedStatement:
     resource: DenyStatement
-    sid = "DenyUnencryptedObjectUploads"
     principal = "*"
     action = "s3:PutObject"
-    resource_arn = Sub("${MyData.Arn}/*")  # CloudFormation Sub with GetAtt shorthand
-    condition = {"StringNotEquals": {"s3:x-amz-server-side-encryption": "AES256"}}
+    resource_arn = Sub("${MyData.Arn}/*")
+    condition = {STRING_NOT_EQUALS: {"s3:x-amz-server-side-encryption": "AES256"}}
 
 @cloudformation_dataclass
-class EncryptionRequiredPolicyDocument:
+class MyDataPolicyDocument:
     resource: PolicyDocument
-    statement = [DenyUnencryptedUploadsStatement]
+    statement = [DenyUnencryptedStatement]
 
 @cloudformation_dataclass
 class MyDataPolicy:
     resource: BucketPolicy
-    context = ctx
-    bucket = ref("MyData")  # String ref - no import needed
-    policy_document = EncryptionRequiredPolicyDocument
-
-# main.py - Create and export template
-bucket = MyData()
-policy = MyDataPolicy()
-
-template = Template(description="S3 bucket with encryption-required policy")
-template.add_resource(bucket)
-template.add_resource(policy)
-
-print(template.to_json())
+    bucket: Ref[MyData] = ref()
+    policy_document = MyDataPolicyDocument
 ```
 
-**Run the example:**
-```bash
-uv run python -m examples.s3_bucket.main
-```
+See [examples/with_context/s3_bucket/](examples/with_context/s3_bucket/) for a complete example with deployment context and naming.
 
-**Key Features:**
-- 🎯 **Declarative** - All configuration in dataclass field declarations
-- 🏷️ **Smart naming** - Configurable resource naming patterns with deployment context
-- 🔗 **Cross-references** - `ref()` for resource dependencies (supports [forward references](docs/FORWARD_REFERENCES.md) for cross-module refs)
-- 🏗️ **Nested config** - Wrapper classes or inline dicts
-- 🏭 **Deployment context** - Shared environment defaults and configurable naming patterns
-- 📋 **Tag merging** - Context tags + resource-specific tags
-- 🔐 **IAM policies** - Type-safe policy documents and statements
-- ⚡ **Zero boilerplate** - Instantiate with `MyData()` - no parameters needed
-
-### Resource Naming
-
-The library automatically generates resource names from class names and deployment context:
-
-```python
-# Context defines the naming pattern
-@cloudformation_dataclass
-class ProdDeploymentContext:
-    context: DeploymentContext
-    project_name: str = "analytics"           # Top-level project/organization
-    component: str = "DataPlatform"           # Application/service component
-    stage: str = "prod"                       # Environment stage (dev, staging, prod)
-    deployment_name: str = "001"              # Deployment identifier
-    deployment_group: str = "blue"            # For blue/green deployments
-    region: str = "us-east-1"                 # AWS region
-    # Default pattern: {project_name}-{component}-{resource_name}-{stage}-{deployment_name}-{deployment_group}-{region}
-
-ctx = ProdDeploymentContext()
-
-# Class name becomes resource_name in the pattern
-@cloudformation_dataclass
-class MyData:
-    resource: Bucket
-    context = ctx
-
-bucket = MyData()
-# Resource name: analytics-DataPlatform-MyData-prod-001-blue-us-east-1
-# Logical ID: MyData
-```
-
-**Context Parameters**:
-- `project_name`: Top-level project or organization name
-- `component`: Application or service component name
-- `stage`: Deployment stage/environment (dev, staging, prod)
-- `deployment_name`: Unique deployment identifier
-- `deployment_group`: For blue/green deployments - enables zero-downtime deployments
-- `region`: AWS region
-
-**Blue/Green Deployments**:
-```python
-# Blue deployment (current production)
-ctx_blue = ProdDeploymentContext(deployment_group="blue")
-# Green deployment (new version)
-ctx_green = ProdDeploymentContext(deployment_group="green")
-
-# Creates separate resource sets for zero-downtime deployments:
-# analytics-DataPlatform-MyData-prod-001-blue-us-east-1
-# analytics-DataPlatform-MyData-prod-001-green-us-east-1
-```
-
-**Pattern can be customized per context or overridden per resource:**
-
-```python
-# Custom context pattern
-@cloudformation_dataclass
-class SimpleContext:
-    context: DeploymentContext
-    component: str = "MyApp"
-    naming_pattern: str = "{component}-{resource_name}"
-
-# Per-resource pattern override
-@cloudformation_dataclass
-class MySpecial:
-    resource: Bucket
-    context = ctx
-    naming_pattern = "{resource_name}-{stage}"  # Override context pattern
-```
-
-## Tools
-
-### Project Generator
-
-Create new projects with best practices using `cfn-dataclasses-init`:
+## Installation
 
 ```bash
-# Create a new project
-cfn-dataclasses-init s3-bucket -o my_project/
-
-# With custom settings
-cfn-dataclasses-init s3-bucket -o my_project/ \
-    --project-name analytics \
-    --component storage \
-    --stage prod \
-    --region us-west-2
-
-# List available skeletons
-cfn-dataclasses-init --list
+pip install cloudformation-dataclasses
 ```
-
-This creates a complete project structure with deployment context, encryption, and bucket policies:
-
-```
-my_project/
-├── __init__.py        # Package exports
-├── context.py         # Deployment context (naming, tags, environment)
-├── bucket.py          # S3 bucket with encryption and versioning
-├── bucket_policy.py   # Bucket policy requiring encrypted uploads
-├── main.py            # Template builder and entry point
-└── README.md          # Project documentation
-```
-
-See **[docs/QUICK_START.md](docs/QUICK_START.md)** for full documentation.
-
-### Template Importer
-
-Convert existing CloudFormation YAML/JSON templates to Python code:
-
-```bash
-# Install with importer support
-pip install cloudformation-dataclasses[importer]
-
-# Convert a template (after pip install)
-cfn-dataclasses-import template.yaml -o my_stack.py
-
-# Or if working from source with uv
-uv run cfn-dataclasses-import template.yaml -o my_stack.py
-
-# Generate as package (directory)
-cfn-dataclasses-import template.yaml -o my_stack/
-
-# Omit main block for library modules
-cfn-dataclasses-import template.yaml --no-main -o my_stack.py
-```
-
-See **[docs/IMPORTER.md](docs/IMPORTER.md)** for full documentation.
-
-### Linter
-
-Detect and fix common mistakes in cloudformation_dataclasses code:
-
-```python
-from cloudformation_dataclasses.linter import lint_code, fix_code
-
-# Detect issues
-issues = lint_code('''
-    sse_algorithm = "AES256"  # Should be ServerSideEncryption.AES256
-    condition = {"Bool": {"key": "value"}}  # Should be {BOOL: ...}
-''')
-for issue in issues:
-    print(f"{issue.line}: {issue.message}")
-
-# Auto-fix code
-fixed = fix_code(code)  # Adds proper constants and imports
-```
-
-The linter is integrated with `cfn-dataclasses-import` and runs automatically by default. See **[docs/LINTER.md](docs/LINTER.md)** for full documentation.
-
-### Code Generator
-
-Auto-generate Python classes from AWS CloudFormation specifications:
-
-```bash
-# Regenerate all services from latest spec
-./scripts/regenerate.sh --all
-
-# Regenerate specific service
-./scripts/regenerate.sh S3
-
-# Check for spec updates
-uv run python -m cloudformation_dataclasses.codegen.spec_parser check
-```
-
-See **[docs/GENERATOR.md](docs/GENERATOR.md)** for full documentation.
-
-## Project Status
-
-🚧 **Alpha** - Under active development
-
-### Completed
-
-- ✅ **Declarative block syntax** - `@cloudformation_dataclass` decorator with automatic field handling
-- ✅ **Core base classes** - CloudFormationResource, Tag, DeploymentContext, PolicyDocument, PolicyStatement
-- ✅ **Deployment context** - Environment defaults, automatic resource naming, tag merging
-- ✅ **Cross-resource references** - `ref()` and `get_att()` helpers with DeferredRef/DeferredGetAtt
-- ✅ **IAM policy support** - PolicyDocument and PolicyStatement base classes
-- ✅ **Complete intrinsic functions** - Ref, GetAtt, Sub, Join, If, Select, Split, etc.
-- ✅ **Template system** - Template, Parameter, Output, Condition, Mapping with validation
-- ✅ **Code generator** - Auto-generate from CloudFormation specs with full serialization
-- ✅ **Template importer** - Convert YAML/JSON templates to Python with declarative wrapper classes
-- ✅ **Linter** - Detect and fix common mistakes (string literals → type-safe constants)
-- ✅ **All AWS services** - Complete generation of all 262 AWS services (1,502 resource types)
-- ✅ **Comprehensive test suite** - 128 tests covering framework, intrinsics, wrapper pattern, and S3 integration
-- ✅ **Inline dict support** - Tags and simple properties work with inline dicts
-- ✅ **Nested configuration** - Mix wrapper classes and inline dicts as needed
-
-### In Progress
-
-- 🚧 **Extended examples** - EC2, Lambda, DynamoDB, API Gateway, etc.
-- 🚧 **API documentation** - Auto-generated docs from docstrings
-- 🚧 **Best practices guide** - Patterns and recommendations for common use cases
-
-## Code Generation
-
-### CloudFormation Spec Version
-
-**Pinned Spec Date:** 2025.12.11 (from AWS Last-Modified header)
-**Generator Version:** 1.0.0
-
-All generated code is based on these exact versions for reproducible builds:
-- **CloudFormation Spec Date**: Date from AWS's Last-Modified header (YYYY.MM.DD)
-- **Generator**: Our code generator version (independent of AWS spec)
-
-The CloudFormation spec file is committed to the repository in `specs/CloudFormationResourceSpecification.json` for reproducibility.
-
-```bash
-# Check current spec version
-uv run python -m cloudformation_dataclasses.codegen.spec_parser version
-
-# Check for spec updates from AWS
-uv run python -m cloudformation_dataclasses.codegen.spec_parser check
-
-# List all available AWS services
-uv run python -m cloudformation_dataclasses.codegen.spec_parser list-services
-```
-
-**Spec Contents:** 262 AWS services, 1,502 resource types, 8,117 property types
-
-### Generating Services
-
-Generate Python classes from CloudFormation specifications:
-
-```bash
-# Regenerate all services
-./scripts/regenerate.sh --all
-
-# Regenerate specific service
-./scripts/regenerate.sh S3
-./scripts/regenerate.sh EC2
-```
-
-### Version Management
-
-**Two independent versions:**
-
-1. **CloudFormation Spec Date** (`CLOUDFORMATION_SPEC_DATE`)
-   - Date from AWS's Last-Modified header (e.g., `2025.12.11`)
-   - Updated when AWS releases new resources or changes existing ones
-   - Triggers regeneration of all services
-
-2. **Generator Version** (`GENERATOR_VERSION`)
-   - Our code generator's version (e.g., `1.0.0`)
-   - Updated when fixing generator bugs or adding generator features
-   - Independent of AWS spec updates
-   - Uses semantic versioning: MAJOR.MINOR.PATCH
-
-**Updating CloudFormation Spec (AWS releases new version):**
-```bash
-# 1. Check for updates
-uv run python -m cloudformation_dataclasses.codegen.spec_parser check
-
-# 2. Download new spec (updates config.py automatically)
-uv run python -m cloudformation_dataclasses.codegen.spec_parser download
-
-# 3. Regenerate all services
-./scripts/regenerate.sh --all
-
-# 4. Run tests
-uv run pytest tests/ -v
-
-# 5. Commit
-git commit -m "Update to CloudFormation spec 2025.12.15 (generator v1.0.0)"
-```
-
-**Patching Generator (fixing bugs, no spec change):**
-```bash
-# 1. Fix generator code
-vim src/cloudformation_dataclasses/codegen/generator.py
-
-# 2. Update only generator version in config.py
-#    CLOUDFORMATION_SPEC_DATE = "2025.12.11"  # Unchanged
-#    GENERATOR_VERSION = "1.0.1"               # Patch bump for bug fix
-
-# 3. Regenerate affected service
-./scripts/regenerate.sh S3
-
-# 4. Run tests
-uv run pytest tests/ -v
-
-# 5. Commit
-git commit -m "Fix S3 property serialization (generator v1.0.1, spec 2025.12.11)"
-```
-
-## Development
-
-### Setup
-
-```bash
-git clone https://github.com/lex00/cloudformation_dataclasses.git
-cd cloudformation_dataclasses
-
-# Install with uv (recommended)
-uv sync --all-extras
-
-# Or with pip
-pip install -e ".[dev]"
-```
-
-### Common Tasks
-
-```bash
-# Run tests
-pytest tests/ -v
-
-# Type check
-mypy src/cloudformation_dataclasses/
-
-# Format code
-black src/ tests/
-
-# Regenerate S3 resources
-python -m cloudformation_dataclasses.codegen.generator --service S3
-```
-
-## Architecture
-
-### Design Principles
-
-1. **Generated, Not Hand-Written** - All AWS resources auto-generated from CloudFormation specs
-2. **Type Safety Throughout** - Full Python type annotations with mypy/pyright support
-3. **Zero Runtime Dependencies** - Core package requires nothing (pyyaml optional)
-4. **Pythonic Ergonomics** - snake_case properties mapping to CloudFormation PascalCase
-5. **Explicit Over Implicit** - Clear behavior, no magic
-
-### Two-Layer Validation
-
-1. **Static Type Checking** (development time) - mypy/pyright catch type errors
-2. **CloudFormation Validation** (deployment time) - AWS validates templates
-
-No Pydantic or runtime validation needed - minimal dependencies, CloudFormation as source of truth.
-
-## Project Structure
-
-```
-cloudformation_dataclasses/
-├── src/cloudformation_dataclasses/
-│   ├── core/              # Base classes
-│   ├── intrinsics/        # Intrinsic functions
-│   ├── codegen/           # Code generation
-│   ├── skeleton/          # Project generator (cfn-dataclasses-init)
-│   │   └── templates/     # Skeleton templates
-│   └── aws/               # Generated resources
-├── tests/                 # Framework validation tests
-├── examples/              # Usage examples with focused tests
-├── docs/                  # Documentation
-└── README.md              # This file
-```
-
-### Testing Structure
-
-- **tests/** - Framework validation tests that verify core functionality (resource creation, serialization, template generation, tag merging, context-driven naming, etc.)
-- **examples/*/tests/** - User-focused tests that demonstrate typical usage patterns and verify examples work correctly
 
 ## Documentation
 
-- **User Guide**: [README.md](README.md) - This file (getting started, examples, usage)
-- **Quick Start**: [docs/QUICK_START.md](docs/QUICK_START.md) - Create new projects with cfn-dataclasses-init and DeploymentContext
-- **Resource Registry**: [docs/REGISTRY.md](docs/REGISTRY.md) - Auto-registration and multi-file organization
-- **Template Importer**: [docs/IMPORTER.md](docs/IMPORTER.md) - Convert CloudFormation templates to Python
-- **Linter**: [docs/LINTER.md](docs/LINTER.md) - Detect and fix common mistakes in code
-- **Agent Guide**: [docs/AGENT_GUIDE.md](docs/AGENT_GUIDE.md) - Workflows for AI assistants
-- **Code Generator**: [docs/GENERATOR.md](docs/GENERATOR.md) - Generate Python classes from AWS specs
-- **Forward References**: [docs/FORWARD_REFERENCES.md](docs/FORWARD_REFERENCES.md) - Cross-module resource references with PEP 563
-- **Developer Guide**: [docs/DEVELOPERS.md](docs/DEVELOPERS.md) - Building, testing, and publishing
-- **Changelog**: [CHANGELOG.md](CHANGELOG.md) - Version history and release notes
-- **Project Checklist**: [docs/CHECKLIST.md](docs/CHECKLIST.md) - Implementation progress
-- **CloudFormation Spec**: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification.html
+| Guide | Description |
+|-------|-------------|
+| **[Quick Start](docs/QUICK_START.md)** | Create new projects with `cfn-dataclasses-init` |
+| **[Template Importer](docs/IMPORTER.md)** | Convert existing YAML/JSON templates to Python |
+| **[Linter](docs/LINTER.md)** | Detect and auto-fix common mistakes |
+| **[Forward References](docs/FORWARD_REFERENCES.md)** | Cross-module resource references with `Ref[T]` |
+| **[Resource Registry](docs/REGISTRY.md)** | Auto-registration and multi-file organization |
+| **[Agent Guide](docs/AGENT_GUIDE.md)** | Workflows for AI assistants |
+| **[Code Generator](docs/GENERATOR.md)** | Regenerate AWS resources from CloudFormation specs |
+| **[Developer Guide](docs/DEVELOPERS.md)** | Building, testing, and contributing |
+| **[Changelog](CHANGELOG.md)** | Version history |
+
+## Features
+
+- **Type-Safe** - Full Python type hints, IDE autocomplete, mypy/pyright support
+- **Zero Dependencies** - Core package requires nothing (pyyaml optional for YAML output)
+- **All AWS Services** - 262 services, 1,502 resource types auto-generated from CloudFormation specs
+- **Pure Python** - No Node.js required (unlike AWS CDK)
+- **Import Existing Templates** - Convert YAML/JSON to Python with `cfn-dataclasses-import`
+- **Linter** - Auto-fix string literals to type-safe constants
+
+## Tools
+
+```bash
+# Create a new project
+cfn-dataclasses-init default -o my_stack/
+
+# Import existing template
+cfn-dataclasses-import template.yaml -o my_stack.py
+```
 
 ## License
 
 MIT License - see [LICENSE](LICENSE)
-
-## Acknowledgments
-
-Built with Python 3.10+, uv, and AWS CloudFormation Resource Specifications.
-
-Generated with [Claude Code](https://claude.ai/code)

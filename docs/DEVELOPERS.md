@@ -4,6 +4,7 @@ This guide provides comprehensive information for developers working on `cloudfo
 
 ## Table of Contents
 
+- [Architecture](#architecture)
 - [Development Setup](#development-setup)
 - [Project Structure](#project-structure)
 - [Building the Project](#building-the-project)
@@ -13,6 +14,25 @@ This guide provides comprehensive information for developers working on `cloudfo
 - [Publishing Releases](#publishing-releases)
 - [CI/CD Pipeline](#cicd-pipeline)
 - [Contributing Guidelines](#contributing-guidelines)
+
+---
+
+## Architecture
+
+### Design Principles
+
+1. **Generated, Not Hand-Written** - All AWS resources auto-generated from CloudFormation specs
+2. **Type Safety Throughout** - Full Python type annotations with mypy/pyright support
+3. **Zero Runtime Dependencies** - Core package requires nothing (pyyaml optional)
+4. **Pythonic Ergonomics** - snake_case properties mapping to CloudFormation PascalCase
+5. **Explicit Over Implicit** - Clear behavior, no magic
+
+### Two-Layer Validation
+
+1. **Static Type Checking** (development time) - mypy/pyright catch type errors
+2. **CloudFormation Validation** (deployment time) - AWS validates templates
+
+No Pydantic or runtime validation needed - minimal dependencies, CloudFormation as source of truth.
 
 ---
 
