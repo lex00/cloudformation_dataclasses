@@ -9,7 +9,7 @@ When helping users with this library, read the appropriate guide:
 | User Intent | Guide |
 |-------------|-------|
 | Create new project, add resources | [docs/AGENT_GUIDE.md](docs/AGENT_GUIDE.md) |
-| Import existing CloudFormation template | [docs/IMPORT_WORKFLOW.md](docs/IMPORT_WORKFLOW.md) |
+| Import existing CloudFormation template | [docs/IMPORTER.md](docs/IMPORTER.md) |
 | Refactor existing code | [docs/AGENT_GUIDE.md](docs/AGENT_GUIDE.md) |
 
 **Key Tools:**

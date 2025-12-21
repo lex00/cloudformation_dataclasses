@@ -118,6 +118,20 @@ cfn-import template.yaml -o my_stack.py
 cfn-import template.yaml | less
 ```
 
+### For Multiple Templates (Batch Mode)
+
+```bash
+cfn-import /path/to/templates/ -o examples/3rd_party/source/
+```
+
+Batch mode automatically:
+- Recursively finds all templates
+- Creates separate package for each
+- Detects attribution from source README/LICENSE
+- Logs output to `import.log`
+
+See [IMPORTER.md](IMPORTER.md) for details on batch importing.
+
 ### Step 3: Review Generated Code
 
 Check for improvements:

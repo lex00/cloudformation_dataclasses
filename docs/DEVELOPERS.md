@@ -71,7 +71,7 @@ cloudformation_dataclasses/
 │   │   ├── base.py                     # CloudFormationResource, DeploymentContext, Tag
 │   │   ├── constants.py                # CloudFormation parameter type constants
 │   │   ├── template.py                 # Template, Parameter, Output, Condition
-│   │   └── wrapper.py                  # @cloudformation_dataclass decorator
+│   │   └── wrapper.py                  # @cloudformation_dataclass decorator, Ref[T], GetAtt[T]
 │   ├── intrinsics/                     # Intrinsic functions
 │   │   └── functions.py                # Ref, GetAtt, Sub, Join, etc.
 │   ├── codegen/                        # Code generation tools (dev-time only)
@@ -698,6 +698,7 @@ uv run python -m cloudformation_dataclasses.codegen.spec_parser version
 ## Additional Resources
 
 - **User Guide**: [README.md](../README.md) - End-user documentation
+- **Forward References**: [FORWARD_REFERENCES.md](./FORWARD_REFERENCES.md) - Cross-module refs with `Ref[T]` and `GetAtt[T]`
 - **Template Importer**: [IMPORTER.md](./IMPORTER.md) - Convert CloudFormation templates to Python
 - **Linter**: [LINTER.md](./LINTER.md) - Detect and fix common mistakes
 - **Agent Guide**: [AGENT_GUIDE.md](./AGENT_GUIDE.md) - Workflows for AI assistants

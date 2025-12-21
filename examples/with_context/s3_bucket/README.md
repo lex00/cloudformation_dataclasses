@@ -306,18 +306,29 @@ class EncryptionRequiredPolicyDocument:
 
 ### 4. Cross-Resource References
 
-Use `ref()` with string logical IDs for CloudFormation `{"Ref": "..."}` intrinsic functions:
+Use `ref()` to create CloudFormation `{"Ref": "..."}` intrinsic functions. There are three patterns:
 
 ```python
-@cloudformation_dataclass
-class MyDataPolicy:
-    resource: BucketPolicy
-    context = ctx
-    bucket = ref("MyData")  # Creates {"Ref": "MyData"}
-    policy_document = EncryptionRequiredPolicyDocument
+# Pattern 1: String reference (simple, no IDE support)
+bucket = ref("MyData")  # Creates {"Ref": "MyData"}
+
+# Pattern 2: Direct class reference (when class is imported)
+from .bucket import MyData
+bucket = ref(MyData)  # Creates {"Ref": "MyData"}
+
+# Pattern 3: Annotation-based (cross-module with IDE support)
+from __future__ import annotations
+bucket: Ref[MyData] = ref()  # Creates {"Ref": "MyData"}
 ```
 
-**Note**: String refs are preferred over class imports. This eliminates cross-module import dependencies and keeps resource files clean with just `from . import *`.
+**Which pattern to use?**
+- **String refs** - Simple cases, no IDE navigation needed
+- **Direct refs** - Same-file or already-imported classes
+- **Annotation-based refs** - Cross-module with full IDE support (autocomplete, go-to-definition)
+
+For cross-module references, annotation-based refs are recommended because they provide IDE support without creating import dependencies.
+
+See [Forward References](../../../docs/FORWARD_REFERENCES.md) for detailed documentation on annotation-based patterns with `Ref[T]` and `GetAtt[T]`.
 
 ### 5. Tag Merging
 

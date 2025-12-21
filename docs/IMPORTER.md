@@ -34,12 +34,13 @@ cfn-import template.json -o my_stack.py
 cfn-import [OPTIONS] INPUT
 
 Arguments:
-  INPUT                      Template file path, or "-" for stdin
+  INPUT                      Template file or directory (batch mode)
 
 Options:
   -o, --output PATH          Output path: directory for package, .py file for single file
                              Default: stdout (single file)
   --no-main                  Omit if __name__ == '__main__' block (single-file only)
+  --skip-checks              Skip validation, linting, and test generation
   --version                  Show version and exit
   --help                     Show this message and exit
 ```
@@ -70,6 +71,81 @@ cfn-import vpc.yaml --no-main -o vpc.py
 # Pipe for quick preview
 cfn-import template.yaml | less
 ```
+
+### Batch Mode
+
+Import multiple templates from a directory:
+
+```bash
+cfn-import /path/to/templates/ -o examples/3rd_party/source_name/
+```
+
+**Example output:**
+```
+Found 5 template(s) in /path/to/templates
+Importing vpc.yaml... ✓
+Importing lambda.yaml... ✗
+Importing s3.yaml... ✓
+Importing dynamodb.yaml... ✓
+Importing api.yaml... ✓
+
+Summary: 4/5 succeeded
+Failed:
+  - lambda.yaml: Error parsing template
+
+Log: examples/3rd_party/source_name/import.log
+```
+
+**Batch mode automatically:**
+- Recursively finds all `.yaml`, `.yml`, and `.json` templates
+- Creates separate package for each template
+- Detects attribution from source README/LICENSE
+- Logs output to `import.log`
+- Continues on error (each template is independent)
+
+**Folder structure:**
+```
+examples/3rd_party/source_name/
+├── import.log           # Batch log file
+├── vpc/                 # From vpc.yaml
+│   ├── __init__.py
+│   ├── config.py
+│   ├── resources/
+│   │   ├── __init__.py
+│   │   └── *.py         # One file per resource
+│   ├── main.py
+│   ├── README.md        # Auto-generated with attribution
+│   ├── tests/
+│   │   └── ...
+│   ├── pyproject.toml
+│   ├── py.typed
+│   ├── mypy.ini
+│   ├── CLAUDE.md
+│   └── .vscode/
+│       └── settings.json
+├── s3/                  # From s3.yaml
+│   └── ...
+└── dynamodb/            # From dynamodb.yaml
+    └── ...
+```
+
+**Attribution detection:**
+
+The importer checks the source directory for:
+
+| File | Extracted Info |
+|------|---------------|
+| `README.md` | GitHub/GitLab URL, project name (first heading) |
+| `LICENSE` | License type (MIT, Apache-2.0, GPL, BSD) |
+
+Each generated example gets a README with proper attribution. If no README/LICENSE is found, a minimal README is generated without attribution.
+
+**Skip checks for debugging:**
+```bash
+cfn-import /path/to/templates/ -o output/ --skip-checks
+```
+
+Skips validation, linting, and test generation.
 
 ### Package Output
 
@@ -546,6 +622,45 @@ Resources:
 **TestBlockModeWithPolicies** - Policy document handling
 - Wrapper classes for policy structures
 - Proper dependency tracking
+
+## Lessons Learned
+
+### Forward References in Generated Code
+
+The importer automatically generates annotation-based forward references for cross-resource dependencies:
+
+```python
+from __future__ import annotations
+
+@cloudformation_dataclass
+class ContentBucketLoggingConfiguration:
+    resource: LoggingConfiguration
+    destination_bucket_name: Ref[ContentLogBucket] = ref()  # Annotation-based ref
+
+@cloudformation_dataclass
+class MyLambdaFunction:
+    resource: Function
+    role: GetAtt[LambdaIAMRole] = get_att("Arn")  # Annotation-based GetAtt
+```
+
+See [Forward References](FORWARD_REFERENCES.md) for details.
+
+### DependsOn Class References
+
+Resources in `depends_on` use class references instead of strings:
+
+```python
+from .lambda_invoke_permission import LambdaInvokePermission
+
+@cloudformation_dataclass
+class S3BucketNotification:
+    resource: Bucket
+    depends_on = [LambdaInvokePermission]  # Class reference
+```
+
+### Parameter-Only Sub Patterns
+
+When a `!Sub` expression references only parameters (not resources), the importer preserves `Sub()` instead of converting to `get_att()`.
 
 ## Limitations
 

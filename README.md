@@ -170,7 +170,7 @@ uv run python -m examples.s3_bucket.main
 **Key Features:**
 - 🎯 **Declarative** - All configuration in dataclass field declarations
 - 🏷️ **Smart naming** - Configurable resource naming patterns with deployment context
-- 🔗 **Cross-references** - `ref()` for resource dependencies
+- 🔗 **Cross-references** - `ref()` for resource dependencies (supports [forward references](docs/FORWARD_REFERENCES.md) for cross-module refs)
 - 🏗️ **Nested config** - Wrapper classes or inline dicts
 - 🏭 **Deployment context** - Shared environment defaults and configurable naming patterns
 - 📋 **Tag merging** - Context tags + resource-specific tags
@@ -536,9 +536,9 @@ cloudformation_dataclasses/
 - **Resource Registry**: [docs/REGISTRY.md](docs/REGISTRY.md) - Auto-registration and multi-file organization
 - **Template Importer**: [docs/IMPORTER.md](docs/IMPORTER.md) - Convert CloudFormation templates to Python
 - **Linter**: [docs/LINTER.md](docs/LINTER.md) - Detect and fix common mistakes in code
-- **Import Workflow**: [docs/IMPORT_WORKFLOW.md](docs/IMPORT_WORKFLOW.md) - Workflow for importing third-party templates
 - **Agent Guide**: [docs/AGENT_GUIDE.md](docs/AGENT_GUIDE.md) - Workflows for AI assistants
 - **Code Generator**: [docs/GENERATOR.md](docs/GENERATOR.md) - Generate Python classes from AWS specs
+- **Forward References**: [docs/FORWARD_REFERENCES.md](docs/FORWARD_REFERENCES.md) - Cross-module resource references with PEP 563
 - **Developer Guide**: [docs/DEVELOPERS.md](docs/DEVELOPERS.md) - Building, testing, and publishing
 - **Changelog**: [CHANGELOG.md](CHANGELOG.md) - Version history and release notes
 - **Project Checklist**: [docs/CHECKLIST.md](docs/CHECKLIST.md) - Implementation progress

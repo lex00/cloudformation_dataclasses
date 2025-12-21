@@ -368,6 +368,34 @@ KeySchema(attribute_name="pk", key_type="HASH")        # String (backward compat
 KeySchema(attribute_name="pk", key_type=KeyType.  # ← Shows HASH, RANGE
 ```
 
+## Type Annotations and Forward References
+
+The generator produces Union types that enable cross-resource references:
+
+```python
+# Generated type annotation
+table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+key_type: Union[str, KeyType, Ref, GetAtt, Sub]  # Includes enum
+```
+
+These Union types allow wrapper classes to use:
+- Literal values (`"my-table"`)
+- Enum constants (`KeyType.HASH`)
+- CloudFormation intrinsics (`Ref`, `GetAtt`, `Sub`)
+
+When users write wrapper classes that reference other resources, they use the `ref()` and `get_att()` helpers with annotation-based forward references:
+
+```python
+from __future__ import annotations
+
+@cloudformation_dataclass
+class MyBucketPolicy:
+    resource: BucketPolicy
+    bucket: Ref[MyBucket] = ref()  # Uses generated Ref type marker
+```
+
+See [Forward References](FORWARD_REFERENCES.md) for detailed documentation on how annotation-based references work in user code.
+
 ## Files
 
 | File | Purpose |
