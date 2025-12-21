@@ -794,10 +794,12 @@ class Template:
         # Check DependsOn references exist
         for resource in self.resources:
             for dep in resource.depends_on:
-                if dep not in logical_ids:
+                # Resolve class references to their logical IDs (class names)
+                dep_id = dep.__name__ if isinstance(dep, type) else dep
+                if dep_id not in logical_ids:
                     errors.append(
                         f"Resource {resource.effective_logical_id} depends on "
-                        f"non-existent resource: {dep}"
+                        f"non-existent resource: {dep_id}"
                     )
 
         # Check Condition references exist

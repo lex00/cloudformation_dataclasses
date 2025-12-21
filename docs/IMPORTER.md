@@ -39,7 +39,6 @@ Arguments:
 Options:
   -o, --output PATH          Output path: directory for package, .py file for single file
                              Default: stdout (single file)
-  -m, --mode MODE            Output mode: block, mixed (default: block)
   --no-main                  Omit if __name__ == '__main__' block (single-file only)
   --version                  Show version and exit
   --help                     Show this message and exit
@@ -64,9 +63,6 @@ cfn-import vpc.yaml -o infrastructure/vpc/
 
 # Generate as single file (when -o ends with .py)
 cfn-import vpc.yaml -o vpc.py
-
-# Generate mixed mode (inline dicts for PropertyTypes)
-cfn-import vpc.yaml --mode mixed -o vpc/
 
 # Omit the main block for library modules
 cfn-import vpc.yaml --no-main -o vpc.py
@@ -194,17 +190,9 @@ if __name__ == "__main__":
 - Logical separation of config, resources, outputs, and main
 - Matches hand-written package patterns
 
-## Output Modes
+## Output Style
 
-The importer supports two output styles. **Block mode is recommended** as it provides the most readable, maintainable code.
-
-### Block Mode (Default)
-
-Generates declarative wrapper classes using `@cloudformation_dataclass`. Every resource, parameter, and output becomes a separate class.
-
-```bash
-cfn-import template.yaml --mode block -o output.py
-```
+The importer generates declarative wrapper classes using `@cloudformation_dataclass`. Every resource, parameter, output, and PropertyType becomes a separate class with explicit type declarations.
 
 **Input:**
 ```yaml
@@ -262,132 +250,7 @@ if __name__ == "__main__":
     print(json.dumps(build_template().to_dict(), indent=2))
 ```
 
-**Best for:** Team collaboration, reusable components, large templates, maintainability.
-
-### Mixed Mode
-
-Uses wrapper classes for resources, but intelligently inlines PropertyType values as dicts:
-
-- **Tags**: Inlined if used once, wrapper class if reused (2+ times)
-- **Policy Documents**: Uses `PolicyDocument` and `PolicyStatement` classes
-- **Resources/Parameters/Outputs**: Always wrapper classes
-
-```bash
-cfn-import template.yaml --mode mixed -o output.py
-```
-
-**Input (with tags and policy):**
-```yaml
-Resources:
-  ProdBucket:
-    Type: AWS::S3::Bucket
-    Properties:
-      BucketName: prod-bucket
-      Tags:
-        - Key: Environment
-          Value: Production
-        - Key: Team
-          Value: Platform
-
-  StagingBucket:
-    Type: AWS::S3::Bucket
-    Properties:
-      BucketName: staging-bucket
-      Tags:
-        - Key: Environment
-          Value: Staging
-        - Key: Team
-          Value: Platform  # Same as ProdBucket - will be extracted
-
-  BucketPolicy:
-    Type: AWS::S3::BucketPolicy
-    Properties:
-      Bucket: !Ref ProdBucket
-      PolicyDocument:
-        Version: "2012-10-17"
-        Statement:
-          - Effect: Allow
-            Principal: "*"
-            Action: s3:GetObject
-            Resource: !Sub "${ProdBucket.Arn}/*"
-```
-
-**Output:**
-```python
-# Reused tag extracted to wrapper class
-@cloudformation_dataclass
-class TeamPlatformTag:
-    resource: Tag
-    key = 'Team'
-    value = 'Platform'
-
-
-@cloudformation_dataclass
-class ProdBucket:
-    resource: Bucket
-    bucket_name = 'prod-bucket'
-    tags = [
-        Tag(key='Environment', value='Production'),  # Unique - inlined
-        TeamPlatformTag,                              # Reused - reference
-    ]
-
-
-@cloudformation_dataclass
-class StagingBucket:
-    resource: Bucket
-    bucket_name = 'staging-bucket'
-    tags = [
-        Tag(key='Environment', value='Staging'),     # Unique - inlined
-        TeamPlatformTag,                              # Reused - reference
-    ]
-
-
-@cloudformation_dataclass
-class BucketPolicy:
-    resource: BucketPolicy
-    bucket = ref(ProdBucket)
-    policy_document = PolicyDocument(statement=[
-        PolicyStatement(
-            principal='*',
-            action='s3:GetObject',
-            resource_arn=Sub('${ProdBucket.Arn}/*'),
-        ),
-    ])
-```
-
-**Best for:** Balanced readability with inline convenience for simple constructs.
-
-## Mode Comparison
-
-| Feature | Block | Mixed |
-|---------|-------|-------|
-| Resources | Wrapper class | Wrapper class |
-| Parameters | Wrapper class | Wrapper class |
-| Outputs | Wrapper class | Wrapper class |
-| PropertyTypes | Wrapper classes | Inline dicts |
-| Tags (unique) | Raw dict | `Tag()` inline |
-| Tags (reused) | Raw dict | Wrapper class |
-| Policy documents | Raw dict | `PolicyDocument()` |
-| Policy statements | Raw dict | `PolicyStatement()` |
-| Template | Wrapper class | Wrapper class |
-| `build_template()` | Yes | Yes |
-| Decorator | `@cloudformation_dataclass` | `@cloudformation_dataclass` |
-
-### When to Use Each Mode
-
-**Block Mode** (default, recommended)
-- Large, complex templates
-- Team projects with multiple contributors
-- When you need maximum reusability
-- When you want consistent, predictable output
-- When you want full wrapper classes for all PropertyTypes
-
-**Mixed Mode**
-- Medium-sized templates
-- When you want more concise output
-- When you have repeated tags across resources
-- When you want typed policy documents
-- Balance between readability and verbosity
+**Best for:** Team collaboration, reusable components, large templates, maintainability, maximum type safety.
 
 ## Supported Features
 
@@ -439,7 +302,7 @@ CloudFormation PascalCase names are converted to Python snake_case:
 | `VPCId` | `vpc_id` |
 | `IPv6CidrBlock` | `i_pv6_cidr_block` |
 
-Logical IDs are preserved as class names in block mode:
+Logical IDs are preserved as class names:
 
 | Logical ID | Class Name |
 |------------|------------|
@@ -457,7 +320,7 @@ BucketArn: !GetAtt MyBucket.Arn
 ```
 
 ```python
-# Output (block mode)
+# Output
 bucket_name = ref(BucketParam)
 bucket_arn = get_att(MyBucket, ARN)  # ARN constant for type safety
 ```
@@ -557,9 +420,8 @@ Defines dataclasses for the parsed template structure:
 
 **codegen.py** - Code Generator
 
-- `generate_code(template, mode="block", include_main=True)` - Single-file generation
-- `generate_package(template, mode="block")` - Package generation (multiple files)
-- Supports block and mixed output modes
+- `generate_code(template, include_main=True)` - Single-file generation
+- `generate_package(template)` - Package generation (multiple files)
 - Handles imports, class generation, and formatting
 - Automatically detects implicit refs and ARN patterns
 - Uses `ARN` constant for `get_att()` calls (type-safe, IDE-friendly)
@@ -599,7 +461,7 @@ uv run pytest tests/importer/ -v
 uv run pytest tests/importer/ --cov=cloudformation_dataclasses.importer
 
 # Run specific test class
-uv run pytest tests/importer/test_codegen.py::TestMixedMode -v
+uv run pytest tests/importer/test_codegen.py::TestBlockModeWithTags -v
 ```
 
 ### Test Fixtures
@@ -671,26 +533,19 @@ Resources:
 - `!Sub`, `!Join`, `!If` handling
 - Reference graph building
 
-**TestGenerateSimpleBucket** - Block mode generation
+**TestGenerateSimpleBucket** - Code generation
 - Docstring generation
 - Import statements
 - Resource class generation
 - Template class generation
 
-**TestMixedMode** - Mixed mode generation
-- Wrapper classes for resources
-- Inline dicts for PropertyTypes
-- Build function generation
-
-**TestMixedModeWithTags** - Tag reuse detection
-- Reused tags generate wrapper classes
-- Unique tags inlined as `Tag()`
+**TestBlockModeWithTags** - Tag handling
+- Wrapper classes for all PropertyTypes
 - Correct class references
 
-**TestMixedModeWithPolicies** - Policy document handling
-- `PolicyDocument` class usage
-- `PolicyStatement` class usage
-- Proper field mapping (sid, effect, resource_arn, etc.)
+**TestBlockModeWithPolicies** - Policy document handling
+- Wrapper classes for policy structures
+- Proper dependency tracking
 
 ## Limitations
 
@@ -732,11 +587,11 @@ Resources:
 template = parse_template(yaml_content, source_name="inline.yaml")
 
 # Generate single file
-code = generate_code(template, mode="block", include_main=True)
+code = generate_code(template, include_main=True)
 print(code)
 
 # Generate package (multiple files)
-files = generate_package(template, mode="block")
+files = generate_package(template)
 for filename, content in files.items():
     print(f"=== {filename} ===")
     print(content)

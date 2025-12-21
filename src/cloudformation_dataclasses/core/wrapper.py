@@ -458,6 +458,9 @@ def create_wrapped_resource(wrapper_instance: Any) -> Any:
                         # Unknown type - skip
                         continue
                 kwargs[field.name] = result_dict
+            elif field.name == "depends_on":
+                # depends_on: keep class references as-is, they'll be resolved in to_dict()
+                kwargs[field.name] = value
             else:
                 resolved_list = []
                 for item in value:

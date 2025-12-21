@@ -294,10 +294,11 @@ cfn-import template.yaml -o my_stack.py
 # Or if working from source with uv
 uv run cfn-import template.yaml -o my_stack.py
 
-# Different output modes
-cfn-import template.yaml --mode block   # Default: declarative classes
-cfn-import template.yaml --mode brief   # Imperative style
-cfn-import template.yaml --mode mixed   # Hybrid (inlines tags, policies)
+# Generate as package (directory)
+cfn-import template.yaml -o my_stack/
+
+# Omit main block for library modules
+cfn-import template.yaml --no-main -o my_stack.py
 ```
 
 See **[docs/IMPORTER.md](docs/IMPORTER.md)** for full documentation.
@@ -354,7 +355,7 @@ See **[docs/GENERATOR.md](docs/GENERATOR.md)** for full documentation.
 - ✅ **Complete intrinsic functions** - Ref, GetAtt, Sub, Join, If, Select, Split, etc.
 - ✅ **Template system** - Template, Parameter, Output, Condition, Mapping with validation
 - ✅ **Code generator** - Auto-generate from CloudFormation specs with full serialization
-- ✅ **Template importer** - Convert YAML/JSON templates to Python (block, brief, mixed modes)
+- ✅ **Template importer** - Convert YAML/JSON templates to Python with declarative wrapper classes
 - ✅ **Linter** - Detect and fix common mistakes (string literals → type-safe constants)
 - ✅ **All AWS services** - Complete generation of all 262 AWS services (1,502 resource types)
 - ✅ **Comprehensive test suite** - 128 tests covering framework, intrinsics, wrapper pattern, and S3 integration

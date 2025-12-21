@@ -55,40 +55,34 @@ The importer automatically:
 
 ### Step 1: Create Folder Structure
 
-Each template is generated in 2 versions to demonstrate different output modes:
+Each template is generated as a package with wrapper classes:
 
 ```
 {target_location}/{Service}/{example}/
-├── block/                     # Block mode (wrapper classes for all PropertyTypes)
+├── __init__.py
+├── config.py
+├── resources/
 │   ├── __init__.py
-│   ├── config.py
-│   ├── resources/
-│   ├── outputs.py
-│   └── main.py
-├── mixed/                     # Mixed mode (inline dicts for PropertyTypes)
+│   └── {resource}.py      # One file per resource
+├── outputs.py             # If template has outputs
+├── main.py
+├── README.md
+├── tests/
 │   ├── __init__.py
-│   ├── config.py
-│   ├── resources/
-│   ├── outputs.py
-│   └── main.py
-├── README.md                  # Shared README explaining both versions
-└── tests/
-    ├── __init__.py
-    └── test_{example}.py      # Tests both versions
+│   └── test_{example}.py
+├── pyproject.toml
+├── py.typed
+├── mypy.ini
+├── CLAUDE.md
+└── .vscode/
+    └── settings.json
 ```
 
-### Step 2: Import Template (2 Versions)
-
-Generate both versions for each template:
+### Step 2: Import Template
 
 ```bash
 # From within {target_location}/{Service}/{example}/
-
-# 1. Block mode (default) - wrapper classes for everything
-cfn-import {source_path}/template.yaml -o block/
-
-# 2. Mixed mode - wrapper classes for resources, inline dicts for PropertyTypes
-cfn-import {source_path}/template.yaml --mode mixed -o mixed/
+cfn-import {source_path}/template.yaml -o .
 ```
 
 **Note**: The importer automatically detects and improves patterns:
@@ -134,19 +128,7 @@ Migrated from [{Original Filename}]({source_repo_url}/path/to/original).
 
 **Original Author/Source**: {attribution}
 
-## Versions
-
-This example is generated in 2 different styles to demonstrate the importer's output modes:
-
-| Folder | Mode | Description |
-|--------|------|-------------|
-| `block/` | block | Wrapper classes for all PropertyTypes (maximum type safety) |
-| `mixed/` | mixed | Wrapper classes for resources, inline dicts for PropertyTypes |
-
-### Which version to use?
-
-- **block**: Recommended for production use - maximum type safety with wrapper classes for everything
-- **mixed**: Good balance of readability and conciseness - fewer files, inline PropertyTypes
+{Brief description of what the template does.}
 
 ## Features Demonstrated
 - {List cloudformation_dataclasses features used}
@@ -158,43 +140,36 @@ uv run pytest {target_location}/{Service}/{example}/tests/ -v
 
 ## Generate Template
 \`\`\`bash
-# Both versions produce the same CloudFormation output
-uv run python -m {target_module_path}.block.main
-uv run python -m {target_module_path}.mixed.main
+uv run python -m {target_module_path}.main
 \`\`\`
+
+## Resources
+
+| Logical ID | Type | Description |
+|------------|------|-------------|
+| `{LogicalId}` | `{Type}` | {Description} |
 ```
 
 ### Step 6: Create Tests
 
-Tests should verify both versions produce identical CloudFormation output:
-
 ```python
 import pytest
-from .block.main import build_template as build_block
-from .mixed.main import build_template as build_mixed
+from ..main import build_template
 
-class TestAllVersions:
-    def test_all_versions_produce_same_output(self):
-        """Both versions should produce identical CloudFormation."""
-        block = build_block().to_dict()
-        mixed = build_mixed().to_dict()
-
-        assert block == mixed
-
+class TestTemplate:
     def test_template_validates(self):
-        """Both versions should pass validation."""
-        assert build_block().validate() == []
-        assert build_mixed().validate() == []
+        """Template should pass validation."""
+        assert build_template().validate() == []
 
     def test_template_structure(self):
         """Verify AWSTemplateFormatVersion, sections present."""
-        template = build_block().to_dict()
+        template = build_template().to_dict()
         assert "AWSTemplateFormatVersion" in template
         assert "Resources" in template
 
     def test_template_resources(self):
         """Verify resource types and logical IDs."""
-        template = build_block().to_dict()
+        template = build_template().to_dict()
         # Add service-specific resource checks
 ```
 
@@ -238,11 +213,10 @@ Start with simpler templates to build confidence:
 - `src/cloudformation_dataclasses/core/constants.py` - Constant classes
 - `docs/LINTER.md` - Pattern documentation
 
-### Per Example Created (2 versions)
-- `{target}/{Service}/{example}/block/` - Full package (block mode)
-- `{target}/{Service}/{example}/mixed/` - Full package (mixed mode)
-- `{target}/{Service}/{example}/README.md` - Shared README
-- `{target}/{Service}/{example}/tests/test_{example}.py` - Tests both versions
+### Per Example Created
+- `{target}/{Service}/{example}/` - Full package
+- `{target}/{Service}/{example}/README.md` - Documentation
+- `{target}/{Service}/{example}/tests/test_{example}.py` - Tests
 - `{target}/{Service}/{example}/tests/__init__.py`
 
 ### Index Updates
@@ -250,11 +224,10 @@ Start with simpler templates to build confidence:
 - `docs/AGENT_GUIDE.md` - Add new patterns discovered
 
 ## Success Criteria Per Template
-1. Both versions import without errors
-2. All tests pass (including cross-version equality check)
-3. README properly credits original source and explains both versions
-4. Both versions produce identical CloudFormation output
-5. `template.validate() == []` for both versions
+1. Template imports without errors
+2. All tests pass
+3. README properly credits original source
+4. `template.validate() == []`
 
 ## Session Example
 
@@ -275,16 +248,13 @@ Start with simpler templates to build confidence:
 
 > Importing: S3/simple-bucket.yaml
   ├─ Created: examples/3rd_party/third_party_cfn/S3/simple_bucket/
-  ├─ Generating 2 versions:
-  │   ├─ block/      ✓ (wrapper classes for all)
-  │   └─ mixed/      ✓ (inline PropertyTypes)
   ├─ Auto-detected patterns:
   │   - Implicit ref: bucket policy → ObjectStorageBucket
   │   - ARN pattern: get_att(ObjectStorageBucket, ARN)
   │   - ARN wildcard: Join('', [get_att(..., ARN), '/*'])
-  ├─ Creating README.md (explains both versions)
-  ├─ Creating tests (verifies versions match)...
-  └─ Tests: PASS (6 tests)
+  ├─ Creating README.md
+  ├─ Creating tests...
+  └─ Tests: PASS (3 tests)
 
 > Continue to next template? [Y/n]
 ```
@@ -299,6 +269,39 @@ For batch processing:
   - Templates with failures (and errors)
   - Tool improvements made
   - New patterns added to linter
+
+## Lessons Learned
+
+### Parameter-Only Sub Patterns
+
+When a `!Sub` expression references **only parameters** (not resource properties), the importer preserves `Sub()` instead of converting to `get_att()`.
+
+**Example**: If a bucket's name comes from a parameter:
+```yaml
+BucketName: !Sub '${BucketNameParam}'
+```
+
+Then another resource referencing that bucket's ARN:
+```yaml
+SourceArn: !Sub 'arn:${AWS::Partition}:s3:::${BucketNameParam}'
+```
+
+Will generate `Sub(...)` instead of `get_att(Bucket, ARN)` because `BucketNameParam` is a parameter, not a resource-derived value.
+
+### DependsOn Class References
+
+Resources in `depends_on` are now properly imported with class references instead of strings:
+
+```python
+from .lambda_invoke_permission import LambdaInvokePermission
+
+@cloudformation_dataclass
+class S3BucketNotification:
+    resource: Bucket
+    depends_on = [LambdaInvokePermission]  # Class reference, resolved at serialization
+```
+
+This enables proper IDE navigation and refactoring support.
 
 ## Notes
 - Source folder should be treated as read-only

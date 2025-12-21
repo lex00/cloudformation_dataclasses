@@ -101,14 +101,6 @@ def main(argv: list[str] | None = None) -> int:
     )
 
     parser.add_argument(
-        "-m",
-        "--mode",
-        choices=["block", "mixed"],
-        default="block",
-        help="Output mode: block (declarative classes), mixed (inline dicts for properties) (default: block)",
-    )
-
-    parser.add_argument(
         "--no-main",
         action="store_true",
         help="Omit if __name__ == '__main__' block (single-file mode only)",
@@ -147,10 +139,7 @@ def main(argv: list[str] | None = None) -> int:
 
         if use_package:
             # Generate package (multiple files)
-            files = generate_package(
-                template,
-                mode=args.mode,
-            )
+            files = generate_package(template)
 
             # Write files to output directory
             output_dir = Path(args.output)
@@ -180,9 +169,7 @@ def main(argv: list[str] | None = None) -> int:
 
         else:
             # Generate single file
-            code = generate_code(
-                template, mode=args.mode, include_main=not args.no_main
-            )
+            code = generate_code(template, include_main=not args.no_main)
 
             # Output
             if args.output and args.output != "-":
