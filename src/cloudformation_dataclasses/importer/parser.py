@@ -129,9 +129,11 @@ def _getazs_constructor(loader: yaml.SafeLoader, node: yaml.Node) -> IRIntrinsic
     """Handle !GetAZs tag."""
     if isinstance(node, yaml.ScalarNode):
         value = loader.construct_scalar(node)
-    else:
+    elif isinstance(node, yaml.SequenceNode):
         value = loader.construct_sequence(node, deep=True)
         value = value[0] if value else ""
+    else:  # MappingNode - e.g., !GetAZs { Ref: "AWS::Region" }
+        value = loader.construct_mapping(node, deep=True)
     return IRIntrinsic(IntrinsicType.GET_AZS, value if value else "")
 
 
@@ -181,9 +183,11 @@ def _base64_constructor(loader: yaml.SafeLoader, node: yaml.Node) -> IRIntrinsic
     """Handle !Base64 tag."""
     if isinstance(node, yaml.ScalarNode):
         value = loader.construct_scalar(node)
-    else:
+    elif isinstance(node, yaml.SequenceNode):
         value = loader.construct_sequence(node, deep=True)
         value = value[0] if value else ""
+    else:  # MappingNode - e.g., !Base64 { Fn::Sub: "..." }
+        value = loader.construct_mapping(node, deep=True)
     return IRIntrinsic(IntrinsicType.BASE64, value)
 
 
@@ -197,9 +201,11 @@ def _importvalue_constructor(loader: yaml.SafeLoader, node: yaml.Node) -> IRIntr
     """Handle !ImportValue tag."""
     if isinstance(node, yaml.ScalarNode):
         value = loader.construct_scalar(node)
-    else:
+    elif isinstance(node, yaml.SequenceNode):
         value = loader.construct_sequence(node, deep=True)
         value = value[0] if value else ""
+    else:  # MappingNode - e.g., !ImportValue { Fn::Sub: "..." }
+        value = loader.construct_mapping(node, deep=True)
     return IRIntrinsic(IntrinsicType.IMPORT_VALUE, value)
 
 
@@ -450,6 +456,19 @@ def parse_template(
     else:
         source_name = source_name or "<string>"
         content = source
+
+    # Check for unsupported custom tags
+    if "!Rain::" in content:
+        raise ValueError(
+            "Template uses Rain-specific tags (!Rain::S3, etc.) which are not standard CloudFormation. "
+            "These templates require the Rain CLI for preprocessing."
+        )
+
+    # Check for Kubernetes manifests (not CloudFormation templates)
+    if "apiVersion:" in content and "kind:" in content:
+        raise ValueError(
+            "File appears to be a Kubernetes manifest, not a CloudFormation template."
+        )
 
     # Try YAML first, fall back to JSON
     try:

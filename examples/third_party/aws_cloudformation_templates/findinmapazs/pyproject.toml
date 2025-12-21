@@ -1,0 +1,29 @@
+[project]
+name = "findinmapazs"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "cloudformation_dataclasses",
+]
+
+[project.scripts]
+findinmapazs = "findinmapazs.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["findinmapazs"]
+
+[tool.hatch.build.targets.sdist]
+include = ["findinmapazs/**/*.py", "findinmapazs/resources/"]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.0",
+    "pytest>=8.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

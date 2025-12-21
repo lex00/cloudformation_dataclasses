@@ -1,0 +1,29 @@
+[project]
+name = "rest_api"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "cloudformation_dataclasses",
+]
+
+[project.scripts]
+rest_api = "rest_api.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["rest_api"]
+
+[tool.hatch.build.targets.sdist]
+include = ["rest_api/**/*.py", "rest_api/resources/"]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.0",
+    "pytest>=8.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

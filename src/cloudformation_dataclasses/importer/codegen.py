@@ -1858,9 +1858,9 @@ def _generate_init_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
     config_names: list[str] = []
     for param in template.parameters.values():
         config_names.append(param.logical_id)
-    for mapping in template.mappings:
+    for mapping in template.mappings.values():
         config_names.append(mapping.logical_id)
-    for condition in template.conditions:
+    for condition in template.conditions.values():
         config_names.append(condition.logical_id)
 
     if config_names:

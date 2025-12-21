@@ -1,0 +1,29 @@
+[project]
+name = "event_empty_search_input"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "cloudformation_dataclasses",
+]
+
+[project.scripts]
+event_empty_search_input = "event_empty_search_input.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["event_empty_search_input"]
+
+[tool.hatch.build.targets.sdist]
+include = ["event_empty_search_input/**/*.py", "event_empty_search_input/resources/"]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.0",
+    "pytest>=8.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

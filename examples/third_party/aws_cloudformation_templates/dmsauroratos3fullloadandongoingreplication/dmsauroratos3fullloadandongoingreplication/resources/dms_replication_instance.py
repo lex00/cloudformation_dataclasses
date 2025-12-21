@@ -1,0 +1,19 @@
+from __future__ import annotations
+
+"""DMSReplicationInstance - AWS::DMS::ReplicationInstance resource."""
+
+from .. import *  # noqa: F403
+
+
+@cloudformation_dataclass
+class DMSReplicationInstance:
+    """AWS::DMS::ReplicationInstance resource."""
+
+    resource: ReplicationInstance
+    availability_zone: GetAtt[DBSubnet1] = get_att("AvailabilityZone")
+    publicly_accessible = False
+    replication_instance_class = 'dms.t3.medium'
+    replication_instance_identifier = 'aurora-s3-repinstance-sampledb'
+    replication_subnet_group_identifier: Ref[DMSReplicationSubnetGroup] = ref()
+    vpc_security_group_ids = [ref("DMSSecurityGroup")]
+    depends_on = ["DMSReplicationSubnetGroup", "DMSSecurityGroup"]

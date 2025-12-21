@@ -1,0 +1,29 @@
+[project]
+name = "emrclustergangliawithsparkors3backedhbase"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "cloudformation_dataclasses",
+]
+
+[project.scripts]
+emrclustergangliawithsparkors3backedhbase = "emrclustergangliawithsparkors3backedhbase.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["emrclustergangliawithsparkors3backedhbase"]
+
+[tool.hatch.build.targets.sdist]
+include = ["emrclustergangliawithsparkors3backedhbase/**/*.py", "emrclustergangliawithsparkors3backedhbase/resources/"]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.0",
+    "pytest>=8.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

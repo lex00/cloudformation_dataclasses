@@ -1,0 +1,29 @@
+[project]
+name = "datapipeline_stringvalue"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "cloudformation_dataclasses",
+]
+
+[project.scripts]
+datapipeline_stringvalue = "datapipeline_stringvalue.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["datapipeline_stringvalue"]
+
+[tool.hatch.build.targets.sdist]
+include = ["datapipeline_stringvalue/**/*.py", "datapipeline_stringvalue/resources/"]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.0",
+    "pytest>=8.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
