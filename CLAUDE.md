@@ -2,6 +2,29 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Agent Workflows
+
+When helping users with this library, read the appropriate guide:
+
+| User Intent | Guide |
+|-------------|-------|
+| Create new project, add resources | [docs/AGENT_GUIDE.md](docs/AGENT_GUIDE.md) |
+| Import existing CloudFormation template | [docs/IMPORT_WORKFLOW.md](docs/IMPORT_WORKFLOW.md) |
+| Refactor existing code | [docs/AGENT_GUIDE.md](docs/AGENT_GUIDE.md) |
+
+**Key Tools:**
+- `cfn-init <skeleton> -o <dir>/` - Generate new project from skeleton
+- `cfn-import <template> -o <output>` - Import CloudFormation YAML/JSON
+
+**Always validate after generating code:**
+```python
+template = Template.from_registry()
+errors = template.validate()
+assert errors == []
+```
+
+---
+
 ## Project Overview
 
 `cloudformation_dataclasses` is a Python library that uses **dataclasses as a declarative interface** for AWS CloudFormation template synthesis. The library focuses solely on **generating CloudFormation JSON/YAML** from Python dataclasses.
@@ -46,7 +69,53 @@ All AWS resource classes are **pre-generated from CloudFormation specs** and **c
 - **CloudFormation → Python mappings**: String→str, Integer→int, Boolean→bool, etc.
 - **Union types for intrinsics**: Every property accepts literal values OR CloudFormation functions (Ref, GetAtt, Sub, etc.)
 - **PascalCase → snake_case**: CloudFormation properties like `BucketName` become `bucket_name`
-- **Forward references**: Handle circular dependencies between resources
+- **Forward references**: Handle circular dependencies between resources using PEP 563 annotations
+
+### PEP 563 and Forward References
+
+Cross-resource references like `ref(Bucket)` can fail at import time when `Bucket` isn't defined yet (auto-discovery runs after modules load). The solution uses **PEP 563 future annotations** with type markers:
+
+```python
+from __future__ import annotations
+
+@cloudformation_dataclass
+class BucketPolicy:
+    resource: s3.BucketPolicy
+    bucket: Ref[Bucket] = ref()  # Type annotation has class, resolved at runtime
+    policy_document = BucketPolicyPolicyDocument
+```
+
+**How it works:**
+1. `from __future__ import annotations` makes annotations strings at parse time
+2. `Ref[Bucket]` becomes the string `"Ref[Bucket]"` - Python doesn't evaluate `Bucket` immediately
+3. IDE sees `Ref[Bucket]` and provides autocomplete/go-to-definition
+4. `@cloudformation_dataclass` decorator parses the annotation at runtime to extract `Bucket`
+5. The registry (populated by auto-discovery) provides the actual class for resolution
+
+**Key types:**
+- `Ref[T]` - Type marker for resource references (e.g., `bucket: Ref[Bucket] = ref()`)
+- `GetAtt[T]` - Type marker for GetAtt references (e.g., `arn: GetAtt[Bucket] = get_att("Arn")`)
+
+**When to use annotation-based refs:**
+- Cross-resource refs where target class is defined in another file
+- Resources using auto-discovery pattern in `resources/__init__.py`
+
+**When to use direct refs:**
+- Parameter refs (parameters are defined in `config.py` and imported before resources)
+- Same-file refs where the target is already defined
+
+**Qualified resource types for name collisions:**
+
+When a wrapper class has the same name as the AWS resource class (e.g., `class Bucket` wrapping `s3.Bucket`), use the module-qualified type to avoid self-reference:
+
+```python
+@cloudformation_dataclass
+class Bucket:
+    resource: s3.Bucket  # NOT resource: Bucket (would be self-referential)
+    bucket_name = ref(BucketName)
+```
+
+The codegen automatically detects these collisions and generates qualified names.
 
 ### Validation Strategy (Two-Layer)
 

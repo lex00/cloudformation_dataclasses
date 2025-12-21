@@ -79,7 +79,7 @@ print(template.to_json())
 
 ### Complete Example
 
-See [examples/s3_bucket/](examples/s3_bucket/) for a complete modular example with deployment context, encryption, and bucket policies.
+See [examples/with_context/s3_bucket/](examples/with_context/s3_bucket/) for a complete modular example with deployment context, encryption, and bucket policies.
 
 ```python
 # context.py - Deployment context with environment defaults and shared tags
@@ -101,10 +101,12 @@ class ProdDeploymentContext:
 ctx = ProdDeploymentContext()
 
 # bucket.py - Nested encryption configuration using wrapper dataclasses
+from cloudformation_dataclasses.aws.s3 import ServerSideEncryption
+
 @cloudformation_dataclass
 class MyServerSideEncryptionByDefault:
     resource: ServerSideEncryptionByDefault
-    sse_algorithm = "AES256"
+    sse_algorithm = ServerSideEncryption.AES256  # Use enum constant instead of string
 
 @cloudformation_dataclass
 class MyServerSideEncryptionRule:
@@ -146,7 +148,7 @@ class EncryptionRequiredPolicyDocument:
 class MyDataPolicy:
     resource: BucketPolicy
     context = ctx
-    bucket = ref(MyData)
+    bucket = ref("MyData")  # String ref - no import needed
     policy_document = EncryptionRequiredPolicyDocument
 
 # main.py - Create and export template
@@ -245,6 +247,39 @@ class MySpecial:
 
 ## Tools
 
+### Project Generator
+
+Create new projects with best practices using `cfn-init`:
+
+```bash
+# Create a new project
+cfn-init s3-bucket -o my_project/
+
+# With custom settings
+cfn-init s3-bucket -o my_project/ \
+    --project-name analytics \
+    --component storage \
+    --stage prod \
+    --region us-west-2
+
+# List available skeletons
+cfn-init --list
+```
+
+This creates a complete project structure with deployment context, encryption, and bucket policies:
+
+```
+my_project/
+├── __init__.py        # Package exports
+├── context.py         # Deployment context (naming, tags, environment)
+├── bucket.py          # S3 bucket with encryption and versioning
+├── bucket_policy.py   # Bucket policy requiring encrypted uploads
+├── main.py            # Template builder and entry point
+└── README.md          # Project documentation
+```
+
+See **[docs/QUICK_START.md](docs/QUICK_START.md)** for full documentation.
+
 ### Template Importer
 
 Convert existing CloudFormation YAML/JSON templates to Python code:
@@ -259,13 +294,35 @@ cfn-import template.yaml -o my_stack.py
 # Or if working from source with uv
 uv run cfn-import template.yaml -o my_stack.py
 
-# Different output modes
-cfn-import template.yaml --mode block   # Default: declarative classes
-cfn-import template.yaml --mode brief   # Imperative style
-cfn-import template.yaml --mode mixed   # Hybrid (inlines tags, policies)
+# Generate as package (directory)
+cfn-import template.yaml -o my_stack/
+
+# Omit main block for library modules
+cfn-import template.yaml --no-main -o my_stack.py
 ```
 
-See **[IMPORTER.md](IMPORTER.md)** for full documentation.
+See **[docs/IMPORTER.md](docs/IMPORTER.md)** for full documentation.
+
+### Linter
+
+Detect and fix common mistakes in cloudformation_dataclasses code:
+
+```python
+from cloudformation_dataclasses.linter import lint_code, fix_code
+
+# Detect issues
+issues = lint_code('''
+    sse_algorithm = "AES256"  # Should be ServerSideEncryption.AES256
+    condition = {"Bool": {"key": "value"}}  # Should be {BOOL: ...}
+''')
+for issue in issues:
+    print(f"{issue.line}: {issue.message}")
+
+# Auto-fix code
+fixed = fix_code(code)  # Adds proper constants and imports
+```
+
+The linter is integrated with `cfn-import` and runs automatically by default. See **[docs/LINTER.md](docs/LINTER.md)** for full documentation.
 
 ### Code Generator
 
@@ -282,7 +339,7 @@ Auto-generate Python classes from AWS CloudFormation specifications:
 uv run python -m cloudformation_dataclasses.codegen.spec_parser check
 ```
 
-See **[GENERATOR.md](GENERATOR.md)** for full documentation.
+See **[docs/GENERATOR.md](docs/GENERATOR.md)** for full documentation.
 
 ## Project Status
 
@@ -298,7 +355,8 @@ See **[GENERATOR.md](GENERATOR.md)** for full documentation.
 - ✅ **Complete intrinsic functions** - Ref, GetAtt, Sub, Join, If, Select, Split, etc.
 - ✅ **Template system** - Template, Parameter, Output, Condition, Mapping with validation
 - ✅ **Code generator** - Auto-generate from CloudFormation specs with full serialization
-- ✅ **Template importer** - Convert YAML/JSON templates to Python (block, brief, mixed modes)
+- ✅ **Template importer** - Convert YAML/JSON templates to Python with declarative wrapper classes
+- ✅ **Linter** - Detect and fix common mistakes (string literals → type-safe constants)
 - ✅ **All AWS services** - Complete generation of all 262 AWS services (1,502 resource types)
 - ✅ **Comprehensive test suite** - 128 tests covering framework, intrinsics, wrapper pattern, and S3 integration
 - ✅ **Inline dict support** - Tags and simple properties work with inline dicts
@@ -457,10 +515,12 @@ cloudformation_dataclasses/
 │   ├── core/              # Base classes
 │   ├── intrinsics/        # Intrinsic functions
 │   ├── codegen/           # Code generation
+│   ├── skeleton/          # Project generator (cfn-init)
+│   │   └── templates/     # Skeleton templates
 │   └── aws/               # Generated resources
 ├── tests/                 # Framework validation tests
 ├── examples/              # Usage examples with focused tests
-├── CLAUDE.md              # Development guide
+├── docs/                  # Documentation
 └── README.md              # This file
 ```
 
@@ -472,11 +532,16 @@ cloudformation_dataclasses/
 ## Documentation
 
 - **User Guide**: [README.md](README.md) - This file (getting started, examples, usage)
-- **Template Importer**: [IMPORTER.md](IMPORTER.md) - Convert CloudFormation templates to Python
-- **Code Generator**: [GENERATOR.md](GENERATOR.md) - Generate Python classes from AWS specs
-- **Developer Guide**: [DEVELOPERS.md](DEVELOPERS.md) - Building, testing, and publishing
+- **Quick Start**: [docs/QUICK_START.md](docs/QUICK_START.md) - Create new projects with cfn-init and DeploymentContext
+- **Resource Registry**: [docs/REGISTRY.md](docs/REGISTRY.md) - Auto-registration and multi-file organization
+- **Template Importer**: [docs/IMPORTER.md](docs/IMPORTER.md) - Convert CloudFormation templates to Python
+- **Linter**: [docs/LINTER.md](docs/LINTER.md) - Detect and fix common mistakes in code
+- **Import Workflow**: [docs/IMPORT_WORKFLOW.md](docs/IMPORT_WORKFLOW.md) - Workflow for importing third-party templates
+- **Agent Guide**: [docs/AGENT_GUIDE.md](docs/AGENT_GUIDE.md) - Workflows for AI assistants
+- **Code Generator**: [docs/GENERATOR.md](docs/GENERATOR.md) - Generate Python classes from AWS specs
+- **Developer Guide**: [docs/DEVELOPERS.md](docs/DEVELOPERS.md) - Building, testing, and publishing
 - **Changelog**: [CHANGELOG.md](CHANGELOG.md) - Version history and release notes
-- **Project Checklist**: [CHECKLIST.md](CHECKLIST.md) - Implementation progress
+- **Project Checklist**: [docs/CHECKLIST.md](docs/CHECKLIST.md) - Implementation progress
 - **CloudFormation Spec**: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification.html
 
 ## License

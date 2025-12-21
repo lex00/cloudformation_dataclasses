@@ -34,11 +34,13 @@ class TestGenerateSimpleBucket:
     def test_has_output_class(self, code):
         assert "class BucketNameOutput:" in code
         assert "resource: Output" in code
-        assert "ref(MyBucket)" in code
+        assert 'ref("MyBucket")' in code
 
-    def test_has_template_class(self, code):
-        assert "class SimpleBucketTemplate:" in code
-        assert "resource: Template" in code
+    def test_uses_template_from_registry(self, code):
+        # Template class is no longer generated - resources auto-register
+        # and we use Template.from_registry() to build the template
+        assert "Template.from_registry(" in code
+        assert "class SimpleBucketTemplate:" not in code
 
     def test_has_build_function(self, code):
         assert "def build_template()" in code
@@ -62,14 +64,15 @@ class TestGenerateBucketWithRef:
     def test_has_parameter_class(self, code):
         assert "class BucketNameParam:" in code
         assert "resource: Parameter" in code
-        assert "type = 'String'" in code
+        assert "type = STRING" in code  # Uses constant instead of string
         assert "default = 'my-default-bucket'" in code
 
     def test_has_ref_to_parameter(self, code):
         assert "ref(BucketNameParam)" in code
 
     def test_has_getatt(self, code):
-        assert 'get_att(MyBucket, "Arn")' in code
+        # Output values use string refs (inline mode), not class refs
+        assert 'get_att("MyBucket", "Arn")' in code
 
     def test_generated_code_is_valid_python(self, code):
         compile(code, "<test>", "exec")
@@ -89,6 +92,10 @@ class TestGenerateIntrinsics:
 
     def test_has_join(self, code):
         assert "Join(" in code
+
+    def test_uses_pseudo_parameter_constant(self, code):
+        # !Ref AWS::StackName should become AWS_STACK_NAME constant
+        assert "AWS_STACK_NAME" in code
 
     def test_has_if(self, code):
         assert "If(" in code
@@ -126,92 +133,24 @@ class TestGenerateFromJSON:
         compile(code, "<test>", "exec")
 
 
-class TestBriefMode:
-    """Tests for brief mode (imperative) code generation."""
-
-    @pytest.fixture
-    def code(self):
-        template = parse_template(TEMPLATES_DIR / "simple_bucket.yaml")
-        return generate_code(template, mode="brief")
-
-    def test_no_cloudformation_dataclass_decorator(self, code):
-        assert "@cloudformation_dataclass" not in code
-
-    def test_has_variable_assignment(self, code):
-        assert "my_bucket = Bucket(" in code
-
-    def test_has_output_variable(self, code):
-        assert "bucket_name_output = Output(" in code
-
-    def test_has_template_variable(self, code):
-        assert "template = Template(" in code
-
-    def test_no_build_template_function(self, code):
-        assert "def build_template()" not in code
-
-    def test_generated_code_is_valid_python(self, code):
-        compile(code, "<test>", "exec")
-
-
-class TestBriefModeWithRef:
-    """Tests for brief mode with references."""
-
-    @pytest.fixture
-    def code(self):
-        template = parse_template(TEMPLATES_DIR / "bucket_with_ref.yaml")
-        return generate_code(template, mode="brief")
-
-    def test_has_parameter_variable(self, code):
-        assert "bucket_name_param = Parameter(" in code
-
-    def test_has_resource_variable(self, code):
-        assert "my_bucket = Bucket(" in code
-
-    def test_generated_code_is_valid_python(self, code):
-        compile(code, "<test>", "exec")
-
-
-class TestMixedMode:
-    """Tests for mixed mode code generation."""
-
-    @pytest.fixture
-    def code(self):
-        template = parse_template(TEMPLATES_DIR / "simple_bucket.yaml")
-        return generate_code(template, mode="mixed")
-
-    def test_has_wrapper_classes(self, code):
-        # Mixed mode uses classes for resources
-        assert "@cloudformation_dataclass" in code
-        assert "class MyBucket:" in code
-
-    def test_has_build_function(self, code):
-        assert "def build_template()" in code
-
-    def test_generated_code_is_valid_python(self, code):
-        compile(code, "<test>", "exec")
-
-
-class TestMixedModeWithTags:
-    """Tests for mixed mode with tag reuse detection."""
+class TestBlockModeWithTags:
+    """Tests for code generation with tags."""
 
     @pytest.fixture
     def code(self):
         template = parse_template(TEMPLATES_DIR / "bucket_with_tags.yaml")
-        return generate_code(template, mode="mixed")
+        return generate_code(template)
 
-    def test_reused_tag_has_class(self, code):
-        # Team:Platform is used twice, should have a class
-        assert "class TeamPlatformTag:" in code
+    def test_has_wrapper_classes(self, code):
+        # Block mode uses wrapper classes for PropertyTypes
+        assert "@cloudformation_dataclass" in code
+        assert "class ProdBucket:" in code
 
-    def test_unique_tag_is_inlined(self, code):
-        # Environment:Development is used once, should be inlined
-        assert "Tag(key='Environment', value='Development')" in code
-
-    def test_reused_tag_is_referenced(self, code):
-        # Team:Platform should be referenced by class name, not inlined
-        assert "TeamPlatformTag" in code
-        # Should not have inlined Tag for Platform
-        assert "Tag(key='Team', value='Platform')" not in code
+    def test_does_not_inline_tags(self, code):
+        # Block mode should NOT have Tag() inlined
+        assert "Tag(key=" not in code
+        # But should have the tag referenced via wrapper classes
+        compile(code, "<test>", "exec")
 
     def test_all_resources_present(self, code):
         assert "class ProdBucket:" in code
@@ -222,69 +161,24 @@ class TestMixedModeWithTags:
         compile(code, "<test>", "exec")
 
 
-class TestMixedModeVsBlockMode:
-    """Tests comparing mixed mode to block mode."""
-
-    def test_block_mode_does_not_inline_tags(self):
-        template = parse_template(TEMPLATES_DIR / "bucket_with_tags.yaml")
-        code = generate_code(template, mode="block")
-        # Block mode should NOT have Tag() inlined
-        assert "Tag(key=" not in code
-        # But should have the tag as dict value in properties
-        compile(code, "<test>", "exec")
-
-
-class TestMixedModeWithPolicies:
-    """Tests for mixed mode with IAM policies."""
-
-    @pytest.fixture
-    def code(self):
-        template = parse_template(TEMPLATES_DIR / "bucket_with_policy.yaml")
-        return generate_code(template, mode="mixed")
-
-    def test_uses_policy_document_class(self, code):
-        assert "PolicyDocument(statement=" in code
-
-    def test_uses_policy_statement_class(self, code):
-        assert "PolicyStatement(" in code
-
-    def test_statement_has_sid(self, code):
-        assert "sid='PublicRead'" in code
-        assert "sid='DenyInsecure'" in code
-
-    def test_statement_has_effect_for_deny(self, code):
-        # Allow is default, so should not appear
-        # Deny should be explicit
-        assert "effect='Deny'" in code
-
-    def test_statement_has_resource_arn(self, code):
-        assert "resource_arn=" in code
-
-    def test_statement_has_condition(self, code):
-        assert "condition={" in code
-
-    def test_imports_policy_classes(self, code):
-        assert "PolicyDocument" in code
-        assert "PolicyStatement" in code
-
-    def test_generated_code_is_valid_python(self, code):
-        compile(code, "<test>", "exec")
-
-
 class TestBlockModeWithPolicies:
-    """Tests for block mode with IAM policies (should use raw dicts)."""
+    """Tests for code generation with IAM policies."""
 
     @pytest.fixture
     def code(self):
         template = parse_template(TEMPLATES_DIR / "bucket_with_policy.yaml")
-        return generate_code(template, mode="block")
+        return generate_code(template)
 
-    def test_does_not_use_policy_document_class(self, code):
-        # Block mode should keep policies as raw dicts
+    def test_does_not_use_inline_policy_document(self, code):
+        # Block mode should use wrapper classes, not PolicyDocument()
         assert "PolicyDocument(" not in code
 
-    def test_does_not_use_policy_statement_class(self, code):
+    def test_does_not_use_inline_policy_statement(self, code):
         assert "PolicyStatement(" not in code
+
+    def test_has_wrapper_classes_for_policy(self, code):
+        # Should have wrapper classes for policy structures
+        assert "@cloudformation_dataclass" in code
 
     def test_generated_code_is_valid_python(self, code):
         compile(code, "<test>", "exec")

@@ -2,9 +2,16 @@
 
 import re
 from dataclasses import dataclass, field
-from enum import Enum
-from typing import Any, Literal, Optional
+from typing import Any, Optional
 
+from cloudformation_dataclasses.constants import (
+    CONDITION_OPERATOR_MAP,
+    PARAMETER_TYPE_MAP,
+    PSEUDO_PARAMETER_MAP,
+    find_property_type_for_cf_keys,
+    get_property_type_info,
+    resolve_resource_type,
+)
 from cloudformation_dataclasses.importer.ir import (
     IntrinsicType,
     IRCondition,
@@ -18,59 +25,22 @@ from cloudformation_dataclasses.importer.ir import (
 from cloudformation_dataclasses.importer.parser import to_snake_case
 
 
-class OutputMode(Enum):
-    """Code generation output modes."""
-
-    BLOCK = "block"  # Maximize declarative wrapper classes
-    BRIEF = "brief"  # Maximize imperative, direct instantiation
-    MIXED = "mixed"  # Balanced approach
-
-
 # =============================================================================
-# Resource Type Registry
+# Annotated Field Value (for annotation-based refs)
 # =============================================================================
 
-# Map resource types to (module, class_name)
-# This is populated dynamically from aws modules
-_RESOURCE_TYPE_MAP: dict[str, tuple[str, str]] = {}
 
-
-def _build_resource_type_map() -> None:
-    """Build mapping from CloudFormation types to Python classes."""
-    global _RESOURCE_TYPE_MAP
-    if _RESOURCE_TYPE_MAP:
-        return  # Already built
-
-    try:
-        from cloudformation_dataclasses import aws
-
-        for module_name in dir(aws):
-            if module_name.startswith("_"):
-                continue
-            module = getattr(aws, module_name)
-            if not hasattr(module, "__file__"):
-                continue
-
-            for class_name in dir(module):
-                if class_name.startswith("_"):
-                    continue
-                cls = getattr(module, class_name)
-                if hasattr(cls, "resource_type") and isinstance(cls.resource_type, str):
-                    resource_type = cls.resource_type
-                    _RESOURCE_TYPE_MAP[resource_type] = (module_name, class_name)
-    except ImportError:
-        pass  # AWS modules not available
-
-
-def resolve_resource_type(resource_type: str) -> Optional[tuple[str, str]]:
+@dataclass
+class AnnotatedValue:
     """
-    Resolve a CloudFormation resource type to Python module and class.
+    Represents a field value that needs a type annotation.
 
-    Returns:
-        Tuple of (module_name, class_name) or None if unknown
+    Used for annotation-based refs like: bucket: Ref[Bucket] = ref()
+    Instead of: bucket = ref("Bucket")
     """
-    _build_resource_type_map()
-    return _RESOURCE_TYPE_MAP.get(resource_type)
+
+    annotation: str  # e.g., "Ref[Bucket]"
+    value: str  # e.g., "ref()"
 
 
 # =============================================================================
@@ -83,7 +53,6 @@ class CodegenContext:
     """Context for code generation."""
 
     template: IRTemplate
-    mode: OutputMode = OutputMode.BLOCK
     include_docstrings: bool = True
     include_main_block: bool = True
 
@@ -95,6 +64,25 @@ class CodegenContext:
     # For mixed mode: track reuse counts
     tag_reuse: dict[str, int] = field(default_factory=dict)  # "Key:Value" -> count
 
+    # Current module being generated (for PropertyType resolution)
+    current_module: Optional[str] = None
+
+    # For block mode: collect PropertyType wrapper class definitions
+    # These are generated during resource class generation and inserted before resources
+    property_type_class_defs: list[str] = field(default_factory=list)
+
+    # Map of Sub template patterns to resource logical IDs (for implicit ref detection)
+    # e.g., "${AppName}-${AWS::Region}-${AWS::AccountId}" -> "ObjectStorageBucket"
+    name_pattern_map: dict[str, str] = field(default_factory=dict)
+
+    # Map of ARN Sub patterns to (resource_id, suffix) for get_att() replacement
+    # e.g., "arn:${AWS::Partition}:s3:::${bucket-name}" -> ("BucketResource", "")
+    # e.g., "arn:${AWS::Partition}:s3:::${bucket-name}/*" -> ("BucketResource", "/*")
+    arn_pattern_map: dict[str, tuple[str, str]] = field(default_factory=dict)
+
+    # Current resource ID being generated (to avoid self-referential ref() replacements)
+    current_resource_id: Optional[str] = None
+
     def add_import(self, module: str, name: str) -> None:
         """Add an import to track."""
         self.imports.setdefault(module, set()).add(name)
@@ -102,6 +90,22 @@ class CodegenContext:
     def add_intrinsic_import(self, name: str) -> None:
         """Add an intrinsic function import."""
         self.intrinsic_imports.add(name)
+
+    def add_condition_operator_import(self, const_name: str) -> None:
+        """Add a condition operator constant import."""
+        if const_name.startswith("ConditionOperator."):
+            self.add_import("cloudformation_dataclasses.core", "ConditionOperator")
+        else:
+            # It's an alias like STRING_EQUALS, BOOL, etc.
+            self.add_import("cloudformation_dataclasses.core", const_name)
+
+    def add_parameter_type_import(self, const_name: str) -> None:
+        """Add a parameter type constant import."""
+        if const_name.startswith("ParameterType."):
+            self.add_import("cloudformation_dataclasses.core", "ParameterType")
+        else:
+            # It's an alias like STRING, NUMBER
+            self.add_import("cloudformation_dataclasses.core", const_name)
 
 
 def _analyze_reuse(template: IRTemplate) -> dict[str, int]:
@@ -120,6 +124,140 @@ def _analyze_reuse(template: IRTemplate) -> dict[str, int]:
                         tag_counts[sig] = tag_counts.get(sig, 0) + 1
 
     return tag_counts
+
+
+# Properties that define a resource's "name" for implicit ref detection
+NAME_PROPERTIES = frozenset([
+    "BucketName",      # S3
+    "RoleName",        # IAM
+    "TableName",       # DynamoDB
+    "FunctionName",    # Lambda
+    "QueueName",       # SQS
+    "TopicName",       # SNS
+    "StackName",       # CloudFormation
+    "ClusterName",     # ECS, EKS, etc.
+    "LogGroupName",    # CloudWatch Logs
+    "StreamName",      # Kinesis
+    "DatabaseName",    # RDS, Glue
+    "RepositoryName",  # ECR
+    "VaultName",       # Glacier
+    "DomainName",      # Various services
+    "Name",            # Generic fallback
+])
+
+
+def _build_name_pattern_map(template: IRTemplate) -> dict[str, str]:
+    """Build a map of Sub template patterns to resource logical IDs.
+
+    This enables detecting when a Sub pattern matches a resource's name,
+    allowing replacement with ref() for proper dependency tracking.
+
+    For example, if:
+    - ObjectStorageBucket has BucketName: !Sub "${AppName}-${AWS::Region}-${AWS::AccountId}"
+    - ObjectStorageBucketPolicy has Bucket: !Sub "${AppName}-${AWS::Region}-${AWS::AccountId}"
+
+    We can detect the match and generate:
+    - bucket = ref(ObjectStorageBucket)
+    instead of:
+    - bucket = Sub("${AppName}-${AWS::Region}-${AWS::AccountId}")
+
+    Returns:
+        Dict mapping Sub template strings to resource logical IDs
+    """
+    pattern_map: dict[str, str] = {}
+
+    for logical_id, resource in template.resources.items():
+        for prop_cf_name in NAME_PROPERTIES:
+            if prop_cf_name in resource.properties:
+                prop = resource.properties[prop_cf_name]
+                # Check if it's a Sub intrinsic
+                if isinstance(prop.value, IRIntrinsic) and prop.value.type == IntrinsicType.SUB:
+                    # Extract the template string
+                    if isinstance(prop.value.args, str):
+                        template_str = prop.value.args
+                    elif isinstance(prop.value.args, (list, tuple)) and len(prop.value.args) >= 1:
+                        template_str = prop.value.args[0]
+                    else:
+                        continue
+                    # Store the mapping (first occurrence wins)
+                    if template_str not in pattern_map:
+                        pattern_map[template_str] = logical_id
+
+    return pattern_map
+
+
+# ARN prefix patterns by CloudFormation resource type
+# These define the ARN structure before the resource name for each service
+ARN_PREFIX_PATTERNS: dict[str, str] = {
+    "AWS::S3::Bucket": "arn:${AWS::Partition}:s3:::",
+    "AWS::IAM::Role": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/",
+    "AWS::IAM::Policy": "arn:${AWS::Partition}:iam::${AWS::AccountId}:policy/",
+    "AWS::Lambda::Function": "arn:${AWS::Partition}:lambda:${AWS::Region}:${AWS::AccountId}:function:",
+    "AWS::DynamoDB::Table": "arn:${AWS::Partition}:dynamodb:${AWS::Region}:${AWS::AccountId}:table/",
+    "AWS::SQS::Queue": "arn:${AWS::Partition}:sqs:${AWS::Region}:${AWS::AccountId}:",
+    "AWS::SNS::Topic": "arn:${AWS::Partition}:sns:${AWS::Region}:${AWS::AccountId}:",
+    "AWS::Logs::LogGroup": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:",
+    "AWS::Kinesis::Stream": "arn:${AWS::Partition}:kinesis:${AWS::Region}:${AWS::AccountId}:stream/",
+    "AWS::KMS::Key": "arn:${AWS::Partition}:kms:${AWS::Region}:${AWS::AccountId}:key/",
+    "AWS::ECR::Repository": "arn:${AWS::Partition}:ecr:${AWS::Region}:${AWS::AccountId}:repository/",
+    "AWS::ECS::Cluster": "arn:${AWS::Partition}:ecs:${AWS::Region}:${AWS::AccountId}:cluster/",
+    "AWS::StepFunctions::StateMachine": "arn:${AWS::Partition}:states:${AWS::Region}:${AWS::AccountId}:stateMachine:",
+    "AWS::Events::Rule": "arn:${AWS::Partition}:events:${AWS::Region}:${AWS::AccountId}:rule/",
+    "AWS::SecretsManager::Secret": "arn:${AWS::Partition}:secretsmanager:${AWS::Region}:${AWS::AccountId}:secret:",
+    "AWS::SSM::Parameter": "arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/",
+}
+
+
+def _build_arn_pattern_map(template: IRTemplate) -> dict[str, tuple[str, str]]:
+    """Build a map of ARN Sub patterns to (resource_id, suffix).
+
+    This enables detecting when a Sub pattern builds an ARN that matches
+    a resource's name pattern, allowing replacement with get_att(Resource, "Arn").
+
+    For example, if ObjectStorageBucket has:
+        BucketName: !Sub "${AppName}-${AWS::Region}-${AWS::AccountId}"
+
+    Then these ARN patterns will match:
+        "arn:${AWS::Partition}:s3:::${AppName}-${AWS::Region}-${AWS::AccountId}" -> ("ObjectStorageBucket", "")
+        "arn:${AWS::Partition}:s3:::${AppName}-${AWS::Region}-${AWS::AccountId}/*" -> ("ObjectStorageBucket", "/*")
+
+    Returns:
+        Dict mapping ARN template strings to (resource_logical_id, suffix) tuples
+    """
+    arn_map: dict[str, tuple[str, str]] = {}
+
+    for logical_id, resource in template.resources.items():
+        # Get the ARN prefix for this resource type
+        arn_prefix = ARN_PREFIX_PATTERNS.get(resource.resource_type)
+        if not arn_prefix:
+            continue
+
+        # Find the resource's name pattern
+        for prop_cf_name in NAME_PROPERTIES:
+            if prop_cf_name in resource.properties:
+                prop = resource.properties[prop_cf_name]
+                if isinstance(prop.value, IRIntrinsic) and prop.value.type == IntrinsicType.SUB:
+                    # Extract the template string
+                    if isinstance(prop.value.args, str):
+                        name_pattern = prop.value.args
+                    elif isinstance(prop.value.args, (list, tuple)) and len(prop.value.args) >= 1:
+                        name_pattern = prop.value.args[0]
+                    else:
+                        continue
+
+                    # Build the full ARN pattern
+                    full_arn = f"{arn_prefix}{name_pattern}"
+
+                    # Store exact match (first occurrence wins)
+                    if full_arn not in arn_map:
+                        arn_map[full_arn] = (logical_id, "")
+
+                    # Also store common wildcard variants
+                    wildcard_arn = f"{full_arn}/*"
+                    if wildcard_arn not in arn_map:
+                        arn_map[wildcard_arn] = (logical_id, "/*")
+
+    return arn_map
 
 
 def _tag_class_name(key: str, value: str) -> str:
@@ -141,6 +279,312 @@ def _tag_signature(tag: dict[str, Any]) -> str:
 # Value Serialization
 # =============================================================================
 
+# Known enum mappings: (module, enum_class) -> {string_value: constant_name}
+# Used during code generation to convert string literals to enum references
+KNOWN_ENUMS: dict[tuple[str, str], dict[str, str]] = {
+    # S3 enums
+    ("s3", "ServerSideEncryption"): {
+        "AES256": "AES256",
+        "aws:kms": "AWS_KMS",
+        "aws:kms:dsse": "AWS_KMS_DSSE",
+    },
+    ("s3", "BucketVersioningStatus"): {
+        "Enabled": "ENABLED",
+        "Suspended": "SUSPENDED",
+    },
+    ("s3", "ObjectLockEnabled"): {
+        "Enabled": "ENABLED",
+    },
+    ("s3", "ObjectLockMode"): {
+        "COMPLIANCE": "COMPLIANCE",
+        "GOVERNANCE": "GOVERNANCE",
+    },
+    ("s3", "ObjectLockRetentionMode"): {
+        "COMPLIANCE": "COMPLIANCE",
+        "GOVERNANCE": "GOVERNANCE",
+    },
+    ("s3", "ReplicationRuleStatus"): {
+        "Enabled": "ENABLED",
+        "Disabled": "DISABLED",
+    },
+    # DynamoDB enums
+    ("dynamodb", "KeyType"): {
+        "HASH": "HASH",
+        "RANGE": "RANGE",
+    },
+    ("dynamodb", "AttributeType"): {
+        "S": "S",
+        "N": "N",
+        "B": "B",
+    },
+    ("dynamodb", "BillingMode"): {
+        "PROVISIONED": "PROVISIONED",
+        "PAY_PER_REQUEST": "PAY_PER_REQUEST",
+    },
+    ("dynamodb", "ProjectionType"): {
+        "ALL": "ALL",
+        "KEYS_ONLY": "KEYS_ONLY",
+        "INCLUDE": "INCLUDE",
+    },
+    ("dynamodb", "StreamViewType"): {
+        "KEYS_ONLY": "KEYS_ONLY",
+        "NEW_IMAGE": "NEW_IMAGE",
+        "OLD_IMAGE": "OLD_IMAGE",
+        "NEW_AND_OLD_IMAGES": "NEW_AND_OLD_IMAGES",
+    },
+    # Lambda enums
+    ("lambda_", "Runtime"): {
+        "python3.8": "PYTHON3_8",
+        "python3.9": "PYTHON3_9",
+        "python3.10": "PYTHON3_10",
+        "python3.11": "PYTHON3_11",
+        "python3.12": "PYTHON3_12",
+        "python3.13": "PYTHON3_13",
+        "nodejs18.x": "NODEJS18_X",
+        "nodejs20.x": "NODEJS20_X",
+        "nodejs22.x": "NODEJS22_X",
+    },
+}
+
+
+# Known type wrapper names to skip when extracting class names
+_SKIP_TYPE_NAMES = frozenset({
+    "Optional", "Union", "Any", "Ref", "GetAtt", "Sub", "ClassVar",
+    "List", "Dict", "Set", "Tuple", "Callable", "Sequence", "Mapping",
+    "list", "dict", "set", "tuple", "bool", "str", "int", "float",
+})
+
+
+def _extract_class_from_type_hint(type_hint: Optional[str]) -> Optional[str]:
+    """
+    Extract a PropertyType class name from a type annotation string.
+
+    Args:
+        type_hint: Type annotation like "Optional[BucketEncryption]" or
+                   "Optional[list[ServerSideEncryptionRule]]"
+
+    Returns:
+        Class name (e.g., "BucketEncryption") or None if no class found.
+    """
+    if not type_hint:
+        return None
+
+    # Find all PascalCase identifiers in the type hint
+    for match in re.finditer(r"\b([A-Z][a-zA-Z0-9]*)\b", type_hint):
+        class_name = match.group(1)
+        if class_name not in _SKIP_TYPE_NAMES:
+            return class_name
+
+    return None
+
+
+def _extract_enum_from_type_hint(type_hint: str) -> Optional[tuple[str, str]]:
+    """
+    Extract enum class name from a type annotation string.
+
+    Args:
+        type_hint: Type annotation like "Optional[Union[str, ServerSideEncryption, Ref, ...]]"
+
+    Returns:
+        Tuple of (module, enum_class) if found, None otherwise.
+    """
+    # Look for known enum class names in the type hint
+    for (module, enum_class), _ in KNOWN_ENUMS.items():
+        if enum_class in type_hint:
+            return (module, enum_class)
+    return None
+
+
+def _try_convert_to_enum(
+    value: str, type_hint: Optional[str], ctx: CodegenContext
+) -> Optional[str]:
+    """
+    Try to convert a string value to an enum constant reference.
+
+    Args:
+        value: The string value to convert
+        type_hint: Type annotation string (if known)
+        ctx: Code generation context
+
+    Returns:
+        Enum reference string (e.g., "ServerSideEncryption.AES256") or None
+    """
+    if not type_hint:
+        return None
+
+    enum_info = _extract_enum_from_type_hint(type_hint)
+    if not enum_info:
+        return None
+
+    module, enum_class = enum_info
+    enum_values = KNOWN_ENUMS.get((module, enum_class))
+    if not enum_values or value not in enum_values:
+        return None
+
+    const_name = enum_values[value]
+    # Add import
+    full_module = f"cloudformation_dataclasses.aws.{module}"
+    ctx.add_import(full_module, enum_class)
+    return f"{enum_class}.{const_name}"
+
+
+def _value_to_python_typed(
+    value: Any,
+    ctx: CodegenContext,
+    indent: int = 0,
+    expected_type: Optional[str] = None,
+    expected_module: Optional[str] = None,
+    expected_class: Optional[str] = None,
+) -> str:
+    """
+    Convert a value to Python source code, using PropertyType classes when possible.
+
+    Args:
+        value: The value to convert
+        ctx: Code generation context
+        indent: Current indentation level
+        expected_type: Type annotation string (for enum detection)
+        expected_module: Expected module for PropertyType (e.g., "s3")
+        expected_class: Expected PropertyType class name (e.g., "BucketEncryption")
+
+    Returns:
+        Python source code string
+    """
+    indent_str = "    " * indent
+
+    if isinstance(value, IRIntrinsic):
+        result = _intrinsic_to_python(value, ctx)
+        # AnnotatedValue is only for top-level properties, not inline values
+        if isinstance(result, AnnotatedValue):
+            return _annotated_to_string_ref(result)
+        return result
+
+    if value is None:
+        return "None"
+
+    if isinstance(value, bool):
+        return "True" if value else "False"
+
+    if isinstance(value, (int, float)):
+        return str(value)
+
+    if isinstance(value, str):
+        # Try enum conversion if we have type information
+        if expected_type:
+            enum_ref = _try_convert_to_enum(value, expected_type, ctx)
+            if enum_ref:
+                return enum_ref
+        return _escape_string(value)
+
+    if isinstance(value, list):
+        if not value:
+            return "[]"
+
+        # Check if this is a list of PropertyTypes
+        inner_type = None
+        inner_module = None
+        inner_class = None
+        if expected_type:
+            # Extract inner type from list[...] annotation
+            list_match = re.match(r".*list\[(\w+)\].*", expected_type, re.IGNORECASE)
+            if list_match:
+                inner_class = list_match.group(1)
+                # Try to find this PropertyType
+                if expected_module:
+                    info = get_property_type_info(expected_module, inner_class)
+                    if info:
+                        inner_module = expected_module
+
+        items = []
+        for item in value:
+            item_str = _value_to_python_typed(
+                item, ctx, indent + 1,
+                expected_type=inner_type,
+                expected_module=inner_module,
+                expected_class=inner_class,
+            )
+            items.append(item_str)
+
+        if len(items) == 1:
+            return f"[{items[0]}]"
+        inner = f",\n{indent_str}    ".join(items)
+        return f"[\n{indent_str}    {inner},\n{indent_str}]"
+
+    if isinstance(value, dict):
+        if not value:
+            return "{}"
+
+        # Try to match to a PropertyType
+        cf_keys = set(value.keys())
+        module_hint = expected_module or ctx.current_module
+
+        # If we have an expected class, check if it matches
+        property_type_info = None
+        pt_module = None
+        pt_class = None
+
+        if expected_class and expected_module:
+            property_type_info = get_property_type_info(expected_module, expected_class)
+            if property_type_info:
+                pt_module = expected_module
+                pt_class = expected_class
+        else:
+            # Try to find a matching PropertyType
+            match = find_property_type_for_cf_keys(cf_keys, module_hint=module_hint)
+            if match:
+                pt_module, pt_class = match
+                property_type_info = get_property_type_info(pt_module, pt_class)
+
+        if property_type_info and pt_module and pt_class:
+            # Convert to PropertyType constructor
+            cf_to_python = property_type_info["cf_to_python"]
+            field_types = property_type_info["field_types"]
+
+            # Build constructor arguments
+            args = []
+            for cf_key, val in value.items():
+                if cf_key in cf_to_python:
+                    python_field = cf_to_python[cf_key]
+                    field_type = field_types.get(python_field)
+
+                    # Check if field type references another PropertyType
+                    nested_module = None
+                    nested_class = _extract_class_from_type_hint(field_type)
+                    if nested_class:
+                        nested_module = pt_module
+
+                    val_str = _value_to_python_typed(
+                        val, ctx, indent + 1,
+                        expected_type=field_type,
+                        expected_module=nested_module,
+                        expected_class=nested_class,
+                    )
+                    args.append(f"{python_field}={val_str}")
+                else:
+                    # Unknown key - still include it but as-is
+                    val_str = _value_to_python_typed(val, ctx, indent + 1)
+                    args.append(f"# Unknown: {cf_key}={val_str}")
+
+            # Add import for PropertyType
+            full_module = f"cloudformation_dataclasses.aws.{pt_module}"
+            ctx.add_import(full_module, pt_class)
+
+            if len(args) == 1:
+                return f"{pt_class}({args[0]})"
+            inner = f",\n{indent_str}    ".join(args)
+            return f"{pt_class}(\n{indent_str}    {inner},\n{indent_str})"
+
+        # No PropertyType match - fall back to dict
+        items = []
+        for k, v in value.items():
+            key_str = _escape_string(k) if isinstance(k, str) else str(k)
+            val_str = _value_to_python_typed(v, ctx, indent + 1)
+            items.append(f"{key_str}: {val_str}")
+        inner = f",\n{indent_str}    ".join(items)
+        return f"{{\n{indent_str}    {inner},\n{indent_str}}}"
+
+    return repr(value)
+
 
 def _escape_string(s: str) -> str:
     """Escape a string for Python source code."""
@@ -152,12 +596,55 @@ def _escape_string(s: str) -> str:
     return repr(s)
 
 
-def _value_to_python(value: Any, ctx: CodegenContext, indent: int = 0) -> str:
-    """Convert a value to Python source code."""
+def _annotated_to_string_ref(annotated: AnnotatedValue) -> str:
+    """Convert an AnnotatedValue back to a string-based ref for inline use.
+
+    AnnotatedValue is for top-level properties only. When used inline
+    (in lists, dicts, etc.), we need string-based refs.
+    """
+    import re
+
+    # Extract target from annotation like "Ref[Bucket]" -> "Bucket"
+    if match := re.match(r"Ref\[(\w+)\]", annotated.annotation):
+        target = match.group(1)
+        return f'ref("{target}")'
+    elif match := re.match(r"GetAtt\[(\w+)\]", annotated.annotation):
+        target = match.group(1)
+        # Extract attribute from value like 'get_att("Arn")' -> "Arn"
+        if attr_match := re.search(r'get_att\("(\w+)"\)', annotated.value):
+            attr = attr_match.group(1)
+            return f'get_att("{target}", "{attr}")'
+        # Handle get_att(ARN) constant - extract constant name
+        if "(" in annotated.value:
+            const = annotated.value.split("(")[1].rstrip(")")
+            return f'get_att("{target}", {const})'
+        return f'get_att("{target}")'
+    # Fallback - shouldn't happen
+    return annotated.value
+
+
+def _value_to_python(
+    value: Any,
+    ctx: CodegenContext,
+    indent: int = 0,
+    parent_property_type: tuple[str, str] | None = None,
+) -> str:
+    """Convert a value to Python source code.
+
+    Args:
+        value: The value to convert
+        ctx: Code generation context
+        indent: Current indentation level
+        parent_property_type: Optional (module, class_name) of parent PropertyType for dict key constants
+    """
     indent_str = "    " * indent
 
     if isinstance(value, IRIntrinsic):
-        return _intrinsic_to_python(value, ctx)
+        result = _intrinsic_to_python(value, ctx)
+        # AnnotatedValue is only for top-level properties, not inline values
+        if isinstance(result, AnnotatedValue):
+            return _annotated_to_string_ref(result)
+        return result
 
     if value is None:
         return "None"
@@ -175,18 +662,39 @@ def _value_to_python(value: Any, ctx: CodegenContext, indent: int = 0) -> str:
         if not value:
             return "[]"
         if len(value) == 1:
-            return f"[{_value_to_python(value[0], ctx, indent)}]"
-        items = [_value_to_python(item, ctx, indent + 1) for item in value]
+            return f"[{_value_to_python(value[0], ctx, indent, parent_property_type)}]"
+        items = [_value_to_python(item, ctx, indent + 1, parent_property_type) for item in value]
         inner = f",\n{indent_str}    ".join(items)
         return f"[\n{indent_str}    {inner},\n{indent_str}]"
 
     if isinstance(value, dict):
         if not value:
             return "{}"
+
+        # Try to find the PropertyType for this dict based on its keys
+        cf_keys = set(value.keys())
+        module_hint = parent_property_type[0] if parent_property_type else ctx.current_module
+        dict_property_type = find_property_type_for_cf_keys(cf_keys, module_hint)
+
         items = []
         for k, v in value.items():
-            key_str = _escape_string(k) if isinstance(k, str) else str(k)
-            val_str = _value_to_python(v, ctx, indent + 1)
+            # Generate dict key - use PropertyType constant if available
+            if dict_property_type:
+                module, class_name = dict_property_type
+                const_name = to_snake_case(k).upper()
+                key_str = f"{class_name}.{const_name}"
+                ctx.add_import(f"cloudformation_dataclasses.aws.{module}", class_name)
+            else:
+                key_str = _escape_string(k) if isinstance(k, str) else str(k)
+
+            # For nested dicts, determine the child PropertyType from the key name
+            child_property_type = None
+            if isinstance(v, (dict, list)) and module_hint:
+                child_info = get_property_type_info(module_hint, k)
+                if child_info:
+                    child_property_type = (module_hint, k)
+
+            val_str = _value_to_python(v, ctx, indent + 1, child_property_type)
             items.append(f"{key_str}: {val_str}")
         inner = f",\n{indent_str}    ".join(items)
         return f"{{\n{indent_str}    {inner},\n{indent_str}}}"
@@ -194,19 +702,34 @@ def _value_to_python(value: Any, ctx: CodegenContext, indent: int = 0) -> str:
     return repr(value)
 
 
-def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str:
+def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str | AnnotatedValue:
     """Convert an IRIntrinsic to Python code."""
+
+    def _format_ref_target(logical_id: str) -> str:
+        """Format a ref/get_att target - use PascalCase class names."""
+        return logical_id
+
     if intrinsic.type == IntrinsicType.REF:
         target = intrinsic.args
         # Check if it's a parameter, resource, or pseudo-parameter
         if target.startswith("AWS::"):
-            # Pseudo-parameter
+            # Pseudo-parameter - use constant if available
+            if target in PSEUDO_PARAMETER_MAP:
+                const_name = PSEUDO_PARAMETER_MAP[target]
+                ctx.add_intrinsic_import(const_name)
+                return const_name
+            # Unknown pseudo-parameter
             ctx.add_intrinsic_import("Ref")
             return f'Ref("{target}")'
         if target in ctx.template.parameters:
-            return f"ref({target})"
+            # Class ref for parameters - they're defined in config.py and re-exported
+            return f"ref({_format_ref_target(target)})"
         if target in ctx.template.resources:
-            return f"ref({target})"
+            # Annotation-based ref for resources - uses type annotation for forward refs
+            # Returns AnnotatedValue which gets special handling in property generation
+            ctx.add_import("cloudformation_dataclasses.core", "Ref")
+            target_class = _format_ref_target(target)
+            return AnnotatedValue(annotation=f"Ref[{target_class}]", value="ref()")
         # Unknown reference - use string
         ctx.add_intrinsic_import("Ref")
         return f'Ref("{target}")'
@@ -214,15 +737,65 @@ def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str:
     if intrinsic.type == IntrinsicType.GET_ATT:
         logical_id, attr = intrinsic.args
         if logical_id in ctx.template.resources:
-            return f'get_att({logical_id}, "{attr}")'
+            # Annotation-based ref for resources - uses type annotation for forward refs
+            ctx.add_import("cloudformation_dataclasses.core", "GetAtt")
+            target_class = _format_ref_target(logical_id)
+            return AnnotatedValue(
+                annotation=f"GetAtt[{target_class}]", value=f'get_att("{attr}")'
+            )
         ctx.add_intrinsic_import("GetAtt")
         return f'GetAtt("{logical_id}", "{attr}")'
 
     if intrinsic.type == IntrinsicType.SUB:
-        ctx.add_intrinsic_import("Sub")
+        # Extract template string for pattern matching
         if isinstance(intrinsic.args, str):
-            return f"Sub({_escape_string(intrinsic.args)})"
-        template_str, variables = intrinsic.args
+            template_str = intrinsic.args
+            variables = None
+        else:
+            template_str, variables = intrinsic.args
+
+        # Check if this Sub pattern builds an ARN matching a resource's ARN
+        # If so, use get_att(Resource, "Arn") for proper dependency tracking
+        if not variables and template_str in ctx.arn_pattern_map:
+            resource_id, suffix = ctx.arn_pattern_map[template_str]
+            # Don't replace if this is the same resource
+            if resource_id != ctx.current_resource_id:
+                # Check if the Sub references only parameters (not resource-derived values)
+                # If so, don't replace with get_att - keep the original Sub expression
+                var_refs = re.findall(r"\$\{([^}]+)\}", template_str)
+                # Filter out pseudo-parameters (AWS::*)
+                non_pseudo_vars = [v for v in var_refs if not v.startswith("AWS::")]
+                # If all non-pseudo vars are parameters, skip get_att replacement
+                all_params = all(v in ctx.template.parameters for v in non_pseudo_vars)
+                if not all_params:
+                    ctx.add_import("cloudformation_dataclasses.core", "ARN")
+                    ctx.add_import("cloudformation_dataclasses.core", "GetAtt")
+                    formatted_id = _format_ref_target(resource_id)
+                    if suffix == "":
+                        # Exact ARN match - annotation-based ref
+                        return AnnotatedValue(
+                            annotation=f"GetAtt[{formatted_id}]", value="get_att(ARN)"
+                        )
+                    else:
+                        # ARN with suffix (e.g., "/*") - use Join for simple concatenation
+                        # This case is complex, keep as string ref for now
+                        ctx.add_intrinsic_import("Join")
+                        return f"Join('', [get_att(\"{formatted_id}\", ARN), '{suffix}'])"
+
+        # Check if this Sub pattern matches a resource's name property
+        # If so, use ref() for proper dependency tracking
+        # But skip if this is the same resource (avoid self-referential ref)
+        if not variables and template_str in ctx.name_pattern_map:
+            resource_id = ctx.name_pattern_map[template_str]
+            # Don't replace if this is the resource that defines this name pattern
+            if resource_id != ctx.current_resource_id:
+                # Annotation-based ref for resource
+                ctx.add_import("cloudformation_dataclasses.core", "Ref")
+                target_class = _format_ref_target(resource_id)
+                return AnnotatedValue(annotation=f"Ref[{target_class}]", value="ref()")
+
+        # Fall back to Sub() intrinsic
+        ctx.add_intrinsic_import("Sub")
         if variables:
             vars_str = _value_to_python(variables, ctx)
             return f"Sub({_escape_string(template_str)}, {vars_str})"
@@ -319,6 +892,330 @@ def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str:
 
 
 # =============================================================================
+# Block Mode PropertyType Wrapper Generation
+# =============================================================================
+
+
+def _property_value_to_python_block(
+    value: Any,
+    parent_logical_id: str,
+    property_path: str,
+    expected_type: Optional[str],
+    expected_module: Optional[str],
+    ctx: CodegenContext,
+) -> str | AnnotatedValue:
+    """
+    Convert a property value to Python code in block mode.
+
+    For PropertyTypes: generates separate wrapper class, returns class name.
+    For primitives/enums: returns literal value.
+    For lists of PropertyTypes: returns [WrapperClassName].
+    """
+    if isinstance(value, IRIntrinsic):
+        return _intrinsic_to_python(value, ctx)
+
+    if value is None:
+        return "None"
+
+    if isinstance(value, bool):
+        return "True" if value else "False"
+
+    if isinstance(value, (int, float)):
+        return str(value)
+
+    if isinstance(value, str):
+        # Try enum conversion
+        if expected_type:
+            enum_ref = _try_convert_to_enum(value, expected_type, ctx)
+            if enum_ref:
+                return enum_ref
+        return _escape_string(value)
+
+    if isinstance(value, list):
+        if not value:
+            return "[]"
+
+        # Extract inner type from list[...] annotation
+        inner_class = None
+        if expected_type:
+            list_match = re.match(r".*list\[(\w+)\].*", expected_type, re.IGNORECASE)
+            if list_match:
+                inner_class = list_match.group(1)
+
+        # Check if items are PropertyTypes
+        items = []
+        for i, item in enumerate(value):
+            item_result = _property_value_to_python_block(
+                item,
+                parent_logical_id,
+                f"{property_path}.{i}",
+                f"Optional[{inner_class}]" if inner_class else expected_type,
+                expected_module,
+                ctx,
+            )
+            # AnnotatedValue is only for top-level properties, not inside lists
+            if isinstance(item_result, AnnotatedValue):
+                item_str = _annotated_to_string_ref(item_result)
+            else:
+                item_str = item_result
+            items.append(item_str)
+
+        if len(items) == 1:
+            return f"[{items[0]}]"
+        return "[" + ", ".join(items) + "]"
+
+    if isinstance(value, dict):
+        # Handle policy documents specially - generate PolicyDocument/PolicyStatement wrappers
+        if _is_policy_document(value):
+            return _generate_policy_document_wrapper_block(
+                value, parent_logical_id, property_path, ctx
+            )
+
+        # Try to match to PropertyType
+        expected_class = _extract_class_from_type_hint(expected_type)
+
+        if expected_class and expected_module:
+            pt_info = get_property_type_info(expected_module, expected_class)
+            if pt_info:
+                # Generate wrapper class, return class name
+                class_name = _generate_property_type_wrapper(
+                    value,
+                    parent_logical_id,
+                    property_path,
+                    expected_module,
+                    expected_class,
+                    ctx,
+                )
+                return class_name
+
+        # Try to find matching PropertyType by keys
+        cf_keys = set(value.keys())
+        match = find_property_type_for_cf_keys(cf_keys, module_hint=expected_module)
+        if match:
+            pt_module, pt_class = match
+            class_name = _generate_property_type_wrapper(
+                value,
+                parent_logical_id,
+                property_path,
+                pt_module,
+                pt_class,
+                ctx,
+            )
+            return class_name
+
+        # Fall back to dict literal
+        return _value_to_python(value, ctx, indent=1)
+
+    return repr(value)
+
+
+def _generate_property_type_wrapper(
+    value: dict[str, Any],
+    parent_logical_id: str,
+    property_path: str,
+    pt_module: str,
+    pt_class: str,
+    ctx: CodegenContext,
+) -> str:
+    """
+    Generate a @cloudformation_dataclass wrapper for a PropertyType value.
+
+    Returns the generated class name.
+    """
+    # Generate class name: {ParentLogicalId}{PropertyTypeName}
+    class_name = f"{parent_logical_id}{pt_class}"
+
+    # Handle name collisions by appending index
+    if class_name in ctx.generated_classes:
+        i = 1
+        while f"{class_name}{i}" in ctx.generated_classes:
+            i += 1
+        class_name = f"{class_name}{i}"
+
+    ctx.generated_classes.add(class_name)
+
+    # Get PropertyType info for field mapping
+    property_type_info = get_property_type_info(pt_module, pt_class)
+    if not property_type_info:
+        # Fallback if no info available - return as dict
+        return _value_to_python(value, ctx, indent=1)
+
+    cf_to_python = property_type_info["cf_to_python"]
+    field_types = property_type_info["field_types"]
+
+    lines = []
+    lines.append(f"    resource: {pt_class}")
+
+    # Add import for PropertyType
+    ctx.add_import(f"cloudformation_dataclasses.aws.{pt_module}", pt_class)
+
+    # Convert each field
+    for cf_key, val in value.items():
+        if cf_key in cf_to_python:
+            python_field = cf_to_python[cf_key]
+            field_type = field_types.get(python_field)
+
+            # Recursively handle nested PropertyTypes
+            val_result = _property_value_to_python_block(
+                val,
+                parent_logical_id,
+                f"{property_path}.{python_field}",
+                field_type,
+                pt_module,
+                ctx,
+            )
+            # Handle annotation-based refs for top-level properties
+            if isinstance(val_result, AnnotatedValue):
+                lines.append(f"    {python_field}: {val_result.annotation} = {val_result.value}")
+            else:
+                lines.append(f"    {python_field} = {val_result}")
+        else:
+            # Unknown key - still include it but as comment
+            val_str = _value_to_python(val, ctx, indent=1)
+            lines.append(f"    # Unknown CF key: {cf_key} = {val_str}")
+
+    # Add import for decorator
+    ctx.add_import("cloudformation_dataclasses.core", "cloudformation_dataclass")
+
+    # Store class definition
+    class_def = f"@cloudformation_dataclass\nclass {class_name}:\n" + "\n".join(lines)
+    ctx.property_type_class_defs.append(class_def)
+
+    return class_name
+
+
+def _generate_policy_statement_wrapper_block(
+    stmt: dict[str, Any],
+    parent_logical_id: str,
+    property_path: str,
+    stmt_index: int,
+    ctx: CodegenContext,
+) -> str:
+    """
+    Generate a @cloudformation_dataclass wrapper for a PolicyStatement.
+
+    Returns the generated class name.
+    """
+    # Generate class name based on effect and index
+    effect = stmt.get("Effect", "Allow")
+    base_name = "Deny" if effect == "Deny" else "Allow"
+    class_name = f"{parent_logical_id}{base_name}Statement{stmt_index}"
+
+    # Handle name collisions
+    if class_name in ctx.generated_classes:
+        i = 1
+        while f"{class_name}_{i}" in ctx.generated_classes:
+            i += 1
+        class_name = f"{class_name}_{i}"
+
+    ctx.generated_classes.add(class_name)
+
+    # Add imports
+    if effect == "Deny":
+        ctx.add_import("cloudformation_dataclasses.core", "DenyStatement")
+        base_class = "DenyStatement"
+    else:
+        ctx.add_import("cloudformation_dataclasses.core", "PolicyStatement")
+        base_class = "PolicyStatement"
+    ctx.add_import("cloudformation_dataclasses.core", "cloudformation_dataclass")
+
+    lines = []
+    lines.append(f"    resource: {base_class}")
+
+    # Map statement fields to PolicyStatement attributes
+    # Note: We use _value_to_python here (not _property_value_to_python_block)
+    # because principal/action/resource are plain values, not PropertyTypes
+    if "Sid" in stmt:
+        lines.append(f"    sid = {_escape_string(stmt['Sid'])}")
+
+    if "Principal" in stmt:
+        principal_str = _value_to_python(stmt["Principal"], ctx, indent=1)
+        lines.append(f"    principal = {principal_str}")
+
+    if "Action" in stmt:
+        action_str = _value_to_python(stmt["Action"], ctx, indent=1)
+        lines.append(f"    action = {action_str}")
+
+    if "Resource" in stmt:
+        resource_str = _value_to_python(stmt["Resource"], ctx, indent=1)
+        lines.append(f"    resource_arn = {resource_str}")
+
+    if "Condition" in stmt:
+        condition_str = _condition_to_python(stmt["Condition"], ctx, indent=1)
+        lines.append(f"    condition = {condition_str}")
+
+    # Store class definition
+    class_def = f"@cloudformation_dataclass\nclass {class_name}:\n" + "\n".join(lines)
+    ctx.property_type_class_defs.append(class_def)
+
+    return class_name
+
+
+def _generate_policy_document_wrapper_block(
+    doc: dict[str, Any],
+    parent_logical_id: str,
+    property_path: str,
+    ctx: CodegenContext,
+) -> str:
+    """
+    Generate a @cloudformation_dataclass wrapper for a PolicyDocument.
+
+    Returns the generated class name.
+    """
+    # Generate class name
+    # Convert property_path to PascalCase for class name suffix
+    path_suffix = "".join(word.title() for word in property_path.replace(".", "_").split("_"))
+    class_name = f"{parent_logical_id}{path_suffix}"
+
+    # Handle name collisions
+    if class_name in ctx.generated_classes:
+        i = 1
+        while f"{class_name}{i}" in ctx.generated_classes:
+            i += 1
+        class_name = f"{class_name}{i}"
+
+    ctx.generated_classes.add(class_name)
+
+    # Add imports
+    ctx.add_import("cloudformation_dataclasses.core", "PolicyDocument")
+    ctx.add_import("cloudformation_dataclasses.core", "cloudformation_dataclass")
+
+    lines = []
+    lines.append("    resource: PolicyDocument")
+
+    # Handle version if not default
+    version = doc.get("Version", "2012-10-17")
+    if version != "2012-10-17":
+        lines.append(f"    version = {_escape_string(version)}")
+
+    # Generate wrapper classes for each statement
+    statements = doc.get("Statement", [])
+    if statements:
+        stmt_class_names = []
+        for i, stmt in enumerate(statements):
+            if isinstance(stmt, dict):
+                stmt_class = _generate_policy_statement_wrapper_block(
+                    stmt, parent_logical_id, f"{property_path}.statement.{i}",
+                    i, ctx
+                )
+                stmt_class_names.append(stmt_class)
+            else:
+                # Handle non-dict statements (unlikely but possible)
+                stmt_class_names.append(repr(stmt))
+
+        if len(stmt_class_names) == 1:
+            lines.append(f"    statement = [{stmt_class_names[0]}]")
+        else:
+            lines.append(f"    statement = [{', '.join(stmt_class_names)}]")
+
+    # Store class definition
+    class_def = f"@cloudformation_dataclass\nclass {class_name}:\n" + "\n".join(lines)
+    ctx.property_type_class_defs.append(class_def)
+
+    return class_name
+
+
+# =============================================================================
 # Block Mode Class Generation
 # =============================================================================
 
@@ -336,8 +1233,13 @@ def _generate_parameter_class(param: IRParameter, ctx: CodegenContext) -> str:
     ctx.add_import("cloudformation_dataclasses.core", "Parameter")
     lines.append("    resource: Parameter")
 
-    # Type
-    lines.append(f"    type = {_escape_string(param.type)}")
+    # Type - use constant if available
+    if param.type in PARAMETER_TYPE_MAP:
+        const_name = PARAMETER_TYPE_MAP[param.type]
+        ctx.add_parameter_type_import(const_name)
+        lines.append(f"    type = {const_name}")
+    else:
+        lines.append(f"    type = {_escape_string(param.type)}")
 
     # Optional fields
     if param.description:
@@ -368,6 +1270,8 @@ def _generate_parameter_class(param: IRParameter, ctx: CodegenContext) -> str:
 
 def _generate_resource_class(resource: IRResource, ctx: CodegenContext) -> str:
     """Generate a resource wrapper class."""
+    # Set current resource ID to avoid self-referential ref() replacements
+    ctx.current_resource_id = resource.logical_id
     lines = []
 
     # Docstring
@@ -377,24 +1281,79 @@ def _generate_resource_class(resource: IRResource, ctx: CodegenContext) -> str:
 
     # Resolve resource type
     resolved = resolve_resource_type(resource.resource_type)
+    resource_module = None
+    resource_field_types: dict[str, str] = {}
+
     if resolved:
         module, class_name = resolved
-        ctx.add_import(f"cloudformation_dataclasses.aws.{module}", class_name)
-        lines.append(f"    resource: {class_name}")
+        resource_module = module
+        ctx.current_module = module
+
+        # Check if wrapper class name collides with AWS resource class name
+        # If so, use fully qualified name to avoid self-reference issues
+        if resource.logical_id == class_name:
+            # Use module-qualified name: resource: s3.Bucket instead of resource: Bucket
+            ctx.add_import("cloudformation_dataclasses.aws", module)
+            lines.append(f"    resource: {module}.{class_name}")
+        else:
+            ctx.add_import(f"cloudformation_dataclasses.aws.{module}", class_name)
+            lines.append(f"    resource: {class_name}")
+
+        # Get field type information for this resource class
+        # We need to scan the resource class for _property_mappings and field types
+        try:
+            import cloudformation_dataclasses.aws as aws_pkg
+            from pathlib import Path
+            aws_dir = Path(aws_pkg.__file__).parent
+            py_file = aws_dir / f"{module}.py"
+            if py_file.exists():
+                content = py_file.read_text()
+                # Find the resource class and its field types
+                in_target_class = False
+                brace_depth = 0
+                for line in content.split("\n"):
+                    if f"class {class_name}(" in line:
+                        in_target_class = True
+                        continue
+                    if in_target_class:
+                        if line.startswith("class ") and f"class {class_name}(" not in line:
+                            break  # Hit another class
+                        # Look for field type annotations
+                        field_match = re.match(r"^\s+(\w+):\s*(.+?)\s*(?:=|$)", line)
+                        if field_match:
+                            field_name, type_annotation = field_match.groups()
+                            if not field_name.startswith("_"):
+                                resource_field_types[field_name] = type_annotation
+        except Exception:
+            pass  # Continue without field types
     else:
         # Unknown resource type - use comment
         lines.append(f"    # Unknown resource type: {resource.resource_type}")
         lines.append("    resource: CloudFormationResource")
         ctx.add_import("cloudformation_dataclasses.core", "CloudFormationResource")
 
-    # Properties
+    # Properties - use block mode converter to generate PropertyType wrapper classes
     for prop in resource.properties.values():
-        value_str = _value_to_python(prop.value, ctx, indent=1)
-        lines.append(f"    {prop.python_name} = {value_str}")
+        # Get the expected type for this property
+        expected_type = resource_field_types.get(prop.python_name)
+
+        value_result = _property_value_to_python_block(
+            prop.value,
+            resource.logical_id,
+            prop.python_name,
+            expected_type,
+            resource_module,
+            ctx,
+        )
+        if isinstance(value_result, AnnotatedValue):
+            # Annotation-based ref: bucket: Ref[Bucket] = ref()
+            lines.append(f"    {prop.python_name}: {value_result.annotation} = {value_result.value}")
+        else:
+            lines.append(f"    {prop.python_name} = {value_result}")
 
     # Resource-level attributes
     if resource.depends_on:
-        deps = ", ".join(resource.depends_on)
+        deps = ", ".join(f'"{d}"' for d in resource.depends_on)
         lines.append(f"    depends_on = [{deps}]")
     if resource.condition:
         lines.append(f"    condition = {_escape_string(resource.condition)}")
@@ -483,23 +1442,6 @@ def _generate_tag_class(key: str, value: str, ctx: CodegenContext) -> str:
     return f"@cloudformation_dataclass\nclass {class_name}:\n" + "\n".join(lines)
 
 
-def _tag_to_python_mixed(tag: dict[str, Any], ctx: CodegenContext) -> str:
-    """Convert a tag to Python code in mixed mode.
-
-    If the tag is reused (appears 2+ times), reference the class.
-    Otherwise, inline it.
-    """
-    key = tag.get("Key", "")
-    value = tag.get("Value", "")
-    sig = _tag_signature(tag)
-
-    if ctx.tag_reuse.get(sig, 0) >= 2:
-        # Reference the tag class
-        return _tag_class_name(key, value)
-    else:
-        # Inline the tag
-        ctx.add_import("cloudformation_dataclasses.core", "Tag")
-        return f"Tag(key={_escape_string(key)}, value={_escape_string(value)})"
 
 
 def _is_policy_document(value: dict[str, Any]) -> bool:
@@ -518,350 +1460,53 @@ def _is_policy_statement(value: dict[str, Any]) -> bool:
     )
 
 
-def _statement_to_python_mixed(stmt: dict[str, Any], ctx: CodegenContext, indent: int = 0) -> str:
-    """Convert a policy statement dict to PolicyStatement code."""
-    indent_str = "    " * indent
-    inner_indent = "    " * (indent + 1)
-
-    ctx.add_import("cloudformation_dataclasses.core", "PolicyStatement")
-
-    args = []
-
-    if "Sid" in stmt:
-        args.append(f"sid={_escape_string(stmt['Sid'])}")
-
-    effect = stmt.get("Effect", "Allow")
-    if effect != "Allow":
-        args.append(f"effect={_escape_string(effect)}")
-
-    if "Principal" in stmt:
-        principal = stmt["Principal"]
-        principal_str = _value_to_python_mixed(principal, ctx, indent + 1)
-        args.append(f"principal={principal_str}")
-
-    if "Action" in stmt:
-        action = stmt["Action"]
-        action_str = _value_to_python_mixed(action, ctx, indent + 1)
-        args.append(f"action={action_str}")
-
-    if "Resource" in stmt:
-        resource = stmt["Resource"]
-        resource_str = _value_to_python_mixed(resource, ctx, indent + 1)
-        args.append(f"resource_arn={resource_str}")
-
-    if "Condition" in stmt:
-        condition = stmt["Condition"]
-        condition_str = _value_to_python_mixed(condition, ctx, indent + 1)
-        args.append(f"condition={condition_str}")
-
-    if len(args) <= 2:
-        return f"PolicyStatement({', '.join(args)})"
-    else:
-        args_str = f",\n{inner_indent}".join(args)
-        return f"PolicyStatement(\n{inner_indent}{args_str},\n{indent_str})"
-
-
-def _policy_document_to_python_mixed(
-    doc: dict[str, Any], ctx: CodegenContext, indent: int = 0
+def _condition_to_python(
+    condition: dict[str, Any], ctx: CodegenContext, indent: int = 0
 ) -> str:
-    """Convert a policy document dict to PolicyDocument code."""
-    inner_indent = "    " * (indent + 1)
+    """Convert a policy condition dict to Python code with operator constants.
 
-    ctx.add_import("cloudformation_dataclasses.core", "PolicyDocument")
-
-    version = doc.get("Version", "2012-10-17")
-    statements = doc.get("Statement", [])
-
-    # Convert statements
-    stmt_strs = [_statement_to_python_mixed(s, ctx, indent + 2) for s in statements]
-
-    if len(stmt_strs) == 1:
-        stmt_list = f"[{stmt_strs[0]}]"
-    else:
-        stmt_inner = f",\n{inner_indent}    ".join(stmt_strs)
-        stmt_list = f"[\n{inner_indent}    {stmt_inner},\n{inner_indent}]"
-
-    if version == "2012-10-17":
-        return f"PolicyDocument(statement={stmt_list})"
-    else:
-        return f"PolicyDocument(version={_escape_string(version)}, statement={stmt_list})"
-
-
-def _value_to_python_mixed(value: Any, ctx: CodegenContext, indent: int = 0) -> str:
-    """Convert a value to Python source code in mixed mode.
-
-    Special handling for:
-    - Tags: inline or reference based on reuse
-    - Policy documents: use PolicyDocument/PolicyStatement classes
+    Transforms: {"Bool": {"key": "value"}} -> {BOOL: {"key": "value"}}
     """
     indent_str = "    " * indent
 
-    if isinstance(value, IRIntrinsic):
-        return _intrinsic_to_python(value, ctx)
+    if not condition:
+        return "{}"
 
-    if value is None:
-        return "None"
+    items = []
+    for operator, conditions in condition.items():
+        # Use constant if available, otherwise string
+        if operator in CONDITION_OPERATOR_MAP:
+            const_name = CONDITION_OPERATOR_MAP[operator]
+            ctx.add_condition_operator_import(const_name)
+            key_str = const_name
+        else:
+            key_str = _escape_string(operator)
 
-    if isinstance(value, bool):
-        return "True" if value else "False"
+        val_str = _value_to_python(conditions, ctx, indent + 1)
+        items.append(f"{key_str}: {val_str}")
 
-    if isinstance(value, (int, float)):
-        return str(value)
-
-    if isinstance(value, str):
-        return _escape_string(value)
-
-    if isinstance(value, list):
-        if not value:
-            return "[]"
-        # Check if this looks like a Tags list
-        if value and isinstance(value[0], dict) and "Key" in value[0] and "Value" in value[0]:
-            items = [_tag_to_python_mixed(tag, ctx) for tag in value]
-            if len(items) == 1:
-                return f"[{items[0]}]"
-            inner = f",\n{indent_str}    ".join(items)
-            return f"[\n{indent_str}    {inner},\n{indent_str}]"
-        # Regular list
-        if len(value) == 1:
-            return f"[{_value_to_python_mixed(value[0], ctx, indent)}]"
-        items = [_value_to_python_mixed(item, ctx, indent + 1) for item in value]
-        inner = f",\n{indent_str}    ".join(items)
-        return f"[\n{indent_str}    {inner},\n{indent_str}]"
-
-    if isinstance(value, dict):
-        if not value:
-            return "{}"
-
-        # Check if this is a policy document
-        if _is_policy_document(value):
-            return _policy_document_to_python_mixed(value, ctx, indent)
-
-        # Regular dict
-        items = []
-        for k, v in value.items():
-            key_str = _escape_string(k) if isinstance(k, str) else str(k)
-            val_str = _value_to_python_mixed(v, ctx, indent + 1)
-            items.append(f"{key_str}: {val_str}")
-        inner = f",\n{indent_str}    ".join(items)
-        return f"{{\n{indent_str}    {inner},\n{indent_str}}}"
-
-    return repr(value)
+    inner = f",\n{indent_str}    ".join(items)
+    return f"{{\n{indent_str}    {inner},\n{indent_str}}}"
 
 
-def _generate_resource_class_mixed(resource: IRResource, ctx: CodegenContext) -> str:
-    """Generate a resource wrapper class in mixed mode.
+def _generate_template_class(template: IRTemplate, ctx: CodegenContext) -> tuple[str, str]:
+    """Generate template build info (description and parameters list).
 
-    Uses _value_to_python_mixed for tag inlining support.
+    Resources are auto-registered via @cloudformation_dataclass, so we use
+    Template.from_registry() instead of generating a template wrapper class.
     """
-    lines = []
-
-    # Docstring
-    if ctx.include_docstrings:
-        lines.append(f'    """{resource.resource_type} resource."""')
-        lines.append("")
-
-    # Resolve resource type
-    resolved = resolve_resource_type(resource.resource_type)
-    if resolved:
-        module, class_name = resolved
-        ctx.add_import(f"cloudformation_dataclasses.aws.{module}", class_name)
-        lines.append(f"    resource: {class_name}")
-    else:
-        # Unknown resource type - use comment
-        lines.append(f"    # Unknown resource type: {resource.resource_type}")
-        lines.append("    resource: CloudFormationResource")
-        ctx.add_import("cloudformation_dataclasses.core", "CloudFormationResource")
-
-    # Properties - use mixed mode value conversion
-    for prop in resource.properties.values():
-        value_str = _value_to_python_mixed(prop.value, ctx, indent=1)
-        lines.append(f"    {prop.python_name} = {value_str}")
-
-    # Resource-level attributes
-    if resource.depends_on:
-        deps = ", ".join(resource.depends_on)
-        lines.append(f"    depends_on = [{deps}]")
-    if resource.condition:
-        lines.append(f"    condition = {_escape_string(resource.condition)}")
-    if resource.deletion_policy:
-        lines.append(f"    deletion_policy = {_escape_string(resource.deletion_policy)}")
-
-    ctx.add_import("cloudformation_dataclasses.core", "cloudformation_dataclass")
-
-    return f"@cloudformation_dataclass\nclass {resource.logical_id}:\n" + "\n".join(lines)
-
-
-def _generate_template_class(template: IRTemplate, ctx: CodegenContext) -> str:
-    """Generate the main template wrapper class."""
-    lines = []
-
-    # Determine class name from source file
+    # Determine template name from source file
     if template.source_file and template.source_file not in ("<string>", "<stream>"):
         # Extract name from path
         name = re.sub(
             r"[^a-zA-Z0-9]", "_", template.source_file.rsplit("/", 1)[-1].rsplit(".", 1)[0]
         )
         name = "".join(word.title() for word in name.split("_"))
-        class_name = f"{name}Template"
+        template_name = f"{name}Template"
     else:
-        class_name = "GeneratedTemplate"
+        template_name = "GeneratedTemplate"
 
-    # Docstring
-    if ctx.include_docstrings and template.description:
-        lines.append(f'    """{template.description}"""')
-        lines.append("")
-
-    ctx.add_import("cloudformation_dataclasses.core", "Template")
-    lines.append("    resource: Template")
-
-    if template.description:
-        lines.append(f"    description = {_escape_string(template.description)}")
-
-    # Parameters
-    if template.parameters:
-        param_list = ", ".join(template.parameters.keys())
-        lines.append(f"    parameters = [{param_list}]")
-
-    # Resources
-    if template.resources:
-        resource_list = ", ".join(template.resources.keys())
-        lines.append(f"    resources = [{resource_list}]")
-
-    # Outputs
-    if template.outputs:
-        output_list = ", ".join(f"{lid}Output" for lid in template.outputs.keys())
-        lines.append(f"    outputs = [{output_list}]")
-
-    ctx.add_import("cloudformation_dataclasses.core", "cloudformation_dataclass")
-
-    return f"@cloudformation_dataclass\nclass {class_name}:\n" + "\n".join(lines), class_name
-
-
-# =============================================================================
-# Brief Mode Generation (Imperative)
-# =============================================================================
-
-
-def _generate_parameter_imperative(param: IRParameter, ctx: CodegenContext) -> str:
-    """Generate a parameter as an imperative instantiation."""
-    ctx.add_import("cloudformation_dataclasses.core", "Parameter")
-
-    args = [f'logical_id="{param.logical_id}"']
-    args.append(f"type={_escape_string(param.type)}")
-
-    if param.description:
-        args.append(f"description={_escape_string(param.description)}")
-    if param.default is not None:
-        args.append(f"default={_value_to_python(param.default, ctx)}")
-    if param.allowed_values:
-        args.append(f"allowed_values={_value_to_python(param.allowed_values, ctx)}")
-    if param.allowed_pattern:
-        args.append(f"allowed_pattern={_escape_string(param.allowed_pattern)}")
-    if param.min_length is not None:
-        args.append(f"min_length={param.min_length}")
-    if param.max_length is not None:
-        args.append(f"max_length={param.max_length}")
-    if param.min_value is not None:
-        args.append(f"min_value={param.min_value}")
-    if param.max_value is not None:
-        args.append(f"max_value={param.max_value}")
-    if param.constraint_description:
-        args.append(f"constraint_description={_escape_string(param.constraint_description)}")
-    if param.no_echo:
-        args.append("no_echo=True")
-
-    var_name = to_snake_case(param.logical_id)
-    if len(args) <= 3:
-        return f"{var_name} = Parameter({', '.join(args)})"
-    else:
-        args_str = ",\n    ".join(args)
-        return f"{var_name} = Parameter(\n    {args_str},\n)"
-
-
-def _generate_resource_imperative(resource: IRResource, ctx: CodegenContext) -> str:
-    """Generate a resource as an imperative instantiation."""
-    resolved = resolve_resource_type(resource.resource_type)
-    if resolved:
-        module, class_name = resolved
-        ctx.add_import(f"cloudformation_dataclasses.aws.{module}", class_name)
-    else:
-        class_name = "CloudFormationResource"
-        ctx.add_import("cloudformation_dataclasses.core", "CloudFormationResource")
-
-    args = [f'logical_id="{resource.logical_id}"']
-
-    # Properties
-    for prop in resource.properties.values():
-        value_str = _value_to_python(prop.value, ctx)
-        args.append(f"{prop.python_name}={value_str}")
-
-    # Resource-level attributes
-    if resource.depends_on:
-        deps = ", ".join(f'"{d}"' for d in resource.depends_on)
-        args.append(f"depends_on=[{deps}]")
-    if resource.condition:
-        args.append(f"condition={_escape_string(resource.condition)}")
-    if resource.deletion_policy:
-        args.append(f"deletion_policy={_escape_string(resource.deletion_policy)}")
-
-    var_name = to_snake_case(resource.logical_id)
-    if len(args) <= 2:
-        return f"{var_name} = {class_name}({', '.join(args)})"
-    else:
-        args_str = ",\n    ".join(args)
-        return f"{var_name} = {class_name}(\n    {args_str},\n)"
-
-
-def _generate_output_imperative(output: IROutput, ctx: CodegenContext) -> str:
-    """Generate an output as an imperative instantiation."""
-    ctx.add_import("cloudformation_dataclasses.core", "Output")
-
-    args = [f'logical_id="{output.logical_id}"']
-    args.append(f"value={_value_to_python(output.value, ctx)}")
-
-    if output.description:
-        args.append(f"description={_escape_string(output.description)}")
-    if output.export_name:
-        args.append(f"export_name={_value_to_python(output.export_name, ctx)}")
-    if output.condition:
-        args.append(f"condition={_escape_string(output.condition)}")
-
-    var_name = to_snake_case(output.logical_id) + "_output"
-    if len(args) <= 3:
-        return f"{var_name} = Output({', '.join(args)})"
-    else:
-        args_str = ",\n    ".join(args)
-        return f"{var_name} = Output(\n    {args_str},\n)"
-
-
-def _generate_template_imperative(template: IRTemplate, ctx: CodegenContext) -> str:
-    """Generate the template as an imperative instantiation."""
-    ctx.add_import("cloudformation_dataclasses.core", "Template")
-
-    args = []
-    if template.description:
-        args.append(f"description={_escape_string(template.description)}")
-
-    # Parameters
-    if template.parameters:
-        param_vars = ", ".join(to_snake_case(lid) for lid in template.parameters.keys())
-        args.append(f"parameters=[{param_vars}]")
-
-    # Resources
-    if template.resources:
-        resource_vars = ", ".join(to_snake_case(lid) for lid in template.resources.keys())
-        args.append(f"resources=[{resource_vars}]")
-
-    # Outputs
-    if template.outputs:
-        output_vars = ", ".join(to_snake_case(lid) + "_output" for lid in template.outputs.keys())
-        args.append(f"outputs=[{output_vars}]")
-
-    if len(args) <= 2:
-        return f"template = Template({', '.join(args)})"
-    else:
-        args_str = ",\n    ".join(args)
-        return f"template = Template(\n    {args_str},\n)"
+    return "", template_name
 
 
 # =============================================================================
@@ -952,7 +1597,6 @@ def _topological_sort(template: IRTemplate) -> list[str]:
 
 def generate_code(
     template: IRTemplate,
-    mode: Literal["block", "brief", "mixed"] = "block",
     include_main: bool = True,
 ) -> str:
     """
@@ -960,22 +1604,19 @@ def generate_code(
 
     Args:
         template: Parsed IRTemplate
-        mode: Output mode - "block" (declarative), "brief" (imperative), or "mixed"
         include_main: Include if __name__ == "__main__" block
 
     Returns:
         Complete Python module source code
     """
-    output_mode = OutputMode(mode)
     ctx = CodegenContext(
         template=template,
-        mode=output_mode,
         include_main_block=include_main,
     )
 
-    # Analyze reuse for mixed mode
-    if output_mode == OutputMode.MIXED:
-        ctx.tag_reuse = _analyze_reuse(template)
+    # Build pattern maps for implicit ref and get_att detection
+    ctx.name_pattern_map = _build_name_pattern_map(template)
+    ctx.arn_pattern_map = _build_arn_pattern_map(template)
 
     # Add ref and get_att imports (commonly needed)
     ctx.add_import("cloudformation_dataclasses.core", "ref")
@@ -989,12 +1630,9 @@ def generate_code(
     else:
         sections.append('"""Generated by cfn-import."""')
 
-    if output_mode == OutputMode.BRIEF:
-        return _generate_brief_mode(template, ctx, sections, include_main)
-    elif output_mode == OutputMode.MIXED:
-        return _generate_mixed_mode(template, ctx, sections, include_main)
-    else:
-        return _generate_block_mode(template, ctx, sections, include_main)
+    code = _generate_block_mode(template, ctx, sections, include_main)
+
+    return code
 
 
 def _generate_block_mode(
@@ -1019,31 +1657,67 @@ def _generate_block_mode(
         class_sections.append(_generate_condition_class(condition, ctx))
 
     # Resources (in dependency order)
+    # For each resource, first insert any PropertyType wrappers generated for it,
+    # then the resource class itself. This ensures proper ordering since
+    # PropertyType wrappers may use ref() to reference other resources.
     sorted_resources = _topological_sort(template)
     for resource_id in sorted_resources:
         resource = template.resources[resource_id]
-        class_sections.append(_generate_resource_class(resource, ctx))
+        # Clear PropertyType class defs before generating this resource
+        ctx.property_type_class_defs = []
+        resource_class = _generate_resource_class(resource, ctx)
+        # Add PropertyType wrappers for this resource (generated during resource class generation)
+        class_sections.extend(ctx.property_type_class_defs)
+        # Then add the resource class itself
+        class_sections.append(resource_class)
 
     # Outputs
     for output in template.outputs.values():
         class_sections.append(_generate_output_class(output, ctx))
 
-    # Template class
-    template_class, template_class_name = _generate_template_class(template, ctx)
-    class_sections.append(template_class)
+    # No template wrapper class - resources auto-register via @cloudformation_dataclass
+    # Use Template.from_registry() in build_template()
 
     # Now generate imports
+    ctx.add_import("cloudformation_dataclasses.core", "Template")
     sections.append(_generate_imports(ctx))
 
-    # Add class sections
-    sections.extend(class_sections)
+    # Add class sections (filter out empty strings)
+    sections.extend(s for s in class_sections if s)
 
-    # Build template function
+    # Build template function using Template.from_registry()
+    # Build parameter list if any
+    param_list = ""
+    if template.parameters:
+        param_names = ", ".join(template.parameters.keys())
+        param_list = f"parameters=[{param_names}]"
+
+    # Build output list if any
+    output_list = ""
+    if template.outputs:
+        output_names = ", ".join(f"{lid}Output" for lid in template.outputs.keys())
+        output_list = f"outputs=[{output_names}]"
+
+    # Build the from_registry call
+    args = []
+    if template.description:
+        args.append(f"description={_escape_string(template.description)}")
+    if param_list:
+        args.append(param_list)
+    if output_list:
+        args.append(output_list)
+
+    if args:
+        args_str = ",\n        ".join(args)
+        from_registry_call = f"Template.from_registry(\n        {args_str},\n    )"
+    else:
+        from_registry_call = "Template.from_registry()"
+
     sections.append(
         f"""
 def build_template() -> Template:
     \"\"\"Build the CloudFormation template.\"\"\"
-    return {template_class_name}().resource"""
+    return {from_registry_call}"""
     )
 
     # Main block
@@ -1059,121 +1733,628 @@ if __name__ == "__main__":
     return "\n\n\n".join(sections) + "\n"
 
 
-def _generate_brief_mode(
-    template: IRTemplate,
-    ctx: CodegenContext,
-    sections: list[str],
-    include_main: bool,
-) -> str:
-    """Generate brief mode (imperative) code."""
-    code_sections: list[str] = []
+# =============================================================================
+# Package Generation (Multi-file Output)
+# =============================================================================
+
+
+@dataclass
+class PackageContext:
+    """Context for package generation - tracks imports per file."""
+
+    template: IRTemplate
+
+    # Per-file imports
+    init_imports: dict[str, set[str]] = field(default_factory=dict)
+    config_classes: list[str] = field(default_factory=list)
+    resources_classes: list[str] = field(default_factory=list)
+    main_classes: list[str] = field(default_factory=list)
+
+    # Cross-file references (for explicit imports)
+    # Maps: file -> set of class names from other files it references
+    config_exports: set[str] = field(default_factory=set)
+    resources_exports: set[str] = field(default_factory=set)
+    outputs_exports: set[str] = field(default_factory=set)
+
+    # For generating classes, we need a CodegenContext
+    codegen_ctx: CodegenContext = field(default=None)
+
+    def __post_init__(self):
+        if self.codegen_ctx is None:
+            self.codegen_ctx = CodegenContext(template=self.template)
+            # Build pattern maps for implicit ref and get_att detection
+            self.codegen_ctx.name_pattern_map = _build_name_pattern_map(self.template)
+            self.codegen_ctx.arn_pattern_map = _build_arn_pattern_map(self.template)
+
+
+def _generate_init_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
+    """Generate __init__.py with centralized imports."""
+    lines = []
+
+    # Docstring from template description
+    if template.description:
+        # Truncate long descriptions
+        desc = template.description.strip()
+        if len(desc) > 200:
+            desc = desc[:197] + "..."
+        lines.append(f'"""{desc}\n\nGenerated by cfn-import."""')
+    else:
+        lines.append('"""Generated by cfn-import."""')
+
+    lines.append("")
+
+    # Generate import statements from collected imports
+    ctx = pkg_ctx.codegen_ctx
+
+    # Core imports
+    core_imports = ctx.imports.get("cloudformation_dataclasses.core", set())
+    # Always include these
+    core_imports.add("cloudformation_dataclass")
+    core_imports.add("ref")
+    core_imports.add("get_att")
+    core_imports.add("Template")
+
+    if core_imports:
+        sorted_imports = sorted(core_imports)
+        if len(sorted_imports) <= 4:
+            lines.append(
+                f"from cloudformation_dataclasses.core import {', '.join(sorted_imports)}"
+            )
+        else:
+            lines.append("from cloudformation_dataclasses.core import (")
+            for name in sorted_imports:
+                lines.append(f"    {name},")
+            lines.append(")")
+
+    # AWS module imports (e.g., from cloudformation_dataclasses.aws import s3)
+    # This is needed when wrapper class names collide with AWS resource class names
+    aws_base = ctx.imports.get("cloudformation_dataclasses.aws", set())
+    if aws_base:
+        sorted_modules = sorted(aws_base)
+        if len(sorted_modules) <= 4:
+            lines.append(
+                f"from cloudformation_dataclasses.aws import {', '.join(sorted_modules)}"
+            )
+        else:
+            lines.append("from cloudformation_dataclasses.aws import (")
+            for name in sorted_modules:
+                lines.append(f"    {name},")
+            lines.append(")")
+
+    # AWS submodule imports (e.g., from cloudformation_dataclasses.aws.s3 import Bucket)
+    aws_modules = sorted(
+        (mod, names)
+        for mod, names in ctx.imports.items()
+        if mod.startswith("cloudformation_dataclasses.aws.")
+    )
+    for module, names in aws_modules:
+        sorted_names = sorted(names)
+        if len(sorted_names) <= 4:
+            lines.append(f"from {module} import {', '.join(sorted_names)}")
+        else:
+            lines.append(f"from {module} import (")
+            for name in sorted_names:
+                lines.append(f"    {name},")
+            lines.append(")")
+
+    # Intrinsic imports
+    if ctx.intrinsic_imports:
+        sorted_intrinsics = sorted(ctx.intrinsic_imports)
+        if len(sorted_intrinsics) <= 4:
+            lines.append(
+                f"from cloudformation_dataclasses.intrinsics import "
+                f"{', '.join(sorted_intrinsics)}"
+            )
+        else:
+            lines.append("from cloudformation_dataclasses.intrinsics import (")
+            for name in sorted_intrinsics:
+                lines.append(f"    {name},")
+            lines.append(")")
+
+    lines.append("")
+
+    # Re-export config classes (parameters, mappings, conditions)
+    # so resource files can use ref(ParameterName) via `from .. import *`
+    config_names: list[str] = []
+    for param in template.parameters.values():
+        config_names.append(param.logical_id)
+    for mapping in template.mappings:
+        config_names.append(mapping.logical_id)
+    for condition in template.conditions:
+        config_names.append(condition.logical_id)
+
+    if config_names:
+        sorted_config = sorted(config_names)
+        if len(sorted_config) <= 4:
+            lines.append(f"from .config import {', '.join(sorted_config)}")
+        else:
+            lines.append("from .config import (")
+            for name in sorted_config:
+                lines.append(f"    {name},")
+            lines.append(")")
+        lines.append("")
+
+    # Generate __all__ with all exported names
+    all_names = sorted(core_imports | set().union(*[names for _, names in aws_modules]))
+    # Add AWS module names (e.g., 's3') for qualified access like s3.Bucket
+    if aws_base:
+        all_names = sorted(set(all_names) | aws_base)
+    if ctx.intrinsic_imports:
+        all_names = sorted(set(all_names) | ctx.intrinsic_imports)
+    # Add config names to __all__
+    all_names = sorted(set(all_names) | set(config_names))
+
+    lines.append("__all__ = [")
+    for name in all_names:
+        lines.append(f'    "{name}",')
+    lines.append("]")
+
+    return "\n".join(lines) + "\n"
+
+
+def _generate_config_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
+    """Generate config.py with Parameters, Mappings, Conditions."""
+    lines = []
+    lines.append('"""Configuration - Parameters, Mappings, Conditions."""')
+    lines.append("")
+    lines.append("from . import *  # noqa: F403")
+    lines.append("")
+    lines.append("")
+
+    ctx = pkg_ctx.codegen_ctx
 
     # Parameters
     for param in template.parameters.values():
-        code_sections.append(_generate_parameter_imperative(param, ctx))
+        class_def = _generate_parameter_class(param, ctx)
+        lines.append(class_def)
+        lines.append("")
+        lines.append("")
+        pkg_ctx.config_exports.add(param.logical_id)
+
+    # Mappings
+    for mapping in template.mappings.values():
+        class_def = _generate_mapping_class(mapping, ctx)
+        lines.append(class_def)
+        lines.append("")
+        lines.append("")
+        pkg_ctx.config_exports.add(f"{mapping.logical_id}Mapping")
+
+    # Conditions
+    for condition in template.conditions.values():
+        class_def = _generate_condition_class(condition, ctx)
+        lines.append(class_def)
+        lines.append("")
+        lines.append("")
+        pkg_ctx.config_exports.add(f"{condition.logical_id}Condition")
+
+    # Remove trailing empty lines
+    while lines and lines[-1] == "":
+        lines.pop()
+
+    return "\n".join(lines) + "\n"
+
+
+def _generate_resources_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
+    """Generate resources.py with Resources and PropertyType wrappers (single file mode)."""
+    lines = []
+    lines.append('"""Resource definitions."""')
+    lines.append("")
+    lines.append("from . import *  # noqa: F403")
+
+    ctx = pkg_ctx.codegen_ctx
+
+    # Add explicit imports for config classes referenced by resources
+    # (for ref() calls to parameters)
+    config_refs = _find_config_references(template)
+    if config_refs:
+        sorted_refs = sorted(config_refs)
+        lines.append(f"from .config import {', '.join(sorted_refs)}")
+
+    lines.append("")
+    lines.append("")
 
     # Resources (in dependency order)
     sorted_resources = _topological_sort(template)
     for resource_id in sorted_resources:
         resource = template.resources[resource_id]
-        code_sections.append(_generate_resource_imperative(resource, ctx))
+        # Clear PropertyType class defs before generating this resource
+        ctx.property_type_class_defs = []
+        resource_class = _generate_resource_class(resource, ctx)
+        # Add PropertyType wrappers for this resource
+        for pt_class in ctx.property_type_class_defs:
+            lines.append(pt_class)
+            lines.append("")
+            lines.append("")
+        # Then add the resource class itself
+        lines.append(resource_class)
+        lines.append("")
+        lines.append("")
+        pkg_ctx.resources_exports.add(resource.logical_id)
+
+    # Remove trailing empty lines
+    while lines and lines[-1] == "":
+        lines.pop()
+
+    return "\n".join(lines) + "\n"
+
+
+def _logical_id_to_filename(logical_id: str) -> str:
+    """Convert LogicalId to snake_case filename (without .py extension)."""
+    from cloudformation_dataclasses.importer.parser import to_snake_case
+    return to_snake_case(logical_id)
+
+
+def _find_resource_dependencies(
+    template: IRTemplate,
+    resource_id: str,
+    name_pattern_map: dict[str, str] | None = None,
+    arn_pattern_map: dict[str, tuple[str, str]] | None = None,
+) -> set[str]:
+    """Find other resources that this resource depends on (for imports).
+
+    Args:
+        template: The IR template
+        resource_id: The resource we're finding dependencies for
+        name_pattern_map: Map of Sub patterns to resource IDs for implicit ref detection
+        arn_pattern_map: Map of ARN Sub patterns to (resource_id, suffix) for get_att detection
+    """
+    deps = set()
+
+    # Explicit references from reference graph
+    for ref_target in template.reference_graph.get(resource_id, []):
+        if ref_target in template.resources and ref_target != resource_id:
+            deps.add(ref_target)
+
+    # Implicit references from Sub patterns that match resource names or ARNs
+    resource = template.resources.get(resource_id)
+    if resource:
+        _find_sub_pattern_refs(
+            resource.properties, name_pattern_map, arn_pattern_map, resource_id, deps, template
+        )
+
+        # DependsOn references (for class-based depends_on)
+        for dep in resource.depends_on:
+            if dep in template.resources and dep != resource_id:
+                deps.add(dep)
+
+    return deps
+
+
+def _find_sub_pattern_refs(
+    properties: dict[str, Any],
+    name_pattern_map: dict[str, str] | None,
+    arn_pattern_map: dict[str, tuple[str, str]] | None,
+    current_resource_id: str,
+    deps: set[str],
+    template: IRTemplate,
+) -> None:
+    """Recursively find Sub patterns that reference other resources."""
+    for prop in properties.values():
+        if hasattr(prop, 'value'):
+            _find_sub_in_value(
+                prop.value, name_pattern_map, arn_pattern_map, current_resource_id, deps, template
+            )
+
+
+def _find_sub_in_value(
+    value: Any,
+    name_pattern_map: dict[str, str] | None,
+    arn_pattern_map: dict[str, tuple[str, str]] | None,
+    current_resource_id: str,
+    deps: set[str],
+    template: IRTemplate,
+) -> None:
+    """Recursively find Sub patterns in a value."""
+    if isinstance(value, IRIntrinsic):
+        if value.type == IntrinsicType.SUB:
+            # Extract template string
+            if isinstance(value.args, str):
+                template_str = value.args
+            elif isinstance(value.args, (list, tuple)) and len(value.args) >= 1:
+                template_str = value.args[0]
+            else:
+                template_str = None
+
+            if template_str:
+                # Extract variable references from the template string
+                var_refs = re.findall(r"\$\{([^}]+)\}", template_str)
+                # Filter out pseudo-parameters (AWS::*)
+                non_pseudo_vars = [v for v in var_refs if not v.startswith("AWS::")]
+                # Check if all non-pseudo vars are parameters
+                all_params = all(v in template.parameters for v in non_pseudo_vars)
+
+                # Check if it matches a resource name pattern (ref dependency)
+                # This creates a dependency because the generated code uses ref(ResourceName)
+                if name_pattern_map and template_str in name_pattern_map:
+                    ref_target = name_pattern_map[template_str]
+                    if ref_target != current_resource_id:
+                        deps.add(ref_target)
+                # Check if it matches an ARN pattern (get_att dependency)
+                # Only add dependency if we would actually convert to get_att()
+                # Skip if all non-pseudo vars are parameters (we keep Sub in that case)
+                elif arn_pattern_map and template_str in arn_pattern_map:
+                    if not all_params:
+                        ref_target, _ = arn_pattern_map[template_str]
+                        if ref_target != current_resource_id:
+                            deps.add(ref_target)
+
+        # Also check nested intrinsics
+        if isinstance(value.args, (list, tuple)):
+            for arg in value.args:
+                _find_sub_in_value(
+                    arg, name_pattern_map, arn_pattern_map, current_resource_id, deps, template
+                )
+        elif isinstance(value.args, dict):
+            for v in value.args.values():
+                _find_sub_in_value(
+                    v, name_pattern_map, arn_pattern_map, current_resource_id, deps, template
+                )
+    elif isinstance(value, dict):
+        for v in value.values():
+            _find_sub_in_value(
+                v, name_pattern_map, arn_pattern_map, current_resource_id, deps, template
+            )
+    elif isinstance(value, list):
+        for item in value:
+            _find_sub_in_value(
+                item, name_pattern_map, arn_pattern_map, current_resource_id, deps, template
+            )
+
+
+def _generate_resources_package(pkg_ctx: PackageContext, template: IRTemplate) -> dict[str, str]:
+    """Generate resources/ directory with one file per resource.
+
+    Returns:
+        Dict mapping "resources/<filename>.py" to content
+    """
+    from cloudformation_dataclasses.importer.parser import to_snake_case
+
+    files = {}
+    ctx = pkg_ctx.codegen_ctx
+
+    # Build a map of resource_id -> list of PropertyType class names it generates
+    # We'll collect these during generation
+    resource_property_types: dict[str, list[str]] = {}
+
+    # First pass: generate all resources and collect their PropertyType classes
+    sorted_resources = _topological_sort(template)
+    resource_classes: dict[str, tuple[str, list[str]]] = {}  # id -> (class_def, [pt_defs])
+
+    for resource_id in sorted_resources:
+        resource = template.resources[resource_id]
+        ctx.property_type_class_defs = []
+        resource_class = _generate_resource_class(resource, ctx)
+        resource_classes[resource_id] = (resource_class, list(ctx.property_type_class_defs))
+        pkg_ctx.resources_exports.add(resource_id)
+
+    # Second pass: generate individual files
+    for resource_id in sorted_resources:
+        resource = template.resources[resource_id]
+        resource_class, pt_defs = resource_classes[resource_id]
+
+        lines = []
+        filename = _logical_id_to_filename(resource_id)
+
+        # PEP 563 future annotations for forward references
+        lines.append("from __future__ import annotations")
+        lines.append("")
+
+        # Docstring
+        lines.append(f'"""{resource_id} - {resource.resource_type} resource."""')
+        lines.append("")
+        lines.append("from .. import *  # noqa: F403")
+
+        lines.append("")
+        lines.append("")
+
+        # PropertyType wrappers for this resource
+        for pt_def in pt_defs:
+            lines.append(pt_def)
+            lines.append("")
+            lines.append("")
+
+        # The resource class itself
+        lines.append(resource_class)
+
+        # Remove trailing empty lines
+        while lines and lines[-1] == "":
+            lines.pop()
+
+        files[f"resources/{filename}.py"] = "\n".join(lines) + "\n"
+
+    # Generate resources/__init__.py with auto-discovery
+    init_content = '''"""Resource definitions - auto-discovers all resources."""
+import pkgutil
+import importlib
+from pathlib import Path
+
+# Auto-discover and import all modules in this package
+_pkg_path = Path(__file__).parent
+for _finder, _name, _ispkg in pkgutil.iter_modules([str(_pkg_path)]):
+    if not _name.startswith("_"):
+        _module = importlib.import_module(f".{_name}", __package__)
+        # Export all public names from each module
+        for _attr in dir(_module):
+            if not _attr.startswith("_"):
+                globals()[_attr] = getattr(_module, _attr)
+'''
+    files["resources/__init__.py"] = init_content
+
+    return files
+
+
+def _generate_outputs_py(pkg_ctx: PackageContext, template: IRTemplate) -> str | None:
+    """Generate outputs.py with Output definitions.
+
+    Returns None if there are no outputs to generate.
+    """
+    if not template.outputs:
+        return None
+
+    lines = []
+    lines.append('"""Template outputs."""')
+    lines.append("")
+    lines.append("from . import *  # noqa: F403")
+    lines.append("")
+    lines.append("")
+
+    ctx = pkg_ctx.codegen_ctx
 
     # Outputs
     for output in template.outputs.values():
-        code_sections.append(_generate_output_imperative(output, ctx))
+        class_def = _generate_output_class(output, ctx)
+        lines.append(class_def)
+        lines.append("")
+        lines.append("")
+        pkg_ctx.outputs_exports.add(f"{output.logical_id}Output")
 
-    # Template
-    code_sections.append(_generate_template_imperative(template, ctx))
+    # Remove trailing empty lines
+    while lines and lines[-1] == "":
+        lines.pop()
 
-    # Now generate imports
-    sections.append(_generate_imports(ctx))
-
-    # Add code sections
-    sections.extend(code_sections)
-
-    # Main block
-    if include_main:
-        sections.append(
-            """
-if __name__ == "__main__":
-    import json
-    print(json.dumps(template.to_dict(), indent=2))"""
-        )
-
-    return "\n\n\n".join(sections) + "\n"
+    return "\n".join(lines) + "\n"
 
 
-def _generate_mixed_mode(
-    template: IRTemplate,
-    ctx: CodegenContext,
-    sections: list[str],
-    include_main: bool,
-) -> str:
-    """Generate mixed mode code.
+def _generate_main_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
+    """Generate main.py with build_template and __main__."""
+    lines = []
+    lines.append('"""Template outputs and builder."""')
+    lines.append("")
+    lines.append("from . import *  # noqa: F403")
+    # Import resources to register them with from_registry()
+    lines.append("from .resources import *  # noqa: F403, F401")
 
-    Mixed mode rules:
-    - Resources, parameters, outputs: always wrapper classes
-    - Tags: inline if used once, wrapper class if reused (2+ times)
-    - Nested property types: inline if ≤3 fields, wrapper if >3 (future)
-    """
-    class_sections: list[str] = []
+    ctx = pkg_ctx.codegen_ctx
 
-    # Parameters (always classes)
-    for param in template.parameters.values():
-        class_sections.append(_generate_parameter_class(param, ctx))
+    # Add explicit imports from config (for parameters in build_template)
+    if pkg_ctx.config_exports:
+        sorted_exports = sorted(pkg_ctx.config_exports)
+        lines.append(f"from .config import {', '.join(sorted_exports)}")
 
-    # Mappings (always classes)
-    for mapping in template.mappings.values():
-        class_sections.append(_generate_mapping_class(mapping, ctx))
+    # Add explicit imports from outputs (if any)
+    if pkg_ctx.outputs_exports:
+        sorted_outputs = sorted(pkg_ctx.outputs_exports)
+        lines.append(f"from .outputs import {', '.join(sorted_outputs)}")
 
-    # Conditions (always classes)
-    for condition in template.conditions.values():
-        class_sections.append(_generate_condition_class(condition, ctx))
-
-    # Generate tag classes for reused tags (before resources that reference them)
-    generated_tags: set[str] = set()
-    for sig, count in ctx.tag_reuse.items():
-        if count >= 2 and sig not in generated_tags:
-            key, value = sig.split(":", 1)
-            class_sections.append(_generate_tag_class(key, value, ctx))
-            generated_tags.add(sig)
-
-    # Resources (always classes, in dependency order, using mixed mode)
-    sorted_resources = _topological_sort(template)
-    for resource_id in sorted_resources:
-        resource = template.resources[resource_id]
-        class_sections.append(_generate_resource_class_mixed(resource, ctx))
-
-    # Outputs (always classes)
-    for output in template.outputs.values():
-        class_sections.append(_generate_output_class(output, ctx))
-
-    # Template class
-    template_class, template_class_name = _generate_template_class(template, ctx)
-    class_sections.append(template_class)
-
-    # Now generate imports
-    sections.append(_generate_imports(ctx))
-
-    # Add class sections
-    sections.extend(class_sections)
+    lines.append("")
+    lines.append("")
 
     # Build template function
-    sections.append(
-        f"""
-def build_template() -> Template:
-    \"\"\"Build the CloudFormation template.\"\"\"
-    return {template_class_name}().resource"""
-    )
+    param_list = ""
+    if template.parameters:
+        param_names = ", ".join(template.parameters.keys())
+        param_list = f"parameters=[{param_names}]"
+
+    output_list = ""
+    if template.outputs:
+        output_names = ", ".join(f"{lid}Output" for lid in template.outputs.keys())
+        output_list = f"outputs=[{output_names}]"
+
+    args = []
+    if template.description:
+        args.append(f"description={_escape_string(template.description)}")
+    if param_list:
+        args.append(param_list)
+    if output_list:
+        args.append(output_list)
+
+    if args:
+        args_str = ",\n        ".join(args)
+        from_registry_call = f"Template.from_registry(\n        {args_str},\n    )"
+    else:
+        from_registry_call = "Template.from_registry()"
+
+    lines.append("def build_template() -> Template:")
+    lines.append('    """Build the CloudFormation template."""')
+    lines.append(f"    return {from_registry_call}")
+    lines.append("")
+    lines.append("")
 
     # Main block
-    if include_main:
-        sections.append(
-            """
-if __name__ == "__main__":
-    import json
-    template = build_template()
-    print(json.dumps(template.to_dict(), indent=2))"""
-        )
+    lines.append('if __name__ == "__main__":')
+    lines.append("    import json")
+    lines.append("    template = build_template()")
+    lines.append("    print(json.dumps(template.to_dict(), indent=2))")
 
-    return "\n\n\n".join(sections) + "\n"
+    return "\n".join(lines) + "\n"
+
+
+def _find_config_references(template: IRTemplate) -> set[str]:
+    """Find parameter/mapping/condition names referenced by resources."""
+    refs = set()
+    for resource in template.resources.values():
+        # Check for references in the reference graph
+        for ref_target in template.reference_graph.get(resource.logical_id, []):
+            if ref_target in template.parameters:
+                refs.add(ref_target)
+            elif ref_target in template.mappings:
+                refs.add(f"{ref_target}Mapping")
+            elif ref_target in template.conditions:
+                refs.add(f"{ref_target}Condition")
+    return refs
+
+
+def _find_resource_references_in_outputs(template: IRTemplate) -> set[str]:
+    """Find resource names referenced by outputs (for get_att/ref)."""
+    refs = set()
+    for output in template.outputs.values():
+        # Check reference graph for this output
+        for ref_target in template.reference_graph.get(output.logical_id, []):
+            if ref_target in template.resources:
+                refs.add(ref_target)
+    return refs
+
+
+def generate_package(template: IRTemplate) -> dict[str, str]:
+    """
+    Generate a Python package from template (multi-file output).
+
+    Args:
+        template: Parsed IRTemplate
+
+    Returns:
+        Dict mapping filename to content:
+        - "__init__.py": Centralized imports
+        - "config.py": Parameters, Mappings, Conditions
+        - "resources/": Directory with one file per resource
+        - "outputs.py": Output definitions (if any)
+        - "main.py": build_template + entry point
+    """
+    pkg_ctx = PackageContext(template=template)
+
+    # Initialize codegen context
+    ctx = pkg_ctx.codegen_ctx
+    ctx.add_import("cloudformation_dataclasses.core", "ref")
+    ctx.add_import("cloudformation_dataclasses.core", "get_att")
+    ctx.add_import("cloudformation_dataclasses.core", "Template")
+
+    # Generate files in order (to collect imports)
+    config_content = _generate_config_py(pkg_ctx, template)
+
+    # Generate resources as a package (one file per resource)
+    resource_files = _generate_resources_package(pkg_ctx, template)
+
+    # Generate outputs.py (if there are outputs)
+    outputs_content = _generate_outputs_py(pkg_ctx, template)
+
+    main_content = _generate_main_py(pkg_ctx, template)
+
+    # Generate __init__.py last (after all imports collected)
+    init_content = _generate_init_py(pkg_ctx, template)
+
+    files = {
+        "__init__.py": init_content,
+        "config.py": config_content,
+        "main.py": main_content,
+    }
+
+    # Add outputs.py if there are outputs
+    if outputs_content:
+        files["outputs.py"] = outputs_content
+
+    # Add all resource files
+    files.update(resource_files)
+
+    return files
+
+

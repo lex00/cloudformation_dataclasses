@@ -706,6 +706,62 @@ class Template:
 
         return yaml.dump(self.to_dict(), default_flow_style=False, sort_keys=False)
 
+    @classmethod
+    def from_registry(
+        cls,
+        description: str = "",
+        parameters: dict[str, Parameter] | list[Any] | None = None,
+        outputs: dict[str, Output] | list[Any] | None = None,
+        conditions: dict[str, Condition] | list[Any] | None = None,
+        mappings: dict[str, Mapping] | list[Any] | None = None,
+        **kwargs: Any,
+    ) -> "Template":
+        """
+        Build a template from all registered resources.
+
+        Resources are automatically discovered from the global registry.
+        No need to list them manually.
+
+        Example:
+            >>> from cloudformation_dataclasses import registry, Template
+            >>>
+            >>> # Define resources anywhere - they auto-register
+            >>> @cloudformation_dataclass
+            >>> class MyBucket:
+            >>>     resource: Bucket
+            >>>     bucket_name = "my-bucket"
+            >>>
+            >>> @cloudformation_dataclass
+            >>> class MyTable:
+            >>>     resource: Table
+            >>>     table_name = "my-table"
+            >>>
+            >>> # Build template from all registered resources
+            >>> template = Template.from_registry(description="My Infrastructure")
+
+        Args:
+            description: Template description
+            parameters: Template parameters (dict or list of wrapper classes)
+            outputs: Template outputs (dict or list of wrapper classes)
+            conditions: Template conditions (dict or list of wrapper classes)
+            mappings: Template mappings (dict or list of wrapper classes)
+            **kwargs: Additional Template constructor arguments
+
+        Returns:
+            A Template instance containing all registered resources
+        """
+        from cloudformation_dataclasses.core.registry import registry
+
+        return cls(
+            description=description,
+            parameters=parameters if parameters is not None else {},
+            outputs=outputs if outputs is not None else {},
+            conditions=conditions if conditions is not None else {},
+            mappings=mappings if mappings is not None else {},
+            resources=registry.get_all(),
+            **kwargs,
+        )
+
     def validate(self) -> list[str]:
         """
         Basic validation of template structure.
@@ -738,10 +794,12 @@ class Template:
         # Check DependsOn references exist
         for resource in self.resources:
             for dep in resource.depends_on:
-                if dep not in logical_ids:
+                # Resolve class references to their logical IDs (class names)
+                dep_id = dep.__name__ if isinstance(dep, type) else dep
+                if dep_id not in logical_ids:
                     errors.append(
                         f"Resource {resource.effective_logical_id} depends on "
-                        f"non-existent resource: {dep}"
+                        f"non-existent resource: {dep_id}"
                     )
 
         # Check Condition references exist

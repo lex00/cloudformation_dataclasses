@@ -145,3 +145,26 @@ BOOL = ConditionOperator.BOOL
 IP_ADDRESS = ConditionOperator.IP_ADDRESS
 ARN_LIKE = ConditionOperator.ARN_LIKE
 ARN_EQUALS = ConditionOperator.ARN_EQUALS
+
+# GetAtt attribute constants
+ARN = "Arn"  # Most common GetAtt attribute (used 460+ times across AWS resources)
+
+
+# =============================================================================
+# IP Protocol Constants
+# https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html
+# =============================================================================
+
+
+class IpProtocol:
+    """IP protocol values for security group rules.
+
+    These are the standard values accepted by AWS for the IpProtocol property
+    in security group ingress and egress rules.
+    """
+
+    TCP = "tcp"
+    UDP = "udp"
+    ICMP = "icmp"
+    ICMPV6 = "icmpv6"
+    ALL = "-1"  # All protocols

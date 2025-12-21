@@ -9,6 +9,7 @@ from cloudformation_dataclasses.core.base import (
     Tag,
 )
 from cloudformation_dataclasses.core.constants import (
+    ARN,
     ARN_EQUALS,
     ARN_LIKE,
     BOOL,
@@ -22,6 +23,7 @@ from cloudformation_dataclasses.core.constants import (
     ConditionOperator,
     ParameterType,
 )
+from cloudformation_dataclasses.core.registry import ResourceRegistry, registry
 from cloudformation_dataclasses.core.template import (
     Condition,
     Mapping,
@@ -30,12 +32,15 @@ from cloudformation_dataclasses.core.template import (
     Template,
 )
 from cloudformation_dataclasses.core.wrapper import (
+    GetAtt,
+    Ref,
     cloudformation_dataclass,
     get_att,
     ref,
 )
 
 __all__ = [
+    "ARN",
     "ARN_EQUALS",
     "ARN_LIKE",
     "BOOL",
@@ -44,6 +49,7 @@ __all__ = [
     "ConditionOperator",
     "DenyStatement",
     "DeploymentContext",
+    "GetAtt",
     "IP_ADDRESS",
     "Mapping",
     "NUMBER",
@@ -52,6 +58,8 @@ __all__ = [
     "ParameterType",
     "PolicyDocument",
     "PolicyStatement",
+    "Ref",
+    "ResourceRegistry",
     "STRING",
     "STRING_EQUALS",
     "STRING_LIKE",
@@ -62,4 +70,5 @@ __all__ = [
     "cloudformation_dataclass",
     "get_att",
     "ref",
+    "registry",
 ]

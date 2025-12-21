@@ -15,22 +15,39 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.5.0] - 2025-12-21
+
+### Changed
+- **Removed mixed mode from importer** - only block mode remains
+  - Block mode generates wrapper classes for all PropertyTypes (maximum type safety)
+  - Simplified CLI: removed `-m/--mode` option
+  - Removed `builders.py` module (no longer needed)
+  - Restored `PolicyDocument`, `PolicyStatement`, `DenyStatement` to core module
+- **Restructured examples** - no more `block/` subfolder
+  - Examples now have flat structure without mode-specific subfolders
+  - Simplified import paths and package structure
+- **Improved ARN pattern detection** - parameter-only Sub patterns no longer create false dependencies
+  - When a Sub pattern references only parameters (not resource-derived values), dependencies are correctly omitted
+  - Fixes circular import issues in generated code
+
+### Removed
+- `-m/--mode` CLI option from `cfn-import`
+- `OutputMode` enum from codegen
+- `builders.py` module
+- Mixed mode examples and documentation
+
+---
+
 ## [0.4.0] - 2025-12-18
 
 ### Added
 - **CloudFormation Template Importer** (`cfn-import` CLI tool)
   - Convert existing YAML/JSON CloudFormation templates to Python code
-  - Three output modes:
-    - **Block mode** (default): Declarative wrapper classes with `@cloudformation_dataclass`
-    - **Brief mode**: Imperative style with direct variable assignments
-    - **Mixed mode**: Hybrid approach with intelligent inlining
-  - Mixed mode features:
-    - Tag reuse detection: tags used 2+ times become wrapper classes, unique tags are inlined as `Tag()`
-    - Policy document handling: converts to `PolicyDocument` and `PolicyStatement` classes
+  - Declarative wrapper classes with `@cloudformation_dataclass`
   - Supports all CloudFormation intrinsic functions (!Ref, !GetAtt, !Sub, !Join, !If, etc.)
   - Topological sorting ensures resources are defined before their dependencies
   - Supports stdin/stdout for pipeline usage
-- Comprehensive importer documentation ([IMPORTER.md](IMPORTER.md))
+- Comprehensive importer documentation ([docs/IMPORTER.md](docs/IMPORTER.md))
 - Importer test suite (71 tests)
 
 ### Changed
@@ -230,8 +247,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 **Documentation**
 - Comprehensive README with examples
-- Developer guide (DEVELOPERS.md)
-- Project checklist (CHECKLIST.md)
+- Developer guide (docs/DEVELOPERS.md)
+- Project checklist (docs/CHECKLIST.md)
 - S3 bucket example with encryption and policies
 
 **Repository Management**
@@ -350,7 +367,7 @@ Combined version format: `spec-{SPEC_DATE}_gen-{GEN_VERSION}`
 - [PyPI](https://pypi.org/project/cloudformation-dataclasses/)
 - [GitHub](https://github.com/lex00/cloudformation_dataclasses)
 - [Documentation](README.md)
-- [Developer Guide](DEVELOPERS.md)
+- [Developer Guide](docs/DEVELOPERS.md)
 
 ---
 

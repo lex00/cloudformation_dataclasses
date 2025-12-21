@@ -1,0 +1,13 @@
+[project]
+name = "compliant_bucket"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "cloudformation_dataclasses",
+]
+
+[project.optional-dependencies]
+dev = [
+    "mypy>=1.0",
+    "pytest>=8.0",
+]

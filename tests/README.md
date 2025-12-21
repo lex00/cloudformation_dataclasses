@@ -158,7 +158,7 @@ def test_bucket_with_encryption():
 - **Total tests**: 128
 - **Framework tests**: 114 (resource-agnostic)
 - **Integration tests**: 14 (S3-specific)
-- **Example tests**: 5 (in `examples/s3_bucket/tests/`)
+- **Example tests**: 5 (in `examples/with_context/s3_bucket/tests/`)
 
 ### Code Coverage
 - `intrinsics/functions.py`: 100%

@@ -13,7 +13,7 @@ from __future__ import annotations
 import warnings
 from abc import ABC
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Any, ClassVar, Optional
+from typing import TYPE_CHECKING, Any, ClassVar, Optional, Union
 
 if TYPE_CHECKING:
     from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref
@@ -109,7 +109,7 @@ class PolicyStatement:
         if self.resource_arn is not None:
             stmt["Resource"] = self._serialize_value(self.resource_arn)
         if self.condition is not None:
-            stmt["Condition"] = self.condition
+            stmt["Condition"] = self._serialize_value(self.condition)
 
         return stmt
 
@@ -221,7 +221,6 @@ class DeploymentContext(ABC):
     deployment_name: Optional[str] = None
     deployment_group: Optional[str] = None
     region: Optional[str] = None
-    account_id: Optional[str] = None
     project_name: Optional[str] = None
     naming_pattern: str = (
         "{project_name}-{component}-{resource_name}-{stage}-{deployment_name}-{deployment_group}-{region}"
@@ -302,7 +301,7 @@ class CloudFormationResource(ABC):
     _property_mappings: ClassVar[dict[str, str]] = {}
 
     logical_id: Optional[str] = None
-    depends_on: list[str] = field(default_factory=list)
+    depends_on: list[Union[str, type]] = field(default_factory=list)
     condition: Optional[str] = None
     deletion_policy: Optional[str] = None
     update_replace_policy: Optional[str] = None
@@ -404,7 +403,14 @@ class CloudFormationResource(ABC):
 
         # Add optional CloudFormation resource attributes
         if self.depends_on:
-            result["DependsOn"] = self.depends_on
+            # Resolve class references to their logical IDs (class names)
+            resolved_deps = []
+            for dep in self.depends_on:
+                if isinstance(dep, type):
+                    resolved_deps.append(dep.__name__)
+                else:
+                    resolved_deps.append(dep)
+            result["DependsOn"] = resolved_deps
         if self.condition:
             result["Condition"] = self.condition
         if self.deletion_policy:
