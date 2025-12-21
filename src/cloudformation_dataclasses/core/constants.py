@@ -146,6 +146,9 @@ IP_ADDRESS = ConditionOperator.IP_ADDRESS
 ARN_LIKE = ConditionOperator.ARN_LIKE
 ARN_EQUALS = ConditionOperator.ARN_EQUALS
 
+# GetAtt attribute constants
+ARN = "Arn"  # Most common GetAtt attribute (used 460+ times across AWS resources)
+
 
 # =============================================================================
 # IP Protocol Constants

@@ -58,19 +58,19 @@ def main(argv: list[str] | None = None) -> int:
         help="Omit if __name__ == '__main__' block (single-file mode only)",
     )
 
-    lint_group = parser.add_mutually_exclusive_group()
-    lint_group.add_argument(
-        "--lint",
+    strict_group = parser.add_mutually_exclusive_group()
+    strict_group.add_argument(
+        "--strict",
         action="store_true",
-        dest="lint",
+        dest="strict",
         default=True,
-        help="Run linter on generated code to use type-safe constants (default: enabled)",
+        help="Strict mode: keep string literals as-is, no context generation (default)",
     )
-    lint_group.add_argument(
-        "--no-lint",
+    strict_group.add_argument(
+        "--no-strict",
         action="store_false",
-        dest="lint",
-        help="Disable linter (output raw generated code)",
+        dest="strict",
+        help="Use framework constants and generate context",
     )
 
     parser.add_argument(
@@ -100,7 +100,14 @@ def main(argv: list[str] | None = None) -> int:
 
         if args.package:
             # Generate package (multiple files)
-            files = generate_package(template, mode=args.mode, lint=args.lint)
+            # In strict mode (default): no linting, no context
+            # In non-strict mode: linting and context enabled
+            files = generate_package(
+                template,
+                mode=args.mode,
+                lint=not args.strict,
+                with_context=not args.strict,
+            )
 
             # Write files to output directory
             output_dir = Path(args.output)
@@ -108,13 +115,17 @@ def main(argv: list[str] | None = None) -> int:
 
             for filename, content in files.items():
                 file_path = output_dir / filename
+                # Create parent directories if needed (e.g., for resources/foo.py)
+                file_path.parent.mkdir(parents=True, exist_ok=True)
                 file_path.write_text(content)
                 print(f"Generated: {file_path}", file=sys.stderr)
 
         else:
             # Generate single file
+            # In strict mode (default): no linting
+            # In non-strict mode: linting enabled
             code = generate_code(
-                template, mode=args.mode, include_main=not args.no_main, lint=args.lint
+                template, mode=args.mode, include_main=not args.no_main, lint=not args.strict
             )
 
             # Output

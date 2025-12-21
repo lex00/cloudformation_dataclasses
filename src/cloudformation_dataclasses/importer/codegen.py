@@ -63,6 +63,18 @@ class CodegenContext:
     # These are generated during resource class generation and inserted before resources
     property_type_class_defs: list[str] = field(default_factory=list)
 
+    # Map of Sub template patterns to resource logical IDs (for implicit ref detection)
+    # e.g., "${AppName}-${AWS::Region}-${AWS::AccountId}" -> "ObjectStorageBucket"
+    name_pattern_map: dict[str, str] = field(default_factory=dict)
+
+    # Map of ARN Sub patterns to (resource_id, suffix) for get_att() replacement
+    # e.g., "arn:${AWS::Partition}:s3:::${bucket-name}" -> ("BucketResource", "")
+    # e.g., "arn:${AWS::Partition}:s3:::${bucket-name}/*" -> ("BucketResource", "/*")
+    arn_pattern_map: dict[str, tuple[str, str]] = field(default_factory=dict)
+
+    # Current resource ID being generated (to avoid self-referential ref() replacements)
+    current_resource_id: Optional[str] = None
+
     def add_import(self, module: str, name: str) -> None:
         """Add an import to track."""
         self.imports.setdefault(module, set()).add(name)
@@ -104,6 +116,140 @@ def _analyze_reuse(template: IRTemplate) -> dict[str, int]:
                         tag_counts[sig] = tag_counts.get(sig, 0) + 1
 
     return tag_counts
+
+
+# Properties that define a resource's "name" for implicit ref detection
+NAME_PROPERTIES = frozenset([
+    "BucketName",      # S3
+    "RoleName",        # IAM
+    "TableName",       # DynamoDB
+    "FunctionName",    # Lambda
+    "QueueName",       # SQS
+    "TopicName",       # SNS
+    "StackName",       # CloudFormation
+    "ClusterName",     # ECS, EKS, etc.
+    "LogGroupName",    # CloudWatch Logs
+    "StreamName",      # Kinesis
+    "DatabaseName",    # RDS, Glue
+    "RepositoryName",  # ECR
+    "VaultName",       # Glacier
+    "DomainName",      # Various services
+    "Name",            # Generic fallback
+])
+
+
+def _build_name_pattern_map(template: IRTemplate) -> dict[str, str]:
+    """Build a map of Sub template patterns to resource logical IDs.
+
+    This enables detecting when a Sub pattern matches a resource's name,
+    allowing replacement with ref() for proper dependency tracking.
+
+    For example, if:
+    - ObjectStorageBucket has BucketName: !Sub "${AppName}-${AWS::Region}-${AWS::AccountId}"
+    - ObjectStorageBucketPolicy has Bucket: !Sub "${AppName}-${AWS::Region}-${AWS::AccountId}"
+
+    We can detect the match and generate:
+    - bucket = ref(ObjectStorageBucket)
+    instead of:
+    - bucket = Sub("${AppName}-${AWS::Region}-${AWS::AccountId}")
+
+    Returns:
+        Dict mapping Sub template strings to resource logical IDs
+    """
+    pattern_map: dict[str, str] = {}
+
+    for logical_id, resource in template.resources.items():
+        for prop_cf_name in NAME_PROPERTIES:
+            if prop_cf_name in resource.properties:
+                prop = resource.properties[prop_cf_name]
+                # Check if it's a Sub intrinsic
+                if isinstance(prop.value, IRIntrinsic) and prop.value.type == IntrinsicType.SUB:
+                    # Extract the template string
+                    if isinstance(prop.value.args, str):
+                        template_str = prop.value.args
+                    elif isinstance(prop.value.args, (list, tuple)) and len(prop.value.args) >= 1:
+                        template_str = prop.value.args[0]
+                    else:
+                        continue
+                    # Store the mapping (first occurrence wins)
+                    if template_str not in pattern_map:
+                        pattern_map[template_str] = logical_id
+
+    return pattern_map
+
+
+# ARN prefix patterns by CloudFormation resource type
+# These define the ARN structure before the resource name for each service
+ARN_PREFIX_PATTERNS: dict[str, str] = {
+    "AWS::S3::Bucket": "arn:${AWS::Partition}:s3:::",
+    "AWS::IAM::Role": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/",
+    "AWS::IAM::Policy": "arn:${AWS::Partition}:iam::${AWS::AccountId}:policy/",
+    "AWS::Lambda::Function": "arn:${AWS::Partition}:lambda:${AWS::Region}:${AWS::AccountId}:function:",
+    "AWS::DynamoDB::Table": "arn:${AWS::Partition}:dynamodb:${AWS::Region}:${AWS::AccountId}:table/",
+    "AWS::SQS::Queue": "arn:${AWS::Partition}:sqs:${AWS::Region}:${AWS::AccountId}:",
+    "AWS::SNS::Topic": "arn:${AWS::Partition}:sns:${AWS::Region}:${AWS::AccountId}:",
+    "AWS::Logs::LogGroup": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:",
+    "AWS::Kinesis::Stream": "arn:${AWS::Partition}:kinesis:${AWS::Region}:${AWS::AccountId}:stream/",
+    "AWS::KMS::Key": "arn:${AWS::Partition}:kms:${AWS::Region}:${AWS::AccountId}:key/",
+    "AWS::ECR::Repository": "arn:${AWS::Partition}:ecr:${AWS::Region}:${AWS::AccountId}:repository/",
+    "AWS::ECS::Cluster": "arn:${AWS::Partition}:ecs:${AWS::Region}:${AWS::AccountId}:cluster/",
+    "AWS::StepFunctions::StateMachine": "arn:${AWS::Partition}:states:${AWS::Region}:${AWS::AccountId}:stateMachine:",
+    "AWS::Events::Rule": "arn:${AWS::Partition}:events:${AWS::Region}:${AWS::AccountId}:rule/",
+    "AWS::SecretsManager::Secret": "arn:${AWS::Partition}:secretsmanager:${AWS::Region}:${AWS::AccountId}:secret:",
+    "AWS::SSM::Parameter": "arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/",
+}
+
+
+def _build_arn_pattern_map(template: IRTemplate) -> dict[str, tuple[str, str]]:
+    """Build a map of ARN Sub patterns to (resource_id, suffix).
+
+    This enables detecting when a Sub pattern builds an ARN that matches
+    a resource's name pattern, allowing replacement with get_att(Resource, "Arn").
+
+    For example, if ObjectStorageBucket has:
+        BucketName: !Sub "${AppName}-${AWS::Region}-${AWS::AccountId}"
+
+    Then these ARN patterns will match:
+        "arn:${AWS::Partition}:s3:::${AppName}-${AWS::Region}-${AWS::AccountId}" -> ("ObjectStorageBucket", "")
+        "arn:${AWS::Partition}:s3:::${AppName}-${AWS::Region}-${AWS::AccountId}/*" -> ("ObjectStorageBucket", "/*")
+
+    Returns:
+        Dict mapping ARN template strings to (resource_logical_id, suffix) tuples
+    """
+    arn_map: dict[str, tuple[str, str]] = {}
+
+    for logical_id, resource in template.resources.items():
+        # Get the ARN prefix for this resource type
+        arn_prefix = ARN_PREFIX_PATTERNS.get(resource.resource_type)
+        if not arn_prefix:
+            continue
+
+        # Find the resource's name pattern
+        for prop_cf_name in NAME_PROPERTIES:
+            if prop_cf_name in resource.properties:
+                prop = resource.properties[prop_cf_name]
+                if isinstance(prop.value, IRIntrinsic) and prop.value.type == IntrinsicType.SUB:
+                    # Extract the template string
+                    if isinstance(prop.value.args, str):
+                        name_pattern = prop.value.args
+                    elif isinstance(prop.value.args, (list, tuple)) and len(prop.value.args) >= 1:
+                        name_pattern = prop.value.args[0]
+                    else:
+                        continue
+
+                    # Build the full ARN pattern
+                    full_arn = f"{arn_prefix}{name_pattern}"
+
+                    # Store exact match (first occurrence wins)
+                    if full_arn not in arn_map:
+                        arn_map[full_arn] = (logical_id, "")
+
+                    # Also store common wildcard variants
+                    wildcard_arn = f"{full_arn}/*"
+                    if wildcard_arn not in arn_map:
+                        arn_map[wildcard_arn] = (logical_id, "/*")
+
+    return arn_map
 
 
 def _tag_class_name(key: str, value: str) -> str:
@@ -510,10 +656,39 @@ def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str:
         return f'GetAtt("{logical_id}", "{attr}")'
 
     if intrinsic.type == IntrinsicType.SUB:
-        ctx.add_intrinsic_import("Sub")
+        # Extract template string for pattern matching
         if isinstance(intrinsic.args, str):
-            return f"Sub({_escape_string(intrinsic.args)})"
-        template_str, variables = intrinsic.args
+            template_str = intrinsic.args
+            variables = None
+        else:
+            template_str, variables = intrinsic.args
+
+        # Check if this Sub pattern builds an ARN matching a resource's ARN
+        # If so, use get_att(Resource, "Arn") for proper dependency tracking
+        if not variables and template_str in ctx.arn_pattern_map:
+            resource_id, suffix = ctx.arn_pattern_map[template_str]
+            # Don't replace if this is the same resource
+            if resource_id != ctx.current_resource_id:
+                ctx.add_import("cloudformation_dataclasses.core", "ARN")
+                if suffix == "":
+                    # Exact ARN match
+                    return f"get_att({resource_id}, ARN)"
+                else:
+                    # ARN with suffix (e.g., "/*") - use Join for simple concatenation
+                    ctx.add_intrinsic_import("Join")
+                    return f"Join('', [get_att({resource_id}, ARN), '{suffix}'])"
+
+        # Check if this Sub pattern matches a resource's name property
+        # If so, use ref() for proper dependency tracking
+        # But skip if this is the same resource (avoid self-referential ref)
+        if not variables and template_str in ctx.name_pattern_map:
+            resource_id = ctx.name_pattern_map[template_str]
+            # Don't replace if this is the resource that defines this name pattern
+            if resource_id != ctx.current_resource_id:
+                return f"ref({resource_id})"
+
+        # Fall back to Sub() intrinsic
+        ctx.add_intrinsic_import("Sub")
         if variables:
             vars_str = _value_to_python(variables, ctx)
             return f"Sub({_escape_string(template_str)}, {vars_str})"
@@ -979,6 +1154,8 @@ def _generate_parameter_class(param: IRParameter, ctx: CodegenContext) -> str:
 
 def _generate_resource_class(resource: IRResource, ctx: CodegenContext) -> str:
     """Generate a resource wrapper class."""
+    # Set current resource ID to avoid self-referential ref() replacements
+    ctx.current_resource_id = resource.logical_id
     lines = []
 
     # Docstring
@@ -1336,6 +1513,8 @@ def _generate_resource_class_mixed(resource: IRResource, ctx: CodegenContext) ->
 
     Uses _value_to_python_mixed for tag inlining support.
     """
+    # Set current resource ID to avoid self-referential ref() replacements
+    ctx.current_resource_id = resource.logical_id
     lines = []
 
     # Docstring
@@ -1643,6 +1822,10 @@ def generate_code(
     if output_mode == OutputMode.MIXED:
         ctx.tag_reuse = _analyze_reuse(template)
 
+    # Build pattern maps for implicit ref and get_att detection
+    ctx.name_pattern_map = _build_name_pattern_map(template)
+    ctx.arn_pattern_map = _build_arn_pattern_map(template)
+
     # Add ref and get_att imports (commonly needed)
     ctx.add_import("cloudformation_dataclasses.core", "ref")
     ctx.add_import("cloudformation_dataclasses.core", "get_att")
@@ -1791,6 +1974,7 @@ class PackageContext:
     # Maps: file -> set of class names from other files it references
     config_exports: set[str] = field(default_factory=set)
     resources_exports: set[str] = field(default_factory=set)
+    outputs_exports: set[str] = field(default_factory=set)
 
     # For generating classes, we need a CodegenContext
     codegen_ctx: CodegenContext = field(default=None)
@@ -1801,6 +1985,9 @@ class PackageContext:
                 template=self.template,
                 mode=self.mode,
             )
+            # Build pattern maps for implicit ref and get_att detection
+            self.codegen_ctx.name_pattern_map = _build_name_pattern_map(self.template)
+            self.codegen_ctx.arn_pattern_map = _build_arn_pattern_map(self.template)
 
 
 def _generate_init_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
@@ -1930,7 +2117,7 @@ def _generate_config_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
 
 
 def _generate_resources_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
-    """Generate resources.py with Resources and PropertyType wrappers."""
+    """Generate resources.py with Resources and PropertyType wrappers (single file mode)."""
     lines = []
     lines.append('"""Resource definitions."""')
     lines.append("")
@@ -1973,19 +2160,219 @@ def _generate_resources_py(pkg_ctx: PackageContext, template: IRTemplate) -> str
     return "\n".join(lines) + "\n"
 
 
-def _generate_main_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
-    """Generate main.py with Outputs, build_template, and __main__."""
+def _logical_id_to_filename(logical_id: str) -> str:
+    """Convert LogicalId to snake_case filename (without .py extension)."""
+    from cloudformation_dataclasses.importer.parser import to_snake_case
+    return to_snake_case(logical_id)
+
+
+def _find_resource_dependencies(
+    template: IRTemplate,
+    resource_id: str,
+    name_pattern_map: dict[str, str] | None = None,
+    arn_pattern_map: dict[str, tuple[str, str]] | None = None,
+) -> set[str]:
+    """Find other resources that this resource depends on (for imports).
+
+    Args:
+        template: The IR template
+        resource_id: The resource we're finding dependencies for
+        name_pattern_map: Map of Sub patterns to resource IDs for implicit ref detection
+        arn_pattern_map: Map of ARN Sub patterns to (resource_id, suffix) for get_att detection
+    """
+    deps = set()
+
+    # Explicit references from reference graph
+    for ref_target in template.reference_graph.get(resource_id, []):
+        if ref_target in template.resources and ref_target != resource_id:
+            deps.add(ref_target)
+
+    # Implicit references from Sub patterns that match resource names or ARNs
+    resource = template.resources.get(resource_id)
+    if resource:
+        _find_sub_pattern_refs(
+            resource.properties, name_pattern_map, arn_pattern_map, resource_id, deps
+        )
+
+    return deps
+
+
+def _find_sub_pattern_refs(
+    properties: dict[str, Any],
+    name_pattern_map: dict[str, str] | None,
+    arn_pattern_map: dict[str, tuple[str, str]] | None,
+    current_resource_id: str,
+    deps: set[str],
+) -> None:
+    """Recursively find Sub patterns that reference other resources."""
+    for prop in properties.values():
+        if hasattr(prop, 'value'):
+            _find_sub_in_value(
+                prop.value, name_pattern_map, arn_pattern_map, current_resource_id, deps
+            )
+
+
+def _find_sub_in_value(
+    value: Any,
+    name_pattern_map: dict[str, str] | None,
+    arn_pattern_map: dict[str, tuple[str, str]] | None,
+    current_resource_id: str,
+    deps: set[str],
+) -> None:
+    """Recursively find Sub patterns in a value."""
+    if isinstance(value, IRIntrinsic):
+        if value.type == IntrinsicType.SUB:
+            # Extract template string
+            if isinstance(value.args, str):
+                template_str = value.args
+            elif isinstance(value.args, (list, tuple)) and len(value.args) >= 1:
+                template_str = value.args[0]
+            else:
+                template_str = None
+
+            if template_str:
+                # Check if it matches an ARN pattern (get_att dependency)
+                if arn_pattern_map and template_str in arn_pattern_map:
+                    ref_target, _ = arn_pattern_map[template_str]
+                    if ref_target != current_resource_id:
+                        deps.add(ref_target)
+                # Check if it matches a resource name pattern (ref dependency)
+                elif name_pattern_map and template_str in name_pattern_map:
+                    ref_target = name_pattern_map[template_str]
+                    if ref_target != current_resource_id:
+                        deps.add(ref_target)
+
+        # Also check nested intrinsics
+        if isinstance(value.args, (list, tuple)):
+            for arg in value.args:
+                _find_sub_in_value(
+                    arg, name_pattern_map, arn_pattern_map, current_resource_id, deps
+                )
+        elif isinstance(value.args, dict):
+            for v in value.args.values():
+                _find_sub_in_value(
+                    v, name_pattern_map, arn_pattern_map, current_resource_id, deps
+                )
+    elif isinstance(value, dict):
+        for v in value.values():
+            _find_sub_in_value(
+                v, name_pattern_map, arn_pattern_map, current_resource_id, deps
+            )
+    elif isinstance(value, list):
+        for item in value:
+            _find_sub_in_value(
+                item, name_pattern_map, arn_pattern_map, current_resource_id, deps
+            )
+
+
+def _generate_resources_package(pkg_ctx: PackageContext, template: IRTemplate) -> dict[str, str]:
+    """Generate resources/ directory with one file per resource.
+
+    Returns:
+        Dict mapping "resources/<filename>.py" to content
+    """
+    from cloudformation_dataclasses.importer.parser import to_snake_case
+
+    files = {}
+    ctx = pkg_ctx.codegen_ctx
+
+    # Build a map of resource_id -> list of PropertyType class names it generates
+    # We'll collect these during generation
+    resource_property_types: dict[str, list[str]] = {}
+
+    # First pass: generate all resources and collect their PropertyType classes
+    sorted_resources = _topological_sort(template)
+    resource_classes: dict[str, tuple[str, list[str]]] = {}  # id -> (class_def, [pt_defs])
+
+    for resource_id in sorted_resources:
+        resource = template.resources[resource_id]
+        ctx.property_type_class_defs = []
+        resource_class = _generate_resource_class(resource, ctx)
+        resource_classes[resource_id] = (resource_class, list(ctx.property_type_class_defs))
+        pkg_ctx.resources_exports.add(resource_id)
+
+    # Second pass: generate individual files
+    for resource_id in sorted_resources:
+        resource = template.resources[resource_id]
+        resource_class, pt_defs = resource_classes[resource_id]
+
+        lines = []
+        filename = _logical_id_to_filename(resource_id)
+
+        # Docstring
+        lines.append(f'"""{resource_id} - {resource.resource_type} resource."""')
+        lines.append("")
+        lines.append("from .. import *  # noqa: F403")
+
+        # Import config classes if needed
+        config_refs = set()
+        for ref_target in template.reference_graph.get(resource_id, []):
+            if ref_target in template.parameters:
+                config_refs.add(ref_target)
+        if config_refs:
+            sorted_refs = sorted(config_refs)
+            lines.append(f"from ..config import {', '.join(sorted_refs)}")
+
+        # Import other resources this one depends on
+        resource_deps = _find_resource_dependencies(
+            template, resource_id, ctx.name_pattern_map, ctx.arn_pattern_map
+        )
+        if resource_deps:
+            for dep_id in sorted(resource_deps):
+                dep_filename = _logical_id_to_filename(dep_id)
+                lines.append(f"from .{dep_filename} import {dep_id}")
+
+        lines.append("")
+        lines.append("")
+
+        # PropertyType wrappers for this resource
+        for pt_def in pt_defs:
+            lines.append(pt_def)
+            lines.append("")
+            lines.append("")
+
+        # The resource class itself
+        lines.append(resource_class)
+
+        # Remove trailing empty lines
+        while lines and lines[-1] == "":
+            lines.pop()
+
+        files[f"resources/{filename}.py"] = "\n".join(lines) + "\n"
+
+    # Generate resources/__init__.py
+    init_lines = []
+    init_lines.append('"""Resource definitions - re-exports all resources."""')
+
+    for resource_id in sorted_resources:
+        filename = _logical_id_to_filename(resource_id)
+        init_lines.append(f"from .{filename} import {resource_id}")
+
+    init_lines.append("")
+    init_lines.append("__all__ = [")
+    for resource_id in sorted_resources:
+        init_lines.append(f'    "{resource_id}",')
+    init_lines.append("]")
+
+    files["resources/__init__.py"] = "\n".join(init_lines) + "\n"
+
+    return files
+
+
+def _generate_outputs_py(pkg_ctx: PackageContext, template: IRTemplate) -> str | None:
+    """Generate outputs.py with Output definitions.
+
+    Returns None if there are no outputs to generate.
+    """
+    if not template.outputs:
+        return None
+
     lines = []
-    lines.append('"""Template outputs and builder."""')
+    lines.append('"""Template outputs."""')
     lines.append("")
     lines.append("from . import *  # noqa: F403")
 
     ctx = pkg_ctx.codegen_ctx
-
-    # Add explicit imports from config (for parameters in build_template)
-    if pkg_ctx.config_exports:
-        sorted_exports = sorted(pkg_ctx.config_exports)
-        lines.append(f"from .config import {', '.join(sorted_exports)}")
 
     # Add explicit imports from resources (for ref/get_att in outputs)
     resource_refs = _find_resource_references_in_outputs(template)
@@ -2002,6 +2389,36 @@ def _generate_main_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
         lines.append(class_def)
         lines.append("")
         lines.append("")
+        pkg_ctx.outputs_exports.add(f"{output.logical_id}Output")
+
+    # Remove trailing empty lines
+    while lines and lines[-1] == "":
+        lines.pop()
+
+    return "\n".join(lines) + "\n"
+
+
+def _generate_main_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
+    """Generate main.py with build_template and __main__."""
+    lines = []
+    lines.append('"""Template outputs and builder."""')
+    lines.append("")
+    lines.append("from . import *  # noqa: F403")
+
+    ctx = pkg_ctx.codegen_ctx
+
+    # Add explicit imports from config (for parameters in build_template)
+    if pkg_ctx.config_exports:
+        sorted_exports = sorted(pkg_ctx.config_exports)
+        lines.append(f"from .config import {', '.join(sorted_exports)}")
+
+    # Add explicit imports from outputs (if any)
+    if pkg_ctx.outputs_exports:
+        sorted_outputs = sorted(pkg_ctx.outputs_exports)
+        lines.append(f"from .outputs import {', '.join(sorted_outputs)}")
+
+    lines.append("")
+    lines.append("")
 
     # Build template function
     param_list = ""
@@ -2069,10 +2486,185 @@ def _find_resource_references_in_outputs(template: IRTemplate) -> set[str]:
     return refs
 
 
+# =============================================================================
+# Context Detection and Generation
+# =============================================================================
+
+
+@dataclass
+class ContextPatterns:
+    """Detected patterns for DeploymentContext generation."""
+
+    # Parameter that appears to be a naming prefix (e.g., AppName, ProjectName)
+    prefix_parameter: Optional[str] = None
+
+    # Parameter that appears to be environment/stage (e.g., Environment, Stage)
+    stage_parameter: Optional[str] = None
+
+    # Detected naming pattern from Sub templates (e.g., "${AppName}-${AWS::Region}")
+    naming_pattern: Optional[str] = None
+
+    # Common tags found across multiple resources
+    common_tags: dict[str, str] = field(default_factory=dict)
+
+
+def _detect_context_patterns(template: IRTemplate) -> ContextPatterns:
+    """
+    Analyze template to detect patterns that map to DeploymentContext.
+
+    Looks for:
+    - Parameters used as naming prefixes in Sub() calls
+    - Environment/Stage parameters
+    - Common tags across resources
+    - Naming patterns in bucket names, etc.
+    """
+    patterns = ContextPatterns()
+
+    # Common names for prefix parameters
+    prefix_param_names = {"AppName", "ApplicationName", "ProjectName", "Prefix", "NamePrefix"}
+    stage_param_names = {"Environment", "Stage", "Env"}
+
+    # Check for prefix and stage parameters
+    for param_name in template.parameters:
+        if param_name in prefix_param_names:
+            patterns.prefix_parameter = param_name
+        elif param_name in stage_param_names:
+            patterns.stage_parameter = param_name
+
+    # Analyze Sub() templates to find naming patterns
+    for resource in template.resources.values():
+        for prop in resource.properties.values():
+            pattern = _extract_naming_pattern(prop.value, template)
+            if pattern and not patterns.naming_pattern:
+                patterns.naming_pattern = pattern
+
+    # Find common tags across resources
+    tag_counts: dict[str, dict[str, int]] = {}  # key -> {value -> count}
+    for resource in template.resources.values():
+        if "Tags" in resource.properties:
+            tags_prop = resource.properties["Tags"]
+            if isinstance(tags_prop.value, list):
+                for tag in tags_prop.value:
+                    if isinstance(tag, dict):
+                        key = tag.get("Key", "")
+                        value = tag.get("Value", "")
+                        if key and value and isinstance(value, str):
+                            if key not in tag_counts:
+                                tag_counts[key] = {}
+                            tag_counts[key][value] = tag_counts[key].get(value, 0) + 1
+
+    # Tags that appear on 2+ resources are considered common
+    for key, value_counts in tag_counts.items():
+        for value, count in value_counts.items():
+            if count >= 2:
+                patterns.common_tags[key] = value
+
+    return patterns
+
+
+def _extract_naming_pattern(value: Any, template: IRTemplate) -> Optional[str]:
+    """Extract naming pattern from a Sub() intrinsic."""
+    if isinstance(value, IRIntrinsic) and value.type == IntrinsicType.SUB:
+        template_str = value.args if isinstance(value.args, str) else value.args[0]
+        # Check if it uses parameter references and AWS pseudo-params
+        if "${" in template_str:
+            return template_str
+    return None
+
+
+def _generate_context_py(
+    pkg_ctx: PackageContext, template: IRTemplate, patterns: ContextPatterns
+) -> str | None:
+    """
+    Generate context.py with DeploymentContext based on detected patterns.
+
+    Returns None if no meaningful patterns detected.
+    """
+    # Skip if no patterns detected
+    if not patterns.prefix_parameter and not patterns.common_tags:
+        return None
+
+    lines = []
+    lines.append('"""Deployment context - inferred from template patterns.')
+    lines.append("")
+
+    if patterns.naming_pattern:
+        lines.append(f"Detected naming pattern: {patterns.naming_pattern}")
+        lines.append("")
+
+    lines.append("Customize this context for your deployment environment.")
+    lines.append('"""')
+    lines.append("")
+    lines.append("from . import *  # noqa: F403")
+
+    # Import config if we reference a parameter
+    config_imports = []
+    if patterns.prefix_parameter:
+        config_imports.append(patterns.prefix_parameter)
+    if patterns.stage_parameter:
+        config_imports.append(patterns.stage_parameter)
+    if config_imports:
+        lines.append(f"from .config import {', '.join(sorted(config_imports))}")
+
+    lines.append("")
+    lines.append("")
+
+    # Generate the context class
+    lines.append("@cloudformation_dataclass")
+    lines.append("class TemplateContext:")
+    lines.append('    """')
+    lines.append("    Deployment context for this template.")
+    lines.append("")
+
+    if patterns.prefix_parameter:
+        lines.append(f"    Uses {patterns.prefix_parameter} parameter as project_name prefix.")
+    if patterns.naming_pattern:
+        lines.append(f"    Naming pattern: {patterns.naming_pattern}")
+    if patterns.common_tags:
+        lines.append(f"    Common tags: {list(patterns.common_tags.keys())}")
+
+    lines.append('    """')
+    lines.append("")
+    lines.append("    context: DeploymentContext")
+
+    # Add project_name from prefix parameter
+    if patterns.prefix_parameter:
+        lines.append(
+            f"    project_name = ref({patterns.prefix_parameter})  "
+            f"# From {patterns.prefix_parameter} parameter"
+        )
+
+    # Add stage from stage parameter
+    if patterns.stage_parameter:
+        lines.append(
+            f"    stage = ref({patterns.stage_parameter})  # From {patterns.stage_parameter} parameter"
+        )
+
+    # Add common tags
+    if patterns.common_tags:
+        lines.append("    tags = {")
+        for key, value in sorted(patterns.common_tags.items()):
+            lines.append(f'        "{key}": "{value}",')
+        lines.append("    }")
+
+    lines.append("")
+    lines.append("")
+
+    # Instantiate the context
+    lines.append("# Instantiate for use in resources")
+    lines.append("ctx = TemplateContext()")
+
+    # Add DeploymentContext import
+    pkg_ctx.codegen_ctx.add_import("cloudformation_dataclasses.core", "DeploymentContext")
+
+    return "\n".join(lines) + "\n"
+
+
 def generate_package(
     template: IRTemplate,
     mode: Literal["block", "brief", "mixed"] = "block",
     lint: bool = True,
+    with_context: bool = False,
 ) -> dict[str, str]:
     """
     Generate a Python package from template (multi-file output).
@@ -2081,13 +2673,16 @@ def generate_package(
         template: Parsed IRTemplate
         mode: Output mode - "block" (declarative), "brief" (imperative), or "mixed"
         lint: Run linter on generated code (default: True)
+        with_context: Generate context.py with DeploymentContext (default: False)
 
     Returns:
         Dict mapping filename to content:
         - "__init__.py": Centralized imports
         - "config.py": Parameters, Mappings, Conditions
-        - "resources.py": Resources and PropertyType wrappers
-        - "main.py": Outputs + build_template
+        - "resources/": Directory with one file per resource
+        - "context.py": DeploymentContext (if with_context=True and patterns detected)
+        - "outputs.py": Output definitions (if any)
+        - "main.py": build_template + entry point
     """
     output_mode = OutputMode(mode)
     pkg_ctx = PackageContext(template=template, mode=output_mode)
@@ -2102,9 +2697,22 @@ def generate_package(
     if output_mode == OutputMode.MIXED:
         ctx.tag_reuse = _analyze_reuse(template)
 
+    # Detect context patterns if requested
+    context_patterns = None
+    context_content = None
+    if with_context:
+        context_patterns = _detect_context_patterns(template)
+        context_content = _generate_context_py(pkg_ctx, template, context_patterns)
+
     # Generate files in order (to collect imports)
     config_content = _generate_config_py(pkg_ctx, template)
-    resources_content = _generate_resources_py(pkg_ctx, template)
+
+    # Generate resources as a package (one file per resource)
+    resource_files = _generate_resources_package(pkg_ctx, template)
+
+    # Generate outputs.py (if there are outputs)
+    outputs_content = _generate_outputs_py(pkg_ctx, template)
+
     main_content = _generate_main_py(pkg_ctx, template)
 
     # Generate __init__.py last (after all imports collected)
@@ -2113,9 +2721,19 @@ def generate_package(
     files = {
         "__init__.py": init_content,
         "config.py": config_content,
-        "resources.py": resources_content,
         "main.py": main_content,
     }
+
+    # Add context.py if generated
+    if context_content:
+        files["context.py"] = context_content
+
+    # Add outputs.py if there are outputs
+    if outputs_content:
+        files["outputs.py"] = outputs_content
+
+    # Add all resource files
+    files.update(resource_files)
 
     # Optionally run linter on each file
     if lint:

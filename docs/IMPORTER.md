@@ -40,29 +40,39 @@ Options:
   -o, --output PATH          Output file/directory path (default: stdout)
   -m, --mode MODE            Output mode: block, brief, mixed (default: block)
   --package                  Generate a Python package (multiple files)
+  --strict                   Strict mode: no linting, no context generation (default)
+  --no-strict                Enable linting and context generation
   --no-main                  Omit if __name__ == '__main__' block (single-file only)
-  --lint                     Run linter on generated code (default: enabled)
-  --no-lint                  Disable linter (output raw generated code)
   --version                  Show version and exit
   --help                     Show this message and exit
 ```
 
-### Linter Integration
+### Strict Mode (Default)
 
-By default, the importer runs the linter on generated code to replace string literals with type-safe constants. For example:
+By default, the importer runs in **strict mode**, which:
+- Does **not** run the linter to replace string literals with constants
+- Does **not** generate `context.py` for deployment context patterns
 
-- `"Bool"` → `BOOL` (condition operators)
-- `"String"` → `STRING` (parameter types)
-- `Ref("AWS::Region")` → `AWS_REGION` (pseudo-parameters)
-- `"AES256"` → `ServerSideEncryption.AES256` (service enums)
+This produces code that faithfully represents the original CloudFormation template, leaving the user's template decisions intact.
 
-To disable linting and see the raw generated code:
+### Non-Strict Mode (`--no-strict`)
+
+Use `--no-strict` to enable additional transformations:
 
 ```bash
-cfn-import template.yaml --no-lint -o output.py
+cfn-import template.yaml --no-strict -o output.py
+cfn-import template.yaml --package --no-strict -o my_stack/
 ```
 
-See [LINTER.md](./LINTER.md) for more details on the linter.
+In non-strict mode:
+- **Linting**: Replaces string literals with type-safe constants:
+  - `"Bool"` → `BOOL` (condition operators)
+  - `"String"` → `STRING` (parameter types)
+  - `Ref("AWS::Region")` → `AWS_REGION` (pseudo-parameters)
+  - `"AES256"` → `ServerSideEncryption.AES256` (service enums)
+- **Context generation** (with `--package`): Generates `context.py` with `DeploymentContext` if naming patterns are detected
+
+See [LINTER.md](./LINTER.md) for more details on the linter rules.
 
 ### Examples
 
@@ -88,7 +98,7 @@ cfn-import template.yaml | less
 
 ### Package Output (`--package`)
 
-The `--package` flag generates a Python package with multiple files instead of a single file. This is useful for larger templates and provides cleaner imports.
+The `--package` flag generates a Python package with multiple files instead of a single file. This is useful for larger templates and provides cleaner imports. Each resource gets its own file for better readability and AI-friendly context management.
 
 ```bash
 cfn-import template.yaml --package -o my_stack/
@@ -97,10 +107,15 @@ cfn-import template.yaml --package -o my_stack/
 This generates:
 ```
 my_stack/
-├── __init__.py      # Centralized imports
-├── config.py        # Parameters, Mappings, Conditions
-├── resources.py     # Resources and PropertyType wrappers
-└── main.py          # Outputs + build_template() + __main__
+├── __init__.py              # Centralized imports
+├── config.py                # Parameters, Mappings, Conditions
+├── resources/               # One file per resource
+│   ├── __init__.py          # Re-exports all resources
+│   ├── my_bucket.py         # ~40-80 lines per resource
+│   ├── my_log_bucket.py
+│   └── bucket_policy.py
+├── outputs.py               # Output definitions (if any)
+└── main.py                  # build_template() + __main__
 ```
 
 **`__init__.py`** - Centralizes all imports:
@@ -127,28 +142,62 @@ class AppName:
     description = "Application name"
 ```
 
-**`resources.py`** - Resources and PropertyType wrappers:
+**`resources/my_bucket.py`** - One resource per file with its PropertyType wrappers:
 ```python
-"""Resource definitions."""
-from . import *  # noqa: F403
-from .config import AppName
+"""MyBucket - AWS::S3::Bucket resource."""
+from .. import *  # noqa: F403
+from ..config import AppName
+from .my_log_bucket import MyLogBucket  # Cross-resource dependency
+
+@cloudformation_dataclass
+class MyBucketServerSideEncryptionByDefault:
+    resource: ServerSideEncryptionByDefault
+    sse_algorithm = ServerSideEncryption.AES256
 
 @cloudformation_dataclass
 class MyBucket:
     resource: Bucket
     bucket_name = Sub("${AppName}-data")
+    bucket_encryption = MyBucketServerSideEncryptionByDefault
+    logging_configuration = LoggingConfiguration(
+        destination_bucket_name=ref(MyLogBucket)
+    )
 ```
 
-**`main.py`** - Outputs and template builder:
+**`resources/__init__.py`** - Re-exports all resources:
+```python
+"""Resource definitions - re-exports all resources."""
+from .my_bucket import MyBucket
+from .my_log_bucket import MyLogBucket
+from .bucket_policy import BucketPolicy
+
+__all__ = ["MyBucket", "MyLogBucket", "BucketPolicy"]
+```
+
+**`outputs.py`** - Output definitions (generated only if template has outputs):
+```python
+"""Template outputs."""
+from . import *  # noqa: F403
+from .resources import MyBucket
+
+@cloudformation_dataclass
+class BucketArnOutput:
+    resource: Output
+    value = get_att(MyBucket, ARN)  # ARN constant for type safety
+```
+
+**`main.py`** - Template builder and entry point:
 ```python
 """Template outputs and builder."""
 from . import *  # noqa: F403
 from .config import AppName
+from .outputs import BucketArnOutput
 
 def build_template() -> Template:
     return Template.from_registry(
         description="...",
         parameters=[AppName],
+        outputs=[BucketArnOutput],
     )
 
 if __name__ == "__main__":
@@ -157,10 +206,69 @@ if __name__ == "__main__":
 ```
 
 **Benefits:**
+- **Smaller files** - Each resource ~40-80 lines instead of one 400+ line file
+- **AI-friendly** - Agents can work on one resource at a time within context limits
+- **Clear ownership** - Easy to find where a resource is defined
+- **Natural grouping** - PropertyType wrappers stay with their parent resource
+- **Explicit dependencies** - Cross-resource imports are visible
 - Cleaner imports with `from . import *`
-- Logical separation of config, resources, and outputs
+- Logical separation of config, resources, outputs, and main
 - Matches hand-written package patterns
-- Easier to extend and customize
+
+### Context Generation (with `--no-strict`)
+
+When using `--no-strict` with `--package`, the importer analyzes your template for naming patterns and generates a `DeploymentContext` that can be used to manage naming conventions across resources.
+
+```bash
+cfn-import template.yaml --package --no-strict -o my_stack/
+```
+
+This adds a `context.py` file to the package:
+
+```python
+"""Deployment context - inferred from template patterns.
+
+Detected naming pattern: ${AppName}-${AWS::Region}-${AWS::AccountId}
+
+Customize this context for your deployment environment.
+"""
+
+from . import *  # noqa: F403
+from .config import AppName
+
+
+@cloudformation_dataclass
+class TemplateContext:
+    """
+    Deployment context for this template.
+
+    Uses AppName parameter as project_name prefix.
+    Naming pattern: ${AppName}-${AWS::Region}-${AWS::AccountId}
+    """
+
+    context: DeploymentContext
+    project_name = ref(AppName)  # From AppName parameter
+
+
+# Instantiate for use in resources
+ctx = TemplateContext()
+```
+
+**Detected Patterns:**
+
+| CloudFormation Pattern | Context Field |
+|----------------------|---------------|
+| `AppName`, `ProjectName` parameter | `project_name` |
+| `Environment`, `Stage` parameter | `stage` |
+| Common tags across resources | `tags` |
+| `Sub("${Prefix}-...")` naming | Documented in docstring |
+
+**When to use:**
+- Templates with a prefix parameter (AppName, ProjectName)
+- Templates with Environment/Stage parameters
+- Templates with common tags across resources
+
+The generated context serves as a starting point - customize it for your specific deployment needs.
 
 ## Output Modes
 
@@ -470,8 +578,41 @@ BucketArn: !GetAtt MyBucket.Arn
 ```python
 # Output (block mode)
 bucket_name = ref(BucketParam)
-bucket_arn = get_att(MyBucket, "Arn")
+bucket_arn = get_att(MyBucket, ARN)  # ARN constant for type safety
 ```
+
+### Smart Pattern Detection
+
+The importer automatically detects and improves common CloudFormation patterns:
+
+**Implicit Refs**: When a `!Sub` pattern matches a resource's name, it's replaced with `ref()`:
+```yaml
+# Input - Author used !Sub instead of !Ref
+BucketName: !Sub ${AppName}-${AWS::Region}  # On S3 bucket
+Bucket: !Sub ${AppName}-${AWS::Region}       # On bucket policy (same pattern!)
+```
+```python
+# Output - Importer detects the relationship
+bucket_name = Sub('${AppName}-${AWS::Region}')  # Original stays
+bucket = ref(ObjectStorageBucket)               # Replaced with ref()
+```
+
+**ARN Detection**: When a `!Sub` builds an ARN, it's replaced with `get_att()`:
+```yaml
+# Input - Manual ARN construction
+Resource:
+  - !Sub arn:${AWS::Partition}:s3:::${AppName}-${AWS::Region}
+  - !Sub arn:${AWS::Partition}:s3:::${AppName}-${AWS::Region}/*
+```
+```python
+# Output - Uses get_att() and Join() for cleaner code
+resource_arn = [
+    get_att(ObjectStorageBucket, ARN),
+    Join('', [get_att(ObjectStorageBucket, ARN), '/*']),
+]
+```
+
+These optimizations happen automatically and create proper CloudFormation dependency relationships.
 
 ### Resource Ordering
 
@@ -535,10 +676,13 @@ Defines dataclasses for the parsed template structure:
 
 **codegen.py** - Code Generator
 
-- `generate_code(template, mode="block", include_main=True, lint=True)` - Main entry point
+- `generate_code(template, mode="block", include_main=True, strict=True)` - Main entry point
 - Supports block, brief, and mixed output modes
 - Handles imports, class generation, and formatting
-- When `lint=True` (default), runs the linter to replace string literals with type-safe constants
+- Automatically detects implicit refs and ARN patterns (always enabled)
+- Uses `ARN` constant for `get_att()` calls (type-safe, IDE-friendly)
+- Uses `Join()` for ARN wildcards instead of verbose `Sub()` patterns
+- When `strict=False`, runs the linter to replace string literals with type-safe constants
 
 **cli.py** - Command Line Interface
 
@@ -710,7 +854,7 @@ Resources:
 """
 template = parse_template(yaml_content, source_name="inline.yaml")
 
-# Generate single file (linter enabled by default)
+# Generate single file (strict mode by default - no linting)
 code = generate_code(template, mode="block", include_main=True)
 print(code)
 
@@ -726,8 +870,8 @@ output_dir.mkdir(exist_ok=True)
 for filename, content in files.items():
     (output_dir / filename).write_text(content)
 
-# Disable linter to see raw generated code
-code = generate_code(template, mode="block", lint=False)
+# Enable linting to replace string literals with constants
+code = generate_code(template, mode="block", strict=False)
 
 # Access the IR directly
 for name, resource in template.resources.items():

@@ -39,11 +39,17 @@ Before starting, gather the following information:
 ## Workflow Overview
 
 ### For Each Template
-1. **Import** with linter: `cfn-import template.yaml --lint -o example.py`
-2. **Analyze** linter output for improvement opportunities
+1. **Import** template: `cfn-import template.yaml --package -o example/`
+2. **Analyze** generated code for improvement opportunities
 3. **Improve** tools if needed (generator, linter, docs)
-4. **Create** folder structure with README and tests
+4. **Create** README and tests in the folder structure
 5. **Verify** tests pass, fix errors
+
+The importer automatically:
+- Detects implicit refs from matching Sub patterns
+- Replaces ARN constructions with `get_att(Resource, ARN)`
+- Uses `Join()` for ARN wildcards (cleaner than `Sub()`)
+- Adds proper cross-resource imports
 
 ## Detailed Steps Per Template
 
@@ -61,14 +67,24 @@ Before starting, gather the following information:
 
 For multi-example service folders, create subfolders per example.
 
-### Step 2: Import with Linter
+### Step 2: Import Template
 ```bash
+# Default (strict mode) - faithful to original template
 cfn-import {source_path}/{Service}/template.yaml \
-  --lint -o {target_location}/{Service}/{example}/main.py
+  --package -o {target_location}/{Service}/{example}/
+
+# With linting enabled - replaces strings with constants
+cfn-import {source_path}/{Service}/template.yaml \
+  --package --no-strict -o {target_location}/{Service}/{example}/
 ```
 
-### Step 3: Analyze Linter Output
-Check the generated code for patterns the linter should have caught but didn't:
+**Note**: The importer automatically detects and improves patterns regardless of strict mode:
+- Implicit refs: `Sub('${AppName}-bucket')` → `ref(MyBucket)` when patterns match
+- ARN patterns: `Sub('arn:...')` → `get_att(MyBucket, ARN)`
+- ARN wildcards: Uses `Join('', [get_att(..., ARN), '/*'])` instead of verbose Sub
+
+### Step 3: Analyze Generated Code
+Check the generated code for patterns the linter should have caught (when using `--no-strict`) but didn't:
 
 | Rule | Pattern | Action if Missing |
 |------|---------|-------------------|
@@ -79,7 +95,7 @@ Check the generated code for patterns the linter should have caught but didn't:
 | CFD005 | Dict literal for PropertyType | Add to `KNOWN_PROPERTY_TYPES` in linter rules |
 
 ### Step 4: Improve Tools (Interactive Mode)
-When the linter doesn't catch a pattern that should be caught:
+When the linter (with `--no-strict`) doesn't catch a pattern that should be caught:
 
 **Prompt example**:
 ```
@@ -206,10 +222,11 @@ Start with simpler templates to build confidence:
 
 > Importing: S3/simple-bucket.yaml
   ├─ Created: examples/generated/third_party_cfn/S3/simple_bucket/
-  ├─ Running cfn-import with linter...
-  ├─ Linter applied 2 fixes:
-  │   - "AES256" → ServerSideEncryption.AES256
-  │   - "Enabled" → BucketVersioningStatus.ENABLED
+  ├─ Running cfn-import --package...
+  ├─ Auto-detected patterns:
+  │   - Implicit ref: bucket policy → ObjectStorageBucket
+  │   - ARN pattern: get_att(ObjectStorageBucket, ARN)
+  │   - ARN wildcard: Join('', [get_att(..., ARN), '/*'])
   ├─ Creating README.md
   ├─ Creating tests...
   └─ Tests: PASS (5 tests)

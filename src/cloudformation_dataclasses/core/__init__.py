@@ -9,6 +9,7 @@ from cloudformation_dataclasses.core.base import (
     Tag,
 )
 from cloudformation_dataclasses.core.constants import (
+    ARN,
     ARN_EQUALS,
     ARN_LIKE,
     BOOL,
@@ -37,6 +38,7 @@ from cloudformation_dataclasses.core.wrapper import (
 )
 
 __all__ = [
+    "ARN",
     "ARN_EQUALS",
     "ARN_LIKE",
     "BOOL",
