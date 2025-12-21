@@ -3,6 +3,7 @@ from __future__ import annotations
 """MyData - AWS::S3::Bucket resource."""
 
 from .. import *  # noqa: F403
+from ..context import ctx
 
 
 @cloudformation_dataclass
@@ -30,8 +31,8 @@ class MyDataVersioningConfiguration:
 
 
 @cloudformation_dataclass
-class MyDataTagFilter:
-    resource: TagFilter
+class MyDataTag:
+    resource: Tag
     key = 'DataClassification'
     value = 'sensitive'
 
@@ -41,6 +42,7 @@ class MyData:
     """AWS::S3::Bucket resource."""
 
     resource: Bucket
+    context = ctx  # Wires up deployment context for naming and tags
     bucket_encryption = MyDataBucketEncryption
     versioning_configuration = MyDataVersioningConfiguration
-    tags = [MyDataTagFilter]
+    tags = [MyDataTag]
