@@ -1,8 +1,6 @@
 """ObjectStorageReplicaBucketPolicyPolicy - AWS::S3::BucketPolicy resource."""
 
 from .. import *  # noqa: F403
-from ..config import AppName
-from .object_storage_replica_bucket import ObjectStorageReplicaBucket
 
 
 @cloudformation_dataclass
@@ -52,5 +50,5 @@ class ObjectStorageReplicaBucketPolicyPolicy:
     """AWS::S3::BucketPolicy resource."""
 
     resource: BucketPolicy
-    bucket = ref(ObjectStorageReplicaBucket)
+    bucket = ref("ObjectStorageReplicaBucket")
     policy_document = ObjectStorageReplicaBucketPolicyPolicyPolicyDocument

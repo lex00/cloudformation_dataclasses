@@ -1,8 +1,6 @@
 """ObjectStorageBucketPolicyPolicy - AWS::S3::BucketPolicy resource."""
 
 from .. import *  # noqa: F403
-from ..config import AppName
-from .object_storage_bucket import ObjectStorageBucket
 
 
 @cloudformation_dataclass
@@ -52,5 +50,5 @@ class ObjectStorageBucketPolicyPolicy:
     """AWS::S3::BucketPolicy resource."""
 
     resource: BucketPolicy
-    bucket = ref(ObjectStorageBucket)
+    bucket = ref("ObjectStorageBucket")
     policy_document = ObjectStorageBucketPolicyPolicyPolicyDocument

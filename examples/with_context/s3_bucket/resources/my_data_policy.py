@@ -1,8 +1,7 @@
-"""S3 bucket policy requiring encrypted uploads."""
+"""MyDataPolicy - AWS::S3::BucketPolicy resource."""
 
-from . import *  # noqa: F403
-from .bucket import MyData
-from .context import ctx
+from .. import *  # noqa: F403
+from ..context import ctx
 
 
 @cloudformation_dataclass
@@ -33,5 +32,5 @@ class MyDataPolicy:
 
     resource: BucketPolicy
     context = ctx
-    bucket = ref(MyData)
+    bucket = ref("MyData")
     policy_document = EncryptionRequiredPolicyDocument

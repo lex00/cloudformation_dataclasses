@@ -7,9 +7,8 @@ the example generates valid CloudFormation templates.
 
 from cloudformation_dataclasses.core import Template
 
-# Import the example dataclasses
-from ..bucket import MyData
-from ..bucket_policy import MyDataPolicy
+# Import resources from the resources package
+from ..resources import MyData, MyDataPolicy
 
 
 def test_example_generates_valid_template():

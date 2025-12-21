@@ -1,10 +1,6 @@
 """ObjectStorageBucket - AWS::S3::Bucket resource."""
 
 from .. import *  # noqa: F403
-from ..config import AppName
-from .object_storage_log_bucket import ObjectStorageLogBucket
-from .object_storage_replica_bucket import ObjectStorageReplicaBucket
-from .object_storage_replication_role import ObjectStorageReplicationRole
 
 
 @cloudformation_dataclass
@@ -28,7 +24,7 @@ class ObjectStorageBucketBucketEncryption:
 @cloudformation_dataclass
 class ObjectStorageBucketLoggingConfiguration:
     resource: LoggingConfiguration
-    destination_bucket_name = ref(ObjectStorageLogBucket)
+    destination_bucket_name = ref("ObjectStorageLogBucket")
 
 
 @cloudformation_dataclass
@@ -43,7 +39,7 @@ class ObjectStorageBucketPublicAccessBlockConfiguration:
 @cloudformation_dataclass
 class ObjectStorageBucketReplicationDestination:
     resource: ReplicationDestination
-    bucket = get_att(ObjectStorageReplicaBucket, "Arn")
+    bucket = get_att("ObjectStorageReplicaBucket", ARN)
 
 
 @cloudformation_dataclass
@@ -56,7 +52,7 @@ class ObjectStorageBucketReplicationRule:
 @cloudformation_dataclass
 class ObjectStorageBucketReplicationConfiguration:
     resource: ReplicationConfiguration
-    role = get_att(ObjectStorageReplicationRole, "Arn")
+    role = get_att("ObjectStorageReplicationRole", ARN)
     rules = [ObjectStorageBucketReplicationRule]
 
 

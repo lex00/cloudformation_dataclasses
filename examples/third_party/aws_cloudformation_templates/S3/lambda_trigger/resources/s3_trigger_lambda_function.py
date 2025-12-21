@@ -1,7 +1,6 @@
 """S3TriggerLambdaFunction - AWS::Lambda::Function resource."""
 
 from .. import *  # noqa: F403
-from .lambda_iam_role import LambdaIAMRole
 
 
 @cloudformation_dataclass
@@ -21,6 +20,6 @@ class S3TriggerLambdaFunction:
     resource: Function
     code = S3TriggerLambdaFunctionCode
     handler = 'index.lambda_handler'
-    role = get_att(LambdaIAMRole, "Arn")
+    role = get_att("LambdaIAMRole", "Arn")
     runtime = 'python3.9'
     timeout = 30

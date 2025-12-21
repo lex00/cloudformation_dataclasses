@@ -13,8 +13,7 @@ Key pattern: Declarative wrapper classes for clean, reusable infrastructure code
 """
 
 from . import *  # noqa: F403
-from .bucket import MyData
-from .bucket_policy import MyDataPolicy
+from .resources import *  # noqa: F403, F401
 from .context import ctx
 
 

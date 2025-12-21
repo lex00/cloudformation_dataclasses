@@ -1,9 +1,6 @@
 """S3BucketNotification - AWS::S3::Bucket resource."""
 
 from .. import *  # noqa: F403
-from ..config import NotificationBucket
-from .lambda_invoke_permission import LambdaInvokePermission
-from .s3_trigger_lambda_function import S3TriggerLambdaFunction
 
 
 @cloudformation_dataclass
@@ -37,7 +34,7 @@ class S3BucketNotificationPublicAccessBlockConfiguration:
 class S3BucketNotificationLambdaConfiguration:
     resource: LambdaConfiguration
     event = 's3:ObjectCreated:Put'
-    function = get_att(S3TriggerLambdaFunction, "Arn")
+    function = get_att("S3TriggerLambdaFunction", "Arn")
 
 
 @cloudformation_dataclass
@@ -55,4 +52,4 @@ class S3BucketNotification:
     bucket_encryption = S3BucketNotificationBucketEncryption
     public_access_block_configuration = S3BucketNotificationPublicAccessBlockConfiguration
     notification_configuration = S3BucketNotificationNotificationConfiguration
-    depends_on = [LambdaInvokePermission]
+    depends_on = ["LambdaInvokePermission"]

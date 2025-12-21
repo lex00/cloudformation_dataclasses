@@ -148,7 +148,7 @@ class EncryptionRequiredPolicyDocument:
 class MyDataPolicy:
     resource: BucketPolicy
     context = ctx
-    bucket = ref(MyData)
+    bucket = ref("MyData")  # String ref - no import needed
     policy_document = EncryptionRequiredPolicyDocument
 
 # main.py - Create and export template

@@ -1,5 +1,7 @@
 # S3 Bucket Example
 
+**Original Source**: Based on S3 bucket patterns from [aws-cloudformation-templates](https://github.com/aws-cloudformation/aws-cloudformation-templates/tree/main/S3)
+
 This example demonstrates creating an AWS S3 bucket with encryption and bucket policy using **declarative wrapper classes**.
 
 ## Key Concepts
@@ -304,16 +306,18 @@ class EncryptionRequiredPolicyDocument:
 
 ### 4. Cross-Resource References
 
-Use `ref()` for CloudFormation `{"Ref": "..."}` intrinsic functions:
+Use `ref()` with string logical IDs for CloudFormation `{"Ref": "..."}` intrinsic functions:
 
 ```python
 @cloudformation_dataclass
 class MyDataPolicy:
     resource: BucketPolicy
     context = ctx
-    bucket = ref(MyData)  # Creates {"Ref": "MyData"}
+    bucket = ref("MyData")  # Creates {"Ref": "MyData"}
     policy_document = EncryptionRequiredPolicyDocument
 ```
+
+**Note**: String refs are preferred over class imports. This eliminates cross-module import dependencies and keeps resource files clean with just `from . import *`.
 
 ### 5. Tag Merging
 

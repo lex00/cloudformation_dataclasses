@@ -1,7 +1,6 @@
 """ObjectStorageLogBucket - AWS::S3::Bucket resource."""
 
 from .. import *  # noqa: F403
-from ..config import AppName
 
 
 @cloudformation_dataclass

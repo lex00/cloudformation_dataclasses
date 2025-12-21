@@ -1,10 +1,6 @@
 """ObjectStorageReplicationPolicy - AWS::IAM::RolePolicy resource."""
 
 from .. import *  # noqa: F403
-from ..config import AppName
-from .object_storage_bucket import ObjectStorageBucket
-from .object_storage_replica_bucket import ObjectStorageReplicaBucket
-from .object_storage_replication_role import ObjectStorageReplicationRole
 
 
 @cloudformation_dataclass
@@ -52,4 +48,4 @@ class ObjectStorageReplicationPolicy:
     resource: RolePolicy
     policy_document = ObjectStorageReplicationPolicyPolicyDocument
     policy_name = 'bucket-replication-policy'
-    role_name = ref(ObjectStorageReplicationRole)
+    role_name = ref("ObjectStorageReplicationRole")

@@ -669,9 +669,9 @@ def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str:
             ctx.add_intrinsic_import("Ref")
             return f'Ref("{target}")'
         if target in ctx.template.parameters:
-            return f"ref({_format_ref_target(target)})"
+            return f'ref("{_format_ref_target(target)}")'
         if target in ctx.template.resources:
-            return f"ref({_format_ref_target(target)})"
+            return f'ref("{_format_ref_target(target)}")'
         # Unknown reference - use string
         ctx.add_intrinsic_import("Ref")
         return f'Ref("{target}")'
@@ -679,7 +679,7 @@ def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str:
     if intrinsic.type == IntrinsicType.GET_ATT:
         logical_id, attr = intrinsic.args
         if logical_id in ctx.template.resources:
-            return f'get_att({_format_ref_target(logical_id)}, "{attr}")'
+            return f'get_att("{_format_ref_target(logical_id)}", "{attr}")'
         ctx.add_intrinsic_import("GetAtt")
         return f'GetAtt("{logical_id}", "{attr}")'
 
@@ -709,11 +709,11 @@ def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str:
                     formatted_id = _format_ref_target(resource_id)
                     if suffix == "":
                         # Exact ARN match
-                        return f"get_att({formatted_id}, ARN)"
+                        return f'get_att("{formatted_id}", ARN)'
                     else:
                         # ARN with suffix (e.g., "/*") - use Join for simple concatenation
                         ctx.add_intrinsic_import("Join")
-                        return f"Join('', [get_att({formatted_id}, ARN), '{suffix}'])"
+                        return f"Join('', [get_att(\"{formatted_id}\", ARN), '{suffix}'])"
 
         # Check if this Sub pattern matches a resource's name property
         # If so, use ref() for proper dependency tracking
@@ -722,7 +722,7 @@ def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str:
             resource_id = ctx.name_pattern_map[template_str]
             # Don't replace if this is the resource that defines this name pattern
             if resource_id != ctx.current_resource_id:
-                return f"ref({_format_ref_target(resource_id)})"
+                return f'ref("{_format_ref_target(resource_id)}")'
 
         # Fall back to Sub() intrinsic
         ctx.add_intrinsic_import("Sub")
@@ -1262,7 +1262,7 @@ def _generate_resource_class(resource: IRResource, ctx: CodegenContext) -> str:
 
     # Resource-level attributes
     if resource.depends_on:
-        deps = ", ".join(resource.depends_on)
+        deps = ", ".join(f'"{d}"' for d in resource.depends_on)
         lines.append(f"    depends_on = [{deps}]")
     if resource.condition:
         lines.append(f"    condition = {_escape_string(resource.condition)}")
@@ -2008,24 +2008,6 @@ def _generate_resources_package(pkg_ctx: PackageContext, template: IRTemplate) -
         lines.append("")
         lines.append("from .. import *  # noqa: F403")
 
-        # Import config classes if needed
-        config_refs = set()
-        for ref_target in template.reference_graph.get(resource_id, []):
-            if ref_target in template.parameters:
-                config_refs.add(ref_target)
-        if config_refs:
-            sorted_refs = sorted(config_refs)
-            lines.append(f"from ..config import {', '.join(sorted_refs)}")
-
-        # Import other resources this one depends on
-        resource_deps = _find_resource_dependencies(
-            template, resource_id, ctx.name_pattern_map, ctx.arn_pattern_map
-        )
-        if resource_deps:
-            for dep_id in sorted(resource_deps):
-                dep_filename = _logical_id_to_filename(dep_id)
-                lines.append(f"from .{dep_filename} import {dep_id}")
-
         lines.append("")
         lines.append("")
 
@@ -2044,21 +2026,23 @@ def _generate_resources_package(pkg_ctx: PackageContext, template: IRTemplate) -
 
         files[f"resources/{filename}.py"] = "\n".join(lines) + "\n"
 
-    # Generate resources/__init__.py
-    init_lines = []
-    init_lines.append('"""Resource definitions - re-exports all resources."""')
+    # Generate resources/__init__.py with auto-discovery
+    init_content = '''"""Resource definitions - auto-discovers all resources."""
+import pkgutil
+import importlib
+from pathlib import Path
 
-    for resource_id in sorted_resources:
-        filename = _logical_id_to_filename(resource_id)
-        init_lines.append(f"from .{filename} import {resource_id}")
-
-    init_lines.append("")
-    init_lines.append("__all__ = [")
-    for resource_id in sorted_resources:
-        init_lines.append(f'    "{resource_id}",')
-    init_lines.append("]")
-
-    files["resources/__init__.py"] = "\n".join(init_lines) + "\n"
+# Auto-discover and import all modules in this package
+_pkg_path = Path(__file__).parent
+for _finder, _name, _ispkg in pkgutil.iter_modules([str(_pkg_path)]):
+    if not _name.startswith("_"):
+        _module = importlib.import_module(f".{_name}", __package__)
+        # Export all public names from each module
+        for _attr in dir(_module):
+            if not _attr.startswith("_"):
+                globals()[_attr] = getattr(_module, _attr)
+'''
+    files["resources/__init__.py"] = init_content
 
     return files
 
@@ -2075,17 +2059,10 @@ def _generate_outputs_py(pkg_ctx: PackageContext, template: IRTemplate) -> str |
     lines.append('"""Template outputs."""')
     lines.append("")
     lines.append("from . import *  # noqa: F403")
+    lines.append("")
+    lines.append("")
 
     ctx = pkg_ctx.codegen_ctx
-
-    # Add explicit imports from resources (for ref/get_att in outputs)
-    resource_refs = _find_resource_references_in_outputs(template)
-    if resource_refs:
-        sorted_refs = sorted(resource_refs)
-        lines.append(f"from .resources import {', '.join(sorted_refs)}")
-
-    lines.append("")
-    lines.append("")
 
     # Outputs
     for output in template.outputs.values():

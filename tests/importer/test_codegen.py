@@ -34,7 +34,7 @@ class TestGenerateSimpleBucket:
     def test_has_output_class(self, code):
         assert "class BucketNameOutput:" in code
         assert "resource: Output" in code
-        assert "ref(MyBucket)" in code
+        assert 'ref("MyBucket")' in code
 
     def test_uses_template_from_registry(self, code):
         # Template class is no longer generated - resources auto-register
@@ -68,10 +68,10 @@ class TestGenerateBucketWithRef:
         assert "default = 'my-default-bucket'" in code
 
     def test_has_ref_to_parameter(self, code):
-        assert "ref(BucketNameParam)" in code
+        assert 'ref("BucketNameParam")' in code
 
     def test_has_getatt(self, code):
-        assert 'get_att(MyBucket, "Arn")' in code
+        assert 'get_att("MyBucket", "Arn")' in code
 
     def test_generated_code_is_valid_python(self, code):
         compile(code, "<test>", "exec")
