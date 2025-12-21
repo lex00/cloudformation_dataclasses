@@ -247,7 +247,7 @@ Start with simpler templates to build confidence:
 
 ### Index Updates
 - `{target}/README.md` - Update example list
-- `docs/AI_PROMPTING_GUIDE.md` - Add new patterns discovered
+- `docs/AGENT_GUIDE.md` - Add new patterns discovered
 
 ## Success Criteria Per Template
 1. Both versions import without errors
@@ -311,4 +311,4 @@ For batch processing:
 
 - [LINTER.md](LINTER.md) - Linter rules and usage
 - [IMPORTER.md](IMPORTER.md) - Template importer documentation
-- [AI_PROMPTING_GUIDE.md](AI_PROMPTING_GUIDE.md) - Guide for AI assistants
+- [AGENT_GUIDE.md](AGENT_GUIDE.md) - Workflows for AI assistants

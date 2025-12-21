@@ -2,6 +2,29 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Agent Workflows
+
+When helping users with this library, read the appropriate guide:
+
+| User Intent | Guide |
+|-------------|-------|
+| Create new project, add resources | [docs/AGENT_GUIDE.md](docs/AGENT_GUIDE.md) |
+| Import existing CloudFormation template | [docs/IMPORT_WORKFLOW.md](docs/IMPORT_WORKFLOW.md) |
+| Refactor existing code | [docs/AGENT_GUIDE.md](docs/AGENT_GUIDE.md) |
+
+**Key Tools:**
+- `cfn-init <skeleton> -o <dir>/` - Generate new project from skeleton
+- `cfn-import <template> -o <output>` - Import CloudFormation YAML/JSON
+
+**Always validate after generating code:**
+```python
+template = Template.from_registry()
+errors = template.validate()
+assert errors == []
+```
+
+---
+
 ## Project Overview
 
 `cloudformation_dataclasses` is a Python library that uses **dataclasses as a declarative interface** for AWS CloudFormation template synthesis. The library focuses solely on **generating CloudFormation JSON/YAML** from Python dataclasses.

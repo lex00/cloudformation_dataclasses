@@ -700,7 +700,7 @@ uv run python -m cloudformation_dataclasses.codegen.spec_parser version
 - **User Guide**: [README.md](../README.md) - End-user documentation
 - **Template Importer**: [IMPORTER.md](./IMPORTER.md) - Convert CloudFormation templates to Python
 - **Linter**: [LINTER.md](./LINTER.md) - Detect and fix common mistakes
-- **AI Prompting Guide**: [AI_PROMPTING_GUIDE.md](./AI_PROMPTING_GUIDE.md) - Tips for AI assistants
+- **Agent Guide**: [AGENT_GUIDE.md](./AGENT_GUIDE.md) - Workflows for AI assistants
 - **Generator Docs**: [GENERATOR.md](./GENERATOR.md) - Code generator architecture
 - **Changelog**: [CHANGELOG.md](../CHANGELOG.md) - Version history and release notes
 - **CloudFormation Docs**: https://docs.aws.amazon.com/AWSCloudFormation/

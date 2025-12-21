@@ -241,6 +241,6 @@ issues = lint_code(code, rules=[
 
 ## See Also
 
-- [AI Prompting Guide](./AI_PROMPTING_GUIDE.md) - Tips for working with AI assistants
+- [Agent Guide](./AGENT_GUIDE.md) - Workflows for AI assistants
 - [IMPORTER.md](IMPORTER.md) - Full importer documentation
 - [README.md](../README.md) - Library overview
