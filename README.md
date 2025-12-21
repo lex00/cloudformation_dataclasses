@@ -247,6 +247,39 @@ class MySpecial:
 
 ## Tools
 
+### Project Generator
+
+Create new projects with best practices using `cfn-init`:
+
+```bash
+# Create a new project
+cfn-init s3-bucket -o my_project/
+
+# With custom settings
+cfn-init s3-bucket -o my_project/ \
+    --project-name analytics \
+    --component storage \
+    --stage prod \
+    --region us-west-2
+
+# List available skeletons
+cfn-init --list
+```
+
+This creates a complete project structure with deployment context, encryption, and bucket policies:
+
+```
+my_project/
+├── __init__.py        # Package exports
+├── context.py         # Deployment context (naming, tags, environment)
+├── bucket.py          # S3 bucket with encryption and versioning
+├── bucket_policy.py   # Bucket policy requiring encrypted uploads
+├── main.py            # Template builder and entry point
+└── README.md          # Project documentation
+```
+
+See **[docs/QUICK_START.md](docs/QUICK_START.md)** for full documentation.
+
 ### Template Importer
 
 Convert existing CloudFormation YAML/JSON templates to Python code:
@@ -481,6 +514,8 @@ cloudformation_dataclasses/
 │   ├── core/              # Base classes
 │   ├── intrinsics/        # Intrinsic functions
 │   ├── codegen/           # Code generation
+│   ├── skeleton/          # Project generator (cfn-init)
+│   │   └── templates/     # Skeleton templates
 │   └── aws/               # Generated resources
 ├── tests/                 # Framework validation tests
 ├── examples/              # Usage examples with focused tests
@@ -496,6 +531,7 @@ cloudformation_dataclasses/
 ## Documentation
 
 - **User Guide**: [README.md](README.md) - This file (getting started, examples, usage)
+- **Quick Start**: [docs/QUICK_START.md](docs/QUICK_START.md) - Create new projects with cfn-init and DeploymentContext
 - **Resource Registry**: [docs/REGISTRY.md](docs/REGISTRY.md) - Auto-registration and multi-file organization
 - **Template Importer**: [docs/IMPORTER.md](docs/IMPORTER.md) - Convert CloudFormation templates to Python
 - **Linter**: [docs/LINTER.md](docs/LINTER.md) - Detect and fix common mistakes in code

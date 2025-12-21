@@ -52,6 +52,10 @@ class ProdDeploymentContext:
     - resource_name comes directly from class name (e.g., MyData)
     - deployment_group is used for blue/green deployments
     - Example: analytics-DataPlatform-MyData-prod-001-blue-us-east-1
+
+    Override any field at instantiation:
+        ctx_staging = ProdDeploymentContext(stage="staging")
+        ctx_green = ProdDeploymentContext(deployment_group="green")
     """
 
     context: DeploymentContext
@@ -60,11 +64,14 @@ class ProdDeploymentContext:
     deployment_name = "001"
     deployment_group = "blue"  # For blue/green deployments
     region = "us-east-1"
-    account_id = "123456789012"
     project_name = "analytics"
     # Tags will be automatically applied to all resources using this context
     tags = [EnvironmentTag, ProjectTag, ManagedByTag]
 
 
-# Instantiate context once - reused across all production resources
+# Instantiate context - override fields as needed for different environments
+# Examples:
+#   ctx = ProdDeploymentContext()                          # Use defaults (prod)
+#   ctx = ProdDeploymentContext(stage="staging")           # Override stage
+#   ctx = ProdDeploymentContext(deployment_group="green")  # Blue/green deployment
 ctx = ProdDeploymentContext()

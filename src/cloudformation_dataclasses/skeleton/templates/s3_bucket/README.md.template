@@ -1,0 +1,125 @@
+# {{ProjectName}}
+
+An S3 bucket project using `cloudformation_dataclasses`.
+
+## Structure
+
+```
+{{project_name}}/
+├── __init__.py        # Package exports
+├── context.py         # Deployment context (naming, tags, environment)
+├── bucket.py          # S3 bucket with encryption and versioning
+├── bucket_policy.py   # Bucket policy requiring encrypted uploads
+├── main.py            # Template builder and entry point
+└── README.md          # This file
+```
+
+## Quick Start
+
+### Generate CloudFormation
+
+```bash
+python -m {{project_name}}.main
+```
+
+### Use in Your Code
+
+```python
+from {{project_name}}.main import build_template
+
+template = build_template()
+print(template.to_json())
+```
+
+## Customizing
+
+### 1. Edit context.py
+
+Configure your deployment environment:
+
+```python
+@cloudformation_dataclass
+class {{ProjectName}}Context:
+    context: DeploymentContext
+    project_name = "{{project_name}}"    # Change this
+    component = "{{component}}"          # Change this
+    stage = "{{stage}}"                  # dev, staging, prod
+    region = "{{region}}"                # Your AWS region
+    tags = [...]                         # Add your tags
+```
+
+### 2. Add Resources
+
+Create new files for additional resources:
+
+```python
+# logging_bucket.py
+from . import *
+from .context import ctx
+
+@cloudformation_dataclass
+class LoggingBucket:
+    resource: Bucket
+    context = ctx
+    # ... configuration
+```
+
+### 3. Update main.py
+
+Import and instantiate your new resources:
+
+```python
+from .logging_bucket import LoggingBucket
+
+def main():
+    bucket = DataBucket()
+    logging = LoggingBucket()
+    # ...
+```
+
+## Key Concepts
+
+### DeploymentContext
+
+Provides automatic resource naming and shared tags:
+
+```python
+ctx = {{ProjectName}}Context()
+
+# Resources using this context get automatic names:
+# {{project_name}}-{{component}}-DataBucket-{{stage}}-{{region}}
+```
+
+### Wrapper Classes
+
+Each configuration is a separate class for reusability:
+
+```python
+@cloudformation_dataclass
+class MyBucketEncryption:
+    resource: BucketEncryption
+    server_side_encryption_configuration = [MyServerSideEncryptionRule]
+```
+
+### auto-registration
+
+Resources are automatically collected when you call `Template.from_registry()`:
+
+```python
+bucket = DataBucket()        # Registered
+policy = DataBucketPolicy()  # Registered
+
+template = Template.from_registry()  # Collects all registered resources
+```
+
+## Deploy
+
+```bash
+# Generate template
+python -m {{project_name}}.main > template.yaml
+
+# Deploy with AWS CLI
+aws cloudformation deploy \
+    --template-file template.yaml \
+    --stack-name {{project_name}}-{{stage}}
+```

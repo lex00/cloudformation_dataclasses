@@ -1,0 +1,64 @@
+"""{{ProjectName}} - S3 bucket with encryption policy.
+
+Run this module to generate the CloudFormation template:
+    python -m {{project_name}}.main
+
+Or import and use programmatically:
+    from {{project_name}}.main import build_template
+    template = build_template()
+    print(template.to_json())
+"""
+
+from . import *  # noqa: F403
+from .bucket import DataBucket
+from .bucket_policy import DataBucketPolicy
+from .context import ctx
+
+
+def build_template() -> Template:
+    """Build the CloudFormation template.
+
+    Uses auto-registration: any @cloudformation_dataclass that has been
+    imported and instantiated will be included in the template.
+    """
+    return Template.from_registry(
+        description="{{ProjectName}} - S3 bucket with encryption policy",
+    )
+
+
+def main() -> None:
+    """Generate and display the CloudFormation template."""
+    # Instantiate resources - this registers them with the template
+    bucket = DataBucket()
+    policy = DataBucketPolicy()
+
+    # Show what was created
+    print("=" * 70)
+    print("RESOURCES")
+    print("=" * 70)
+    print(f"Bucket:        {bucket.resource.resource_name}")
+    print(f"Bucket Policy: {policy.resource.resource_name}")
+    print(f"Environment:   {ctx.stage} ({ctx.region})")
+    print(f"\nTags ({len(bucket.resource.all_tags)}):")
+    for tag in bucket.resource.all_tags:
+        print(f"  {tag.key}: {tag.value}")
+    print()
+
+    # Build and validate template
+    template = build_template()
+    errors = template.validate()
+    if errors:
+        print(f"Validation errors: {errors}")
+        return
+
+    print("Template validation passed!\n")
+
+    # Output JSON
+    print("=" * 70)
+    print("CLOUDFORMATION TEMPLATE")
+    print("=" * 70)
+    print(template.to_json())
+
+
+if __name__ == "__main__":
+    main()

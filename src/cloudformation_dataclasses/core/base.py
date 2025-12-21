@@ -221,7 +221,6 @@ class DeploymentContext(ABC):
     deployment_name: Optional[str] = None
     deployment_group: Optional[str] = None
     region: Optional[str] = None
-    account_id: Optional[str] = None
     project_name: Optional[str] = None
     naming_pattern: str = (
         "{project_name}-{component}-{resource_name}-{stage}-{deployment_name}-{deployment_group}-{region}"
