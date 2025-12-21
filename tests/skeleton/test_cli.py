@@ -8,7 +8,7 @@ from cloudformation_dataclasses.skeleton.cli import main
 
 
 class TestCLI:
-    """Tests for cfn-init CLI."""
+    """Tests for cfn-dataclasses-init CLI."""
 
     def test_list_skeletons(self, capsys: pytest.CaptureFixture[str]) -> None:
         """--list shows available skeletons."""

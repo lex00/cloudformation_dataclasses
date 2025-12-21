@@ -431,7 +431,7 @@ uv run python -c "from cloudformation_dataclasses import __version__; print(__ve
 git commit -m "Bump version to 0.4.0"
 ```
 
-**Note**: The `cfn-import` CLI automatically uses the version from `__version__.py`, so no separate update is needed there.
+**Note**: The `cfn-dataclasses-import` CLI automatically uses the version from `__version__.py`, so no separate update is needed there.
 
 ---
 

@@ -1,1 +1,1 @@
-"""Skeleton templates for cfn-init."""
+"""Skeleton templates for cfn-dataclasses-init."""

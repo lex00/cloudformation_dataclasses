@@ -305,5 +305,5 @@ The annotation-based approach is the only way to get **both** deferred evaluatio
 ## See Also
 
 - [Resource Registry](REGISTRY.md) - Auto-registration and multi-file organization
-- [Template Importer](IMPORTER.md) - `cfn-import` generates annotation-based refs
+- [Template Importer](IMPORTER.md) - `cfn-dataclasses-import` generates annotation-based refs
 - [Agent Guide](AGENT_GUIDE.md) - Workflows for AI assistants

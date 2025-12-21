@@ -31,7 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Fixes circular import issues in generated code
 
 ### Removed
-- `-m/--mode` CLI option from `cfn-import`
+- `-m/--mode` CLI option from `cfn-dataclasses-import`
 - `OutputMode` enum from codegen
 - `builders.py` module
 - Mixed mode examples and documentation
@@ -41,7 +41,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.4.0] - 2025-12-18
 
 ### Added
-- **CloudFormation Template Importer** (`cfn-import` CLI tool)
+- **CloudFormation Template Importer** (`cfn-dataclasses-import` CLI tool)
   - Convert existing YAML/JSON CloudFormation templates to Python code
   - Declarative wrapper classes with `@cloudformation_dataclass`
   - Supports all CloudFormation intrinsic functions (!Ref, !GetAtt, !Sub, !Join, !If, etc.)
@@ -52,7 +52,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Updated README.md with Tools section for importer and generator
-- Documentation now clarifies `uv run cfn-import` usage for development from source
+- Documentation now clarifies `uv run cfn-dataclasses-import` usage for development from source
 
 ---
 

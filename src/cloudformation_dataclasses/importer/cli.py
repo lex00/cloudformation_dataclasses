@@ -1,4 +1,4 @@
-"""Command-line interface for cfn-import."""
+"""Command-line interface for cfn-dataclasses-import."""
 
 from __future__ import annotations
 
@@ -197,7 +197,7 @@ def _process_package_templates(
 
 def main(argv: list[str] | None = None) -> int:
     """
-    Main entry point for cfn-import command.
+    Main entry point for cfn-dataclasses-import command.
 
     Args:
         argv: Command line arguments (default: sys.argv[1:])
@@ -206,7 +206,7 @@ def main(argv: list[str] | None = None) -> int:
         Exit code (0 for success)
     """
     parser = argparse.ArgumentParser(
-        prog="cfn-import",
+        prog="cfn-dataclasses-import",
         description="Convert CloudFormation templates to Python dataclasses.",
     )
 
@@ -568,7 +568,7 @@ def run_batch_import(
     log_file = output_dir / "import.log"
 
     # Set up logging
-    logger = logging.getLogger("cfn-import-batch")
+    logger = logging.getLogger("cfn-dataclasses-import-batch")
     logger.setLevel(logging.INFO)
     file_handler = logging.FileHandler(log_file)
     file_handler.setFormatter(logging.Formatter("%(asctime)s - %(message)s"))

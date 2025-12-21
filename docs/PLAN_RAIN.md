@@ -1040,7 +1040,7 @@ infrastructure/
 
 ```bash
 # Import existing Rain module, preserving Rain-specific features
-cfn-import modules/vpc.yaml -o python/imported/vpc.py --preserve-rain
+cfn-dataclasses-import modules/vpc.yaml -o python/imported/vpc.py --preserve-rain
 
 # The importer recognizes Rain metadata and conditionals:
 # - Rain: Metadata → docstring + metadata dict
@@ -1279,16 +1279,16 @@ Resources:
 
 ```bash
 # Basic import
-cfn-import modules/vpc.yaml -o python/vpc.py
+cfn-dataclasses-import modules/vpc.yaml -o python/vpc.py
 
 # Preserve Rain-specific features for round-trip
-cfn-import modules/vpc.yaml -o python/vpc.py --preserve-rain
+cfn-dataclasses-import modules/vpc.yaml -o python/vpc.py --preserve-rain
 
 # Import as standard CF (convert IfParam to Conditions)
-cfn-import modules/vpc.yaml -o python/vpc.py --mode standard
+cfn-dataclasses-import modules/vpc.yaml -o python/vpc.py --mode standard
 
 # Import multiple modules
-cfn-import modules/ -o python/imported/ --recursive --preserve-rain
+cfn-dataclasses-import modules/ -o python/imported/ --recursive --preserve-rain
 ```
 
 ### Output Modes

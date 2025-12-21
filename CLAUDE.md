@@ -13,8 +13,8 @@ When helping users with this library, read the appropriate guide:
 | Refactor existing code | [docs/AGENT_GUIDE.md](docs/AGENT_GUIDE.md) |
 
 **Key Tools:**
-- `cfn-init <skeleton> -o <dir>/` - Generate new project from skeleton
-- `cfn-import <template> -o <output>` - Import CloudFormation YAML/JSON
+- `cfn-dataclasses-init <skeleton> -o <dir>/` - Generate new project from skeleton
+- `cfn-dataclasses-import <template> -o <output>` - Import CloudFormation YAML/JSON
 
 **Always validate after generating code:**
 ```python

@@ -13,7 +13,7 @@ pip install cloudformation_dataclasses
 Use the skeleton generator to create a new project with best practices:
 
 ```bash
-cfn-init default -o my_project/
+cfn-dataclasses-init default -o my_project/
 ```
 
 This creates a complete project structure:
@@ -106,7 +106,7 @@ aws cloudformation deploy \
 Customize the skeleton with CLI flags:
 
 ```bash
-cfn-init default -o my_project/ \
+cfn-dataclasses-init default -o my_project/ \
     --project-name analytics \
     --component storage \
     --stage prod \
@@ -116,7 +116,7 @@ cfn-init default -o my_project/ \
 List available skeletons:
 
 ```bash
-cfn-init --list
+cfn-dataclasses-init --list
 ```
 
 ## DeploymentContext Reference
@@ -232,7 +232,7 @@ template = Template.from_registry()  # Collects all registered resources
 - **Add more resources**: Create new files for Lambda, IAM, etc.
 - **Customize naming**: Override `naming_pattern` in your context
 - **Add tags**: Define organization-specific tags in `context.py`
-- **Import existing templates**: Use `cfn-import` to convert CloudFormation YAML
+- **Import existing templates**: Use `cfn-dataclasses-import` to convert CloudFormation YAML
 
 ## See Also
 

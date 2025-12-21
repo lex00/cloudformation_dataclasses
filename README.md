@@ -249,21 +249,21 @@ class MySpecial:
 
 ### Project Generator
 
-Create new projects with best practices using `cfn-init`:
+Create new projects with best practices using `cfn-dataclasses-init`:
 
 ```bash
 # Create a new project
-cfn-init s3-bucket -o my_project/
+cfn-dataclasses-init s3-bucket -o my_project/
 
 # With custom settings
-cfn-init s3-bucket -o my_project/ \
+cfn-dataclasses-init s3-bucket -o my_project/ \
     --project-name analytics \
     --component storage \
     --stage prod \
     --region us-west-2
 
 # List available skeletons
-cfn-init --list
+cfn-dataclasses-init --list
 ```
 
 This creates a complete project structure with deployment context, encryption, and bucket policies:
@@ -289,16 +289,16 @@ Convert existing CloudFormation YAML/JSON templates to Python code:
 pip install cloudformation-dataclasses[importer]
 
 # Convert a template (after pip install)
-cfn-import template.yaml -o my_stack.py
+cfn-dataclasses-import template.yaml -o my_stack.py
 
 # Or if working from source with uv
-uv run cfn-import template.yaml -o my_stack.py
+uv run cfn-dataclasses-import template.yaml -o my_stack.py
 
 # Generate as package (directory)
-cfn-import template.yaml -o my_stack/
+cfn-dataclasses-import template.yaml -o my_stack/
 
 # Omit main block for library modules
-cfn-import template.yaml --no-main -o my_stack.py
+cfn-dataclasses-import template.yaml --no-main -o my_stack.py
 ```
 
 See **[docs/IMPORTER.md](docs/IMPORTER.md)** for full documentation.
@@ -322,7 +322,7 @@ for issue in issues:
 fixed = fix_code(code)  # Adds proper constants and imports
 ```
 
-The linter is integrated with `cfn-import` and runs automatically by default. See **[docs/LINTER.md](docs/LINTER.md)** for full documentation.
+The linter is integrated with `cfn-dataclasses-import` and runs automatically by default. See **[docs/LINTER.md](docs/LINTER.md)** for full documentation.
 
 ### Code Generator
 
@@ -515,7 +515,7 @@ cloudformation_dataclasses/
 │   ├── core/              # Base classes
 │   ├── intrinsics/        # Intrinsic functions
 │   ├── codegen/           # Code generation
-│   ├── skeleton/          # Project generator (cfn-init)
+│   ├── skeleton/          # Project generator (cfn-dataclasses-init)
 │   │   └── templates/     # Skeleton templates
 │   └── aws/               # Generated resources
 ├── tests/                 # Framework validation tests
@@ -532,7 +532,7 @@ cloudformation_dataclasses/
 ## Documentation
 
 - **User Guide**: [README.md](README.md) - This file (getting started, examples, usage)
-- **Quick Start**: [docs/QUICK_START.md](docs/QUICK_START.md) - Create new projects with cfn-init and DeploymentContext
+- **Quick Start**: [docs/QUICK_START.md](docs/QUICK_START.md) - Create new projects with cfn-dataclasses-init and DeploymentContext
 - **Resource Registry**: [docs/REGISTRY.md](docs/REGISTRY.md) - Auto-registration and multi-file organization
 - **Template Importer**: [docs/IMPORTER.md](docs/IMPORTER.md) - Convert CloudFormation templates to Python
 - **Linter**: [docs/LINTER.md](docs/LINTER.md) - Detect and fix common mistakes in code

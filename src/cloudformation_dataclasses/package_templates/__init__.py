@@ -1,1 +1,1 @@
-"""Shared package templates for cfn-init and cfn-import."""
+"""Shared package templates for cfn-dataclasses-init and cfn-dataclasses-import."""
