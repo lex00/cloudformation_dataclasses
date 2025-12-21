@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """ObjectStorageReplicaBucket - AWS::S3::Bucket resource."""
 
 from .. import *  # noqa: F403
@@ -22,18 +24,18 @@ class ObjectStorageReplicaBucketBucketEncryption:
 
 
 @cloudformation_dataclass
-class ObjectStorageReplicaBucketPublicAccessBlockConfiguration:
-    resource: PublicAccessBlockConfiguration
-    block_public_acls = True
-    block_public_policy = True
-    ignore_public_acls = True
-    restrict_public_buckets = True
-
-
-@cloudformation_dataclass
 class ObjectStorageReplicaBucketVersioningConfiguration:
     resource: VersioningConfiguration
     status = BucketVersioningStatus.ENABLED
+
+
+@cloudformation_dataclass
+class ObjectStorageReplicaBucketPublicAccessBlockConfiguration:
+    resource: PublicAccessBlockConfiguration
+    restrict_public_buckets = True
+    block_public_policy = True
+    block_public_acls = True
+    ignore_public_acls = True
 
 
 @cloudformation_dataclass
@@ -42,7 +44,8 @@ class ObjectStorageReplicaBucket:
 
     resource: Bucket
     bucket_encryption = ObjectStorageReplicaBucketBucketEncryption
+    versioning_configuration = ObjectStorageReplicaBucketVersioningConfiguration
+    public_access_block_configuration = ObjectStorageReplicaBucketPublicAccessBlockConfiguration
     bucket_name = Sub('${AppName}-replicas-${AWS::Region}-${AWS::AccountId}')
     object_lock_enabled = False
-    public_access_block_configuration = ObjectStorageReplicaBucketPublicAccessBlockConfiguration
-    versioning_configuration = ObjectStorageReplicaBucketVersioningConfiguration
+    tags = []

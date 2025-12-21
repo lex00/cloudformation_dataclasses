@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """ObjectStorageReplicationRole - AWS::IAM::Role resource."""
 
 from .. import *  # noqa: F403
@@ -23,5 +25,6 @@ class ObjectStorageReplicationRole:
     """AWS::IAM::Role resource."""
 
     resource: Role
-    assume_role_policy_document = ObjectStorageReplicationRoleAssumeRolePolicyDocument
     path = '/'
+    assume_role_policy_document = ObjectStorageReplicationRoleAssumeRolePolicyDocument
+    tags = []

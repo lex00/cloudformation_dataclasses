@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """ObjectStorageReplicationPolicy - AWS::IAM::RolePolicy resource."""
 
 from .. import *  # noqa: F403
@@ -46,6 +48,6 @@ class ObjectStorageReplicationPolicy:
     """AWS::IAM::RolePolicy resource."""
 
     resource: RolePolicy
-    policy_document = ObjectStorageReplicationPolicyPolicyDocument
+    role_name: Ref[ObjectStorageReplicationRole] = ref()
     policy_name = 'bucket-replication-policy'
-    role_name = ref("ObjectStorageReplicationRole")
+    policy_document = ObjectStorageReplicationPolicyPolicyDocument

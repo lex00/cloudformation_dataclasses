@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """LambdaIAMRole - AWS::IAM::Role resource."""
 
 from .. import *  # noqa: F403

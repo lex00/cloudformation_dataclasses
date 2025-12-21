@@ -26,6 +26,24 @@ from cloudformation_dataclasses.importer.parser import to_snake_case
 
 
 # =============================================================================
+# Annotated Field Value (for annotation-based refs)
+# =============================================================================
+
+
+@dataclass
+class AnnotatedValue:
+    """
+    Represents a field value that needs a type annotation.
+
+    Used for annotation-based refs like: bucket: Ref[Bucket] = ref()
+    Instead of: bucket = ref("Bucket")
+    """
+
+    annotation: str  # e.g., "Ref[Bucket]"
+    value: str  # e.g., "ref()"
+
+
+# =============================================================================
 # Code Generation Context
 # =============================================================================
 
@@ -435,7 +453,11 @@ def _value_to_python_typed(
     indent_str = "    " * indent
 
     if isinstance(value, IRIntrinsic):
-        return _intrinsic_to_python(value, ctx)
+        result = _intrinsic_to_python(value, ctx)
+        # AnnotatedValue is only for top-level properties, not inline values
+        if isinstance(result, AnnotatedValue):
+            return _annotated_to_string_ref(result)
+        return result
 
     if value is None:
         return "None"
@@ -574,6 +596,33 @@ def _escape_string(s: str) -> str:
     return repr(s)
 
 
+def _annotated_to_string_ref(annotated: AnnotatedValue) -> str:
+    """Convert an AnnotatedValue back to a string-based ref for inline use.
+
+    AnnotatedValue is for top-level properties only. When used inline
+    (in lists, dicts, etc.), we need string-based refs.
+    """
+    import re
+
+    # Extract target from annotation like "Ref[Bucket]" -> "Bucket"
+    if match := re.match(r"Ref\[(\w+)\]", annotated.annotation):
+        target = match.group(1)
+        return f'ref("{target}")'
+    elif match := re.match(r"GetAtt\[(\w+)\]", annotated.annotation):
+        target = match.group(1)
+        # Extract attribute from value like 'get_att("Arn")' -> "Arn"
+        if attr_match := re.search(r'get_att\("(\w+)"\)', annotated.value):
+            attr = attr_match.group(1)
+            return f'get_att("{target}", "{attr}")'
+        # Handle get_att(ARN) constant - extract constant name
+        if "(" in annotated.value:
+            const = annotated.value.split("(")[1].rstrip(")")
+            return f'get_att("{target}", {const})'
+        return f'get_att("{target}")'
+    # Fallback - shouldn't happen
+    return annotated.value
+
+
 def _value_to_python(
     value: Any,
     ctx: CodegenContext,
@@ -591,7 +640,11 @@ def _value_to_python(
     indent_str = "    " * indent
 
     if isinstance(value, IRIntrinsic):
-        return _intrinsic_to_python(value, ctx)
+        result = _intrinsic_to_python(value, ctx)
+        # AnnotatedValue is only for top-level properties, not inline values
+        if isinstance(result, AnnotatedValue):
+            return _annotated_to_string_ref(result)
+        return result
 
     if value is None:
         return "None"
@@ -649,7 +702,7 @@ def _value_to_python(
     return repr(value)
 
 
-def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str:
+def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str | AnnotatedValue:
     """Convert an IRIntrinsic to Python code."""
 
     def _format_ref_target(logical_id: str) -> str:
@@ -669,9 +722,14 @@ def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str:
             ctx.add_intrinsic_import("Ref")
             return f'Ref("{target}")'
         if target in ctx.template.parameters:
-            return f'ref("{_format_ref_target(target)}")'
+            # Class ref for parameters - they're defined in config.py and re-exported
+            return f"ref({_format_ref_target(target)})"
         if target in ctx.template.resources:
-            return f'ref("{_format_ref_target(target)}")'
+            # Annotation-based ref for resources - uses type annotation for forward refs
+            # Returns AnnotatedValue which gets special handling in property generation
+            ctx.add_import("cloudformation_dataclasses.core", "Ref")
+            target_class = _format_ref_target(target)
+            return AnnotatedValue(annotation=f"Ref[{target_class}]", value="ref()")
         # Unknown reference - use string
         ctx.add_intrinsic_import("Ref")
         return f'Ref("{target}")'
@@ -679,7 +737,12 @@ def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str:
     if intrinsic.type == IntrinsicType.GET_ATT:
         logical_id, attr = intrinsic.args
         if logical_id in ctx.template.resources:
-            return f'get_att("{_format_ref_target(logical_id)}", "{attr}")'
+            # Annotation-based ref for resources - uses type annotation for forward refs
+            ctx.add_import("cloudformation_dataclasses.core", "GetAtt")
+            target_class = _format_ref_target(logical_id)
+            return AnnotatedValue(
+                annotation=f"GetAtt[{target_class}]", value=f'get_att("{attr}")'
+            )
         ctx.add_intrinsic_import("GetAtt")
         return f'GetAtt("{logical_id}", "{attr}")'
 
@@ -706,12 +769,16 @@ def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str:
                 all_params = all(v in ctx.template.parameters for v in non_pseudo_vars)
                 if not all_params:
                     ctx.add_import("cloudformation_dataclasses.core", "ARN")
+                    ctx.add_import("cloudformation_dataclasses.core", "GetAtt")
                     formatted_id = _format_ref_target(resource_id)
                     if suffix == "":
-                        # Exact ARN match
-                        return f'get_att("{formatted_id}", ARN)'
+                        # Exact ARN match - annotation-based ref
+                        return AnnotatedValue(
+                            annotation=f"GetAtt[{formatted_id}]", value="get_att(ARN)"
+                        )
                     else:
                         # ARN with suffix (e.g., "/*") - use Join for simple concatenation
+                        # This case is complex, keep as string ref for now
                         ctx.add_intrinsic_import("Join")
                         return f"Join('', [get_att(\"{formatted_id}\", ARN), '{suffix}'])"
 
@@ -722,7 +789,10 @@ def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str:
             resource_id = ctx.name_pattern_map[template_str]
             # Don't replace if this is the resource that defines this name pattern
             if resource_id != ctx.current_resource_id:
-                return f'ref("{_format_ref_target(resource_id)}")'
+                # Annotation-based ref for resource
+                ctx.add_import("cloudformation_dataclasses.core", "Ref")
+                target_class = _format_ref_target(resource_id)
+                return AnnotatedValue(annotation=f"Ref[{target_class}]", value="ref()")
 
         # Fall back to Sub() intrinsic
         ctx.add_intrinsic_import("Sub")
@@ -833,7 +903,7 @@ def _property_value_to_python_block(
     expected_type: Optional[str],
     expected_module: Optional[str],
     ctx: CodegenContext,
-) -> str:
+) -> str | AnnotatedValue:
     """
     Convert a property value to Python code in block mode.
 
@@ -875,7 +945,7 @@ def _property_value_to_python_block(
         # Check if items are PropertyTypes
         items = []
         for i, item in enumerate(value):
-            item_str = _property_value_to_python_block(
+            item_result = _property_value_to_python_block(
                 item,
                 parent_logical_id,
                 f"{property_path}.{i}",
@@ -883,6 +953,11 @@ def _property_value_to_python_block(
                 expected_module,
                 ctx,
             )
+            # AnnotatedValue is only for top-level properties, not inside lists
+            if isinstance(item_result, AnnotatedValue):
+                item_str = _annotated_to_string_ref(item_result)
+            else:
+                item_str = item_result
             items.append(item_str)
 
         if len(items) == 1:
@@ -981,7 +1056,7 @@ def _generate_property_type_wrapper(
             field_type = field_types.get(python_field)
 
             # Recursively handle nested PropertyTypes
-            val_str = _property_value_to_python_block(
+            val_result = _property_value_to_python_block(
                 val,
                 parent_logical_id,
                 f"{property_path}.{python_field}",
@@ -989,7 +1064,11 @@ def _generate_property_type_wrapper(
                 pt_module,
                 ctx,
             )
-            lines.append(f"    {python_field} = {val_str}")
+            # Handle annotation-based refs for top-level properties
+            if isinstance(val_result, AnnotatedValue):
+                lines.append(f"    {python_field}: {val_result.annotation} = {val_result.value}")
+            else:
+                lines.append(f"    {python_field} = {val_result}")
         else:
             # Unknown key - still include it but as comment
             val_str = _value_to_python(val, ctx, indent=1)
@@ -1209,8 +1288,16 @@ def _generate_resource_class(resource: IRResource, ctx: CodegenContext) -> str:
         module, class_name = resolved
         resource_module = module
         ctx.current_module = module
-        ctx.add_import(f"cloudformation_dataclasses.aws.{module}", class_name)
-        lines.append(f"    resource: {class_name}")
+
+        # Check if wrapper class name collides with AWS resource class name
+        # If so, use fully qualified name to avoid self-reference issues
+        if resource.logical_id == class_name:
+            # Use module-qualified name: resource: s3.Bucket instead of resource: Bucket
+            ctx.add_import("cloudformation_dataclasses.aws", module)
+            lines.append(f"    resource: {module}.{class_name}")
+        else:
+            ctx.add_import(f"cloudformation_dataclasses.aws.{module}", class_name)
+            lines.append(f"    resource: {class_name}")
 
         # Get field type information for this resource class
         # We need to scan the resource class for _property_mappings and field types
@@ -1250,7 +1337,7 @@ def _generate_resource_class(resource: IRResource, ctx: CodegenContext) -> str:
         # Get the expected type for this property
         expected_type = resource_field_types.get(prop.python_name)
 
-        value_str = _property_value_to_python_block(
+        value_result = _property_value_to_python_block(
             prop.value,
             resource.logical_id,
             prop.python_name,
@@ -1258,7 +1345,11 @@ def _generate_resource_class(resource: IRResource, ctx: CodegenContext) -> str:
             resource_module,
             ctx,
         )
-        lines.append(f"    {prop.python_name} = {value_str}")
+        if isinstance(value_result, AnnotatedValue):
+            # Annotation-based ref: bucket: Ref[Bucket] = ref()
+            lines.append(f"    {prop.python_name}: {value_result.annotation} = {value_result.value}")
+        else:
+            lines.append(f"    {prop.python_name} = {value_result}")
 
     # Resource-level attributes
     if resource.depends_on:
@@ -1715,7 +1806,22 @@ def _generate_init_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
                 lines.append(f"    {name},")
             lines.append(")")
 
-    # AWS module imports
+    # AWS module imports (e.g., from cloudformation_dataclasses.aws import s3)
+    # This is needed when wrapper class names collide with AWS resource class names
+    aws_base = ctx.imports.get("cloudformation_dataclasses.aws", set())
+    if aws_base:
+        sorted_modules = sorted(aws_base)
+        if len(sorted_modules) <= 4:
+            lines.append(
+                f"from cloudformation_dataclasses.aws import {', '.join(sorted_modules)}"
+            )
+        else:
+            lines.append("from cloudformation_dataclasses.aws import (")
+            for name in sorted_modules:
+                lines.append(f"    {name},")
+            lines.append(")")
+
+    # AWS submodule imports (e.g., from cloudformation_dataclasses.aws.s3 import Bucket)
     aws_modules = sorted(
         (mod, names)
         for mod, names in ctx.imports.items()
@@ -1747,10 +1853,36 @@ def _generate_init_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
 
     lines.append("")
 
+    # Re-export config classes (parameters, mappings, conditions)
+    # so resource files can use ref(ParameterName) via `from .. import *`
+    config_names: list[str] = []
+    for param in template.parameters.values():
+        config_names.append(param.logical_id)
+    for mapping in template.mappings:
+        config_names.append(mapping.logical_id)
+    for condition in template.conditions:
+        config_names.append(condition.logical_id)
+
+    if config_names:
+        sorted_config = sorted(config_names)
+        if len(sorted_config) <= 4:
+            lines.append(f"from .config import {', '.join(sorted_config)}")
+        else:
+            lines.append("from .config import (")
+            for name in sorted_config:
+                lines.append(f"    {name},")
+            lines.append(")")
+        lines.append("")
+
     # Generate __all__ with all exported names
     all_names = sorted(core_imports | set().union(*[names for _, names in aws_modules]))
+    # Add AWS module names (e.g., 's3') for qualified access like s3.Bucket
+    if aws_base:
+        all_names = sorted(set(all_names) | aws_base)
     if ctx.intrinsic_imports:
         all_names = sorted(set(all_names) | ctx.intrinsic_imports)
+    # Add config names to __all__
+    all_names = sorted(set(all_names) | set(config_names))
 
     lines.append("__all__ = [")
     for name in all_names:
@@ -2002,6 +2134,10 @@ def _generate_resources_package(pkg_ctx: PackageContext, template: IRTemplate) -
 
         lines = []
         filename = _logical_id_to_filename(resource_id)
+
+        # PEP 563 future annotations for forward references
+        lines.append("from __future__ import annotations")
+        lines.append("")
 
         # Docstring
         lines.append(f'"""{resource_id} - {resource.resource_type} resource."""')

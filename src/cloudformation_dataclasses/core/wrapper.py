@@ -18,72 +18,133 @@ declarations rather than at instantiation time.
 from __future__ import annotations
 
 from dataclasses import MISSING, dataclass, fields, is_dataclass
-from typing import Any, Type, get_type_hints
+from typing import Any, Generic, Type, TypeVar, get_type_hints
 
 from cloudformation_dataclasses.core.base import CloudFormationResource
 
+# Type variable for generic Ref/GetAtt type markers
+T = TypeVar("T")
 
-def ref(wrapper_class: Type[Any] | str) -> DeferredRef:
+
+class Ref(Generic[T]):
+    """
+    Type marker for resource references using annotations.
+
+    Used in type annotations to enable forward references with IDE support:
+
+        @cloudformation_dataclass
+        class BucketPolicy:
+            resource: BucketPolicy
+            bucket: Ref[Bucket] = ref()  # IDE sees Ref[Bucket], resolves at runtime
+
+    With `from __future__ import annotations`, the annotation becomes a string
+    and is evaluated later, avoiding import-time NameError for forward references.
+    """
+
+    pass
+
+
+class GetAtt(Generic[T]):
+    """
+    Type marker for GetAtt references using annotations.
+
+    Used in type annotations to enable forward references with IDE support:
+
+        @cloudformation_dataclass
+        class BucketArnOutput:
+            resource: Output
+            value: GetAtt[Bucket] = get_att("Arn")
+
+    With `from __future__ import annotations`, the annotation becomes a string
+    and is evaluated later, avoiding import-time NameError for forward references.
+    """
+
+    pass
+
+
+def ref(wrapper_class: Type[Any] | str | None = None) -> DeferredRef:
     """
     Create a DeferredRef for use in wrapper dataclass field declarations.
 
-    This is a helper function that enables the block syntax pattern:
-        @dataclass
-        class MySubnet:
-            resource: Subnet
-            vpc_id: Any = ref(MyVPC)  # or ref("MyVPC")
+    This function supports three usage patterns:
+
+    1. Class reference (when class is available at definition time):
+        bucket_name = ref(BucketName)  # Parameter refs work this way
+
+    2. String reference (always works, but no IDE support):
+        bucket = ref("Bucket")
+
+    3. Annotation-based reference (recommended for cross-resource refs):
+        bucket: Ref[Bucket] = ref()  # IDE support via type annotation
+
+    The annotation-based pattern uses PEP 563 (`from __future__ import annotations`)
+    to defer evaluation of the type annotation, avoiding NameError for forward refs.
+    The actual class name is extracted from the annotation at resource creation time.
 
     Args:
-        wrapper_class: The wrapper class or class name to reference
+        wrapper_class: The wrapper class, class name, or None (annotation-based)
 
     Returns:
         A DeferredRef that will be resolved during resource creation
 
     Example:
-        >>> from cloudformation_dataclasses.core.wrapper import ref
+        >>> from cloudformation_dataclasses.core.wrapper import ref, Ref
         >>>
-        >>> @dataclass
+        >>> @cloudformation_dataclass
         >>> class MyVPC:
         >>>     resource: VPC
         >>>     cidr_block: str = "10.0.0.0/16"
         >>>
-        >>> @dataclass
+        >>> @cloudformation_dataclass
         >>> class MySubnet:
         >>>     resource: Subnet
         >>>     cidr_block: str = "10.0.1.0/24"
-        >>>     vpc_id: Any = ref(MyVPC)  # Cross-resource reference
+        >>>     vpc_id: Ref[MyVPC] = ref()  # Annotation-based cross-resource reference
     """
-    if isinstance(wrapper_class, str):
-        logical_id = wrapper_class
+    if wrapper_class is None:
+        # Annotation-based - logical_id will be extracted from type hint later
+        return DeferredRef(logical_id=None)
+    elif isinstance(wrapper_class, str):
+        return DeferredRef(logical_id=wrapper_class)
     else:
-        logical_id = wrapper_class.__name__
-
-    return DeferredRef(logical_id=logical_id)
+        return DeferredRef(logical_id=wrapper_class.__name__)
 
 
-def get_att(wrapper_class: Type[Any] | str, attribute: str) -> DeferredGetAtt:
+def get_att(
+    wrapper_class_or_attribute: Type[Any] | str, attribute: str | None = None
+) -> DeferredGetAtt:
     """
     Create a DeferredGetAtt for use in wrapper dataclass field declarations.
 
-    This enables the block syntax pattern:
-        @dataclass
-        class MyOutput:
-            resource: Output
-            value: Any = get_att(MyInstance, "PublicIp")
+    This function supports three usage patterns:
+
+    1. Class reference (when class is available at definition time):
+        value = get_att(MyInstance, "PublicIp")
+
+    2. String reference (always works, but no IDE support):
+        value = get_att("MyInstance", "PublicIp")
+
+    3. Annotation-based reference (recommended for cross-resource refs):
+        value: GetAtt[MyInstance] = get_att("PublicIp")  # IDE support via annotation
 
     Args:
-        wrapper_class: The wrapper class or class name to reference
-        attribute: The CloudFormation attribute name
+        wrapper_class_or_attribute: The wrapper class, class name, or attribute name
+            (if using annotation-based pattern)
+        attribute: The CloudFormation attribute name (None for annotation-based)
 
     Returns:
         A DeferredGetAtt that will be resolved during resource creation
     """
-    if isinstance(wrapper_class, str):
-        logical_id = wrapper_class
+    if attribute is None:
+        # Annotation-based - first arg is the attribute name
+        # logical_id will be extracted from type hint later
+        return DeferredGetAtt(logical_id=None, attribute_name=str(wrapper_class_or_attribute))
+    elif isinstance(wrapper_class_or_attribute, str):
+        return DeferredGetAtt(logical_id=wrapper_class_or_attribute, attribute_name=attribute)
     else:
-        logical_id = wrapper_class.__name__
-
-    return DeferredGetAtt(logical_id=logical_id, attribute_name=attribute)
+        return DeferredGetAtt(
+            logical_id=wrapper_class_or_attribute.__name__, attribute_name=attribute
+        )
 
 
 @dataclass
@@ -91,19 +152,26 @@ class DeferredRef:
     """
     A deferred Ref that will be resolved when the wrapper is instantiated.
 
-    This enables the pattern:
-        @dataclass
-        class MySubnet:
-            resource: Subnet
-            vpc_id: Any = field(default_factory=lambda: DeferredRef("MyVPC"))
+    The logical_id can be:
+    - A string (class name or logical ID)
+    - None (for annotation-based refs, resolved later from type hint)
 
-    The DeferredRef is resolved to an actual Ref during wrapper instantiation.
+    Example patterns:
+        vpc_id = ref(MyVPC)           # logical_id = "MyVPC"
+        vpc_id = ref("MyVPC")         # logical_id = "MyVPC"
+        vpc_id: Ref[MyVPC] = ref()    # logical_id = None, resolved from annotation
     """
 
-    logical_id: str
+    logical_id: str | None = None
 
     def to_dict(self) -> dict[str, str]:
         """Serialize to CloudFormation JSON format."""
+        if self.logical_id is None:
+            raise ValueError(
+                "DeferredRef.logical_id must be set before serialization. "
+                "For annotation-based refs (bucket: Ref[Bucket] = ref()), "
+                "the logical_id is resolved during resource creation."
+            )
         return {"Ref": self.logical_id}
 
 
@@ -112,18 +180,27 @@ class DeferredGetAtt:
     """
     A deferred GetAtt that will be resolved when the wrapper is instantiated.
 
-    This enables the pattern:
-        @dataclass
-        class MySubnet:
-            resource: Subnet
-            availability_zone: Any = field(default_factory=lambda: DeferredGetAtt("MyInstance", "AvailabilityZone"))
+    The logical_id can be:
+    - A string (class name or logical ID)
+    - None (for annotation-based refs, resolved later from type hint)
+
+    Example patterns:
+        arn = get_att(MyBucket, "Arn")           # logical_id = "MyBucket"
+        arn = get_att("MyBucket", "Arn")         # logical_id = "MyBucket"
+        arn: GetAtt[MyBucket] = get_att("Arn")   # logical_id = None, resolved from annotation
     """
 
-    logical_id: str
-    attribute_name: str
+    logical_id: str | None = None
+    attribute_name: str = ""
 
     def to_dict(self) -> dict[str, list[str]]:
         """Serialize to CloudFormation JSON format."""
+        if self.logical_id is None:
+            raise ValueError(
+                "DeferredGetAtt.logical_id must be set before serialization. "
+                "For annotation-based refs (arn: GetAtt[Bucket] = get_att('Arn')), "
+                "the logical_id is resolved during resource creation."
+            )
         return {"Fn::GetAtt": [self.logical_id, self.attribute_name]}
 
 
@@ -165,7 +242,10 @@ def is_wrapper_dataclass(cls: Type[Any]) -> bool:
         type_hints = get_type_hints(cls)
         return "resource" in type_hints or "context" in type_hints
     except Exception:
-        return False
+        # If get_type_hints fails (e.g., forward references can't be resolved),
+        # fall back to checking raw annotations
+        annotations = getattr(cls, "__annotations__", {})
+        return "resource" in annotations or "context" in annotations
 
 
 def cloudformation_dataclass(maybe_cls: Type[Any] | None = None, *, register: bool = True):
@@ -256,15 +336,20 @@ def cloudformation_dataclass(maybe_cls: Type[Any] | None = None, *, register: bo
         # Handle fields whose type is a wrapper dataclass (like context: ProdDeploymentContext)
         # We need to give these fields defaults too
         if hasattr(cls, "__annotations__"):
-            type_hints = get_type_hints(cls)
-            for field_name, field_type in type_hints.items():
-                if field_name in ("resource", "context"):
-                    continue
-                # Check if the type is a wrapper dataclass
-                if isinstance(field_type, type) and is_wrapper_dataclass(field_type):
-                    # Add None as default if no default exists
-                    if not hasattr(cls, field_name):
-                        setattr(cls, field_name, None)
+            try:
+                type_hints = get_type_hints(cls)
+                for field_name, field_type in type_hints.items():
+                    if field_name in ("resource", "context"):
+                        continue
+                    # Check if the type is a wrapper dataclass
+                    if isinstance(field_type, type) and is_wrapper_dataclass(field_type):
+                        # Add None as default if no default exists
+                        if not hasattr(cls, field_name):
+                            setattr(cls, field_name, None)
+            except Exception:
+                # If we can't resolve type hints (e.g., forward references),
+                # skip this optimization. It's not critical.
+                pass
 
         # Store original __post_init__ if it exists
         original_post_init = getattr(cls, "__post_init__", None)
@@ -341,15 +426,151 @@ def get_wrapped_resource_type(cls: Type[Any]) -> Type[Any] | None:
         return None
 
     try:
-        type_hints = get_type_hints(cls)
-        # Check for both 'resource' and 'context' fields
-        if "resource" in type_hints:
-            return type_hints["resource"]
-        elif "context" in type_hints:
-            return type_hints["context"]
+        # Get the raw annotation (might be a string with PEP 563)
+        annotations = getattr(cls, "__annotations__", {})
+
+        # Determine which field to look up
+        field_name = "resource" if "resource" in annotations else "context" if "context" in annotations else None
+        if field_name is None:
+            return None
+
+        annotation = annotations[field_name]
+
+        # If it's already a type, return it directly
+        if isinstance(annotation, type):
+            # Check for self-reference (wrapper class same name as resource class)
+            if annotation is cls:
+                return _find_aws_resource_class(annotation.__name__)
+            return annotation
+
+        # If it's a string (PEP 563), resolve it carefully
+        if isinstance(annotation, str):
+            import sys
+            module = sys.modules.get(cls.__module__)
+            if module:
+                globalns = vars(module)
+
+                # Handle dotted names like "s3.BucketPolicy"
+                if "." in annotation:
+                    try:
+                        # Try to eval the dotted name in the module's globals
+                        resolved = eval(annotation, globalns)
+                        if isinstance(resolved, type):
+                            return resolved
+                    except Exception:
+                        pass
+
+                # Check if it's a simple name in globals
+                if annotation in globalns:
+                    resolved = globalns[annotation]
+                    # Check for self-reference (e.g., class BucketPolicy with resource: BucketPolicy)
+                    if resolved is cls:
+                        # The annotation resolved to the wrapper class itself
+                        # This means a local class shadows an imported AWS class
+                        # Try to find the actual AWS resource class
+                        return _find_aws_resource_class(annotation)
+                    return resolved
+
+                # Fall back to get_type_hints
+                try:
+                    type_hints = get_type_hints(cls, globalns=globalns)
+                    resolved = type_hints.get(field_name)
+                    if resolved is cls:
+                        return _find_aws_resource_class(annotation)
+                    return resolved
+                except Exception:
+                    pass
+
         return None
     except Exception:
         return None
+
+
+def _find_aws_resource_class(class_name: str) -> Type[Any] | None:
+    """Find an AWS resource class by name from cloudformation_dataclasses.aws modules."""
+    try:
+        # Search AWS modules for the class
+        import cloudformation_dataclasses.aws as aws_pkg
+        import pkgutil
+        for finder, name, ispkg in pkgutil.iter_modules(aws_pkg.__path__):
+            try:
+                module = __import__(f"cloudformation_dataclasses.aws.{name}", fromlist=[class_name])
+                if hasattr(module, class_name):
+                    candidate = getattr(module, class_name)
+                    # Make sure it's an actual CloudFormation resource class
+                    # (has resource_type attribute)
+                    if hasattr(candidate, "resource_type"):
+                        return candidate
+            except Exception:
+                continue
+    except Exception:
+        pass
+    return None
+
+
+def _get_annotation_hints(wrapper_class: Type[Any]) -> dict[str, Any]:
+    """
+    Get type hints for a wrapper class, including registry classes for forward ref resolution.
+
+    This enables annotation-based refs like `bucket: Ref[Bucket] = ref()` to be resolved
+    even when Bucket is defined in a different module and uses auto-discovery.
+    """
+    import sys
+
+    try:
+        # Get the module globals for the wrapper class
+        module = sys.modules.get(wrapper_class.__module__, None)
+        globalns = vars(module) if module else {}
+
+        # Include registry classes for forward reference resolution
+        try:
+            from cloudformation_dataclasses.core.registry import registry
+
+            localns = {cls.__name__: cls for cls in registry.get_all()}
+        except Exception:
+            localns = {}
+
+        return get_type_hints(wrapper_class, globalns=globalns, localns=localns)
+    except Exception:
+        # If we can't resolve hints, return empty dict
+        # The ref will fail later with a clear error message
+        return {}
+
+
+def _resolve_ref_from_annotation(
+    field_name: str, hints: dict[str, Any], expected_origin: type
+) -> str | None:
+    """
+    Extract the target class name from a type annotation like Ref[Bucket] or GetAtt[Bucket].
+
+    Args:
+        field_name: The name of the field to look up
+        hints: Type hints dict from get_type_hints()
+        expected_origin: Either Ref or GetAtt class
+
+    Returns:
+        The logical ID (class name) or None if not resolvable
+    """
+    hint = hints.get(field_name)
+    if hint is None:
+        return None
+
+    # Check if this is a generic like Ref[Bucket] or GetAtt[Bucket]
+    origin = getattr(hint, "__origin__", None)
+    if origin is not expected_origin:
+        return None
+
+    args = getattr(hint, "__args__", ())
+    if not args:
+        return None
+
+    target = args[0]
+    if isinstance(target, type):
+        return target.__name__
+    elif isinstance(target, str):
+        return target
+    else:
+        return str(target)
 
 
 def create_wrapped_resource(wrapper_instance: Any) -> Any:
@@ -393,7 +614,13 @@ def create_wrapped_resource(wrapper_instance: Any) -> Any:
         raise TypeError(f"{wrapper_class.__name__} is not a wrapper dataclass")
 
     # Determine which field is the wrapper field
-    wrapper_field_name = "resource" if "resource" in get_type_hints(wrapper_class) else "context"
+    # Use raw annotations to avoid get_type_hints failure with forward references
+    annotations = getattr(wrapper_class, "__annotations__", {})
+    wrapper_field_name = "resource" if "resource" in annotations else "context"
+
+    # Get type hints for resolving annotation-based refs
+    # We need to include registry classes for forward reference resolution
+    annotation_hints = _get_annotation_hints(wrapper_class)
 
     # Extract all fields except the wrapper field ('resource' or 'context')
     kwargs: dict[str, Any] = {}
@@ -411,12 +638,18 @@ def create_wrapped_resource(wrapper_instance: Any) -> Any:
 
         # Handle nested wrappers, deferred refs, and other values
         if isinstance(value, DeferredRef):
-            # Convert DeferredRef to actual Ref
-            # Keep as DeferredRef - it has to_dict() method for serialization
+            # Resolve annotation-based refs (logical_id is None)
+            if value.logical_id is None:
+                value.logical_id = _resolve_ref_from_annotation(
+                    field.name, annotation_hints, Ref
+                )
             kwargs[field.name] = value
         elif isinstance(value, DeferredGetAtt):
-            # Convert DeferredGetAtt to actual GetAtt
-            # Keep as DeferredGetAtt - it has to_dict() method for serialization
+            # Resolve annotation-based refs (logical_id is None)
+            if value.logical_id is None:
+                value.logical_id = _resolve_ref_from_annotation(
+                    field.name, annotation_hints, GetAtt
+                )
             kwargs[field.name] = value
         elif isinstance(value, type) and is_wrapper_dataclass(value):
             # Value is a wrapper CLASS - instantiate it first, then unwrap

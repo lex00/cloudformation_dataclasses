@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """S3BucketNotification - AWS::S3::Bucket resource."""
 
 from .. import *  # noqa: F403
@@ -34,7 +36,7 @@ class S3BucketNotificationPublicAccessBlockConfiguration:
 class S3BucketNotificationLambdaConfiguration:
     resource: LambdaConfiguration
     event = 's3:ObjectCreated:Put'
-    function = get_att("S3TriggerLambdaFunction", "Arn")
+    function: GetAtt[S3TriggerLambdaFunction] = get_att("Arn")
 
 
 @cloudformation_dataclass

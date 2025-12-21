@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """ObjectStorageLogBucket - AWS::S3::Bucket resource."""
 
 from .. import *  # noqa: F403
@@ -22,10 +24,25 @@ class ObjectStorageLogBucketBucketEncryption:
 
 
 @cloudformation_dataclass
+class ObjectStorageLogBucketVersioningConfiguration:
+    resource: VersioningConfiguration
+    status = BucketVersioningStatus.ENABLED
+
+
+@cloudformation_dataclass
+class ObjectStorageLogBucketPublicAccessBlockConfiguration:
+    resource: PublicAccessBlockConfiguration
+    restrict_public_buckets = True
+    block_public_policy = True
+    block_public_acls = True
+    ignore_public_acls = True
+
+
+@cloudformation_dataclass
 class ObjectStorageLogBucketDefaultRetention:
     resource: DefaultRetention
-    mode = ObjectLockRetentionMode.COMPLIANCE
     years = 1
+    mode = ObjectLockRetentionMode.COMPLIANCE
 
 
 @cloudformation_dataclass
@@ -42,28 +59,14 @@ class ObjectStorageLogBucketObjectLockConfiguration:
 
 
 @cloudformation_dataclass
-class ObjectStorageLogBucketPublicAccessBlockConfiguration:
-    resource: PublicAccessBlockConfiguration
-    block_public_acls = True
-    block_public_policy = True
-    ignore_public_acls = True
-    restrict_public_buckets = True
-
-
-@cloudformation_dataclass
-class ObjectStorageLogBucketVersioningConfiguration:
-    resource: VersioningConfiguration
-    status = BucketVersioningStatus.ENABLED
-
-
-@cloudformation_dataclass
 class ObjectStorageLogBucket:
     """AWS::S3::Bucket resource."""
 
     resource: Bucket
     bucket_encryption = ObjectStorageLogBucketBucketEncryption
+    versioning_configuration = ObjectStorageLogBucketVersioningConfiguration
+    public_access_block_configuration = ObjectStorageLogBucketPublicAccessBlockConfiguration
     bucket_name = Sub('${AppName}-logs-${AWS::Region}-${AWS::AccountId}')
     object_lock_configuration = ObjectStorageLogBucketObjectLockConfiguration
     object_lock_enabled = True
-    public_access_block_configuration = ObjectStorageLogBucketPublicAccessBlockConfiguration
-    versioning_configuration = ObjectStorageLogBucketVersioningConfiguration
+    tags = []

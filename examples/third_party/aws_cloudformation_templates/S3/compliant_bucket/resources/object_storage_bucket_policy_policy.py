@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """ObjectStorageBucketPolicyPolicy - AWS::S3::BucketPolicy resource."""
 
 from .. import *  # noqa: F403
@@ -50,5 +52,5 @@ class ObjectStorageBucketPolicyPolicy:
     """AWS::S3::BucketPolicy resource."""
 
     resource: BucketPolicy
-    bucket = ref("ObjectStorageBucket")
+    bucket: Ref[ObjectStorageBucket] = ref()
     policy_document = ObjectStorageBucketPolicyPolicyPolicyDocument

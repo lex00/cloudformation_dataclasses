@@ -68,9 +68,10 @@ class TestGenerateBucketWithRef:
         assert "default = 'my-default-bucket'" in code
 
     def test_has_ref_to_parameter(self, code):
-        assert 'ref("BucketNameParam")' in code
+        assert "ref(BucketNameParam)" in code
 
     def test_has_getatt(self, code):
+        # Output values use string refs (inline mode), not class refs
         assert 'get_att("MyBucket", "Arn")' in code
 
     def test_generated_code_is_valid_python(self, code):

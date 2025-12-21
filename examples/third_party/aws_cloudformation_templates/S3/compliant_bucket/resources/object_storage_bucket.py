@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """ObjectStorageBucket - AWS::S3::Bucket resource."""
 
 from .. import *  # noqa: F403
@@ -22,44 +24,44 @@ class ObjectStorageBucketBucketEncryption:
 
 
 @cloudformation_dataclass
-class ObjectStorageBucketLoggingConfiguration:
-    resource: LoggingConfiguration
-    destination_bucket_name = ref("ObjectStorageLogBucket")
+class ObjectStorageBucketVersioningConfiguration:
+    resource: VersioningConfiguration
+    status = BucketVersioningStatus.ENABLED
 
 
 @cloudformation_dataclass
 class ObjectStorageBucketPublicAccessBlockConfiguration:
     resource: PublicAccessBlockConfiguration
-    block_public_acls = True
-    block_public_policy = True
-    ignore_public_acls = True
     restrict_public_buckets = True
+    block_public_policy = True
+    block_public_acls = True
+    ignore_public_acls = True
+
+
+@cloudformation_dataclass
+class ObjectStorageBucketLoggingConfiguration:
+    resource: LoggingConfiguration
+    destination_bucket_name: Ref[ObjectStorageLogBucket] = ref()
 
 
 @cloudformation_dataclass
 class ObjectStorageBucketReplicationDestination:
     resource: ReplicationDestination
-    bucket = get_att("ObjectStorageReplicaBucket", ARN)
+    bucket: GetAtt[ObjectStorageReplicaBucket] = get_att("Arn")
 
 
 @cloudformation_dataclass
 class ObjectStorageBucketReplicationRule:
     resource: ReplicationRule
-    destination = ObjectStorageBucketReplicationDestination
     status = ReplicationRuleStatus.ENABLED
+    destination = ObjectStorageBucketReplicationDestination
 
 
 @cloudformation_dataclass
 class ObjectStorageBucketReplicationConfiguration:
     resource: ReplicationConfiguration
-    role = get_att("ObjectStorageReplicationRole", ARN)
+    role: GetAtt[ObjectStorageReplicationRole] = get_att("Arn")
     rules = [ObjectStorageBucketReplicationRule]
-
-
-@cloudformation_dataclass
-class ObjectStorageBucketVersioningConfiguration:
-    resource: VersioningConfiguration
-    status = BucketVersioningStatus.ENABLED
 
 
 @cloudformation_dataclass
@@ -68,9 +70,10 @@ class ObjectStorageBucket:
 
     resource: Bucket
     bucket_encryption = ObjectStorageBucketBucketEncryption
-    bucket_name = Sub('${AppName}-${AWS::Region}-${AWS::AccountId}')
-    logging_configuration = ObjectStorageBucketLoggingConfiguration
-    object_lock_enabled = False
-    public_access_block_configuration = ObjectStorageBucketPublicAccessBlockConfiguration
-    replication_configuration = ObjectStorageBucketReplicationConfiguration
     versioning_configuration = ObjectStorageBucketVersioningConfiguration
+    public_access_block_configuration = ObjectStorageBucketPublicAccessBlockConfiguration
+    bucket_name = Sub('${AppName}-${AWS::Region}-${AWS::AccountId}')
+    object_lock_enabled = False
+    logging_configuration = ObjectStorageBucketLoggingConfiguration
+    replication_configuration = ObjectStorageBucketReplicationConfiguration
+    tags = []

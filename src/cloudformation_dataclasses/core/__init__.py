@@ -32,6 +32,8 @@ from cloudformation_dataclasses.core.template import (
     Template,
 )
 from cloudformation_dataclasses.core.wrapper import (
+    GetAtt,
+    Ref,
     cloudformation_dataclass,
     get_att,
     ref,
@@ -47,6 +49,7 @@ __all__ = [
     "ConditionOperator",
     "DenyStatement",
     "DeploymentContext",
+    "GetAtt",
     "IP_ADDRESS",
     "Mapping",
     "NUMBER",
@@ -55,6 +58,7 @@ __all__ = [
     "ParameterType",
     "PolicyDocument",
     "PolicyStatement",
+    "Ref",
     "ResourceRegistry",
     "STRING",
     "STRING_EQUALS",

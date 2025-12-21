@@ -1,36 +1,34 @@
+from __future__ import annotations
+
 """MyDataPolicy - AWS::S3::BucketPolicy resource."""
 
 from .. import *  # noqa: F403
-from ..context import ctx
 
 
 @cloudformation_dataclass
-class DenyUnencryptedUploadsStatement:
-    """Policy statement denying uploads without AES256 encryption."""
-
+class MyDataPolicyDenyStatement0:
     resource: DenyStatement
-    sid = "DenyUnencryptedObjectUploads"
-    principal = "*"
-    action = "s3:PutObject"
-    resource_arn = Sub("${MyData.Arn}/*")
+    sid = 'DenyUnencryptedObjectUploads'
+    principal = '*'
+    action = 's3:PutObject'
+    resource_arn = Sub('${MyData.Arn}/*')
     condition = {
-        STRING_NOT_EQUALS: {"s3:x-amz-server-side-encryption": "AES256"}
+        STRING_NOT_EQUALS: {
+            's3:x-amz-server-side-encryption': 'AES256',
+        },
     }
 
 
 @cloudformation_dataclass
-class EncryptionRequiredPolicyDocument:
-    """IAM policy document requiring encrypted uploads."""
-
+class MyDataPolicyPolicyDocument:
     resource: PolicyDocument
-    statement = [DenyUnencryptedUploadsStatement]
+    statement = [MyDataPolicyDenyStatement0]
 
 
 @cloudformation_dataclass
 class MyDataPolicy:
-    """Bucket policy enforcing server-side encryption."""
+    """AWS::S3::BucketPolicy resource."""
 
     resource: BucketPolicy
-    context = ctx
-    bucket = ref("MyData")
-    policy_document = EncryptionRequiredPolicyDocument
+    bucket: Ref[MyData] = ref()
+    policy_document = MyDataPolicyPolicyDocument

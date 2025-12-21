@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """S3TriggerLambdaFunction - AWS::Lambda::Function resource."""
 
 from .. import *  # noqa: F403
@@ -20,6 +22,6 @@ class S3TriggerLambdaFunction:
     resource: Function
     code = S3TriggerLambdaFunctionCode
     handler = 'index.lambda_handler'
-    role = get_att("LambdaIAMRole", "Arn")
+    role: GetAtt[LambdaIAMRole] = get_att("Arn")
     runtime = 'python3.9'
     timeout = 30
