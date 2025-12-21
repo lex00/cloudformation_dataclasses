@@ -1,6 +1,6 @@
 # Third-Party CloudFormation Template Import Workflow
 
-A reusable, agentic workflow for importing third-party CloudFormation templates into the `cloudformation_dataclasses` project. This workflow uses the linter to discover missing types/enums, improves the generator/linter/docs in real-time, and produces well-documented examples with tests.
+A reusable, agentic workflow for importing third-party CloudFormation templates into the `cloudformation_dataclasses` project. This workflow produces well-documented examples with tests.
 
 ## Setup Questions
 
@@ -16,7 +16,7 @@ Before starting, gather the following information:
 
 ### 2. Target Location
 **Question**: Where should the imported examples be placed?
-- Default: `examples/generated/{source_name}/`
+- Default: `examples/3rd_party/{source_name}/`
 - Custom path if preferred
 
 ### 3. Attribution
@@ -39,7 +39,7 @@ Before starting, gather the following information:
 ## Workflow Overview
 
 ### For Each Template
-1. **Import** template: `cfn-import template.yaml --package -o example/`
+1. **Import** template: `cfn-import template.yaml -o example/`
 2. **Analyze** generated code for improvement opportunities
 3. **Improve** tools if needed (generator, linter, docs)
 4. **Create** README and tests in the folder structure
@@ -54,48 +54,58 @@ The importer automatically:
 ## Detailed Steps Per Template
 
 ### Step 1: Create Folder Structure
+
+Each template is generated in 2 versions to demonstrate different output modes:
+
 ```
-{target_location}/{Service}/
-├── {example_name}/
-│   ├── __init__.py       # Exports, common imports
-│   ├── main.py           # Generated code (linted)
-│   ├── README.md         # Credits, features, usage
-│   └── tests/
-│       ├── __init__.py
-│       └── test_{example_name}.py
+{target_location}/{Service}/{example}/
+├── block/                     # Block mode (wrapper classes for all PropertyTypes)
+│   ├── __init__.py
+│   ├── config.py
+│   ├── resources/
+│   ├── outputs.py
+│   └── main.py
+├── mixed/                     # Mixed mode (inline dicts for PropertyTypes)
+│   ├── __init__.py
+│   ├── config.py
+│   ├── resources/
+│   ├── outputs.py
+│   └── main.py
+├── README.md                  # Shared README explaining both versions
+└── tests/
+    ├── __init__.py
+    └── test_{example}.py      # Tests both versions
 ```
 
-For multi-example service folders, create subfolders per example.
+### Step 2: Import Template (2 Versions)
 
-### Step 2: Import Template
+Generate both versions for each template:
+
 ```bash
-# Default (strict mode) - faithful to original template
-cfn-import {source_path}/{Service}/template.yaml \
-  --package -o {target_location}/{Service}/{example}/
+# From within {target_location}/{Service}/{example}/
 
-# With linting enabled - replaces strings with constants
-cfn-import {source_path}/{Service}/template.yaml \
-  --package --no-strict -o {target_location}/{Service}/{example}/
+# 1. Block mode (default) - wrapper classes for everything
+cfn-import {source_path}/template.yaml -o block/
+
+# 2. Mixed mode - wrapper classes for resources, inline dicts for PropertyTypes
+cfn-import {source_path}/template.yaml --mode mixed -o mixed/
 ```
 
-**Note**: The importer automatically detects and improves patterns regardless of strict mode:
+**Note**: The importer automatically detects and improves patterns:
 - Implicit refs: `Sub('${AppName}-bucket')` → `ref(MyBucket)` when patterns match
 - ARN patterns: `Sub('arn:...')` → `get_att(MyBucket, ARN)`
 - ARN wildcards: Uses `Join('', [get_att(..., ARN), '/*'])` instead of verbose Sub
 
 ### Step 3: Analyze Generated Code
-Check the generated code for patterns the linter should have caught (when using `--no-strict`) but didn't:
+Check the generated code for patterns that could be improved:
 
-| Rule | Pattern | Action if Missing |
-|------|---------|-------------------|
-| CFD001 | `{"Bool": ...}` instead of `{BOOL: ...}` | Add to `CONDITION_OPERATOR_MAP` |
-| CFD002 | `type = "String"` instead of `type = STRING` | Add to `PARAMETER_TYPE_MAP` |
-| CFD003 | `Ref("AWS::Region")` instead of `AWS_REGION` | Add to `PSEUDO_PARAMETER_MAP` |
-| CFD004 | String literal for enum field | Add to `KNOWN_ENUMS` in linter rules |
-| CFD005 | Dict literal for PropertyType | Add to `KNOWN_PROPERTY_TYPES` in linter rules |
+| Pattern | Action |
+|---------|--------|
+| String literal that should be an enum | Add to `KNOWN_ENUMS` in linter rules |
+| Dict literal that should be a PropertyType | Add to `KNOWN_PROPERTY_TYPES` in linter rules |
 
 ### Step 4: Improve Tools (Interactive Mode)
-When the linter (with `--no-strict`) doesn't catch a pattern that should be caught:
+When you discover a pattern that should be handled better:
 
 **Prompt example**:
 ```
@@ -124,6 +134,20 @@ Migrated from [{Original Filename}]({source_repo_url}/path/to/original).
 
 **Original Author/Source**: {attribution}
 
+## Versions
+
+This example is generated in 2 different styles to demonstrate the importer's output modes:
+
+| Folder | Mode | Description |
+|--------|------|-------------|
+| `block/` | block | Wrapper classes for all PropertyTypes (maximum type safety) |
+| `mixed/` | mixed | Wrapper classes for resources, inline dicts for PropertyTypes |
+
+### Which version to use?
+
+- **block**: Recommended for production use - maximum type safety with wrapper classes for everything
+- **mixed**: Good balance of readability and conciseness - fewer files, inline PropertyTypes
+
 ## Features Demonstrated
 - {List cloudformation_dataclasses features used}
 
@@ -134,16 +158,45 @@ uv run pytest {target_location}/{Service}/{example}/tests/ -v
 
 ## Generate Template
 \`\`\`bash
-uv run python -m {target_module_path}.main
+# Both versions produce the same CloudFormation output
+uv run python -m {target_module_path}.block.main
+uv run python -m {target_module_path}.mixed.main
 \`\`\`
 ```
 
 ### Step 6: Create Tests
-Follow the established test pattern:
-- `test_template_structure()` - Verify AWSTemplateFormatVersion, sections present
-- `test_template_resources()` - Verify resource types and logical IDs
-- `test_template_validation()` - `template.validate() == []`
-- Service-specific property tests as appropriate
+
+Tests should verify both versions produce identical CloudFormation output:
+
+```python
+import pytest
+from .block.main import build_template as build_block
+from .mixed.main import build_template as build_mixed
+
+class TestAllVersions:
+    def test_all_versions_produce_same_output(self):
+        """Both versions should produce identical CloudFormation."""
+        block = build_block().to_dict()
+        mixed = build_mixed().to_dict()
+
+        assert block == mixed
+
+    def test_template_validates(self):
+        """Both versions should pass validation."""
+        assert build_block().validate() == []
+        assert build_mixed().validate() == []
+
+    def test_template_structure(self):
+        """Verify AWSTemplateFormatVersion, sections present."""
+        template = build_block().to_dict()
+        assert "AWSTemplateFormatVersion" in template
+        assert "Resources" in template
+
+    def test_template_resources(self):
+        """Verify resource types and logical IDs."""
+        template = build_block().to_dict()
+        # Add service-specific resource checks
+```
 
 ### Step 7: Verify
 ```bash
@@ -185,11 +238,11 @@ Start with simpler templates to build confidence:
 - `src/cloudformation_dataclasses/core/constants.py` - Constant classes
 - `docs/LINTER.md` - Pattern documentation
 
-### Per Example Created
-- `{target}/{Service}/{example}/main.py`
-- `{target}/{Service}/{example}/README.md`
-- `{target}/{Service}/{example}/__init__.py`
-- `{target}/{Service}/{example}/tests/test_{example}.py`
+### Per Example Created (2 versions)
+- `{target}/{Service}/{example}/block/` - Full package (block mode)
+- `{target}/{Service}/{example}/mixed/` - Full package (mixed mode)
+- `{target}/{Service}/{example}/README.md` - Shared README
+- `{target}/{Service}/{example}/tests/test_{example}.py` - Tests both versions
 - `{target}/{Service}/{example}/tests/__init__.py`
 
 ### Index Updates
@@ -197,11 +250,11 @@ Start with simpler templates to build confidence:
 - `docs/AI_PROMPTING_GUIDE.md` - Add new patterns discovered
 
 ## Success Criteria Per Template
-1. Template imports without errors
-2. Linter applies all applicable type-safe constant fixes
-3. All tests pass
-4. README properly credits original source
-5. `template.validate() == []`
+1. Both versions import without errors
+2. All tests pass (including cross-version equality check)
+3. README properly credits original source and explains both versions
+4. Both versions produce identical CloudFormation output
+5. `template.validate() == []` for both versions
 
 ## Session Example
 
@@ -212,7 +265,7 @@ Start with simpler templates to build confidence:
 
 1. Source path: ../third-party-cfn-templates - confirmed
 2. Attribution: What's the source for README credits?
-3. Target: Use default examples/generated/third_party_cfn/ ?
+3. Target: Use default examples/3rd_party/third_party_cfn/ ?
 4. Scope: All templates or specific services?
 5. Mode: Interactive (prompt before changes) or unattended?
 
@@ -221,15 +274,17 @@ Start with simpler templates to build confidence:
 [Claude]: Starting with S3 templates...
 
 > Importing: S3/simple-bucket.yaml
-  ├─ Created: examples/generated/third_party_cfn/S3/simple_bucket/
-  ├─ Running cfn-import --package...
+  ├─ Created: examples/3rd_party/third_party_cfn/S3/simple_bucket/
+  ├─ Generating 2 versions:
+  │   ├─ block/      ✓ (wrapper classes for all)
+  │   └─ mixed/      ✓ (inline PropertyTypes)
   ├─ Auto-detected patterns:
   │   - Implicit ref: bucket policy → ObjectStorageBucket
   │   - ARN pattern: get_att(ObjectStorageBucket, ARN)
   │   - ARN wildcard: Join('', [get_att(..., ARN), '/*'])
-  ├─ Creating README.md
-  ├─ Creating tests...
-  └─ Tests: PASS (5 tests)
+  ├─ Creating README.md (explains both versions)
+  ├─ Creating tests (verifies versions match)...
+  └─ Tests: PASS (6 tests)
 
 > Continue to next template? [Y/n]
 ```

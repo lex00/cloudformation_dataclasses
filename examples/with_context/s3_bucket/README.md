@@ -149,7 +149,7 @@ Bucket Tags: 4 total (3 from context + 1 resource-specific)
 ```bash
 # Run example tests (user-focused)
 cd /Users/alex/Documents/checkouts/cf-dataclasses
-uv run pytest examples/s3_bucket/tests/ -v
+uv run pytest examples/with_context/s3_bucket/tests/ -v
 
 # Run framework validation tests (comprehensive)
 uv run pytest tests/test_s3_resources.py -v
@@ -167,7 +167,7 @@ The example tests demonstrate typical usage patterns and verify the example work
 ## Code Structure
 
 ```
-examples/s3_bucket/
+examples/with_context/s3_bucket/
 ├── __init__.py        # Package imports
 ├── context.py         # Deployment context for production environment
 ├── bucket.py          # S3 bucket with encryption and versioning

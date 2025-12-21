@@ -106,8 +106,8 @@ If your AI tool supports adding files as context, use these **small** files:
 
 | Purpose | File |
 |---------|------|
-| Import patterns | `examples/s3_bucket/__init__.py` |
-| Complete example | `examples/s3_bucket/bucket_policy.py` |
+| Import patterns | `examples/with_context/s3_bucket/__init__.py` |
+| Complete example | `examples/with_context/s3_bucket/bucket_policy.py` |
 | Pseudo-parameters | `cloudformation_dataclasses/intrinsics/pseudo.py` |
 | Condition operators | `cloudformation_dataclasses/core/constants.py` |
 

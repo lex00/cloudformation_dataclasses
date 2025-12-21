@@ -1,6 +1,7 @@
 """Template outputs and builder."""
 
 from . import *  # noqa: F403
+from .resources import *  # noqa: F403, F401
 from .config import AppName
 
 

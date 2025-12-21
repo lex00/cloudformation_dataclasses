@@ -37,57 +37,36 @@ Arguments:
   INPUT                      Template file path, or "-" for stdin
 
 Options:
-  -o, --output PATH          Output file/directory path (default: stdout)
-  -m, --mode MODE            Output mode: block, brief, mixed (default: block)
-  --package                  Generate a Python package (multiple files)
-  --strict                   Strict mode: no linting, no context generation (default)
-  --no-strict                Enable linting and context generation
+  -o, --output PATH          Output path: directory for package, .py file for single file
+                             Default: stdout (single file)
+  -m, --mode MODE            Output mode: block, mixed (default: block)
   --no-main                  Omit if __name__ == '__main__' block (single-file only)
   --version                  Show version and exit
   --help                     Show this message and exit
 ```
 
-### Strict Mode (Default)
+### Output Mode Detection
 
-By default, the importer runs in **strict mode**, which:
-- Does **not** run the linter to replace string literals with constants
-- Does **not** generate `context.py` for deployment context patterns
+The importer automatically determines whether to generate a package or single file based on the `-o` path:
 
-This produces code that faithfully represents the original CloudFormation template, leaving the user's template decisions intact.
-
-### Non-Strict Mode (`--no-strict`)
-
-Use `--no-strict` to enable additional transformations:
-
-```bash
-cfn-import template.yaml --no-strict -o output.py
-cfn-import template.yaml --package --no-strict -o my_stack/
-```
-
-In non-strict mode:
-- **Linting**: Replaces string literals with type-safe constants:
-  - `"Bool"` → `BOOL` (condition operators)
-  - `"String"` → `STRING` (parameter types)
-  - `Ref("AWS::Region")` → `AWS_REGION` (pseudo-parameters)
-  - `"AES256"` → `ServerSideEncryption.AES256` (service enums)
-- **Context generation** (with `--package`): Generates `context.py` with `DeploymentContext` if naming patterns are detected
-
-See [LINTER.md](./LINTER.md) for more details on the linter rules.
+| Output Path | Generated Format |
+|-------------|------------------|
+| `-o my_stack/` | Package (directory with multiple files) |
+| `-o output.py` | Single file |
+| No `-o` (stdout) | Single file |
+| `-o -` (explicit stdout) | Single file |
 
 ### Examples
 
 ```bash
-# Generate block mode (default, recommended)
-cfn-import vpc.yaml -o infrastructure/vpc.py
+# Generate as package (default when -o is a directory)
+cfn-import vpc.yaml -o infrastructure/vpc/
 
-# Generate brief mode (imperative style)
-cfn-import vpc.yaml --mode brief -o vpc.py
+# Generate as single file (when -o ends with .py)
+cfn-import vpc.yaml -o vpc.py
 
-# Generate mixed mode
-cfn-import vpc.yaml --mode mixed -o vpc.py
-
-# Generate as Python package (multiple files)
-cfn-import vpc.yaml --package -o infrastructure/vpc/
+# Generate mixed mode (inline dicts for PropertyTypes)
+cfn-import vpc.yaml --mode mixed -o vpc/
 
 # Omit the main block for library modules
 cfn-import vpc.yaml --no-main -o vpc.py
@@ -96,12 +75,12 @@ cfn-import vpc.yaml --no-main -o vpc.py
 cfn-import template.yaml | less
 ```
 
-### Package Output (`--package`)
+### Package Output
 
-The `--package` flag generates a Python package with multiple files instead of a single file. This is useful for larger templates and provides cleaner imports. Each resource gets its own file for better readability and AI-friendly context management.
+When the output path is a directory, the importer generates a Python package with multiple files instead of a single file. This is useful for larger templates and provides cleaner imports. Each resource gets its own file for better readability and AI-friendly context management.
 
 ```bash
-cfn-import template.yaml --package -o my_stack/
+cfn-import template.yaml -o my_stack/
 ```
 
 This generates:
@@ -215,64 +194,9 @@ if __name__ == "__main__":
 - Logical separation of config, resources, outputs, and main
 - Matches hand-written package patterns
 
-### Context Generation (with `--no-strict`)
-
-When using `--no-strict` with `--package`, the importer analyzes your template for naming patterns and generates a `DeploymentContext` that can be used to manage naming conventions across resources.
-
-```bash
-cfn-import template.yaml --package --no-strict -o my_stack/
-```
-
-This adds a `context.py` file to the package:
-
-```python
-"""Deployment context - inferred from template patterns.
-
-Detected naming pattern: ${AppName}-${AWS::Region}-${AWS::AccountId}
-
-Customize this context for your deployment environment.
-"""
-
-from . import *  # noqa: F403
-from .config import AppName
-
-
-@cloudformation_dataclass
-class TemplateContext:
-    """
-    Deployment context for this template.
-
-    Uses AppName parameter as project_name prefix.
-    Naming pattern: ${AppName}-${AWS::Region}-${AWS::AccountId}
-    """
-
-    context: DeploymentContext
-    project_name = ref(AppName)  # From AppName parameter
-
-
-# Instantiate for use in resources
-ctx = TemplateContext()
-```
-
-**Detected Patterns:**
-
-| CloudFormation Pattern | Context Field |
-|----------------------|---------------|
-| `AppName`, `ProjectName` parameter | `project_name` |
-| `Environment`, `Stage` parameter | `stage` |
-| Common tags across resources | `tags` |
-| `Sub("${Prefix}-...")` naming | Documented in docstring |
-
-**When to use:**
-- Templates with a prefix parameter (AppName, ProjectName)
-- Templates with Environment/Stage parameters
-- Templates with common tags across resources
-
-The generated context serves as a starting point - customize it for your specific deployment needs.
-
 ## Output Modes
 
-The importer supports three output styles. **Block mode is recommended** as it provides the most readable, maintainable code.
+The importer supports two output styles. **Block mode is recommended** as it provides the most readable, maintainable code.
 
 ### Block Mode (Default)
 
@@ -340,49 +264,9 @@ if __name__ == "__main__":
 
 **Best for:** Team collaboration, reusable components, large templates, maintainability.
 
-### Brief Mode
-
-Generates imperative code with direct object instantiation. No wrapper classes.
-
-```bash
-cfn-import template.yaml --mode brief -o output.py
-```
-
-**Output:**
-```python
-bucket_name_param = Parameter(
-    logical_id='BucketNameParam',
-    type='String',
-    default='my-default-bucket',
-)
-
-my_bucket = Bucket(
-    logical_id='MyBucket',
-    bucket_name=ref(bucket_name_param),
-)
-
-bucket_arn_output = Output(
-    logical_id='BucketArn',
-    value=get_att(my_bucket, "Arn"),
-)
-
-template = Template(
-    parameters=[bucket_name_param],
-    resources=[my_bucket],
-    outputs=[bucket_arn_output],
-)
-
-
-if __name__ == "__main__":
-    import json
-    print(json.dumps(template.to_dict(), indent=2))
-```
-
-**Best for:** Quick conversions, small templates, prototyping, scripting.
-
 ### Mixed Mode
 
-Combines block and brief approaches. Uses wrapper classes for resources, but intelligently inlines certain constructs:
+Uses wrapper classes for resources, but intelligently inlines PropertyType values as dicts:
 
 - **Tags**: Inlined if used once, wrapper class if reused (2+ times)
 - **Policy Documents**: Uses `PolicyDocument` and `PolicyStatement` classes
@@ -475,18 +359,19 @@ class BucketPolicy:
 
 ## Mode Comparison
 
-| Feature | Block | Brief | Mixed |
-|---------|-------|-------|-------|
-| Resources | Wrapper class | Variable | Wrapper class |
-| Parameters | Wrapper class | Variable | Wrapper class |
-| Outputs | Wrapper class | Variable | Wrapper class |
-| Tags (unique) | Raw dict | Raw dict | `Tag()` inline |
-| Tags (reused) | Raw dict | Raw dict | Wrapper class |
-| Policy documents | Raw dict | Raw dict | `PolicyDocument()` |
-| Policy statements | Raw dict | Raw dict | `PolicyStatement()` |
-| Template | Wrapper class | Variable | Wrapper class |
-| `build_template()` | Yes | No | Yes |
-| Decorator | `@cloudformation_dataclass` | None | `@cloudformation_dataclass` |
+| Feature | Block | Mixed |
+|---------|-------|-------|
+| Resources | Wrapper class | Wrapper class |
+| Parameters | Wrapper class | Wrapper class |
+| Outputs | Wrapper class | Wrapper class |
+| PropertyTypes | Wrapper classes | Inline dicts |
+| Tags (unique) | Raw dict | `Tag()` inline |
+| Tags (reused) | Raw dict | Wrapper class |
+| Policy documents | Raw dict | `PolicyDocument()` |
+| Policy statements | Raw dict | `PolicyStatement()` |
+| Template | Wrapper class | Wrapper class |
+| `build_template()` | Yes | Yes |
+| Decorator | `@cloudformation_dataclass` | `@cloudformation_dataclass` |
 
 ### When to Use Each Mode
 
@@ -495,15 +380,11 @@ class BucketPolicy:
 - Team projects with multiple contributors
 - When you need maximum reusability
 - When you want consistent, predictable output
-
-**Brief Mode**
-- Quick one-off conversions
-- Small templates (< 10 resources)
-- Scripts and automation
-- When you prefer imperative style
+- When you want full wrapper classes for all PropertyTypes
 
 **Mixed Mode**
 - Medium-sized templates
+- When you want more concise output
 - When you have repeated tags across resources
 - When you want typed policy documents
 - Balance between readability and verbosity
@@ -676,13 +557,13 @@ Defines dataclasses for the parsed template structure:
 
 **codegen.py** - Code Generator
 
-- `generate_code(template, mode="block", include_main=True, strict=True)` - Main entry point
-- Supports block, brief, and mixed output modes
+- `generate_code(template, mode="block", include_main=True)` - Single-file generation
+- `generate_package(template, mode="block")` - Package generation (multiple files)
+- Supports block and mixed output modes
 - Handles imports, class generation, and formatting
-- Automatically detects implicit refs and ARN patterns (always enabled)
+- Automatically detects implicit refs and ARN patterns
 - Uses `ARN` constant for `get_att()` calls (type-safe, IDE-friendly)
 - Uses `Join()` for ARN wildcards instead of verbose `Sub()` patterns
-- When `strict=False`, runs the linter to replace string literals with type-safe constants
 
 **cli.py** - Command Line Interface
 
@@ -718,7 +599,7 @@ uv run pytest tests/importer/ -v
 uv run pytest tests/importer/ --cov=cloudformation_dataclasses.importer
 
 # Run specific test class
-uv run pytest tests/importer/test_codegen.py::TestBriefMode -v
+uv run pytest tests/importer/test_codegen.py::TestMixedMode -v
 ```
 
 ### Test Fixtures
@@ -796,13 +677,9 @@ Resources:
 - Resource class generation
 - Template class generation
 
-**TestBriefMode** - Brief mode generation
-- Variable assignments
-- No decorator usage
-- Direct Template construction
-
 **TestMixedMode** - Mixed mode generation
 - Wrapper classes for resources
+- Inline dicts for PropertyTypes
 - Build function generation
 
 **TestMixedModeWithTags** - Tag reuse detection
@@ -854,7 +731,7 @@ Resources:
 """
 template = parse_template(yaml_content, source_name="inline.yaml")
 
-# Generate single file (strict mode by default - no linting)
+# Generate single file
 code = generate_code(template, mode="block", include_main=True)
 print(code)
 
@@ -869,9 +746,6 @@ output_dir = Path("my_stack")
 output_dir.mkdir(exist_ok=True)
 for filename, content in files.items():
     (output_dir / filename).write_text(content)
-
-# Enable linting to replace string literals with constants
-code = generate_code(template, mode="block", strict=False)
 
 # Access the IR directly
 for name, resource in template.resources.items():

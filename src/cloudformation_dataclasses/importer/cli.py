@@ -34,43 +34,21 @@ def main(argv: list[str] | None = None) -> int:
         "-o",
         "--output",
         metavar="PATH",
-        help="Output file path (single file) or directory path (with --package)",
+        help="Output path: directory for package (default), .py file for single file, omit for stdout",
     )
 
     parser.add_argument(
         "-m",
         "--mode",
-        choices=["block", "brief", "mixed"],
+        choices=["block", "mixed"],
         default="block",
-        help="Output mode: block (declarative classes), brief (imperative), mixed (default: block)",
-    )
-
-    parser.add_argument(
-        "--package",
-        action="store_true",
-        help="Generate a Python package (multiple files) instead of single file. "
-        "Requires -o to specify output directory.",
+        help="Output mode: block (declarative classes), mixed (inline dicts for properties) (default: block)",
     )
 
     parser.add_argument(
         "--no-main",
         action="store_true",
         help="Omit if __name__ == '__main__' block (single-file mode only)",
-    )
-
-    strict_group = parser.add_mutually_exclusive_group()
-    strict_group.add_argument(
-        "--strict",
-        action="store_true",
-        dest="strict",
-        default=True,
-        help="Strict mode: keep string literals as-is, no context generation (default)",
-    )
-    strict_group.add_argument(
-        "--no-strict",
-        action="store_false",
-        dest="strict",
-        help="Use framework constants and generate context",
     )
 
     parser.add_argument(
@@ -81,10 +59,16 @@ def main(argv: list[str] | None = None) -> int:
 
     args = parser.parse_args(argv)
 
-    # Validate --package requires -o
-    if args.package and not args.output:
-        print("Error: --package requires -o/--output to specify output directory", file=sys.stderr)
-        return 1
+    # Determine output mode from -o path
+    # - No -o or "-": stdout -> single file
+    # - Ends with .py: single file
+    # - Otherwise: package (directory)
+    if args.output is None or args.output == "-":
+        use_package = False
+    elif args.output.endswith(".py"):
+        use_package = False
+    else:
+        use_package = True
 
     try:
         # Parse input
@@ -98,38 +82,32 @@ def main(argv: list[str] | None = None) -> int:
                 return 1
             template = parse_template(input_path)
 
-        if args.package:
+        if use_package:
             # Generate package (multiple files)
-            # In strict mode (default): no linting, no context
-            # In non-strict mode: linting and context enabled
             files = generate_package(
                 template,
                 mode=args.mode,
-                lint=not args.strict,
-                with_context=not args.strict,
             )
 
             # Write files to output directory
             output_dir = Path(args.output)
             output_dir.mkdir(parents=True, exist_ok=True)
 
-            for filename, content in files.items():
+            for filename, file_content in files.items():
                 file_path = output_dir / filename
                 # Create parent directories if needed (e.g., for resources/foo.py)
                 file_path.parent.mkdir(parents=True, exist_ok=True)
-                file_path.write_text(content)
+                file_path.write_text(file_content)
                 print(f"Generated: {file_path}", file=sys.stderr)
 
         else:
             # Generate single file
-            # In strict mode (default): no linting
-            # In non-strict mode: linting enabled
             code = generate_code(
-                template, mode=args.mode, include_main=not args.no_main, lint=not args.strict
+                template, mode=args.mode, include_main=not args.no_main
             )
 
             # Output
-            if args.output:
+            if args.output and args.output != "-":
                 output_path = Path(args.output)
                 output_path.parent.mkdir(parents=True, exist_ok=True)
                 output_path.write_text(code)

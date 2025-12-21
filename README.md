@@ -79,7 +79,7 @@ print(template.to_json())
 
 ### Complete Example
 
-See [examples/s3_bucket/](examples/s3_bucket/) for a complete modular example with deployment context, encryption, and bucket policies.
+See [examples/with_context/s3_bucket/](examples/with_context/s3_bucket/) for a complete modular example with deployment context, encryption, and bucket policies.
 
 ```python
 # context.py - Deployment context with environment defaults and shared tags

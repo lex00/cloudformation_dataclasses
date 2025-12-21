@@ -81,7 +81,7 @@ def test_context_driven_naming():
     bucket = MyData()
 
     # Check generated name follows pattern
-    expected_name = "DataPlatform-MyData-prod-001-blue-us-east-1"
+    expected_name = "analytics-DataPlatform-MyData-prod-001-blue-us-east-1"
     assert bucket.resource.resource_name == expected_name
 
     # Logical ID should be the class name

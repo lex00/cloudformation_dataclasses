@@ -132,51 +132,6 @@ class TestGenerateFromJSON:
         compile(code, "<test>", "exec")
 
 
-class TestBriefMode:
-    """Tests for brief mode (imperative) code generation."""
-
-    @pytest.fixture
-    def code(self):
-        template = parse_template(TEMPLATES_DIR / "simple_bucket.yaml")
-        return generate_code(template, mode="brief")
-
-    def test_no_cloudformation_dataclass_decorator(self, code):
-        assert "@cloudformation_dataclass" not in code
-
-    def test_has_variable_assignment(self, code):
-        assert "my_bucket = Bucket(" in code
-
-    def test_has_output_variable(self, code):
-        assert "bucket_name_output = Output(" in code
-
-    def test_has_template_variable(self, code):
-        assert "template = Template(" in code
-
-    def test_no_build_template_function(self, code):
-        assert "def build_template()" not in code
-
-    def test_generated_code_is_valid_python(self, code):
-        compile(code, "<test>", "exec")
-
-
-class TestBriefModeWithRef:
-    """Tests for brief mode with references."""
-
-    @pytest.fixture
-    def code(self):
-        template = parse_template(TEMPLATES_DIR / "bucket_with_ref.yaml")
-        return generate_code(template, mode="brief")
-
-    def test_has_parameter_variable(self, code):
-        assert "bucket_name_param = Parameter(" in code
-
-    def test_has_resource_variable(self, code):
-        assert "my_bucket = Bucket(" in code
-
-    def test_generated_code_is_valid_python(self, code):
-        compile(code, "<test>", "exec")
-
-
 class TestMixedMode:
     """Tests for mixed mode code generation."""
 
