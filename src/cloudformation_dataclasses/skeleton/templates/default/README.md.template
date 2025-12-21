@@ -1,6 +1,6 @@
 # {{ProjectName}}
 
-An S3 bucket project using `cloudformation_dataclasses`.
+CloudFormation infrastructure using `cloudformation_dataclasses`.
 
 ## Structure
 
@@ -8,9 +8,13 @@ An S3 bucket project using `cloudformation_dataclasses`.
 {{project_name}}/
 ├── __init__.py        # Package exports
 ├── context.py         # Deployment context (naming, tags, environment)
-├── bucket.py          # S3 bucket with encryption and versioning
-├── bucket_policy.py   # Bucket policy requiring encrypted uploads
 ├── main.py            # Template builder and entry point
+├── pyproject.toml     # Package config with dependencies
+├── py.typed           # PEP 561 typed package marker
+├── mypy.ini           # mypy type checking config
+├── CLAUDE.md          # Claude Code project guidance
+├── .vscode/           # VSCode settings
+│   └── settings.json
 └── README.md          # This file
 ```
 
@@ -31,50 +35,32 @@ template = build_template()
 print(template.to_json())
 ```
 
-## Customizing
+## Adding Resources
 
-### 1. Edit context.py
-
-Configure your deployment environment:
+### 1. Create a Resource File
 
 ```python
-@cloudformation_dataclass
-class {{ProjectName}}Context:
-    context: DeploymentContext
-    project_name = "{{project_name}}"    # Change this
-    component = "{{component}}"          # Change this
-    stage = "{{stage}}"                  # dev, staging, prod
-    region = "{{region}}"                # Your AWS region
-    tags = [...]                         # Add your tags
-```
-
-### 2. Add Resources
-
-Create new files for additional resources:
-
-```python
-# logging_bucket.py
+# my_bucket.py
 from . import *
 from .context import ctx
+from cloudformation_dataclasses.aws.s3 import Bucket
 
 @cloudformation_dataclass
-class LoggingBucket:
+class MyBucket:
     resource: Bucket
     context = ctx
-    # ... configuration
+    bucket_name = "my-bucket"
 ```
 
-### 3. Update main.py
-
-Import and instantiate your new resources:
+### 2. Import in main.py
 
 ```python
-from .logging_bucket import LoggingBucket
+from .my_bucket import MyBucket
 
 def main():
-    bucket = DataBucket()
-    logging = LoggingBucket()
-    # ...
+    bucket = MyBucket()
+    template = build_template()
+    print(template.to_json())
 ```
 
 ## Key Concepts
@@ -87,7 +73,7 @@ Provides automatic resource naming and shared tags:
 ctx = {{ProjectName}}Context()
 
 # Resources using this context get automatic names:
-# {{project_name}}-{{component}}-DataBucket-{{stage}}-{{region}}
+# {{project_name}}-{{component}}-ResourceName-{{stage}}-{{region}}
 ```
 
 ### Wrapper Classes
@@ -96,20 +82,34 @@ Each configuration is a separate class for reusability:
 
 ```python
 @cloudformation_dataclass
-class MyBucketEncryption:
-    resource: BucketEncryption
-    server_side_encryption_configuration = [MyServerSideEncryptionRule]
+class MyResource:
+    resource: SomeAWSResource
+    context = ctx
+    # ... configuration
 ```
 
-### auto-registration
+### Auto-registration
 
 Resources are automatically collected when you call `Template.from_registry()`:
 
 ```python
-bucket = DataBucket()        # Registered
-policy = DataBucketPolicy()  # Registered
+bucket = MyBucket()  # Registered
 
 template = Template.from_registry()  # Collects all registered resources
+```
+
+## IDE Support
+
+This project includes configuration for type checking and editor integration:
+
+- **py.typed** - PEP 561 marker for typed packages
+- **mypy.ini** - mypy type checking configuration
+- **.vscode/settings.json** - VSCode settings with Pylance type checking
+
+Run type checks:
+
+```bash
+mypy {{project_name}}/
 ```
 
 ## Deploy

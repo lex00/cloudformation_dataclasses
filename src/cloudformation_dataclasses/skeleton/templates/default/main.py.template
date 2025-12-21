@@ -1,4 +1,4 @@
-"""{{ProjectName}} - S3 bucket with encryption policy.
+"""{{ProjectName}} - CloudFormation template builder.
 
 Run this module to generate the CloudFormation template:
     python -m {{project_name}}.main
@@ -10,8 +10,6 @@ Or import and use programmatically:
 """
 
 from . import *  # noqa: F403
-from .bucket import DataBucket
-from .bucket_policy import DataBucketPolicy
 from .context import ctx
 
 
@@ -22,26 +20,22 @@ def build_template() -> Template:
     imported and instantiated will be included in the template.
     """
     return Template.from_registry(
-        description="{{ProjectName}} - S3 bucket with encryption policy",
+        description="{{ProjectName}} infrastructure",
     )
 
 
 def main() -> None:
     """Generate and display the CloudFormation template."""
-    # Instantiate resources - this registers them with the template
-    bucket = DataBucket()
-    policy = DataBucketPolicy()
+    # TODO: Import and instantiate your resources here
+    # from .my_resource import MyResource
+    # resource = MyResource()
 
-    # Show what was created
     print("=" * 70)
-    print("RESOURCES")
+    print("CONTEXT")
     print("=" * 70)
-    print(f"Bucket:        {bucket.resource.resource_name}")
-    print(f"Bucket Policy: {policy.resource.resource_name}")
-    print(f"Environment:   {ctx.stage} ({ctx.region})")
-    print(f"\nTags ({len(bucket.resource.all_tags)}):")
-    for tag in bucket.resource.all_tags:
-        print(f"  {tag.key}: {tag.value}")
+    print(f"Project:     {ctx.project_name}")
+    print(f"Component:   {ctx.component}")
+    print(f"Environment: {ctx.stage} ({ctx.region})")
     print()
 
     # Build and validate template

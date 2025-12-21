@@ -17,7 +17,7 @@ class SkeletonInfo(NamedTuple):
 
 # Map skeleton names to their descriptions
 SKELETON_DESCRIPTIONS: dict[str, str] = {
-    "s3_bucket": "S3 bucket with encryption, versioning, and bucket policy",
+    "default": "Generic CloudFormation project structure",
 }
 
 
@@ -71,6 +71,54 @@ def _substitute_variables(content: str, variables: dict[str, str]) -> str:
     return re.sub(r"\{\{(\w+)\}\}", replace, content)
 
 
+def _process_template_dir(
+    pkg: resources.abc.Traversable,
+    output_dir: Path,
+    variables: dict[str, str],
+    created_files: list[Path],
+) -> None:
+    """Recursively process a template directory.
+
+    Args:
+        pkg: Package or directory to process.
+        output_dir: Directory to write generated files to.
+        variables: Variable substitution map.
+        created_files: List to append created file paths to.
+    """
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    for item in pkg.iterdir():
+        # Skip Python package infrastructure (not templates)
+        if item.name in ("__init__.py", "__pycache__"):
+            continue
+
+        if item.is_dir():
+            # Recursively process subdirectories
+            _process_template_dir(
+                item,
+                output_dir / item.name,
+                variables,
+                created_files,
+            )
+            continue
+
+        # Read template content
+        content = item.read_text()
+
+        # Determine output filename (strip .template suffix if present)
+        output_name = item.name
+        if output_name.endswith(".template"):
+            output_name = output_name[: -len(".template")]
+
+        # Substitute variables
+        content = _substitute_variables(content, variables)
+
+        # Write output file
+        output_path = output_dir / output_name
+        output_path.write_text(content)
+        created_files.append(output_path)
+
+
 def generate_skeleton(
     skeleton_name: str,
     output_dir: Path,
@@ -120,33 +168,13 @@ def generate_skeleton(
         "region": region,
     }
 
-    # Create output directory
-    output_dir.mkdir(parents=True, exist_ok=True)
-
     created_files: list[Path] = []
 
-    # Process each template file (skip package infrastructure files)
-    for item in skeleton_pkg.iterdir():
-        # Skip Python package infrastructure (not templates)
-        if item.name in ("__init__.py", "__pycache__"):
-            continue
-        if item.is_dir():
-            continue
+    # Process shared package templates first (IDE support files)
+    package_templates_pkg = resources.files("cloudformation_dataclasses.package_templates")
+    _process_template_dir(package_templates_pkg, output_dir, variables, created_files)
 
-        # Read template content
-        content = item.read_text()
-
-        # Determine output filename (strip .template suffix if present)
-        output_name = item.name
-        if output_name.endswith(".template"):
-            output_name = output_name[: -len(".template")]
-
-        # Substitute variables
-        content = _substitute_variables(content, variables)
-
-        # Write output file
-        output_path = output_dir / output_name
-        output_path.write_text(content)
-        created_files.append(output_path)
+    # Process skeleton-specific templates
+    _process_template_dir(skeleton_pkg, output_dir, variables, created_files)
 
     return created_files

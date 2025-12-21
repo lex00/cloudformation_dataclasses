@@ -16,7 +16,7 @@ class TestCLI:
 
         assert exit_code == 0
         captured = capsys.readouterr()
-        assert "s3_bucket" in captured.out
+        assert "default" in captured.out
         assert "Available skeletons" in captured.out
 
     def test_requires_skeleton_name(self, capsys: pytest.CaptureFixture[str]) -> None:
@@ -27,18 +27,17 @@ class TestCLI:
     def test_requires_output(self, capsys: pytest.CaptureFixture[str]) -> None:
         """Error when -o not provided."""
         with pytest.raises(SystemExit):
-            main(["s3-bucket"])
+            main(["default"])
 
     def test_generates_skeleton(self, tmp_path: Path) -> None:
         """CLI generates skeleton files."""
         output_dir = tmp_path / "my_project"
 
-        exit_code = main(["s3-bucket", "-o", str(output_dir)])
+        exit_code = main(["default", "-o", str(output_dir)])
 
         assert exit_code == 0
         assert (output_dir / "__init__.py").exists()
         assert (output_dir / "context.py").exists()
-        assert (output_dir / "bucket.py").exists()
         assert (output_dir / "main.py").exists()
 
     def test_custom_variables(self, tmp_path: Path) -> None:
@@ -46,7 +45,7 @@ class TestCLI:
         output_dir = tmp_path / "analytics"
 
         exit_code = main([
-            "s3-bucket",
+            "default",
             "-o", str(output_dir),
             "--project-name", "analytics",
             "--component", "storage",
@@ -70,7 +69,7 @@ class TestCLI:
         output_dir.mkdir()
         (output_dir / "file.txt").write_text("existing file")
 
-        exit_code = main(["s3-bucket", "-o", str(output_dir)])
+        exit_code = main(["default", "-o", str(output_dir)])
 
         assert exit_code == 1
         captured = capsys.readouterr()
@@ -92,7 +91,7 @@ class TestCLI:
         """Success message includes helpful next steps."""
         output_dir = tmp_path / "my_project"
 
-        main(["s3-bucket", "-o", str(output_dir)])
+        main(["default", "-o", str(output_dir)])
 
         captured = capsys.readouterr()
         assert "Next steps:" in captured.out

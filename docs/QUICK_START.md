@@ -13,7 +13,7 @@ pip install cloudformation_dataclasses
 Use the skeleton generator to create a new project with best practices:
 
 ```bash
-cfn-init s3-bucket -o my_project/
+cfn-init default -o my_project/
 ```
 
 This creates a complete project structure:
@@ -22,9 +22,13 @@ This creates a complete project structure:
 my_project/
 ├── __init__.py        # Package exports
 ├── context.py         # Deployment context (naming, tags, environment)
-├── bucket.py          # S3 bucket with encryption and versioning
-├── bucket_policy.py   # Bucket policy requiring encrypted uploads
 ├── main.py            # Template builder and entry point
+├── pyproject.toml     # Package config with dependencies
+├── py.typed           # PEP 561 typed package marker
+├── mypy.ini           # mypy type checking config
+├── CLAUDE.md          # Claude Code project guidance
+├── .vscode/           # VSCode settings
+│   └── settings.json
 └── README.md          # Project documentation
 ```
 
@@ -51,18 +55,30 @@ Resources using this context automatically get:
 - **Consistent naming**: Based on the naming pattern
 - **Base tags**: Applied to all resources
 
-### 2. Customize Resources
+### 2. Add Resources
 
-Edit `my_project/bucket.py` to configure the S3 bucket:
+Create a new file for each resource. For example, `my_project/bucket.py`:
 
 ```python
+from . import *
+from .context import ctx
+from cloudformation_dataclasses.aws.s3 import Bucket
+
 @cloudformation_dataclass
 class DataBucket:
     resource: Bucket
-    context = ctx                           # Use deployment context
-    tags = [DataClassificationTag]          # Additional resource tags
-    bucket_encryption = MyBucketEncryption  # Configuration wrapper
-    versioning_configuration = MyVersioningConfiguration
+    context = ctx
+    bucket_name = "my-data-bucket"
+```
+
+Then import it in `my_project/main.py`:
+
+```python
+from .bucket import DataBucket
+
+def build_template() -> Template:
+    bucket = DataBucket()  # Creates and registers the resource
+    return Template.from_registry()
 ```
 
 ### 3. Generate CloudFormation
@@ -71,23 +87,7 @@ class DataBucket:
 python -m my_project.main
 ```
 
-Output:
-```
-================================================================================
-RESOURCES
-================================================================================
-Bucket:        my_project-MyComponent-DataBucket-dev-001-blue-us-east-1
-Bucket Policy: my_project-MyComponent-DataBucketPolicy-dev-001-blue-us-east-1
-Environment:   dev (us-east-1)
-
-Tags (4):
-  Environment: dev
-  Project: MyProject
-  ManagedBy: cloudformation-dataclasses
-  DataClassification: internal
-
-Template validation passed!
-```
+This outputs the CloudFormation JSON template to stdout.
 
 ### 4. Deploy
 
@@ -106,7 +106,7 @@ aws cloudformation deploy \
 Customize the skeleton with CLI flags:
 
 ```bash
-cfn-init s3-bucket -o my_project/ \
+cfn-init default -o my_project/ \
     --project-name analytics \
     --component storage \
     --stage prod \
@@ -221,8 +221,8 @@ Benefits:
 Resources are automatically collected when you call `Template.from_registry()`:
 
 ```python
-bucket = DataBucket()        # Registered
-policy = DataBucketPolicy()  # Registered
+bucket = DataBucket()   # Registered
+role = MyIAMRole()      # Registered
 
 template = Template.from_registry()  # Collects all registered resources
 ```
