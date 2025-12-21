@@ -261,7 +261,7 @@ CloudFormation resource names do NOT include service prefixes:
 
 ### 5. Python Version
 
-Requires Python 3.13+ for latest dataclass and type hint features.
+Requires Python 3.10+ for union syntax (`X | Y`) and built-in generics.
 
 ## Code Generation Algorithm
 

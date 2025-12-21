@@ -20,7 +20,7 @@ This guide provides comprehensive information for developers working on `cloudfo
 
 ### Prerequisites
 
-- **Python 3.13+** (required)
+- **Python 3.10+** (required)
 - **uv** (recommended package manager)
 - **git** (version control)
 
@@ -533,7 +533,7 @@ uv pip install cloudformation_dataclasses
 
 **Jobs**:
 1. **Test** - Run test suite with coverage
-   - Python 3.13 on Ubuntu
+   - Python 3.10-3.13 on Ubuntu
    - Upload coverage to Codecov
 
 2. **Lint** - Code quality checks

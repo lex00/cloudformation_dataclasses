@@ -4,7 +4,7 @@
 
 A pure Python library that uses dataclasses as a declarative interface for AWS CloudFormation template generation. Zero runtime dependencies, fully type-safe, IDE-friendly.
 
-[![Python 3.13+](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/downloads/)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Features
@@ -550,6 +550,6 @@ MIT License - see [LICENSE](LICENSE)
 
 ## Acknowledgments
 
-Built with Python 3.13, uv, and AWS CloudFormation Resource Specifications.
+Built with Python 3.10+, uv, and AWS CloudFormation Resource Specifications.
 
 Generated with [Claude Code](https://claude.ai/code)
