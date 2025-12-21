@@ -1,19 +1,22 @@
 [project]
 name = "cloudformation_dataclasses"
-version = "0.5.1"  # Package version (independent of spec/generator versions)
+version = "0.5.2"  # Package version (independent of spec/generator versions)
 description = "Python dataclasses for AWS CloudFormation template synthesis"
 readme = "README.md"
 authors = [
     { name = "lex00", email = "121451605+lex00@users.noreply.github.com" }
 ]
 license = { text = "MIT" }
-requires-python = ">=3.13"
+requires-python = ">=3.10"
 keywords = ["aws", "cloudformation", "infrastructure", "iac", "dataclasses"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Topic :: System :: Systems Administration",
@@ -41,8 +44,8 @@ dev = [
 ]
 
 [project.scripts]
-cfn-import = "cloudformation_dataclasses.importer.cli:main"
-cfn-init = "cloudformation_dataclasses.skeleton.cli:main"
+cfn-dataclasses-import = "cloudformation_dataclasses.importer.cli:main"
+cfn-dataclasses-init = "cloudformation_dataclasses.skeleton.cli:main"
 
 [project.urls]
 Homepage = "https://github.com/lex00/cloudformation_dataclasses"
@@ -85,26 +88,25 @@ dev = [
 
 [tool.black]
 line-length = 100
-target-version = ['py313']
+target-version = ['py310']
 include = '\.pyi?$'
 extend-exclude = '''
 (
     src/cloudformation_dataclasses/aws/
+    | examples/
 )
 '''
 
 [tool.ruff]
 line-length = 100
-target-version = "py313"
+target-version = "py310"
 extend-exclude = [
     "src/cloudformation_dataclasses/aws/",  # Generated code - skip linting
+    "examples/",  # Generated/third-party examples - skip linting
 ]
 
-[tool.ruff.lint.per-file-ignores]
-"examples/aws_cloudformation_templates/*/*.py" = ["F403", "F405"]  # Star imports for brevity
-
 [tool.mypy]
-python_version = "3.13"
+python_version = "3.10"
 strict = true
 warn_return_any = true
 warn_unused_configs = true

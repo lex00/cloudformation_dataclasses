@@ -63,9 +63,20 @@ class ResourceRegistry:
                 self._by_type[resource_type] = []
             self._by_type[resource_type].append(wrapper_cls)
 
-    def get_all(self) -> list[Type[Any]]:
-        """Get all registered wrapper classes."""
-        return list(self._resources.values())
+    def get_all(self, scope_package: str | None = None) -> list[Type[Any]]:
+        """Get all registered wrapper classes, optionally filtered by package.
+
+        Args:
+            scope_package: If provided, only return resources from modules
+                that start with this package name.
+
+        Returns:
+            List of registered wrapper classes.
+        """
+        resources = list(self._resources.values())
+        if scope_package:
+            resources = [r for r in resources if r.__module__.startswith(scope_package)]
+        return resources
 
     def get_by_type(self, resource_type: Type[Any] | str) -> list[Type[Any]]:
         """

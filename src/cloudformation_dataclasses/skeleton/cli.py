@@ -1,4 +1,4 @@
-"""CLI for skeleton generator (cfn-init command)."""
+"""CLI for skeleton generator (cfn-dataclasses-init command)."""
 
 from __future__ import annotations
 
@@ -10,7 +10,7 @@ from .generator import generate_skeleton, list_skeletons
 
 
 def main(argv: list[str] | None = None) -> int:
-    """Main entry point for cfn-init CLI.
+    """Main entry point for cfn-dataclasses-init CLI.
 
     Args:
         argv: Command line arguments (defaults to sys.argv[1:]).
@@ -19,9 +19,9 @@ def main(argv: list[str] | None = None) -> int:
         Exit code (0 for success, non-zero for errors).
     """
     parser = argparse.ArgumentParser(
-        prog="cfn-init",
+        prog="cfn-dataclasses-init",
         description="Generate a new cloudformation_dataclasses project skeleton.",
-        epilog="Example: cfn-init s3-bucket -o my_project/",
+        epilog="Example: cfn-dataclasses-init s3-bucket -o my_project/",
     )
 
     parser.add_argument(

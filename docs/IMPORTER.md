@@ -16,30 +16,31 @@ uv pip install cloudformation-dataclasses[importer]
 
 ```bash
 # Convert a template to Python (after pip install)
-cfn-import template.yaml -o my_stack.py
+cfn-dataclasses-import template.yaml -o my_stack.py
 
 # Or if working from source with uv
-uv run cfn-import template.yaml -o my_stack.py
+uv run cfn-dataclasses-import template.yaml -o my_stack.py
 
 # Read from stdin, write to stdout
-cat template.yaml | cfn-import -
+cat template.yaml | cfn-dataclasses-import -
 
 # JSON templates work too
-cfn-import template.json -o my_stack.py
+cfn-dataclasses-import template.json -o my_stack.py
 ```
 
 ## CLI Reference
 
 ```
-cfn-import [OPTIONS] INPUT
+cfn-dataclasses-import [OPTIONS] INPUT
 
 Arguments:
-  INPUT                      Template file path, or "-" for stdin
+  INPUT                      Template file or directory (batch mode)
 
 Options:
   -o, --output PATH          Output path: directory for package, .py file for single file
                              Default: stdout (single file)
   --no-main                  Omit if __name__ == '__main__' block (single-file only)
+  --skip-checks              Skip validation, linting, and test generation
   --version                  Show version and exit
   --help                     Show this message and exit
 ```
@@ -59,43 +60,150 @@ The importer automatically determines whether to generate a package or single fi
 
 ```bash
 # Generate as package (default when -o is a directory)
-cfn-import vpc.yaml -o infrastructure/vpc/
+cfn-dataclasses-import vpc.yaml -o infrastructure/vpc/
 
 # Generate as single file (when -o ends with .py)
-cfn-import vpc.yaml -o vpc.py
+cfn-dataclasses-import vpc.yaml -o vpc.py
 
 # Omit the main block for library modules
-cfn-import vpc.yaml --no-main -o vpc.py
+cfn-dataclasses-import vpc.yaml --no-main -o vpc.py
 
 # Pipe for quick preview
-cfn-import template.yaml | less
+cfn-dataclasses-import template.yaml | less
 ```
+
+### Batch Mode
+
+Import multiple templates from a directory:
+
+```bash
+cfn-dataclasses-import /path/to/templates/ -o examples/3rd_party/source_name/
+```
+
+**Example output:**
+```
+Found 5 template(s) in /path/to/templates
+Importing vpc.yaml... ✓
+Importing lambda.yaml... ✗
+Importing s3.yaml... ✓
+Importing dynamodb.yaml... ✓
+Importing api.yaml... ✓
+
+Summary: 4/5 succeeded
+Failed:
+  - lambda.yaml: Error parsing template
+
+Log: examples/3rd_party/source_name/import.log
+```
+
+**Batch mode automatically:**
+- Recursively finds all `.yaml`, `.yml`, and `.json` templates
+- Creates separate package for each template
+- Detects attribution from source README/LICENSE
+- Logs output to `import.log`
+- Continues on error (each template is independent)
+
+**Folder structure (nested package):**
+```
+examples/3rd_party/source_name/
+├── import.log           # Batch log file
+├── vpc/                 # From vpc.yaml (project root)
+│   ├── pyproject.toml   # Portable package config
+│   ├── README.md        # Auto-generated with attribution
+│   ├── .gitignore       # Python gitignore
+│   ├── py.typed
+│   ├── mypy.ini
+│   ├── CLAUDE.md
+│   ├── .vscode/
+│   │   └── settings.json
+│   ├── original/        # Source template preserved
+│   │   └── vpc.yaml
+│   ├── tests/           # Auto-generated tests
+│   │   ├── __init__.py
+│   │   └── test_vpc.py
+│   └── vpc/             # Actual Python package
+│       ├── __init__.py
+│       ├── __main__.py  # For `python -m vpc`
+│       ├── config.py
+│       ├── main.py
+│       └── resources/
+│           ├── __init__.py
+│           └── *.py
+├── s3/                  # From s3.yaml
+│   └── ...
+└── dynamodb/            # From dynamodb.yaml
+    └── ...
+```
+
+Each generated package is **portable** - you can copy it into another project and use it directly with `uv run python -m vpc` or `uv run pytest tests/`.
+
+**Attribution detection:**
+
+The importer walks up the directory tree (up to 5 levels) to find attribution info. This handles importing from subdirectories of a repo.
+
+| Source | Extracted Info | Priority |
+|--------|---------------|----------|
+| `.git/config` | Remote origin URL (GitHub/GitLab) | **Highest** |
+| `README.md` | GitHub/GitLab URL (fallback), project name (first heading) | Lower |
+| `LICENSE`, `LICENSE.txt`, `LICENSE.md` | License type (MIT, Apache-2.0, GPL, BSD) | - |
+
+Git remote origin takes priority over URLs found in README, ensuring the correct repository is attributed even when the README links to other projects.
+
+Each generated package gets a README with:
+- Source attribution and license info
+- uv installation requirement with link
+- Usage instructions (portable package, run tests, generate template)
+- Resource table listing all CloudFormation resources
+
+**Skip checks for debugging:**
+```bash
+cfn-dataclasses-import /path/to/templates/ -o output/ --skip-checks
+```
+
+Skips validation, linting, and test generation.
 
 ### Package Output
 
-When the output path is a directory, the importer generates a Python package with multiple files instead of a single file. This is useful for larger templates and provides cleaner imports. Each resource gets its own file for better readability and AI-friendly context management.
+When the output path is a directory, the importer generates a portable Python package with a nested structure. Each resource gets its own file for better readability and AI-friendly context management.
 
 ```bash
-cfn-import template.yaml -o my_stack/
+cfn-dataclasses-import template.yaml -o my_stack/
 ```
 
-This generates:
+This generates a **nested package structure**:
 ```
-my_stack/
-├── __init__.py              # Centralized imports
-├── config.py                # Parameters, Mappings, Conditions
-├── resources/               # One file per resource
-│   ├── __init__.py          # Re-exports all resources
-│   ├── my_bucket.py         # ~40-80 lines per resource
-│   ├── my_log_bucket.py
-│   └── bucket_policy.py
-├── outputs.py               # Output definitions (if any)
-└── main.py                  # build_template() + __main__
+my_stack/                    # Project root
+├── pyproject.toml           # Package config with uv/pip support
+├── README.md                # Usage instructions + resource table
+├── .gitignore               # Python gitignore
+├── original/                # Source template preserved
+│   └── template.yaml
+├── tests/                   # Auto-generated tests
+│   ├── __init__.py
+│   └── test_my_stack.py
+└── my_stack/                # Actual Python package
+    ├── __init__.py          # Centralized imports
+    ├── __main__.py          # For `python -m my_stack`
+    ├── config.py            # Parameters, Mappings, Conditions
+    ├── main.py              # build_template() entry point
+    ├── outputs.py           # Output definitions (if any)
+    └── resources/           # One file per resource
+        ├── __init__.py      # Re-exports all resources
+        ├── my_bucket.py     # ~40-80 lines per resource
+        ├── my_log_bucket.py
+        └── bucket_policy.py
+```
+
+**Run the generated package:**
+```bash
+cd my_stack/
+uv run python -m my_stack     # Generate CloudFormation JSON
+uv run pytest tests/ -v       # Run tests (pytest auto-installed)
 ```
 
 **`__init__.py`** - Centralizes all imports:
 ```python
-"""My Stack - generated by cfn-import."""
+"""My Stack - generated by cfn-dataclasses-import."""
 from cloudformation_dataclasses.core import (
     cloudformation_dataclass, ref, get_att, Template, Parameter, ...
 )
@@ -547,6 +655,45 @@ Resources:
 - Wrapper classes for policy structures
 - Proper dependency tracking
 
+## Lessons Learned
+
+### Forward References in Generated Code
+
+The importer automatically generates annotation-based forward references for cross-resource dependencies:
+
+```python
+from __future__ import annotations
+
+@cloudformation_dataclass
+class ContentBucketLoggingConfiguration:
+    resource: LoggingConfiguration
+    destination_bucket_name: Ref[ContentLogBucket] = ref()  # Annotation-based ref
+
+@cloudformation_dataclass
+class MyLambdaFunction:
+    resource: Function
+    role: GetAtt[LambdaIAMRole] = get_att("Arn")  # Annotation-based GetAtt
+```
+
+See [Forward References](FORWARD_REFERENCES.md) for details.
+
+### DependsOn Class References
+
+Resources in `depends_on` use class references instead of strings:
+
+```python
+from .lambda_invoke_permission import LambdaInvokePermission
+
+@cloudformation_dataclass
+class S3BucketNotification:
+    resource: Bucket
+    depends_on = [LambdaInvokePermission]  # Class reference
+```
+
+### Parameter-Only Sub Patterns
+
+When a `!Sub` expression references only parameters (not resources), the importer preserves `Sub()` instead of converting to `get_att()`.
+
 ## Limitations
 
 ### Not Yet Supported
@@ -590,8 +737,9 @@ template = parse_template(yaml_content, source_name="inline.yaml")
 code = generate_code(template, include_main=True)
 print(code)
 
-# Generate package (multiple files)
-files = generate_package(template)
+# Generate package (multiple files with nested structure)
+package_name = "my_stack"
+files = generate_package(template, package_name=package_name)
 for filename, content in files.items():
     print(f"=== {filename} ===")
     print(content)
@@ -600,7 +748,9 @@ for filename, content in files.items():
 output_dir = Path("my_stack")
 output_dir.mkdir(exist_ok=True)
 for filename, content in files.items():
-    (output_dir / filename).write_text(content)
+    file_path = output_dir / filename
+    file_path.parent.mkdir(parents=True, exist_ok=True)
+    file_path.write_text(content)
 
 # Access the IR directly
 for name, resource in template.resources.items():

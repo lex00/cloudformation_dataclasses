@@ -714,13 +714,14 @@ class Template:
         outputs: dict[str, Output] | list[Any] | None = None,
         conditions: dict[str, Condition] | list[Any] | None = None,
         mappings: dict[str, Mapping] | list[Any] | None = None,
+        scope_package: str | bool | None = None,
         **kwargs: Any,
     ) -> "Template":
         """
-        Build a template from all registered resources.
+        Build a template from registered resources.
 
-        Resources are automatically discovered from the global registry.
-        No need to list them manually.
+        By default, only resources from the caller's package are included.
+        This enables multiple independent packages to coexist without conflicts.
 
         Example:
             >>> from cloudformation_dataclasses import registry, Template
@@ -736,7 +737,7 @@ class Template:
             >>>     resource: Table
             >>>     table_name = "my-table"
             >>>
-            >>> # Build template from all registered resources
+            >>> # Build template from registered resources in this package
             >>> template = Template.from_registry(description="My Infrastructure")
 
         Args:
@@ -745,12 +746,31 @@ class Template:
             outputs: Template outputs (dict or list of wrapper classes)
             conditions: Template conditions (dict or list of wrapper classes)
             mappings: Template mappings (dict or list of wrapper classes)
+            scope_package: Package scope for resource discovery:
+                - None (default): Auto-detect caller's package
+                - False: Use global registry (all resources)
+                - str: Filter to resources in the specified package
             **kwargs: Additional Template constructor arguments
 
         Returns:
-            A Template instance containing all registered resources
+            A Template instance containing registered resources
         """
+        import inspect
+
         from cloudformation_dataclasses.core.registry import registry
+
+        # Auto-detect caller's package if scope_package is None
+        if scope_package is None:
+            frame = inspect.currentframe()
+            if frame and frame.f_back:
+                caller_module = frame.f_back.f_globals.get("__name__", "")
+                # Get package (drop the last component, e.g., "my_stack.main" -> "my_stack")
+                if "." in caller_module:
+                    scope_package = caller_module.rsplit(".", 1)[0]
+                else:
+                    scope_package = caller_module
+        elif scope_package is False:
+            scope_package = None  # Explicit global scope
 
         return cls(
             description=description,
@@ -758,7 +778,7 @@ class Template:
             outputs=outputs if outputs is not None else {},
             conditions=conditions if conditions is not None else {},
             mappings=mappings if mappings is not None else {},
-            resources=registry.get_all(),
+            resources=registry.get_all(scope_package=scope_package),
             **kwargs,
         )
 

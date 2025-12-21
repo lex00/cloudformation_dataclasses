@@ -4,6 +4,7 @@ This guide provides comprehensive information for developers working on `cloudfo
 
 ## Table of Contents
 
+- [Architecture](#architecture)
 - [Development Setup](#development-setup)
 - [Project Structure](#project-structure)
 - [Building the Project](#building-the-project)
@@ -16,11 +17,30 @@ This guide provides comprehensive information for developers working on `cloudfo
 
 ---
 
+## Architecture
+
+### Design Principles
+
+1. **Generated, Not Hand-Written** - All AWS resources auto-generated from CloudFormation specs
+2. **Type Safety Throughout** - Full Python type annotations with mypy/pyright support
+3. **Zero Runtime Dependencies** - Core package requires nothing (pyyaml optional)
+4. **Pythonic Ergonomics** - snake_case properties mapping to CloudFormation PascalCase
+5. **Explicit Over Implicit** - Clear behavior, no magic
+
+### Two-Layer Validation
+
+1. **Static Type Checking** (development time) - mypy/pyright catch type errors
+2. **CloudFormation Validation** (deployment time) - AWS validates templates
+
+No Pydantic or runtime validation needed - minimal dependencies, CloudFormation as source of truth.
+
+---
+
 ## Development Setup
 
 ### Prerequisites
 
-- **Python 3.13+** (required)
+- **Python 3.10+** (required)
 - **uv** (recommended package manager)
 - **git** (version control)
 
@@ -71,7 +91,7 @@ cloudformation_dataclasses/
 │   │   ├── base.py                     # CloudFormationResource, DeploymentContext, Tag
 │   │   ├── constants.py                # CloudFormation parameter type constants
 │   │   ├── template.py                 # Template, Parameter, Output, Condition
-│   │   └── wrapper.py                  # @cloudformation_dataclass decorator
+│   │   └── wrapper.py                  # @cloudformation_dataclass decorator, Ref[T], GetAtt[T]
 │   ├── intrinsics/                     # Intrinsic functions
 │   │   └── functions.py                # Ref, GetAtt, Sub, Join, etc.
 │   ├── codegen/                        # Code generation tools (dev-time only)
@@ -431,7 +451,7 @@ uv run python -c "from cloudformation_dataclasses import __version__; print(__ve
 git commit -m "Bump version to 0.4.0"
 ```
 
-**Note**: The `cfn-import` CLI automatically uses the version from `__version__.py`, so no separate update is needed there.
+**Note**: The `cfn-dataclasses-import` CLI automatically uses the version from `__version__.py`, so no separate update is needed there.
 
 ---
 
@@ -533,7 +553,7 @@ uv pip install cloudformation_dataclasses
 
 **Jobs**:
 1. **Test** - Run test suite with coverage
-   - Python 3.13 on Ubuntu
+   - Python 3.10-3.13 on Ubuntu
    - Upload coverage to Codecov
 
 2. **Lint** - Code quality checks
@@ -698,6 +718,7 @@ uv run python -m cloudformation_dataclasses.codegen.spec_parser version
 ## Additional Resources
 
 - **User Guide**: [README.md](../README.md) - End-user documentation
+- **Forward References**: [FORWARD_REFERENCES.md](./FORWARD_REFERENCES.md) - Cross-module refs with `Ref[T]` and `GetAtt[T]`
 - **Template Importer**: [IMPORTER.md](./IMPORTER.md) - Convert CloudFormation templates to Python
 - **Linter**: [LINTER.md](./LINTER.md) - Detect and fix common mistakes
 - **Agent Guide**: [AGENT_GUIDE.md](./AGENT_GUIDE.md) - Workflows for AI assistants
@@ -707,5 +728,5 @@ uv run python -m cloudformation_dataclasses.codegen.spec_parser version
 
 ---
 
-**Last Updated**: 2025-12-18
-**For**: v0.4.0 (spec-2025.12.11_gen-1.0.0)
+**Last Updated**: 2025-12-21
+**For**: v0.5.2 (spec-2025.12.11_gen-1.0.0)

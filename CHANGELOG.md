@@ -15,6 +15,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.5.2] - 2025-12-21
+
+### Changed
+- **Refocused README.md** - Brief sales pitch with prominent documentation links
+  - Simplified example using star imports matching generated code style
+  - Added documentation table for easy navigation
+  - Removed detailed content (moved to dedicated docs)
+- **Added Architecture section to DEVELOPERS.md** - Design principles and two-layer validation
+
+### Removed
+- Unnecessary namespace `__init__.py` files in examples/third_party/
+
+---
+
 ## [0.5.0] - 2025-12-21
 
 ### Changed
@@ -31,7 +45,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Fixes circular import issues in generated code
 
 ### Removed
-- `-m/--mode` CLI option from `cfn-import`
+- `-m/--mode` CLI option from `cfn-dataclasses-import`
 - `OutputMode` enum from codegen
 - `builders.py` module
 - Mixed mode examples and documentation
@@ -41,7 +55,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.4.0] - 2025-12-18
 
 ### Added
-- **CloudFormation Template Importer** (`cfn-import` CLI tool)
+- **CloudFormation Template Importer** (`cfn-dataclasses-import` CLI tool)
   - Convert existing YAML/JSON CloudFormation templates to Python code
   - Declarative wrapper classes with `@cloudformation_dataclass`
   - Supports all CloudFormation intrinsic functions (!Ref, !GetAtt, !Sub, !Join, !If, etc.)
@@ -52,7 +66,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Updated README.md with Tools section for importer and generator
-- Documentation now clarifies `uv run cfn-import` usage for development from source
+- Documentation now clarifies `uv run cfn-dataclasses-import` usage for development from source
 
 ---
 
@@ -308,7 +322,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 This project uses three independent versions:
 
-1. **Package Version** (0.4.0) - Semantic versioning for the package
+1. **Package Version** (0.5.2) - Semantic versioning for the package
    - MAJOR: Breaking API changes
    - MINOR: New features, backward compatible
    - PATCH: Bug fixes, backward compatible

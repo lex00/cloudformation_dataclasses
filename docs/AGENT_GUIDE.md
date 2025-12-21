@@ -26,20 +26,48 @@ Ask:
 Run the project generator:
 
 ```bash
-cfn-init s3-bucket -o <project_name>/
+cfn-dataclasses-init s3-bucket -o <project_name>/
 ```
 
-Available skeletons (check with `cfn-init --list`):
+Available skeletons (check with `cfn-dataclasses-init --list`):
 - `s3-bucket` - S3 bucket with encryption, versioning, and bucket policy
 
 Customize with flags:
 ```bash
-cfn-init s3-bucket -o my_project/ \
+cfn-dataclasses-init s3-bucket -o my_project/ \
     --project-name analytics \
     --component storage \
     --stage prod \
     --region us-west-2
 ```
+
+**Generated project structure:**
+```
+my_project/
+├── pyproject.toml           # Package config (uv/pip)
+├── my_project/
+│   ├── __init__.py          # Centralized imports from library
+│   ├── config.py            # DeploymentContext, Parameters
+│   ├── main.py              # build_template() entry point
+│   └── resources/
+│       ├── __init__.py      # Auto-discovery: imports all resource files
+│       ├── bucket.py        # One file per resource
+│       └── bucket_policy.py
+└── tests/
+    └── test_my_project.py
+```
+
+**How auto-discovery works:**
+
+`resources/__init__.py` imports all resource modules:
+```python
+from my_project.resources.bucket import *
+from my_project.resources.bucket_policy import *
+```
+
+When `main.py` imports from `resources`, all `@cloudformation_dataclass` decorators run, registering each resource in the global registry. Then `Template.from_registry()` collects them all.
+
+**Key pattern:** Import triggers registration. No explicit resource list needed.
 
 ### Step 3: Customize DeploymentContext
 
@@ -64,16 +92,33 @@ ctx_prod = MyProjectContext(stage="prod")   # Override stage
 
 ### Step 4: Add Resources
 
-For each resource, create a wrapper class:
+For each new resource:
+
+1. **Create a new file** in `resources/` (e.g., `resources/lambda_function.py`)
+2. **Add the import** to `resources/__init__.py`
+3. **Define wrapper class** with `@cloudformation_dataclass`
 
 ```python
+# resources/lambda_function.py
+from __future__ import annotations
+from my_project import *  # Gets all imports from __init__.py
+
 @cloudformation_dataclass
-class MyBucket:
-    resource: Bucket
-    context = ctx  # Use deployment context for naming
-    bucket_encryption = MyBucketEncryption
-    versioning_configuration = MyVersioningConfiguration
+class MyFunction:
+    resource: Function
+    context = ctx  # From config.py
+    function_name: str = "my-handler"
+    runtime = Runtime.PYTHON3_12
+    handler: str = "index.handler"
+    role: GetAtt[ExecutionRole] = get_att("Arn")  # Reference another resource
 ```
+
+Then add to `resources/__init__.py`:
+```python
+from my_project.resources.lambda_function import *
+```
+
+**Key pattern:** Each resource file imports `from my_project import *` to get all library imports and config.
 
 ### Step 5: Build and Validate
 
@@ -109,14 +154,28 @@ Ask for the template file path or have them paste the content.
 
 ```bash
 # Generate as package (recommended for larger templates)
-cfn-import template.yaml -o my_stack/
+cfn-dataclasses-import template.yaml -o my_stack/
 
 # Generate as single file
-cfn-import template.yaml -o my_stack.py
+cfn-dataclasses-import template.yaml -o my_stack.py
 
 # Preview output
-cfn-import template.yaml | less
+cfn-dataclasses-import template.yaml | less
 ```
+
+### For Multiple Templates (Batch Mode)
+
+```bash
+cfn-dataclasses-import /path/to/templates/ -o examples/3rd_party/source/
+```
+
+Batch mode automatically:
+- Recursively finds all templates
+- Creates separate package for each
+- Detects attribution from source README/LICENSE
+- Logs output to `import.log`
+
+See [IMPORTER.md](IMPORTER.md) for details on batch importing.
 
 ### Step 3: Review Generated Code
 
@@ -293,7 +352,7 @@ Generate the template and validate it.
 
 ### Expected Actions
 
-1. Create project with `cfn-init s3-bucket -o test_bucket/` or write code directly
+1. Create project with `cfn-dataclasses-init s3-bucket -o test_bucket/` or write code directly
 2. Set DeploymentContext with provided values
 3. Configure bucket with:
    - `ServerSideEncryption.AES256` (NOT string `"AES256"`)
@@ -333,5 +392,5 @@ print("✓ All validations passed")
 ## See Also
 
 - [QUICK_START.md](QUICK_START.md) - Project generator and DeploymentContext reference
-- [IMPORTER.md](IMPORTER.md) - cfn-import command usage
+- [IMPORTER.md](IMPORTER.md) - cfn-dataclasses-import command usage
 - [LINTER.md](LINTER.md) - Linter rules and auto-fix

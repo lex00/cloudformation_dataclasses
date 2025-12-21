@@ -31,19 +31,19 @@ The linter includes 5 rules:
 | CFD004 | StringShouldBeEnum | `sse_algorithm = "AES256"` | `ServerSideEncryption.AES256` |
 | CFD005 | DictShouldBePropertyType | `{"ServerSideEncryptionConfiguration": ...}` | `BucketEncryption(...)` |
 
-## Integration with cfn-import
+## Integration with cfn-dataclasses-import
 
-The linter is integrated with the `cfn-import` command and runs automatically by default:
+The linter is integrated with the `cfn-dataclasses-import` command and runs automatically by default:
 
 ```bash
 # Lint is enabled by default
-cfn-import template.yaml -o output.py
+cfn-dataclasses-import template.yaml -o output.py
 
 # Explicitly enable (same as default)
-cfn-import template.yaml --lint -o output.py
+cfn-dataclasses-import template.yaml --lint -o output.py
 
 # Disable linting to see raw generated code
-cfn-import template.yaml --no-lint -o output.py
+cfn-dataclasses-import template.yaml --no-lint -o output.py
 ```
 
 ## Programmatic Usage
@@ -230,7 +230,7 @@ issues = lint_code(code, rules=[
 
 ## Best Practices
 
-1. **Always run with linting enabled** when using `cfn-import` - it's on by default
+1. **Always run with linting enabled** when using `cfn-dataclasses-import` - it's on by default
 2. **Review generated code** after import to understand the structure
 3. **Use IDE autocompletion** with enum and constant classes to discover valid values
 4. **Prefer type-safe constants** over string literals for:
@@ -241,6 +241,7 @@ issues = lint_code(code, rules=[
 
 ## See Also
 
+- [Forward References](./FORWARD_REFERENCES.md) - Cross-module resource references with `Ref[T]` and `GetAtt[T]` (not handled by linter)
 - [Agent Guide](./AGENT_GUIDE.md) - Workflows for AI assistants
 - [IMPORTER.md](IMPORTER.md) - Full importer documentation
 - [README.md](../README.md) - Library overview

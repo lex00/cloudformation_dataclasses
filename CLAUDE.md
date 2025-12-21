@@ -9,12 +9,12 @@ When helping users with this library, read the appropriate guide:
 | User Intent | Guide |
 |-------------|-------|
 | Create new project, add resources | [docs/AGENT_GUIDE.md](docs/AGENT_GUIDE.md) |
-| Import existing CloudFormation template | [docs/IMPORT_WORKFLOW.md](docs/IMPORT_WORKFLOW.md) |
+| Import existing CloudFormation template | [docs/IMPORTER.md](docs/IMPORTER.md) |
 | Refactor existing code | [docs/AGENT_GUIDE.md](docs/AGENT_GUIDE.md) |
 
 **Key Tools:**
-- `cfn-init <skeleton> -o <dir>/` - Generate new project from skeleton
-- `cfn-import <template> -o <output>` - Import CloudFormation YAML/JSON
+- `cfn-dataclasses-init <skeleton> -o <dir>/` - Generate new project from skeleton
+- `cfn-dataclasses-import <template> -o <output>` - Import CloudFormation YAML/JSON
 
 **Always validate after generating code:**
 ```python
@@ -261,7 +261,7 @@ CloudFormation resource names do NOT include service prefixes:
 
 ### 5. Python Version
 
-Requires Python 3.13+ for latest dataclass and type hint features.
+Requires Python 3.10+ for union syntax (`X | Y`) and built-in generics.
 
 ## Code Generation Algorithm
 
