@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from cloudformation_dataclasses.importer.codegen import generate_code
+from cloudformation_dataclasses.importer.codegen import generate_code, generate_package
 from cloudformation_dataclasses.importer.parser import parse_template
 
 TEMPLATES_DIR = Path(__file__).parent / "templates"
@@ -182,3 +182,46 @@ class TestBlockModeWithPolicies:
 
     def test_generated_code_is_valid_python(self, code):
         compile(code, "<test>", "exec")
+
+
+class TestGeneratePackage:
+    """Tests for generate_package with nested structure."""
+
+    @pytest.fixture
+    def files(self):
+        template = parse_template(TEMPLATES_DIR / "simple_bucket.yaml")
+        return generate_package(template, package_name="my_stack")
+
+    def test_files_have_package_prefix(self, files):
+        """All files should be prefixed with package_name/."""
+        for filename in files:
+            assert filename.startswith("my_stack/"), f"{filename} missing prefix"
+
+    def test_has_init_py(self, files):
+        assert "my_stack/__init__.py" in files
+
+    def test_has_main_py(self, files):
+        assert "my_stack/main.py" in files
+
+    def test_has_dunder_main(self, files):
+        """Should have __main__.py for python -m support."""
+        assert "my_stack/__main__.py" in files
+        content = files["my_stack/__main__.py"]
+        assert "from .main import main" in content
+        assert "main()" in content
+
+    def test_has_config_py(self, files):
+        assert "my_stack/config.py" in files
+
+    def test_has_resources_package(self, files):
+        assert "my_stack/resources/__init__.py" in files
+
+    def test_main_has_build_template(self, files):
+        content = files["my_stack/main.py"]
+        assert "def build_template()" in content
+        assert "Template.from_registry(" in content
+
+    def test_all_files_are_valid_python(self, files):
+        for filename, content in files.items():
+            if filename.endswith(".py"):
+                compile(content, filename, "exec")

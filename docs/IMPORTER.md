@@ -103,42 +103,57 @@ Log: examples/3rd_party/source_name/import.log
 - Logs output to `import.log`
 - Continues on error (each template is independent)
 
-**Folder structure:**
+**Folder structure (nested package):**
 ```
 examples/3rd_party/source_name/
 ├── import.log           # Batch log file
-├── vpc/                 # From vpc.yaml
-│   ├── __init__.py
-│   ├── config.py
-│   ├── resources/
-│   │   ├── __init__.py
-│   │   └── *.py         # One file per resource
-│   ├── main.py
+├── vpc/                 # From vpc.yaml (project root)
+│   ├── pyproject.toml   # Portable package config
 │   ├── README.md        # Auto-generated with attribution
-│   ├── tests/
-│   │   └── ...
-│   ├── pyproject.toml
+│   ├── .gitignore       # Python gitignore
 │   ├── py.typed
 │   ├── mypy.ini
 │   ├── CLAUDE.md
-│   └── .vscode/
-│       └── settings.json
+│   ├── .vscode/
+│   │   └── settings.json
+│   ├── original/        # Source template preserved
+│   │   └── vpc.yaml
+│   ├── tests/           # Auto-generated tests
+│   │   ├── __init__.py
+│   │   └── test_vpc.py
+│   └── vpc/             # Actual Python package
+│       ├── __init__.py
+│       ├── __main__.py  # For `python -m vpc`
+│       ├── config.py
+│       ├── main.py
+│       └── resources/
+│           ├── __init__.py
+│           └── *.py
 ├── s3/                  # From s3.yaml
 │   └── ...
 └── dynamodb/            # From dynamodb.yaml
     └── ...
 ```
 
+Each generated package is **portable** - you can copy it into another project and use it directly with `uv run python -m vpc` or `uv run pytest tests/`.
+
 **Attribution detection:**
 
-The importer checks the source directory for:
+The importer walks up the directory tree (up to 5 levels) to find attribution info. This handles importing from subdirectories of a repo.
 
-| File | Extracted Info |
-|------|---------------|
-| `README.md` | GitHub/GitLab URL, project name (first heading) |
-| `LICENSE` | License type (MIT, Apache-2.0, GPL, BSD) |
+| Source | Extracted Info | Priority |
+|--------|---------------|----------|
+| `.git/config` | Remote origin URL (GitHub/GitLab) | **Highest** |
+| `README.md` | GitHub/GitLab URL (fallback), project name (first heading) | Lower |
+| `LICENSE`, `LICENSE.txt`, `LICENSE.md` | License type (MIT, Apache-2.0, GPL, BSD) | - |
 
-Each generated example gets a README with proper attribution. If no README/LICENSE is found, a minimal README is generated without attribution.
+Git remote origin takes priority over URLs found in README, ensuring the correct repository is attributed even when the README links to other projects.
+
+Each generated package gets a README with:
+- Source attribution and license info
+- uv installation requirement with link
+- Usage instructions (portable package, run tests, generate template)
+- Resource table listing all CloudFormation resources
 
 **Skip checks for debugging:**
 ```bash
@@ -149,24 +164,41 @@ Skips validation, linting, and test generation.
 
 ### Package Output
 
-When the output path is a directory, the importer generates a Python package with multiple files instead of a single file. This is useful for larger templates and provides cleaner imports. Each resource gets its own file for better readability and AI-friendly context management.
+When the output path is a directory, the importer generates a portable Python package with a nested structure. Each resource gets its own file for better readability and AI-friendly context management.
 
 ```bash
 cfn-import template.yaml -o my_stack/
 ```
 
-This generates:
+This generates a **nested package structure**:
 ```
-my_stack/
-├── __init__.py              # Centralized imports
-├── config.py                # Parameters, Mappings, Conditions
-├── resources/               # One file per resource
-│   ├── __init__.py          # Re-exports all resources
-│   ├── my_bucket.py         # ~40-80 lines per resource
-│   ├── my_log_bucket.py
-│   └── bucket_policy.py
-├── outputs.py               # Output definitions (if any)
-└── main.py                  # build_template() + __main__
+my_stack/                    # Project root
+├── pyproject.toml           # Package config with uv/pip support
+├── README.md                # Usage instructions + resource table
+├── .gitignore               # Python gitignore
+├── original/                # Source template preserved
+│   └── template.yaml
+├── tests/                   # Auto-generated tests
+│   ├── __init__.py
+│   └── test_my_stack.py
+└── my_stack/                # Actual Python package
+    ├── __init__.py          # Centralized imports
+    ├── __main__.py          # For `python -m my_stack`
+    ├── config.py            # Parameters, Mappings, Conditions
+    ├── main.py              # build_template() entry point
+    ├── outputs.py           # Output definitions (if any)
+    └── resources/           # One file per resource
+        ├── __init__.py      # Re-exports all resources
+        ├── my_bucket.py     # ~40-80 lines per resource
+        ├── my_log_bucket.py
+        └── bucket_policy.py
+```
+
+**Run the generated package:**
+```bash
+cd my_stack/
+uv run python -m my_stack     # Generate CloudFormation JSON
+uv run pytest tests/ -v       # Run tests (pytest auto-installed)
 ```
 
 **`__init__.py`** - Centralizes all imports:
@@ -705,8 +737,9 @@ template = parse_template(yaml_content, source_name="inline.yaml")
 code = generate_code(template, include_main=True)
 print(code)
 
-# Generate package (multiple files)
-files = generate_package(template)
+# Generate package (multiple files with nested structure)
+package_name = "my_stack"
+files = generate_package(template, package_name=package_name)
 for filename, content in files.items():
     print(f"=== {filename} ===")
     print(content)
@@ -715,7 +748,9 @@ for filename, content in files.items():
 output_dir = Path("my_stack")
 output_dir.mkdir(exist_ok=True)
 for filename, content in files.items():
-    (output_dir / filename).write_text(content)
+    file_path = output_dir / filename
+    file_path.parent.mkdir(parents=True, exist_ok=True)
+    file_path.write_text(content)
 
 # Access the IR directly
 for name, resource in template.resources.items():
