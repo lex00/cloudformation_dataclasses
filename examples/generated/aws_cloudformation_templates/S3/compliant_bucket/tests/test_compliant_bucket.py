@@ -2,8 +2,8 @@
 
 import json
 
-from ..main import (
-    build_template,
+from ..main import build_template
+from ..resources import (
     ObjectStorageBucket,
     ObjectStorageLogBucket,
     ObjectStorageReplicaBucket,
