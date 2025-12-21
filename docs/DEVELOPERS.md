@@ -728,5 +728,5 @@ uv run python -m cloudformation_dataclasses.codegen.spec_parser version
 
 ---
 
-**Last Updated**: 2025-12-18
-**For**: v0.4.0 (spec-2025.12.11_gen-1.0.0)
+**Last Updated**: 2025-12-21
+**For**: v0.5.2 (spec-2025.12.11_gen-1.0.0)
