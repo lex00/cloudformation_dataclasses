@@ -1,0 +1,29 @@
+[project]
+name = "elbwithlockeddownautoscaledinstances"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "cloudformation_dataclasses",
+]
+
+[project.scripts]
+elbwithlockeddownautoscaledinstances = "elbwithlockeddownautoscaledinstances.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["elbwithlockeddownautoscaledinstances"]
+
+[tool.hatch.build.targets.sdist]
+include = ["elbwithlockeddownautoscaledinstances/**/*.py", "elbwithlockeddownautoscaledinstances/resources/"]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.0",
+    "pytest>=8.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

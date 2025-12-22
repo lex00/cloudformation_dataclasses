@@ -1,0 +1,15 @@
+from __future__ import annotations
+
+"""Transform - AWS::CloudFormation::Macro resource."""
+
+from .. import *  # noqa: F403
+
+
+@cloudformation_dataclass
+class Transform:
+    """AWS::CloudFormation::Macro resource."""
+
+    resource: Macro
+    name = 'DatetimeNow'
+    description = 'Provides the current datetime as string in the format requested.'
+    function_name: GetAtt[TransformFunction] = get_att("Arn")

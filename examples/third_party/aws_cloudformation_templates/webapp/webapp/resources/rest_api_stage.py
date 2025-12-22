@@ -1,0 +1,15 @@
+from __future__ import annotations
+
+"""RestApiStage - AWS::ApiGateway::Stage resource."""
+
+from .. import *  # noqa: F403
+
+
+@cloudformation_dataclass
+class RestApiStage:
+    """AWS::ApiGateway::Stage resource."""
+
+    resource: Stage
+    rest_api_id: Ref[RestApi] = ref()
+    deployment_id: Ref[RestApiDeployment] = ref()
+    stage_name = 'prod'

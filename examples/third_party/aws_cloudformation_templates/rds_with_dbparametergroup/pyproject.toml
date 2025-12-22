@@ -1,0 +1,29 @@
+[project]
+name = "rds_with_dbparametergroup"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "cloudformation_dataclasses",
+]
+
+[project.scripts]
+rds_with_dbparametergroup = "rds_with_dbparametergroup.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["rds_with_dbparametergroup"]
+
+[tool.hatch.build.targets.sdist]
+include = ["rds_with_dbparametergroup/**/*.py", "rds_with_dbparametergroup/resources/"]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.0",
+    "pytest>=8.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

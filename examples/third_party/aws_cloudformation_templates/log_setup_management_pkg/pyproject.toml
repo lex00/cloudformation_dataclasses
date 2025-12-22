@@ -1,0 +1,29 @@
+[project]
+name = "log_setup_management_pkg"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "cloudformation_dataclasses",
+]
+
+[project.scripts]
+log_setup_management_pkg = "log_setup_management_pkg.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["log_setup_management_pkg"]
+
+[tool.hatch.build.targets.sdist]
+include = ["log_setup_management_pkg/**/*.py", "log_setup_management_pkg/resources/"]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.0",
+    "pytest>=8.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

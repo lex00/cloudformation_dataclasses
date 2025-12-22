@@ -1,0 +1,16 @@
+from __future__ import annotations
+
+"""PrivateSubnet2 - AWS::EC2::Subnet resource."""
+
+from .. import *  # noqa: F403
+
+
+@cloudformation_dataclass
+class PrivateSubnet2:
+    """AWS::EC2::Subnet resource."""
+
+    resource: Subnet
+    vpc_id: Ref[VPC] = ref()
+    availability_zone = Select(1, FindInMap("RegionMap", AWS_REGION, 'AZs'))
+    cidr_block = ref(PrivateSubnet2CIDR)
+    map_public_ip_on_launch = False

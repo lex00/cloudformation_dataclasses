@@ -1,0 +1,15 @@
+from __future__ import annotations
+
+"""EFSMountTarget4 - AWS::EFS::MountTarget resource."""
+
+from .. import *  # noqa: F403
+
+
+@cloudformation_dataclass
+class EFSMountTarget4:
+    """AWS::EFS::MountTarget resource."""
+
+    resource: MountTarget
+    file_system_id: Ref[EFSFileSystem] = ref()
+    security_groups = [get_att("EFSSecurityGroup", "GroupId")]
+    subnet_id = Select(3, ref(Subnets))

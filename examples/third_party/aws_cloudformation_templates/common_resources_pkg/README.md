@@ -1,0 +1,45 @@
+# CommonResourcesPkg
+
+Migrated from [common-resources-pkg.json](https://github.com/aws-cloudformation/aws-cloudformation-templates).
+
+**Source**: AWS CloudFormation Sample Templates
+**License**: Apache-2.0
+
+**Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
+
+## Usage
+
+This is a portable Python package. You can copy this folder into another
+project and use it directly.
+
+### Run Tests
+
+```bash
+uv run pytest tests/ -v
+```
+
+### Generate Template
+
+```bash
+uv run python -m common_resources_pkg
+```
+
+### Install as Dependency
+
+```bash
+pip install .
+```
+
+## Resources
+
+| Logical ID | Type |
+|------------|------|
+| `TestQ` | AWS::SQS::Queue |
+| `StorageLogBucket` | AWS::S3::Bucket |
+| `StorageBucket` | AWS::S3::Bucket |
+| `StorageReplicaBucket` | AWS::S3::Bucket |
+| `StorageReplicationPolicy` | AWS::IAM::RolePolicy |
+| `StorageReplicationRole` | AWS::IAM::Role |
+| `StorageLogBucketPolicyPolicy` | AWS::S3::BucketPolicy |
+| `StorageBucketPolicyPolicy` | AWS::S3::BucketPolicy |
+| `StorageReplicaBucketPolicyPolicy` | AWS::S3::BucketPolicy |

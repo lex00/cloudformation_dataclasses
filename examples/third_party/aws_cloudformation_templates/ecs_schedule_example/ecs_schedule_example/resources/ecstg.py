@@ -1,0 +1,23 @@
+from __future__ import annotations
+
+"""ECSTG - AWS::ElasticLoadBalancingV2::TargetGroup resource."""
+
+from .. import *  # noqa: F403
+
+
+@cloudformation_dataclass
+class ECSTG:
+    """AWS::ElasticLoadBalancingV2::TargetGroup resource."""
+
+    resource: TargetGroup
+    health_check_interval_seconds = 10
+    health_check_path = '/'
+    health_check_protocol = 'HTTP'
+    health_check_timeout_seconds = 5
+    healthy_threshold_count = 2
+    name = 'ECSTG'
+    port = 80
+    protocol = 'HTTP'
+    unhealthy_threshold_count = 2
+    vpc_id = ref(VpcId)
+    depends_on = ["ECSALB"]
