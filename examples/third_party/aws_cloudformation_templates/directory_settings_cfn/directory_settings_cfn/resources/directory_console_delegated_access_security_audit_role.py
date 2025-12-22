@@ -22,7 +22,7 @@ class DirectoryConsoleDelegatedAccessSecurityAuditRoleAssumeRolePolicyDocument:
 class DirectoryConsoleDelegatedAccessSecurityAuditRole:
     """AWS::IAM::Role resource."""
 
-    resource: iam.Role
+    resource: Role
     description = 'IAM Role for Directory Service \'AWS Management Console\' Delegated Access for "Security Audit"'
     assume_role_policy_document = DirectoryConsoleDelegatedAccessSecurityAuditRoleAssumeRolePolicyDocument
     managed_policy_arns = [Sub('arn:${AWS::Partition}:iam::aws:policy/SecurityAudit')]

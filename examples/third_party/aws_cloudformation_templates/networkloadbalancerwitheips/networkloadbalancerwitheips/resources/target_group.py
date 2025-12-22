@@ -4,8 +4,8 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class TargetGroupTargetGroupAttribute:
-    resource: TargetGroupAttribute
+class TargetGroupLoadBalancerAttribute:
+    resource: elasticloadbalancingv2.load_balancer.LoadBalancerAttribute
     key = 'deregistration_delay.timeout_seconds'
     value = '20'
 
@@ -18,5 +18,5 @@ class TargetGroup:
     name = 'MyTargets'
     port = 10
     protocol = 'TCP'
-    target_group_attributes = [TargetGroupTargetGroupAttribute]
+    target_group_attributes = [TargetGroupLoadBalancerAttribute]
     vpc_id = Select(0, ref(VPC))

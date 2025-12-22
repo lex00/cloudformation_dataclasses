@@ -42,7 +42,7 @@ class ADConnectorLinuxEC2DomainJoinRolePolicies0PolicyDocument:
 
 @cloudformation_dataclass
 class ADConnectorLinuxEC2DomainJoinRolePolicy:
-    resource: iam.Policy
+    resource: iam.user.Policy
     policy_name = 'SSMAgent'
     policy_document = ADConnectorLinuxEC2DomainJoinRolePolicies0PolicyDocument
 
@@ -65,7 +65,7 @@ class ADConnectorLinuxEC2DomainJoinRolePolicies2PolicyDocument:
 
 @cloudformation_dataclass
 class ADConnectorLinuxEC2DomainJoinRolePolicy1:
-    resource: iam.Policy
+    resource: iam.user.Policy
     policy_name = 'ADConnectorLinuxEC2SeamlessDomainJoinSecret'
     policy_document = ADConnectorLinuxEC2DomainJoinRolePolicies2PolicyDocument
 
@@ -74,7 +74,7 @@ class ADConnectorLinuxEC2DomainJoinRolePolicy1:
 class ADConnectorLinuxEC2DomainJoinRole:
     """AWS::IAM::Role resource."""
 
-    resource: iam.Role
+    resource: Role
     role_name = Sub('${DomainNetBiosName}-LinuxEC2DomainJoinRole-ADConnector')
     description = Sub('IAM Role to Seamlessly Join Linux EC2 Instances to ${DomainNetBiosName} Domain via AD Connector')
     assume_role_policy_document = ADConnectorLinuxEC2DomainJoinRoleAssumeRolePolicyDocument

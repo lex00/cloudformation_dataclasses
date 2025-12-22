@@ -42,7 +42,7 @@ class AWSManagedADLinuxEC2DomainJoinRolePolicies0PolicyDocument:
 
 @cloudformation_dataclass
 class AWSManagedADLinuxEC2DomainJoinRolePolicy:
-    resource: iam.Policy
+    resource: iam.user.Policy
     policy_name = 'SSMAgent'
     policy_document = AWSManagedADLinuxEC2DomainJoinRolePolicies0PolicyDocument
 
@@ -65,7 +65,7 @@ class AWSManagedADLinuxEC2DomainJoinRolePolicies2PolicyDocument:
 
 @cloudformation_dataclass
 class AWSManagedADLinuxEC2DomainJoinRolePolicy1:
-    resource: iam.Policy
+    resource: iam.user.Policy
     policy_name = 'AWSManagedADLinuxEC2SeamlessDomainJoinSecret'
     policy_document = AWSManagedADLinuxEC2DomainJoinRolePolicies2PolicyDocument
 
@@ -74,7 +74,7 @@ class AWSManagedADLinuxEC2DomainJoinRolePolicy1:
 class AWSManagedADLinuxEC2DomainJoinRole:
     """AWS::IAM::Role resource."""
 
-    resource: iam.Role
+    resource: Role
     role_name = Sub('${AWSManagedADDomainNetBiosName}-LinuxEC2DomainJoinRole-AWSManagedAD')
     description = Sub('IAM Role to Seamlessly Join Linux EC2 Instances to ${AWSManagedADDomainNetBiosName} Domain via AWS Managed Microsoft AD')
     assume_role_policy_document = AWSManagedADLinuxEC2DomainJoinRoleAssumeRolePolicyDocument

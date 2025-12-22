@@ -18,9 +18,9 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import s3
-from cloudformation_dataclasses.aws.ec2 import AssociationParameter, FlowLog
-from cloudformation_dataclasses.aws.s3 import BucketVersioningStatus, LoggingConfiguration
+from cloudformation_dataclasses.aws import ec2, s3
+from cloudformation_dataclasses.aws.ec2 import FlowLog
+from cloudformation_dataclasses.aws.s3.bucket import LoggingConfiguration
 from cloudformation_dataclasses.intrinsics import (
     AWS_NO_VALUE,
     Equals,
@@ -47,9 +47,7 @@ from .resources import *  # noqa: F403, F401
 
 __all__ = [
     "AWS_NO_VALUE",
-    "AssociationParameter",
     "BOOL",
-    "BucketVersioningStatus",
     "Condition",
     "DenyStatement",
     "Equals",
@@ -81,6 +79,7 @@ __all__ = [
     "VPCFlowLogstoS3",
     "VPCID",
     "cloudformation_dataclass",
+    "ec2",
     "get_att",
     "ref",
     "s3",

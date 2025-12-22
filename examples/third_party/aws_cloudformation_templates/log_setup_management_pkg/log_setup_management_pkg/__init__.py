@@ -19,13 +19,7 @@ from cloudformation_dataclasses.aws import (
     logs,
     sqs,
 )
-from cloudformation_dataclasses.aws.cloudformation import (
-    AutoDeployment,
-    DeploymentTargets,
-    OperationPreferences,
-    StackInstances,
-    StackSet,
-)
+from cloudformation_dataclasses.aws.cloudformation import StackSet
 from cloudformation_dataclasses.aws.events import EventBus, EventBusPolicy
 from cloudformation_dataclasses.aws.logs import LogGroup, QueryDefinition
 from cloudformation_dataclasses.intrinsics import Sub
@@ -35,7 +29,6 @@ from .stack_config import CentralEventBusName, CentralEventLogName, OUID, OrgID
 from .resources import *  # noqa: F403, F401
 
 __all__ = [
-    "AutoDeployment",
     "CentralEventBus",
     "CentralEventBusName",
     "CentralEventBusPolicy",
@@ -47,19 +40,16 @@ __all__ = [
     "CentralEventLogQueryReason",
     "CentralEventRule",
     "DeadLetterQueue",
-    "DeploymentTargets",
     "EventBus",
     "EventBusPolicy",
     "LogGroup",
     "OUID",
-    "OperationPreferences",
     "OrgID",
     "Parameter",
     "PolicyDocument",
     "PolicyStatement",
     "QueryDefinition",
     "STRING",
-    "StackInstances",
     "StackSet",
     "Sub",
     "TargetAccountLogging",

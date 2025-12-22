@@ -14,7 +14,6 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.aws import ec2
 from cloudformation_dataclasses.aws.cloudformation import WaitCondition, WaitConditionHandle
-from cloudformation_dataclasses.aws.ec2 import AssociationParameter
 from cloudformation_dataclasses.intrinsics import AWS_REGION, AWS_STACK_ID, Base64, Join
 
 from .stack_config import (
@@ -41,7 +40,6 @@ __all__ = [
     "AWS_REGION",
     "AWS_STACK_ID",
     "AgentID",
-    "AssociationParameter",
     "Base64",
     "BudgetCode",
     "ImageId",

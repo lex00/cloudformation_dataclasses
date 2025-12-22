@@ -22,6 +22,6 @@ class StorageReplicationRoleAssumeRolePolicyDocument:
 class StorageReplicationRole:
     """AWS::IAM::Role resource."""
 
-    resource: iam.Role
+    resource: Role
     assume_role_policy_document = StorageReplicationRoleAssumeRolePolicyDocument
     path = '/'

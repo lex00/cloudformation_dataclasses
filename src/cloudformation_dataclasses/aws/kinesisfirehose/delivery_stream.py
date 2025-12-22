@@ -1,0 +1,1593 @@
+"""PropertyTypes for AWS::KinesisFirehose::DeliveryStream."""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Any, ClassVar, Optional, Union
+
+from cloudformation_dataclasses.core.base import PropertyType, Tag
+from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# Service Constants (auto-generated from botocore)
+class AmazonOpenSearchServerlessS3BackupMode:
+    """AmazonOpenSearchServerlessS3BackupMode enum values."""
+
+    FAILEDDOCUMENTSONLY = "FailedDocumentsOnly"
+    ALLDOCUMENTS = "AllDocuments"
+
+
+class AmazonopensearchserviceIndexRotationPeriod:
+    """AmazonopensearchserviceIndexRotationPeriod enum values."""
+
+    NOROTATION = "NoRotation"
+    ONEHOUR = "OneHour"
+    ONEDAY = "OneDay"
+    ONEWEEK = "OneWeek"
+    ONEMONTH = "OneMonth"
+
+
+class AmazonopensearchserviceS3BackupMode:
+    """AmazonopensearchserviceS3BackupMode enum values."""
+
+    FAILEDDOCUMENTSONLY = "FailedDocumentsOnly"
+    ALLDOCUMENTS = "AllDocuments"
+
+
+class CompressionFormat:
+    """CompressionFormat enum values."""
+
+    UNCOMPRESSED = "UNCOMPRESSED"
+    GZIP = "GZIP"
+    ZIP = "ZIP"
+    SNAPPY = "Snappy"
+    HADOOP_SNAPPY = "HADOOP_SNAPPY"
+
+
+class Connectivity:
+    """Connectivity enum values."""
+
+    PUBLIC = "PUBLIC"
+    PRIVATE = "PRIVATE"
+
+
+class ContentEncoding:
+    """ContentEncoding enum values."""
+
+    NONE = "NONE"
+    GZIP = "GZIP"
+
+
+class DatabaseType:
+    """DatabaseType enum values."""
+
+    MYSQL = "MySQL"
+    POSTGRESQL = "PostgreSQL"
+
+
+class DefaultDocumentIdFormat:
+    """DefaultDocumentIdFormat enum values."""
+
+    FIREHOSE_DEFAULT = "FIREHOSE_DEFAULT"
+    NO_DOCUMENT_ID = "NO_DOCUMENT_ID"
+
+
+class DeliveryStreamEncryptionStatus:
+    """DeliveryStreamEncryptionStatus enum values."""
+
+    ENABLED = "ENABLED"
+    ENABLING = "ENABLING"
+    ENABLING_FAILED = "ENABLING_FAILED"
+    DISABLED = "DISABLED"
+    DISABLING = "DISABLING"
+    DISABLING_FAILED = "DISABLING_FAILED"
+
+
+class DeliveryStreamFailureType:
+    """DeliveryStreamFailureType enum values."""
+
+    VPC_ENDPOINT_SERVICE_NAME_NOT_FOUND = "VPC_ENDPOINT_SERVICE_NAME_NOT_FOUND"
+    VPC_INTERFACE_ENDPOINT_SERVICE_ACCESS_DENIED = "VPC_INTERFACE_ENDPOINT_SERVICE_ACCESS_DENIED"
+    RETIRE_KMS_GRANT_FAILED = "RETIRE_KMS_GRANT_FAILED"
+    CREATE_KMS_GRANT_FAILED = "CREATE_KMS_GRANT_FAILED"
+    KMS_ACCESS_DENIED = "KMS_ACCESS_DENIED"
+    DISABLED_KMS_KEY = "DISABLED_KMS_KEY"
+    INVALID_KMS_KEY = "INVALID_KMS_KEY"
+    KMS_KEY_NOT_FOUND = "KMS_KEY_NOT_FOUND"
+    KMS_OPT_IN_REQUIRED = "KMS_OPT_IN_REQUIRED"
+    CREATE_ENI_FAILED = "CREATE_ENI_FAILED"
+    DELETE_ENI_FAILED = "DELETE_ENI_FAILED"
+    SUBNET_NOT_FOUND = "SUBNET_NOT_FOUND"
+    SECURITY_GROUP_NOT_FOUND = "SECURITY_GROUP_NOT_FOUND"
+    ENI_ACCESS_DENIED = "ENI_ACCESS_DENIED"
+    SUBNET_ACCESS_DENIED = "SUBNET_ACCESS_DENIED"
+    SECURITY_GROUP_ACCESS_DENIED = "SECURITY_GROUP_ACCESS_DENIED"
+    UNKNOWN_ERROR = "UNKNOWN_ERROR"
+
+
+class DeliveryStreamStatus:
+    """DeliveryStreamStatus enum values."""
+
+    CREATING = "CREATING"
+    CREATING_FAILED = "CREATING_FAILED"
+    DELETING = "DELETING"
+    DELETING_FAILED = "DELETING_FAILED"
+    ACTIVE = "ACTIVE"
+
+
+class DeliveryStreamType:
+    """DeliveryStreamType enum values."""
+
+    DIRECTPUT = "DirectPut"
+    KINESISSTREAMASSOURCE = "KinesisStreamAsSource"
+    MSKASSOURCE = "MSKAsSource"
+    DATABASEASSOURCE = "DatabaseAsSource"
+
+
+class ElasticsearchIndexRotationPeriod:
+    """ElasticsearchIndexRotationPeriod enum values."""
+
+    NOROTATION = "NoRotation"
+    ONEHOUR = "OneHour"
+    ONEDAY = "OneDay"
+    ONEWEEK = "OneWeek"
+    ONEMONTH = "OneMonth"
+
+
+class ElasticsearchS3BackupMode:
+    """ElasticsearchS3BackupMode enum values."""
+
+    FAILEDDOCUMENTSONLY = "FailedDocumentsOnly"
+    ALLDOCUMENTS = "AllDocuments"
+
+
+class HECEndpointType:
+    """HECEndpointType enum values."""
+
+    RAW = "Raw"
+    EVENT = "Event"
+
+
+class HttpEndpointS3BackupMode:
+    """HttpEndpointS3BackupMode enum values."""
+
+    FAILEDDATAONLY = "FailedDataOnly"
+    ALLDATA = "AllData"
+
+
+class IcebergS3BackupMode:
+    """IcebergS3BackupMode enum values."""
+
+    FAILEDDATAONLY = "FailedDataOnly"
+    ALLDATA = "AllData"
+
+
+class KeyType:
+    """KeyType enum values."""
+
+    AWS_OWNED_CMK = "AWS_OWNED_CMK"
+    CUSTOMER_MANAGED_CMK = "CUSTOMER_MANAGED_CMK"
+
+
+class NoEncryptionConfig:
+    """NoEncryptionConfig enum values."""
+
+    NOENCRYPTION = "NoEncryption"
+
+
+class OrcCompression:
+    """OrcCompression enum values."""
+
+    NONE = "NONE"
+    ZLIB = "ZLIB"
+    SNAPPY = "SNAPPY"
+
+
+class OrcFormatVersion:
+    """OrcFormatVersion enum values."""
+
+    V0_11 = "V0_11"
+    V0_12 = "V0_12"
+
+
+class ParquetCompression:
+    """ParquetCompression enum values."""
+
+    UNCOMPRESSED = "UNCOMPRESSED"
+    GZIP = "GZIP"
+    SNAPPY = "SNAPPY"
+
+
+class ParquetWriterVersion:
+    """ParquetWriterVersion enum values."""
+
+    V1 = "V1"
+    V2 = "V2"
+
+
+class ProcessorParameterName:
+    """ProcessorParameterName enum values."""
+
+    LAMBDAARN = "LambdaArn"
+    NUMBEROFRETRIES = "NumberOfRetries"
+    METADATAEXTRACTIONQUERY = "MetadataExtractionQuery"
+    JSONPARSINGENGINE = "JsonParsingEngine"
+    ROLEARN = "RoleArn"
+    BUFFERSIZEINMBS = "BufferSizeInMBs"
+    BUFFERINTERVALINSECONDS = "BufferIntervalInSeconds"
+    SUBRECORDTYPE = "SubRecordType"
+    DELIMITER = "Delimiter"
+    COMPRESSIONFORMAT = "CompressionFormat"
+    DATAMESSAGEEXTRACTION = "DataMessageExtraction"
+
+
+class ProcessorType:
+    """ProcessorType enum values."""
+
+    RECORDDEAGGREGATION = "RecordDeAggregation"
+    DECOMPRESSION = "Decompression"
+    CLOUDWATCHLOGPROCESSING = "CloudWatchLogProcessing"
+    LAMBDA = "Lambda"
+    METADATAEXTRACTION = "MetadataExtraction"
+    APPENDDELIMITERTORECORD = "AppendDelimiterToRecord"
+
+
+class RedshiftS3BackupMode:
+    """RedshiftS3BackupMode enum values."""
+
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
+
+
+class S3BackupMode:
+    """S3BackupMode enum values."""
+
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
+
+
+class SSLMode:
+    """SSLMode enum values."""
+
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
+
+
+class SnapshotRequestedBy:
+    """SnapshotRequestedBy enum values."""
+
+    USER = "USER"
+    FIREHOSE = "FIREHOSE"
+
+
+class SnapshotStatus:
+    """SnapshotStatus enum values."""
+
+    IN_PROGRESS = "IN_PROGRESS"
+    COMPLETE = "COMPLETE"
+    SUSPENDED = "SUSPENDED"
+
+
+class SnowflakeDataLoadingOption:
+    """SnowflakeDataLoadingOption enum values."""
+
+    JSON_MAPPING = "JSON_MAPPING"
+    VARIANT_CONTENT_MAPPING = "VARIANT_CONTENT_MAPPING"
+    VARIANT_CONTENT_AND_METADATA_MAPPING = "VARIANT_CONTENT_AND_METADATA_MAPPING"
+
+
+class SnowflakeS3BackupMode:
+    """SnowflakeS3BackupMode enum values."""
+
+    FAILEDDATAONLY = "FailedDataOnly"
+    ALLDATA = "AllData"
+
+
+class SplunkS3BackupMode:
+    """SplunkS3BackupMode enum values."""
+
+    FAILEDEVENTSONLY = "FailedEventsOnly"
+    ALLEVENTS = "AllEvents"
+
+
+@dataclass
+class AmazonOpenSearchServerlessBufferingHints(PropertyType):
+    INTERVAL_IN_SECONDS = "IntervalInSeconds"
+    SIZE_IN_M_BS = "SizeInMBs"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "interval_in_seconds": "IntervalInSeconds",
+        "size_in_m_bs": "SizeInMBs",
+    }
+
+    interval_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    size_in_m_bs: Optional[Union[int, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class AmazonOpenSearchServerlessDestinationConfiguration(PropertyType):
+    INDEX_NAME = "IndexName"
+    S3_CONFIGURATION = "S3Configuration"
+    BUFFERING_HINTS = "BufferingHints"
+    RETRY_OPTIONS = "RetryOptions"
+    COLLECTION_ENDPOINT = "CollectionEndpoint"
+    VPC_CONFIGURATION = "VpcConfiguration"
+    PROCESSING_CONFIGURATION = "ProcessingConfiguration"
+    CLOUD_WATCH_LOGGING_OPTIONS = "CloudWatchLoggingOptions"
+    ROLE_ARN = "RoleARN"
+    S3_BACKUP_MODE = "S3BackupMode"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "index_name": "IndexName",
+        "s3_configuration": "S3Configuration",
+        "buffering_hints": "BufferingHints",
+        "retry_options": "RetryOptions",
+        "collection_endpoint": "CollectionEndpoint",
+        "vpc_configuration": "VpcConfiguration",
+        "processing_configuration": "ProcessingConfiguration",
+        "cloud_watch_logging_options": "CloudWatchLoggingOptions",
+        "role_arn": "RoleARN",
+        "s3_backup_mode": "S3BackupMode",
+    }
+
+    index_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    s3_configuration: Optional[S3DestinationConfiguration] = None
+    buffering_hints: Optional[AmazonOpenSearchServerlessBufferingHints] = None
+    retry_options: Optional[AmazonOpenSearchServerlessRetryOptions] = None
+    collection_endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    vpc_configuration: Optional[VpcConfiguration] = None
+    processing_configuration: Optional[ProcessingConfiguration] = None
+    cloud_watch_logging_options: Optional[CloudWatchLoggingOptions] = None
+    role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    s3_backup_mode: Optional[Union[str, AmazonOpenSearchServerlessS3BackupMode, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class AmazonOpenSearchServerlessRetryOptions(PropertyType):
+    DURATION_IN_SECONDS = "DurationInSeconds"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "duration_in_seconds": "DurationInSeconds",
+    }
+
+    duration_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class AmazonopensearchserviceBufferingHints(PropertyType):
+    INTERVAL_IN_SECONDS = "IntervalInSeconds"
+    SIZE_IN_M_BS = "SizeInMBs"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "interval_in_seconds": "IntervalInSeconds",
+        "size_in_m_bs": "SizeInMBs",
+    }
+
+    interval_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    size_in_m_bs: Optional[Union[int, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class AmazonopensearchserviceDestinationConfiguration(PropertyType):
+    TYPE_NAME = "TypeName"
+    INDEX_ROTATION_PERIOD = "IndexRotationPeriod"
+    PROCESSING_CONFIGURATION = "ProcessingConfiguration"
+    CLUSTER_ENDPOINT = "ClusterEndpoint"
+    DOMAIN_ARN = "DomainARN"
+    ROLE_ARN = "RoleARN"
+    S3_BACKUP_MODE = "S3BackupMode"
+    INDEX_NAME = "IndexName"
+    DOCUMENT_ID_OPTIONS = "DocumentIdOptions"
+    S3_CONFIGURATION = "S3Configuration"
+    BUFFERING_HINTS = "BufferingHints"
+    RETRY_OPTIONS = "RetryOptions"
+    VPC_CONFIGURATION = "VpcConfiguration"
+    CLOUD_WATCH_LOGGING_OPTIONS = "CloudWatchLoggingOptions"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "type_name": "TypeName",
+        "index_rotation_period": "IndexRotationPeriod",
+        "processing_configuration": "ProcessingConfiguration",
+        "cluster_endpoint": "ClusterEndpoint",
+        "domain_arn": "DomainARN",
+        "role_arn": "RoleARN",
+        "s3_backup_mode": "S3BackupMode",
+        "index_name": "IndexName",
+        "document_id_options": "DocumentIdOptions",
+        "s3_configuration": "S3Configuration",
+        "buffering_hints": "BufferingHints",
+        "retry_options": "RetryOptions",
+        "vpc_configuration": "VpcConfiguration",
+        "cloud_watch_logging_options": "CloudWatchLoggingOptions",
+    }
+
+    type_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    index_rotation_period: Optional[Union[str, AmazonopensearchserviceIndexRotationPeriod, Ref, GetAtt, Sub]] = None
+    processing_configuration: Optional[ProcessingConfiguration] = None
+    cluster_endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    domain_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    s3_backup_mode: Optional[Union[str, AmazonopensearchserviceS3BackupMode, Ref, GetAtt, Sub]] = None
+    index_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    document_id_options: Optional[DocumentIdOptions] = None
+    s3_configuration: Optional[S3DestinationConfiguration] = None
+    buffering_hints: Optional[AmazonopensearchserviceBufferingHints] = None
+    retry_options: Optional[AmazonopensearchserviceRetryOptions] = None
+    vpc_configuration: Optional[VpcConfiguration] = None
+    cloud_watch_logging_options: Optional[CloudWatchLoggingOptions] = None
+
+
+@dataclass
+class AmazonopensearchserviceRetryOptions(PropertyType):
+    DURATION_IN_SECONDS = "DurationInSeconds"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "duration_in_seconds": "DurationInSeconds",
+    }
+
+    duration_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class AuthenticationConfiguration(PropertyType):
+    CONNECTIVITY = "Connectivity"
+    ROLE_ARN = "RoleARN"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "connectivity": "Connectivity",
+        "role_arn": "RoleARN",
+    }
+
+    connectivity: Optional[Union[str, Connectivity, Ref, GetAtt, Sub]] = None
+    role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class BufferingHints(PropertyType):
+    INTERVAL_IN_SECONDS = "IntervalInSeconds"
+    SIZE_IN_M_BS = "SizeInMBs"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "interval_in_seconds": "IntervalInSeconds",
+        "size_in_m_bs": "SizeInMBs",
+    }
+
+    interval_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    size_in_m_bs: Optional[Union[int, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class CatalogConfiguration(PropertyType):
+    CATALOG_ARN = "CatalogArn"
+    WAREHOUSE_LOCATION = "WarehouseLocation"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "catalog_arn": "CatalogArn",
+        "warehouse_location": "WarehouseLocation",
+    }
+
+    catalog_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    warehouse_location: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class CloudWatchLoggingOptions(PropertyType):
+    LOG_STREAM_NAME = "LogStreamName"
+    ENABLED = "Enabled"
+    LOG_GROUP_NAME = "LogGroupName"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "log_stream_name": "LogStreamName",
+        "enabled": "Enabled",
+        "log_group_name": "LogGroupName",
+    }
+
+    log_stream_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    log_group_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class CopyCommand(PropertyType):
+    DATA_TABLE_NAME = "DataTableName"
+    COPY_OPTIONS = "CopyOptions"
+    DATA_TABLE_COLUMNS = "DataTableColumns"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "data_table_name": "DataTableName",
+        "copy_options": "CopyOptions",
+        "data_table_columns": "DataTableColumns",
+    }
+
+    data_table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    copy_options: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    data_table_columns: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class DataFormatConversionConfiguration(PropertyType):
+    INPUT_FORMAT_CONFIGURATION = "InputFormatConfiguration"
+    ENABLED = "Enabled"
+    SCHEMA_CONFIGURATION = "SchemaConfiguration"
+    OUTPUT_FORMAT_CONFIGURATION = "OutputFormatConfiguration"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "input_format_configuration": "InputFormatConfiguration",
+        "enabled": "Enabled",
+        "schema_configuration": "SchemaConfiguration",
+        "output_format_configuration": "OutputFormatConfiguration",
+    }
+
+    input_format_configuration: Optional[InputFormatConfiguration] = None
+    enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    schema_configuration: Optional[SchemaConfiguration] = None
+    output_format_configuration: Optional[OutputFormatConfiguration] = None
+
+
+@dataclass
+class DatabaseColumns(PropertyType):
+    EXCLUDE = "Exclude"
+    INCLUDE = "Include"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "exclude": "Exclude",
+        "include": "Include",
+    }
+
+    exclude: Optional[Union[list[str], Ref]] = None
+    include: Optional[Union[list[str], Ref]] = None
+
+
+@dataclass
+class DatabaseSourceAuthenticationConfiguration(PropertyType):
+    SECRETS_MANAGER_CONFIGURATION = "SecretsManagerConfiguration"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "secrets_manager_configuration": "SecretsManagerConfiguration",
+    }
+
+    secrets_manager_configuration: Optional[SecretsManagerConfiguration] = None
+
+
+@dataclass
+class DatabaseSourceConfiguration(PropertyType):
+    DIGEST = "Digest"
+    PORT = "Port"
+    PUBLIC_CERTIFICATE = "PublicCertificate"
+    COLUMNS = "Columns"
+    TYPE = "Type"
+    SURROGATE_KEYS = "SurrogateKeys"
+    DATABASES = "Databases"
+    ENDPOINT = "Endpoint"
+    SSL_MODE = "SSLMode"
+    SNAPSHOT_WATERMARK_TABLE = "SnapshotWatermarkTable"
+    DATABASE_SOURCE_AUTHENTICATION_CONFIGURATION = "DatabaseSourceAuthenticationConfiguration"
+    TABLES = "Tables"
+    DATABASE_SOURCE_VPC_CONFIGURATION = "DatabaseSourceVPCConfiguration"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "digest": "Digest",
+        "port": "Port",
+        "public_certificate": "PublicCertificate",
+        "columns": "Columns",
+        "type_": "Type",
+        "surrogate_keys": "SurrogateKeys",
+        "databases": "Databases",
+        "endpoint": "Endpoint",
+        "ssl_mode": "SSLMode",
+        "snapshot_watermark_table": "SnapshotWatermarkTable",
+        "database_source_authentication_configuration": "DatabaseSourceAuthenticationConfiguration",
+        "tables": "Tables",
+        "database_source_vpc_configuration": "DatabaseSourceVPCConfiguration",
+    }
+
+    digest: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    port: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    public_certificate: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    columns: Optional[DatabaseColumns] = None
+    type_: Optional[Union[str, DatabaseType, Ref, GetAtt, Sub]] = None
+    surrogate_keys: Optional[Union[list[str], Ref]] = None
+    databases: Optional[Databases] = None
+    endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    ssl_mode: Optional[Union[str, SSLMode, Ref, GetAtt, Sub]] = None
+    snapshot_watermark_table: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    database_source_authentication_configuration: Optional[DatabaseSourceAuthenticationConfiguration] = None
+    tables: Optional[DatabaseTables] = None
+    database_source_vpc_configuration: Optional[DatabaseSourceVPCConfiguration] = None
+
+
+@dataclass
+class DatabaseSourceVPCConfiguration(PropertyType):
+    VPC_ENDPOINT_SERVICE_NAME = "VpcEndpointServiceName"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "vpc_endpoint_service_name": "VpcEndpointServiceName",
+    }
+
+    vpc_endpoint_service_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class DatabaseTables(PropertyType):
+    EXCLUDE = "Exclude"
+    INCLUDE = "Include"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "exclude": "Exclude",
+        "include": "Include",
+    }
+
+    exclude: Optional[Union[list[str], Ref]] = None
+    include: Optional[Union[list[str], Ref]] = None
+
+
+@dataclass
+class Databases(PropertyType):
+    EXCLUDE = "Exclude"
+    INCLUDE = "Include"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "exclude": "Exclude",
+        "include": "Include",
+    }
+
+    exclude: Optional[Union[list[str], Ref]] = None
+    include: Optional[Union[list[str], Ref]] = None
+
+
+@dataclass
+class DeliveryStreamEncryptionConfigurationInput(PropertyType):
+    KEY_TYPE = "KeyType"
+    KEY_ARN = "KeyARN"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "key_type": "KeyType",
+        "key_arn": "KeyARN",
+    }
+
+    key_type: Optional[Union[str, KeyType, Ref, GetAtt, Sub]] = None
+    key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class Deserializer(PropertyType):
+    HIVE_JSON_SER_DE = "HiveJsonSerDe"
+    OPEN_X_JSON_SER_DE = "OpenXJsonSerDe"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "hive_json_ser_de": "HiveJsonSerDe",
+        "open_x_json_ser_de": "OpenXJsonSerDe",
+    }
+
+    hive_json_ser_de: Optional[HiveJsonSerDe] = None
+    open_x_json_ser_de: Optional[OpenXJsonSerDe] = None
+
+
+@dataclass
+class DestinationTableConfiguration(PropertyType):
+    DESTINATION_DATABASE_NAME = "DestinationDatabaseName"
+    S3_ERROR_OUTPUT_PREFIX = "S3ErrorOutputPrefix"
+    DESTINATION_TABLE_NAME = "DestinationTableName"
+    UNIQUE_KEYS = "UniqueKeys"
+    PARTITION_SPEC = "PartitionSpec"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "destination_database_name": "DestinationDatabaseName",
+        "s3_error_output_prefix": "S3ErrorOutputPrefix",
+        "destination_table_name": "DestinationTableName",
+        "unique_keys": "UniqueKeys",
+        "partition_spec": "PartitionSpec",
+    }
+
+    destination_database_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    s3_error_output_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    destination_table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    unique_keys: Optional[Union[list[str], Ref]] = None
+    partition_spec: Optional[PartitionSpec] = None
+
+
+@dataclass
+class DirectPutSourceConfiguration(PropertyType):
+    THROUGHPUT_HINT_IN_M_BS = "ThroughputHintInMBs"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "throughput_hint_in_m_bs": "ThroughputHintInMBs",
+    }
+
+    throughput_hint_in_m_bs: Optional[Union[int, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class DocumentIdOptions(PropertyType):
+    DEFAULT_DOCUMENT_ID_FORMAT = "DefaultDocumentIdFormat"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "default_document_id_format": "DefaultDocumentIdFormat",
+    }
+
+    default_document_id_format: Optional[Union[str, DefaultDocumentIdFormat, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class DynamicPartitioningConfiguration(PropertyType):
+    ENABLED = "Enabled"
+    RETRY_OPTIONS = "RetryOptions"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "enabled": "Enabled",
+        "retry_options": "RetryOptions",
+    }
+
+    enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    retry_options: Optional[RetryOptions] = None
+
+
+@dataclass
+class ElasticsearchBufferingHints(PropertyType):
+    INTERVAL_IN_SECONDS = "IntervalInSeconds"
+    SIZE_IN_M_BS = "SizeInMBs"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "interval_in_seconds": "IntervalInSeconds",
+        "size_in_m_bs": "SizeInMBs",
+    }
+
+    interval_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    size_in_m_bs: Optional[Union[int, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class ElasticsearchDestinationConfiguration(PropertyType):
+    TYPE_NAME = "TypeName"
+    INDEX_ROTATION_PERIOD = "IndexRotationPeriod"
+    PROCESSING_CONFIGURATION = "ProcessingConfiguration"
+    CLUSTER_ENDPOINT = "ClusterEndpoint"
+    DOMAIN_ARN = "DomainARN"
+    ROLE_ARN = "RoleARN"
+    S3_BACKUP_MODE = "S3BackupMode"
+    INDEX_NAME = "IndexName"
+    DOCUMENT_ID_OPTIONS = "DocumentIdOptions"
+    S3_CONFIGURATION = "S3Configuration"
+    BUFFERING_HINTS = "BufferingHints"
+    RETRY_OPTIONS = "RetryOptions"
+    VPC_CONFIGURATION = "VpcConfiguration"
+    CLOUD_WATCH_LOGGING_OPTIONS = "CloudWatchLoggingOptions"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "type_name": "TypeName",
+        "index_rotation_period": "IndexRotationPeriod",
+        "processing_configuration": "ProcessingConfiguration",
+        "cluster_endpoint": "ClusterEndpoint",
+        "domain_arn": "DomainARN",
+        "role_arn": "RoleARN",
+        "s3_backup_mode": "S3BackupMode",
+        "index_name": "IndexName",
+        "document_id_options": "DocumentIdOptions",
+        "s3_configuration": "S3Configuration",
+        "buffering_hints": "BufferingHints",
+        "retry_options": "RetryOptions",
+        "vpc_configuration": "VpcConfiguration",
+        "cloud_watch_logging_options": "CloudWatchLoggingOptions",
+    }
+
+    type_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    index_rotation_period: Optional[Union[str, ElasticsearchIndexRotationPeriod, Ref, GetAtt, Sub]] = None
+    processing_configuration: Optional[ProcessingConfiguration] = None
+    cluster_endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    domain_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    s3_backup_mode: Optional[Union[str, ElasticsearchS3BackupMode, Ref, GetAtt, Sub]] = None
+    index_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    document_id_options: Optional[DocumentIdOptions] = None
+    s3_configuration: Optional[S3DestinationConfiguration] = None
+    buffering_hints: Optional[ElasticsearchBufferingHints] = None
+    retry_options: Optional[ElasticsearchRetryOptions] = None
+    vpc_configuration: Optional[VpcConfiguration] = None
+    cloud_watch_logging_options: Optional[CloudWatchLoggingOptions] = None
+
+
+@dataclass
+class ElasticsearchRetryOptions(PropertyType):
+    DURATION_IN_SECONDS = "DurationInSeconds"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "duration_in_seconds": "DurationInSeconds",
+    }
+
+    duration_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class EncryptionConfiguration(PropertyType):
+    KMS_ENCRYPTION_CONFIG = "KMSEncryptionConfig"
+    NO_ENCRYPTION_CONFIG = "NoEncryptionConfig"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "kms_encryption_config": "KMSEncryptionConfig",
+        "no_encryption_config": "NoEncryptionConfig",
+    }
+
+    kms_encryption_config: Optional[KMSEncryptionConfig] = None
+    no_encryption_config: Optional[Union[str, NoEncryptionConfig, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class ExtendedS3DestinationConfiguration(PropertyType):
+    ERROR_OUTPUT_PREFIX = "ErrorOutputPrefix"
+    S3_BACKUP_CONFIGURATION = "S3BackupConfiguration"
+    BUCKET_ARN = "BucketARN"
+    COMPRESSION_FORMAT = "CompressionFormat"
+    DATA_FORMAT_CONVERSION_CONFIGURATION = "DataFormatConversionConfiguration"
+    ENCRYPTION_CONFIGURATION = "EncryptionConfiguration"
+    CUSTOM_TIME_ZONE = "CustomTimeZone"
+    DYNAMIC_PARTITIONING_CONFIGURATION = "DynamicPartitioningConfiguration"
+    PREFIX = "Prefix"
+    PROCESSING_CONFIGURATION = "ProcessingConfiguration"
+    ROLE_ARN = "RoleARN"
+    S3_BACKUP_MODE = "S3BackupMode"
+    BUFFERING_HINTS = "BufferingHints"
+    FILE_EXTENSION = "FileExtension"
+    CLOUD_WATCH_LOGGING_OPTIONS = "CloudWatchLoggingOptions"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "error_output_prefix": "ErrorOutputPrefix",
+        "s3_backup_configuration": "S3BackupConfiguration",
+        "bucket_arn": "BucketARN",
+        "compression_format": "CompressionFormat",
+        "data_format_conversion_configuration": "DataFormatConversionConfiguration",
+        "encryption_configuration": "EncryptionConfiguration",
+        "custom_time_zone": "CustomTimeZone",
+        "dynamic_partitioning_configuration": "DynamicPartitioningConfiguration",
+        "prefix": "Prefix",
+        "processing_configuration": "ProcessingConfiguration",
+        "role_arn": "RoleARN",
+        "s3_backup_mode": "S3BackupMode",
+        "buffering_hints": "BufferingHints",
+        "file_extension": "FileExtension",
+        "cloud_watch_logging_options": "CloudWatchLoggingOptions",
+    }
+
+    error_output_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    s3_backup_configuration: Optional[S3DestinationConfiguration] = None
+    bucket_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    compression_format: Optional[Union[str, CompressionFormat, Ref, GetAtt, Sub]] = None
+    data_format_conversion_configuration: Optional[DataFormatConversionConfiguration] = None
+    encryption_configuration: Optional[EncryptionConfiguration] = None
+    custom_time_zone: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    dynamic_partitioning_configuration: Optional[DynamicPartitioningConfiguration] = None
+    prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    processing_configuration: Optional[ProcessingConfiguration] = None
+    role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    s3_backup_mode: Optional[Union[str, S3BackupMode, Ref, GetAtt, Sub]] = None
+    buffering_hints: Optional[BufferingHints] = None
+    file_extension: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    cloud_watch_logging_options: Optional[CloudWatchLoggingOptions] = None
+
+
+@dataclass
+class HiveJsonSerDe(PropertyType):
+    TIMESTAMP_FORMATS = "TimestampFormats"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "timestamp_formats": "TimestampFormats",
+    }
+
+    timestamp_formats: Optional[Union[list[str], Ref]] = None
+
+
+@dataclass
+class HttpEndpointCommonAttribute(PropertyType):
+    ATTRIBUTE_VALUE = "AttributeValue"
+    ATTRIBUTE_NAME = "AttributeName"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "attribute_value": "AttributeValue",
+        "attribute_name": "AttributeName",
+    }
+
+    attribute_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    attribute_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class HttpEndpointConfiguration(PropertyType):
+    ACCESS_KEY = "AccessKey"
+    URL = "Url"
+    NAME = "Name"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "access_key": "AccessKey",
+        "url": "Url",
+        "name": "Name",
+    }
+
+    access_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    url: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class HttpEndpointDestinationConfiguration(PropertyType):
+    REQUEST_CONFIGURATION = "RequestConfiguration"
+    S3_CONFIGURATION = "S3Configuration"
+    BUFFERING_HINTS = "BufferingHints"
+    RETRY_OPTIONS = "RetryOptions"
+    SECRETS_MANAGER_CONFIGURATION = "SecretsManagerConfiguration"
+    ENDPOINT_CONFIGURATION = "EndpointConfiguration"
+    PROCESSING_CONFIGURATION = "ProcessingConfiguration"
+    ROLE_ARN = "RoleARN"
+    CLOUD_WATCH_LOGGING_OPTIONS = "CloudWatchLoggingOptions"
+    S3_BACKUP_MODE = "S3BackupMode"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "request_configuration": "RequestConfiguration",
+        "s3_configuration": "S3Configuration",
+        "buffering_hints": "BufferingHints",
+        "retry_options": "RetryOptions",
+        "secrets_manager_configuration": "SecretsManagerConfiguration",
+        "endpoint_configuration": "EndpointConfiguration",
+        "processing_configuration": "ProcessingConfiguration",
+        "role_arn": "RoleARN",
+        "cloud_watch_logging_options": "CloudWatchLoggingOptions",
+        "s3_backup_mode": "S3BackupMode",
+    }
+
+    request_configuration: Optional[HttpEndpointRequestConfiguration] = None
+    s3_configuration: Optional[S3DestinationConfiguration] = None
+    buffering_hints: Optional[BufferingHints] = None
+    retry_options: Optional[RetryOptions] = None
+    secrets_manager_configuration: Optional[SecretsManagerConfiguration] = None
+    endpoint_configuration: Optional[HttpEndpointConfiguration] = None
+    processing_configuration: Optional[ProcessingConfiguration] = None
+    role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    cloud_watch_logging_options: Optional[CloudWatchLoggingOptions] = None
+    s3_backup_mode: Optional[Union[str, HttpEndpointS3BackupMode, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class HttpEndpointRequestConfiguration(PropertyType):
+    COMMON_ATTRIBUTES = "CommonAttributes"
+    CONTENT_ENCODING = "ContentEncoding"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "common_attributes": "CommonAttributes",
+        "content_encoding": "ContentEncoding",
+    }
+
+    common_attributes: Optional[list[HttpEndpointCommonAttribute]] = None
+    content_encoding: Optional[Union[str, ContentEncoding, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class IcebergDestinationConfiguration(PropertyType):
+    CATALOG_CONFIGURATION = "CatalogConfiguration"
+    S3_CONFIGURATION = "S3Configuration"
+    DESTINATION_TABLE_CONFIGURATION_LIST = "DestinationTableConfigurationList"
+    BUFFERING_HINTS = "BufferingHints"
+    TABLE_CREATION_CONFIGURATION = "TableCreationConfiguration"
+    RETRY_OPTIONS = "RetryOptions"
+    S3_BACKUP_MODE = "s3BackupMode"
+    PROCESSING_CONFIGURATION = "ProcessingConfiguration"
+    SCHEMA_EVOLUTION_CONFIGURATION = "SchemaEvolutionConfiguration"
+    APPEND_ONLY = "AppendOnly"
+    CLOUD_WATCH_LOGGING_OPTIONS = "CloudWatchLoggingOptions"
+    ROLE_ARN = "RoleARN"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "catalog_configuration": "CatalogConfiguration",
+        "s3_configuration": "S3Configuration",
+        "destination_table_configuration_list": "DestinationTableConfigurationList",
+        "buffering_hints": "BufferingHints",
+        "table_creation_configuration": "TableCreationConfiguration",
+        "retry_options": "RetryOptions",
+        "s3_backup_mode": "s3BackupMode",
+        "processing_configuration": "ProcessingConfiguration",
+        "schema_evolution_configuration": "SchemaEvolutionConfiguration",
+        "append_only": "AppendOnly",
+        "cloud_watch_logging_options": "CloudWatchLoggingOptions",
+        "role_arn": "RoleARN",
+    }
+
+    catalog_configuration: Optional[CatalogConfiguration] = None
+    s3_configuration: Optional[S3DestinationConfiguration] = None
+    destination_table_configuration_list: Optional[list[DestinationTableConfiguration]] = None
+    buffering_hints: Optional[BufferingHints] = None
+    table_creation_configuration: Optional[TableCreationConfiguration] = None
+    retry_options: Optional[RetryOptions] = None
+    s3_backup_mode: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    processing_configuration: Optional[ProcessingConfiguration] = None
+    schema_evolution_configuration: Optional[SchemaEvolutionConfiguration] = None
+    append_only: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    cloud_watch_logging_options: Optional[CloudWatchLoggingOptions] = None
+    role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class InputFormatConfiguration(PropertyType):
+    DESERIALIZER = "Deserializer"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "deserializer": "Deserializer",
+    }
+
+    deserializer: Optional[Deserializer] = None
+
+
+@dataclass
+class KMSEncryptionConfig(PropertyType):
+    AWSKMS_KEY_ARN = "AWSKMSKeyARN"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "awskms_key_arn": "AWSKMSKeyARN",
+    }
+
+    awskms_key_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class KinesisStreamSourceConfiguration(PropertyType):
+    KINESIS_STREAM_ARN = "KinesisStreamARN"
+    ROLE_ARN = "RoleARN"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "kinesis_stream_arn": "KinesisStreamARN",
+        "role_arn": "RoleARN",
+    }
+
+    kinesis_stream_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class MSKSourceConfiguration(PropertyType):
+    AUTHENTICATION_CONFIGURATION = "AuthenticationConfiguration"
+    READ_FROM_TIMESTAMP = "ReadFromTimestamp"
+    MSK_CLUSTER_ARN = "MSKClusterARN"
+    TOPIC_NAME = "TopicName"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "authentication_configuration": "AuthenticationConfiguration",
+        "read_from_timestamp": "ReadFromTimestamp",
+        "msk_cluster_arn": "MSKClusterARN",
+        "topic_name": "TopicName",
+    }
+
+    authentication_configuration: Optional[AuthenticationConfiguration] = None
+    read_from_timestamp: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    msk_cluster_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    topic_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class OpenXJsonSerDe(PropertyType):
+    CONVERT_DOTS_IN_JSON_KEYS_TO_UNDERSCORES = "ConvertDotsInJsonKeysToUnderscores"
+    COLUMN_TO_JSON_KEY_MAPPINGS = "ColumnToJsonKeyMappings"
+    CASE_INSENSITIVE = "CaseInsensitive"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "convert_dots_in_json_keys_to_underscores": "ConvertDotsInJsonKeysToUnderscores",
+        "column_to_json_key_mappings": "ColumnToJsonKeyMappings",
+        "case_insensitive": "CaseInsensitive",
+    }
+
+    convert_dots_in_json_keys_to_underscores: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    column_to_json_key_mappings: Optional[dict[str, str]] = None
+    case_insensitive: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class OrcSerDe(PropertyType):
+    PADDING_TOLERANCE = "PaddingTolerance"
+    COMPRESSION = "Compression"
+    STRIPE_SIZE_BYTES = "StripeSizeBytes"
+    BLOOM_FILTER_COLUMNS = "BloomFilterColumns"
+    BLOOM_FILTER_FALSE_POSITIVE_PROBABILITY = "BloomFilterFalsePositiveProbability"
+    ENABLE_PADDING = "EnablePadding"
+    FORMAT_VERSION = "FormatVersion"
+    ROW_INDEX_STRIDE = "RowIndexStride"
+    BLOCK_SIZE_BYTES = "BlockSizeBytes"
+    DICTIONARY_KEY_THRESHOLD = "DictionaryKeyThreshold"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "padding_tolerance": "PaddingTolerance",
+        "compression": "Compression",
+        "stripe_size_bytes": "StripeSizeBytes",
+        "bloom_filter_columns": "BloomFilterColumns",
+        "bloom_filter_false_positive_probability": "BloomFilterFalsePositiveProbability",
+        "enable_padding": "EnablePadding",
+        "format_version": "FormatVersion",
+        "row_index_stride": "RowIndexStride",
+        "block_size_bytes": "BlockSizeBytes",
+        "dictionary_key_threshold": "DictionaryKeyThreshold",
+    }
+
+    padding_tolerance: Optional[Union[float, Ref, GetAtt, Sub]] = None
+    compression: Optional[Union[str, OrcCompression, Ref, GetAtt, Sub]] = None
+    stripe_size_bytes: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    bloom_filter_columns: Optional[Union[list[str], Ref]] = None
+    bloom_filter_false_positive_probability: Optional[Union[float, Ref, GetAtt, Sub]] = None
+    enable_padding: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    format_version: Optional[Union[str, OrcFormatVersion, Ref, GetAtt, Sub]] = None
+    row_index_stride: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    block_size_bytes: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    dictionary_key_threshold: Optional[Union[float, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class OutputFormatConfiguration(PropertyType):
+    SERIALIZER = "Serializer"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "serializer": "Serializer",
+    }
+
+    serializer: Optional[Serializer] = None
+
+
+@dataclass
+class ParquetSerDe(PropertyType):
+    COMPRESSION = "Compression"
+    BLOCK_SIZE_BYTES = "BlockSizeBytes"
+    ENABLE_DICTIONARY_COMPRESSION = "EnableDictionaryCompression"
+    PAGE_SIZE_BYTES = "PageSizeBytes"
+    MAX_PADDING_BYTES = "MaxPaddingBytes"
+    WRITER_VERSION = "WriterVersion"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "compression": "Compression",
+        "block_size_bytes": "BlockSizeBytes",
+        "enable_dictionary_compression": "EnableDictionaryCompression",
+        "page_size_bytes": "PageSizeBytes",
+        "max_padding_bytes": "MaxPaddingBytes",
+        "writer_version": "WriterVersion",
+    }
+
+    compression: Optional[Union[str, ParquetCompression, Ref, GetAtt, Sub]] = None
+    block_size_bytes: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    enable_dictionary_compression: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    page_size_bytes: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    max_padding_bytes: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    writer_version: Optional[Union[str, ParquetWriterVersion, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class PartitionField(PropertyType):
+    SOURCE_NAME = "SourceName"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "source_name": "SourceName",
+    }
+
+    source_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class PartitionSpec(PropertyType):
+    IDENTITY = "Identity"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "identity": "Identity",
+    }
+
+    identity: Optional[list[PartitionField]] = None
+
+
+@dataclass
+class ProcessingConfiguration(PropertyType):
+    ENABLED = "Enabled"
+    PROCESSORS = "Processors"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "enabled": "Enabled",
+        "processors": "Processors",
+    }
+
+    enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    processors: Optional[list[Processor]] = None
+
+
+@dataclass
+class Processor(PropertyType):
+    TYPE = "Type"
+    PARAMETERS = "Parameters"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "type_": "Type",
+        "parameters": "Parameters",
+    }
+
+    type_: Optional[Union[str, ProcessorType, Ref, GetAtt, Sub]] = None
+    parameters: Optional[list[ProcessorParameter]] = None
+
+
+@dataclass
+class ProcessorParameter(PropertyType):
+    PARAMETER_VALUE = "ParameterValue"
+    PARAMETER_NAME = "ParameterName"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "parameter_value": "ParameterValue",
+        "parameter_name": "ParameterName",
+    }
+
+    parameter_value: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    parameter_name: Optional[Union[str, ProcessorParameterName, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class RedshiftDestinationConfiguration(PropertyType):
+    S3_BACKUP_CONFIGURATION = "S3BackupConfiguration"
+    S3_CONFIGURATION = "S3Configuration"
+    USERNAME = "Username"
+    COPY_COMMAND = "CopyCommand"
+    RETRY_OPTIONS = "RetryOptions"
+    SECRETS_MANAGER_CONFIGURATION = "SecretsManagerConfiguration"
+    PROCESSING_CONFIGURATION = "ProcessingConfiguration"
+    CLOUD_WATCH_LOGGING_OPTIONS = "CloudWatchLoggingOptions"
+    CLUSTER_JDBCURL = "ClusterJDBCURL"
+    ROLE_ARN = "RoleARN"
+    PASSWORD = "Password"
+    S3_BACKUP_MODE = "S3BackupMode"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "s3_backup_configuration": "S3BackupConfiguration",
+        "s3_configuration": "S3Configuration",
+        "username": "Username",
+        "copy_command": "CopyCommand",
+        "retry_options": "RetryOptions",
+        "secrets_manager_configuration": "SecretsManagerConfiguration",
+        "processing_configuration": "ProcessingConfiguration",
+        "cloud_watch_logging_options": "CloudWatchLoggingOptions",
+        "cluster_jdbcurl": "ClusterJDBCURL",
+        "role_arn": "RoleARN",
+        "password": "Password",
+        "s3_backup_mode": "S3BackupMode",
+    }
+
+    s3_backup_configuration: Optional[S3DestinationConfiguration] = None
+    s3_configuration: Optional[S3DestinationConfiguration] = None
+    username: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    copy_command: Optional[CopyCommand] = None
+    retry_options: Optional[RedshiftRetryOptions] = None
+    secrets_manager_configuration: Optional[SecretsManagerConfiguration] = None
+    processing_configuration: Optional[ProcessingConfiguration] = None
+    cloud_watch_logging_options: Optional[CloudWatchLoggingOptions] = None
+    cluster_jdbcurl: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    password: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    s3_backup_mode: Optional[Union[str, RedshiftS3BackupMode, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class RedshiftRetryOptions(PropertyType):
+    DURATION_IN_SECONDS = "DurationInSeconds"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "duration_in_seconds": "DurationInSeconds",
+    }
+
+    duration_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class RetryOptions(PropertyType):
+    DURATION_IN_SECONDS = "DurationInSeconds"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "duration_in_seconds": "DurationInSeconds",
+    }
+
+    duration_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class S3DestinationConfiguration(PropertyType):
+    ERROR_OUTPUT_PREFIX = "ErrorOutputPrefix"
+    BUCKET_ARN = "BucketARN"
+    BUFFERING_HINTS = "BufferingHints"
+    COMPRESSION_FORMAT = "CompressionFormat"
+    ENCRYPTION_CONFIGURATION = "EncryptionConfiguration"
+    PREFIX = "Prefix"
+    CLOUD_WATCH_LOGGING_OPTIONS = "CloudWatchLoggingOptions"
+    ROLE_ARN = "RoleARN"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "error_output_prefix": "ErrorOutputPrefix",
+        "bucket_arn": "BucketARN",
+        "buffering_hints": "BufferingHints",
+        "compression_format": "CompressionFormat",
+        "encryption_configuration": "EncryptionConfiguration",
+        "prefix": "Prefix",
+        "cloud_watch_logging_options": "CloudWatchLoggingOptions",
+        "role_arn": "RoleARN",
+    }
+
+    error_output_prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    bucket_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    buffering_hints: Optional[BufferingHints] = None
+    compression_format: Optional[Union[str, CompressionFormat, Ref, GetAtt, Sub]] = None
+    encryption_configuration: Optional[EncryptionConfiguration] = None
+    prefix: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    cloud_watch_logging_options: Optional[CloudWatchLoggingOptions] = None
+    role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class SchemaConfiguration(PropertyType):
+    VERSION_ID = "VersionId"
+    TABLE_NAME = "TableName"
+    DATABASE_NAME = "DatabaseName"
+    REGION = "Region"
+    CATALOG_ID = "CatalogId"
+    ROLE_ARN = "RoleARN"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "version_id": "VersionId",
+        "table_name": "TableName",
+        "database_name": "DatabaseName",
+        "region": "Region",
+        "catalog_id": "CatalogId",
+        "role_arn": "RoleARN",
+    }
+
+    version_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    table_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    database_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    region: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    catalog_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class SchemaEvolutionConfiguration(PropertyType):
+    ENABLED = "Enabled"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "enabled": "Enabled",
+    }
+
+    enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class SecretsManagerConfiguration(PropertyType):
+    SECRET_ARN = "SecretARN"
+    ENABLED = "Enabled"
+    ROLE_ARN = "RoleARN"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "secret_arn": "SecretARN",
+        "enabled": "Enabled",
+        "role_arn": "RoleARN",
+    }
+
+    secret_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class Serializer(PropertyType):
+    ORC_SER_DE = "OrcSerDe"
+    PARQUET_SER_DE = "ParquetSerDe"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "orc_ser_de": "OrcSerDe",
+        "parquet_ser_de": "ParquetSerDe",
+    }
+
+    orc_ser_de: Optional[OrcSerDe] = None
+    parquet_ser_de: Optional[ParquetSerDe] = None
+
+
+@dataclass
+class SnowflakeBufferingHints(PropertyType):
+    INTERVAL_IN_SECONDS = "IntervalInSeconds"
+    SIZE_IN_M_BS = "SizeInMBs"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "interval_in_seconds": "IntervalInSeconds",
+        "size_in_m_bs": "SizeInMBs",
+    }
+
+    interval_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    size_in_m_bs: Optional[Union[int, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class SnowflakeDestinationConfiguration(PropertyType):
+    PRIVATE_KEY = "PrivateKey"
+    USER = "User"
+    TABLE = "Table"
+    SNOWFLAKE_VPC_CONFIGURATION = "SnowflakeVpcConfiguration"
+    DATA_LOADING_OPTION = "DataLoadingOption"
+    SCHEMA = "Schema"
+    CONTENT_COLUMN_NAME = "ContentColumnName"
+    SECRETS_MANAGER_CONFIGURATION = "SecretsManagerConfiguration"
+    SNOWFLAKE_ROLE_CONFIGURATION = "SnowflakeRoleConfiguration"
+    PROCESSING_CONFIGURATION = "ProcessingConfiguration"
+    ACCOUNT_URL = "AccountUrl"
+    ROLE_ARN = "RoleARN"
+    S3_BACKUP_MODE = "S3BackupMode"
+    S3_CONFIGURATION = "S3Configuration"
+    BUFFERING_HINTS = "BufferingHints"
+    META_DATA_COLUMN_NAME = "MetaDataColumnName"
+    DATABASE = "Database"
+    RETRY_OPTIONS = "RetryOptions"
+    KEY_PASSPHRASE = "KeyPassphrase"
+    CLOUD_WATCH_LOGGING_OPTIONS = "CloudWatchLoggingOptions"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "private_key": "PrivateKey",
+        "user": "User",
+        "table": "Table",
+        "snowflake_vpc_configuration": "SnowflakeVpcConfiguration",
+        "data_loading_option": "DataLoadingOption",
+        "schema": "Schema",
+        "content_column_name": "ContentColumnName",
+        "secrets_manager_configuration": "SecretsManagerConfiguration",
+        "snowflake_role_configuration": "SnowflakeRoleConfiguration",
+        "processing_configuration": "ProcessingConfiguration",
+        "account_url": "AccountUrl",
+        "role_arn": "RoleARN",
+        "s3_backup_mode": "S3BackupMode",
+        "s3_configuration": "S3Configuration",
+        "buffering_hints": "BufferingHints",
+        "meta_data_column_name": "MetaDataColumnName",
+        "database": "Database",
+        "retry_options": "RetryOptions",
+        "key_passphrase": "KeyPassphrase",
+        "cloud_watch_logging_options": "CloudWatchLoggingOptions",
+    }
+
+    private_key: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    user: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    table: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    snowflake_vpc_configuration: Optional[SnowflakeVpcConfiguration] = None
+    data_loading_option: Optional[Union[str, SnowflakeDataLoadingOption, Ref, GetAtt, Sub]] = None
+    schema: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    content_column_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    secrets_manager_configuration: Optional[SecretsManagerConfiguration] = None
+    snowflake_role_configuration: Optional[SnowflakeRoleConfiguration] = None
+    processing_configuration: Optional[ProcessingConfiguration] = None
+    account_url: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    s3_backup_mode: Optional[Union[str, SnowflakeS3BackupMode, Ref, GetAtt, Sub]] = None
+    s3_configuration: Optional[S3DestinationConfiguration] = None
+    buffering_hints: Optional[SnowflakeBufferingHints] = None
+    meta_data_column_name: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    database: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    retry_options: Optional[SnowflakeRetryOptions] = None
+    key_passphrase: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    cloud_watch_logging_options: Optional[CloudWatchLoggingOptions] = None
+
+
+@dataclass
+class SnowflakeRetryOptions(PropertyType):
+    DURATION_IN_SECONDS = "DurationInSeconds"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "duration_in_seconds": "DurationInSeconds",
+    }
+
+    duration_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class SnowflakeRoleConfiguration(PropertyType):
+    SNOWFLAKE_ROLE = "SnowflakeRole"
+    ENABLED = "Enabled"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "snowflake_role": "SnowflakeRole",
+        "enabled": "Enabled",
+    }
+
+    snowflake_role: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class SnowflakeVpcConfiguration(PropertyType):
+    PRIVATE_LINK_VPCE_ID = "PrivateLinkVpceId"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "private_link_vpce_id": "PrivateLinkVpceId",
+    }
+
+    private_link_vpce_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class SplunkBufferingHints(PropertyType):
+    INTERVAL_IN_SECONDS = "IntervalInSeconds"
+    SIZE_IN_M_BS = "SizeInMBs"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "interval_in_seconds": "IntervalInSeconds",
+        "size_in_m_bs": "SizeInMBs",
+    }
+
+    interval_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    size_in_m_bs: Optional[Union[int, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class SplunkDestinationConfiguration(PropertyType):
+    HEC_ENDPOINT = "HECEndpoint"
+    S3_CONFIGURATION = "S3Configuration"
+    BUFFERING_HINTS = "BufferingHints"
+    HEC_TOKEN = "HECToken"
+    RETRY_OPTIONS = "RetryOptions"
+    HEC_ENDPOINT_TYPE = "HECEndpointType"
+    SECRETS_MANAGER_CONFIGURATION = "SecretsManagerConfiguration"
+    HEC_ACKNOWLEDGMENT_TIMEOUT_IN_SECONDS = "HECAcknowledgmentTimeoutInSeconds"
+    PROCESSING_CONFIGURATION = "ProcessingConfiguration"
+    CLOUD_WATCH_LOGGING_OPTIONS = "CloudWatchLoggingOptions"
+    S3_BACKUP_MODE = "S3BackupMode"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "hec_endpoint": "HECEndpoint",
+        "s3_configuration": "S3Configuration",
+        "buffering_hints": "BufferingHints",
+        "hec_token": "HECToken",
+        "retry_options": "RetryOptions",
+        "hec_endpoint_type": "HECEndpointType",
+        "secrets_manager_configuration": "SecretsManagerConfiguration",
+        "hec_acknowledgment_timeout_in_seconds": "HECAcknowledgmentTimeoutInSeconds",
+        "processing_configuration": "ProcessingConfiguration",
+        "cloud_watch_logging_options": "CloudWatchLoggingOptions",
+        "s3_backup_mode": "S3BackupMode",
+    }
+
+    hec_endpoint: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    s3_configuration: Optional[S3DestinationConfiguration] = None
+    buffering_hints: Optional[SplunkBufferingHints] = None
+    hec_token: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    retry_options: Optional[SplunkRetryOptions] = None
+    hec_endpoint_type: Optional[Union[str, HECEndpointType, Ref, GetAtt, Sub]] = None
+    secrets_manager_configuration: Optional[SecretsManagerConfiguration] = None
+    hec_acknowledgment_timeout_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
+    processing_configuration: Optional[ProcessingConfiguration] = None
+    cloud_watch_logging_options: Optional[CloudWatchLoggingOptions] = None
+    s3_backup_mode: Optional[Union[str, SplunkS3BackupMode, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class SplunkRetryOptions(PropertyType):
+    DURATION_IN_SECONDS = "DurationInSeconds"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "duration_in_seconds": "DurationInSeconds",
+    }
+
+    duration_in_seconds: Optional[Union[int, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class TableCreationConfiguration(PropertyType):
+    ENABLED = "Enabled"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "enabled": "Enabled",
+    }
+
+    enabled: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class VpcConfiguration(PropertyType):
+    SUBNET_IDS = "SubnetIds"
+    SECURITY_GROUP_IDS = "SecurityGroupIds"
+    ROLE_ARN = "RoleARN"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "subnet_ids": "SubnetIds",
+        "security_group_ids": "SecurityGroupIds",
+        "role_arn": "RoleARN",
+    }
+
+    subnet_ids: Optional[Union[list[str], Ref]] = None
+    security_group_ids: Optional[Union[list[str], Ref]] = None
+    role_arn: Optional[Union[str, Ref, GetAtt, Sub]] = None
+

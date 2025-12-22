@@ -14,7 +14,7 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import codebuild, codecommit, iam, s3
-from cloudformation_dataclasses.aws.codebuild import Artifacts
+from cloudformation_dataclasses.aws.iam import Role
 from cloudformation_dataclasses.aws.s3 import ServerSideEncryption
 from cloudformation_dataclasses.intrinsics import Sub
 
@@ -25,7 +25,6 @@ from .resources import *  # noqa: F403, F401
 __all__ = [
     "AppBuild",
     "AppDeploy",
-    "Artifacts",
     "CodeBuildRole",
     "CodeCommitRepo",
     "DockerImage",
@@ -34,6 +33,7 @@ __all__ = [
     "PipelineS3Bucket",
     "PolicyDocument",
     "PolicyStatement",
+    "Role",
     "STRING",
     "ServerSideEncryption",
     "Sub",

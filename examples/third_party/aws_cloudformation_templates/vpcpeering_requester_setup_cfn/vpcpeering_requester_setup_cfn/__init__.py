@@ -14,7 +14,6 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import ec2
-from cloudformation_dataclasses.aws.ec2 import AssociationParameter
 from cloudformation_dataclasses.intrinsics import AWS_NO_VALUE, Equals, If, Not
 
 from .stack_config import (
@@ -30,7 +29,6 @@ from .resources import *  # noqa: F403, F401
 
 __all__ = [
     "AWS_NO_VALUE",
-    "AssociationParameter",
     "Condition",
     "Equals",
     "If",

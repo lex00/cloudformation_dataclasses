@@ -5,13 +5,13 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class DeliveryStreamDeliveryStreamEncryptionConfigurationInput:
-    resource: DeliveryStreamEncryptionConfigurationInput
+    resource: kinesisfirehose.delivery_stream.DeliveryStreamEncryptionConfigurationInput
     key_type = 'AWS_OWNED_CMK'
 
 
 @cloudformation_dataclass
 class DeliveryStreamCloudWatchLoggingOptions:
-    resource: CloudWatchLoggingOptions
+    resource: kinesisfirehose.delivery_stream.CloudWatchLoggingOptions
     enabled = True
     log_group_name = ref(FirehoseLogGroup)
     log_stream_name = ref(FirehoseLogStream)
@@ -19,28 +19,28 @@ class DeliveryStreamCloudWatchLoggingOptions:
 
 @cloudformation_dataclass
 class DeliveryStreamProcessorParameter:
-    resource: ProcessorParameter
+    resource: kinesisfirehose.delivery_stream.ProcessorParameter
     parameter_name = 'Delimiter'
     parameter_value = '\\n'
 
 
 @cloudformation_dataclass
 class DeliveryStreamProcessor:
-    resource: kinesisfirehose.Processor
+    resource: kinesisfirehose.delivery_stream.Processor
     type_ = 'AppendDelimiterToRecord'
     parameters = [DeliveryStreamProcessorParameter]
 
 
 @cloudformation_dataclass
 class DeliveryStreamProcessingConfiguration:
-    resource: ProcessingConfiguration
+    resource: kinesisfirehose.delivery_stream.ProcessingConfiguration
     enabled = True
     processors = [DeliveryStreamProcessor]
 
 
 @cloudformation_dataclass
 class DeliveryStreamExtendedS3DestinationConfiguration:
-    resource: ExtendedS3DestinationConfiguration
+    resource: kinesisfirehose.delivery_stream.ExtendedS3DestinationConfiguration
     cloud_watch_logging_options = DeliveryStreamCloudWatchLoggingOptions
     role_arn = get_att(DeliveryRole, "Arn")
     bucket_arn = Join('', [

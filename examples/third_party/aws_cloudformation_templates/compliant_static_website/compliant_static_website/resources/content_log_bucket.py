@@ -5,45 +5,45 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class ContentLogBucketServerSideEncryptionByDefault:
-    resource: s3.ServerSideEncryptionByDefault
+    resource: s3.bucket.ServerSideEncryptionByDefault
     sse_algorithm = ServerSideEncryption.AES256
 
 
 @cloudformation_dataclass
 class ContentLogBucketServerSideEncryptionRule:
-    resource: s3.ServerSideEncryptionRule
+    resource: s3.bucket.ServerSideEncryptionRule
     server_side_encryption_by_default = ContentLogBucketServerSideEncryptionByDefault
 
 
 @cloudformation_dataclass
 class ContentLogBucketBucketEncryption:
-    resource: s3.BucketEncryption
+    resource: s3.bucket.BucketEncryption
     server_side_encryption_configuration = [ContentLogBucketServerSideEncryptionRule]
 
 
 @cloudformation_dataclass
 class ContentLogBucketDefaultRetention:
-    resource: DefaultRetention
+    resource: s3.bucket.DefaultRetention
     mode = ObjectLockRetentionMode.COMPLIANCE
     years = 1
 
 
 @cloudformation_dataclass
 class ContentLogBucketObjectLockRule:
-    resource: ObjectLockRule
+    resource: s3.bucket.ObjectLockRule
     default_retention = ContentLogBucketDefaultRetention
 
 
 @cloudformation_dataclass
 class ContentLogBucketObjectLockConfiguration:
-    resource: ObjectLockConfiguration
+    resource: s3.bucket.ObjectLockConfiguration
     object_lock_enabled = ObjectLockEnabled.ENABLED
     rule = ContentLogBucketObjectLockRule
 
 
 @cloudformation_dataclass
 class ContentLogBucketPublicAccessBlockConfiguration:
-    resource: s3.PublicAccessBlockConfiguration
+    resource: s3.multi_region_access_point.PublicAccessBlockConfiguration
     block_public_acls = True
     block_public_policy = True
     ignore_public_acls = True
@@ -51,9 +51,9 @@ class ContentLogBucketPublicAccessBlockConfiguration:
 
 
 @cloudformation_dataclass
-class ContentLogBucketVersioningConfiguration:
-    resource: s3.VersioningConfiguration
-    status = BucketVersioningStatus.ENABLED
+class ContentLogBucketDeleteMarkerReplication:
+    resource: s3.bucket.DeleteMarkerReplication
+    status = 'Enabled'
 
 
 @cloudformation_dataclass
@@ -66,4 +66,4 @@ class ContentLogBucket:
     object_lock_configuration = ContentLogBucketObjectLockConfiguration
     object_lock_enabled = True
     public_access_block_configuration = ContentLogBucketPublicAccessBlockConfiguration
-    versioning_configuration = ContentLogBucketVersioningConfiguration
+    versioning_configuration = ContentLogBucketDeleteMarkerReplication

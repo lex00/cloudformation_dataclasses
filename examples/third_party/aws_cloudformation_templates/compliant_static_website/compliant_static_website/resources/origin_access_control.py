@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class OriginAccessControlOriginAccessControlConfig:
-    resource: OriginAccessControlConfig
+    resource: cloudfront.origin_access_control.OriginAccessControlConfig
     name = Join('', [
     'rain-build-website-',
     Select(2, Split('/', AWS_STACK_ID)),

@@ -1114,8 +1114,14 @@ def _generate_property_type_wrapper(
 
     lines = []
 
-    # Check if PropertyType class name is ambiguous (exists in multiple modules)
-    if is_ambiguous_class_name(pt_class):
+    # Handle nested module paths (e.g., "ec2.instance" for PropertyTypes)
+    if "." in pt_module:
+        # Nested module: ec2.instance.NetworkInterface
+        # Import base service: from cloudformation_dataclasses.aws import ec2
+        base_module = pt_module.split(".")[0]
+        ctx.add_import("cloudformation_dataclasses.aws", base_module)
+        lines.append(f"    resource: {pt_module}.{pt_class}")
+    elif is_ambiguous_class_name(pt_class):
         # Use qualified name: resource: s3.BucketEncryption
         ctx.add_import("cloudformation_dataclasses.aws", pt_module)
         lines.append(f"    resource: {pt_module}.{pt_class}")
@@ -1393,7 +1399,13 @@ def _generate_resource_class(resource: IRResource, ctx: CodegenContext) -> str:
             import cloudformation_dataclasses.aws as aws_pkg
             from pathlib import Path
             aws_dir = Path(aws_pkg.__file__).parent
+
+            # Handle both flat modules (aws/s3.py) and nested packages (aws/ec2/__init__.py)
             py_file = aws_dir / f"{module}.py"
+            if not py_file.exists():
+                # Try nested package
+                py_file = aws_dir / module / "__init__.py"
+
             if py_file.exists():
                 content = py_file.read_text()
                 # Find the resource class and its field types

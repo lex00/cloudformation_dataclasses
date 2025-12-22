@@ -26,10 +26,10 @@ from cloudformation_dataclasses.aws import (
     iam,
     kms,
 )
-from cloudformation_dataclasses.aws.applicationautoscaling import ScalableTarget, StepScalingPolicyConfiguration
+from cloudformation_dataclasses.aws.applicationautoscaling import ScalableTarget
 from cloudformation_dataclasses.aws.autoscaling import AutoScalingGroup, LaunchConfiguration
-from cloudformation_dataclasses.aws.ecs import VolumeFrom
-from cloudformation_dataclasses.aws.elasticloadbalancingv2 import ListenerRule, LoadBalancerAttribute
+from cloudformation_dataclasses.aws.elasticloadbalancingv2 import ListenerRule
+from cloudformation_dataclasses.aws.iam import Role
 from cloudformation_dataclasses.aws.logs import LogGroup
 from cloudformation_dataclasses.intrinsics import (
     AWS_REGION,
@@ -95,7 +95,6 @@ __all__ = [
     "LatestAmiId",
     "LaunchConfiguration",
     "ListenerRule",
-    "LoadBalancerAttribute",
     "LogGroup",
     "LogsKmsKey",
     "MaxSize",
@@ -106,18 +105,17 @@ __all__ = [
     "PolicyDocument",
     "PolicyStatement",
     "RateSchedule",
+    "Role",
     "STRING",
     "ScalableTarget",
     "SchedulerTasksCount",
     "Service",
     "ServiceScalingPolicy",
     "ServiceScalingTarget",
-    "StepScalingPolicyConfiguration",
     "Sub",
     "SubnetId",
     "TaskDefinition",
     "Template",
-    "VolumeFrom",
     "VpcId",
     "applicationautoscaling",
     "cloudformation_dataclass",

@@ -15,13 +15,7 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import iam, kinesisfirehose
-from cloudformation_dataclasses.aws.kinesisfirehose import (
-    CloudWatchLoggingOptions,
-    DeliveryStreamEncryptionConfigurationInput,
-    ExtendedS3DestinationConfiguration,
-    ProcessingConfiguration,
-    ProcessorParameter,
-)
+from cloudformation_dataclasses.aws.iam import Role
 from cloudformation_dataclasses.aws.logs import LogGroup, LogStream
 from cloudformation_dataclasses.intrinsics import (
     AWS_ACCOUNT_ID,
@@ -49,17 +43,14 @@ __all__ = [
     "AWS_ACCOUNT_ID",
     "AWS_NO_VALUE",
     "CloudWatchLogGroupRetention",
-    "CloudWatchLoggingOptions",
     "CloudWatchLogsKMSKey",
     "CloudWatchLogsKMSKeyConditionCondition",
     "Condition",
     "DeliveryRole",
     "DeliveryStream",
-    "DeliveryStreamEncryptionConfigurationInput",
     "DeliveryStreamName",
     "DestinationBucketName",
     "Equals",
-    "ExtendedS3DestinationConfiguration",
     "FirehoseLogGroup",
     "FirehoseLogStream",
     "If",
@@ -72,8 +63,7 @@ __all__ = [
     "Parameter",
     "PolicyDocument",
     "PolicyStatement",
-    "ProcessingConfiguration",
-    "ProcessorParameter",
+    "Role",
     "STRING",
     "STRING_EQUALS",
     "Sub",

@@ -5,14 +5,14 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class ECSScheduledTaskEcsParameters:
-    resource: events.EcsParameters
+    resource: events.rule.EcsParameters
     task_count = ref(SchedulerTasksCount)
     task_definition_arn = ref(TaskDefinition)
 
 
 @cloudformation_dataclass
 class ECSScheduledTaskTarget:
-    resource: events.Target
+    resource: events.rule.Target
     arn = get_att(ECSCluster, "Arn")
     id = 'Target1'
     role_arn = get_att(ECSEventRole, "Arn")

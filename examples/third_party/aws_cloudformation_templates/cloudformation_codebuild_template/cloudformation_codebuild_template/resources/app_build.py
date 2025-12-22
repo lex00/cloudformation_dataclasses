@@ -5,14 +5,14 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class AppBuildArtifacts:
-    resource: Artifacts
+    resource: codebuild.project.Artifacts
     type_ = 'CODEPIPELINE'
     encryption_disabled = True
 
 
 @cloudformation_dataclass
 class AppBuildEnvironmentVariable:
-    resource: codebuild.EnvironmentVariable
+    resource: codebuild.project.EnvironmentVariable
     name = 'SAMPLEENVVAR'
     type_ = 'PLAINTEXT'
     value = 'test'
@@ -20,7 +20,7 @@ class AppBuildEnvironmentVariable:
 
 @cloudformation_dataclass
 class AppBuildEnvironment:
-    resource: codebuild.Environment
+    resource: codebuild.project.Environment
     compute_type = 'BUILD_GENERAL1_SMALL'
     environment_variables = [AppBuildEnvironmentVariable]
     image = ref(DockerImage)
@@ -29,7 +29,7 @@ class AppBuildEnvironment:
 
 @cloudformation_dataclass
 class AppBuildSource:
-    resource: codebuild.Source
+    resource: codebuild.project.Source
     type_ = 'CODEPIPELINE'
     build_spec = 'codebuild-app-build.yml'
 

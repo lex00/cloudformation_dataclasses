@@ -21,8 +21,9 @@ from cloudformation_dataclasses.aws import (
     rds,
     s3,
 )
-from cloudformation_dataclasses.aws.dms import ReplicationInstance, ReplicationSubnetGroup, ReplicationTask, S3Settings
-from cloudformation_dataclasses.aws.ec2 import AssociationParameter, Subnet, SubnetRouteTableAssociation, VPCGatewayAttachment
+from cloudformation_dataclasses.aws.dms import ReplicationInstance, ReplicationSubnetGroup, ReplicationTask
+from cloudformation_dataclasses.aws.ec2 import Subnet, SubnetRouteTableAssociation, VPCGatewayAttachment
+from cloudformation_dataclasses.aws.iam import Role
 from cloudformation_dataclasses.aws.s3 import ServerSideEncryption
 from cloudformation_dataclasses.intrinsics import (
     AWS_REGION,
@@ -49,7 +50,6 @@ __all__ = [
     "AWS_REGION",
     "AWS_STACK_ID",
     "AWS_STACK_NAME",
-    "AssociationParameter",
     "AttachGateway",
     "AuroraCluster",
     "AuroraDB",
@@ -80,10 +80,10 @@ __all__ = [
     "ReplicationInstance",
     "ReplicationSubnetGroup",
     "ReplicationTask",
+    "Role",
     "Route",
     "RouteTable",
     "S3Bucket",
-    "S3Settings",
     "S3TargetDMSRole",
     "S3TargetEndpoint",
     "STRING",

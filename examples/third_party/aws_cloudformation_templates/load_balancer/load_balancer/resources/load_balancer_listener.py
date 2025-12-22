@@ -5,14 +5,14 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class LoadBalancerListenerAction:
-    resource: elasticloadbalancingv2.Action
+    resource: elasticloadbalancingv2.listener_rule.Action
     target_group_arn = ref(TargetGroup)
     type_ = 'forward'
 
 
 @cloudformation_dataclass
 class LoadBalancerListenerCertificate:
-    resource: elasticloadbalancingv2.Certificate
+    resource: elasticloadbalancingv2.listener_certificate.Certificate
     certificate_arn = ref(CertificateArn)
 
 

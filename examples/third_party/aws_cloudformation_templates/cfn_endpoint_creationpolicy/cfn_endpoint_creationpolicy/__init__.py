@@ -16,13 +16,13 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.aws import ec2, iam
 from cloudformation_dataclasses.aws.ec2 import (
-    AssociationParameter,
     RouteTable,
     Subnet,
     SubnetRouteTableAssociation,
     VPCEndpoint,
     VPCGatewayAttachment,
 )
+from cloudformation_dataclasses.aws.iam import Role
 from cloudformation_dataclasses.intrinsics import (
     Base64,
     GetAZs,
@@ -45,7 +45,6 @@ from .stack_config import (
 from .resources import *  # noqa: F403, F401
 
 __all__ = [
-    "AssociationParameter",
     "Base64",
     "BastionInstance",
     "BastionProfile",
@@ -83,6 +82,7 @@ __all__ = [
     "PublicSubnet2",
     "PublicSubnet2CIDR",
     "PublicSubnet2RouteTableAssociation",
+    "Role",
     "RootRole",
     "RouteTable",
     "STRING",

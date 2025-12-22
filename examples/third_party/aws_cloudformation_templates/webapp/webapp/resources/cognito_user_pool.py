@@ -5,27 +5,27 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class CognitoUserPoolAdminCreateUserConfig:
-    resource: AdminCreateUserConfig
+    resource: cognito.user_pool.AdminCreateUserConfig
     allow_admin_create_user_only = True
 
 
 @cloudformation_dataclass
 class CognitoUserPoolSchemaAttribute:
-    resource: SchemaAttribute
+    resource: cognito.user_pool.SchemaAttribute
     name = 'email'
     required = True
 
 
 @cloudformation_dataclass
 class CognitoUserPoolSchemaAttribute1:
-    resource: SchemaAttribute
+    resource: cognito.user_pool.SchemaAttribute
     name = 'given_name'
     required = True
 
 
 @cloudformation_dataclass
 class CognitoUserPoolSchemaAttribute2:
-    resource: SchemaAttribute
+    resource: cognito.user_pool.SchemaAttribute
     name = 'family_name'
     required = True
 

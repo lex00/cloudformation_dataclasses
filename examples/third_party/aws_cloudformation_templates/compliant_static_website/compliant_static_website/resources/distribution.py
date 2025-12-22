@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class DistributionDefaultCacheBehavior:
-    resource: DefaultCacheBehavior
+    resource: cloudfront.distribution.DefaultCacheBehavior
     cache_policy_id = 'rain-build-cache-policy-1'
     compress = True
     target_origin_id = 'rain-build-origin-1'
@@ -14,19 +14,19 @@ class DistributionDefaultCacheBehavior:
 
 @cloudformation_dataclass
 class DistributionLogging:
-    resource: cloudfront.Logging
+    resource: cloudfront.distribution.Logging
     bucket = get_att(CloudFrontLogsBucket, "RegionalDomainName")
 
 
 @cloudformation_dataclass
 class DistributionS3OriginConfig:
-    resource: S3OriginConfig
+    resource: cloudfront.distribution.S3OriginConfig
     origin_access_identity = ''
 
 
 @cloudformation_dataclass
 class DistributionOrigin:
-    resource: Origin
+    resource: cloudfront.distribution.Origin
     domain_name = get_att(ContentBucket, "RegionalDomainName")
     id = 'rain-build-origin-1'
     origin_access_control_id = get_att(OriginAccessControl, "Id")
@@ -35,13 +35,13 @@ class DistributionOrigin:
 
 @cloudformation_dataclass
 class DistributionViewerCertificate:
-    resource: ViewerCertificate
+    resource: cloudfront.distribution.ViewerCertificate
     cloud_front_default_certificate = True
 
 
 @cloudformation_dataclass
 class DistributionDistributionConfig:
-    resource: DistributionConfig
+    resource: cloudfront.distribution.DistributionConfig
     default_cache_behavior = DistributionDefaultCacheBehavior
     default_root_object = 'index.html'
     enabled = True

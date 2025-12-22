@@ -13,7 +13,6 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.aws import elasticloadbalancingv2
 from cloudformation_dataclasses.aws.ec2 import EIP
-from cloudformation_dataclasses.aws.elasticloadbalancingv2 import TargetGroupAttribute
 from cloudformation_dataclasses.intrinsics import Select
 
 from .stack_config import (
@@ -42,7 +41,6 @@ __all__ = [
     "Subnet1",
     "Subnet2",
     "TargetGroup",
-    "TargetGroupAttribute",
     "Template",
     "VPC",
     "cloudformation_dataclass",

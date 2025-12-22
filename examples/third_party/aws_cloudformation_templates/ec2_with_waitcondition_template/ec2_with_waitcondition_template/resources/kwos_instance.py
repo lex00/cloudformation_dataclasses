@@ -5,63 +5,63 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class KWOSInstanceAssociationParameter:
-    resource: AssociationParameter
+    resource: ec2.instance.AssociationParameter
     key = 'LaunchPlatform'
     value = ref(LaunchPlatform)
 
 
 @cloudformation_dataclass
 class KWOSInstanceAssociationParameter1:
-    resource: AssociationParameter
+    resource: ec2.instance.AssociationParameter
     key = 'LaunchUser'
     value = ref(LaunchUser)
 
 
 @cloudformation_dataclass
 class KWOSInstanceAssociationParameter2:
-    resource: AssociationParameter
+    resource: ec2.instance.AssociationParameter
     key = 'TestID'
     value = ref(TestID)
 
 
 @cloudformation_dataclass
 class KWOSInstanceAssociationParameter3:
-    resource: AssociationParameter
+    resource: ec2.instance.AssociationParameter
     key = 'Name'
     value = ref(InstanceName)
 
 
 @cloudformation_dataclass
 class KWOSInstanceAssociationParameter4:
-    resource: AssociationParameter
+    resource: ec2.instance.AssociationParameter
     key = 'BudgetCode'
     value = ref(BudgetCode)
 
 
 @cloudformation_dataclass
 class KWOSInstanceAssociationParameter5:
-    resource: AssociationParameter
+    resource: ec2.instance.AssociationParameter
     key = 'TestTarget'
     value = ref(TestTarget)
 
 
 @cloudformation_dataclass
 class KWOSInstanceAssociationParameter6:
-    resource: AssociationParameter
+    resource: ec2.instance.AssociationParameter
     key = 'AgentID'
     value = ref(AgentID)
 
 
 @cloudformation_dataclass
 class KWOSInstanceAssociationParameter7:
-    resource: AssociationParameter
+    resource: ec2.instance.AssociationParameter
     key = 'IsMaster'
     value = ref(IsMaster)
 
 
 @cloudformation_dataclass
 class KWOSInstanceAssociationParameter8:
-    resource: AssociationParameter
+    resource: ec2.instance.AssociationParameter
     key = 'MasterID'
     value = ref(MasterID)
 

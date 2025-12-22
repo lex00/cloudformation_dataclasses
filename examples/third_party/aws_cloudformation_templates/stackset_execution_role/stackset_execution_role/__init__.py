@@ -14,6 +14,7 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import iam
+from cloudformation_dataclasses.aws.iam import Role
 from cloudformation_dataclasses.intrinsics import Sub
 
 from .stack_config import AdministrationAccountId
@@ -27,6 +28,7 @@ __all__ = [
     "Parameter",
     "PolicyDocument",
     "PolicyStatement",
+    "Role",
     "STRING",
     "Sub",
     "Template",

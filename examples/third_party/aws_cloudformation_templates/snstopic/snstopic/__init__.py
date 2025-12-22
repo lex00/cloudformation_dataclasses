@@ -12,6 +12,7 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import sns
+from cloudformation_dataclasses.aws.sns import Subscription
 
 from .stack_config import SubscriptionEndPoint, SubscriptionProtocol
 
@@ -23,6 +24,7 @@ __all__ = [
     "SNSSubscription",
     "SNSTopic",
     "STRING",
+    "Subscription",
     "SubscriptionEndPoint",
     "SubscriptionProtocol",
     "Template",

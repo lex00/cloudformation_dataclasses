@@ -14,7 +14,7 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import ec2, rds, secretsmanager
-from cloudformation_dataclasses.aws.secretsmanager import GenerateSecretString
+from cloudformation_dataclasses.aws.secretsmanager import Secret
 from cloudformation_dataclasses.intrinsics import (
     AWS_NO_VALUE,
     AWS_REGION,
@@ -53,7 +53,6 @@ __all__ = [
     "EnableReadReplica",
     "EnableReadReplicaCondition",
     "Equals",
-    "GenerateSecretString",
     "If",
     "IsEC2VPCCondition",
     "Join",
@@ -65,6 +64,7 @@ __all__ = [
     "Parameter",
     "ReplicaDB",
     "STRING",
+    "Secret",
     "Sub",
     "Template",
     "cloudformation_dataclass",

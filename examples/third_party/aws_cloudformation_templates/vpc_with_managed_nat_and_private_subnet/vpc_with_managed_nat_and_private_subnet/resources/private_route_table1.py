@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class PrivateRouteTable1AssociationParameter:
-    resource: AssociationParameter
+    resource: ec2.instance.AssociationParameter
     key = 'Name'
     value = Join('', [
     ref(VPCName),

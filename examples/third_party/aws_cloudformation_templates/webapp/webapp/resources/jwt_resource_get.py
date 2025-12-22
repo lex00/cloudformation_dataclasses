@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class JwtResourceGetIntegration:
-    resource: apigateway.Integration
+    resource: apigateway.method.Integration
     integration_http_method = 'POST'
     type_ = 'AWS_PROXY'
     uri = Sub('arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${JwtResourceHandler.Arn}/invocations')
@@ -15,7 +15,7 @@ class JwtResourceGetIntegration:
 class JwtResourceGet:
     """AWS::ApiGateway::Method resource."""
 
-    resource: apigateway.Method
+    resource: Method
     http_method = 'GET'
     resource_id = ref(JwtResourceResource)
     rest_api_id = ref(RestApi)

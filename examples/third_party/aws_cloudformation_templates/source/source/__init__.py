@@ -14,16 +14,8 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import iam, kms, s3
-from cloudformation_dataclasses.aws.s3 import (
-    AccessControlTranslation,
-    BucketVersioningStatus,
-    DeleteMarkerReplication,
-    ReplicationRuleFilter,
-    ReplicationRuleStatus,
-    ServerSideEncryption,
-    SourceSelectionCriteria,
-    SseKmsEncryptedObjects,
-)
+from cloudformation_dataclasses.aws.iam import Role
+from cloudformation_dataclasses.aws.s3 import ReplicationRuleStatus, ServerSideEncryption
 from cloudformation_dataclasses.intrinsics import Sub
 
 from .stack_config import AccountIdDestination
@@ -31,24 +23,19 @@ from .stack_config import AccountIdDestination
 from .resources import *  # noqa: F403, F401
 
 __all__ = [
-    "AccessControlTranslation",
     "AccountIdDestination",
-    "BucketVersioningStatus",
-    "DeleteMarkerReplication",
     "KmsKey",
     "KmsKeyAlias",
     "Parameter",
     "PolicyDocument",
     "PolicyStatement",
     "ReplicationRole",
-    "ReplicationRuleFilter",
     "ReplicationRuleStatus",
+    "Role",
     "S3BucketSource",
     "STRING",
     "STRING_EQUALS",
     "ServerSideEncryption",
-    "SourceSelectionCriteria",
-    "SseKmsEncryptedObjects",
     "Sub",
     "Template",
     "cloudformation_dataclass",

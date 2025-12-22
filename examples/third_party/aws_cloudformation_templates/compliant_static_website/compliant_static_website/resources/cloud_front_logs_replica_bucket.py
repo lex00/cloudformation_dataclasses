@@ -5,25 +5,25 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class CloudFrontLogsReplicaBucketServerSideEncryptionByDefault:
-    resource: s3.ServerSideEncryptionByDefault
+    resource: s3.bucket.ServerSideEncryptionByDefault
     sse_algorithm = ServerSideEncryption.AES256
 
 
 @cloudformation_dataclass
 class CloudFrontLogsReplicaBucketServerSideEncryptionRule:
-    resource: s3.ServerSideEncryptionRule
+    resource: s3.bucket.ServerSideEncryptionRule
     server_side_encryption_by_default = CloudFrontLogsReplicaBucketServerSideEncryptionByDefault
 
 
 @cloudformation_dataclass
 class CloudFrontLogsReplicaBucketBucketEncryption:
-    resource: s3.BucketEncryption
+    resource: s3.bucket.BucketEncryption
     server_side_encryption_configuration = [CloudFrontLogsReplicaBucketServerSideEncryptionRule]
 
 
 @cloudformation_dataclass
 class CloudFrontLogsReplicaBucketPublicAccessBlockConfiguration:
-    resource: s3.PublicAccessBlockConfiguration
+    resource: s3.multi_region_access_point.PublicAccessBlockConfiguration
     block_public_acls = True
     block_public_policy = True
     ignore_public_acls = True
@@ -31,9 +31,9 @@ class CloudFrontLogsReplicaBucketPublicAccessBlockConfiguration:
 
 
 @cloudformation_dataclass
-class CloudFrontLogsReplicaBucketVersioningConfiguration:
-    resource: s3.VersioningConfiguration
-    status = BucketVersioningStatus.ENABLED
+class CloudFrontLogsReplicaBucketDeleteMarkerReplication:
+    resource: s3.bucket.DeleteMarkerReplication
+    status = 'Enabled'
 
 
 @cloudformation_dataclass
@@ -45,4 +45,4 @@ class CloudFrontLogsReplicaBucket:
     bucket_name = Sub('${AppName}-cflogs-replicas-${AWS::Region}-${AWS::AccountId}')
     object_lock_enabled = False
     public_access_block_configuration = CloudFrontLogsReplicaBucketPublicAccessBlockConfiguration
-    versioning_configuration = CloudFrontLogsReplicaBucketVersioningConfiguration
+    versioning_configuration = CloudFrontLogsReplicaBucketDeleteMarkerReplication

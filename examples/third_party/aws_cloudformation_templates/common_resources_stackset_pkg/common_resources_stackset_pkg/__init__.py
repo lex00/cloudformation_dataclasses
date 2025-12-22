@@ -11,20 +11,15 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import cloudformation
-from cloudformation_dataclasses.aws.cloudformation import AutoDeployment, DeploymentTargets, OperationPreferences, StackInstances
 
 from .stack_config import OUID
 
 from .resources import *  # noqa: F403, F401
 
 __all__ = [
-    "AutoDeployment",
-    "DeploymentTargets",
     "OUID",
-    "OperationPreferences",
     "Parameter",
     "STRING",
-    "StackInstances",
     "StackSet",
     "Template",
     "cloudformation",

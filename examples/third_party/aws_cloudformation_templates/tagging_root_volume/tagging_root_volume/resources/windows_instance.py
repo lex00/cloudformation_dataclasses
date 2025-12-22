@@ -5,14 +5,14 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class WindowsInstanceAssociationParameter:
-    resource: AssociationParameter
+    resource: ec2.instance.AssociationParameter
     key = 'Name'
     value = AWS_STACK_NAME
 
 
 @cloudformation_dataclass
-class WindowsInstanceEbsBlockDevice:
-    resource: ec2.EbsBlockDevice
+class WindowsInstanceEbs:
+    resource: ec2.instance.Ebs
     volume_type = 'io1'
     iops = '200'
     delete_on_termination = 'true'
@@ -21,9 +21,9 @@ class WindowsInstanceEbsBlockDevice:
 
 @cloudformation_dataclass
 class WindowsInstanceBlockDeviceMapping:
-    resource: ec2.BlockDeviceMapping
+    resource: ec2.instance.BlockDeviceMapping
     device_name = '/dev/sdm'
-    ebs = WindowsInstanceEbsBlockDevice
+    ebs = WindowsInstanceEbs
 
 
 @cloudformation_dataclass

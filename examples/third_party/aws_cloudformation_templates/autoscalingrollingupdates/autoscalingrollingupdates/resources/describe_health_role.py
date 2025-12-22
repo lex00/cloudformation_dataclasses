@@ -33,7 +33,7 @@ class DescribeHealthRolePolicies0PolicyDocument:
 
 @cloudformation_dataclass
 class DescribeHealthRolePolicy:
-    resource: iam.Policy
+    resource: iam.user.Policy
     policy_name = 'describe-instance-health-policy'
     policy_document = DescribeHealthRolePolicies0PolicyDocument
 
@@ -42,7 +42,7 @@ class DescribeHealthRolePolicy:
 class DescribeHealthRole:
     """AWS::IAM::Role resource."""
 
-    resource: iam.Role
+    resource: Role
     assume_role_policy_document = DescribeHealthRoleAssumeRolePolicyDocument
     path = '/'
     policies = [DescribeHealthRolePolicy]

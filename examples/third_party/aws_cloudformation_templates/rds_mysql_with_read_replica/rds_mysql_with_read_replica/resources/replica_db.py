@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class ReplicaDBTagFormat:
-    resource: rds.TagFormat
+    resource: rds.db_proxy.TagFormat
     key = 'Name'
     value = 'Read Replica Database'
 

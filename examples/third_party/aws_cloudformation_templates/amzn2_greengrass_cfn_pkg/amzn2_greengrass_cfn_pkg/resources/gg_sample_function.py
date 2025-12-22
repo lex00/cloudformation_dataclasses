@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class GGSampleFunctionCode:
-    resource: lambda_.Code
+    resource: lambda_.function.Code
     zip_file = """import os
 from threading import Timer
 import greengrasssdk

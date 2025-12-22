@@ -5,22 +5,22 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class DirectorySettingsLambdaFunctionEnvironment:
-    resource: lambda_.Environment
+    resource: lambda_.function.Environment
     variables = {
         'LOG_LEVEL': ref(LambdaLogLevel),
     }
 
 
 @cloudformation_dataclass
-class DirectorySettingsLambdaFunctionCode:
-    resource: lambda_.Code
+class DirectorySettingsLambdaFunctionContent:
+    resource: lambda_.layer_version.Content
     s3_bucket = ref(LambdaS3BucketName)
     s3_key = ref(LambdaZipFileName)
 
 
 @cloudformation_dataclass
-class DirectorySettingsLambdaFunctionVpcConfig:
-    resource: lambda_.VpcConfig
+class DirectorySettingsLambdaFunctionCapacityProviderVpcConfig:
+    resource: lambda_.capacity_provider.CapacityProviderVpcConfig
     subnet_ids = ref(Subnets)
     security_group_ids = ref(SecurityGroups)
 
@@ -37,5 +37,5 @@ class DirectorySettingsLambdaFunction:
     memory_size = 128
     timeout = 120
     environment = DirectorySettingsLambdaFunctionEnvironment
-    code = DirectorySettingsLambdaFunctionCode
-    vpc_config = DirectorySettingsLambdaFunctionVpcConfig
+    code = DirectorySettingsLambdaFunctionContent
+    vpc_config = DirectorySettingsLambdaFunctionCapacityProviderVpcConfig

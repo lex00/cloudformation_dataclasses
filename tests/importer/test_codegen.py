@@ -28,7 +28,8 @@ class TestGenerateSimpleBucket:
     def test_has_resource_class(self, code):
         assert "@cloudformation_dataclass" in code
         assert "class MyBucket:" in code
-        assert "resource: Bucket" in code
+        # Bucket exists in multiple modules (s3, s3outposts, lightsail), so qualified name is used
+        assert "resource: s3.Bucket" in code
         assert "bucket_name = 'my-test-bucket'" in code
 
     def test_has_output_class(self, code):
@@ -210,8 +211,8 @@ class TestGeneratePackage:
         assert "from .main import main" in content
         assert "main()" in content
 
-    def test_has_config_py(self, files):
-        assert "my_stack/config.py" in files
+    def test_has_stack_config_py(self, files):
+        assert "my_stack/stack_config.py" in files
 
     def test_has_resources_package(self, files):
         assert "my_stack/resources/__init__.py" in files

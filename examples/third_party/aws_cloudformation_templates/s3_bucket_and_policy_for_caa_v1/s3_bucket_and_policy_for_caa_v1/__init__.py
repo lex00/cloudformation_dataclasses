@@ -16,7 +16,7 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import s3
-from cloudformation_dataclasses.aws.s3 import BucketVersioningStatus, ServerSideEncryption
+from cloudformation_dataclasses.aws.s3 import ServerSideEncryption
 from cloudformation_dataclasses.intrinsics import Sub
 
 from .stack_config import BucketName, PublisherAccountID
@@ -28,7 +28,6 @@ __all__ = [
     "Bucket",
     "BucketName",
     "BucketPolicy",
-    "BucketVersioningStatus",
     "DenyStatement",
     "Output",
     "Parameter",

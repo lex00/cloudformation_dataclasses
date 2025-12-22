@@ -10,8 +10,7 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import ec2
-from cloudformation_dataclasses.aws.ec2 import EIP, EIPAssociation
+from cloudformation_dataclasses.aws.ec2 import EIP, EIPAssociation, NetworkInterface
 from cloudformation_dataclasses.intrinsics import Select
 
 from .stack_config import Subnet
@@ -26,13 +25,13 @@ __all__ = [
     "EIP2",
     "EIPAssociation",
     "ENI",
+    "NetworkInterface",
     "Parameter",
     "ParameterType",
     "Select",
     "Subnet",
     "Template",
     "cloudformation_dataclass",
-    "ec2",
     "get_att",
     "ref",
 ]

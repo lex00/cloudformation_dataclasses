@@ -4,8 +4,8 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class GreengrassCoreDefinitionVersionCore:
-    resource: greengrass.Core
+class GreengrassCoreDefinitionVersionDevice:
+    resource: greengrass.device_definition.Device
     certificate_arn = Join(':', [
     'arn:',
     AWS_PARTITION,
@@ -42,6 +42,6 @@ class GreengrassCoreDefinitionVersionCore:
 class GreengrassCoreDefinitionVersion:
     """AWS::Greengrass::CoreDefinitionVersion resource."""
 
-    resource: greengrass.CoreDefinitionVersion
+    resource: CoreDefinitionVersion
     core_definition_id = ref(GreengrassCoreDefinition)
-    cores = [GreengrassCoreDefinitionVersionCore]
+    cores = [GreengrassCoreDefinitionVersionDevice]

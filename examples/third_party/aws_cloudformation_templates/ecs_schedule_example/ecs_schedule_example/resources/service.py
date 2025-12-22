@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class ServiceLoadBalancer:
-    resource: ecs.LoadBalancer
+    resource: ecs.task_set.LoadBalancer
     container_name = 'simple-app'
     container_port = '80'
     target_group_arn = ref(ECSTG)

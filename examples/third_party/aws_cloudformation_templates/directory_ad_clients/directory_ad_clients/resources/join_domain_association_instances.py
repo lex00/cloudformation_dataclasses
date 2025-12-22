@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class JoinDomainAssociationInstancesInstanceAssociationOutputLocation:
-    resource: InstanceAssociationOutputLocation
+    resource: ssm.association.InstanceAssociationOutputLocation
     s3_location = If("SSMLogsBucketCondition", {
     S3OutputLocation.output_s3_bucket_name: ref(SSMLogsBucketName),
     S3OutputLocation.output_s3_key_prefix: Sub('ssm-association-logs/AWSLogs/${AWS::AccountId}/*'),
@@ -14,7 +14,7 @@ class JoinDomainAssociationInstancesInstanceAssociationOutputLocation:
 
 @cloudformation_dataclass
 class JoinDomainAssociationInstancesTarget:
-    resource: ssm.Target
+    resource: ssm.maintenance_window_task.Target
     key = 'InstanceIds'
     values = [ref(DomainMember2WithSsmAssociationInstance), ref(DomainMember4LinuxWithSsmAssociationInstance)]
 

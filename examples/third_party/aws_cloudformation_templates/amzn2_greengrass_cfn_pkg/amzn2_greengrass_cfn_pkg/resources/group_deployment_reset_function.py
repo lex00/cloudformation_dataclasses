@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class GroupDeploymentResetFunctionCode:
-    resource: lambda_.Code
+    resource: lambda_.function.Code
     zip_file = """"Group Deployment Reset Function"
 
 # pylint: disable=line-too-long,logging-fstring-interpolation
@@ -129,7 +129,7 @@ def handler(event, context):
 
 @cloudformation_dataclass
 class GroupDeploymentResetFunctionEnvironment:
-    resource: lambda_.Environment
+    resource: lambda_.function.Environment
     variables = {
         'STACK_NAME': AWS_STACK_NAME,
     }

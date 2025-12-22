@@ -43,9 +43,6 @@ OUTPUT_DIR="$PROJECT_ROOT/examples/third_party/aws_cloudformation_templates"
 # Templates with known defects that cannot be imported correctly
 # These will be skipped during validation (but still imported for inspection)
 SKIP_TEMPLATES=(
-    # Malformed source YAML
-    "efs_with_automount_to_ec2"  # JSON array syntax in YAML literal block
-
     # Read-only attribute used as property (source template bug)
     "vpc_ec2_instance_with_multiple_static_ipaddresses"  # NetworkInterfaceId is GetAtt only
 
@@ -175,6 +172,10 @@ if [ ! -d "$SOURCE_DIR" ]; then
     echo "  git clone https://github.com/awslabs/aws-cloudformation-templates.git"
     exit 1
 fi
+
+# Step 1.5: Apply known fixes to source templates
+header "Applying Template Fixes"
+python3 "$SCRIPT_DIR/fix_templates.py" "$SOURCE_DIR"
 
 # Step 2: Run batch import
 header "Running Batch Import"

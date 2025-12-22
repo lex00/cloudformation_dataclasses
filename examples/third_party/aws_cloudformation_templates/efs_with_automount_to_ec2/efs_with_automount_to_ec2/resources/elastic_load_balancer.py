@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class ElasticLoadBalancerHealthCheck:
-    resource: elasticloadbalancing.HealthCheck
+    resource: elasticloadbalancing.load_balancer.HealthCheck
     healthy_threshold = '3'
     interval = '30'
     target = Join('', [
@@ -19,7 +19,7 @@ class ElasticLoadBalancerHealthCheck:
 
 @cloudformation_dataclass
 class ElasticLoadBalancerListeners:
-    resource: Listeners
+    resource: elasticloadbalancing.load_balancer.Listeners
     instance_port = '80'
     load_balancer_port = '80'
     protocol = 'HTTP'

@@ -5,19 +5,19 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class IoTTopicRuleLambdaAction:
-    resource: iot.LambdaAction
+    resource: iot.topic_rule.LambdaAction
     function_arn = get_att(MyLambda, "Arn")
 
 
 @cloudformation_dataclass
 class IoTTopicRuleAction:
-    resource: iot.Action
+    resource: iot.topic_rule.Action
     lambda_ = IoTTopicRuleLambdaAction
 
 
 @cloudformation_dataclass
 class IoTTopicRuleTopicRulePayload:
-    resource: TopicRulePayload
+    resource: iot.topic_rule.TopicRulePayload
     actions = [IoTTopicRuleAction]
     aws_iot_sql_version = '2016-03-23'
     sql = " SELECT * FROM 'topic_2'"

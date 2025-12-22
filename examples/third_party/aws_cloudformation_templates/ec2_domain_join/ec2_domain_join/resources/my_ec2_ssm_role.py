@@ -22,7 +22,7 @@ class myEC2SSMRoleAssumeRolePolicyDocument:
 class myEC2SSMRole:
     """AWS::IAM::Role resource."""
 
-    resource: iam.Role
+    resource: Role
     assume_role_policy_document = myEC2SSMRoleAssumeRolePolicyDocument
     managed_policy_arns = ['arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM']
     role_name = 'DemoEC2SSMRole'

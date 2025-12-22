@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class BucketToCopyATagFilter:
-    resource: s3.TagFilter
+    resource: s3.bucket.TagFilter
     key = 'TestKey'
     value = 'my bucket %d'
 

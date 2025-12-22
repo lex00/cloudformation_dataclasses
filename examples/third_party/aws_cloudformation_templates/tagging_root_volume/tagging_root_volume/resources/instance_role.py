@@ -36,7 +36,7 @@ class InstanceRolePolicies0PolicyDocument:
 
 @cloudformation_dataclass
 class InstanceRolePolicy:
-    resource: iam.Policy
+    resource: iam.user.Policy
     policy_name = 'taginstancepolicy'
     policy_document = InstanceRolePolicies0PolicyDocument
 
@@ -45,7 +45,7 @@ class InstanceRolePolicy:
 class InstanceRole:
     """AWS::IAM::Role resource."""
 
-    resource: iam.Role
+    resource: Role
     assume_role_policy_document = InstanceRoleAssumeRolePolicyDocument
     path = '/'
     policies = [InstanceRolePolicy]

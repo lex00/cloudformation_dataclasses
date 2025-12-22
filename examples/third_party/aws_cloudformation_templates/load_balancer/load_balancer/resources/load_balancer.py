@@ -5,14 +5,14 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class LoadBalancerLoadBalancerAttribute:
-    resource: LoadBalancerAttribute
+    resource: elasticloadbalancingv2.load_balancer.LoadBalancerAttribute
     key = 'deletion_protection.enabled'
     value = False
 
 
 @cloudformation_dataclass
 class LoadBalancerLoadBalancerAttribute1:
-    resource: LoadBalancerAttribute
+    resource: elasticloadbalancingv2.load_balancer.LoadBalancerAttribute
     key = 'routing.http.drop_invalid_header_fields.enabled'
     value = True
 

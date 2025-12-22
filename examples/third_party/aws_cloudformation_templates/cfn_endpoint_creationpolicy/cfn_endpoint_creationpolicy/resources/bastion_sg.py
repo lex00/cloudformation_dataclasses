@@ -4,8 +4,8 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class BastionSGIngress:
-    resource: ec2.Ingress
+class BastionSGEgress:
+    resource: ec2.security_group.Egress
     ip_protocol = 'tcp'
     from_port = 22
     to_port = 22
@@ -14,7 +14,7 @@ class BastionSGIngress:
 
 @cloudformation_dataclass
 class BastionSGAssociationParameter:
-    resource: AssociationParameter
+    resource: ec2.instance.AssociationParameter
     key = 'Name'
     value = 'BastionSG'
 
@@ -25,6 +25,6 @@ class BastionSG:
 
     resource: ec2.SecurityGroup
     group_description = 'Inbound Bastion Traffic'
-    security_group_ingress = [BastionSGIngress]
+    security_group_ingress = [BastionSGEgress]
     vpc_id = ref(VPC)
     tags = [BastionSGAssociationParameter]

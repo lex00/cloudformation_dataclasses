@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class ADConnectorLinuxEC2SeamlessDomainJoinSecret:
     """AWS::SecretsManager::Secret resource."""
 
-    resource: secretsmanager.Secret
+    resource: Secret
     name = Sub('aws/directory-services/${ADConnectorResource}/seamless-domain-join')
     description = Sub('AD Credentials for Seamless Domain Join Windows/Linux EC2 instances to ${DomainNetBiosName} Domain via AD Connector')
     secret_string = Sub('{ "awsSeamlessDomainUsername" : "${DomainJoinUser}", "awsSeamlessDomainPassword" : "${DomainJoinUserPassword}" }')

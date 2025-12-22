@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class AWSManagedADVpcSettings:
-    resource: directoryservice.VpcSettings
+    resource: directoryservice.microsoft_ad.VpcSettings
     subnet_ids = [ref(PrivateSubnet1ID), ref(PrivateSubnet2ID)]
     vpc_id = ref(VPCID)
 

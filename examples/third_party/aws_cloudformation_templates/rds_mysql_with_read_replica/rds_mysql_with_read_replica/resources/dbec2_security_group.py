@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class DBEC2SecurityGroupIngress:
-    resource: ec2.Ingress
+    resource: ec2.security_group.Ingress
     ip_protocol = 'tcp'
     from_port = '3306'
     to_port = '3306'

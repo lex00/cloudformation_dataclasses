@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class SiteOriginAccessControlOriginAccessControlConfig:
-    resource: OriginAccessControlConfig
+    resource: cloudfront.origin_access_control.OriginAccessControlConfig
     name = Join('', [
     ref(AppName),
     Select(2, Split('/', AWS_STACK_ID)),

@@ -5,26 +5,26 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class DomainMember4LinuxWithSsmAssociationInstanceAssociationParameter:
-    resource: AssociationParameter
+    resource: ec2.instance.AssociationParameter
     key = 'Name'
     value = ref(DomainMember4NetBIOSName)
 
 
 @cloudformation_dataclass
-class DomainMember4LinuxWithSsmAssociationInstanceEbsBlockDevice:
-    resource: ec2.EbsBlockDevice
+class DomainMember4LinuxWithSsmAssociationInstanceEbs:
+    resource: ec2.instance.Ebs
     encrypted = True
     volume_type = 'gp3'
     delete_on_termination = True
     volume_size = 100
-    # Unknown CF key: KmsKeyId = If("EBSKMSKeyCondition", ref(EBSKMSKey), AWS_NO_VALUE)
+    kms_key_id = If("EBSKMSKeyCondition", ref(EBSKMSKey), AWS_NO_VALUE)
 
 
 @cloudformation_dataclass
 class DomainMember4LinuxWithSsmAssociationInstanceBlockDeviceMapping:
-    resource: ec2.BlockDeviceMapping
+    resource: ec2.instance.BlockDeviceMapping
     device_name = '/dev/sda1'
-    ebs = DomainMember4LinuxWithSsmAssociationInstanceEbsBlockDevice
+    ebs = DomainMember4LinuxWithSsmAssociationInstanceEbs
 
 
 @cloudformation_dataclass

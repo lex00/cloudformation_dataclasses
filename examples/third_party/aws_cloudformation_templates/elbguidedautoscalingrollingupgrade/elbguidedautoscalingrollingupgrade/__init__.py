@@ -17,7 +17,7 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.aws import ec2, elasticloadbalancing, iam
 from cloudformation_dataclasses.aws.autoscaling import AutoScalingGroup, LaunchConfiguration
-from cloudformation_dataclasses.aws.elasticloadbalancing import Listeners
+from cloudformation_dataclasses.aws.iam import Role
 from cloudformation_dataclasses.intrinsics import Base64, GetAZs, Join, Sub
 
 from .stack_config import (
@@ -43,7 +43,6 @@ __all__ = [
     "LatestAmiId",
     "LaunchConfig",
     "LaunchConfiguration",
-    "Listeners",
     "Mapping",
     "Output",
     "Parameter",
@@ -51,6 +50,7 @@ __all__ = [
     "PolicyDocument",
     "PolicyStatement",
     "Region2ExamplesMapping",
+    "Role",
     "SSHLocation",
     "STRING",
     "Sub",

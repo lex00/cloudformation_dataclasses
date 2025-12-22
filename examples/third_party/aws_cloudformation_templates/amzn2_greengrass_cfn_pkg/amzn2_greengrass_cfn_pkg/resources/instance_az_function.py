@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class InstanceAZFunctionCode:
-    resource: lambda_.Code
+    resource: lambda_.function.Code
     zip_file = """import sys
 import cfnresponse
 import boto3

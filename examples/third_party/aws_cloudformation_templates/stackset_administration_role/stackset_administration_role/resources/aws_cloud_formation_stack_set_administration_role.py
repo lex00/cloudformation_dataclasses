@@ -33,7 +33,7 @@ class AWSCloudFormationStackSetAdministrationRolePolicies0PolicyDocument:
 
 @cloudformation_dataclass
 class AWSCloudFormationStackSetAdministrationRolePolicy:
-    resource: iam.Policy
+    resource: iam.user.Policy
     policy_name = 'AssumeRole-AWSCloudFormationStackSetExecutionRole'
     policy_document = AWSCloudFormationStackSetAdministrationRolePolicies0PolicyDocument
 
@@ -42,7 +42,7 @@ class AWSCloudFormationStackSetAdministrationRolePolicy:
 class AWSCloudFormationStackSetAdministrationRole:
     """AWS::IAM::Role resource."""
 
-    resource: iam.Role
+    resource: Role
     role_name = 'AWSCloudFormationStackSetAdministrationRole'
     assume_role_policy_document = AWSCloudFormationStackSetAdministrationRoleAssumeRolePolicyDocument
     policies = [AWSCloudFormationStackSetAdministrationRolePolicy]

@@ -1,0 +1,246 @@
+"""PropertyTypes for AWS::ApiGatewayV2::RoutingRule."""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Any, ClassVar, Optional, Union
+
+from cloudformation_dataclasses.core.base import PropertyType, Tag
+from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+# Service Constants (auto-generated from botocore)
+class AuthorizationType:
+    """AuthorizationType enum values."""
+
+    NONE = "NONE"
+    AWS_IAM = "AWS_IAM"
+    CUSTOM = "CUSTOM"
+    JWT = "JWT"
+
+
+class AuthorizerType:
+    """AuthorizerType enum values."""
+
+    REQUEST = "REQUEST"
+    JWT = "JWT"
+
+
+class ConnectionType:
+    """ConnectionType enum values."""
+
+    INTERNET = "INTERNET"
+    VPC_LINK = "VPC_LINK"
+
+
+class ContentHandlingStrategy:
+    """ContentHandlingStrategy enum values."""
+
+    CONVERT_TO_BINARY = "CONVERT_TO_BINARY"
+    CONVERT_TO_TEXT = "CONVERT_TO_TEXT"
+
+
+class DeploymentStatus:
+    """DeploymentStatus enum values."""
+
+    PENDING = "PENDING"
+    FAILED = "FAILED"
+    DEPLOYED = "DEPLOYED"
+
+
+class DomainNameStatus:
+    """DomainNameStatus enum values."""
+
+    AVAILABLE = "AVAILABLE"
+    UPDATING = "UPDATING"
+    PENDING_CERTIFICATE_REIMPORT = "PENDING_CERTIFICATE_REIMPORT"
+    PENDING_OWNERSHIP_VERIFICATION = "PENDING_OWNERSHIP_VERIFICATION"
+
+
+class EndpointType:
+    """EndpointType enum values."""
+
+    REGIONAL = "REGIONAL"
+    EDGE = "EDGE"
+
+
+class IntegrationType:
+    """IntegrationType enum values."""
+
+    AWS = "AWS"
+    HTTP = "HTTP"
+    MOCK = "MOCK"
+    HTTP_PROXY = "HTTP_PROXY"
+    AWS_PROXY = "AWS_PROXY"
+
+
+class IpAddressType:
+    """IpAddressType enum values."""
+
+    IPV4 = "ipv4"
+    DUALSTACK = "dualstack"
+
+
+class LoggingLevel:
+    """LoggingLevel enum values."""
+
+    ERROR = "ERROR"
+    INFO = "INFO"
+    OFF = "OFF"
+
+
+class PassthroughBehavior:
+    """PassthroughBehavior enum values."""
+
+    WHEN_NO_MATCH = "WHEN_NO_MATCH"
+    NEVER = "NEVER"
+    WHEN_NO_TEMPLATES = "WHEN_NO_TEMPLATES"
+
+
+class PreviewStatus:
+    """PreviewStatus enum values."""
+
+    PREVIEW_IN_PROGRESS = "PREVIEW_IN_PROGRESS"
+    PREVIEW_FAILED = "PREVIEW_FAILED"
+    PREVIEW_READY = "PREVIEW_READY"
+
+
+class ProtocolType:
+    """ProtocolType enum values."""
+
+    WEBSOCKET = "WEBSOCKET"
+    HTTP = "HTTP"
+
+
+class PublishStatus:
+    """PublishStatus enum values."""
+
+    PUBLISHED = "PUBLISHED"
+    PUBLISH_IN_PROGRESS = "PUBLISH_IN_PROGRESS"
+    PUBLISH_FAILED = "PUBLISH_FAILED"
+    DISABLED = "DISABLED"
+
+
+class RoutingMode:
+    """RoutingMode enum values."""
+
+    API_MAPPING_ONLY = "API_MAPPING_ONLY"
+    ROUTING_RULE_ONLY = "ROUTING_RULE_ONLY"
+    ROUTING_RULE_THEN_API_MAPPING = "ROUTING_RULE_THEN_API_MAPPING"
+
+
+class SecurityPolicy:
+    """SecurityPolicy enum values."""
+
+    TLS_1_0 = "TLS_1_0"
+    TLS_1_2 = "TLS_1_2"
+
+
+class Status:
+    """Status enum values."""
+
+    AVAILABLE = "AVAILABLE"
+    IN_PROGRESS = "IN_PROGRESS"
+    FAILED = "FAILED"
+
+
+class TryItState:
+    """TryItState enum values."""
+
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class VpcLinkStatus:
+    """VpcLinkStatus enum values."""
+
+    PENDING = "PENDING"
+    AVAILABLE = "AVAILABLE"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
+    INACTIVE = "INACTIVE"
+
+
+class VpcLinkVersion:
+    """VpcLinkVersion enum values."""
+
+    V2 = "V2"
+
+
+@dataclass
+class Action(PropertyType):
+    INVOKE_API = "InvokeApi"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "invoke_api": "InvokeApi",
+    }
+
+    invoke_api: Optional[ActionInvokeApi] = None
+
+
+@dataclass
+class ActionInvokeApi(PropertyType):
+    STRIP_BASE_PATH = "StripBasePath"
+    STAGE = "Stage"
+    API_ID = "ApiId"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "strip_base_path": "StripBasePath",
+        "stage": "Stage",
+        "api_id": "ApiId",
+    }
+
+    strip_base_path: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    stage: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    api_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class Condition(PropertyType):
+    MATCH_BASE_PATHS = "MatchBasePaths"
+    MATCH_HEADERS = "MatchHeaders"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "match_base_paths": "MatchBasePaths",
+        "match_headers": "MatchHeaders",
+    }
+
+    match_base_paths: Optional[MatchBasePaths] = None
+    match_headers: Optional[MatchHeaders] = None
+
+
+@dataclass
+class MatchBasePaths(PropertyType):
+    ANY_OF = "AnyOf"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "any_of": "AnyOf",
+    }
+
+    any_of: Optional[Union[list[str], Ref]] = None
+
+
+@dataclass
+class MatchHeaderValue(PropertyType):
+    VALUE_GLOB = "ValueGlob"
+    HEADER = "Header"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "value_glob": "ValueGlob",
+        "header": "Header",
+    }
+
+    value_glob: Optional[Union[str, Ref, GetAtt, Sub]] = None
+    header: Optional[Union[str, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class MatchHeaders(PropertyType):
+    ANY_OF = "AnyOf"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "any_of": "AnyOf",
+    }
+
+    any_of: Optional[list[MatchHeaderValue]] = None
+

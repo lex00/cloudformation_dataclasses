@@ -13,7 +13,6 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import ecs, elasticloadbalancingv2
-from cloudformation_dataclasses.aws.ecs import AwsVpcConfiguration
 from cloudformation_dataclasses.aws.elasticloadbalancingv2 import ListenerRule
 from cloudformation_dataclasses.intrinsics import (
     AWS_NO_VALUE,
@@ -42,7 +41,6 @@ from .resources import *  # noqa: F403, F401
 
 __all__ = [
     "AWS_NO_VALUE",
-    "AwsVpcConfiguration",
     "Condition",
     "ContainerCpu",
     "ContainerMemory",

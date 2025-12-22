@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class CentralEventBusDeadLetterConfig:
-    resource: events.DeadLetterConfig
+    resource: events.event_bus.DeadLetterConfig
     arn = get_att(DeadLetterQueue, "Arn")
 
 

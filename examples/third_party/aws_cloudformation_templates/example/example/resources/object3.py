@@ -4,15 +4,15 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class Object3S3Location:
-    resource: databrew.S3Location
+class Object3ManifestFileLocation:
+    resource: quicksight.data_source.ManifestFileLocation
     bucket = get_att(Object1, "Bucket")
     key = get_att(Object1, "Key")
 
 
 @cloudformation_dataclass
-class Object3S3Location1:
-    resource: databrew.S3Location
+class Object3ManifestFileLocation1:
+    resource: quicksight.data_source.ManifestFileLocation
     bucket = ref(Bucket)
     key = 'README-copy.md'
 
@@ -23,6 +23,6 @@ class Object3:
 
     # Unknown resource type: AWS::S3::Object
     resource: CloudFormationResource
-    source = Object3S3Location
-    target = Object3S3Location1
+    source = Object3ManifestFileLocation
+    target = Object3ManifestFileLocation1
     depends_on = ["Bucket"]

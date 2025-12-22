@@ -5,14 +5,14 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class loadBalancerSubnetMapping:
-    resource: elasticloadbalancingv2.SubnetMapping
+    resource: elasticloadbalancingv2.load_balancer.SubnetMapping
     allocation_id = get_att(EIP1, "AllocationId")
     subnet_id = Select(0, ref(Subnet1))
 
 
 @cloudformation_dataclass
 class loadBalancerSubnetMapping1:
-    resource: elasticloadbalancingv2.SubnetMapping
+    resource: elasticloadbalancingv2.load_balancer.SubnetMapping
     allocation_id = get_att(EIP2, "AllocationId")
     subnet_id = Select(0, ref(Subnet2))
 

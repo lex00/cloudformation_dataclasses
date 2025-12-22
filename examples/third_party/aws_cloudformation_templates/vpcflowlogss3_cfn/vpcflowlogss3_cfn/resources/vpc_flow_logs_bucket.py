@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class VPCFlowLogsBucketPublicAccessBlockConfiguration:
-    resource: s3.PublicAccessBlockConfiguration
+    resource: s3.multi_region_access_point.PublicAccessBlockConfiguration
     block_public_acls = True
     block_public_policy = True
     ignore_public_acls = True
@@ -14,28 +14,28 @@ class VPCFlowLogsBucketPublicAccessBlockConfiguration:
 
 @cloudformation_dataclass
 class VPCFlowLogsBucketServerSideEncryptionByDefault:
-    resource: s3.ServerSideEncryptionByDefault
+    resource: s3.bucket.ServerSideEncryptionByDefault
     sse_algorithm = If("VPCFlowLogsBucketKMSKeyCondition", 'aws:kms', 'AES256')
     kms_master_key_id = If("VPCFlowLogsBucketKMSKeyCondition", ref(VPCFlowLogsBucketKMSKey), AWS_NO_VALUE)
 
 
 @cloudformation_dataclass
 class VPCFlowLogsBucketServerSideEncryptionRule:
-    resource: s3.ServerSideEncryptionRule
+    resource: s3.bucket.ServerSideEncryptionRule
     server_side_encryption_by_default = VPCFlowLogsBucketServerSideEncryptionByDefault
     bucket_key_enabled = If("VPCFlowLogsBucketKMSKeyCondition", ref(VPCFlowLogsBucketKeyEnabled), AWS_NO_VALUE)
 
 
 @cloudformation_dataclass
 class VPCFlowLogsBucketBucketEncryption:
-    resource: s3.BucketEncryption
+    resource: s3.bucket.BucketEncryption
     server_side_encryption_configuration = [VPCFlowLogsBucketServerSideEncryptionRule]
 
 
 @cloudformation_dataclass
-class VPCFlowLogsBucketVersioningConfiguration:
-    resource: s3.VersioningConfiguration
-    status = BucketVersioningStatus.ENABLED
+class VPCFlowLogsBucketDeleteMarkerReplication:
+    resource: s3.bucket.DeleteMarkerReplication
+    status = 'Enabled'
 
 
 @cloudformation_dataclass
@@ -49,5 +49,5 @@ class VPCFlowLogsBucket:
     logging_configuration = If("S3AccessLogsCondition", {
     LoggingConfiguration.destination_bucket_name: ref(S3AccessLogsBucketName),
 }, AWS_NO_VALUE)
-    versioning_configuration = VPCFlowLogsBucketVersioningConfiguration
+    versioning_configuration = VPCFlowLogsBucketDeleteMarkerReplication
     condition = 'VPCFlowLogsNewBucketCondition'

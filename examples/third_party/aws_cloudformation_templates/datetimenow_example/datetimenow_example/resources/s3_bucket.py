@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class S3BucketTagFilter:
-    resource: s3.TagFilter
+    resource: s3.bucket.TagFilter
     key = 'DatetimeNow'
     value = Transform(name='DatetimeNow', parameters={
     'format': '%Y-%m-%dT%H:%M:%SZ',

@@ -5,49 +5,49 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class ServiceCatalogCloudFormationProductProvisioningParameter:
-    resource: servicecatalog.ProvisioningParameter
+    resource: servicecatalog.cloud_formation_provisioned_product.ProvisioningParameter
     key = 'Name'
     value = Sub('${AppName}')
 
 
 @cloudformation_dataclass
 class ServiceCatalogCloudFormationProductProvisioningParameter1:
-    resource: servicecatalog.ProvisioningParameter
+    resource: servicecatalog.cloud_formation_provisioned_product.ProvisioningParameter
     key = 'App'
     value = Sub('${AppName}')
 
 
 @cloudformation_dataclass
 class ServiceCatalogCloudFormationProductProvisioningParameter2:
-    resource: servicecatalog.ProvisioningParameter
+    resource: servicecatalog.cloud_formation_provisioned_product.ProvisioningParameter
     key = 'Dept'
     value = Sub('${Dept}')
 
 
 @cloudformation_dataclass
 class ServiceCatalogCloudFormationProductProvisioningParameter3:
-    resource: servicecatalog.ProvisioningParameter
+    resource: servicecatalog.cloud_formation_provisioned_product.ProvisioningParameter
     key = 'Env'
     value = Sub('${Env}')
 
 
 @cloudformation_dataclass
 class ServiceCatalogCloudFormationProductProvisioningParameter4:
-    resource: servicecatalog.ProvisioningParameter
+    resource: servicecatalog.cloud_formation_provisioned_product.ProvisioningParameter
     key = 'User'
     value = Sub('${User}')
 
 
 @cloudformation_dataclass
 class ServiceCatalogCloudFormationProductProvisioningParameter5:
-    resource: servicecatalog.ProvisioningParameter
+    resource: servicecatalog.cloud_formation_provisioned_product.ProvisioningParameter
     key = 'Owner'
     value = Sub('${Owner}')
 
 
 @cloudformation_dataclass
 class ServiceCatalogCloudFormationProductProvisioningArtifactProperties:
-    resource: ProvisioningArtifactProperties
+    resource: servicecatalog.cloud_formation_product.ProvisioningArtifactProperties
     name = Sub('${ProvisioningArtifactNameParameter}')
     description = Sub('${ProvisioningArtifactDescriptionParameter}')
     info = {

@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class WebServerGroupLaunchTemplateSpecification:
-    resource: autoscaling.LaunchTemplateSpecification
+    resource: autoscaling.auto_scaling_group.LaunchTemplateSpecification
     launch_template_id = ref(LaunchTemplate)
     version = get_att(LaunchTemplate, "LatestVersionNumber")
 

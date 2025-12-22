@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class S3BucketTagFilter:
-    resource: s3.TagFilter
+    resource: s3.bucket.TagFilter
     key = 'Upper'
     value = Transform(name='String', parameters={
     'InputString': ref(InputString),
@@ -15,7 +15,7 @@ class S3BucketTagFilter:
 
 @cloudformation_dataclass
 class S3BucketTagFilter1:
-    resource: s3.TagFilter
+    resource: s3.bucket.TagFilter
     key = 'Lower'
     value = Transform(name='String', parameters={
     'InputString': ref(InputString),
@@ -25,7 +25,7 @@ class S3BucketTagFilter1:
 
 @cloudformation_dataclass
 class S3BucketTagFilter2:
-    resource: s3.TagFilter
+    resource: s3.bucket.TagFilter
     key = 'Capitalize'
     value = Transform(name='String', parameters={
     'InputString': ref(InputString),
@@ -35,7 +35,7 @@ class S3BucketTagFilter2:
 
 @cloudformation_dataclass
 class S3BucketTagFilter3:
-    resource: s3.TagFilter
+    resource: s3.bucket.TagFilter
     key = 'Title'
     value = Transform(name='String', parameters={
     'InputString': ref(InputString),
@@ -45,7 +45,7 @@ class S3BucketTagFilter3:
 
 @cloudformation_dataclass
 class S3BucketTagFilter4:
-    resource: s3.TagFilter
+    resource: s3.bucket.TagFilter
     key = 'Replace'
     value = Transform(name='String', parameters={
     'InputString': ref(InputString),
@@ -57,7 +57,7 @@ class S3BucketTagFilter4:
 
 @cloudformation_dataclass
 class S3BucketTagFilter5:
-    resource: s3.TagFilter
+    resource: s3.bucket.TagFilter
     key = 'Strip'
     value = Transform(name='String', parameters={
     'InputString': ref(InputString),
@@ -68,7 +68,7 @@ class S3BucketTagFilter5:
 
 @cloudformation_dataclass
 class S3BucketTagFilter6:
-    resource: s3.TagFilter
+    resource: s3.bucket.TagFilter
     key = 'ShortenLeft'
     value = Transform(name='String', parameters={
     'InputString': ref(InputString),
@@ -80,7 +80,7 @@ class S3BucketTagFilter6:
 
 @cloudformation_dataclass
 class S3BucketTagFilter7:
-    resource: s3.TagFilter
+    resource: s3.bucket.TagFilter
     key = 'ShortenRight'
     value = Transform(name='String', parameters={
     'InputString': ref(InputString),

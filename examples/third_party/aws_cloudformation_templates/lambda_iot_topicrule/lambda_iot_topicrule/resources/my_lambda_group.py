@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class MyLambdaCode:
-    resource: lambda_.Code
+    resource: lambda_.function.Code
     zip_file = """exports.handler = async (event) => { console.log(event); return {'statusCode': 200, 'body': "OK"}; }
 """
 
@@ -62,7 +62,7 @@ class MyLambdaRolePolicies0PolicyDocument:
 
 @cloudformation_dataclass
 class MyLambdaRolePolicy:
-    resource: iam.Policy
+    resource: iam.user.Policy
     policy_name = ref(MyLambda)
     policy_document = MyLambdaRolePolicies0PolicyDocument
 
@@ -71,7 +71,7 @@ class MyLambdaRolePolicy:
 class MyLambdaRole:
     """AWS::IAM::Role resource."""
 
-    resource: iam.Role
+    resource: Role
     assume_role_policy_document = MyLambdaRoleAssumeRolePolicyDocument
     path = '/'
     policies = [MyLambdaRolePolicy]

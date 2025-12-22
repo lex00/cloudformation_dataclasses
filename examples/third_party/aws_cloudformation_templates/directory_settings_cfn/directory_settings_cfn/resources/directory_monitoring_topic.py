@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class DirectoryMonitoringTopicSubscription:
-    resource: sns.Subscription
+    resource: sns.topic.Subscription
     endpoint = ref(DirectoryMonitoringEmail)
     protocol = 'email'
 

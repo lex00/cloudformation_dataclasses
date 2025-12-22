@@ -4,8 +4,8 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class InstanceSecurityGroupIngress:
-    resource: ec2.Ingress
+class InstanceSecurityGroupEgress:
+    resource: ec2.security_group.Egress
     cidr_ip = '0.0.0.0/0'
     from_port = '22'
     ip_protocol = 'tcp'
@@ -13,8 +13,8 @@ class InstanceSecurityGroupIngress:
 
 
 @cloudformation_dataclass
-class InstanceSecurityGroupIngress1:
-    resource: ec2.Ingress
+class InstanceSecurityGroupIngress:
+    resource: ec2.security_group.Ingress
     from_port = '80'
     ip_protocol = 'tcp'
     source_security_group_id = get_att(ELBSecurityGroup, "GroupId")
@@ -27,5 +27,5 @@ class InstanceSecurityGroup:
 
     resource: ec2.SecurityGroup
     group_description = 'Enable SSH public access and HTTP from the load balancer only'
-    security_group_ingress = [InstanceSecurityGroupIngress, InstanceSecurityGroupIngress1]
+    security_group_ingress = [InstanceSecurityGroupEgress, InstanceSecurityGroupIngress]
     vpc_id = ref(VPC)

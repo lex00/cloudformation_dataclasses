@@ -11,7 +11,7 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import rds, secretsmanager
-from cloudformation_dataclasses.aws.secretsmanager import GenerateSecretString
+from cloudformation_dataclasses.aws.secretsmanager import Secret
 from cloudformation_dataclasses.intrinsics import Sub
 
 from .stack_config import DBUser
@@ -21,9 +21,9 @@ from .resources import *  # noqa: F403, F401
 __all__ = [
     "DBCredential",
     "DBUser",
-    "GenerateSecretString",
     "Parameter",
     "STRING",
+    "Secret",
     "Sub",
     "Template",
     "cloudformation_dataclass",

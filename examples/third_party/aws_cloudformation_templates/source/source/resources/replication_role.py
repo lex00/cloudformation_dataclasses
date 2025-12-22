@@ -80,7 +80,7 @@ class ReplicationRolePolicies0PolicyDocument:
 
 @cloudformation_dataclass
 class ReplicationRolePolicy:
-    resource: iam.Policy
+    resource: iam.user.Policy
     policy_name = Sub('${AWS::StackName}-${AccountIdDestination}-role-policy')
     policy_document = ReplicationRolePolicies0PolicyDocument
 
@@ -89,7 +89,7 @@ class ReplicationRolePolicy:
 class ReplicationRole:
     """AWS::IAM::Role resource."""
 
-    resource: iam.Role
+    resource: Role
     role_name = Sub('${AWS::StackName}-${AccountIdDestination}-role')
     description = 'IAM Role used by S3 bucket replication'
     assume_role_policy_document = ReplicationRoleAssumeRolePolicyDocument

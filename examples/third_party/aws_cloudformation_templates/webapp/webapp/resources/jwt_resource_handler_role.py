@@ -22,6 +22,6 @@ class JwtResourceHandlerRoleAssumeRolePolicyDocument:
 class JwtResourceHandlerRole:
     """AWS::IAM::Role resource."""
 
-    resource: iam.Role
+    resource: Role
     assume_role_policy_document = JwtResourceHandlerRoleAssumeRolePolicyDocument
     managed_policy_arns = ['arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole']

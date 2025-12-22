@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class DistributionCacheBehavior:
-    resource: cloudfront.CacheBehavior
+    resource: cloudfront.distribution.CacheBehavior
     allowed_methods = ['GET', 'HEAD', 'OPTIONS', 'PUT', 'PATCH', 'POST', 'DELETE']
     cache_policy_id = '4135ea2d-6df8-44a3-9df3-4b5a84be39ad'
     compress = False
@@ -17,7 +17,7 @@ class DistributionCacheBehavior:
 
 @cloudformation_dataclass
 class DistributionDefaultCacheBehavior:
-    resource: DefaultCacheBehavior
+    resource: cloudfront.distribution.DefaultCacheBehavior
     allowed_methods = ['GET', 'HEAD', 'OPTIONS', 'PUT', 'PATCH', 'POST', 'DELETE']
     cache_policy_id = ref(CachePolicy)
     origin_request_policy_id = '216adef6-5c7f-47e4-b989-5492eafa07d3'
@@ -27,14 +27,14 @@ class DistributionDefaultCacheBehavior:
 
 @cloudformation_dataclass
 class DistributionCustomOriginConfig:
-    resource: CustomOriginConfig
+    resource: cloudfront.distribution.CustomOriginConfig
     http_port = ref(Port)
     origin_protocol_policy = 'http-only'
 
 
 @cloudformation_dataclass
 class DistributionOrigin:
-    resource: Origin
+    resource: cloudfront.distribution.Origin
     domain_name = ref(DomainName)
     id = Sub('CloudFront-${AWS::StackName}')
     custom_origin_config = DistributionCustomOriginConfig
@@ -42,7 +42,7 @@ class DistributionOrigin:
 
 @cloudformation_dataclass
 class DistributionDistributionConfig:
-    resource: DistributionConfig
+    resource: cloudfront.distribution.DistributionConfig
     enabled = True
     http_version = 'http2'
     cache_behaviors = [DistributionCacheBehavior]

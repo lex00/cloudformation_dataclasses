@@ -4,8 +4,8 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class LaunchTemplateLaunchTemplateData:
-    resource: LaunchTemplateData
+class LaunchTemplateSpotFleetLaunchSpecification:
+    resource: ec2.spot_fleet.SpotFleetLaunchSpecification
     key_name = ref(KeyName)
     image_id = FindInMap("AWSRegionArch2AMI", AWS_REGION, FindInMap("AWSInstanceType2Arch", ref(InstanceType), 'Arch'))
     security_groups = [ref(InstanceSecurityGroup)]
@@ -22,4 +22,4 @@ class LaunchTemplate:
     """AWS::EC2::LaunchTemplate resource."""
 
     resource: ec2.LaunchTemplate
-    launch_template_data = LaunchTemplateLaunchTemplateData
+    launch_template_data = LaunchTemplateSpotFleetLaunchSpecification

@@ -43,7 +43,7 @@ class EC2RolePolicies0PolicyDocument:
 
 @cloudformation_dataclass
 class EC2RolePolicy:
-    resource: iam.Policy
+    resource: iam.user.Policy
     policy_name = 'ecs-service'
     policy_document = EC2RolePolicies0PolicyDocument
 
@@ -52,7 +52,7 @@ class EC2RolePolicy:
 class EC2Role:
     """AWS::IAM::Role resource."""
 
-    resource: iam.Role
+    resource: Role
     assume_role_policy_document = EC2RoleAssumeRolePolicyDocument
     path = '/'
     policies = [EC2RolePolicy]

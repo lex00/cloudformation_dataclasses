@@ -22,5 +22,5 @@ class EventBridgeRoleAssumeRolePolicyDocument:
 class EventBridgeRole:
     """AWS::IAM::Role resource."""
 
-    resource: iam.Role
+    resource: Role
     assume_role_policy_document = EventBridgeRoleAssumeRolePolicyDocument

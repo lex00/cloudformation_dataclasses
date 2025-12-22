@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class EFSAccessPointAccessPointTag:
-    resource: AccessPointTag
+    resource: efs.access_point.AccessPointTag
     key = 'Name'
     value = ref(AccessPointName)
 

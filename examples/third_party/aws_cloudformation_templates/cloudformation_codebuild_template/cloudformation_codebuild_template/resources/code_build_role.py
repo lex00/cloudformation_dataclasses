@@ -50,7 +50,7 @@ class CodeBuildRolePolicies0PolicyDocument:
 
 @cloudformation_dataclass
 class CodeBuildRolePolicy:
-    resource: iam.Policy
+    resource: iam.user.Policy
     policy_name = 'CanLog'
     policy_document = CodeBuildRolePolicies0PolicyDocument
 
@@ -70,7 +70,7 @@ class CodeBuildRolePolicies1PolicyDocument:
 
 @cloudformation_dataclass
 class CodeBuildRolePolicy1:
-    resource: iam.Policy
+    resource: iam.user.Policy
     policy_name = 'CanAccessS3'
     policy_document = CodeBuildRolePolicies1PolicyDocument
 
@@ -90,7 +90,7 @@ class CodeBuildRolePolicies2PolicyDocument:
 
 @cloudformation_dataclass
 class CodeBuildRolePolicy2:
-    resource: iam.Policy
+    resource: iam.user.Policy
     policy_name = 'CanCreateReports'
     policy_document = CodeBuildRolePolicies2PolicyDocument
 
@@ -99,6 +99,6 @@ class CodeBuildRolePolicy2:
 class CodeBuildRole:
     """AWS::IAM::Role resource."""
 
-    resource: iam.Role
+    resource: Role
     assume_role_policy_document = CodeBuildRoleAssumeRolePolicyDocument
     policies = [CodeBuildRolePolicy, CodeBuildRolePolicy1, CodeBuildRolePolicy2]

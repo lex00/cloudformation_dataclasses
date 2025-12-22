@@ -5,69 +5,69 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class TableOfBooksAttributeDefinition:
-    resource: dynamodb.AttributeDefinition
+    resource: dynamodb.global_table.AttributeDefinition
     attribute_name = 'Title'
     attribute_type = AttributeType.S
 
 
 @cloudformation_dataclass
 class TableOfBooksAttributeDefinition1:
-    resource: dynamodb.AttributeDefinition
+    resource: dynamodb.global_table.AttributeDefinition
     attribute_name = 'Category'
     attribute_type = AttributeType.S
 
 
 @cloudformation_dataclass
 class TableOfBooksAttributeDefinition2:
-    resource: dynamodb.AttributeDefinition
+    resource: dynamodb.global_table.AttributeDefinition
     attribute_name = 'Language'
     attribute_type = AttributeType.S
 
 
 @cloudformation_dataclass
 class TableOfBooksKeySchema:
-    resource: dynamodb.KeySchema
+    resource: dynamodb.global_table.KeySchema
     attribute_name = 'Category'
     key_type = KeyType.HASH
 
 
 @cloudformation_dataclass
 class TableOfBooksKeySchema1:
-    resource: dynamodb.KeySchema
+    resource: dynamodb.global_table.KeySchema
     attribute_name = 'Title'
     key_type = KeyType.RANGE
 
 
 @cloudformation_dataclass
 class TableOfBooksProvisionedThroughput:
-    resource: dynamodb.ProvisionedThroughput
+    resource: dynamodb.table.ProvisionedThroughput
     read_capacity_units = ref(ReadCapacityUnits)
     write_capacity_units = ref(WriteCapacityUnits)
 
 
 @cloudformation_dataclass
 class TableOfBooksKeySchema2:
-    resource: dynamodb.KeySchema
+    resource: dynamodb.global_table.KeySchema
     attribute_name = 'Category'
     key_type = KeyType.HASH
 
 
 @cloudformation_dataclass
 class TableOfBooksKeySchema3:
-    resource: dynamodb.KeySchema
+    resource: dynamodb.global_table.KeySchema
     attribute_name = 'Language'
     key_type = KeyType.RANGE
 
 
 @cloudformation_dataclass
 class TableOfBooksProjection:
-    resource: dynamodb.Projection
+    resource: dynamodb.global_table.Projection
     projection_type = ProjectionType.KEYS_ONLY
 
 
 @cloudformation_dataclass
 class TableOfBooksLocalSecondaryIndex:
-    resource: dynamodb.LocalSecondaryIndex
+    resource: dynamodb.global_table.LocalSecondaryIndex
     index_name = 'LanguageIndex'
     key_schema = [TableOfBooksKeySchema2, TableOfBooksKeySchema3]
     projection = TableOfBooksProjection
@@ -75,27 +75,27 @@ class TableOfBooksLocalSecondaryIndex:
 
 @cloudformation_dataclass
 class TableOfBooksKeySchema4:
-    resource: dynamodb.KeySchema
+    resource: dynamodb.table.KeySchema
     attribute_name = 'Title'
     key_type = KeyType.HASH
 
 
 @cloudformation_dataclass
 class TableOfBooksProjection1:
-    resource: dynamodb.Projection
+    resource: dynamodb.table.Projection
     projection_type = ProjectionType.KEYS_ONLY
 
 
 @cloudformation_dataclass
 class TableOfBooksProvisionedThroughput1:
-    resource: dynamodb.ProvisionedThroughput
+    resource: dynamodb.table.ProvisionedThroughput
     read_capacity_units = ref(ReadCapacityUnits)
     write_capacity_units = ref(WriteCapacityUnits)
 
 
 @cloudformation_dataclass
 class TableOfBooksGlobalSecondaryIndex:
-    resource: dynamodb.GlobalSecondaryIndex
+    resource: dynamodb.table.GlobalSecondaryIndex
     index_name = 'TitleIndex'
     key_schema = [TableOfBooksKeySchema4]
     projection = TableOfBooksProjection1
@@ -104,7 +104,7 @@ class TableOfBooksGlobalSecondaryIndex:
 
 @cloudformation_dataclass
 class TableOfBooksPointInTimeRecoverySpecification:
-    resource: dynamodb.PointInTimeRecoverySpecification
+    resource: dynamodb.global_table.PointInTimeRecoverySpecification
     point_in_time_recovery_enabled = True
 
 

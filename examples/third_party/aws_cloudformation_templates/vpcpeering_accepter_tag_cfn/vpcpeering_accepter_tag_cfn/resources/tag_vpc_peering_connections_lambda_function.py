@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class TagVpcPeeringConnectionsLambdaFunctionEnvironment:
-    resource: lambda_.Environment
+    resource: lambda_.function.Environment
     variables = {
         'LOG_LEVEL': ref(LambdaLogLevel),
     }
@@ -13,7 +13,7 @@ class TagVpcPeeringConnectionsLambdaFunctionEnvironment:
 
 @cloudformation_dataclass
 class TagVpcPeeringConnectionsLambdaFunctionCode:
-    resource: lambda_.Code
+    resource: lambda_.function.Code
     zip_file = """import cfnresponse, json, os, logging, boto3
 
 LOGGER = logging.getLogger()

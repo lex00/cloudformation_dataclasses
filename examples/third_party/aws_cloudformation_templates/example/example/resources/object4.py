@@ -4,8 +4,8 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class Object4S3Location:
-    resource: databrew.S3Location
+class Object4ManifestFileLocation:
+    resource: quicksight.data_source.ManifestFileLocation
     bucket = ref(Bucket)
     key = 'readme.md'
 
@@ -16,6 +16,6 @@ class Object4:
 
     # Unknown resource type: AWS::S3::Object
     resource: CloudFormationResource
-    target = Object4S3Location
+    target = Object4ManifestFileLocation
     url = 'https://raw.githubusercontent.com/aws-cloudformation/aws-cloudformation-templates/main/README.md'
     depends_on = ["Bucket"]

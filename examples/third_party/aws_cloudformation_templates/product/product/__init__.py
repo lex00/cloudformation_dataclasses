@@ -12,7 +12,7 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import servicecatalog
-from cloudformation_dataclasses.aws.servicecatalog import CloudFormationProduct, PortfolioProductAssociation, ProvisioningArtifactProperties, TagOptionAssociation
+from cloudformation_dataclasses.aws.servicecatalog import CloudFormationProduct, PortfolioProductAssociation, TagOptionAssociation
 from cloudformation_dataclasses.intrinsics import ImportValue, Sub
 
 from .stack_config import (
@@ -48,7 +48,6 @@ __all__ = [
     "PortfolioProductAssociation",
     "ProvisioningArtifactDescriptionParameter",
     "ProvisioningArtifactNameParameter",
-    "ProvisioningArtifactProperties",
     "ProvisioningArtifactTemplateUrl",
     "SCProductDescription",
     "SCProductDistributor",

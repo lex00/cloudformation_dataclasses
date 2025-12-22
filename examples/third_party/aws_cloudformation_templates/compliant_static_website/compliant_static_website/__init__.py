@@ -19,26 +19,9 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import cloudfront, iam, s3
-from cloudformation_dataclasses.aws.cloudfront import (
-    DefaultCacheBehavior,
-    DistributionConfig,
-    Origin,
-    OriginAccessControlConfig,
-    S3OriginConfig,
-    ViewerCertificate,
-)
-from cloudformation_dataclasses.aws.iam import RolePolicy
-from cloudformation_dataclasses.aws.s3 import (
-    BucketVersioningStatus,
-    DefaultRetention,
-    ObjectLockConfiguration,
-    ObjectLockEnabled,
-    ObjectLockRetentionMode,
-    ObjectLockRule,
-    ReplicationRuleStatus,
-    ServerSideEncryption,
-)
+from cloudformation_dataclasses.aws import cloudfront, s3
+from cloudformation_dataclasses.aws.iam import Role, RolePolicy
+from cloudformation_dataclasses.aws.s3 import ObjectLockEnabled, ObjectLockRetentionMode, ReplicationRuleStatus, ServerSideEncryption
 from cloudformation_dataclasses.intrinsics import (
     AWS_ACCOUNT_ID,
     AWS_STACK_ID,
@@ -58,7 +41,6 @@ __all__ = [
     "AWS_STACK_ID",
     "AppName",
     "BOOL",
-    "BucketVersioningStatus",
     "CloudFrontLogsBucket",
     "CloudFrontLogsBucketPolicyPolicy",
     "CloudFrontLogsLogBucket",
@@ -75,26 +57,19 @@ __all__ = [
     "ContentReplicaBucketPolicyPolicy",
     "ContentReplicationPolicy",
     "ContentReplicationRole",
-    "DefaultCacheBehavior",
-    "DefaultRetention",
     "DenyStatement",
     "Distribution",
-    "DistributionConfig",
     "Join",
-    "ObjectLockConfiguration",
     "ObjectLockEnabled",
     "ObjectLockRetentionMode",
-    "ObjectLockRule",
-    "Origin",
     "OriginAccessControl",
-    "OriginAccessControlConfig",
     "Output",
     "Parameter",
     "PolicyDocument",
     "PolicyStatement",
     "ReplicationRuleStatus",
+    "Role",
     "RolePolicy",
-    "S3OriginConfig",
     "STRING",
     "STRING_EQUALS",
     "Select",
@@ -102,12 +77,10 @@ __all__ = [
     "Split",
     "Sub",
     "Template",
-    "ViewerCertificate",
     "WebACL",
     "cloudformation_dataclass",
     "cloudfront",
     "get_att",
-    "iam",
     "ref",
     "s3",
 ]

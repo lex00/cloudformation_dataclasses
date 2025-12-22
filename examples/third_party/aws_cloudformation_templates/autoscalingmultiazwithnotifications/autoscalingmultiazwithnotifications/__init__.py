@@ -23,7 +23,7 @@ from cloudformation_dataclasses.aws import (
     sns,
 )
 from cloudformation_dataclasses.aws.autoscaling import AutoScalingGroup
-from cloudformation_dataclasses.aws.ec2 import AssociationParameter, LaunchTemplateData
+from cloudformation_dataclasses.aws.ec2.instance import AssociationParameter
 from cloudformation_dataclasses.intrinsics import Base64, Join, Sub
 
 from .stack_config import (
@@ -59,7 +59,6 @@ __all__ = [
     "KmsKeyArn",
     "LatestAmiId",
     "LaunchTemplate",
-    "LaunchTemplateData",
     "LoadBalancerListener",
     "LoadBalancerSecurityGroup",
     "Mapping",

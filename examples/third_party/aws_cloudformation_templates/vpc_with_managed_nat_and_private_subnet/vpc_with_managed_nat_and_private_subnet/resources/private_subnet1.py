@@ -5,21 +5,21 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class PrivateSubnet1AssociationParameter:
-    resource: AssociationParameter
+    resource: ec2.instance.AssociationParameter
     key = 'Application'
     value = AWS_STACK_NAME
 
 
 @cloudformation_dataclass
 class PrivateSubnet1AssociationParameter1:
-    resource: AssociationParameter
+    resource: ec2.instance.AssociationParameter
     key = 'Network'
     value = 'Private'
 
 
 @cloudformation_dataclass
 class PrivateSubnet1AssociationParameter2:
-    resource: AssociationParameter
+    resource: ec2.instance.AssociationParameter
     key = 'Name'
     value = Join('', [
     ref(VPCName),

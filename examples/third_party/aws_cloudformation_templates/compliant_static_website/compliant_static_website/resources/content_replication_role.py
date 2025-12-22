@@ -22,6 +22,6 @@ class ContentReplicationRoleAssumeRolePolicyDocument:
 class ContentReplicationRole:
     """AWS::IAM::Role resource."""
 
-    resource: iam.Role
+    resource: Role
     assume_role_policy_document = ContentReplicationRoleAssumeRolePolicyDocument
     path = '/'

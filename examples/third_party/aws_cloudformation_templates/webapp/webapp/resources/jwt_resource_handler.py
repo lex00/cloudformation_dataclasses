@@ -4,15 +4,15 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class JwtResourceHandlerCode:
-    resource: lambda_.Code
+class JwtResourceHandlerContent:
+    resource: lambda_.layer_version.Content
     s3_bucket = 'rain-artifacts-207567786752-us-east-1'
     s3_key = '15d7c92b571beed29cf6c012a96022482eee1df1b477ad528ddc03a4be52c076'
 
 
 @cloudformation_dataclass
 class JwtResourceHandlerEnvironment:
-    resource: lambda_.Environment
+    resource: lambda_.function.Environment
     variables = {
         'COGNITO_REGION': 'us-east-1',
         'COGNITO_POOL_ID': ref(CognitoUserPool),
@@ -30,6 +30,6 @@ class JwtResourceHandler:
     handler = 'bootstrap'
     function_name = Sub('${AppName}-jwt-handler')
     runtime = 'provided.al2023'
-    code = JwtResourceHandlerCode
+    code = JwtResourceHandlerContent
     role = get_att(JwtResourceHandlerRole, "Arn")
     environment = JwtResourceHandlerEnvironment

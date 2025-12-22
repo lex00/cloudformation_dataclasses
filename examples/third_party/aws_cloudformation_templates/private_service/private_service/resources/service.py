@@ -5,14 +5,14 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class ServiceDeploymentConfiguration:
-    resource: ecs.DeploymentConfiguration
+    resource: ecs.service.DeploymentConfiguration
     maximum_percent = 200
     minimum_healthy_percent = 75
 
 
 @cloudformation_dataclass
 class ServiceLoadBalancer:
-    resource: ecs.LoadBalancer
+    resource: ecs.task_set.LoadBalancer
     container_name = ref(ServiceName)
     container_port = ref(ContainerPort)
     target_group_arn = ref(TargetGroup)

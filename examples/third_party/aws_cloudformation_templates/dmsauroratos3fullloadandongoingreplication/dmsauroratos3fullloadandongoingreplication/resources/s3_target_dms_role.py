@@ -46,7 +46,7 @@ class S3TargetDMSRolePolicies0PolicyDocument:
 
 @cloudformation_dataclass
 class S3TargetDMSRolePolicy:
-    resource: iam.Policy
+    resource: iam.user.Policy
     policy_name = 'S3AccessForDMSPolicy'
     policy_document = S3TargetDMSRolePolicies0PolicyDocument
 
@@ -55,7 +55,7 @@ class S3TargetDMSRolePolicy:
 class S3TargetDMSRole:
     """AWS::IAM::Role resource."""
 
-    resource: iam.Role
+    resource: Role
     role_name = 'dms-s3-target-role'
     assume_role_policy_document = S3TargetDMSRoleAssumeRolePolicyDocument
     path = '/'

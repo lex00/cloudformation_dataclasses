@@ -5,18 +5,18 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class SiteWebACLAllowAction:
-    resource: wafv2.AllowAction
+    resource: wafv2.web_acl.AllowAction
 
 
 @cloudformation_dataclass
 class SiteWebACLDefaultAction:
-    resource: wafv2.DefaultAction
+    resource: wafv2.web_acl.DefaultAction
     allow = SiteWebACLAllowAction
 
 
 @cloudformation_dataclass
 class SiteWebACLVisibilityConfig:
-    resource: wafv2.VisibilityConfig
+    resource: wafv2.web_acl.VisibilityConfig
     sampled_requests_enabled = True
     cloud_watch_metrics_enabled = True
     metric_name = 'MetricForWebACLWithAMR'
@@ -24,13 +24,13 @@ class SiteWebACLVisibilityConfig:
 
 @cloudformation_dataclass
 class SiteWebACLOverrideAction:
-    resource: OverrideAction
+    resource: wafv2.web_acl.OverrideAction
     none = {}
 
 
 @cloudformation_dataclass
 class SiteWebACLVisibilityConfig1:
-    resource: wafv2.VisibilityConfig
+    resource: wafv2.web_acl.VisibilityConfig
     sampled_requests_enabled = True
     cloud_watch_metrics_enabled = True
     metric_name = 'MetricForAMRCRS'
@@ -38,13 +38,13 @@ class SiteWebACLVisibilityConfig1:
 
 @cloudformation_dataclass
 class SiteWebACLExcludedRule:
-    resource: ExcludedRule
+    resource: wafv2.web_acl.ExcludedRule
     name = 'NoUserAgent_HEADER'
 
 
 @cloudformation_dataclass
 class SiteWebACLManagedRuleGroupStatement:
-    resource: ManagedRuleGroupStatement
+    resource: wafv2.web_acl.ManagedRuleGroupStatement
     vendor_name = 'AWS'
     name = 'AWSManagedRulesCommonRuleSet'
     excluded_rules = [SiteWebACLExcludedRule]
@@ -52,13 +52,13 @@ class SiteWebACLManagedRuleGroupStatement:
 
 @cloudformation_dataclass
 class SiteWebACLStatement:
-    resource: wafv2.Statement
+    resource: wafv2.web_acl.Statement
     managed_rule_group_statement = SiteWebACLManagedRuleGroupStatement
 
 
 @cloudformation_dataclass
 class SiteWebACLRule:
-    resource: wafv2.Rule
+    resource: wafv2.web_acl.Rule
     name = 'AWS-AWSManagedRulesCommonRuleSet'
     priority = 0
     override_action = SiteWebACLOverrideAction

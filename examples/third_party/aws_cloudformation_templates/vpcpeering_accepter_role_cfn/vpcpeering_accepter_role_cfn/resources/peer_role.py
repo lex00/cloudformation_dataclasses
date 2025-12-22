@@ -33,7 +33,7 @@ class PeerRolePolicies0PolicyDocument:
 
 @cloudformation_dataclass
 class PeerRolePolicy:
-    resource: iam.Policy
+    resource: iam.user.Policy
     policy_name = 'AcceptVPCPeering'
     policy_document = PeerRolePolicies0PolicyDocument
 
@@ -42,7 +42,7 @@ class PeerRolePolicy:
 class PeerRole:
     """AWS::IAM::Role resource."""
 
-    resource: iam.Role
+    resource: Role
     assume_role_policy_document = PeerRoleAssumeRolePolicyDocument
     path = '/'
     tags = [{

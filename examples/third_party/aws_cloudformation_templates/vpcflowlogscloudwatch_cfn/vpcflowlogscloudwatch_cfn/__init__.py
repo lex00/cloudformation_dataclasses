@@ -15,8 +15,9 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import iam
-from cloudformation_dataclasses.aws.ec2 import AssociationParameter, FlowLog
+from cloudformation_dataclasses.aws import ec2, iam
+from cloudformation_dataclasses.aws.ec2 import FlowLog
+from cloudformation_dataclasses.aws.iam import Role
 from cloudformation_dataclasses.aws.logs import LogGroup
 from cloudformation_dataclasses.intrinsics import (
     AWS_NO_VALUE,
@@ -41,7 +42,6 @@ from .resources import *  # noqa: F403, F401
 __all__ = [
     "AWS_NO_VALUE",
     "AWS_STACK_NAME",
-    "AssociationParameter",
     "Condition",
     "Equals",
     "FlowLog",
@@ -53,6 +53,7 @@ __all__ = [
     "ParameterType",
     "PolicyDocument",
     "PolicyStatement",
+    "Role",
     "STRING",
     "Template",
     "VPCFlowLogsCloudWatchKMSKey",
@@ -66,6 +67,7 @@ __all__ = [
     "VPCFlowLogsTrafficType",
     "VPCID",
     "cloudformation_dataclass",
+    "ec2",
     "get_att",
     "iam",
     "ref",

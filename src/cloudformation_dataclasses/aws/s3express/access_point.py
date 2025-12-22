@@ -1,0 +1,55 @@
+"""PropertyTypes for AWS::S3Express::AccessPoint."""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Any, ClassVar, Optional, Union
+
+from cloudformation_dataclasses.core.base import PropertyType, Tag
+from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
+
+
+@dataclass
+class PublicAccessBlockConfiguration(PropertyType):
+    RESTRICT_PUBLIC_BUCKETS = "RestrictPublicBuckets"
+    BLOCK_PUBLIC_POLICY = "BlockPublicPolicy"
+    BLOCK_PUBLIC_ACLS = "BlockPublicAcls"
+    IGNORE_PUBLIC_ACLS = "IgnorePublicAcls"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "restrict_public_buckets": "RestrictPublicBuckets",
+        "block_public_policy": "BlockPublicPolicy",
+        "block_public_acls": "BlockPublicAcls",
+        "ignore_public_acls": "IgnorePublicAcls",
+    }
+
+    restrict_public_buckets: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    block_public_policy: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    block_public_acls: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+    ignore_public_acls: Optional[Union[bool, Ref, GetAtt, Sub]] = None
+
+
+@dataclass
+class Scope(PropertyType):
+    PERMISSIONS = "Permissions"
+    PREFIXES = "Prefixes"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "permissions": "Permissions",
+        "prefixes": "Prefixes",
+    }
+
+    permissions: Optional[Union[list[str], Ref]] = None
+    prefixes: Optional[Union[list[str], Ref]] = None
+
+
+@dataclass
+class VpcConfiguration(PropertyType):
+    VPC_ID = "VpcId"
+
+    _property_mappings: ClassVar[dict[str, str]] = {
+        "vpc_id": "VpcId",
+    }
+
+    vpc_id: Optional[Union[str, Ref, GetAtt, Sub]] = None
+

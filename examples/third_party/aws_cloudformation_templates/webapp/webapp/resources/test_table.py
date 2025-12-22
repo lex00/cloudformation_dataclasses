@@ -5,14 +5,14 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class TestTableAttributeDefinition:
-    resource: dynamodb.AttributeDefinition
+    resource: dynamodb.global_table.AttributeDefinition
     attribute_name = 'id'
     attribute_type = AttributeType.S
 
 
 @cloudformation_dataclass
 class TestTableKeySchema:
-    resource: dynamodb.KeySchema
+    resource: dynamodb.global_table.KeySchema
     attribute_name = 'id'
     key_type = KeyType.HASH
 

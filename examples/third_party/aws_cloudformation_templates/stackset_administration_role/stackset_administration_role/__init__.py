@@ -12,6 +12,7 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import iam
+from cloudformation_dataclasses.aws.iam import Role
 
 from .resources import *  # noqa: F403, F401
 
@@ -20,6 +21,7 @@ __all__ = [
     "Output",
     "PolicyDocument",
     "PolicyStatement",
+    "Role",
     "Template",
     "cloudformation_dataclass",
     "get_att",

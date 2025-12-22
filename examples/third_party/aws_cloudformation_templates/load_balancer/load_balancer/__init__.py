@@ -13,7 +13,6 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.aws import ec2, elasticloadbalancingv2
 from cloudformation_dataclasses.aws.ec2 import SecurityGroupEgress
-from cloudformation_dataclasses.aws.elasticloadbalancingv2 import LoadBalancerAttribute, TargetGroupAttribute
 
 from .stack_config import (
     CertificateArn,
@@ -29,7 +28,6 @@ __all__ = [
     "CertificateArn",
     "DestinationSecurityGroupId",
     "LoadBalancer",
-    "LoadBalancerAttribute",
     "LoadBalancerEgress",
     "LoadBalancerListener",
     "LoadBalancerSecurityGroup",
@@ -40,7 +38,6 @@ __all__ = [
     "STRING",
     "SecurityGroupEgress",
     "TargetGroup",
-    "TargetGroupAttribute",
     "Template",
     "VPCId",
     "cloudformation_dataclass",

@@ -25,7 +25,7 @@ from cloudformation_dataclasses.aws import (
 )
 from cloudformation_dataclasses.aws.autoscaling import LaunchConfiguration
 from cloudformation_dataclasses.aws.efs import MountTarget
-from cloudformation_dataclasses.aws.elasticloadbalancing import Listeners
+from cloudformation_dataclasses.aws.iam import Role
 from cloudformation_dataclasses.intrinsics import (
     AWS_REGION,
     AWS_STACK_NAME,
@@ -71,7 +71,6 @@ __all__ = [
     "KeyName",
     "LaunchConfig",
     "LaunchConfiguration",
-    "Listeners",
     "Mapping",
     "MountTarget",
     "Output",
@@ -79,6 +78,7 @@ __all__ = [
     "ParameterType",
     "PolicyDocument",
     "PolicyStatement",
+    "Role",
     "STRING",
     "ScaleDownPolicy",
     "ScaleUpPolicy",

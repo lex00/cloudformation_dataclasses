@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class rMSDirectoryVpcSettings:
-    resource: directoryservice.VpcSettings
+    resource: directoryservice.microsoft_ad.VpcSettings
     subnet_ids = [ref(pPrivateSubnet1), ref(pPrivateSubnet2)]
     vpc_id = ref(pVPCID)
 

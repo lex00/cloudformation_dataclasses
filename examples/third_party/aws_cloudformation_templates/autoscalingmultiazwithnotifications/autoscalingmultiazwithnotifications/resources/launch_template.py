@@ -4,35 +4,31 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class LaunchTemplateEbsBlockDevice:
-    resource: ec2.EbsBlockDevice
+class LaunchTemplateEbs:
+    resource: ec2.launch_template.Ebs
     volume_size = 32
 
 
 @cloudformation_dataclass
 class LaunchTemplateBlockDeviceMapping:
-    resource: ec2.BlockDeviceMapping
+    resource: ec2.launch_template.BlockDeviceMapping
     device_name = '/dev/sda1'
-    ebs = LaunchTemplateEbsBlockDevice
-
-
-@cloudformation_dataclass
-class LaunchTemplateAssociationParameter:
-    resource: AssociationParameter
-    key = 'Name'
-    value = Sub('${AWS::StackName}-Instance')
+    ebs = LaunchTemplateEbs
 
 
 @cloudformation_dataclass
 class LaunchTemplateTagSpecification:
-    resource: ec2.TagSpecification
+    resource: ec2.launch_template.TagSpecification
     resource_type = 'instance'
-    tags = [LaunchTemplateAssociationParameter]
+    tags = [{
+        AssociationParameter.key: 'Name',
+        AssociationParameter.value: Sub('${AWS::StackName}-Instance'),
+    }]
 
 
 @cloudformation_dataclass
 class LaunchTemplateLaunchTemplateData:
-    resource: LaunchTemplateData
+    resource: ec2.launch_template.LaunchTemplateData
     image_id = ref(LatestAmiId)
     instance_type = ref(InstanceType)
     security_group_ids = ref(SecurityGroups)

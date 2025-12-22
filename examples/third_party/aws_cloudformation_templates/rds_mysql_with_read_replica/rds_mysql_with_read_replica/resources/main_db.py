@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class MainDBTagFormat:
-    resource: rds.TagFormat
+    resource: rds.db_proxy.TagFormat
     key = 'Name'
     value = 'Master Database'
 

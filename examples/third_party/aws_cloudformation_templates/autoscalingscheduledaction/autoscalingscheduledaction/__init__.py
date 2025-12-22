@@ -15,8 +15,6 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.aws import autoscaling, ec2, elasticloadbalancing
 from cloudformation_dataclasses.aws.autoscaling import AutoScalingGroup
-from cloudformation_dataclasses.aws.ec2 import LaunchTemplateData
-from cloudformation_dataclasses.aws.elasticloadbalancing import Listeners
 from cloudformation_dataclasses.intrinsics import (
     AWS_REGION,
     Base64,
@@ -51,8 +49,6 @@ __all__ = [
     "Join",
     "KeyName",
     "LaunchTemplate",
-    "LaunchTemplateData",
-    "Listeners",
     "Mapping",
     "Output",
     "Parameter",

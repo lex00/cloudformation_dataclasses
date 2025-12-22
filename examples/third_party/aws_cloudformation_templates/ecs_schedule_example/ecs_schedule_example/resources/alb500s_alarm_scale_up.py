@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class ALB500sAlarmScaleUpDimension:
-    resource: cloudwatch.Dimension
+    resource: cloudwatch.anomaly_detector.Dimension
     name = 'ECSService'
     value = ref(Service)
 

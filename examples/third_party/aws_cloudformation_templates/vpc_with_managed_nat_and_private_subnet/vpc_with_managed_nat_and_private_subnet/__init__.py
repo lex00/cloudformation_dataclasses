@@ -14,10 +14,10 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.aws import ec2
 from cloudformation_dataclasses.aws.ec2 import (
-    AssociationParameter,
     EIP,
     NatGateway,
     NetworkAcl,
+    NetworkAclEntry,
     RouteTable,
     Subnet,
     SubnetNetworkAclAssociation,
@@ -39,7 +39,6 @@ from .resources import *  # noqa: F403, F401
 
 __all__ = [
     "AWS_STACK_NAME",
-    "AssociationParameter",
     "EIP",
     "ElasticIP0",
     "ElasticIP1",
@@ -54,6 +53,7 @@ __all__ = [
     "NATGateway1",
     "NatGateway",
     "NetworkAcl",
+    "NetworkAclEntry",
     "OutboundPublicNetworkAclEntry",
     "Output",
     "Parameter",

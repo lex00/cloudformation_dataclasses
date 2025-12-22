@@ -5,35 +5,36 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class ServiceDeploymentConfiguration:
-    resource: ecs.DeploymentConfiguration
+    resource: ecs.service.DeploymentConfiguration
     maximum_percent = 200
     minimum_healthy_percent = 75
 
 
 @cloudformation_dataclass
+class ServiceAwsVpcConfiguration:
+    resource: ecs.service.AwsVpcConfiguration
+    security_groups = [ImportValue(Join(':', [
+    ref(StackName),
+    'FargateContainerSecurityGroup',
+]))]
+    subnets = [ImportValue(Join(':', [
+    ref(StackName),
+    'PrivateSubnetOne',
+])), ImportValue(Join(':', [
+    ref(StackName),
+    'PrivateSubnetTwo',
+]))]
+
+
+@cloudformation_dataclass
 class ServiceNetworkConfiguration:
-    resource: ecs.NetworkConfiguration
-    # Unknown CF key: AwsvpcConfiguration = {
-    #         AwsVpcConfiguration.security_groups: [ImportValue(Join(':', [
-    #     ref(StackName),
-    #     'FargateContainerSecurityGroup',
-    # ]))],
-    #         AwsVpcConfiguration.subnets: [
-    #             ImportValue(Join(':', [
-    #     ref(StackName),
-    #     'PrivateSubnetOne',
-    # ])),
-    #             ImportValue(Join(':', [
-    #     ref(StackName),
-    #     'PrivateSubnetTwo',
-    # ])),
-    #         ],
-    #     }
+    resource: ecs.service.NetworkConfiguration
+    awsvpc_configuration = ServiceAwsVpcConfiguration
 
 
 @cloudformation_dataclass
 class ServiceLoadBalancer:
-    resource: ecs.LoadBalancer
+    resource: ecs.task_set.LoadBalancer
     container_name = ref(ServiceName)
     container_port = ref(ContainerPort)
     target_group_arn = ref(TargetGroup)

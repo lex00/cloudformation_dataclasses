@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class AWSManagedADLinuxEC2SeamlessDomainJoinSecret:
     """AWS::SecretsManager::Secret resource."""
 
-    resource: secretsmanager.Secret
+    resource: Secret
     name = Sub('aws/directory-services/${AWSManagedAD}/seamless-domain-join')
     description = Sub('AD Credentials for Seamless Domain Join Windows/Linux EC2 instances to ${AWSManagedADDomainNetBiosName} Domain via AWS Managed Microsoft AD')
     secret_string = '{ "awsSeamlessDomainUsername" : "Admin", "awsSeamlessDomainPassword" : "{{resolve:secretsmanager:AWSManagedADAdminPassword:SecretString:password}}" }'

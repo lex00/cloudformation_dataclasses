@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class AuroraDBTagFormat:
-    resource: rds.TagFormat
+    resource: rds.db_proxy.TagFormat
     key = 'Application'
     value = AWS_STACK_ID
 

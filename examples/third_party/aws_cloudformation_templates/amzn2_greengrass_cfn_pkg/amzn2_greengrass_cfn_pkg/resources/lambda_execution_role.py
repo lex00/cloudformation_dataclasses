@@ -71,7 +71,7 @@ class LambdaExecutionRolePolicies0PolicyDocument:
 
 @cloudformation_dataclass
 class LambdaExecutionRolePolicy:
-    resource: iam.Policy
+    resource: iam.user.Policy
     policy_document = LambdaExecutionRolePolicies0PolicyDocument
     policy_name = 'root'
 
@@ -80,6 +80,6 @@ class LambdaExecutionRolePolicy:
 class LambdaExecutionRole:
     """AWS::IAM::Role resource."""
 
-    resource: iam.Role
+    resource: Role
     assume_role_policy_document = LambdaExecutionRoleAssumeRolePolicyDocument
     policies = [LambdaExecutionRolePolicy]

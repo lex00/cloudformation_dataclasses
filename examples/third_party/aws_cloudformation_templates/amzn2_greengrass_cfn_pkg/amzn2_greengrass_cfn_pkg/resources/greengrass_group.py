@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class GreengrassGroupGroupVersion:
-    resource: greengrass.GroupVersion
+    resource: greengrass.group.GroupVersion
     core_definition_version_arn = ref(GreengrassCoreDefinitionVersion)
     function_definition_version_arn = get_att(FunctionDefinition, "LatestVersionArn")
     subscription_definition_version_arn = get_att(SubscriptionDefinition, "LatestVersionArn")

@@ -4,8 +4,8 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class EFSFileSystemElasticFileSystemTag:
-    resource: ElasticFileSystemTag
+class EFSFileSystemAccessPointTag:
+    resource: efs.access_point.AccessPointTag
     key = 'Name'
     value = ref(EFSFileSystemName)
 
@@ -17,4 +17,4 @@ class EFSFileSystem:
     resource: efs.FileSystem
     encrypted = True
     performance_mode = 'generalPurpose'
-    file_system_tags = [EFSFileSystemElasticFileSystemTag]
+    file_system_tags = [EFSFileSystemAccessPointTag]

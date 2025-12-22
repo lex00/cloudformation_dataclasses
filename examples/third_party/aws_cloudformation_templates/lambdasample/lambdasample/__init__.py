@@ -13,7 +13,8 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import iam, lambda_
+from cloudformation_dataclasses.aws import lambda_
+from cloudformation_dataclasses.aws.iam import Role
 from cloudformation_dataclasses.intrinsics import Sub
 
 from .stack_config import EnvName, LambdaHandlerPath
@@ -29,12 +30,12 @@ __all__ = [
     "Parameter",
     "PolicyDocument",
     "PolicyStatement",
+    "Role",
     "STRING",
     "Sub",
     "Template",
     "cloudformation_dataclass",
     "get_att",
-    "iam",
     "lambda_",
     "ref",
 ]

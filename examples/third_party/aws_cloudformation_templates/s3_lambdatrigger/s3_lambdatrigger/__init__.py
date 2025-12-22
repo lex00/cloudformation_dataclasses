@@ -11,7 +11,8 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import iam, lambda_, s3
-from cloudformation_dataclasses.aws.s3 import LambdaConfiguration, ServerSideEncryption
+from cloudformation_dataclasses.aws.iam import Role
+from cloudformation_dataclasses.aws.s3 import ServerSideEncryption
 from cloudformation_dataclasses.intrinsics import AWS_ACCOUNT_ID, Sub
 
 from .stack_config import NotificationBucket
@@ -20,13 +21,13 @@ from .resources import *  # noqa: F403, F401
 
 __all__ = [
     "AWS_ACCOUNT_ID",
-    "LambdaConfiguration",
     "LambdaIAMRole",
     "LambdaInvokePermission",
     "NotificationBucket",
     "Parameter",
     "PolicyDocument",
     "PolicyStatement",
+    "Role",
     "S3BucketNotification",
     "S3TriggerLambdaFunction",
     "STRING",

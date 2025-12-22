@@ -4,16 +4,16 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class BucketRule:
-    resource: s3.Rule
-    expiration_in_days = '!Explode Retention'
-    status = 'Enabled'
+class BucketOwnershipControlsRule:
+    resource: s3.bucket.OwnershipControlsRule
+    # Unknown CF key: ExpirationInDays = '!Explode Retention'
+    # Unknown CF key: Status = 'Enabled'
 
 
 @cloudformation_dataclass
-class BucketLifecycleConfiguration:
-    resource: s3.LifecycleConfiguration
-    rules = [BucketRule]
+class BucketOwnershipControls:
+    resource: s3.bucket.OwnershipControls
+    rules = [BucketOwnershipControlsRule]
 
 
 @cloudformation_dataclass
@@ -21,4 +21,4 @@ class Bucket:
     """AWS::S3::Bucket resource."""
 
     resource: s3.Bucket
-    lifecycle_configuration = BucketLifecycleConfiguration
+    lifecycle_configuration = BucketOwnershipControls

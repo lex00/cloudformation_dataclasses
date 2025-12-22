@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class CPUAlarmHighDimension:
-    resource: cloudwatch.Dimension
+    resource: cloudwatch.anomaly_detector.Dimension
     name = 'AutoScalingGroupName'
     value = ref(AutoScalingGroup)
 

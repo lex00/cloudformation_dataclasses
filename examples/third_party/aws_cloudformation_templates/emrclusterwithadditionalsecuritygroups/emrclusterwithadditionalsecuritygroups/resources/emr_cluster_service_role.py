@@ -22,7 +22,7 @@ class EMRClusterServiceRoleAssumeRolePolicyDocument:
 class EMRClusterServiceRole:
     """AWS::IAM::Role resource."""
 
-    resource: iam.Role
+    resource: Role
     assume_role_policy_document = EMRClusterServiceRoleAssumeRolePolicyDocument
     managed_policy_arns = ['arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceRole']
     path = '/'

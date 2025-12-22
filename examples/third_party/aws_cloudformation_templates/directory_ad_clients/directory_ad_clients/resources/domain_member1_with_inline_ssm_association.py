@@ -5,21 +5,21 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class DomainMember1WithInlineSsmAssociationAssociationParameter:
-    resource: AssociationParameter
+    resource: ec2.instance.AssociationParameter
     key = 'directoryId'
     value = [ref(DirectoryID)]
 
 
 @cloudformation_dataclass
 class DomainMember1WithInlineSsmAssociationAssociationParameter1:
-    resource: AssociationParameter
+    resource: ec2.instance.AssociationParameter
     key = 'directoryName'
     value = [ref(DirectoryName)]
 
 
 @cloudformation_dataclass
 class DomainMember1WithInlineSsmAssociationSsmAssociation:
-    resource: SsmAssociation
+    resource: ec2.instance.SsmAssociation
     document_name = 'AWS-JoinDirectoryServiceDomain'
     association_parameters = [DomainMember1WithInlineSsmAssociationAssociationParameter, DomainMember1WithInlineSsmAssociationAssociationParameter1, If("DomainDNSServersCondition", {
     AssociationParameter.key: 'dnsIpAddresses',
@@ -34,26 +34,26 @@ class DomainMember1WithInlineSsmAssociationSsmAssociation:
 
 @cloudformation_dataclass
 class DomainMember1WithInlineSsmAssociationAssociationParameter2:
-    resource: AssociationParameter
+    resource: ec2.instance.AssociationParameter
     key = 'Name'
     value = ref(DomainMember1NetBIOSName)
 
 
 @cloudformation_dataclass
-class DomainMember1WithInlineSsmAssociationEbsBlockDevice:
-    resource: ec2.EbsBlockDevice
+class DomainMember1WithInlineSsmAssociationEbs:
+    resource: ec2.instance.Ebs
     encrypted = True
     volume_type = 'gp3'
     delete_on_termination = True
     volume_size = 100
-    # Unknown CF key: KmsKeyId = If("EBSKMSKeyCondition", ref(EBSKMSKey), AWS_NO_VALUE)
+    kms_key_id = If("EBSKMSKeyCondition", ref(EBSKMSKey), AWS_NO_VALUE)
 
 
 @cloudformation_dataclass
 class DomainMember1WithInlineSsmAssociationBlockDeviceMapping:
-    resource: ec2.BlockDeviceMapping
+    resource: ec2.instance.BlockDeviceMapping
     device_name = '/dev/sda1'
-    ebs = DomainMember1WithInlineSsmAssociationEbsBlockDevice
+    ebs = DomainMember1WithInlineSsmAssociationEbs
 
 
 @cloudformation_dataclass

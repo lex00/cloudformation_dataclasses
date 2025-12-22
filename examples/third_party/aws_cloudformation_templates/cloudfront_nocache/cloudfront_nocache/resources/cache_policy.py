@@ -5,26 +5,26 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class CachePolicyCookiesConfig:
-    resource: cloudfront.CookiesConfig
+    resource: cloudfront.cache_policy.CookiesConfig
     cookie_behavior = 'all'
 
 
 @cloudformation_dataclass
 class CachePolicyHeadersConfig:
-    resource: cloudfront.HeadersConfig
+    resource: cloudfront.cache_policy.HeadersConfig
     header_behavior = 'whitelist'
     headers = ['Accept-Charset', 'Authorization', 'Origin', 'Accept', 'Referer', 'Host', 'Accept-Language', 'Accept-Encoding', 'Accept-Datetime']
 
 
 @cloudformation_dataclass
 class CachePolicyQueryStringsConfig:
-    resource: cloudfront.QueryStringsConfig
+    resource: cloudfront.cache_policy.QueryStringsConfig
     query_string_behavior = 'all'
 
 
 @cloudformation_dataclass
 class CachePolicyParametersInCacheKeyAndForwardedToOrigin:
-    resource: ParametersInCacheKeyAndForwardedToOrigin
+    resource: cloudfront.cache_policy.ParametersInCacheKeyAndForwardedToOrigin
     cookies_config = CachePolicyCookiesConfig
     enable_accept_encoding_gzip = False
     headers_config = CachePolicyHeadersConfig
@@ -33,7 +33,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOrigin:
 
 @cloudformation_dataclass
 class CachePolicyCachePolicyConfig:
-    resource: CachePolicyConfig
+    resource: cloudfront.cache_policy.CachePolicyConfig
     default_ttl = 86400
     max_ttl = 31536000
     min_ttl = 1

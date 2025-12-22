@@ -17,10 +17,12 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import ec2, iam, lambda_, secretsmanager
-from cloudformation_dataclasses.aws.ec2 import AssociationParameter, Egress, VPCDHCPOptionsAssociation
-from cloudformation_dataclasses.aws.iam import Policy
+from cloudformation_dataclasses.aws import ec2, iam, lambda_
+from cloudformation_dataclasses.aws.ec2 import VPCDHCPOptionsAssociation
+from cloudformation_dataclasses.aws.iam import Role
+from cloudformation_dataclasses.aws.iam.user import Policy
 from cloudformation_dataclasses.aws.logs import LogGroup
+from cloudformation_dataclasses.aws.secretsmanager import Secret
 from cloudformation_dataclasses.intrinsics import (
     AWS_NO_VALUE,
     AWS_STACK_NAME,
@@ -80,7 +82,6 @@ __all__ = [
     "ADConnectorWindowsEC2DomainJoinRole",
     "AWS_NO_VALUE",
     "AWS_STACK_NAME",
-    "AssociationParameter",
     "BOOL",
     "CloudFormationResource",
     "Condition",
@@ -97,7 +98,6 @@ __all__ = [
     "DomainJoinUserPassword",
     "DomainMembersSGConditionCondition",
     "DomainNetBiosName",
-    "Egress",
     "Equals",
     "If",
     "LambdaFunctionName",
@@ -118,9 +118,11 @@ __all__ = [
     "PolicyStatement",
     "PrivateSubnet1ID",
     "PrivateSubnet2ID",
+    "Role",
     "SSMLogsBucketName",
     "SSMLogsBucketNameConditionCondition",
     "STRING",
+    "Secret",
     "SecretsManagerDomainCredentialsSecretsKMSKey",
     "SecretsManagerDomainCredentialsSecretsKMSKeyConditionCondition",
     "Sub",
@@ -134,5 +136,4 @@ __all__ = [
     "iam",
     "lambda_",
     "ref",
-    "secretsmanager",
 ]

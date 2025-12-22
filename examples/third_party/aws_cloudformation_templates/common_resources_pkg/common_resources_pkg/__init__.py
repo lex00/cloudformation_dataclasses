@@ -18,18 +18,9 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import iam, s3, sqs
-from cloudformation_dataclasses.aws.iam import RolePolicy
-from cloudformation_dataclasses.aws.s3 import (
-    BucketVersioningStatus,
-    DefaultRetention,
-    ObjectLockConfiguration,
-    ObjectLockEnabled,
-    ObjectLockRetentionMode,
-    ObjectLockRule,
-    ReplicationRuleStatus,
-    ServerSideEncryption,
-)
+from cloudformation_dataclasses.aws import s3, sqs
+from cloudformation_dataclasses.aws.iam import Role, RolePolicy
+from cloudformation_dataclasses.aws.s3 import ObjectLockEnabled, ObjectLockRetentionMode, ReplicationRuleStatus, ServerSideEncryption
 from cloudformation_dataclasses.intrinsics import AWS_ACCOUNT_ID, Sub
 
 from .stack_config import AppName
@@ -41,17 +32,14 @@ __all__ = [
     "AWS_ACCOUNT_ID",
     "AppName",
     "BOOL",
-    "BucketVersioningStatus",
-    "DefaultRetention",
     "DenyStatement",
-    "ObjectLockConfiguration",
     "ObjectLockEnabled",
     "ObjectLockRetentionMode",
-    "ObjectLockRule",
     "Parameter",
     "PolicyDocument",
     "PolicyStatement",
     "ReplicationRuleStatus",
+    "Role",
     "RolePolicy",
     "STRING",
     "STRING_EQUALS",
@@ -69,7 +57,6 @@ __all__ = [
     "TestQ",
     "cloudformation_dataclass",
     "get_att",
-    "iam",
     "ref",
     "s3",
     "sqs",

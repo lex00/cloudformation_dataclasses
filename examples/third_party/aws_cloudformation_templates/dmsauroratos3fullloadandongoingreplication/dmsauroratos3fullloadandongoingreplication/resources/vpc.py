@@ -5,14 +5,14 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class VPCAssociationParameter:
-    resource: AssociationParameter
+    resource: ec2.instance.AssociationParameter
     key = 'Application'
     value = AWS_STACK_ID
 
 
 @cloudformation_dataclass
 class VPCAssociationParameter1:
-    resource: AssociationParameter
+    resource: ec2.instance.AssociationParameter
     key = 'Name'
     value = AWS_STACK_NAME
 

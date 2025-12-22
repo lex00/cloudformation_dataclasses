@@ -13,7 +13,7 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import efs
-from cloudformation_dataclasses.aws.efs import AccessPointTag, ElasticFileSystemTag, MountTarget
+from cloudformation_dataclasses.aws.efs import MountTarget
 
 from .stack_config import (
     AccessPointName,
@@ -30,14 +30,12 @@ from .resources import *  # noqa: F403, F401
 
 __all__ = [
     "AccessPointName",
-    "AccessPointTag",
     "EFSAccessPoint",
     "EFSFileSystem",
     "EFSFileSystemName",
     "EFSMountTarget1",
     "EFSMountTarget2",
     "EFSMountTarget3",
-    "ElasticFileSystemTag",
     "MountTarget",
     "Output",
     "Parameter",

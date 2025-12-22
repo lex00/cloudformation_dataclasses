@@ -5,14 +5,14 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class ServiceScalingPolicyStepAdjustment:
-    resource: applicationautoscaling.StepAdjustment
+    resource: applicationautoscaling.scaling_policy.StepAdjustment
     metric_interval_lower_bound = 0
     scaling_adjustment = 200
 
 
 @cloudformation_dataclass
 class ServiceScalingPolicyStepScalingPolicyConfiguration:
-    resource: StepScalingPolicyConfiguration
+    resource: applicationautoscaling.scaling_policy.StepScalingPolicyConfiguration
     adjustment_type = 'PercentChangeInCapacity'
     cooldown = 60
     metric_aggregation_type = 'Average'

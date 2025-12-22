@@ -5,35 +5,35 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class ServiceCatalogPortfolioProvisioningParameter:
-    resource: servicecatalog.ProvisioningParameter
+    resource: servicecatalog.cloud_formation_provisioned_product.ProvisioningParameter
     key = 'Name'
     value = Sub('${PortfolioDisplayName}')
 
 
 @cloudformation_dataclass
 class ServiceCatalogPortfolioProvisioningParameter1:
-    resource: servicecatalog.ProvisioningParameter
+    resource: servicecatalog.cloud_formation_provisioned_product.ProvisioningParameter
     key = 'Dept'
     value = Sub('${Dept}')
 
 
 @cloudformation_dataclass
 class ServiceCatalogPortfolioProvisioningParameter2:
-    resource: servicecatalog.ProvisioningParameter
+    resource: servicecatalog.cloud_formation_provisioned_product.ProvisioningParameter
     key = 'Env'
     value = Sub('${Env}')
 
 
 @cloudformation_dataclass
 class ServiceCatalogPortfolioProvisioningParameter3:
-    resource: servicecatalog.ProvisioningParameter
+    resource: servicecatalog.cloud_formation_provisioned_product.ProvisioningParameter
     key = 'User'
     value = Sub('${User}')
 
 
 @cloudformation_dataclass
 class ServiceCatalogPortfolioProvisioningParameter4:
-    resource: servicecatalog.ProvisioningParameter
+    resource: servicecatalog.cloud_formation_provisioned_product.ProvisioningParameter
     key = 'Owner'
     value = Sub('${Owner}')
 

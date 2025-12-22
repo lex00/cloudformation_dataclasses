@@ -5,27 +5,27 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class TargetAccountLoggingDeploymentTargets:
-    resource: DeploymentTargets
+    resource: cloudformation.stack_set.DeploymentTargets
     organizational_unit_ids = [ref(OUID)]
 
 
 @cloudformation_dataclass
 class TargetAccountLoggingStackInstances:
-    resource: StackInstances
+    resource: cloudformation.stack_set.StackInstances
     deployment_targets = TargetAccountLoggingDeploymentTargets
     regions = ['us-east-1', 'us-west-2']
 
 
 @cloudformation_dataclass
 class TargetAccountLoggingParameter:
-    resource: cloudformation.Parameter
+    resource: cloudformation.stack_set.Parameter
     parameter_key = 'CentralEventBusArn'
     parameter_value = get_att(CentralEventBus, "Arn")
 
 
 @cloudformation_dataclass
 class TargetAccountLoggingOperationPreferences:
-    resource: OperationPreferences
+    resource: cloudformation.stack_set.OperationPreferences
     failure_tolerance_count = 0
     max_concurrent_count = 2
     region_concurrency_type = 'PARALLEL'
@@ -33,7 +33,7 @@ class TargetAccountLoggingOperationPreferences:
 
 @cloudformation_dataclass
 class TargetAccountLoggingAutoDeployment:
-    resource: AutoDeployment
+    resource: cloudformation.stack_set.AutoDeployment
     enabled = True
     retain_stacks_on_account_removal = True
 

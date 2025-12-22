@@ -5,31 +5,31 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class SiteCloudFrontLogsBucketServerSideEncryptionByDefault:
-    resource: s3.ServerSideEncryptionByDefault
+    resource: s3.bucket.ServerSideEncryptionByDefault
     sse_algorithm = ServerSideEncryption.AES256
 
 
 @cloudformation_dataclass
 class SiteCloudFrontLogsBucketServerSideEncryptionRule:
-    resource: s3.ServerSideEncryptionRule
+    resource: s3.bucket.ServerSideEncryptionRule
     server_side_encryption_by_default = SiteCloudFrontLogsBucketServerSideEncryptionByDefault
 
 
 @cloudformation_dataclass
 class SiteCloudFrontLogsBucketBucketEncryption:
-    resource: s3.BucketEncryption
+    resource: s3.bucket.BucketEncryption
     server_side_encryption_configuration = [SiteCloudFrontLogsBucketServerSideEncryptionRule]
 
 
 @cloudformation_dataclass
 class SiteCloudFrontLogsBucketLoggingConfiguration:
-    resource: s3.LoggingConfiguration
+    resource: s3.bucket.LoggingConfiguration
     destination_bucket_name = ref(SiteCloudFrontLogsLogBucket)
 
 
 @cloudformation_dataclass
 class SiteCloudFrontLogsBucketPublicAccessBlockConfiguration:
-    resource: s3.PublicAccessBlockConfiguration
+    resource: s3.multi_region_access_point.PublicAccessBlockConfiguration
     block_public_acls = True
     block_public_policy = True
     ignore_public_acls = True
@@ -38,39 +38,39 @@ class SiteCloudFrontLogsBucketPublicAccessBlockConfiguration:
 
 @cloudformation_dataclass
 class SiteCloudFrontLogsBucketReplicationDestination:
-    resource: s3.ReplicationDestination
+    resource: s3.bucket.ReplicationDestination
     bucket = get_att(SiteCloudFrontLogsReplicaBucket, "Arn")
 
 
 @cloudformation_dataclass
 class SiteCloudFrontLogsBucketReplicationRule:
-    resource: s3.ReplicationRule
+    resource: s3.bucket.ReplicationRule
     destination = SiteCloudFrontLogsBucketReplicationDestination
     status = ReplicationRuleStatus.ENABLED
 
 
 @cloudformation_dataclass
 class SiteCloudFrontLogsBucketReplicationConfiguration:
-    resource: s3.ReplicationConfiguration
+    resource: s3.bucket.ReplicationConfiguration
     role = get_att(SiteCloudFrontLogsReplicationRole, "Arn")
     rules = [SiteCloudFrontLogsBucketReplicationRule]
 
 
 @cloudformation_dataclass
-class SiteCloudFrontLogsBucketVersioningConfiguration:
-    resource: s3.VersioningConfiguration
-    status = BucketVersioningStatus.ENABLED
+class SiteCloudFrontLogsBucketDeleteMarkerReplication:
+    resource: s3.bucket.DeleteMarkerReplication
+    status = 'Enabled'
 
 
 @cloudformation_dataclass
 class SiteCloudFrontLogsBucketOwnershipControlsRule:
-    resource: OwnershipControlsRule
+    resource: s3.bucket.OwnershipControlsRule
     object_ownership = 'BucketOwnerPreferred'
 
 
 @cloudformation_dataclass
 class SiteCloudFrontLogsBucketOwnershipControls:
-    resource: OwnershipControls
+    resource: s3.bucket.OwnershipControls
     rules = [SiteCloudFrontLogsBucketOwnershipControlsRule]
 
 
@@ -85,5 +85,5 @@ class SiteCloudFrontLogsBucket:
     object_lock_enabled = False
     public_access_block_configuration = SiteCloudFrontLogsBucketPublicAccessBlockConfiguration
     replication_configuration = SiteCloudFrontLogsBucketReplicationConfiguration
-    versioning_configuration = SiteCloudFrontLogsBucketVersioningConfiguration
+    versioning_configuration = SiteCloudFrontLogsBucketDeleteMarkerReplication
     ownership_controls = SiteCloudFrontLogsBucketOwnershipControls

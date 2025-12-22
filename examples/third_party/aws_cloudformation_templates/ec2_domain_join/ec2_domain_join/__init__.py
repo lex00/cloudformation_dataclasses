@@ -14,7 +14,7 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import ec2, iam
-from cloudformation_dataclasses.aws.ec2 import AssociationParameter, SsmAssociation
+from cloudformation_dataclasses.aws.iam import Role
 from cloudformation_dataclasses.aws.ssm import Document
 
 from .stack_config import (
@@ -37,7 +37,6 @@ __all__ = [
     "ADDnsIpAddresses1",
     "ADDnsIpAddresses2",
     "AMI",
-    "AssociationParameter",
     "Document",
     "InstanceSecurityGroup",
     "InstanceType",
@@ -47,8 +46,8 @@ __all__ = [
     "PolicyDocument",
     "PolicyStatement",
     "PublicSubnet",
+    "Role",
     "STRING",
-    "SsmAssociation",
     "Template",
     "VPC",
     "cloudformation_dataclass",

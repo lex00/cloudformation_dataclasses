@@ -5,14 +5,14 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class ECSALBListenerRuleAction:
-    resource: elasticloadbalancingv2.Action
+    resource: elasticloadbalancingv2.listener_rule.Action
     type_ = 'forward'
     target_group_arn = ref(ECSTG)
 
 
 @cloudformation_dataclass
 class ECSALBListenerRuleRuleCondition:
-    resource: elasticloadbalancingv2.RuleCondition
+    resource: elasticloadbalancingv2.listener_rule.RuleCondition
     field = 'path-pattern'
     values = ['/']
 

@@ -13,8 +13,8 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import ec2, ssm
-from cloudformation_dataclasses.aws.ec2 import AssociationParameter, SsmAssociation
-from cloudformation_dataclasses.aws.ssm import InstanceAssociationOutputLocation, S3OutputLocation
+from cloudformation_dataclasses.aws.ec2.instance import AssociationParameter
+from cloudformation_dataclasses.aws.ssm.association import S3OutputLocation
 from cloudformation_dataclasses.intrinsics import (
     AWS_NO_VALUE,
     Base64,
@@ -92,7 +92,6 @@ __all__ = [
     "EBSKMSKeyConditionCondition",
     "Equals",
     "If",
-    "InstanceAssociationOutputLocation",
     "JoinDomainAssociationInstances",
     "JoinDomainAssociationTags",
     "KeyPairName",
@@ -106,7 +105,6 @@ __all__ = [
     "SSMLogsBucketConditionCondition",
     "SSMLogsBucketName",
     "STRING",
-    "SsmAssociation",
     "Sub",
     "Template",
     "WINFULLBASE",

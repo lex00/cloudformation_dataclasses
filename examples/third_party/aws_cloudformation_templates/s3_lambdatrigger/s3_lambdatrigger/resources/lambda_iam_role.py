@@ -37,7 +37,7 @@ class LambdaIAMRolePolicies0PolicyDocument:
 
 @cloudformation_dataclass
 class LambdaIAMRolePolicy:
-    resource: iam.Policy
+    resource: iam.user.Policy
     policy_name = 'root'
     policy_document = LambdaIAMRolePolicies0PolicyDocument
 
@@ -46,7 +46,7 @@ class LambdaIAMRolePolicy:
 class LambdaIAMRole:
     """AWS::IAM::Role resource."""
 
-    resource: iam.Role
+    resource: Role
     assume_role_policy_document = LambdaIAMRoleAssumeRolePolicyDocument
     path = '/'
     policies = [LambdaIAMRolePolicy]

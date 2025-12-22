@@ -5,14 +5,14 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class LinuxInstanceAssociationParameter:
-    resource: AssociationParameter
+    resource: ec2.instance.AssociationParameter
     key = 'Name'
     value = AWS_STACK_NAME
 
 
 @cloudformation_dataclass
-class LinuxInstanceEbsBlockDevice:
-    resource: ec2.EbsBlockDevice
+class LinuxInstanceEbs:
+    resource: ec2.instance.Ebs
     volume_type = 'io1'
     iops = '200'
     delete_on_termination = 'true'
@@ -21,9 +21,9 @@ class LinuxInstanceEbsBlockDevice:
 
 @cloudformation_dataclass
 class LinuxInstanceBlockDeviceMapping:
-    resource: ec2.BlockDeviceMapping
+    resource: ec2.instance.BlockDeviceMapping
     device_name = '/dev/sdm'
-    ebs = LinuxInstanceEbsBlockDevice
+    ebs = LinuxInstanceEbs
 
 
 @cloudformation_dataclass

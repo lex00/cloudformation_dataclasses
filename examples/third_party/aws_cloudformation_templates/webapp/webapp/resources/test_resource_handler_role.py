@@ -22,6 +22,6 @@ class TestResourceHandlerRoleAssumeRolePolicyDocument:
 class TestResourceHandlerRole:
     """AWS::IAM::Role resource."""
 
-    resource: iam.Role
+    resource: Role
     assume_role_policy_document = TestResourceHandlerRoleAssumeRolePolicyDocument
     managed_policy_arns = ['arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole']

@@ -5,16 +5,16 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class InboundHTTPPublicNetworkAclEntryPortRange:
-    resource: ec2.PortRange
-    # Unknown CF key: From = '0'
-    # Unknown CF key: To = '65535'
+    resource: ec2.network_insights_analysis.PortRange
+    from_ = '0'
+    to = '65535'
 
 
 @cloudformation_dataclass
 class InboundHTTPPublicNetworkAclEntry:
     """AWS::EC2::NetworkAclEntry resource."""
 
-    resource: ec2.NetworkAclEntry
+    resource: NetworkAclEntry
     network_acl_id = ref(PublicNetworkAcl)
     rule_number = '100'
     protocol = '-1'

@@ -4,8 +4,8 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class EC2SecurityGroupIngress:
-    resource: ec2.Ingress
+class EC2SecurityGroupEgress:
+    resource: ec2.security_group.Egress
     ip_protocol = 'tcp'
     from_port = '22'
     to_port = '22'
@@ -18,4 +18,4 @@ class EC2SecurityGroup:
 
     resource: ec2.SecurityGroup
     group_description = 'SSH access'
-    security_group_ingress = [EC2SecurityGroupIngress]
+    security_group_ingress = [EC2SecurityGroupEgress]

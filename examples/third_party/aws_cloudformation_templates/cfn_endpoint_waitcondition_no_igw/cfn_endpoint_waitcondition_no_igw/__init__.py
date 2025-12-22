@@ -15,13 +15,7 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.aws import ec2
 from cloudformation_dataclasses.aws.cloudformation import WaitCondition, WaitConditionHandle
-from cloudformation_dataclasses.aws.ec2 import (
-    AssociationParameter,
-    RouteTable,
-    Subnet,
-    SubnetRouteTableAssociation,
-    VPCEndpoint,
-)
+from cloudformation_dataclasses.aws.ec2 import RouteTable, Subnet, SubnetRouteTableAssociation, VPCEndpoint
 from cloudformation_dataclasses.intrinsics import (
     Base64,
     GetAZs,
@@ -41,7 +35,6 @@ from .stack_config import (
 from .resources import *  # noqa: F403, F401
 
 __all__ = [
-    "AssociationParameter",
     "Base64",
     "CfnEndpoint",
     "EndpointSG",

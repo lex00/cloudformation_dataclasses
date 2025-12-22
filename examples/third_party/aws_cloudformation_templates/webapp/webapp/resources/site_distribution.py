@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class SiteDistributionDefaultCacheBehavior:
-    resource: DefaultCacheBehavior
+    resource: cloudfront.distribution.DefaultCacheBehavior
     cache_policy_id = '658327ea-f89d-4fab-a63d-7e88639e58f6'
     compress = True
     target_origin_id = Sub('${AppName}-origin-1')
@@ -14,19 +14,19 @@ class SiteDistributionDefaultCacheBehavior:
 
 @cloudformation_dataclass
 class SiteDistributionLogging:
-    resource: cloudfront.Logging
+    resource: cloudfront.distribution.Logging
     bucket = get_att(SiteCloudFrontLogsBucket, "RegionalDomainName")
 
 
 @cloudformation_dataclass
 class SiteDistributionS3OriginConfig:
-    resource: S3OriginConfig
+    resource: cloudfront.distribution.S3OriginConfig
     origin_access_identity = ''
 
 
 @cloudformation_dataclass
 class SiteDistributionOrigin:
-    resource: Origin
+    resource: cloudfront.distribution.Origin
     domain_name = get_att(SiteContentBucket, "RegionalDomainName")
     id = Sub('${AppName}-origin-1')
     origin_access_control_id = get_att(SiteOriginAccessControl, "Id")
@@ -35,13 +35,13 @@ class SiteDistributionOrigin:
 
 @cloudformation_dataclass
 class SiteDistributionViewerCertificate:
-    resource: ViewerCertificate
+    resource: cloudfront.distribution.ViewerCertificate
     cloud_front_default_certificate = True
 
 
 @cloudformation_dataclass
 class SiteDistributionDistributionConfig:
-    resource: DistributionConfig
+    resource: cloudfront.distribution.DistributionConfig
     default_cache_behavior = SiteDistributionDefaultCacheBehavior
     default_root_object = 'index.html'
     enabled = True

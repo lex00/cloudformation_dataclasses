@@ -5,13 +5,13 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class CentralEventRuleDeadLetterConfig:
-    resource: events.DeadLetterConfig
+    resource: events.rule.DeadLetterConfig
     arn = get_att(DeadLetterQueue, "Arn")
 
 
 @cloudformation_dataclass
 class CentralEventRuleTarget:
-    resource: events.Target
+    resource: events.rule.Target
     arn = get_att(CentralEventLog, "Arn")
     id = 'CloudFormationLogsToCentralGroup'
     dead_letter_config = CentralEventRuleDeadLetterConfig

@@ -4,15 +4,15 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class TestResourceHandlerCode:
-    resource: lambda_.Code
+class TestResourceHandlerContent:
+    resource: lambda_.layer_version.Content
     s3_bucket = ref(LambdaCodeS3Bucket)
     s3_key = ref(LambdaCodeS3Key)
 
 
 @cloudformation_dataclass
 class TestResourceHandlerEnvironment:
-    resource: lambda_.Environment
+    resource: lambda_.function.Environment
     variables = {
         'TABLE_NAME': ref(TestTable),
     }
@@ -26,6 +26,6 @@ class TestResourceHandler:
     handler = 'bootstrap'
     function_name = Sub('${AppName}-test-handler')
     runtime = 'provided.al2023'
-    code = TestResourceHandlerCode
+    code = TestResourceHandlerContent
     role = get_att(TestResourceHandlerRole, "Arn")
     environment = TestResourceHandlerEnvironment

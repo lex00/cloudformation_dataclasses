@@ -4,8 +4,8 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class InstanceSecurityGroupIngress:
-    resource: ec2.Ingress
+class InstanceSecurityGroupEgress:
+    resource: ec2.security_group.Egress
     ip_protocol = 'tcp'
     from_port = 22
     to_port = 22
@@ -13,8 +13,8 @@ class InstanceSecurityGroupIngress:
 
 
 @cloudformation_dataclass
-class InstanceSecurityGroupIngress1:
-    resource: ec2.Ingress
+class InstanceSecurityGroupIngress:
+    resource: ec2.security_group.Ingress
     ip_protocol = 'tcp'
     from_port = 80
     to_port = 80
@@ -27,4 +27,4 @@ class InstanceSecurityGroup:
 
     resource: ec2.SecurityGroup
     group_description = 'Enable SSH access and HTTP from the load balancer only'
-    security_group_ingress = [InstanceSecurityGroupIngress, InstanceSecurityGroupIngress1]
+    security_group_ingress = [InstanceSecurityGroupEgress, InstanceSecurityGroupIngress]

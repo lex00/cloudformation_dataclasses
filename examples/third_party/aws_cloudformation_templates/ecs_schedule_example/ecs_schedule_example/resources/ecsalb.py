@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class ECSALBLoadBalancerAttribute:
-    resource: LoadBalancerAttribute
+    resource: elasticloadbalancingv2.load_balancer.LoadBalancerAttribute
     key = 'idle_timeout.timeout_seconds'
     value = '30'
 
