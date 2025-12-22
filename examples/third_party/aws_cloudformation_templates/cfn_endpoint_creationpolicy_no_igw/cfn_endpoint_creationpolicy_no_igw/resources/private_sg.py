@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class PrivateSGIngress:
-    resource: Ingress
+    resource: ec2.Ingress
     ip_protocol = 'tcp'
     from_port = 22
     to_port = 22
@@ -23,7 +23,7 @@ class PrivateSGAssociationParameter:
 class PrivateSG:
     """AWS::EC2::SecurityGroup resource."""
 
-    resource: SecurityGroup
+    resource: ec2.SecurityGroup
     group_description = 'Traffic from Bastion'
     security_group_ingress = [PrivateSGIngress]
     vpc_id = ref(VPC)

@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import AppName, LambdaCodeS3Bucket, LambdaCodeS3Key
+from .stack_config import AppName, LambdaCodeS3Bucket, LambdaCodeS3Key
 from .outputs import AppClientIdOutput, AppNameOutput, CognitoDomainPrefixOutput, RedirectURIOutput, RestApiInvokeURLOutput, SiteURLOutput
 
 

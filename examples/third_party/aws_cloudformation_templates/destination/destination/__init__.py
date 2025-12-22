@@ -14,50 +14,33 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.kms import Alias, Key
-from cloudformation_dataclasses.aws.s3 import (
-    Bucket,
-    BucketEncryption,
-    BucketPolicy,
-    BucketVersioningStatus,
-    PublicAccessBlockConfiguration,
-    ServerSideEncryption,
-    ServerSideEncryptionByDefault,
-    ServerSideEncryptionRule,
-    VersioningConfiguration,
-)
+from cloudformation_dataclasses.aws import kms, s3
+from cloudformation_dataclasses.aws.s3 import BucketVersioningStatus, ServerSideEncryption
 from cloudformation_dataclasses.intrinsics import Sub
 
-from .config import AccountIdSource
+from .stack_config import AccountIdSource
 
 from .resources import *  # noqa: F403, F401
 
 __all__ = [
     "AccountIdSource",
-    "Alias",
     "BOOL",
-    "Bucket",
-    "BucketEncryption",
-    "BucketPolicy",
     "BucketVersioningStatus",
     "DenyStatement",
-    "Key",
     "KmsKey",
     "KmsKeyAlias",
     "Parameter",
     "PolicyDocument",
     "PolicyStatement",
-    "PublicAccessBlockConfiguration",
     "S3BucketDestination",
     "S3BucketDestinationPolicy",
     "STRING",
     "ServerSideEncryption",
-    "ServerSideEncryptionByDefault",
-    "ServerSideEncryptionRule",
     "Sub",
     "Template",
-    "VersioningConfiguration",
     "cloudformation_dataclass",
     "get_att",
+    "kms",
     "ref",
+    "s3",
 ]

@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class ALB500sAlarmScaleUpDimension:
-    resource: Dimension
+    resource: cloudwatch.Dimension
     name = 'ECSService'
     value = ref(Service)
 
@@ -14,7 +14,7 @@ class ALB500sAlarmScaleUpDimension:
 class ALB500sAlarmScaleUp:
     """AWS::CloudWatch::Alarm resource."""
 
-    resource: Alarm
+    resource: cloudwatch.Alarm
     evaluation_periods = '1'
     statistic = 'Average'
     threshold = '10'

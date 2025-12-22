@@ -14,7 +14,7 @@ class S3TargetEndpointS3Settings:
 class S3TargetEndpoint:
     """AWS::DMS::Endpoint resource."""
 
-    resource: Endpoint
+    resource: dms.Endpoint
     endpoint_type = 'target'
     engine_name = 'S3'
     extra_connection_attributes = 'addColumnName=true'

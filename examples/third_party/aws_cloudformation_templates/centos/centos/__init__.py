@@ -12,10 +12,10 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.ec2 import Ingress, Instance, SecurityGroup
+from cloudformation_dataclasses.aws import ec2
 from cloudformation_dataclasses.intrinsics import AWS_REGION, Base64, FindInMap, Sub
 
-from .config import (
+from .stack_config import (
     CentOSVersion,
     IAMRole,
     InstanceType,
@@ -35,8 +35,6 @@ __all__ = [
     "EC2Instance",
     "FindInMap",
     "IAMRole",
-    "Ingress",
-    "Instance",
     "InstanceSecurityGroup",
     "InstanceType",
     "KeyName",
@@ -47,11 +45,11 @@ __all__ = [
     "SSHLocation",
     "SSMKey",
     "STRING",
-    "SecurityGroup",
     "Sub",
     "SubnetId",
     "Template",
     "cloudformation_dataclass",
+    "ec2",
     "get_att",
     "ref",
 ]

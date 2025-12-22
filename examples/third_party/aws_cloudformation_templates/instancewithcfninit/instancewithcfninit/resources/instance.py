@@ -5,13 +5,13 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class InstanceEbsBlockDevice:
-    resource: EbsBlockDevice
+    resource: ec2.EbsBlockDevice
     volume_size = 32
 
 
 @cloudformation_dataclass
 class InstanceBlockDeviceMapping:
-    resource: BlockDeviceMapping
+    resource: ec2.BlockDeviceMapping
     device_name = '/dev/sda1'
     ebs = InstanceEbsBlockDevice
 

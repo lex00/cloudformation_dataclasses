@@ -5,19 +5,19 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class CloudFrontLogsLogBucketServerSideEncryptionByDefault:
-    resource: ServerSideEncryptionByDefault
+    resource: s3.ServerSideEncryptionByDefault
     sse_algorithm = ServerSideEncryption.AES256
 
 
 @cloudformation_dataclass
 class CloudFrontLogsLogBucketServerSideEncryptionRule:
-    resource: ServerSideEncryptionRule
+    resource: s3.ServerSideEncryptionRule
     server_side_encryption_by_default = CloudFrontLogsLogBucketServerSideEncryptionByDefault
 
 
 @cloudformation_dataclass
 class CloudFrontLogsLogBucketBucketEncryption:
-    resource: BucketEncryption
+    resource: s3.BucketEncryption
     server_side_encryption_configuration = [CloudFrontLogsLogBucketServerSideEncryptionRule]
 
 
@@ -43,7 +43,7 @@ class CloudFrontLogsLogBucketObjectLockConfiguration:
 
 @cloudformation_dataclass
 class CloudFrontLogsLogBucketPublicAccessBlockConfiguration:
-    resource: PublicAccessBlockConfiguration
+    resource: s3.PublicAccessBlockConfiguration
     block_public_acls = True
     block_public_policy = True
     ignore_public_acls = True
@@ -52,7 +52,7 @@ class CloudFrontLogsLogBucketPublicAccessBlockConfiguration:
 
 @cloudformation_dataclass
 class CloudFrontLogsLogBucketVersioningConfiguration:
-    resource: VersioningConfiguration
+    resource: s3.VersioningConfiguration
     status = BucketVersioningStatus.ENABLED
 
 
@@ -60,7 +60,7 @@ class CloudFrontLogsLogBucketVersioningConfiguration:
 class CloudFrontLogsLogBucket:
     """AWS::S3::Bucket resource."""
 
-    resource: Bucket
+    resource: s3.Bucket
     bucket_encryption = CloudFrontLogsLogBucketBucketEncryption
     bucket_name = Sub('${AppName}-cflogs-logs-${AWS::Region}-${AWS::AccountId}')
     object_lock_configuration = CloudFrontLogsLogBucketObjectLockConfiguration

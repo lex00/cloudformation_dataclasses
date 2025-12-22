@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class JwtResourceResource:
     """AWS::ApiGateway::Resource resource."""
 
-    resource: Resource
+    resource: apigateway.Resource
     parent_id = Sub('${RestApi.RootResourceId}')
     path_part = 'jwt'
     rest_api_id = ref(RestApi)

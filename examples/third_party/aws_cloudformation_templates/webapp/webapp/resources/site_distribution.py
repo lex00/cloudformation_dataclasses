@@ -14,7 +14,7 @@ class SiteDistributionDefaultCacheBehavior:
 
 @cloudformation_dataclass
 class SiteDistributionLogging:
-    resource: Logging
+    resource: cloudfront.Logging
     bucket = get_att(SiteCloudFrontLogsBucket, "RegionalDomainName")
 
 
@@ -57,5 +57,5 @@ class SiteDistributionDistributionConfig:
 class SiteDistribution:
     """AWS::CloudFront::Distribution resource."""
 
-    resource: Distribution
+    resource: cloudfront.Distribution
     distribution_config = SiteDistributionDistributionConfig

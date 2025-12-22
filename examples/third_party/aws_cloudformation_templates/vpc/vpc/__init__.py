@@ -5,7 +5,6 @@ from cloudformation_dataclasses.aws import ec2
 from cloudformation_dataclasses.aws.ec2 import (
     EIP,
     NatGateway,
-    Route,
     RouteTable,
     Subnet,
     SubnetRouteTableAssociation,
@@ -40,7 +39,6 @@ __all__ = [
     "PublicSubnet2NATGateway",
     "PublicSubnet2RouteTable",
     "PublicSubnet2RouteTableAssociation",
-    "Route",
     "RouteTable",
     "Select",
     "Subnet",

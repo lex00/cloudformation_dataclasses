@@ -5,13 +5,13 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class CentralEventRuleDeadLetterConfig:
-    resource: DeadLetterConfig
+    resource: events.DeadLetterConfig
     arn = get_att(DeadLetterQueue, "Arn")
 
 
 @cloudformation_dataclass
 class CentralEventRuleTarget:
-    resource: Target
+    resource: events.Target
     arn = get_att(CentralEventLog, "Arn")
     id = 'CloudFormationLogsToCentralGroup'
     dead_letter_config = CentralEventRuleDeadLetterConfig
@@ -21,7 +21,7 @@ class CentralEventRuleTarget:
 class CentralEventRule:
     """AWS::Events::Rule resource."""
 
-    resource: Rule
+    resource: events.Rule
     name = 'CloudFormationLogs'
     event_bus_name = ref(CentralEventBusName)
     state = 'ENABLED'

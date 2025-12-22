@@ -43,7 +43,17 @@ OUTPUT_DIR="$PROJECT_ROOT/examples/third_party/aws_cloudformation_templates"
 # Templates with known defects that cannot be imported correctly
 # These will be skipped during validation (but still imported for inspection)
 SKIP_TEMPLATES=(
-    "efs_with_automount_to_ec2"  # Malformed: JSON array syntax in YAML literal block
+    # Malformed source YAML
+    "efs_with_automount_to_ec2"  # JSON array syntax in YAML literal block
+
+    # Read-only attribute used as property (source template bug)
+    "vpc_ec2_instance_with_multiple_static_ipaddresses"  # NetworkInterfaceId is GetAtt only
+
+    # Template name collision (multiple source files with same base name)
+    "example"  # 4 different example.yaml files in aws-cloudformation-templates
+
+    # Rain-specific syntax
+    "test"  # Uses Rain !Explode macro
 )
 
 cd "$PROJECT_ROOT"

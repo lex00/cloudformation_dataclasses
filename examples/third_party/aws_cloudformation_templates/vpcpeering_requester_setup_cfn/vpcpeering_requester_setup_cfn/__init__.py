@@ -17,7 +17,7 @@ from cloudformation_dataclasses.aws import ec2
 from cloudformation_dataclasses.aws.ec2 import AssociationParameter
 from cloudformation_dataclasses.intrinsics import AWS_NO_VALUE, Equals, If, Not
 
-from .config import (
+from .stack_config import (
     PeerName,
     PeerOwnerId,
     PeerRoleARN,

@@ -10,26 +10,26 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.rds import DBInstance
-from cloudformation_dataclasses.aws.secretsmanager import GenerateSecretString, Secret
+from cloudformation_dataclasses.aws import rds, secretsmanager
+from cloudformation_dataclasses.aws.secretsmanager import GenerateSecretString
 from cloudformation_dataclasses.intrinsics import Sub
 
-from .config import DBUser
+from .stack_config import DBUser
 
 from .resources import *  # noqa: F403, F401
 
 __all__ = [
     "DBCredential",
-    "DBInstance",
     "DBUser",
     "GenerateSecretString",
     "Parameter",
     "STRING",
-    "Secret",
     "Sub",
     "Template",
     "cloudformation_dataclass",
     "get_att",
     "myDB",
+    "rds",
     "ref",
+    "secretsmanager",
 ]

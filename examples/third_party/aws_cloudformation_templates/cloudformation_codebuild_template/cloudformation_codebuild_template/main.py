@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import DockerImage
+from .stack_config import DockerImage
 from .outputs import AppBuildArnOutput, AppBuildOutput, AppDeployOutput, AppDeploydArnOutput, CodeBuildRoleArnOutput, CodeBuildRoleOutput, CodeCommitArnOutput, CodeCommitNameOutput, PipelineS3BucketArnOutput, PipelineS3BucketOutput
 
 

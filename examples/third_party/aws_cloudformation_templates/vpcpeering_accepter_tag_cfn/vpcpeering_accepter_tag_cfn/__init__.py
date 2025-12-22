@@ -14,8 +14,7 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.iam import Policy, Role
-from cloudformation_dataclasses.aws.lambda_ import Code, Environment, Function
+from cloudformation_dataclasses.aws import iam, lambda_
 from cloudformation_dataclasses.aws.logs import LogGroup
 from cloudformation_dataclasses.intrinsics import (
     AWS_NO_VALUE,
@@ -26,7 +25,7 @@ from cloudformation_dataclasses.intrinsics import (
     Sub,
 )
 
-from .config import (
+from .stack_config import (
     LambdaFunctionName,
     LambdaLogLevel,
     LambdaLogsCloudWatchKMSKey,
@@ -42,11 +41,8 @@ __all__ = [
     "AWS_NO_VALUE",
     "AWS_STACK_NAME",
     "CloudFormationResource",
-    "Code",
     "Condition",
-    "Environment",
     "Equals",
-    "Function",
     "If",
     "LambdaFunctionName",
     "LambdaLogLevel",
@@ -57,10 +53,8 @@ __all__ = [
     "Not",
     "Parameter",
     "PeerName",
-    "Policy",
     "PolicyDocument",
     "PolicyStatement",
-    "Role",
     "STRING",
     "Sub",
     "TagVpcPeeringConnectionsLambdaFunction",
@@ -71,5 +65,7 @@ __all__ = [
     "VPCPeeringConnectionId",
     "cloudformation_dataclass",
     "get_att",
+    "iam",
+    "lambda_",
     "ref",
 ]

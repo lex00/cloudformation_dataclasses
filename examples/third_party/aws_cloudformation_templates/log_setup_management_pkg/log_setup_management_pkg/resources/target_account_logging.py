@@ -18,7 +18,7 @@ class TargetAccountLoggingStackInstances:
 
 @cloudformation_dataclass
 class TargetAccountLoggingParameter:
-    resource: Parameter
+    resource: cloudformation.Parameter
     parameter_key = 'CentralEventBusArn'
     parameter_value = get_att(CentralEventBus, "Arn")
 

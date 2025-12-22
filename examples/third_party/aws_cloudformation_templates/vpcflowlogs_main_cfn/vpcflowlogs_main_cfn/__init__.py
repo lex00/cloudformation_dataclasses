@@ -12,10 +12,10 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.cloudformation import Stack
+from cloudformation_dataclasses.aws import cloudformation
 from cloudformation_dataclasses.intrinsics import Equals, Sub
 
-from .config import (
+from .stack_config import (
     CreateVPCFlowLogsToCloudWatch,
     CreateVPCFlowLogsToS3,
     S3AccessLogsBucketName,
@@ -45,7 +45,6 @@ __all__ = [
     "ParameterType",
     "S3AccessLogsBucketName",
     "STRING",
-    "Stack",
     "Sub",
     "Template",
     "TemplatesS3BucketName",
@@ -63,6 +62,7 @@ __all__ = [
     "VPCFlowLogsToS3ConditionCondition",
     "VPCFlowLogsTrafficType",
     "VPCID",
+    "cloudformation",
     "cloudformation_dataclass",
     "get_att",
     "ref",

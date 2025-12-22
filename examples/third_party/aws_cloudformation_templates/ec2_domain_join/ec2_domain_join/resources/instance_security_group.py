@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class InstanceSecurityGroupIngress:
-    resource: Ingress
+    resource: ec2.Ingress
     ip_protocol = 'tcp'
     from_port = '3389'
     to_port = '3389'
@@ -16,7 +16,7 @@ class InstanceSecurityGroupIngress:
 class InstanceSecurityGroup:
     """AWS::EC2::SecurityGroup resource."""
 
-    resource: SecurityGroup
+    resource: ec2.SecurityGroup
     group_description = 'Allow http to client host'
     vpc_id = ref(VPC)
     security_group_ingress = [InstanceSecurityGroupIngress]

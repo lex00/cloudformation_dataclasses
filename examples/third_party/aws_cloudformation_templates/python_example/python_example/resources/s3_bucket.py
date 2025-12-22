@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class S3Bucket:
     """AWS::S3::Bucket resource."""
 
-    resource: Bucket
+    resource: s3.Bucket
     tags = """#!PyPlate
 output = []
 for tag in params['Tags']:

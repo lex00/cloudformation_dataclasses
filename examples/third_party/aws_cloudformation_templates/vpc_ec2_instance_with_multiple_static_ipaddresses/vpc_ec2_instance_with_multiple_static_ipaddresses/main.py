@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import InstanceType, KeyName, LatestAMI, PrimaryIPAddress, SSHLocation, SecondaryIPAddress, SubnetId, VpcId
+from .stack_config import InstanceType, KeyName, LatestAMI, PrimaryIPAddress, SSHLocation, SecondaryIPAddress, SubnetId, VpcId
 from .outputs import EIP1Output, InstanceIdOutput, PrimaryPrivateIPAddressOutput, SecondaryPrivateIPAddressesOutput
 
 

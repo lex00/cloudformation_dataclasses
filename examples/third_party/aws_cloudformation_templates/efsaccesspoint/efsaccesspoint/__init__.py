@@ -12,15 +12,10 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.efs import (
-    AccessPoint,
-    AccessPointTag,
-    ElasticFileSystemTag,
-    FileSystem,
-    MountTarget,
-)
+from cloudformation_dataclasses.aws import efs
+from cloudformation_dataclasses.aws.efs import AccessPointTag, ElasticFileSystemTag, MountTarget
 
-from .config import (
+from .stack_config import (
     AccessPointName,
     EFSFileSystemName,
     SecurityGroup1,
@@ -34,7 +29,6 @@ from .config import (
 from .resources import *  # noqa: F403, F401
 
 __all__ = [
-    "AccessPoint",
     "AccessPointName",
     "AccessPointTag",
     "EFSAccessPoint",
@@ -44,7 +38,6 @@ __all__ = [
     "EFSMountTarget2",
     "EFSMountTarget3",
     "ElasticFileSystemTag",
-    "FileSystem",
     "MountTarget",
     "Output",
     "Parameter",
@@ -58,6 +51,7 @@ __all__ = [
     "Subnet3",
     "Template",
     "cloudformation_dataclass",
+    "efs",
     "get_att",
     "ref",
 ]

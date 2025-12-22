@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class LambdaFunctionCode:
-    resource: Code
+    resource: lambda_.Code
     zip_file = """import json
 
 def lambda_handler(event, context):
@@ -19,7 +19,7 @@ def lambda_handler(event, context):
 
 @cloudformation_dataclass
 class LambdaFunctionEnvironment:
-    resource: Environment
+    resource: lambda_.Environment
     variables = {
         'ENV': ref(EnvName),
         'TZ': 'UTC',
@@ -30,7 +30,7 @@ class LambdaFunctionEnvironment:
 class LambdaFunction:
     """AWS::Lambda::Function resource."""
 
-    resource: Function
+    resource: lambda_.Function
     function_name = Sub('lambda-function-${EnvName}')
     description = 'LambdaFunction using python3.12.'
     runtime = 'python3.12'

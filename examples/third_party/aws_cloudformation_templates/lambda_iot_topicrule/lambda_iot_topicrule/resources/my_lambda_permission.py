@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class MyLambdaPermission:
     """AWS::Lambda::Permission resource."""
 
-    resource: Permission
+    resource: lambda_.Permission
     action = 'lambda:InvokeFunction'
     function_name = ref(MyLambda)
     principal = 'iot.amazonaws.com'

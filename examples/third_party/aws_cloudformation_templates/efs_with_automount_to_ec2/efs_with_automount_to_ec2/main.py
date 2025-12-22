@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import EC2RegionMapMapping, InstanceType, KeyName, Subnets, VPC
+from .stack_config import EC2RegionMapMapping, InstanceType, KeyName, Subnets, VPC
 from .outputs import AutoScalingGroupOutput, StackNameOutput, URLOutput
 
 

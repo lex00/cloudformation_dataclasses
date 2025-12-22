@@ -10,40 +10,32 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.aws import cloudfront
 from cloudformation_dataclasses.aws.cloudfront import (
-    CacheBehavior,
     CachePolicyConfig,
-    CookiesConfig,
     CustomOriginConfig,
     DefaultCacheBehavior,
     DistributionConfig,
-    HeadersConfig,
     Origin,
     ParametersInCacheKeyAndForwardedToOrigin,
-    QueryStringsConfig,
 )
 from cloudformation_dataclasses.intrinsics import Sub
 
-from .config import DomainName, Name, Port
+from .stack_config import DomainName, Name, Port
 
 from .resources import *  # noqa: F403, F401
 
 __all__ = [
-    "CacheBehavior",
     "CachePolicy",
     "CachePolicyConfig",
-    "CookiesConfig",
     "CustomOriginConfig",
     "DefaultCacheBehavior",
     "Distribution",
     "DistributionConfig",
     "DomainName",
-    "HeadersConfig",
     "Name",
     "Origin",
     "Parameter",
     "ParametersInCacheKeyAndForwardedToOrigin",
     "Port",
-    "QueryStringsConfig",
     "STRING",
     "Sub",
     "Template",

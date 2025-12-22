@@ -14,32 +14,16 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import ec2
-from cloudformation_dataclasses.aws.dms import (
-    Endpoint,
-    ReplicationInstance,
-    ReplicationSubnetGroup,
-    ReplicationTask,
-    S3Settings,
+from cloudformation_dataclasses.aws import (
+    dms,
+    ec2,
+    iam,
+    rds,
+    s3,
 )
-from cloudformation_dataclasses.aws.ec2 import (
-    AssociationParameter,
-    Ingress,
-    SecurityGroup,
-    Subnet,
-    SubnetRouteTableAssociation,
-    VPCGatewayAttachment,
-)
-from cloudformation_dataclasses.aws.iam import Policy, Role
-from cloudformation_dataclasses.aws.rds import DBCluster, DBInstance, DBSubnetGroup, TagFormat
-from cloudformation_dataclasses.aws.s3 import (
-    Bucket,
-    BucketEncryption,
-    PublicAccessBlockConfiguration,
-    ServerSideEncryption,
-    ServerSideEncryptionByDefault,
-    ServerSideEncryptionRule,
-)
+from cloudformation_dataclasses.aws.dms import ReplicationInstance, ReplicationSubnetGroup, ReplicationTask, S3Settings
+from cloudformation_dataclasses.aws.ec2 import AssociationParameter, Subnet, SubnetRouteTableAssociation, VPCGatewayAttachment
+from cloudformation_dataclasses.aws.s3 import ServerSideEncryption
 from cloudformation_dataclasses.intrinsics import (
     AWS_REGION,
     AWS_STACK_ID,
@@ -50,7 +34,7 @@ from cloudformation_dataclasses.intrinsics import (
     Sub,
 )
 
-from .config import (
+from .stack_config import (
     ClientIP,
     ExistsDMSCloudwatchRole,
     ExistsDMSVPCRole,
@@ -72,40 +56,30 @@ __all__ = [
     "AuroraDBSubnetGroup",
     "AuroraSecurityGroup",
     "AuroraSourceEndpoint",
-    "Bucket",
-    "BucketEncryption",
     "ClientIP",
     "Condition",
-    "DBCluster",
-    "DBInstance",
     "DBSubnet1",
     "DBSubnet2",
-    "DBSubnetGroup",
     "DMSCloudwatchRole",
     "DMSReplicationInstance",
     "DMSReplicationSubnetGroup",
     "DMSReplicationTask",
     "DMSSecurityGroup",
     "DMSVpcRole",
-    "Endpoint",
     "Equals",
     "ExistsDMSCloudwatchRole",
     "ExistsDMSVPCRole",
     "GetAZs",
-    "Ingress",
     "InternetGateway",
     "NotExistsDMSCloudwatchRoleCondition",
     "NotExistsDMSVPCRoleCondition",
     "Output",
     "Parameter",
-    "Policy",
     "PolicyDocument",
     "PolicyStatement",
-    "PublicAccessBlockConfiguration",
     "ReplicationInstance",
     "ReplicationSubnetGroup",
     "ReplicationTask",
-    "Role",
     "Route",
     "RouteTable",
     "S3Bucket",
@@ -113,22 +87,22 @@ __all__ = [
     "S3TargetDMSRole",
     "S3TargetEndpoint",
     "STRING",
-    "SecurityGroup",
     "Select",
     "ServerSideEncryption",
-    "ServerSideEncryptionByDefault",
-    "ServerSideEncryptionRule",
     "SnapshotIdentifier",
     "Sub",
     "Subnet",
     "SubnetRouteTableAssociation",
     "SubnetRouteTableAssociation1",
-    "TagFormat",
     "Template",
     "VPC",
     "VPCGatewayAttachment",
     "cloudformation_dataclass",
+    "dms",
     "ec2",
     "get_att",
+    "iam",
+    "rds",
     "ref",
+    "s3",
 ]

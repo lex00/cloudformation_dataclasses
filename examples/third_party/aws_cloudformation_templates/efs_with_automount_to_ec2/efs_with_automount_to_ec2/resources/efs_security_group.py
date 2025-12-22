@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class EFSSecurityGroupIngress:
-    resource: Ingress
+    resource: ec2.Ingress
     from_port = '2049'
     ip_protocol = 'tcp'
     to_port = '2049'
@@ -16,7 +16,7 @@ class EFSSecurityGroupIngress:
 class EFSSecurityGroup:
     """AWS::EC2::SecurityGroup resource."""
 
-    resource: SecurityGroup
+    resource: ec2.SecurityGroup
     group_description = 'Enable NFS access from EC2'
     security_group_ingress = [EFSSecurityGroupIngress]
     vpc_id = ref(VPC)

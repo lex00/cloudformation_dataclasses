@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import CreateDirectoryAlias, CreateDirectoryConsoleDelegatedAccessRoles, DirectoryAlias, DirectoryConsoleDelegatedAccessRolesConditionCondition, DirectoryID, DirectoryMonitoringEmail, DirectoryMonitoringSNSTopicKMSKey, DirectoryMonitoringSNSTopicKMSKeyConditionCondition, EnableDirectorySSO, LambdaFunctionName, LambdaLogLevel, LambdaLogsCloudWatchKMSKey, LambdaLogsCloudWatchKMSKeyConditionCondition, LambdaLogsLogGroupRetention, LambdaS3BucketName, LambdaZipFileName, SecurityGroups, Subnets
+from .stack_config import CreateDirectoryAlias, CreateDirectoryConsoleDelegatedAccessRoles, DirectoryAlias, DirectoryConsoleDelegatedAccessRolesConditionCondition, DirectoryID, DirectoryMonitoringEmail, DirectoryMonitoringSNSTopicKMSKey, DirectoryMonitoringSNSTopicKMSKeyConditionCondition, EnableDirectorySSO, LambdaFunctionName, LambdaLogLevel, LambdaLogsCloudWatchKMSKey, LambdaLogsCloudWatchKMSKeyConditionCondition, LambdaLogsLogGroupRetention, LambdaS3BucketName, LambdaZipFileName, SecurityGroups, Subnets
 from .outputs import DirectoryAliasUrlOutput
 
 

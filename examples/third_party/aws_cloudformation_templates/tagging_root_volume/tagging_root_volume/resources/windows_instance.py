@@ -12,7 +12,7 @@ class WindowsInstanceAssociationParameter:
 
 @cloudformation_dataclass
 class WindowsInstanceEbsBlockDevice:
-    resource: EbsBlockDevice
+    resource: ec2.EbsBlockDevice
     volume_type = 'io1'
     iops = '200'
     delete_on_termination = 'true'
@@ -21,7 +21,7 @@ class WindowsInstanceEbsBlockDevice:
 
 @cloudformation_dataclass
 class WindowsInstanceBlockDeviceMapping:
-    resource: BlockDeviceMapping
+    resource: ec2.BlockDeviceMapping
     device_name = '/dev/sdm'
     ebs = WindowsInstanceEbsBlockDevice
 
@@ -30,7 +30,7 @@ class WindowsInstanceBlockDeviceMapping:
 class WindowsInstance:
     """AWS::EC2::Instance resource."""
 
-    resource: Instance
+    resource: ec2.Instance
     image_id = ref(WindowsAMIID)
     subnet_id = ref(SubnetId)
     instance_type = ref(InstanceType)

@@ -11,9 +11,9 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.sns import Subscription, Topic
+from cloudformation_dataclasses.aws import sns
 
-from .config import SubscriptionEndPoint, SubscriptionProtocol
+from .stack_config import SubscriptionEndPoint, SubscriptionProtocol
 
 from .resources import *  # noqa: F403, F401
 
@@ -23,12 +23,11 @@ __all__ = [
     "SNSSubscription",
     "SNSTopic",
     "STRING",
-    "Subscription",
     "SubscriptionEndPoint",
     "SubscriptionProtocol",
     "Template",
-    "Topic",
     "cloudformation_dataclass",
     "get_att",
     "ref",
+    "sns",
 ]

@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import CronOrRate, CronRateCondition, CronSchedule, DesiredCapacity, InstanceType, KeyName, LatestAmiId, MaxSize, RateSchedule, SchedulerTasksCount, SubnetId, VpcId
+from .stack_config import CronOrRate, CronRateCondition, CronSchedule, DesiredCapacity, InstanceType, KeyName, LatestAmiId, MaxSize, RateSchedule, SchedulerTasksCount, SubnetId, VpcId
 from .outputs import ECSALBOutput, EcsClusterOutput, EcsServiceOutput, EcsTaskDefOutput
 
 

@@ -18,6 +18,40 @@ from cloudformation_dataclasses.importer.codegen import generate_code, generate_
 from cloudformation_dataclasses.importer.parser import parse_template
 
 
+def _get_aws_module_names() -> set[str]:
+    """Get the set of AWS module names to avoid package name collisions.
+
+    Returns module names like 'config', 's3', 'ec2', etc. that would collide
+    with cloudformation_dataclasses.aws.<name> if used as a package name.
+    """
+    import cloudformation_dataclasses.aws as aws_pkg
+
+    aws_path = Path(aws_pkg.__file__).parent
+    modules = set()
+    for py_file in aws_path.glob("*.py"):
+        name = py_file.stem
+        if not name.startswith("_"):
+            # lambda_ is stored with underscore to avoid Python keyword
+            # but template named "lambda.yaml" would become "lambda" package
+            if name == "lambda_":
+                modules.add("lambda")
+            else:
+                modules.add(name)
+    return modules
+
+
+# Cache for AWS module names
+_AWS_MODULE_NAMES: set[str] | None = None
+
+
+def _collides_with_aws_module(package_name: str) -> bool:
+    """Check if a package name would collide with an AWS module."""
+    global _AWS_MODULE_NAMES
+    if _AWS_MODULE_NAMES is None:
+        _AWS_MODULE_NAMES = _get_aws_module_names()
+    return package_name in _AWS_MODULE_NAMES
+
+
 @dataclass
 class Attribution:
     """Attribution info extracted from source directory."""
@@ -591,6 +625,12 @@ def run_batch_import(
         template_name = template_path.stem
         # Convert to valid Python package name
         package_name = re.sub(r"[^a-zA-Z0-9_]", "_", template_name).lower()
+
+        # Avoid collision with AWS module names (e.g., config, s3, iam)
+        # These would shadow cloudformation_dataclasses.aws.<name> imports
+        if _collides_with_aws_module(package_name):
+            package_name = f"{package_name}_cfn"
+
         package_output = output_dir / package_name
 
         print(f"Importing {template_path.name}... ", end="", file=sys.stderr)

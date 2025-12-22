@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class TestResourceResource:
     """AWS::ApiGateway::Resource resource."""
 
-    resource: Resource
+    resource: apigateway.Resource
     parent_id = Sub('${RestApi.RootResourceId}')
     path_part = 'test'
     rest_api_id = ref(RestApi)

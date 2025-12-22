@@ -45,7 +45,7 @@ class ADConnectorLambdaRolePolicies0PolicyDocument:
 
 @cloudformation_dataclass
 class ADConnectorLambdaRolePolicy:
-    resource: Policy
+    resource: iam.Policy
     policy_name = 'CloudWatchLogGroup'
     policy_document = ADConnectorLambdaRolePolicies0PolicyDocument
 
@@ -111,7 +111,7 @@ class ADConnectorLambdaRolePolicies1PolicyDocument:
 
 @cloudformation_dataclass
 class ADConnectorLambdaRolePolicy1:
-    resource: Policy
+    resource: iam.Policy
     policy_name = 'ADConnector'
     policy_document = ADConnectorLambdaRolePolicies1PolicyDocument
 
@@ -132,7 +132,7 @@ class ADConnectorLambdaRolePolicies2PolicyDocument:
 
 @cloudformation_dataclass
 class ADConnectorLambdaRolePolicy2:
-    resource: Policy
+    resource: iam.Policy
     policy_name = 'ADConnectorServiceAccountSecret'
     policy_document = ADConnectorLambdaRolePolicies2PolicyDocument
 
@@ -141,7 +141,7 @@ class ADConnectorLambdaRolePolicy2:
 class ADConnectorLambdaRole:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     role_name = Sub('${LambdaFunctionName}-LambdaRole')
     description = 'Rights to Setup AD Connector'
     assume_role_policy_document = ADConnectorLambdaRoleAssumeRolePolicyDocument

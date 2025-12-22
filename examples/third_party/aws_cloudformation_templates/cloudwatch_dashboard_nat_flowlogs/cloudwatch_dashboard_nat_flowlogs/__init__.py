@@ -11,16 +11,15 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.cloudwatch import Dashboard
+from cloudformation_dataclasses.aws import cloudwatch
 from cloudformation_dataclasses.intrinsics import Sub
 
-from .config import LogGroupName, NatGatewayID, NatGatewayPrivateIP, VpcCidr
+from .stack_config import LogGroupName, NatGatewayID, NatGatewayPrivateIP, VpcCidr
 
 from .resources import *  # noqa: F403, F401
 
 __all__ = [
     "CloudWatchDashboard",
-    "Dashboard",
     "LogGroupName",
     "NatGatewayID",
     "NatGatewayPrivateIP",
@@ -31,6 +30,7 @@ __all__ = [
     "Template",
     "VpcCidr",
     "cloudformation_dataclass",
+    "cloudwatch",
     "get_att",
     "ref",
 ]

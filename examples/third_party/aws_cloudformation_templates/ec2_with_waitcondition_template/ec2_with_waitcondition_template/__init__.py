@@ -12,11 +12,12 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
+from cloudformation_dataclasses.aws import ec2
 from cloudformation_dataclasses.aws.cloudformation import WaitCondition, WaitConditionHandle
-from cloudformation_dataclasses.aws.ec2 import AssociationParameter, Ingress, Instance, SecurityGroup
+from cloudformation_dataclasses.aws.ec2 import AssociationParameter
 from cloudformation_dataclasses.intrinsics import AWS_REGION, AWS_STACK_ID, Base64, Join
 
-from .config import (
+from .stack_config import (
     AgentID,
     BudgetCode,
     ImageId,
@@ -44,8 +45,6 @@ __all__ = [
     "Base64",
     "BudgetCode",
     "ImageId",
-    "Ingress",
-    "Instance",
     "InstanceName",
     "InstanceType",
     "IsMaster",
@@ -63,7 +62,6 @@ __all__ = [
     "ParameterType",
     "SSHLocation",
     "STRING",
-    "SecurityGroup",
     "SubnetId",
     "Template",
     "TestID",
@@ -72,6 +70,7 @@ __all__ = [
     "WaitCondition",
     "WaitConditionHandle",
     "cloudformation_dataclass",
+    "ec2",
     "get_att",
     "ref",
 ]

@@ -10,23 +10,22 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.s3 import Bucket, TagFilter
+from cloudformation_dataclasses.aws import s3
 from cloudformation_dataclasses.intrinsics import Transform
 
-from .config import InputString
+from .stack_config import InputString
 
 from .resources import *  # noqa: F403, F401
 
 __all__ = [
-    "Bucket",
     "InputString",
     "Parameter",
     "S3Bucket",
     "STRING",
-    "TagFilter",
     "Template",
     "Transform",
     "cloudformation_dataclass",
     "get_att",
     "ref",
+    "s3",
 ]

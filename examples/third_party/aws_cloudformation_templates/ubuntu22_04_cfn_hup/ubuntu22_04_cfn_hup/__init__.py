@@ -11,10 +11,10 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.ec2 import Ingress, Instance, SecurityGroup
+from cloudformation_dataclasses.aws import ec2
 from cloudformation_dataclasses.intrinsics import Base64, Sub
 
-from .config import (
+from .stack_config import (
     InstanceAMI,
     InstanceType,
     KeyName,
@@ -27,8 +27,6 @@ from .resources import *  # noqa: F403, F401
 __all__ = [
     "Base64",
     "EC2Instance",
-    "Ingress",
-    "Instance",
     "InstanceAMI",
     "InstanceSecurityGroup",
     "InstanceType",
@@ -37,11 +35,11 @@ __all__ = [
     "ParameterType",
     "SSHLocation",
     "STRING",
-    "SecurityGroup",
     "Sub",
     "SubnetId",
     "Template",
     "cloudformation_dataclass",
+    "ec2",
     "get_att",
     "ref",
 ]

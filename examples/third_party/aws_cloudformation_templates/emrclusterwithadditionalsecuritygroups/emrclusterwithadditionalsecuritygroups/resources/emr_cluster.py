@@ -5,13 +5,13 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class EMRClusterApplication:
-    resource: Application
+    resource: emr.Application
     name = 'Ganglia'
 
 
 @cloudformation_dataclass
 class EMRClusterConfiguration:
-    resource: Configuration
+    resource: emr.Configuration
     classification = 'hbase-site'
     configuration_properties = {
         'hbase.rootdir': ref(S3DataUri),
@@ -20,7 +20,7 @@ class EMRClusterConfiguration:
 
 @cloudformation_dataclass
 class EMRClusterConfiguration1:
-    resource: Configuration
+    resource: emr.Configuration
     classification = 'hbase'
     configuration_properties = {
         'hbase.emr.storageMode': 's3',
@@ -29,7 +29,7 @@ class EMRClusterConfiguration1:
 
 @cloudformation_dataclass
 class EMRClusterInstanceGroupConfig:
-    resource: InstanceGroupConfig
+    resource: emr.InstanceGroupConfig
     instance_count = 1
     instance_type = ref(MasterInstanceType)
     market = 'ON_DEMAND'
@@ -38,7 +38,7 @@ class EMRClusterInstanceGroupConfig:
 
 @cloudformation_dataclass
 class EMRClusterInstanceGroupConfig1:
-    resource: InstanceGroupConfig
+    resource: emr.InstanceGroupConfig
     instance_count = ref(NumberOfCoreInstances)
     instance_type = ref(CoreInstanceType)
     market = 'ON_DEMAND'
@@ -61,7 +61,7 @@ class EMRClusterJobFlowInstancesConfig:
 class EMRCluster:
     """AWS::EMR::Cluster resource."""
 
-    resource: Cluster
+    resource: emr.Cluster
     applications = [EMRClusterApplication, If("Spark", {
     BootstrapActionConfig.name: 'Spark',
 }, AWS_NO_VALUE), If("Hbase", {

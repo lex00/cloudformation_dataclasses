@@ -45,7 +45,7 @@ class DirectorySettingsLambdaRolePolicies0PolicyDocument:
 
 @cloudformation_dataclass
 class DirectorySettingsLambdaRolePolicy:
-    resource: Policy
+    resource: iam.Policy
     policy_name = 'CloudWatchLogGroup'
     policy_document = DirectorySettingsLambdaRolePolicies0PolicyDocument
 
@@ -90,7 +90,7 @@ class DirectorySettingsLambdaRolePolicies1PolicyDocument:
 
 @cloudformation_dataclass
 class DirectorySettingsLambdaRolePolicy1:
-    resource: Policy
+    resource: iam.Policy
     policy_name = 'DirectorySettings'
     policy_document = DirectorySettingsLambdaRolePolicies1PolicyDocument
 
@@ -99,7 +99,7 @@ class DirectorySettingsLambdaRolePolicy1:
 class DirectorySettingsLambdaRole:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     role_name = Sub('${LambdaFunctionName}-LambdaRole')
     description = Sub('Rights to Setup Directory Settings for Directory ID, ${DirectoryID}')
     assume_role_policy_document = DirectorySettingsLambdaRoleAssumeRolePolicyDocument

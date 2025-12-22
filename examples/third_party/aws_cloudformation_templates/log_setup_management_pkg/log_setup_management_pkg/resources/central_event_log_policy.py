@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class CentralEventLogPolicy:
     """AWS::Logs::ResourcePolicy resource."""
 
-    resource: ResourcePolicy
+    resource: logs.ResourcePolicy
     policy_name = 'CentralEventLogResourcePolicy'
     policy_document = Sub("""{
   "Statement": [

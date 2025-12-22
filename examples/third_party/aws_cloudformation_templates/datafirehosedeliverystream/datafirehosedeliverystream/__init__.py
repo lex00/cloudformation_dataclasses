@@ -14,14 +14,12 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import kinesisfirehose
-from cloudformation_dataclasses.aws.iam import Policy, Role
+from cloudformation_dataclasses.aws import iam, kinesisfirehose
 from cloudformation_dataclasses.aws.kinesisfirehose import (
     CloudWatchLoggingOptions,
     DeliveryStreamEncryptionConfigurationInput,
     ExtendedS3DestinationConfiguration,
     ProcessingConfiguration,
-    Processor,
     ProcessorParameter,
 )
 from cloudformation_dataclasses.aws.logs import LogGroup, LogStream
@@ -35,7 +33,7 @@ from cloudformation_dataclasses.intrinsics import (
     Sub,
 )
 
-from .config import (
+from .stack_config import (
     CloudWatchLogGroupRetention,
     CloudWatchLogsKMSKey,
     CloudWatchLogsKMSKeyConditionCondition,
@@ -72,19 +70,17 @@ __all__ = [
     "LogStreamName",
     "Not",
     "Parameter",
-    "Policy",
     "PolicyDocument",
     "PolicyStatement",
     "ProcessingConfiguration",
-    "Processor",
     "ProcessorParameter",
-    "Role",
     "STRING",
     "STRING_EQUALS",
     "Sub",
     "Template",
     "cloudformation_dataclass",
     "get_att",
+    "iam",
     "kinesisfirehose",
     "ref",
 ]

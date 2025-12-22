@@ -13,10 +13,10 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.sqs import Queue
+from cloudformation_dataclasses.aws import sqs
 from cloudformation_dataclasses.intrinsics import AWS_NO_VALUE, Equals, If, Join
 
-from .config import (
+from .stack_config import (
     ContentBasedDeduplication,
     CreateDeadLetterQueueCondition,
     MaximumMessageSize,
@@ -43,7 +43,6 @@ __all__ = [
     "NUMBER",
     "Output",
     "Parameter",
-    "Queue",
     "QueueName",
     "ReceiveMessageWaitTimeSeconds",
     "SQSQueue",
@@ -54,4 +53,5 @@ __all__ = [
     "cloudformation_dataclass",
     "get_att",
     "ref",
+    "sqs",
 ]

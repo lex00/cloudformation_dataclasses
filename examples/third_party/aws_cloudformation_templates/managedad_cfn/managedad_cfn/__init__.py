@@ -15,17 +15,10 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import ec2
-from cloudformation_dataclasses.aws.directoryservice import MicrosoftAD, VpcSettings
-from cloudformation_dataclasses.aws.ec2 import (
-    AssociationParameter,
-    Egress,
-    Ingress,
-    SecurityGroup,
-    VPCDHCPOptionsAssociation,
-)
-from cloudformation_dataclasses.aws.iam import InstanceProfile, Policy, Role
-from cloudformation_dataclasses.aws.secretsmanager import Secret
+from cloudformation_dataclasses.aws import directoryservice, ec2, iam, secretsmanager
+from cloudformation_dataclasses.aws.directoryservice import MicrosoftAD
+from cloudformation_dataclasses.aws.ec2 import AssociationParameter, Egress, VPCDHCPOptionsAssociation
+from cloudformation_dataclasses.aws.iam import Policy
 from cloudformation_dataclasses.intrinsics import (
     AWS_NO_VALUE,
     AWS_STACK_NAME,
@@ -35,7 +28,7 @@ from cloudformation_dataclasses.intrinsics import (
     Sub,
 )
 
-from .config import (
+from .stack_config import (
     AWSManagedADDomainDNSName,
     AWSManagedADDomainNetBiosName,
     AWSManagedADEdition,
@@ -84,8 +77,6 @@ __all__ = [
     "Egress",
     "Equals",
     "If",
-    "Ingress",
-    "InstanceProfile",
     "LinuxEC2DomainJoinResourcesConditionCondition",
     "MicrosoftAD",
     "Not",
@@ -97,22 +88,21 @@ __all__ = [
     "PolicyStatement",
     "PrivateSubnet1ID",
     "PrivateSubnet2ID",
-    "Role",
     "SSMLogsBucketName",
     "SSMLogsBucketNameConditionCondition",
     "STRING",
-    "Secret",
     "SecretsManagerDomainCredentialsSecretsKMSKey",
     "SecretsManagerDomainCredentialsSecretsKMSKeyConditionCondition",
-    "SecurityGroup",
     "Sub",
     "Template",
     "VPCDHCPOptionsAssociation",
     "VPCID",
-    "VpcSettings",
     "WindowsEC2DomainJoinResourcesConditionCondition",
     "cloudformation_dataclass",
+    "directoryservice",
     "ec2",
     "get_att",
+    "iam",
     "ref",
+    "secretsmanager",
 ]

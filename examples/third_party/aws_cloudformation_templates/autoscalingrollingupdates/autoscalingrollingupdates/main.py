@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import AWSInstanceType2ArchMapping, AWSRegionArch2AMIMapping, InstanceType, KeyName, SSHLocation
+from .stack_config import AWSInstanceType2ArchMapping, AWSRegionArch2AMIMapping, InstanceType, KeyName, SSHLocation
 from .outputs import URLOutput
 
 

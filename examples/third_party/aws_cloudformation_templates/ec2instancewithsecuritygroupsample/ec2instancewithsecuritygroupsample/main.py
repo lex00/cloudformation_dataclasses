@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import InstanceType, KeyName, LatestAmiId, SSHLocation, Subnets
+from .stack_config import InstanceType, KeyName, LatestAmiId, SSHLocation, Subnets
 from .outputs import AZOutput, InstanceIdOutput, PublicDNSOutput, PublicIPOutput
 
 

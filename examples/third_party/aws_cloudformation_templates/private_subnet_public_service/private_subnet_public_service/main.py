@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import ContainerCpu, ContainerMemory, ContainerPort, DesiredCount, HasCustomRoleCondition, ImageUrl, Path, Priority, Role, ServiceName, StackName
+from .stack_config import ContainerCpu, ContainerMemory, ContainerPort, DesiredCount, HasCustomRoleCondition, ImageUrl, Path, Priority, Role, ServiceName, StackName
 
 
 def build_template() -> Template:

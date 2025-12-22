@@ -14,7 +14,7 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.intrinsics import ImportValue
 
-from .config import GetFromListJsonData, GetFromListJsonDataQuery, GetFromMapJsonData, GetFromMapJsonDataQuery
+from .stack_config import GetFromListJsonData, GetFromListJsonDataQuery, GetFromMapJsonData, GetFromMapJsonDataQuery
 
 from .resources import *  # noqa: F403, F401
 

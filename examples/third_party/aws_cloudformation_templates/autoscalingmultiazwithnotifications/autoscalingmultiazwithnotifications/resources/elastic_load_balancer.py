@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class ElasticLoadBalancer:
     """AWS::ElasticLoadBalancingV2::LoadBalancer resource."""
 
-    resource: LoadBalancer
+    resource: elasticloadbalancingv2.LoadBalancer
     scheme = 'internet-facing'
     security_groups = [ref(LoadBalancerSecurityGroup)]
     subnets = ref(Subnets)

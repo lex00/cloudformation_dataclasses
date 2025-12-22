@@ -7,6 +7,6 @@ from .. import *  # noqa: F403
 class PrivateProfile:
     """AWS::IAM::InstanceProfile resource."""
 
-    resource: InstanceProfile
+    resource: iam.InstanceProfile
     path = '/'
     roles = [ref(RootRole)]

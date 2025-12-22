@@ -13,10 +13,10 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.aws import elasticloadbalancingv2
 from cloudformation_dataclasses.aws.ec2 import EIP
-from cloudformation_dataclasses.aws.elasticloadbalancingv2 import Action, LoadBalancer, SubnetMapping, TargetGroupAttribute
+from cloudformation_dataclasses.aws.elasticloadbalancingv2 import TargetGroupAttribute
 from cloudformation_dataclasses.intrinsics import Select
 
-from .config import (
+from .stack_config import (
     ELBIpAddressType,
     ELBType,
     Subnet1,
@@ -27,7 +27,6 @@ from .config import (
 from .resources import *  # noqa: F403, F401
 
 __all__ = [
-    "Action",
     "EIP",
     "EIP1",
     "EIP2",
@@ -35,7 +34,6 @@ __all__ = [
     "ELBType",
     "FirstEIP",
     "Listener",
-    "LoadBalancer",
     "Parameter",
     "ParameterType",
     "STRING",
@@ -43,7 +41,6 @@ __all__ = [
     "Select",
     "Subnet1",
     "Subnet2",
-    "SubnetMapping",
     "TargetGroup",
     "TargetGroupAttribute",
     "Template",

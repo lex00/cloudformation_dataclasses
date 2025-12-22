@@ -5,13 +5,13 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class IoTTopicRuleLambdaAction:
-    resource: LambdaAction
+    resource: iot.LambdaAction
     function_arn = get_att(MyLambda, "Arn")
 
 
 @cloudformation_dataclass
 class IoTTopicRuleAction:
-    resource: Action
+    resource: iot.Action
     lambda_ = IoTTopicRuleLambdaAction
 
 

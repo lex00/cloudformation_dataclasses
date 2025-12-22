@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import EnvName, LambdaHandlerPath
+from .stack_config import EnvName, LambdaHandlerPath
 from .outputs import LambdaFunctionARNOutput, LambdaFunctionNameOutput, LambdaRoleARNOutput
 
 

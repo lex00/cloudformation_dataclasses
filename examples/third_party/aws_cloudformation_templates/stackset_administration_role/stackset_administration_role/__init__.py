@@ -11,19 +11,18 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.iam import Policy, Role
+from cloudformation_dataclasses.aws import iam
 
 from .resources import *  # noqa: F403, F401
 
 __all__ = [
     "AWSCloudFormationStackSetAdministrationRole",
     "Output",
-    "Policy",
     "PolicyDocument",
     "PolicyStatement",
-    "Role",
     "Template",
     "cloudformation_dataclass",
     "get_att",
+    "iam",
     "ref",
 ]

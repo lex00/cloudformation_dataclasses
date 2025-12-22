@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class GroupDeploymentResetFunctionCode:
-    resource: Code
+    resource: lambda_.Code
     zip_file = """"Group Deployment Reset Function"
 
 # pylint: disable=line-too-long,logging-fstring-interpolation
@@ -129,7 +129,7 @@ def handler(event, context):
 
 @cloudformation_dataclass
 class GroupDeploymentResetFunctionEnvironment:
-    resource: Environment
+    resource: lambda_.Environment
     variables = {
         'STACK_NAME': AWS_STACK_NAME,
     }
@@ -139,7 +139,7 @@ class GroupDeploymentResetFunctionEnvironment:
 class GroupDeploymentResetFunction:
     """AWS::Lambda::Function resource."""
 
-    resource: Function
+    resource: lambda_.Function
     code = GroupDeploymentResetFunctionCode
     description = 'Resets any deployments during stack delete and manages Greengrass service role needs'
     environment = GroupDeploymentResetFunctionEnvironment

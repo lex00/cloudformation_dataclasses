@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class S3BucketTagFilter:
-    resource: TagFilter
+    resource: s3.TagFilter
     key = 'Upper'
     value = Transform(name='String', parameters={
     'InputString': ref(InputString),
@@ -15,7 +15,7 @@ class S3BucketTagFilter:
 
 @cloudformation_dataclass
 class S3BucketTagFilter1:
-    resource: TagFilter
+    resource: s3.TagFilter
     key = 'Lower'
     value = Transform(name='String', parameters={
     'InputString': ref(InputString),
@@ -25,7 +25,7 @@ class S3BucketTagFilter1:
 
 @cloudformation_dataclass
 class S3BucketTagFilter2:
-    resource: TagFilter
+    resource: s3.TagFilter
     key = 'Capitalize'
     value = Transform(name='String', parameters={
     'InputString': ref(InputString),
@@ -35,7 +35,7 @@ class S3BucketTagFilter2:
 
 @cloudformation_dataclass
 class S3BucketTagFilter3:
-    resource: TagFilter
+    resource: s3.TagFilter
     key = 'Title'
     value = Transform(name='String', parameters={
     'InputString': ref(InputString),
@@ -45,7 +45,7 @@ class S3BucketTagFilter3:
 
 @cloudformation_dataclass
 class S3BucketTagFilter4:
-    resource: TagFilter
+    resource: s3.TagFilter
     key = 'Replace'
     value = Transform(name='String', parameters={
     'InputString': ref(InputString),
@@ -57,7 +57,7 @@ class S3BucketTagFilter4:
 
 @cloudformation_dataclass
 class S3BucketTagFilter5:
-    resource: TagFilter
+    resource: s3.TagFilter
     key = 'Strip'
     value = Transform(name='String', parameters={
     'InputString': ref(InputString),
@@ -68,7 +68,7 @@ class S3BucketTagFilter5:
 
 @cloudformation_dataclass
 class S3BucketTagFilter6:
-    resource: TagFilter
+    resource: s3.TagFilter
     key = 'ShortenLeft'
     value = Transform(name='String', parameters={
     'InputString': ref(InputString),
@@ -80,7 +80,7 @@ class S3BucketTagFilter6:
 
 @cloudformation_dataclass
 class S3BucketTagFilter7:
-    resource: TagFilter
+    resource: s3.TagFilter
     key = 'ShortenRight'
     value = Transform(name='String', parameters={
     'InputString': ref(InputString),
@@ -93,5 +93,5 @@ class S3BucketTagFilter7:
 class S3Bucket:
     """AWS::S3::Bucket resource."""
 
-    resource: Bucket
+    resource: s3.Bucket
     tags = [S3BucketTagFilter, S3BucketTagFilter1, S3BucketTagFilter2, S3BucketTagFilter3, S3BucketTagFilter4, S3BucketTagFilter5, S3BucketTagFilter6, S3BucketTagFilter7]

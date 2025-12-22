@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class ELBSecurityGroupIngress:
-    resource: Ingress
+    resource: ec2.Ingress
     cidr_ip = '0.0.0.0/0'
     from_port = '80'
     ip_protocol = 'tcp'
@@ -14,7 +14,7 @@ class ELBSecurityGroupIngress:
 
 @cloudformation_dataclass
 class ELBSecurityGroupIngress1:
-    resource: Ingress
+    resource: ec2.Ingress
     cidr_ip = '0.0.0.0/0'
     from_port = '443'
     ip_protocol = 'tcp'
@@ -25,7 +25,7 @@ class ELBSecurityGroupIngress1:
 class ELBSecurityGroup:
     """AWS::EC2::SecurityGroup resource."""
 
-    resource: SecurityGroup
+    resource: ec2.SecurityGroup
     group_description = 'Enable public access HTTP and HTTPS'
     security_group_ingress = [ELBSecurityGroupIngress, ELBSecurityGroupIngress1]
     vpc_id = ref(VPC)

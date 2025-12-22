@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import AdditionalCoreNodeSecurityGroups, AdditionalPrimaryNodeSecurityGroups, Applications, CoreInstanceType, EMRClusterName, HbaseCondition, KeyName, LogUri, MasterInstanceType, NumberOfCoreInstances, ReleaseLabel, S3DataUri, SparkCondition, SubnetID
+from .stack_config import AdditionalCoreNodeSecurityGroups, AdditionalPrimaryNodeSecurityGroups, Applications, CoreInstanceType, EMRClusterName, HbaseCondition, KeyName, LogUri, MasterInstanceType, NumberOfCoreInstances, ReleaseLabel, S3DataUri, SparkCondition, SubnetID
 
 
 def build_template() -> Template:

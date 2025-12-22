@@ -10,14 +10,13 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.s3 import Bucket
+from cloudformation_dataclasses.aws import s3
 
-from .config import Tags
+from .stack_config import Tags
 
 from .resources import *  # noqa: F403, F401
 
 __all__ = [
-    "Bucket",
     "Parameter",
     "ParameterType",
     "S3Bucket",
@@ -26,4 +25,5 @@ __all__ = [
     "cloudformation_dataclass",
     "get_att",
     "ref",
+    "s3",
 ]

@@ -12,7 +12,7 @@ class AppBuildArtifacts:
 
 @cloudformation_dataclass
 class AppBuildEnvironmentVariable:
-    resource: EnvironmentVariable
+    resource: codebuild.EnvironmentVariable
     name = 'SAMPLEENVVAR'
     type_ = 'PLAINTEXT'
     value = 'test'
@@ -20,7 +20,7 @@ class AppBuildEnvironmentVariable:
 
 @cloudformation_dataclass
 class AppBuildEnvironment:
-    resource: Environment
+    resource: codebuild.Environment
     compute_type = 'BUILD_GENERAL1_SMALL'
     environment_variables = [AppBuildEnvironmentVariable]
     image = ref(DockerImage)
@@ -29,7 +29,7 @@ class AppBuildEnvironment:
 
 @cloudformation_dataclass
 class AppBuildSource:
-    resource: Source
+    resource: codebuild.Source
     type_ = 'CODEPIPELINE'
     build_spec = 'codebuild-app-build.yml'
 
@@ -38,7 +38,7 @@ class AppBuildSource:
 class AppBuild:
     """AWS::CodeBuild::Project resource."""
 
-    resource: Project
+    resource: codebuild.Project
     name = Sub('${AWS::StackName}-app-build')
     artifacts = AppBuildArtifacts
     environment = AppBuildEnvironment

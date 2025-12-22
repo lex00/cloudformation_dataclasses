@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import GetFromListJsonData, GetFromListJsonDataQuery, GetFromMapJsonData, GetFromMapJsonDataQuery
+from .stack_config import GetFromListJsonData, GetFromListJsonDataQuery, GetFromMapJsonData, GetFromMapJsonDataQuery
 from .outputs import GetFromJsonCustomResourceSampleGetFromListValueOutput, GetFromJsonCustomResourceSampleGetFromMapValueOutput
 
 

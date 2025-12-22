@@ -57,7 +57,7 @@ class VPCFlowLogsBucketPolicyPolicyDocument:
 class VPCFlowLogsBucketPolicy:
     """AWS::S3::BucketPolicy resource."""
 
-    resource: BucketPolicy
+    resource: s3.BucketPolicy
     bucket = ref(VPCFlowLogsBucket)
     policy_document = VPCFlowLogsBucketPolicyPolicyDocument
     condition = 'VPCFlowLogsNewBucketCondition'

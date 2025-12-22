@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class CPUAlarmLowDimension:
-    resource: Dimension
+    resource: cloudwatch.Dimension
     name = 'AutoScalingGroupName'
     value = ref(WebServerGroup)
 
@@ -14,7 +14,7 @@ class CPUAlarmLowDimension:
 class CPUAlarmLow:
     """AWS::CloudWatch::Alarm resource."""
 
-    resource: Alarm
+    resource: cloudwatch.Alarm
     alarm_description = 'Scale-down if CPU < 70% for 10 minutes'
     metric_name = 'CPUUtilization'
     namespace = 'AWS/EC2'

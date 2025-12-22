@@ -12,47 +12,37 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.iam import Policy, Role
+from cloudformation_dataclasses.aws import iam, iot, lambda_
 from cloudformation_dataclasses.aws.iot import (
-    Action,
-    LambdaAction,
-    Policy,
     PolicyPrincipalAttachment,
     Thing,
     ThingPrincipalAttachment,
     TopicRule,
     TopicRulePayload,
 )
-from cloudformation_dataclasses.aws.lambda_ import Code, Function, Permission, Version
+from cloudformation_dataclasses.aws.lambda_ import Version
 from cloudformation_dataclasses.intrinsics import Sub
 
-from .config import CertificateARN
+from .stack_config import CertificateARN
 
 from .resources import *  # noqa: F403, F401
 
 __all__ = [
-    "Action",
     "CertificateARN",
-    "Code",
-    "Function",
     "IoTPolicy",
     "IoTPolicyPrincipalAttachment",
     "IoTThing",
     "IoTThingPrincipalAttachment",
     "IoTTopicRule",
-    "LambdaAction",
     "MyLambda",
     "MyLambdaPermission",
     "MyLambdaRole",
     "MyLambdaVersion",
     "OpenIoTStarPolicy",
     "Parameter",
-    "Permission",
-    "Policy",
     "PolicyDocument",
     "PolicyPrincipalAttachment",
     "PolicyStatement",
-    "Role",
     "STRING",
     "Sub",
     "Template",
@@ -63,5 +53,8 @@ __all__ = [
     "Version",
     "cloudformation_dataclass",
     "get_att",
+    "iam",
+    "iot",
+    "lambda_",
     "ref",
 ]

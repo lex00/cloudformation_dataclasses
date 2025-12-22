@@ -7,5 +7,5 @@ from .. import *  # noqa: F403
 class TestQ:
     """AWS::SQS::Queue resource."""
 
-    resource: Queue
+    resource: sqs.Queue
     queue_name = 'test-events17'

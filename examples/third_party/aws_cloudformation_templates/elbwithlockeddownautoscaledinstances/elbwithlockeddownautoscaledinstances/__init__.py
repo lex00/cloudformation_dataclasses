@@ -13,12 +13,12 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
+from cloudformation_dataclasses.aws import ec2, elasticloadbalancing
 from cloudformation_dataclasses.aws.autoscaling import AutoScalingGroup, LaunchConfiguration
-from cloudformation_dataclasses.aws.ec2 import Ingress, SecurityGroup
-from cloudformation_dataclasses.aws.elasticloadbalancing import HealthCheck, Listeners, LoadBalancer
+from cloudformation_dataclasses.aws.elasticloadbalancing import Listeners
 from cloudformation_dataclasses.intrinsics import Base64, GetAZs, Join, Sub
 
-from .config import (
+from .stack_config import (
     InstanceType,
     KeyName,
     LatestAmiId,
@@ -33,8 +33,6 @@ __all__ = [
     "Base64",
     "ElasticLoadBalancer",
     "GetAZs",
-    "HealthCheck",
-    "Ingress",
     "InstanceSecurityGroup",
     "InstanceType",
     "Join",
@@ -43,7 +41,6 @@ __all__ = [
     "LaunchConfig",
     "LaunchConfiguration",
     "Listeners",
-    "LoadBalancer",
     "Mapping",
     "Output",
     "Parameter",
@@ -51,11 +48,12 @@ __all__ = [
     "Region2ExamplesMapping",
     "SSHLocation",
     "STRING",
-    "SecurityGroup",
     "Sub",
     "Template",
     "WebServerGroup",
     "cloudformation_dataclass",
+    "ec2",
+    "elasticloadbalancing",
     "get_att",
     "ref",
 ]

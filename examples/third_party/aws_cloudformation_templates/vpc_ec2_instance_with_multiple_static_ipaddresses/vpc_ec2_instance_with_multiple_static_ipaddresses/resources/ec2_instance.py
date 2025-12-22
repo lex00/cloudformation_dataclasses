@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class EC2InstanceNetworkInterface:
-    resource: NetworkInterface
+    resource: ec2.NetworkInterface
     network_interface_id = ref(Eth0)
     device_index = '0'
 
@@ -21,7 +21,7 @@ class EC2InstanceAssociationParameter:
 class EC2Instance:
     """AWS::EC2::Instance resource."""
 
-    resource: Instance
+    resource: ec2.Instance
     image_id = ref(LatestAMI)
     instance_type = ref(InstanceType)
     key_name = ref(KeyName)

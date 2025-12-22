@@ -13,7 +13,7 @@ class ElasticLoadBalancerListeners:
 
 @cloudformation_dataclass
 class ElasticLoadBalancerHealthCheck:
-    resource: HealthCheck
+    resource: elasticloadbalancing.HealthCheck
     target = 'HTTP:80/'
     healthy_threshold = '3'
     unhealthy_threshold = '5'
@@ -25,7 +25,7 @@ class ElasticLoadBalancerHealthCheck:
 class ElasticLoadBalancer:
     """AWS::ElasticLoadBalancing::LoadBalancer resource."""
 
-    resource: LoadBalancer
+    resource: elasticloadbalancing.LoadBalancer
     availability_zones = GetAZs()
     cross_zone = 'true'
     listeners = [ElasticLoadBalancerListeners]

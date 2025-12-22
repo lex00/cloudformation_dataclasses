@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import LambdaFunctionName, LambdaLogLevel, LambdaLogsCloudWatchKMSKey, LambdaLogsLogGroupRetention, LambdaRoleName, NumberOfRouteTables, NumberOfSecurityGroups, PeerName, PeerVPCCIDR, RouteTableIds, SecurityGroupIds, TemplatesS3BucketName, TemplatesS3BucketRegion, TemplatesS3KeyPrefix, VPCPeeringConnectionId
+from .stack_config import LambdaFunctionName, LambdaLogLevel, LambdaLogsCloudWatchKMSKey, LambdaLogsLogGroupRetention, LambdaRoleName, NumberOfRouteTables, NumberOfSecurityGroups, PeerName, PeerVPCCIDR, RouteTableIds, SecurityGroupIds, TemplatesS3BucketName, TemplatesS3BucketRegion, TemplatesS3KeyPrefix, VPCPeeringConnectionId
 
 
 def build_template() -> Template:

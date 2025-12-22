@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import AccountIdOfChildAWSAccount, ActivateProductTagOptions, ConditionShareThisPortfolioCondition, Dept, Env, Owner, PortfolioDescription, PortfolioDisplayName, PortfolioProviderName, ProductDept, ProductEnv, ProductOwner, ProductUser, ShareThisPortfolio, User
+from .stack_config import AccountIdOfChildAWSAccount, ActivateProductTagOptions, ConditionShareThisPortfolioCondition, Dept, Env, Owner, PortfolioDescription, PortfolioDisplayName, PortfolioProviderName, ProductDept, ProductEnv, ProductOwner, ProductUser, ShareThisPortfolio, User
 from .outputs import ServiceCatalogPortfolioNameOutput, ServiceCatalogPortfolioOutput, ServiceCatalogProductTagOptionsDeptOutput
 
 

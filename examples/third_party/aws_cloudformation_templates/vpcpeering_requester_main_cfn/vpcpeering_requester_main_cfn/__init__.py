@@ -11,10 +11,10 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.cloudformation import Stack
+from cloudformation_dataclasses.aws import cloudformation
 from cloudformation_dataclasses.intrinsics import Join, Sub
 
-from .config import (
+from .stack_config import (
     NumberOfRouteTables,
     NumberOfSecurityGroups,
     PeerName,
@@ -46,7 +46,6 @@ __all__ = [
     "RouteTableIds",
     "STRING",
     "SecurityGroupIds",
-    "Stack",
     "Sub",
     "Template",
     "TemplatesS3BucketName",
@@ -55,6 +54,7 @@ __all__ = [
     "VPCID",
     "VPCPeeringRequesterSetupStack",
     "VPCPeeringUpdatesStack",
+    "cloudformation",
     "cloudformation_dataclass",
     "get_att",
     "ref",

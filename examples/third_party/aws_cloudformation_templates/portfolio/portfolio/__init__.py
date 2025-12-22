@@ -12,10 +12,11 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.servicecatalog import Portfolio, PortfolioShare, ProvisioningParameter, TagOption
+from cloudformation_dataclasses.aws import servicecatalog
+from cloudformation_dataclasses.aws.servicecatalog import Portfolio, PortfolioShare, TagOption
 from cloudformation_dataclasses.intrinsics import Equals, Sub
 
-from .config import (
+from .stack_config import (
     AccountIdOfChildAWSAccount,
     ActivateProductTagOptions,
     ConditionShareThisPortfolioCondition,
@@ -55,7 +56,6 @@ __all__ = [
     "ProductEnv",
     "ProductOwner",
     "ProductUser",
-    "ProvisioningParameter",
     "STRING",
     "ServiceCatalogPortfolio",
     "ServiceCatalogPortfolioShare",
@@ -71,4 +71,5 @@ __all__ = [
     "cloudformation_dataclass",
     "get_att",
     "ref",
+    "servicecatalog",
 ]

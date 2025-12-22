@@ -5,25 +5,25 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class S3BucketNotificationServerSideEncryptionByDefault:
-    resource: ServerSideEncryptionByDefault
+    resource: s3.ServerSideEncryptionByDefault
     sse_algorithm = ServerSideEncryption.AES256
 
 
 @cloudformation_dataclass
 class S3BucketNotificationServerSideEncryptionRule:
-    resource: ServerSideEncryptionRule
+    resource: s3.ServerSideEncryptionRule
     server_side_encryption_by_default = S3BucketNotificationServerSideEncryptionByDefault
 
 
 @cloudformation_dataclass
 class S3BucketNotificationBucketEncryption:
-    resource: BucketEncryption
+    resource: s3.BucketEncryption
     server_side_encryption_configuration = [S3BucketNotificationServerSideEncryptionRule]
 
 
 @cloudformation_dataclass
 class S3BucketNotificationPublicAccessBlockConfiguration:
-    resource: PublicAccessBlockConfiguration
+    resource: s3.PublicAccessBlockConfiguration
     block_public_acls = True
     block_public_policy = True
     ignore_public_acls = True
@@ -39,7 +39,7 @@ class S3BucketNotificationLambdaConfiguration:
 
 @cloudformation_dataclass
 class S3BucketNotificationNotificationConfiguration:
-    resource: NotificationConfiguration
+    resource: s3.NotificationConfiguration
     lambda_configurations = [S3BucketNotificationLambdaConfiguration]
 
 
@@ -47,7 +47,7 @@ class S3BucketNotificationNotificationConfiguration:
 class S3BucketNotification:
     """AWS::S3::Bucket resource."""
 
-    resource: Bucket
+    resource: s3.Bucket
     bucket_name = Sub('${NotificationBucket}')
     bucket_encryption = S3BucketNotificationBucketEncryption
     public_access_block_configuration = S3BucketNotificationPublicAccessBlockConfiguration

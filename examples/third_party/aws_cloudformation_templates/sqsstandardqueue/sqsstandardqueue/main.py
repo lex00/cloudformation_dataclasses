@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import CreateDeadLetterQueueCondition, DelaySeconds, IsKmsExistCondition, KmsMasterKeyIdForSqs, MaximumMessageSize, MessageRetentionPeriod, ReceiveMessageWaitTimeSeconds, UsedeadletterQueue, VisibilityTimeout
+from .stack_config import CreateDeadLetterQueueCondition, DelaySeconds, IsKmsExistCondition, KmsMasterKeyIdForSqs, MaximumMessageSize, MessageRetentionPeriod, ReceiveMessageWaitTimeSeconds, UsedeadletterQueue, VisibilityTimeout
 from .outputs import DeadLetterQueueARNOutput, DeadLetterQueueURLOutput, QueueARNOutput, QueueNameOutput, QueueURLOutput
 
 

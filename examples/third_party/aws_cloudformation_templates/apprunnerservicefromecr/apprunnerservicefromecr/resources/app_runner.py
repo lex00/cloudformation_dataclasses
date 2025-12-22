@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class AppRunnerAuthenticationConfiguration:
-    resource: AuthenticationConfiguration
+    resource: apprunner.AuthenticationConfiguration
     access_role_arn = get_att(AppRunnerRole, "Arn")
 
 
@@ -25,7 +25,7 @@ class AppRunnerImageRepository:
 
 @cloudformation_dataclass
 class AppRunnerSourceConfiguration:
-    resource: SourceConfiguration
+    resource: apprunner.SourceConfiguration
     authentication_configuration = AppRunnerAuthenticationConfiguration
     auto_deployments_enabled = True
     image_repository = AppRunnerImageRepository
@@ -35,7 +35,7 @@ class AppRunnerSourceConfiguration:
 class AppRunner:
     """AWS::AppRunner::Service resource."""
 
-    resource: Service
+    resource: apprunner.Service
     service_name = Join('', [
     AWS_STACK_NAME,
     '-service',

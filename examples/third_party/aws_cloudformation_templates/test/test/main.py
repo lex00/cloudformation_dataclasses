@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import BucketMapMapping
+from .stack_config import BucketMapMapping
 
 
 def build_template() -> Template:

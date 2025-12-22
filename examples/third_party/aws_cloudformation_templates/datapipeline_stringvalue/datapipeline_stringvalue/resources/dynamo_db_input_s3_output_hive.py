@@ -5,42 +5,42 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class DynamoDBInputS3OutputHiveField:
-    resource: Field
+    resource: datapipeline.Field
     key = 'releaseLabel'
     string_value = 'emr-4.1.0'
 
 
 @cloudformation_dataclass
 class DynamoDBInputS3OutputHiveField1:
-    resource: Field
+    resource: datapipeline.Field
     key = 'applications'
     string_value = 'spark'
 
 
 @cloudformation_dataclass
 class DynamoDBInputS3OutputHiveField2:
-    resource: Field
+    resource: datapipeline.Field
     key = 'applications'
     string_value = 'hive'
 
 
 @cloudformation_dataclass
 class DynamoDBInputS3OutputHiveField3:
-    resource: Field
+    resource: datapipeline.Field
     key = 'applications'
     string_value = 'pig'
 
 
 @cloudformation_dataclass
 class DynamoDBInputS3OutputHiveField4:
-    resource: Field
+    resource: datapipeline.Field
     key = 'type'
     string_value = 'EmrCluster'
 
 
 @cloudformation_dataclass
 class DynamoDBInputS3OutputHiveField5:
-    resource: Field
+    resource: datapipeline.Field
     key = 'configuration'
     ref_value = 'coresite'
 
@@ -55,28 +55,28 @@ class DynamoDBInputS3OutputHivePipelineObject:
 
 @cloudformation_dataclass
 class DynamoDBInputS3OutputHiveField6:
-    resource: Field
+    resource: datapipeline.Field
     key = 'type'
     string_value = 'EmrConfiguration'
 
 
 @cloudformation_dataclass
 class DynamoDBInputS3OutputHiveField7:
-    resource: Field
+    resource: datapipeline.Field
     key = 'classification'
     string_value = 'core-site'
 
 
 @cloudformation_dataclass
 class DynamoDBInputS3OutputHiveField8:
-    resource: Field
+    resource: datapipeline.Field
     key = 'property'
     ref_value = 'io-file-buffer-size'
 
 
 @cloudformation_dataclass
 class DynamoDBInputS3OutputHiveField9:
-    resource: Field
+    resource: datapipeline.Field
     key = 'property'
     ref_value = 'fs-s3-block-size'
 
@@ -91,21 +91,21 @@ class DynamoDBInputS3OutputHivePipelineObject1:
 
 @cloudformation_dataclass
 class DynamoDBInputS3OutputHiveField10:
-    resource: Field
+    resource: datapipeline.Field
     key = 'type'
     string_value = 'Property'
 
 
 @cloudformation_dataclass
 class DynamoDBInputS3OutputHiveField11:
-    resource: Field
+    resource: datapipeline.Field
     key = 'value'
     string_value = '4096'
 
 
 @cloudformation_dataclass
 class DynamoDBInputS3OutputHiveField12:
-    resource: Field
+    resource: datapipeline.Field
     key = 'key'
     string_value = 'io.file.buffer.size'
 
@@ -120,21 +120,21 @@ class DynamoDBInputS3OutputHivePipelineObject2:
 
 @cloudformation_dataclass
 class DynamoDBInputS3OutputHiveField13:
-    resource: Field
+    resource: datapipeline.Field
     key = 'type'
     string_value = 'Property'
 
 
 @cloudformation_dataclass
 class DynamoDBInputS3OutputHiveField14:
-    resource: Field
+    resource: datapipeline.Field
     key = 'value'
     string_value = '67108864'
 
 
 @cloudformation_dataclass
 class DynamoDBInputS3OutputHiveField15:
-    resource: Field
+    resource: datapipeline.Field
     key = 'key'
     string_value = 'fs.s3.block.size'
 
@@ -149,28 +149,28 @@ class DynamoDBInputS3OutputHivePipelineObject3:
 
 @cloudformation_dataclass
 class DynamoDBInputS3OutputHiveField16:
-    resource: Field
+    resource: datapipeline.Field
     key = 'occurrences'
     string_value = '1'
 
 
 @cloudformation_dataclass
 class DynamoDBInputS3OutputHiveField17:
-    resource: Field
+    resource: datapipeline.Field
     key = 'startAt'
     string_value = 'FIRST_ACTIVATION_DATE_TIME'
 
 
 @cloudformation_dataclass
 class DynamoDBInputS3OutputHiveField18:
-    resource: Field
+    resource: datapipeline.Field
     key = 'type'
     string_value = 'Schedule'
 
 
 @cloudformation_dataclass
 class DynamoDBInputS3OutputHiveField19:
-    resource: Field
+    resource: datapipeline.Field
     key = 'period'
     string_value = '1 Day'
 
@@ -185,35 +185,35 @@ class DynamoDBInputS3OutputHivePipelineObject4:
 
 @cloudformation_dataclass
 class DynamoDBInputS3OutputHiveField20:
-    resource: Field
+    resource: datapipeline.Field
     key = 'resourceRole'
     string_value = 'DataPipelineDefaultResourceRole'
 
 
 @cloudformation_dataclass
 class DynamoDBInputS3OutputHiveField21:
-    resource: Field
+    resource: datapipeline.Field
     key = 'role'
     string_value = 'DataPipelineDefaultRole'
 
 
 @cloudformation_dataclass
 class DynamoDBInputS3OutputHiveField22:
-    resource: Field
+    resource: datapipeline.Field
     key = 'scheduleType'
     string_value = 'cron'
 
 
 @cloudformation_dataclass
 class DynamoDBInputS3OutputHiveField23:
-    resource: Field
+    resource: datapipeline.Field
     key = 'type'
     string_value = 'Default'
 
 
 @cloudformation_dataclass
 class DynamoDBInputS3OutputHiveField24:
-    resource: Field
+    resource: datapipeline.Field
     key = 'schedule'
     ref_value = 'DefaultSchedule'
 
@@ -230,7 +230,7 @@ class DynamoDBInputS3OutputHivePipelineObject5:
 class DynamoDBInputS3OutputHive:
     """AWS::DataPipeline::Pipeline resource."""
 
-    resource: Pipeline
+    resource: datapipeline.Pipeline
     name = 'DynamoDBInputS3OutputHive'
     description = 'Pipeline to backup DynamoDB data to S3'
     activate = 'true'

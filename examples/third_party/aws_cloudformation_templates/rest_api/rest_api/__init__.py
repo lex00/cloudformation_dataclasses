@@ -8,9 +8,10 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.apigateway import Authorizer, Deployment, RestApi, Stage
+from cloudformation_dataclasses.aws import apigateway
+from cloudformation_dataclasses.aws.apigateway import RestApi
 
-from .config import AppName, UserPoolArn
+from .stack_config import AppName, UserPoolArn
 
 from .resources import *  # noqa: F403, F401
 
@@ -20,14 +21,12 @@ __all__ = [
     "ApiDeployment",
     "ApiStage",
     "AppName",
-    "Authorizer",
-    "Deployment",
     "Parameter",
     "RestApi",
     "STRING",
-    "Stage",
     "Template",
     "UserPoolArn",
+    "apigateway",
     "cloudformation_dataclass",
     "get_att",
     "ref",

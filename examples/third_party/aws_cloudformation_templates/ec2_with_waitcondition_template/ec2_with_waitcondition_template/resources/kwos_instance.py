@@ -70,7 +70,7 @@ class KWOSInstanceAssociationParameter8:
 class KWOSInstance:
     """AWS::EC2::Instance resource."""
 
-    resource: Instance
+    resource: ec2.Instance
     image_id = ref(ImageId)
     instance_type = ref(InstanceType)
     subnet_id = ref(SubnetId)

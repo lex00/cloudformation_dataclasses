@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class ADConnectorServiceAccountSecret:
     """AWS::SecretsManager::Secret resource."""
 
-    resource: Secret
+    resource: secretsmanager.Secret
     name = Sub('ADConnector-ServiceAccount-${DomainNetBiosName}-Domain')
     description = Sub('ADConnector Service Account for ${DomainNetBiosName} Domain')
     secret_string = Sub('{ "username" : "${DomainJoinUser}", "password" : "${DomainJoinUserPassword}" }')

@@ -54,30 +54,57 @@ def _find_class_definitions(source: str) -> list[str]:
 
 
 def _topological_sort(deps: dict[str, set[str]]) -> list[str]:
-    """Kahn's algorithm for topological sort.
+    """Kahn's algorithm for topological sort with cycle handling.
 
     Args:
         deps: Dict mapping module name to set of module names it depends on.
 
     Returns:
         List of module names in dependency order (dependencies first).
+        Handles cycles by breaking them and continuing the sort.
     """
-    # in_degree[m] = number of dependencies m has that haven't been processed yet
-    in_degree: dict[str, int] = {m: len(d) for m, d in deps.items()}
+    # Make a mutable copy of deps
+    remaining_deps: dict[str, set[str]] = {m: set(d) for m, d in deps.items()}
 
-    # Start with modules that have no dependencies
-    queue: deque[str] = deque(m for m, deg in in_degree.items() if deg == 0)
     result: list[str] = []
 
-    while queue:
-        m = queue.popleft()
-        result.append(m)
-        # For each module that depends on m, decrement its in-degree
-        for other, other_deps in deps.items():
-            if m in other_deps:
-                in_degree[other] -= 1
-                if in_degree[other] == 0:
-                    queue.append(other)
+    while remaining_deps:
+        # Find modules with no remaining dependencies
+        ready = [m for m, d in remaining_deps.items() if len(d) == 0]
+
+        if ready:
+            # Process modules with no dependencies
+            for m in sorted(ready):  # Sort for determinism
+                result.append(m)
+                del remaining_deps[m]
+                # Remove this module from others' dependency sets
+                for other_deps in remaining_deps.values():
+                    other_deps.discard(m)
+        else:
+            # All remaining modules have dependencies -> there's a cycle
+            # Find the actual cycle members (modules that depend on each other)
+            # A cycle member is one whose dependencies are also in remaining_deps
+            # AND one of those deps depends back on it (directly or indirectly)
+
+            # Simple heuristic: pick the module that is depended upon by most
+            # other remaining modules - this breaks the cycle at a "hub" node
+            # which allows more modules to proceed
+            dep_count: dict[str, int] = {m: 0 for m in remaining_deps}
+            for d in remaining_deps.values():
+                for dep in d:
+                    if dep in dep_count:
+                        dep_count[dep] += 1
+
+            # Pick the most-depended-upon module, with alphabetical tiebreaker
+            cycle_breaker = max(
+                remaining_deps.keys(),
+                key=lambda m: (dep_count[m], -ord(m[0]) if m else 0, m)
+            )
+            result.append(cycle_breaker)
+            del remaining_deps[cycle_breaker]
+            # Remove this module from others' dependency sets
+            for other_deps in remaining_deps.values():
+                other_deps.discard(cycle_breaker)
 
     return result
 

@@ -18,7 +18,7 @@ class StackSetStackInstances:
 
 @cloudformation_dataclass
 class StackSetParameter:
-    resource: Parameter
+    resource: cloudformation.Parameter
     parameter_key = 'AppName'
     parameter_value = 'stackset-logging-sample'
 

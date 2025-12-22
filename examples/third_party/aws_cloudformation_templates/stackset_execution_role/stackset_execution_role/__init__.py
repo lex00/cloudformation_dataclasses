@@ -13,10 +13,10 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.iam import Policy, Role
+from cloudformation_dataclasses.aws import iam
 from cloudformation_dataclasses.intrinsics import Sub
 
-from .config import AdministrationAccountId
+from .stack_config import AdministrationAccountId
 
 from .resources import *  # noqa: F403, F401
 
@@ -25,14 +25,13 @@ __all__ = [
     "AdministrationAccountId",
     "Output",
     "Parameter",
-    "Policy",
     "PolicyDocument",
     "PolicyStatement",
-    "Role",
     "STRING",
     "Sub",
     "Template",
     "cloudformation_dataclass",
     "get_att",
+    "iam",
     "ref",
 ]

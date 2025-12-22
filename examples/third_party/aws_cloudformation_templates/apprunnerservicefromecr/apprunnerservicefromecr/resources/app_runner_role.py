@@ -39,7 +39,7 @@ class AppRunnerRolePolicies0PolicyDocument:
 
 @cloudformation_dataclass
 class AppRunnerRolePolicy:
-    resource: Policy
+    resource: iam.Policy
     policy_name = 'root'
     policy_document = AppRunnerRolePolicies0PolicyDocument
 
@@ -48,7 +48,7 @@ class AppRunnerRolePolicy:
 class AppRunnerRole:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     assume_role_policy_document = AppRunnerRoleAssumeRolePolicyDocument
     path = '/'
     policies = [AppRunnerRolePolicy]

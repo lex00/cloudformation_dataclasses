@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class ReplicaDBTagFormat:
-    resource: TagFormat
+    resource: rds.TagFormat
     key = 'Name'
     value = 'Read Replica Database'
 
@@ -14,7 +14,7 @@ class ReplicaDBTagFormat:
 class ReplicaDB:
     """AWS::RDS::DBInstance resource."""
 
-    resource: DBInstance
+    resource: rds.DBInstance
     source_db_instance_identifier = ref(MainDB)
     publicly_accessible = False
     db_instance_class = ref(DBInstanceClass)

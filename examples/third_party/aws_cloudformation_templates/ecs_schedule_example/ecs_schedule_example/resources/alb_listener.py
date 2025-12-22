@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class ALBListenerAction:
-    resource: Action
+    resource: elasticloadbalancingv2.Action
     type_ = 'forward'
     target_group_arn = ref(ECSTG)
 
@@ -14,7 +14,7 @@ class ALBListenerAction:
 class ALBListener:
     """AWS::ElasticLoadBalancingV2::Listener resource."""
 
-    resource: Listener
+    resource: elasticloadbalancingv2.Listener
     default_actions = [ALBListenerAction]
     load_balancer_arn = ref(ECSALB)
     port = '80'

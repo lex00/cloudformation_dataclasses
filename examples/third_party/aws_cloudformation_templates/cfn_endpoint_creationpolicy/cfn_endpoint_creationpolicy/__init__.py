@@ -14,20 +14,15 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import ec2
+from cloudformation_dataclasses.aws import ec2, iam
 from cloudformation_dataclasses.aws.ec2 import (
     AssociationParameter,
-    Ingress,
-    Instance,
-    Route,
     RouteTable,
-    SecurityGroup,
     Subnet,
     SubnetRouteTableAssociation,
     VPCEndpoint,
     VPCGatewayAttachment,
 )
-from cloudformation_dataclasses.aws.iam import InstanceProfile, Policy, Role
 from cloudformation_dataclasses.intrinsics import (
     Base64,
     GetAZs,
@@ -36,7 +31,7 @@ from cloudformation_dataclasses.intrinsics import (
     Sub,
 )
 
-from .config import (
+from .stack_config import (
     EnvironmentName,
     KeyName,
     LinuxAMI,
@@ -60,9 +55,6 @@ __all__ = [
     "EndpointSG",
     "EnvironmentName",
     "GetAZs",
-    "Ingress",
-    "Instance",
-    "InstanceProfile",
     "InternetGateway",
     "InternetGatewayAttachment",
     "Join",
@@ -71,7 +63,6 @@ __all__ = [
     "Output",
     "Parameter",
     "ParameterType",
-    "Policy",
     "PolicyDocument",
     "PolicyStatement",
     "PrivateInstance",
@@ -92,12 +83,9 @@ __all__ = [
     "PublicSubnet2",
     "PublicSubnet2CIDR",
     "PublicSubnet2RouteTableAssociation",
-    "Role",
     "RootRole",
-    "Route",
     "RouteTable",
     "STRING",
-    "SecurityGroup",
     "Select",
     "Sub",
     "Subnet",
@@ -110,5 +98,6 @@ __all__ = [
     "cloudformation_dataclass",
     "ec2",
     "get_att",
+    "iam",
     "ref",
 ]

@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import SubnetConfigMapping, VPCName
+from .stack_config import SubnetConfigMapping, VPCName
 from .outputs import DefaultSecurityGroupOutput, PrivateSubnet0Output, PrivateSubnet1Output, PublicSubnet0Output, PublicSubnet1Output, VPCIdOutput
 
 

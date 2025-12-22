@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class RestApiAuthorizer:
     """AWS::ApiGateway::Authorizer resource."""
 
-    resource: Authorizer
+    resource: apigateway.Authorizer
     identity_source = 'method.request.header.authorization'
     name = 'CognitoApiAuthorizer'
     provider_ar_ns = [get_att(CognitoUserPool, "Arn")]

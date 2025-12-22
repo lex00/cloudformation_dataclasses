@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import Date, Date2, Days
+from .stack_config import Date, Date2, Days
 
 
 def build_template() -> Template:

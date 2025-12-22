@@ -39,5 +39,5 @@ class IoTPolicyPolicyDocument:
 class IoTPolicy:
     """AWS::IoT::Policy resource."""
 
-    resource: Policy
+    resource: iot.Policy
     policy_document = IoTPolicyPolicyDocument

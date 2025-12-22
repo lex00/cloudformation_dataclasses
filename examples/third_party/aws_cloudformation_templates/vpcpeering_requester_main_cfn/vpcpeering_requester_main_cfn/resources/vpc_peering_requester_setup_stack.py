@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class VPCPeeringRequesterSetupStack:
     """AWS::CloudFormation::Stack resource."""
 
-    resource: Stack
+    resource: cloudformation.Stack
     template_url = Sub('https://${S3Bucket}.s3.${S3Region}.${AWS::URLSuffix}/${S3KeyPrefix}templates/VPCPeering-Requester-Setup.cfn.yaml', {
     'S3Bucket': ref(TemplatesS3BucketName),
     'S3KeyPrefix': ref(TemplatesS3KeyPrefix),

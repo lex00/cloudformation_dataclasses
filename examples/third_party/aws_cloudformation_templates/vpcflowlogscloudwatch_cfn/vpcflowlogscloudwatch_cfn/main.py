@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import VPCFlowLogsCloudWatchKMSKey, VPCFlowLogsCloudWatchKMSKeyConditionCondition, VPCFlowLogsLogFormat, VPCFlowLogsLogGroupRetention, VPCFlowLogsMaxAggregationInterval, VPCFlowLogsTrafficType, VPCID
+from .stack_config import VPCFlowLogsCloudWatchKMSKey, VPCFlowLogsCloudWatchKMSKeyConditionCondition, VPCFlowLogsLogFormat, VPCFlowLogsLogGroupRetention, VPCFlowLogsMaxAggregationInterval, VPCFlowLogsTrafficType, VPCID
 from .outputs import VPCFlowLogsLogGroupOutput
 
 

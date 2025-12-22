@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class ApiStage:
     """AWS::ApiGateway::Stage resource."""
 
-    resource: Stage
+    resource: apigateway.Stage
     rest_api_id = ref(Api)
     deployment_id = ref(ApiDeployment)
     stage_name = 'prod'

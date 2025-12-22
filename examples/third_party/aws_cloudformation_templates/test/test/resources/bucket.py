@@ -5,14 +5,14 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class BucketRule:
-    resource: Rule
+    resource: s3.Rule
     expiration_in_days = '!Explode Retention'
     status = 'Enabled'
 
 
 @cloudformation_dataclass
 class BucketLifecycleConfiguration:
-    resource: LifecycleConfiguration
+    resource: s3.LifecycleConfiguration
     rules = [BucketRule]
 
 

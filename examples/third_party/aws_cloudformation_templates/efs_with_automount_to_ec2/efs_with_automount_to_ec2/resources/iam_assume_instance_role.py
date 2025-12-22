@@ -50,7 +50,7 @@ class IAMAssumeInstanceRolePolicies0PolicyDocument:
 
 @cloudformation_dataclass
 class IAMAssumeInstanceRolePolicy:
-    resource: Policy
+    resource: iam.Policy
     policy_document = IAMAssumeInstanceRolePolicies0PolicyDocument
     policy_name = Join('-', [
     'IAM',
@@ -63,7 +63,7 @@ class IAMAssumeInstanceRolePolicy:
 class IAMAssumeInstanceRole:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     assume_role_policy_document = IAMAssumeInstanceRoleAssumeRolePolicyDocument
     path = '/'
     policies = [IAMAssumeInstanceRolePolicy]

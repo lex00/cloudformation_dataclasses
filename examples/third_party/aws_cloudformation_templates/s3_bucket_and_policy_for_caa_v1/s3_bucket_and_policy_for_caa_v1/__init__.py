@@ -16,25 +16,16 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import s3
-from cloudformation_dataclasses.aws.s3 import (
-    BucketEncryption,
-    BucketVersioningStatus,
-    PublicAccessBlockConfiguration,
-    ServerSideEncryption,
-    ServerSideEncryptionByDefault,
-    ServerSideEncryptionRule,
-    VersioningConfiguration,
-)
+from cloudformation_dataclasses.aws.s3 import BucketVersioningStatus, ServerSideEncryption
 from cloudformation_dataclasses.intrinsics import Sub
 
-from .config import BucketName, PublisherAccountID
+from .stack_config import BucketName, PublisherAccountID
 
 from .resources import *  # noqa: F403, F401
 
 __all__ = [
     "BOOL",
     "Bucket",
-    "BucketEncryption",
     "BucketName",
     "BucketPolicy",
     "BucketVersioningStatus",
@@ -43,15 +34,11 @@ __all__ = [
     "Parameter",
     "PolicyDocument",
     "PolicyStatement",
-    "PublicAccessBlockConfiguration",
     "PublisherAccountID",
     "STRING",
     "ServerSideEncryption",
-    "ServerSideEncryptionByDefault",
-    "ServerSideEncryptionRule",
     "Sub",
     "Template",
-    "VersioningConfiguration",
     "cloudformation_dataclass",
     "get_att",
     "ref",

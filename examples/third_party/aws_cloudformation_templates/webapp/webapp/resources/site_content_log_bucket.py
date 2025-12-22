@@ -5,19 +5,19 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class SiteContentLogBucketServerSideEncryptionByDefault:
-    resource: ServerSideEncryptionByDefault
+    resource: s3.ServerSideEncryptionByDefault
     sse_algorithm = ServerSideEncryption.AES256
 
 
 @cloudformation_dataclass
 class SiteContentLogBucketServerSideEncryptionRule:
-    resource: ServerSideEncryptionRule
+    resource: s3.ServerSideEncryptionRule
     server_side_encryption_by_default = SiteContentLogBucketServerSideEncryptionByDefault
 
 
 @cloudformation_dataclass
 class SiteContentLogBucketBucketEncryption:
-    resource: BucketEncryption
+    resource: s3.BucketEncryption
     server_side_encryption_configuration = [SiteContentLogBucketServerSideEncryptionRule]
 
 
@@ -43,7 +43,7 @@ class SiteContentLogBucketObjectLockConfiguration:
 
 @cloudformation_dataclass
 class SiteContentLogBucketPublicAccessBlockConfiguration:
-    resource: PublicAccessBlockConfiguration
+    resource: s3.PublicAccessBlockConfiguration
     block_public_acls = True
     block_public_policy = True
     ignore_public_acls = True
@@ -52,7 +52,7 @@ class SiteContentLogBucketPublicAccessBlockConfiguration:
 
 @cloudformation_dataclass
 class SiteContentLogBucketVersioningConfiguration:
-    resource: VersioningConfiguration
+    resource: s3.VersioningConfiguration
     status = BucketVersioningStatus.ENABLED
 
 
@@ -60,7 +60,7 @@ class SiteContentLogBucketVersioningConfiguration:
 class SiteContentLogBucket:
     """AWS::S3::Bucket resource."""
 
-    resource: Bucket
+    resource: s3.Bucket
     bucket_encryption = SiteContentLogBucketBucketEncryption
     bucket_name = Sub('${AppName}-content-logs-${AWS::Region}-${AWS::AccountId}')
     object_lock_configuration = SiteContentLogBucketObjectLockConfiguration

@@ -56,6 +56,6 @@ class CentralEventLogKeyKeyPolicy:
 class CentralEventLogKey:
     """AWS::KMS::Key resource."""
 
-    resource: Key
+    resource: kms.Key
     description = 'KMS key for log group'
     key_policy = CentralEventLogKeyKeyPolicy

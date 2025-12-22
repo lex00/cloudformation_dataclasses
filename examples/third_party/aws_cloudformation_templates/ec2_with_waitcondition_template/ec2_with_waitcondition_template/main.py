@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import AgentID, BudgetCode, ImageId, InstanceName, InstanceType, IsMaster, KeyName, LaunchPlatform, LaunchUser, MasterID, SSHLocation, SubnetId, TestID, TestTarget, VpcId
+from .stack_config import AgentID, BudgetCode, ImageId, InstanceName, InstanceType, IsMaster, KeyName, LaunchPlatform, LaunchUser, MasterID, SSHLocation, SubnetId, TestID, TestTarget, VpcId
 from .outputs import InstanceIdOutput, WebsiteURLOutput
 
 

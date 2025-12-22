@@ -13,17 +13,15 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.rds import DBInstance, DBParameterGroup
+from cloudformation_dataclasses.aws import rds
 from cloudformation_dataclasses.intrinsics import Join
 
-from .config import DBName, DBUser
+from .stack_config import DBName, DBUser
 
 from .resources import *  # noqa: F403, F401
 
 __all__ = [
-    "DBInstance",
     "DBName",
-    "DBParameterGroup",
     "DBUser",
     "Join",
     "MyDB",
@@ -34,5 +32,6 @@ __all__ = [
     "Template",
     "cloudformation_dataclass",
     "get_att",
+    "rds",
     "ref",
 ]

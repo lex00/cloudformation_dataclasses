@@ -17,10 +17,7 @@ from cloudformation_dataclasses.aws import ec2
 from cloudformation_dataclasses.aws.cloudformation import WaitCondition, WaitConditionHandle
 from cloudformation_dataclasses.aws.ec2 import (
     AssociationParameter,
-    Ingress,
-    Instance,
     RouteTable,
-    SecurityGroup,
     Subnet,
     SubnetRouteTableAssociation,
     VPCEndpoint,
@@ -33,7 +30,7 @@ from cloudformation_dataclasses.intrinsics import (
     Sub,
 )
 
-from .config import (
+from .stack_config import (
     EnvironmentName,
     LinuxAMI,
     PrivateSubnet1CIDR,
@@ -50,8 +47,6 @@ __all__ = [
     "EndpointSG",
     "EnvironmentName",
     "GetAZs",
-    "Ingress",
-    "Instance",
     "Join",
     "LinuxAMI",
     "Output",
@@ -73,7 +68,6 @@ __all__ = [
     "RouteTable",
     "S3Endpoint",
     "STRING",
-    "SecurityGroup",
     "Select",
     "Sub",
     "Subnet",

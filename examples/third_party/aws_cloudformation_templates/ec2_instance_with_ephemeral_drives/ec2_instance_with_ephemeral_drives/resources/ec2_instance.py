@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class EC2InstanceBlockDeviceMapping:
-    resource: BlockDeviceMapping
+    resource: ec2.BlockDeviceMapping
     device_name = '/dev/sdc'
     virtual_name = 'ephemeral0'
 
@@ -14,7 +14,7 @@ class EC2InstanceBlockDeviceMapping:
 class EC2Instance:
     """AWS::EC2::Instance resource."""
 
-    resource: Instance
+    resource: ec2.Instance
     instance_type = ref(InstanceType)
     subnet_id = Select(0, ref(Subnets))
     security_group_ids = [get_att(EC2SecurityGroup, "GroupId")]

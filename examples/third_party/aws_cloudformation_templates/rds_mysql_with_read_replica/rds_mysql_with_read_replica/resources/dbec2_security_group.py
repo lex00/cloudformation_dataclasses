@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class DBEC2SecurityGroupIngress:
-    resource: Ingress
+    resource: ec2.Ingress
     ip_protocol = 'tcp'
     from_port = '3306'
     to_port = '3306'
@@ -16,7 +16,7 @@ class DBEC2SecurityGroupIngress:
 class DBEC2SecurityGroup:
     """AWS::EC2::SecurityGroup resource."""
 
-    resource: SecurityGroup
+    resource: ec2.SecurityGroup
     group_description = 'Open database for access'
     security_group_ingress = [DBEC2SecurityGroupIngress]
     condition = 'IsEC2VPC'

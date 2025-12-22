@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class ServiceScalingPolicyStepAdjustment:
-    resource: StepAdjustment
+    resource: applicationautoscaling.StepAdjustment
     metric_interval_lower_bound = 0
     scaling_adjustment = 200
 
@@ -23,7 +23,7 @@ class ServiceScalingPolicyStepScalingPolicyConfiguration:
 class ServiceScalingPolicy:
     """AWS::ApplicationAutoScaling::ScalingPolicy resource."""
 
-    resource: ScalingPolicy
+    resource: applicationautoscaling.ScalingPolicy
     policy_name = 'AStepPolicy'
     policy_type = 'StepScaling'
     scaling_target_id = ref(ServiceScalingTarget)

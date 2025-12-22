@@ -12,27 +12,25 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
+from cloudformation_dataclasses.aws import (
+    cloudformation,
+    events,
+    kms,
+    logs,
+    sqs,
+)
 from cloudformation_dataclasses.aws.cloudformation import (
     AutoDeployment,
     DeploymentTargets,
     OperationPreferences,
-    Parameter,
     StackInstances,
     StackSet,
 )
-from cloudformation_dataclasses.aws.events import (
-    DeadLetterConfig,
-    EventBus,
-    EventBusPolicy,
-    Rule,
-    Target,
-)
-from cloudformation_dataclasses.aws.kms import Key
-from cloudformation_dataclasses.aws.logs import LogGroup, QueryDefinition, ResourcePolicy
-from cloudformation_dataclasses.aws.sqs import Queue
+from cloudformation_dataclasses.aws.events import EventBus, EventBusPolicy
+from cloudformation_dataclasses.aws.logs import LogGroup, QueryDefinition
 from cloudformation_dataclasses.intrinsics import Sub
 
-from .config import CentralEventBusName, CentralEventLogName, OUID, OrgID
+from .stack_config import CentralEventBusName, CentralEventLogName, OUID, OrgID
 
 from .resources import *  # noqa: F403, F401
 
@@ -48,12 +46,10 @@ __all__ = [
     "CentralEventLogQuery",
     "CentralEventLogQueryReason",
     "CentralEventRule",
-    "DeadLetterConfig",
     "DeadLetterQueue",
     "DeploymentTargets",
     "EventBus",
     "EventBusPolicy",
-    "Key",
     "LogGroup",
     "OUID",
     "OperationPreferences",
@@ -62,17 +58,18 @@ __all__ = [
     "PolicyDocument",
     "PolicyStatement",
     "QueryDefinition",
-    "Queue",
-    "ResourcePolicy",
-    "Rule",
     "STRING",
     "StackInstances",
     "StackSet",
     "Sub",
-    "Target",
     "TargetAccountLogging",
     "Template",
+    "cloudformation",
     "cloudformation_dataclass",
+    "events",
     "get_att",
+    "kms",
+    "logs",
     "ref",
+    "sqs",
 ]

@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import EnvironmentName, KeyName, LinuxAMI, PrivateSubnet1CIDR, PrivateSubnet2CIDR, PublicSubnet1CIDR, PublicSubnet2CIDR, VpcCIDR
+from .stack_config import EnvironmentName, KeyName, LinuxAMI, PrivateSubnet1CIDR, PrivateSubnet2CIDR, PublicSubnet1CIDR, PublicSubnet2CIDR, VpcCIDR
 from .outputs import CfnEndpointOutput, PrivateSubnetsOutput, PublicSubnetsOutput, VPCOutput
 
 

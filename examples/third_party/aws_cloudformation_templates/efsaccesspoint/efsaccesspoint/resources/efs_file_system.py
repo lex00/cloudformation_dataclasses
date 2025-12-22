@@ -14,7 +14,7 @@ class EFSFileSystemElasticFileSystemTag:
 class EFSFileSystem:
     """AWS::EFS::FileSystem resource."""
 
-    resource: FileSystem
+    resource: efs.FileSystem
     encrypted = True
     performance_mode = 'generalPurpose'
     file_system_tags = [EFSFileSystemElasticFileSystemTag]

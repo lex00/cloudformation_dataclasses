@@ -14,19 +14,11 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.ec2 import (
-    AssociationParameter,
-    EIP,
-    EIPAssociation,
-    Ingress,
-    Instance,
-    NetworkInterface,
-    PrivateIpAddressSpecification,
-    SecurityGroup,
-)
+from cloudformation_dataclasses.aws import ec2
+from cloudformation_dataclasses.aws.ec2 import AssociationParameter, EIP, EIPAssociation
 from cloudformation_dataclasses.intrinsics import Join, Select
 
-from .config import (
+from .stack_config import (
     InstanceType,
     KeyName,
     LatestAMI,
@@ -47,28 +39,24 @@ __all__ = [
     "EIPAssoc1",
     "EIPAssociation",
     "Eth0",
-    "Ingress",
-    "Instance",
     "InstanceType",
     "Join",
     "KeyName",
     "LatestAMI",
-    "NetworkInterface",
     "Output",
     "Parameter",
     "ParameterType",
     "PrimaryIPAddress",
-    "PrivateIpAddressSpecification",
     "SSHLocation",
     "SSHSecurityGroup",
     "STRING",
     "SecondaryIPAddress",
-    "SecurityGroup",
     "Select",
     "SubnetId",
     "Template",
     "VpcId",
     "cloudformation_dataclass",
+    "ec2",
     "get_att",
     "ref",
 ]

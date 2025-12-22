@@ -7,6 +7,6 @@ from .. import *  # noqa: F403
 class CodeCommitRepo:
     """AWS::CodeCommit::Repository resource."""
 
-    resource: Repository
+    resource: codecommit.Repository
     repository_name = Sub('${AWS::StackName}-repo')
     repository_description = Sub('This is a repository for the ${AWS::StackName} project.')

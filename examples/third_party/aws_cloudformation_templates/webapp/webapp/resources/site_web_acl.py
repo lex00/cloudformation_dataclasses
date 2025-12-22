@@ -5,18 +5,18 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class SiteWebACLAllowAction:
-    resource: AllowAction
+    resource: wafv2.AllowAction
 
 
 @cloudformation_dataclass
 class SiteWebACLDefaultAction:
-    resource: DefaultAction
+    resource: wafv2.DefaultAction
     allow = SiteWebACLAllowAction
 
 
 @cloudformation_dataclass
 class SiteWebACLVisibilityConfig:
-    resource: VisibilityConfig
+    resource: wafv2.VisibilityConfig
     sampled_requests_enabled = True
     cloud_watch_metrics_enabled = True
     metric_name = 'MetricForWebACLWithAMR'
@@ -30,7 +30,7 @@ class SiteWebACLOverrideAction:
 
 @cloudformation_dataclass
 class SiteWebACLVisibilityConfig1:
-    resource: VisibilityConfig
+    resource: wafv2.VisibilityConfig
     sampled_requests_enabled = True
     cloud_watch_metrics_enabled = True
     metric_name = 'MetricForAMRCRS'
@@ -52,13 +52,13 @@ class SiteWebACLManagedRuleGroupStatement:
 
 @cloudformation_dataclass
 class SiteWebACLStatement:
-    resource: Statement
+    resource: wafv2.Statement
     managed_rule_group_statement = SiteWebACLManagedRuleGroupStatement
 
 
 @cloudformation_dataclass
 class SiteWebACLRule:
-    resource: Rule
+    resource: wafv2.Rule
     name = 'AWS-AWSManagedRulesCommonRuleSet'
     priority = 0
     override_action = SiteWebACLOverrideAction
@@ -70,7 +70,7 @@ class SiteWebACLRule:
 class SiteWebACL:
     """AWS::WAFv2::WebACL resource."""
 
-    resource: WebACL
+    resource: wafv2.WebACL
     name = Sub('${AppName}-WebACLWithAMR')
     scope = 'CLOUDFRONT'
     description = 'Web ACL with AWS Managed Rules'

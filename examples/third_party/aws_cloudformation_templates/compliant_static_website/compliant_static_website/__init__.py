@@ -19,37 +19,25 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import cloudfront
+from cloudformation_dataclasses.aws import cloudfront, iam, s3
 from cloudformation_dataclasses.aws.cloudfront import (
     DefaultCacheBehavior,
     DistributionConfig,
-    Logging,
     Origin,
     OriginAccessControlConfig,
     S3OriginConfig,
     ViewerCertificate,
 )
-from cloudformation_dataclasses.aws.iam import Role, RolePolicy
+from cloudformation_dataclasses.aws.iam import RolePolicy
 from cloudformation_dataclasses.aws.s3 import (
-    Bucket,
-    BucketEncryption,
-    BucketPolicy,
     BucketVersioningStatus,
     DefaultRetention,
-    LoggingConfiguration,
     ObjectLockConfiguration,
     ObjectLockEnabled,
     ObjectLockRetentionMode,
     ObjectLockRule,
-    PublicAccessBlockConfiguration,
-    ReplicationConfiguration,
-    ReplicationDestination,
-    ReplicationRule,
     ReplicationRuleStatus,
     ServerSideEncryption,
-    ServerSideEncryptionByDefault,
-    ServerSideEncryptionRule,
-    VersioningConfiguration,
 )
 from cloudformation_dataclasses.intrinsics import (
     AWS_ACCOUNT_ID,
@@ -60,7 +48,7 @@ from cloudformation_dataclasses.intrinsics import (
     Sub,
 )
 
-from .config import AppName, WebACL
+from .stack_config import AppName, WebACL
 
 from .resources import *  # noqa: F403, F401
 
@@ -70,9 +58,6 @@ __all__ = [
     "AWS_STACK_ID",
     "AppName",
     "BOOL",
-    "Bucket",
-    "BucketEncryption",
-    "BucketPolicy",
     "BucketVersioningStatus",
     "CloudFrontLogsBucket",
     "CloudFrontLogsBucketPolicyPolicy",
@@ -96,8 +81,6 @@ __all__ = [
     "Distribution",
     "DistributionConfig",
     "Join",
-    "Logging",
-    "LoggingConfiguration",
     "ObjectLockConfiguration",
     "ObjectLockEnabled",
     "ObjectLockRetentionMode",
@@ -109,28 +92,22 @@ __all__ = [
     "Parameter",
     "PolicyDocument",
     "PolicyStatement",
-    "PublicAccessBlockConfiguration",
-    "ReplicationConfiguration",
-    "ReplicationDestination",
-    "ReplicationRule",
     "ReplicationRuleStatus",
-    "Role",
     "RolePolicy",
     "S3OriginConfig",
     "STRING",
     "STRING_EQUALS",
     "Select",
     "ServerSideEncryption",
-    "ServerSideEncryptionByDefault",
-    "ServerSideEncryptionRule",
     "Split",
     "Sub",
     "Template",
-    "VersioningConfiguration",
     "ViewerCertificate",
     "WebACL",
     "cloudformation_dataclass",
     "cloudfront",
     "get_att",
+    "iam",
     "ref",
+    "s3",
 ]

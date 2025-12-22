@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class MyRDSParamGroup:
     """AWS::RDS::DBParameterGroup resource."""
 
-    resource: DBParameterGroup
+    resource: rds.DBParameterGroup
     family = 'MySQL8.0'
     description = 'CloudFormation Sample Database Parameter Group'
     parameters = {

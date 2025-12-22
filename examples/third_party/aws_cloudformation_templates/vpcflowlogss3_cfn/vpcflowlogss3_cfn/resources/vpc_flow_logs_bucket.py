@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class VPCFlowLogsBucketPublicAccessBlockConfiguration:
-    resource: PublicAccessBlockConfiguration
+    resource: s3.PublicAccessBlockConfiguration
     block_public_acls = True
     block_public_policy = True
     ignore_public_acls = True
@@ -14,27 +14,27 @@ class VPCFlowLogsBucketPublicAccessBlockConfiguration:
 
 @cloudformation_dataclass
 class VPCFlowLogsBucketServerSideEncryptionByDefault:
-    resource: ServerSideEncryptionByDefault
+    resource: s3.ServerSideEncryptionByDefault
     sse_algorithm = If("VPCFlowLogsBucketKMSKeyCondition", 'aws:kms', 'AES256')
     kms_master_key_id = If("VPCFlowLogsBucketKMSKeyCondition", ref(VPCFlowLogsBucketKMSKey), AWS_NO_VALUE)
 
 
 @cloudformation_dataclass
 class VPCFlowLogsBucketServerSideEncryptionRule:
-    resource: ServerSideEncryptionRule
+    resource: s3.ServerSideEncryptionRule
     server_side_encryption_by_default = VPCFlowLogsBucketServerSideEncryptionByDefault
     bucket_key_enabled = If("VPCFlowLogsBucketKMSKeyCondition", ref(VPCFlowLogsBucketKeyEnabled), AWS_NO_VALUE)
 
 
 @cloudformation_dataclass
 class VPCFlowLogsBucketBucketEncryption:
-    resource: BucketEncryption
+    resource: s3.BucketEncryption
     server_side_encryption_configuration = [VPCFlowLogsBucketServerSideEncryptionRule]
 
 
 @cloudformation_dataclass
 class VPCFlowLogsBucketVersioningConfiguration:
-    resource: VersioningConfiguration
+    resource: s3.VersioningConfiguration
     status = BucketVersioningStatus.ENABLED
 
 
@@ -42,7 +42,7 @@ class VPCFlowLogsBucketVersioningConfiguration:
 class VPCFlowLogsBucket:
     """AWS::S3::Bucket resource."""
 
-    resource: Bucket
+    resource: s3.Bucket
     bucket_name = Sub('aws-vpcflowlogs-${AWS::AccountId}-${AWS::Region}')
     public_access_block_configuration = VPCFlowLogsBucketPublicAccessBlockConfiguration
     bucket_encryption = VPCFlowLogsBucketBucketEncryption

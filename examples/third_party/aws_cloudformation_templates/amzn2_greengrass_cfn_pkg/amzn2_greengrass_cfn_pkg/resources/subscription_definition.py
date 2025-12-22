@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class SubscriptionDefinitionSubscription:
-    resource: Subscription
+    resource: greengrass.Subscription
     id = 'Subscription1'
     source = 'cloud'
     subject = Join('/', [
@@ -17,7 +17,7 @@ class SubscriptionDefinitionSubscription:
 
 @cloudformation_dataclass
 class SubscriptionDefinitionSubscription1:
-    resource: Subscription
+    resource: greengrass.Subscription
     id = 'Subscription2'
     source = ref(GGSampleFunctionVersion)
     subject = Join('/', [
@@ -29,7 +29,7 @@ class SubscriptionDefinitionSubscription1:
 
 @cloudformation_dataclass
 class SubscriptionDefinitionSubscription2:
-    resource: Subscription
+    resource: greengrass.Subscription
     id = 'Subscription3'
     source = ref(GGSampleFunctionVersion)
     subject = Join('/', [
@@ -41,7 +41,7 @@ class SubscriptionDefinitionSubscription2:
 
 @cloudformation_dataclass
 class SubscriptionDefinitionSubscriptionDefinitionVersion:
-    resource: SubscriptionDefinitionVersion
+    resource: greengrass.SubscriptionDefinitionVersion
     subscriptions = [SubscriptionDefinitionSubscription, SubscriptionDefinitionSubscription1, SubscriptionDefinitionSubscription2]
 
 

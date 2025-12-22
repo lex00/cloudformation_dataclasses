@@ -7,6 +7,6 @@ from .. import *  # noqa: F403
 class RestApiDeployment:
     """AWS::ApiGateway::Deployment resource."""
 
-    resource: Deployment
+    resource: apigateway.Deployment
     rest_api_id = ref(RestApi)
     depends_on = ["TestResourceGet", "TestResourceOptions", "JwtResourceGet", "JwtResourceOptions"]

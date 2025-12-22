@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import BucketName, PublisherAccountID
+from .stack_config import BucketName, PublisherAccountID
 from .outputs import BucketOutput, BucketPolicyOutput
 
 

@@ -42,7 +42,7 @@ class myEC2InstanceSSMAssociationParameter3:
 class myEC2InstanceSSM:
     """AWS::EC2::Instance resource."""
 
-    resource: Instance
+    resource: ec2.Instance
     iam_instance_profile = ref(myInstanceProfile)
     ssm_associations = [myEC2InstanceSSMSsmAssociation]
     key_name = ref(KeyPair)

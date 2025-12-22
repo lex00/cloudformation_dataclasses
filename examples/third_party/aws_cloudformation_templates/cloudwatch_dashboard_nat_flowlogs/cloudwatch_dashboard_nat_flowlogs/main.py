@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import LogGroupName, NatGatewayID, NatGatewayPrivateIP, VpcCidr
+from .stack_config import LogGroupName, NatGatewayID, NatGatewayPrivateIP, VpcCidr
 from .outputs import DashboardArnOutput
 
 

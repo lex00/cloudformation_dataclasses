@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class S3BucketTagFilter:
-    resource: TagFilter
+    resource: s3.TagFilter
     key = 'Current'
     value = Transform(name='Date', parameters={
     'Date': ref(Date),
@@ -15,7 +15,7 @@ class S3BucketTagFilter:
 
 @cloudformation_dataclass
 class S3BucketTagFilter1:
-    resource: TagFilter
+    resource: s3.TagFilter
     key = 'Add'
     value = Transform(name='Date', parameters={
     'Date': ref(Date),
@@ -26,7 +26,7 @@ class S3BucketTagFilter1:
 
 @cloudformation_dataclass
 class S3BucketTagFilter2:
-    resource: TagFilter
+    resource: s3.TagFilter
     key = 'Subtract'
     value = Transform(name='Date', parameters={
     'Date': ref(Date),
@@ -37,7 +37,7 @@ class S3BucketTagFilter2:
 
 @cloudformation_dataclass
 class S3BucketTagFilter3:
-    resource: TagFilter
+    resource: s3.TagFilter
     key = 'Days'
     value = Transform(name='Date', parameters={
     'Date': ref(Date),
@@ -50,5 +50,5 @@ class S3BucketTagFilter3:
 class S3Bucket:
     """AWS::S3::Bucket resource."""
 
-    resource: Bucket
+    resource: s3.Bucket
     tags = [S3BucketTagFilter, S3BucketTagFilter1, S3BucketTagFilter2, S3BucketTagFilter3]

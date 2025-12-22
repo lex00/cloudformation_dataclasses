@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class ScheduledActionDown:
     """AWS::AutoScaling::ScheduledAction resource."""
 
-    resource: ScheduledAction
+    resource: autoscaling.ScheduledAction
     auto_scaling_group_name = ref(WebServerGroup)
     max_size = '1'
     min_size = '1'

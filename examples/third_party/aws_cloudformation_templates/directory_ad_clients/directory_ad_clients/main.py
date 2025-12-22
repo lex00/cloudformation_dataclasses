@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import AMAZONLINUX2, DirectoryID, DirectoryName, DomainDNSServer1, DomainDNSServer1ConditionCondition, DomainDNSServer2, DomainDNSServer2ConditionCondition, DomainDNSServer3, DomainDNSServer3ConditionCondition, DomainDNSServer4, DomainDNSServer4ConditionCondition, DomainDNSServersConditionCondition, DomainMember1NetBIOSName, DomainMember2NetBIOSName, DomainMember3NetBIOSName, DomainMember4NetBIOSName, DomainMembersInstanceType, DomainMembersLinuxInstanceProfile, DomainMembersSGID, DomainMembersWindowsInstanceProfile, EBSKMSKey, EBSKMSKeyConditionCondition, KeyPairName, PrivateSubnet1ID, PrivateSubnet2ID, SSMLogsBucketConditionCondition, SSMLogsBucketName, WINFULLBASE
+from .stack_config import AMAZONLINUX2, DirectoryID, DirectoryName, DomainDNSServer1, DomainDNSServer1ConditionCondition, DomainDNSServer2, DomainDNSServer2ConditionCondition, DomainDNSServer3, DomainDNSServer3ConditionCondition, DomainDNSServer4, DomainDNSServer4ConditionCondition, DomainDNSServersConditionCondition, DomainMember1NetBIOSName, DomainMember2NetBIOSName, DomainMember3NetBIOSName, DomainMember4NetBIOSName, DomainMembersInstanceType, DomainMembersLinuxInstanceProfile, DomainMembersSGID, DomainMembersWindowsInstanceProfile, EBSKMSKey, EBSKMSKeyConditionCondition, KeyPairName, PrivateSubnet1ID, PrivateSubnet2ID, SSMLogsBucketConditionCondition, SSMLogsBucketName, WINFULLBASE
 
 
 def build_template() -> Template:

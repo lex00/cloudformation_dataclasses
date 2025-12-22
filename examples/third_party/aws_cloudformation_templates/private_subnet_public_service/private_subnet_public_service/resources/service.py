@@ -5,14 +5,14 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class ServiceDeploymentConfiguration:
-    resource: DeploymentConfiguration
+    resource: ecs.DeploymentConfiguration
     maximum_percent = 200
     minimum_healthy_percent = 75
 
 
 @cloudformation_dataclass
 class ServiceNetworkConfiguration:
-    resource: NetworkConfiguration
+    resource: ecs.NetworkConfiguration
     # Unknown CF key: AwsvpcConfiguration = {
     #         AwsVpcConfiguration.assign_public_ip: 'ENABLED',
     #         AwsVpcConfiguration.security_groups: [ImportValue(Join(':', [
@@ -34,7 +34,7 @@ class ServiceNetworkConfiguration:
 
 @cloudformation_dataclass
 class ServiceLoadBalancer:
-    resource: LoadBalancer
+    resource: ecs.LoadBalancer
     container_name = ref(ServiceName)
     container_port = ref(ContainerPort)
     target_group_arn = ref(TargetGroup)

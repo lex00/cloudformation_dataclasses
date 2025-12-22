@@ -24,6 +24,6 @@ class KmsKeyKeyPolicy:
 class KmsKey:
     """AWS::KMS::Key resource."""
 
-    resource: Key
+    resource: kms.Key
     enable_key_rotation = True
     key_policy = KmsKeyKeyPolicy

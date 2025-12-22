@@ -5,14 +5,14 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class ECSScheduledTaskEcsParameters:
-    resource: EcsParameters
+    resource: events.EcsParameters
     task_count = ref(SchedulerTasksCount)
     task_definition_arn = ref(TaskDefinition)
 
 
 @cloudformation_dataclass
 class ECSScheduledTaskTarget:
-    resource: Target
+    resource: events.Target
     arn = get_att(ECSCluster, "Arn")
     id = 'Target1'
     role_arn = get_att(ECSEventRole, "Arn")
@@ -23,7 +23,7 @@ class ECSScheduledTaskTarget:
 class ECSScheduledTask:
     """AWS::Events::Rule resource."""
 
-    resource: Rule
+    resource: events.Rule
     description = 'Creating a Schedule with CloudFormation as an example'
     schedule_expression = If("CronRate", ref(CronSchedule), ref(RateSchedule))
     state = 'ENABLED'

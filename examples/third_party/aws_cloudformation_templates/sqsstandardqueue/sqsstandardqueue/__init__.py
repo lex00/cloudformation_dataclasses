@@ -13,10 +13,10 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.sqs import Queue
+from cloudformation_dataclasses.aws import sqs
 from cloudformation_dataclasses.intrinsics import AWS_NO_VALUE, Equals, If, Not
 
-from .config import (
+from .stack_config import (
     CreateDeadLetterQueueCondition,
     DelaySeconds,
     IsKmsExistCondition,
@@ -46,7 +46,6 @@ __all__ = [
     "Not",
     "Output",
     "Parameter",
-    "Queue",
     "ReceiveMessageWaitTimeSeconds",
     "SQSQueue",
     "STRING",
@@ -56,4 +55,5 @@ __all__ = [
     "cloudformation_dataclass",
     "get_att",
     "ref",
+    "sqs",
 ]

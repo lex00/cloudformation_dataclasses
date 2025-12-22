@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class ElasticLoadBalancerHealthCheck:
-    resource: HealthCheck
+    resource: elasticloadbalancing.HealthCheck
     healthy_threshold = '3'
     interval = '30'
     target = Join('', [
@@ -29,7 +29,7 @@ class ElasticLoadBalancerListeners:
 class ElasticLoadBalancer:
     """AWS::ElasticLoadBalancing::LoadBalancer resource."""
 
-    resource: LoadBalancer
+    resource: elasticloadbalancing.LoadBalancer
     security_groups = [ref(ELBSecurityGroup)]
     subnets = ref(Subnets)
     cross_zone = 'true'

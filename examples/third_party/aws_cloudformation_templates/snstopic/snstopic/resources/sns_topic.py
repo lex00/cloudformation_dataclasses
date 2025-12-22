@@ -7,4 +7,4 @@ from .. import *  # noqa: F403
 class SNSTopic:
     """AWS::SNS::Topic resource."""
 
-    resource: Topic
+    resource: sns.Topic

@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class AWSManagedADDomainMembersSGIngress:
-    resource: Ingress
+    resource: ec2.Ingress
     ip_protocol = '-1'
     description = 'LAB - Allow All Private IP Communications'
     cidr_ip = '10.0.0.0/8'
@@ -13,7 +13,7 @@ class AWSManagedADDomainMembersSGIngress:
 
 @cloudformation_dataclass
 class AWSManagedADDomainMembersSGIngress1:
-    resource: Ingress
+    resource: ec2.Ingress
     ip_protocol = '-1'
     description = 'LAB - Allow All Private IP Communications'
     cidr_ip = '172.16.0.0/12'
@@ -21,7 +21,7 @@ class AWSManagedADDomainMembersSGIngress1:
 
 @cloudformation_dataclass
 class AWSManagedADDomainMembersSGIngress2:
-    resource: Ingress
+    resource: ec2.Ingress
     ip_protocol = '-1'
     description = 'LAB - Allow All Private IP Communications'
     cidr_ip = '192.168.0.0/16'
@@ -46,7 +46,7 @@ class AWSManagedADDomainMembersSGAssociationParameter:
 class AWSManagedADDomainMembersSG:
     """AWS::EC2::SecurityGroup resource."""
 
-    resource: SecurityGroup
+    resource: ec2.SecurityGroup
     group_description = Sub('${AWSManagedADDomainNetBiosName} Domain Members SG via AWS Managed Microsoft AD')
     vpc_id = ref(VPCID)
     security_group_ingress = [AWSManagedADDomainMembersSGIngress, AWSManagedADDomainMembersSGIngress1, AWSManagedADDomainMembersSGIngress2]

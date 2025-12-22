@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import SubscriptionEndPoint, SubscriptionProtocol
+from .stack_config import SubscriptionEndPoint, SubscriptionProtocol
 from .outputs import QueueNameOutput, TopicARNOutput
 
 

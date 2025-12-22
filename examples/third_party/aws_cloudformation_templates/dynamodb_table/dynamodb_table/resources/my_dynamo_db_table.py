@@ -5,28 +5,28 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class myDynamoDBTableAttributeDefinition:
-    resource: AttributeDefinition
+    resource: dynamodb.AttributeDefinition
     attribute_name = ref(HashKeyElementName)
     attribute_type = ref(HashKeyElementType)
 
 
 @cloudformation_dataclass
 class myDynamoDBTableKeySchema:
-    resource: KeySchema
+    resource: dynamodb.KeySchema
     attribute_name = ref(HashKeyElementName)
     key_type = KeyType.HASH
 
 
 @cloudformation_dataclass
 class myDynamoDBTableProvisionedThroughput:
-    resource: ProvisionedThroughput
+    resource: dynamodb.ProvisionedThroughput
     read_capacity_units = ref(ReadCapacityUnits)
     write_capacity_units = ref(WriteCapacityUnits)
 
 
 @cloudformation_dataclass
 class myDynamoDBTablePointInTimeRecoverySpecification:
-    resource: PointInTimeRecoverySpecification
+    resource: dynamodb.PointInTimeRecoverySpecification
     point_in_time_recovery_enabled = True
 
 
@@ -34,7 +34,7 @@ class myDynamoDBTablePointInTimeRecoverySpecification:
 class myDynamoDBTable:
     """AWS::DynamoDB::Table resource."""
 
-    resource: Table
+    resource: dynamodb.Table
     attribute_definitions = [myDynamoDBTableAttributeDefinition]
     key_schema = [myDynamoDBTableKeySchema]
     provisioned_throughput = myDynamoDBTableProvisionedThroughput

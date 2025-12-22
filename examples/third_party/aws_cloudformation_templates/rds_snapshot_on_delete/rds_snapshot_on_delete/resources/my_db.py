@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class MyDB:
     """AWS::RDS::DBInstance resource."""
 
-    resource: DBInstance
+    resource: rds.DBInstance
     db_name = 'MyDatabase'
     allocated_storage = '5'
     db_instance_class = 'db.t3.small'

@@ -14,7 +14,7 @@ class ECSALBLoadBalancerAttribute:
 class ECSALB:
     """AWS::ElasticLoadBalancingV2::LoadBalancer resource."""
 
-    resource: LoadBalancer
+    resource: elasticloadbalancingv2.LoadBalancer
     name = 'ECSALB'
     scheme = 'internet-facing'
     load_balancer_attributes = [ECSALBLoadBalancerAttribute]

@@ -39,7 +39,7 @@ class VPCFlowLogsRolePolicies0PolicyDocument:
 
 @cloudformation_dataclass
 class VPCFlowLogsRolePolicy:
-    resource: Policy
+    resource: iam.Policy
     policy_name = 'CloudWatchLogGroup'
     policy_document = VPCFlowLogsRolePolicies0PolicyDocument
 
@@ -48,7 +48,7 @@ class VPCFlowLogsRolePolicy:
 class VPCFlowLogsRole:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     description = 'Rights to Publish VPC Flow Logs to CloudWatch Logs'
     assume_role_policy_document = VPCFlowLogsRoleAssumeRolePolicyDocument
     path = '/'

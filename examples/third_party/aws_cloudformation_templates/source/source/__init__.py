@@ -13,70 +13,48 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.iam import Policy, Role
-from cloudformation_dataclasses.aws.kms import Alias, Key
+from cloudformation_dataclasses.aws import iam, kms, s3
 from cloudformation_dataclasses.aws.s3 import (
     AccessControlTranslation,
-    Bucket,
-    BucketEncryption,
     BucketVersioningStatus,
     DeleteMarkerReplication,
-    EncryptionConfiguration,
-    PublicAccessBlockConfiguration,
-    ReplicationConfiguration,
-    ReplicationDestination,
-    ReplicationRule,
     ReplicationRuleFilter,
     ReplicationRuleStatus,
     ServerSideEncryption,
-    ServerSideEncryptionByDefault,
-    ServerSideEncryptionRule,
     SourceSelectionCriteria,
     SseKmsEncryptedObjects,
-    VersioningConfiguration,
 )
 from cloudformation_dataclasses.intrinsics import Sub
 
-from .config import AccountIdDestination
+from .stack_config import AccountIdDestination
 
 from .resources import *  # noqa: F403, F401
 
 __all__ = [
     "AccessControlTranslation",
     "AccountIdDestination",
-    "Alias",
-    "Bucket",
-    "BucketEncryption",
     "BucketVersioningStatus",
     "DeleteMarkerReplication",
-    "EncryptionConfiguration",
-    "Key",
     "KmsKey",
     "KmsKeyAlias",
     "Parameter",
-    "Policy",
     "PolicyDocument",
     "PolicyStatement",
-    "PublicAccessBlockConfiguration",
-    "ReplicationConfiguration",
-    "ReplicationDestination",
     "ReplicationRole",
-    "ReplicationRule",
     "ReplicationRuleFilter",
     "ReplicationRuleStatus",
-    "Role",
     "S3BucketSource",
     "STRING",
     "STRING_EQUALS",
     "ServerSideEncryption",
-    "ServerSideEncryptionByDefault",
-    "ServerSideEncryptionRule",
     "SourceSelectionCriteria",
     "SseKmsEncryptedObjects",
     "Sub",
     "Template",
-    "VersioningConfiguration",
     "cloudformation_dataclass",
     "get_att",
+    "iam",
+    "kms",
     "ref",
+    "s3",
 ]

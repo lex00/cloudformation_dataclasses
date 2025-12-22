@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class InstanceSecurityGroupIngress:
-    resource: Ingress
+    resource: ec2.Ingress
     cidr_ip = ref(SecurityAccessCIDR)
     from_port = 22
     ip_protocol = 'tcp'
@@ -16,7 +16,7 @@ class InstanceSecurityGroupIngress:
 class InstanceSecurityGroup:
     """AWS::EC2::SecurityGroup resource."""
 
-    resource: SecurityGroup
+    resource: ec2.SecurityGroup
     group_description = 'Allow inbound SSH access'
     security_group_ingress = [InstanceSecurityGroupIngress]
     vpc_id = ref(VPC)

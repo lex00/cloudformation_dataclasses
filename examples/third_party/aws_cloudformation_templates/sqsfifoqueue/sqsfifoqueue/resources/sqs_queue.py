@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class SQSQueue:
     """AWS::SQS::Queue resource."""
 
-    resource: Queue
+    resource: sqs.Queue
     content_based_deduplication = ref(ContentBasedDeduplication)
     fifo_queue = 'true'
     queue_name = Join('', [

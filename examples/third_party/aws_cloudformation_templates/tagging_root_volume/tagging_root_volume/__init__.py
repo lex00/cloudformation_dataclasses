@@ -13,12 +13,11 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import iam
-from cloudformation_dataclasses.aws.ec2 import AssociationParameter, BlockDeviceMapping, EbsBlockDevice, Instance
-from cloudformation_dataclasses.aws.iam import Policy, Role
+from cloudformation_dataclasses.aws import ec2, iam
+from cloudformation_dataclasses.aws.ec2 import AssociationParameter
 from cloudformation_dataclasses.intrinsics import AWS_STACK_NAME, Base64
 
-from .config import (
+from .stack_config import (
     InstanceAZ,
     InstanceType,
     KeyName,
@@ -33,9 +32,6 @@ __all__ = [
     "AWS_STACK_NAME",
     "AssociationParameter",
     "Base64",
-    "BlockDeviceMapping",
-    "EbsBlockDevice",
-    "Instance",
     "InstanceAZ",
     "InstanceProfile",
     "InstanceRole",
@@ -45,16 +41,15 @@ __all__ = [
     "LinuxInstance",
     "Parameter",
     "ParameterType",
-    "Policy",
     "PolicyDocument",
     "PolicyStatement",
-    "Role",
     "STRING",
     "SubnetId",
     "Template",
     "WindowsAMIID",
     "WindowsInstance",
     "cloudformation_dataclass",
+    "ec2",
     "get_att",
     "iam",
     "ref",

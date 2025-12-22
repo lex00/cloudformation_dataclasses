@@ -10,51 +10,33 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.iam import Policy, Role
-from cloudformation_dataclasses.aws.lambda_ import Code, Function, Permission
-from cloudformation_dataclasses.aws.s3 import (
-    Bucket,
-    BucketEncryption,
-    LambdaConfiguration,
-    NotificationConfiguration,
-    PublicAccessBlockConfiguration,
-    ServerSideEncryption,
-    ServerSideEncryptionByDefault,
-    ServerSideEncryptionRule,
-)
+from cloudformation_dataclasses.aws import iam, lambda_, s3
+from cloudformation_dataclasses.aws.s3 import LambdaConfiguration, ServerSideEncryption
 from cloudformation_dataclasses.intrinsics import AWS_ACCOUNT_ID, Sub
 
-from .config import NotificationBucket
+from .stack_config import NotificationBucket
 
 from .resources import *  # noqa: F403, F401
 
 __all__ = [
     "AWS_ACCOUNT_ID",
-    "Bucket",
-    "BucketEncryption",
-    "Code",
-    "Function",
     "LambdaConfiguration",
     "LambdaIAMRole",
     "LambdaInvokePermission",
     "NotificationBucket",
-    "NotificationConfiguration",
     "Parameter",
-    "Permission",
-    "Policy",
     "PolicyDocument",
     "PolicyStatement",
-    "PublicAccessBlockConfiguration",
-    "Role",
     "S3BucketNotification",
     "S3TriggerLambdaFunction",
     "STRING",
     "ServerSideEncryption",
-    "ServerSideEncryptionByDefault",
-    "ServerSideEncryptionRule",
     "Sub",
     "Template",
     "cloudformation_dataclass",
     "get_att",
+    "iam",
+    "lambda_",
     "ref",
+    "s3",
 ]

@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class InstanceAZFunctionCode:
-    resource: Code
+    resource: lambda_.Code
     zip_file = """import sys
 import cfnresponse
 import boto3
@@ -69,7 +69,7 @@ def handler(event, context):
 class InstanceAZFunction:
     """AWS::Lambda::Function resource."""
 
-    resource: Function
+    resource: lambda_.Function
     code = InstanceAZFunctionCode
     description = 'Queries account and region for supported AZ'
     handler = 'index.handler'

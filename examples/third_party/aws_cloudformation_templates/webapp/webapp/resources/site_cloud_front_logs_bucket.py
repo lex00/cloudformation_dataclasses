@@ -5,31 +5,31 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class SiteCloudFrontLogsBucketServerSideEncryptionByDefault:
-    resource: ServerSideEncryptionByDefault
+    resource: s3.ServerSideEncryptionByDefault
     sse_algorithm = ServerSideEncryption.AES256
 
 
 @cloudformation_dataclass
 class SiteCloudFrontLogsBucketServerSideEncryptionRule:
-    resource: ServerSideEncryptionRule
+    resource: s3.ServerSideEncryptionRule
     server_side_encryption_by_default = SiteCloudFrontLogsBucketServerSideEncryptionByDefault
 
 
 @cloudformation_dataclass
 class SiteCloudFrontLogsBucketBucketEncryption:
-    resource: BucketEncryption
+    resource: s3.BucketEncryption
     server_side_encryption_configuration = [SiteCloudFrontLogsBucketServerSideEncryptionRule]
 
 
 @cloudformation_dataclass
 class SiteCloudFrontLogsBucketLoggingConfiguration:
-    resource: LoggingConfiguration
+    resource: s3.LoggingConfiguration
     destination_bucket_name = ref(SiteCloudFrontLogsLogBucket)
 
 
 @cloudformation_dataclass
 class SiteCloudFrontLogsBucketPublicAccessBlockConfiguration:
-    resource: PublicAccessBlockConfiguration
+    resource: s3.PublicAccessBlockConfiguration
     block_public_acls = True
     block_public_policy = True
     ignore_public_acls = True
@@ -38,27 +38,27 @@ class SiteCloudFrontLogsBucketPublicAccessBlockConfiguration:
 
 @cloudformation_dataclass
 class SiteCloudFrontLogsBucketReplicationDestination:
-    resource: ReplicationDestination
+    resource: s3.ReplicationDestination
     bucket = get_att(SiteCloudFrontLogsReplicaBucket, "Arn")
 
 
 @cloudformation_dataclass
 class SiteCloudFrontLogsBucketReplicationRule:
-    resource: ReplicationRule
+    resource: s3.ReplicationRule
     destination = SiteCloudFrontLogsBucketReplicationDestination
     status = ReplicationRuleStatus.ENABLED
 
 
 @cloudformation_dataclass
 class SiteCloudFrontLogsBucketReplicationConfiguration:
-    resource: ReplicationConfiguration
+    resource: s3.ReplicationConfiguration
     role = get_att(SiteCloudFrontLogsReplicationRole, "Arn")
     rules = [SiteCloudFrontLogsBucketReplicationRule]
 
 
 @cloudformation_dataclass
 class SiteCloudFrontLogsBucketVersioningConfiguration:
-    resource: VersioningConfiguration
+    resource: s3.VersioningConfiguration
     status = BucketVersioningStatus.ENABLED
 
 
@@ -78,7 +78,7 @@ class SiteCloudFrontLogsBucketOwnershipControls:
 class SiteCloudFrontLogsBucket:
     """AWS::S3::Bucket resource."""
 
-    resource: Bucket
+    resource: s3.Bucket
     bucket_encryption = SiteCloudFrontLogsBucketBucketEncryption
     bucket_name = Sub('${AppName}-cflogs-${AWS::Region}-${AWS::AccountId}')
     logging_configuration = SiteCloudFrontLogsBucketLoggingConfiguration

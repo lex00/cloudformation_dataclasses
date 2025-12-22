@@ -13,17 +13,11 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.ec2 import (
-    AssociationParameter,
-    Ingress,
-    Instance,
-    SecurityGroup,
-    SsmAssociation,
-)
-from cloudformation_dataclasses.aws.iam import InstanceProfile, Role
+from cloudformation_dataclasses.aws import ec2, iam
+from cloudformation_dataclasses.aws.ec2 import AssociationParameter, SsmAssociation
 from cloudformation_dataclasses.aws.ssm import Document
 
-from .config import (
+from .stack_config import (
     ADDirectoryId,
     ADDirectoryName,
     ADDnsIpAddresses1,
@@ -45,9 +39,6 @@ __all__ = [
     "AMI",
     "AssociationParameter",
     "Document",
-    "Ingress",
-    "Instance",
-    "InstanceProfile",
     "InstanceSecurityGroup",
     "InstanceType",
     "KeyPair",
@@ -56,14 +47,14 @@ __all__ = [
     "PolicyDocument",
     "PolicyStatement",
     "PublicSubnet",
-    "Role",
     "STRING",
-    "SecurityGroup",
     "SsmAssociation",
     "Template",
     "VPC",
     "cloudformation_dataclass",
+    "ec2",
     "get_att",
+    "iam",
     "myEC2InstanceSSM",
     "myEC2SSMRole",
     "myInstanceProfile",

@@ -7,6 +7,6 @@ from .. import *  # noqa: F403
 class EC2InstanceProfile:
     """AWS::IAM::InstanceProfile resource."""
 
-    resource: InstanceProfile
+    resource: iam.InstanceProfile
     path = '/'
     roles = [ref(EC2Role)]

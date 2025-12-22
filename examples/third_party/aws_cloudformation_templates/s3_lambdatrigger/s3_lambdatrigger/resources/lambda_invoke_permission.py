@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class LambdaInvokePermission:
     """AWS::Lambda::Permission resource."""
 
-    resource: Permission
+    resource: lambda_.Permission
     function_name = get_att(S3TriggerLambdaFunction, "Arn")
     action = 'lambda:InvokeFunction'
     principal = 's3.amazonaws.com'

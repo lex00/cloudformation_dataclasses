@@ -5,25 +5,25 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class ObjectStorageReplicaBucketServerSideEncryptionByDefault:
-    resource: ServerSideEncryptionByDefault
+    resource: s3.ServerSideEncryptionByDefault
     sse_algorithm = ServerSideEncryption.AES256
 
 
 @cloudformation_dataclass
 class ObjectStorageReplicaBucketServerSideEncryptionRule:
-    resource: ServerSideEncryptionRule
+    resource: s3.ServerSideEncryptionRule
     server_side_encryption_by_default = ObjectStorageReplicaBucketServerSideEncryptionByDefault
 
 
 @cloudformation_dataclass
 class ObjectStorageReplicaBucketBucketEncryption:
-    resource: BucketEncryption
+    resource: s3.BucketEncryption
     server_side_encryption_configuration = [ObjectStorageReplicaBucketServerSideEncryptionRule]
 
 
 @cloudformation_dataclass
 class ObjectStorageReplicaBucketPublicAccessBlockConfiguration:
-    resource: PublicAccessBlockConfiguration
+    resource: s3.PublicAccessBlockConfiguration
     block_public_acls = True
     block_public_policy = True
     ignore_public_acls = True
@@ -32,7 +32,7 @@ class ObjectStorageReplicaBucketPublicAccessBlockConfiguration:
 
 @cloudformation_dataclass
 class ObjectStorageReplicaBucketVersioningConfiguration:
-    resource: VersioningConfiguration
+    resource: s3.VersioningConfiguration
     status = BucketVersioningStatus.ENABLED
 
 
@@ -40,7 +40,7 @@ class ObjectStorageReplicaBucketVersioningConfiguration:
 class ObjectStorageReplicaBucket:
     """AWS::S3::Bucket resource."""
 
-    resource: Bucket
+    resource: s3.Bucket
     bucket_encryption = ObjectStorageReplicaBucketBucketEncryption
     bucket_name = Sub('${AppName}-replicas-${AWS::Region}-${AWS::AccountId}')
     object_lock_enabled = False

@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class EC2Instance:
     """AWS::EC2::Instance resource."""
 
-    resource: Instance
+    resource: ec2.Instance
     instance_type = ref(InstanceType)
     iam_instance_profile = ref(IAMRole)
     key_name = ref(KeyName)

@@ -5,14 +5,14 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class WebServerGroupLaunchTemplateSpecification:
-    resource: LaunchTemplateSpecification
+    resource: autoscaling.LaunchTemplateSpecification
     launch_template_id = ref(LaunchTemplate)
     version = get_att(LaunchTemplate, "LatestVersionNumber")
 
 
 @cloudformation_dataclass
 class WebServerGroupNotificationConfiguration:
-    resource: NotificationConfiguration
+    resource: autoscaling.NotificationConfiguration
     topic_arn = ref(NotificationTopic)
     notification_types = ['autoscaling:EC2_INSTANCE_LAUNCH', 'autoscaling:EC2_INSTANCE_LAUNCH_ERROR', 'autoscaling:EC2_INSTANCE_TERMINATE', 'autoscaling:EC2_INSTANCE_TERMINATE_ERROR']
 

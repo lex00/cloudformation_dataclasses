@@ -13,10 +13,11 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.directoryservice import MicrosoftAD, VpcSettings
+from cloudformation_dataclasses.aws import directoryservice
+from cloudformation_dataclasses.aws.directoryservice import MicrosoftAD
 from cloudformation_dataclasses.intrinsics import Equals, Select
 
-from .config import (
+from .stack_config import (
     cAliasCondition,
     pCreateAlias,
     pDomainName,
@@ -40,9 +41,9 @@ __all__ = [
     "STRING",
     "Select",
     "Template",
-    "VpcSettings",
     "cAliasCondition",
     "cloudformation_dataclass",
+    "directoryservice",
     "get_att",
     "pCreateAlias",
     "pDomainName",

@@ -12,10 +12,9 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import directoryservice
-from cloudformation_dataclasses.aws.directoryservice import VpcSettings
 from cloudformation_dataclasses.intrinsics import Equals, Select
 
-from .config import (
+from .stack_config import (
     AliasCondition,
     CreateAlias,
     DomainName,
@@ -46,7 +45,6 @@ __all__ = [
     "Size",
     "Template",
     "VPCID",
-    "VpcSettings",
     "cloudformation_dataclass",
     "directoryservice",
     "get_att",

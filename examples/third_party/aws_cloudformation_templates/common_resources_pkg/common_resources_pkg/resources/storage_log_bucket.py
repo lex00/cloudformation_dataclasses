@@ -5,19 +5,19 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class StorageLogBucketServerSideEncryptionByDefault:
-    resource: ServerSideEncryptionByDefault
+    resource: s3.ServerSideEncryptionByDefault
     sse_algorithm = ServerSideEncryption.AES256
 
 
 @cloudformation_dataclass
 class StorageLogBucketServerSideEncryptionRule:
-    resource: ServerSideEncryptionRule
+    resource: s3.ServerSideEncryptionRule
     server_side_encryption_by_default = StorageLogBucketServerSideEncryptionByDefault
 
 
 @cloudformation_dataclass
 class StorageLogBucketBucketEncryption:
-    resource: BucketEncryption
+    resource: s3.BucketEncryption
     server_side_encryption_configuration = [StorageLogBucketServerSideEncryptionRule]
 
 
@@ -43,7 +43,7 @@ class StorageLogBucketObjectLockConfiguration:
 
 @cloudformation_dataclass
 class StorageLogBucketPublicAccessBlockConfiguration:
-    resource: PublicAccessBlockConfiguration
+    resource: s3.PublicAccessBlockConfiguration
     block_public_acls = True
     block_public_policy = True
     ignore_public_acls = True
@@ -52,7 +52,7 @@ class StorageLogBucketPublicAccessBlockConfiguration:
 
 @cloudformation_dataclass
 class StorageLogBucketVersioningConfiguration:
-    resource: VersioningConfiguration
+    resource: s3.VersioningConfiguration
     status = BucketVersioningStatus.ENABLED
 
 
@@ -60,7 +60,7 @@ class StorageLogBucketVersioningConfiguration:
 class StorageLogBucket:
     """AWS::S3::Bucket resource."""
 
-    resource: Bucket
+    resource: s3.Bucket
     bucket_encryption = StorageLogBucketBucketEncryption
     bucket_name = Sub('${AppName}-logs-${AWS::Region}-${AWS::AccountId}')
     object_lock_configuration = StorageLogBucketObjectLockConfiguration

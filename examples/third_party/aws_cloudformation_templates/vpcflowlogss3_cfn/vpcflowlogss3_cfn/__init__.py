@@ -18,18 +18,9 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
+from cloudformation_dataclasses.aws import s3
 from cloudformation_dataclasses.aws.ec2 import AssociationParameter, FlowLog
-from cloudformation_dataclasses.aws.s3 import (
-    Bucket,
-    BucketEncryption,
-    BucketPolicy,
-    BucketVersioningStatus,
-    LoggingConfiguration,
-    PublicAccessBlockConfiguration,
-    ServerSideEncryptionByDefault,
-    ServerSideEncryptionRule,
-    VersioningConfiguration,
-)
+from cloudformation_dataclasses.aws.s3 import BucketVersioningStatus, LoggingConfiguration
 from cloudformation_dataclasses.intrinsics import (
     AWS_NO_VALUE,
     Equals,
@@ -38,7 +29,7 @@ from cloudformation_dataclasses.intrinsics import (
     Sub,
 )
 
-from .config import (
+from .stack_config import (
     S3AccessLogsBucketName,
     S3AccessLogsConditionCondition,
     VPCFlowLogsBucketKMSKey,
@@ -58,9 +49,6 @@ __all__ = [
     "AWS_NO_VALUE",
     "AssociationParameter",
     "BOOL",
-    "Bucket",
-    "BucketEncryption",
-    "BucketPolicy",
     "BucketVersioningStatus",
     "Condition",
     "DenyStatement",
@@ -74,13 +62,10 @@ __all__ = [
     "ParameterType",
     "PolicyDocument",
     "PolicyStatement",
-    "PublicAccessBlockConfiguration",
     "S3AccessLogsBucketName",
     "S3AccessLogsConditionCondition",
     "STRING",
     "STRING_EQUALS",
-    "ServerSideEncryptionByDefault",
-    "ServerSideEncryptionRule",
     "Sub",
     "Template",
     "VPCFlowLogsBucket",
@@ -95,8 +80,8 @@ __all__ = [
     "VPCFlowLogsTrafficType",
     "VPCFlowLogstoS3",
     "VPCID",
-    "VersioningConfiguration",
     "cloudformation_dataclass",
     "get_att",
     "ref",
+    "s3",
 ]

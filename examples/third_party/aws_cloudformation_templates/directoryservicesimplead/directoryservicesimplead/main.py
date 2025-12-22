@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import AliasCondition, CreateAlias, DomainName, PrivateSubnet1, PrivateSubnet2, SimpleADShortName, Size, VPCID
+from .stack_config import AliasCondition, CreateAlias, DomainName, PrivateSubnet1, PrivateSubnet2, SimpleADShortName, Size, VPCID
 from .outputs import DirectoryAliasOutput, DirectoryIDOutput, PrimaryDNSOutput, SecondaryDNSOutput
 
 

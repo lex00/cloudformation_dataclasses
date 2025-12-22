@@ -33,7 +33,7 @@ class RootRolePolicies0PolicyDocument:
 
 @cloudformation_dataclass
 class RootRolePolicy:
-    resource: Policy
+    resource: iam.Policy
     policy_name = 'root'
     policy_document = RootRolePolicies0PolicyDocument
 
@@ -42,7 +42,7 @@ class RootRolePolicy:
 class RootRole:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     assume_role_policy_document = RootRoleAssumeRolePolicyDocument
     path = '/'
     policies = [RootRolePolicy]

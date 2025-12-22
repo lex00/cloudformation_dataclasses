@@ -14,7 +14,7 @@ class JoinDomainAssociationInstancesInstanceAssociationOutputLocation:
 
 @cloudformation_dataclass
 class JoinDomainAssociationInstancesTarget:
-    resource: Target
+    resource: ssm.Target
     key = 'InstanceIds'
     values = [ref(DomainMember2WithSsmAssociationInstance), ref(DomainMember4LinuxWithSsmAssociationInstance)]
 
@@ -23,7 +23,7 @@ class JoinDomainAssociationInstancesTarget:
 class JoinDomainAssociationInstances:
     """AWS::SSM::Association resource."""
 
-    resource: Association
+    resource: ssm.Association
     association_name = Sub('JoinDomain-Association-viaInstances-${AWS::StackName}')
     name = 'AWS-JoinDirectoryServiceDomain'
     output_location = JoinDomainAssociationInstancesInstanceAssociationOutputLocation

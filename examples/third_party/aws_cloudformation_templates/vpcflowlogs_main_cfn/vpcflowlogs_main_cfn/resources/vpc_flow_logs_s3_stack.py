@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class VPCFlowLogsS3Stack:
     """AWS::CloudFormation::Stack resource."""
 
-    resource: Stack
+    resource: cloudformation.Stack
     template_url = Sub('https://${TemplatesS3BucketName}.s3.${TemplatesS3BucketRegion}.${AWS::URLSuffix}/templates/VPCFlowLogsS3.cfn.yaml')
     parameters = {
         'S3AccessLogsBucketName': ref(S3AccessLogsBucketName),

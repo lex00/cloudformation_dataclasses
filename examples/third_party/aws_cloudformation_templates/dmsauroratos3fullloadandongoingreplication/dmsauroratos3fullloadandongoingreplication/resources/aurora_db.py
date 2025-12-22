@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class AuroraDBTagFormat:
-    resource: TagFormat
+    resource: rds.TagFormat
     key = 'Application'
     value = AWS_STACK_ID
 
@@ -14,7 +14,7 @@ class AuroraDBTagFormat:
 class AuroraDB:
     """AWS::RDS::DBInstance resource."""
 
-    resource: DBInstance
+    resource: rds.DBInstance
     db_cluster_identifier = ref(AuroraCluster)
     db_instance_class = 'db.t3.medium'
     db_instance_identifier = 'dms-sample'

@@ -5,31 +5,31 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class StorageBucketServerSideEncryptionByDefault:
-    resource: ServerSideEncryptionByDefault
+    resource: s3.ServerSideEncryptionByDefault
     sse_algorithm = ServerSideEncryption.AES256
 
 
 @cloudformation_dataclass
 class StorageBucketServerSideEncryptionRule:
-    resource: ServerSideEncryptionRule
+    resource: s3.ServerSideEncryptionRule
     server_side_encryption_by_default = StorageBucketServerSideEncryptionByDefault
 
 
 @cloudformation_dataclass
 class StorageBucketBucketEncryption:
-    resource: BucketEncryption
+    resource: s3.BucketEncryption
     server_side_encryption_configuration = [StorageBucketServerSideEncryptionRule]
 
 
 @cloudformation_dataclass
 class StorageBucketLoggingConfiguration:
-    resource: LoggingConfiguration
+    resource: s3.LoggingConfiguration
     destination_bucket_name = ref(StorageLogBucket)
 
 
 @cloudformation_dataclass
 class StorageBucketPublicAccessBlockConfiguration:
-    resource: PublicAccessBlockConfiguration
+    resource: s3.PublicAccessBlockConfiguration
     block_public_acls = True
     block_public_policy = True
     ignore_public_acls = True
@@ -38,27 +38,27 @@ class StorageBucketPublicAccessBlockConfiguration:
 
 @cloudformation_dataclass
 class StorageBucketReplicationDestination:
-    resource: ReplicationDestination
+    resource: s3.ReplicationDestination
     bucket = get_att(StorageReplicaBucket, "Arn")
 
 
 @cloudformation_dataclass
 class StorageBucketReplicationRule:
-    resource: ReplicationRule
+    resource: s3.ReplicationRule
     destination = StorageBucketReplicationDestination
     status = ReplicationRuleStatus.ENABLED
 
 
 @cloudformation_dataclass
 class StorageBucketReplicationConfiguration:
-    resource: ReplicationConfiguration
+    resource: s3.ReplicationConfiguration
     role = get_att(StorageReplicationRole, "Arn")
     rules = [StorageBucketReplicationRule]
 
 
 @cloudformation_dataclass
 class StorageBucketVersioningConfiguration:
-    resource: VersioningConfiguration
+    resource: s3.VersioningConfiguration
     status = BucketVersioningStatus.ENABLED
 
 
@@ -66,7 +66,7 @@ class StorageBucketVersioningConfiguration:
 class StorageBucket:
     """AWS::S3::Bucket resource."""
 
-    resource: Bucket
+    resource: s3.Bucket
     bucket_encryption = StorageBucketBucketEncryption
     bucket_name = Sub('${AppName}-${AWS::Region}-${AWS::AccountId}')
     logging_configuration = StorageBucketLoggingConfiguration

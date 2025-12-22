@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import PrivateSubnet1CIDR, PrivateSubnet2CIDR, PublicSubnet1CIDR, PublicSubnet2CIDR, RegionMapMapping, VpcCIDR
+from .stack_config import PrivateSubnet1CIDR, PrivateSubnet2CIDR, PublicSubnet1CIDR, PublicSubnet2CIDR, RegionMapMapping, VpcCIDR
 
 
 def build_template() -> Template:

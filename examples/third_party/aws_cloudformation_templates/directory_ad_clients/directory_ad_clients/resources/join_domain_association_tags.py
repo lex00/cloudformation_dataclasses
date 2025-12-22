@@ -14,7 +14,7 @@ class JoinDomainAssociationTagsInstanceAssociationOutputLocation:
 
 @cloudformation_dataclass
 class JoinDomainAssociationTagsTarget:
-    resource: Target
+    resource: ssm.Target
     key = 'tag:DomainJoin'
     values = [ref(DirectoryName)]
 
@@ -23,7 +23,7 @@ class JoinDomainAssociationTagsTarget:
 class JoinDomainAssociationTags:
     """AWS::SSM::Association resource."""
 
-    resource: Association
+    resource: ssm.Association
     association_name = Sub('JoinDomain-Association-viaTags-${AWS::StackName}')
     name = 'AWS-JoinDirectoryServiceDomain'
     output_location = JoinDomainAssociationTagsInstanceAssociationOutputLocation

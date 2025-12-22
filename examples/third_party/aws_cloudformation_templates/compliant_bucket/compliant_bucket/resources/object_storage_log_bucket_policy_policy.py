@@ -49,6 +49,6 @@ class ObjectStorageLogBucketPolicyPolicyPolicyDocument:
 class ObjectStorageLogBucketPolicyPolicy:
     """AWS::S3::BucketPolicy resource."""
 
-    resource: BucketPolicy
+    resource: s3.BucketPolicy
     bucket = ref(ObjectStorageLogBucket)
     policy_document = ObjectStorageLogBucketPolicyPolicyPolicyDocument

@@ -5,14 +5,14 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class LoadBalancerListenerAction:
-    resource: Action
+    resource: elasticloadbalancingv2.Action
     target_group_arn = ref(TargetGroup)
     type_ = 'forward'
 
 
 @cloudformation_dataclass
 class LoadBalancerListenerCertificate:
-    resource: Certificate
+    resource: elasticloadbalancingv2.Certificate
     certificate_arn = ref(CertificateArn)
 
 
@@ -20,7 +20,7 @@ class LoadBalancerListenerCertificate:
 class LoadBalancerListener:
     """AWS::ElasticLoadBalancingV2::Listener resource."""
 
-    resource: Listener
+    resource: elasticloadbalancingv2.Listener
     default_actions = [LoadBalancerListenerAction]
     load_balancer_arn = ref(LoadBalancer)
     port = 443

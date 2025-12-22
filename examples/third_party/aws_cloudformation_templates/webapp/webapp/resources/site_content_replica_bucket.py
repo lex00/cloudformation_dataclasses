@@ -5,25 +5,25 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class SiteContentReplicaBucketServerSideEncryptionByDefault:
-    resource: ServerSideEncryptionByDefault
+    resource: s3.ServerSideEncryptionByDefault
     sse_algorithm = ServerSideEncryption.AES256
 
 
 @cloudformation_dataclass
 class SiteContentReplicaBucketServerSideEncryptionRule:
-    resource: ServerSideEncryptionRule
+    resource: s3.ServerSideEncryptionRule
     server_side_encryption_by_default = SiteContentReplicaBucketServerSideEncryptionByDefault
 
 
 @cloudformation_dataclass
 class SiteContentReplicaBucketBucketEncryption:
-    resource: BucketEncryption
+    resource: s3.BucketEncryption
     server_side_encryption_configuration = [SiteContentReplicaBucketServerSideEncryptionRule]
 
 
 @cloudformation_dataclass
 class SiteContentReplicaBucketPublicAccessBlockConfiguration:
-    resource: PublicAccessBlockConfiguration
+    resource: s3.PublicAccessBlockConfiguration
     block_public_acls = True
     block_public_policy = True
     ignore_public_acls = True
@@ -32,7 +32,7 @@ class SiteContentReplicaBucketPublicAccessBlockConfiguration:
 
 @cloudformation_dataclass
 class SiteContentReplicaBucketVersioningConfiguration:
-    resource: VersioningConfiguration
+    resource: s3.VersioningConfiguration
     status = BucketVersioningStatus.ENABLED
 
 
@@ -40,7 +40,7 @@ class SiteContentReplicaBucketVersioningConfiguration:
 class SiteContentReplicaBucket:
     """AWS::S3::Bucket resource."""
 
-    resource: Bucket
+    resource: s3.Bucket
     bucket_encryption = SiteContentReplicaBucketBucketEncryption
     bucket_name = Sub('${AppName}-content-replicas-${AWS::Region}-${AWS::AccountId}')
     object_lock_enabled = False

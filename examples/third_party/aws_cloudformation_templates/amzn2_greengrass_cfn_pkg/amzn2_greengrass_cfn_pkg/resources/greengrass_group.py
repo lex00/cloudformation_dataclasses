@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class GreengrassGroupGroupVersion:
-    resource: GroupVersion
+    resource: greengrass.GroupVersion
     core_definition_version_arn = ref(GreengrassCoreDefinitionVersion)
     function_definition_version_arn = get_att(FunctionDefinition, "LatestVersionArn")
     subscription_definition_version_arn = get_att(SubscriptionDefinition, "LatestVersionArn")
@@ -15,7 +15,7 @@ class GreengrassGroupGroupVersion:
 class GreengrassGroup:
     """AWS::Greengrass::Group resource."""
 
-    resource: Group
+    resource: greengrass.Group
     initial_version = GreengrassGroupGroupVersion
     name = ref(CoreName)
     role_arn = get_att(GreengrassResourceRole, "Arn")

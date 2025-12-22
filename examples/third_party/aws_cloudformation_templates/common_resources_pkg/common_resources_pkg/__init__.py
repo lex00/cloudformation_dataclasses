@@ -18,32 +18,21 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.iam import Role, RolePolicy
+from cloudformation_dataclasses.aws import iam, s3, sqs
+from cloudformation_dataclasses.aws.iam import RolePolicy
 from cloudformation_dataclasses.aws.s3 import (
-    Bucket,
-    BucketEncryption,
-    BucketPolicy,
     BucketVersioningStatus,
     DefaultRetention,
-    LoggingConfiguration,
     ObjectLockConfiguration,
     ObjectLockEnabled,
     ObjectLockRetentionMode,
     ObjectLockRule,
-    PublicAccessBlockConfiguration,
-    ReplicationConfiguration,
-    ReplicationDestination,
-    ReplicationRule,
     ReplicationRuleStatus,
     ServerSideEncryption,
-    ServerSideEncryptionByDefault,
-    ServerSideEncryptionRule,
-    VersioningConfiguration,
 )
-from cloudformation_dataclasses.aws.sqs import Queue
 from cloudformation_dataclasses.intrinsics import AWS_ACCOUNT_ID, Sub
 
-from .config import AppName
+from .stack_config import AppName
 
 from .resources import *  # noqa: F403, F401
 
@@ -52,13 +41,9 @@ __all__ = [
     "AWS_ACCOUNT_ID",
     "AppName",
     "BOOL",
-    "Bucket",
-    "BucketEncryption",
-    "BucketPolicy",
     "BucketVersioningStatus",
     "DefaultRetention",
     "DenyStatement",
-    "LoggingConfiguration",
     "ObjectLockConfiguration",
     "ObjectLockEnabled",
     "ObjectLockRetentionMode",
@@ -66,19 +51,11 @@ __all__ = [
     "Parameter",
     "PolicyDocument",
     "PolicyStatement",
-    "PublicAccessBlockConfiguration",
-    "Queue",
-    "ReplicationConfiguration",
-    "ReplicationDestination",
-    "ReplicationRule",
     "ReplicationRuleStatus",
-    "Role",
     "RolePolicy",
     "STRING",
     "STRING_EQUALS",
     "ServerSideEncryption",
-    "ServerSideEncryptionByDefault",
-    "ServerSideEncryptionRule",
     "StorageBucket",
     "StorageBucketPolicyPolicy",
     "StorageLogBucket",
@@ -90,8 +67,10 @@ __all__ = [
     "Sub",
     "Template",
     "TestQ",
-    "VersioningConfiguration",
     "cloudformation_dataclass",
     "get_att",
+    "iam",
     "ref",
+    "s3",
+    "sqs",
 ]

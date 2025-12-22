@@ -12,16 +12,11 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.ec2 import (
-    EIP,
-    EIPAssociation,
-    Ingress,
-    Instance,
-    SecurityGroup,
-)
+from cloudformation_dataclasses.aws import ec2
+from cloudformation_dataclasses.aws.ec2 import EIP, EIPAssociation
 from cloudformation_dataclasses.intrinsics import Base64, Join, Select
 
-from .config import (
+from .stack_config import (
     InstanceType,
     KeyName,
     LatestAmiId,
@@ -38,8 +33,6 @@ __all__ = [
     "EIPAssociation",
     "IPAddress",
     "IPAssoc",
-    "Ingress",
-    "Instance",
     "InstanceSecurityGroup",
     "InstanceType",
     "Join",
@@ -50,11 +43,11 @@ __all__ = [
     "ParameterType",
     "SSHLocation",
     "STRING",
-    "SecurityGroup",
     "Select",
     "Subnets",
     "Template",
     "cloudformation_dataclass",
+    "ec2",
     "get_att",
     "ref",
 ]

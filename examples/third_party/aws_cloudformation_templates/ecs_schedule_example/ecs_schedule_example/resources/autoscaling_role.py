@@ -39,7 +39,7 @@ class AutoscalingRolePolicies0PolicyDocument:
 
 @cloudformation_dataclass
 class AutoscalingRolePolicy:
-    resource: Policy
+    resource: iam.Policy
     policy_name = 'service-autoscaling'
     policy_document = AutoscalingRolePolicies0PolicyDocument
 
@@ -48,7 +48,7 @@ class AutoscalingRolePolicy:
 class AutoscalingRole:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     assume_role_policy_document = AutoscalingRoleAssumeRolePolicyDocument
     path = '/'
     policies = [AutoscalingRolePolicy]

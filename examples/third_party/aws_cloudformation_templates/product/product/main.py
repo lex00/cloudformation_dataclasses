@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import AppName, Dept, Env, Owner, ProvisioningArtifactDescriptionParameter, ProvisioningArtifactNameParameter, ProvisioningArtifactTemplateUrl, SCProductDescription, SCProductDistributor, SCProductName, SCProductOwner, SCProductSupport, SCSupportEmail, SCSupportUrl, ServiceCatalogPortfolioStackName, User
+from .stack_config import AppName, Dept, Env, Owner, ProvisioningArtifactDescriptionParameter, ProvisioningArtifactNameParameter, ProvisioningArtifactTemplateUrl, SCProductDescription, SCProductDistributor, SCProductName, SCProductOwner, SCProductSupport, SCSupportEmail, SCSupportUrl, ServiceCatalogPortfolioStackName, User
 from .outputs import ServiceCatalogCloudFormationProductNameOutput, ServiceCatalogProvisioningArtifactIdsOutput, ServiceCatalogProvisioningArtifactNamesOutput
 
 

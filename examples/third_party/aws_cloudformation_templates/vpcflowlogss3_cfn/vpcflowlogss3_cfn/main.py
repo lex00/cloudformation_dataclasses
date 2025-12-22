@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import S3AccessLogsBucketName, S3AccessLogsConditionCondition, VPCFlowLogsBucketKMSKey, VPCFlowLogsBucketKMSKeyConditionCondition, VPCFlowLogsBucketKeyEnabled, VPCFlowLogsBucketName, VPCFlowLogsLogFormat, VPCFlowLogsMaxAggregationInterval, VPCFlowLogsNewBucketConditionCondition, VPCFlowLogsTrafficType, VPCID
+from .stack_config import S3AccessLogsBucketName, S3AccessLogsConditionCondition, VPCFlowLogsBucketKMSKey, VPCFlowLogsBucketKMSKeyConditionCondition, VPCFlowLogsBucketKeyEnabled, VPCFlowLogsBucketName, VPCFlowLogsLogFormat, VPCFlowLogsMaxAggregationInterval, VPCFlowLogsNewBucketConditionCondition, VPCFlowLogsTrafficType, VPCID
 from .outputs import VPCFlowLogsBucketOutput
 
 

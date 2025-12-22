@@ -12,14 +12,9 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.ec2 import (
-    AssociationParameter,
-    BlockDeviceMapping,
-    EbsBlockDevice,
-    Instance,
-    SsmAssociation,
-)
-from cloudformation_dataclasses.aws.ssm import Association, InstanceAssociationOutputLocation, S3OutputLocation, Target
+from cloudformation_dataclasses.aws import ec2, ssm
+from cloudformation_dataclasses.aws.ec2 import AssociationParameter, SsmAssociation
+from cloudformation_dataclasses.aws.ssm import InstanceAssociationOutputLocation, S3OutputLocation
 from cloudformation_dataclasses.intrinsics import (
     AWS_NO_VALUE,
     Base64,
@@ -31,7 +26,7 @@ from cloudformation_dataclasses.intrinsics import (
     Sub,
 )
 
-from .config import (
+from .stack_config import (
     AMAZONLINUX2,
     DirectoryID,
     DirectoryName,
@@ -67,10 +62,8 @@ from .resources import *  # noqa: F403, F401
 __all__ = [
     "AMAZONLINUX2",
     "AWS_NO_VALUE",
-    "Association",
     "AssociationParameter",
     "Base64",
-    "BlockDeviceMapping",
     "Condition",
     "DirectoryID",
     "DirectoryName",
@@ -97,10 +90,8 @@ __all__ = [
     "DomainMembersWindowsInstanceProfile",
     "EBSKMSKey",
     "EBSKMSKeyConditionCondition",
-    "EbsBlockDevice",
     "Equals",
     "If",
-    "Instance",
     "InstanceAssociationOutputLocation",
     "JoinDomainAssociationInstances",
     "JoinDomainAssociationTags",
@@ -117,10 +108,11 @@ __all__ = [
     "STRING",
     "SsmAssociation",
     "Sub",
-    "Target",
     "Template",
     "WINFULLBASE",
     "cloudformation_dataclass",
+    "ec2",
     "get_att",
     "ref",
+    "ssm",
 ]

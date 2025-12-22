@@ -5,42 +5,42 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class ServiceCatalogCloudFormationProductProvisioningParameter:
-    resource: ProvisioningParameter
+    resource: servicecatalog.ProvisioningParameter
     key = 'Name'
     value = Sub('${AppName}')
 
 
 @cloudformation_dataclass
 class ServiceCatalogCloudFormationProductProvisioningParameter1:
-    resource: ProvisioningParameter
+    resource: servicecatalog.ProvisioningParameter
     key = 'App'
     value = Sub('${AppName}')
 
 
 @cloudformation_dataclass
 class ServiceCatalogCloudFormationProductProvisioningParameter2:
-    resource: ProvisioningParameter
+    resource: servicecatalog.ProvisioningParameter
     key = 'Dept'
     value = Sub('${Dept}')
 
 
 @cloudformation_dataclass
 class ServiceCatalogCloudFormationProductProvisioningParameter3:
-    resource: ProvisioningParameter
+    resource: servicecatalog.ProvisioningParameter
     key = 'Env'
     value = Sub('${Env}')
 
 
 @cloudformation_dataclass
 class ServiceCatalogCloudFormationProductProvisioningParameter4:
-    resource: ProvisioningParameter
+    resource: servicecatalog.ProvisioningParameter
     key = 'User'
     value = Sub('${User}')
 
 
 @cloudformation_dataclass
 class ServiceCatalogCloudFormationProductProvisioningParameter5:
-    resource: ProvisioningParameter
+    resource: servicecatalog.ProvisioningParameter
     key = 'Owner'
     value = Sub('${Owner}')
 

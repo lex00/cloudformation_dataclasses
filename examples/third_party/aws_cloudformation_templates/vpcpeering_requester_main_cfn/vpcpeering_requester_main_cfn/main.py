@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import NumberOfRouteTables, NumberOfSecurityGroups, PeerName, PeerOwnerId, PeerRoleARN, PeerVPCCIDR, PeerVPCID, RouteTableIds, SecurityGroupIds, TemplatesS3BucketName, TemplatesS3BucketRegion, TemplatesS3KeyPrefix, VPCID
+from .stack_config import NumberOfRouteTables, NumberOfSecurityGroups, PeerName, PeerOwnerId, PeerRoleARN, PeerVPCCIDR, PeerVPCID, RouteTableIds, SecurityGroupIds, TemplatesS3BucketName, TemplatesS3BucketRegion, TemplatesS3KeyPrefix, VPCID
 
 
 def build_template() -> Template:

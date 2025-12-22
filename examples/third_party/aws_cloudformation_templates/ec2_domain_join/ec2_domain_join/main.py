@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import ADDirectoryId, ADDirectoryName, ADDnsIpAddresses1, ADDnsIpAddresses2, AMI, InstanceType, KeyPair, PublicSubnet, VPC
+from .stack_config import ADDirectoryId, ADDirectoryName, ADDnsIpAddresses1, ADDnsIpAddresses2, AMI, InstanceType, KeyPair, PublicSubnet, VPC
 
 
 def build_template() -> Template:

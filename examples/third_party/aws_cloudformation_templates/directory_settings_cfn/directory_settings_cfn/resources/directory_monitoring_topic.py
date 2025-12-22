@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class DirectoryMonitoringTopicSubscription:
-    resource: Subscription
+    resource: sns.Subscription
     endpoint = ref(DirectoryMonitoringEmail)
     protocol = 'email'
 
@@ -14,7 +14,7 @@ class DirectoryMonitoringTopicSubscription:
 class DirectoryMonitoringTopic:
     """AWS::SNS::Topic resource."""
 
-    resource: Topic
+    resource: sns.Topic
     kms_master_key_id = If("DirectoryMonitoringSNSTopicKMSKeyCondition", ref(DirectoryMonitoringSNSTopicKMSKey), 'aws/sns')
     subscription = [DirectoryMonitoringTopicSubscription]
     tags = [{

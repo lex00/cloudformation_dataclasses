@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class ADConnectorLambdaFunctionEnvironment:
-    resource: Environment
+    resource: lambda_.Environment
     variables = {
         'LOG_LEVEL': ref(LambdaLogLevel),
     }
@@ -13,14 +13,14 @@ class ADConnectorLambdaFunctionEnvironment:
 
 @cloudformation_dataclass
 class ADConnectorLambdaFunctionCode:
-    resource: Code
+    resource: lambda_.Code
     s3_bucket = ref(LambdaS3BucketName)
     s3_key = ref(LambdaZipFileName)
 
 
 @cloudformation_dataclass
 class ADConnectorLambdaFunctionVpcConfig:
-    resource: VpcConfig
+    resource: lambda_.VpcConfig
     subnet_ids = ['PrivateSubnet1ID', 'PrivateSubnet2ID']
     security_group_ids = [ref(ADConnectorDomainMembersSG)]
 
@@ -29,7 +29,7 @@ class ADConnectorLambdaFunctionVpcConfig:
 class ADConnectorLambdaFunction:
     """AWS::Lambda::Function resource."""
 
-    resource: Function
+    resource: lambda_.Function
     function_name = ref(LambdaFunctionName)
     handler = 'adconnector_custom_resource.lambda_handler'
     role = get_att(ADConnectorLambdaRole, "Arn")

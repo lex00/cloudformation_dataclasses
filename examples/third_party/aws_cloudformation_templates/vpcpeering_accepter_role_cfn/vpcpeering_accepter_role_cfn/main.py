@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import PeerOwnerIds
+from .stack_config import PeerOwnerIds
 from .outputs import PeerRoleARNOutput
 
 

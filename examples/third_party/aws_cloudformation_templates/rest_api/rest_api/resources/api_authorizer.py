@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class ApiAuthorizer:
     """AWS::ApiGateway::Authorizer resource."""
 
-    resource: Authorizer
+    resource: apigateway.Authorizer
     identity_source = 'method.request.header.authorization'
     name = 'CognitoApiAuthorizer'
     provider_ar_ns = [ref(UserPoolArn)]

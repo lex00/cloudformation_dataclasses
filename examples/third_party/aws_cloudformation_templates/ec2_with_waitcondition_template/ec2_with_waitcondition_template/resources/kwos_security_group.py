@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class KWOSSecurityGroupIngress:
-    resource: Ingress
+    resource: ec2.Ingress
     ip_protocol = 'tcp'
     from_port = '80'
     to_port = '80'
@@ -14,7 +14,7 @@ class KWOSSecurityGroupIngress:
 
 @cloudformation_dataclass
 class KWOSSecurityGroupIngress1:
-    resource: Ingress
+    resource: ec2.Ingress
     ip_protocol = 'tcp'
     from_port = '8888'
     to_port = '8888'
@@ -23,7 +23,7 @@ class KWOSSecurityGroupIngress1:
 
 @cloudformation_dataclass
 class KWOSSecurityGroupIngress2:
-    resource: Ingress
+    resource: ec2.Ingress
     ip_protocol = 'tcp'
     from_port = '443'
     to_port = '443'
@@ -32,7 +32,7 @@ class KWOSSecurityGroupIngress2:
 
 @cloudformation_dataclass
 class KWOSSecurityGroupIngress3:
-    resource: Ingress
+    resource: ec2.Ingress
     ip_protocol = 'icmp'
     from_port = '-1'
     to_port = '-1'
@@ -41,7 +41,7 @@ class KWOSSecurityGroupIngress3:
 
 @cloudformation_dataclass
 class KWOSSecurityGroupIngress4:
-    resource: Ingress
+    resource: ec2.Ingress
     ip_protocol = 'tcp'
     from_port = '22'
     to_port = '22'
@@ -52,7 +52,7 @@ class KWOSSecurityGroupIngress4:
 class KWOSSecurityGroup:
     """AWS::EC2::SecurityGroup resource."""
 
-    resource: SecurityGroup
+    resource: ec2.SecurityGroup
     vpc_id = ref(VpcId)
     group_description = 'Enable HTTP access via port 80/22/443 and ICMP access via port *'
     security_group_ingress = [KWOSSecurityGroupIngress, KWOSSecurityGroupIngress1, KWOSSecurityGroupIngress2, KWOSSecurityGroupIngress3, KWOSSecurityGroupIngress4]

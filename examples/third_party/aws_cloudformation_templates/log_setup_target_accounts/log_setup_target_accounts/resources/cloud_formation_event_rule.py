@@ -5,13 +5,13 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class CloudFormationEventRuleDeadLetterConfig:
-    resource: DeadLetterConfig
+    resource: events.DeadLetterConfig
     arn = get_att(DeadLetterQueue, "Arn")
 
 
 @cloudformation_dataclass
 class CloudFormationEventRuleTarget:
-    resource: Target
+    resource: events.Target
     arn = ref(CentralEventBusArn)
     role_arn = get_att(EventBridgeRole, "Arn")
     id = 'CentralEventBus'
@@ -22,7 +22,7 @@ class CloudFormationEventRuleTarget:
 class CloudFormationEventRule:
     """AWS::Events::Rule resource."""
 
-    resource: Rule
+    resource: events.Rule
     name = 'CloudFormationEventRule'
     event_bus_name = Sub('arn:aws:events:${AWS::Region}:${AWS::AccountId}:event-bus/default')
     event_pattern = {

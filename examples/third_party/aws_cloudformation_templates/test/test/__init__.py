@@ -8,19 +8,16 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import s3
-from cloudformation_dataclasses.aws.s3 import Bucket, LifecycleConfiguration, Rule
 
-from .config import BucketMapMapping
+from .stack_config import BucketMapMapping
 
 from .resources import *  # noqa: F403, F401
 
 __all__ = [
     "Bucket",
     "BucketMapMapping",
-    "LifecycleConfiguration",
     "Mapping",
     "NonExplodingBucket",
-    "Rule",
     "Template",
     "cloudformation_dataclass",
     "get_att",

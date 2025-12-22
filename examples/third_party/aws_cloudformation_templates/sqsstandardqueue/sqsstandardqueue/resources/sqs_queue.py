@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class SQSQueue:
     """AWS::SQS::Queue resource."""
 
-    resource: Queue
+    resource: sqs.Queue
     delay_seconds = ref(DelaySeconds)
     maximum_message_size = ref(MaximumMessageSize)
     message_retention_period = ref(MessageRetentionPeriod)

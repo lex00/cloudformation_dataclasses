@@ -45,7 +45,7 @@ class TagVpcPeeringConnectionsLambdaRolePolicies0PolicyDocument:
 
 @cloudformation_dataclass
 class TagVpcPeeringConnectionsLambdaRolePolicy:
-    resource: Policy
+    resource: iam.Policy
     policy_name = 'CloudWatchLogGroup'
     policy_document = TagVpcPeeringConnectionsLambdaRolePolicies0PolicyDocument
 
@@ -69,7 +69,7 @@ class TagVpcPeeringConnectionsLambdaRolePolicies1PolicyDocument:
 
 @cloudformation_dataclass
 class TagVpcPeeringConnectionsLambdaRolePolicy1:
-    resource: Policy
+    resource: iam.Policy
     policy_name = 'TagVpcPeeringConnections'
     policy_document = TagVpcPeeringConnectionsLambdaRolePolicies1PolicyDocument
 
@@ -78,7 +78,7 @@ class TagVpcPeeringConnectionsLambdaRolePolicy1:
 class TagVpcPeeringConnectionsLambdaRole:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     role_name = Sub('${LambdaFunctionName}-LambdaRole')
     description = 'Rights to Tag VPC Peering Connection'
     assume_role_policy_document = TagVpcPeeringConnectionsLambdaRoleAssumeRolePolicyDocument

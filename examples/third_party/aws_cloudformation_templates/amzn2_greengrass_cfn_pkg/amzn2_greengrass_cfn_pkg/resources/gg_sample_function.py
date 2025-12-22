@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class GGSampleFunctionCode:
-    resource: Code
+    resource: lambda_.Code
     zip_file = """import os
 from threading import Timer
 import greengrasssdk
@@ -41,7 +41,7 @@ def function_handler(event, context):
 class GGSampleFunction:
     """AWS::Lambda::Function resource."""
 
-    resource: Function
+    resource: lambda_.Function
     code = GGSampleFunctionCode
     description = 'Long running lambda that provides telemetry and pub/sub echo'
     function_name = Join('_', [

@@ -5,13 +5,13 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class TaskDefinitionPortMapping:
-    resource: PortMapping
+    resource: ecs.PortMapping
     container_port = ref(ContainerPort)
 
 
 @cloudformation_dataclass
 class TaskDefinitionContainerDefinition:
-    resource: ContainerDefinition
+    resource: ecs.ContainerDefinition
     name = ref(ServiceName)
     essential = True
     cpu = ref(ContainerCpu)

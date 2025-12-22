@@ -20,5 +20,5 @@ class OpenIoTStarPolicyPolicyDocument:
 class OpenIoTStarPolicy:
     """AWS::IoT::Policy resource."""
 
-    resource: Policy
+    resource: iot.Policy
     policy_document = OpenIoTStarPolicyPolicyDocument

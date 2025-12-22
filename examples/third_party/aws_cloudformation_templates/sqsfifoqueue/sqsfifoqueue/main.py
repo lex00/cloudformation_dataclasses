@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import ContentBasedDeduplication, CreateDeadLetterQueueCondition, MaximumMessageSize, MessageRetentionPeriod, QueueName, ReceiveMessageWaitTimeSeconds, UsedeadletterQueue, VisibilityTimeout
+from .stack_config import ContentBasedDeduplication, CreateDeadLetterQueueCondition, MaximumMessageSize, MessageRetentionPeriod, QueueName, ReceiveMessageWaitTimeSeconds, UsedeadletterQueue, VisibilityTimeout
 from .outputs import QueueARNOutput, QueueNameOutput, QueueURLOutput
 
 

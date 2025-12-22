@@ -5,14 +5,14 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class LoadBalancerRuleAction:
-    resource: Action
+    resource: elasticloadbalancingv2.Action
     target_group_arn = ref(TargetGroup)
     type_ = 'forward'
 
 
 @cloudformation_dataclass
 class LoadBalancerRuleRuleCondition:
-    resource: RuleCondition
+    resource: elasticloadbalancingv2.RuleCondition
     field = 'path-pattern'
     values = [ref(Path)]
 

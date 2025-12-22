@@ -49,6 +49,6 @@ class SiteCloudFrontLogsLogBucketAccessPolicyPolicyDocument:
 class SiteCloudFrontLogsLogBucketAccessPolicy:
     """AWS::S3::BucketPolicy resource."""
 
-    resource: BucketPolicy
+    resource: s3.BucketPolicy
     bucket = ref(SiteCloudFrontLogsLogBucket)
     policy_document = SiteCloudFrontLogsLogBucketAccessPolicyPolicyDocument

@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class SimpleADVpcSettings:
-    resource: VpcSettings
+    resource: directoryservice.VpcSettings
     subnet_ids = [Select(0, ref(PrivateSubnet1)), Select(0, ref(PrivateSubnet2))]
     vpc_id = Select(0, ref(VPCID))
 

@@ -7,4 +7,4 @@ from .. import *  # noqa: F403
 class ECSCluster:
     """AWS::ECS::Cluster resource."""
 
-    resource: Cluster
+    resource: ecs.Cluster

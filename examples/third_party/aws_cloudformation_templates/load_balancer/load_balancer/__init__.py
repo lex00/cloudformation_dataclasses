@@ -11,17 +11,11 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import elasticloadbalancingv2
-from cloudformation_dataclasses.aws.ec2 import Ingress, SecurityGroup, SecurityGroupEgress
-from cloudformation_dataclasses.aws.elasticloadbalancingv2 import (
-    Action,
-    Certificate,
-    Listener,
-    LoadBalancerAttribute,
-    TargetGroupAttribute,
-)
+from cloudformation_dataclasses.aws import ec2, elasticloadbalancingv2
+from cloudformation_dataclasses.aws.ec2 import SecurityGroupEgress
+from cloudformation_dataclasses.aws.elasticloadbalancingv2 import LoadBalancerAttribute, TargetGroupAttribute
 
-from .config import (
+from .stack_config import (
     CertificateArn,
     DestinationSecurityGroupId,
     PublicSubnet1,
@@ -32,12 +26,8 @@ from .config import (
 from .resources import *  # noqa: F403, F401
 
 __all__ = [
-    "Action",
-    "Certificate",
     "CertificateArn",
     "DestinationSecurityGroupId",
-    "Ingress",
-    "Listener",
     "LoadBalancer",
     "LoadBalancerAttribute",
     "LoadBalancerEgress",
@@ -48,13 +38,13 @@ __all__ = [
     "PublicSubnet1",
     "PublicSubnet2",
     "STRING",
-    "SecurityGroup",
     "SecurityGroupEgress",
     "TargetGroup",
     "TargetGroupAttribute",
     "Template",
     "VPCId",
     "cloudformation_dataclass",
+    "ec2",
     "elasticloadbalancingv2",
     "get_att",
     "ref",

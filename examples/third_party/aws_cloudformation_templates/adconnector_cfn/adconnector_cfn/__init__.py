@@ -17,18 +17,10 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import ec2
-from cloudformation_dataclasses.aws.ec2 import (
-    AssociationParameter,
-    Egress,
-    Ingress,
-    SecurityGroup,
-    VPCDHCPOptionsAssociation,
-)
-from cloudformation_dataclasses.aws.iam import InstanceProfile, Policy, Role
-from cloudformation_dataclasses.aws.lambda_ import Code, Environment, Function, VpcConfig
+from cloudformation_dataclasses.aws import ec2, iam, lambda_, secretsmanager
+from cloudformation_dataclasses.aws.ec2 import AssociationParameter, Egress, VPCDHCPOptionsAssociation
+from cloudformation_dataclasses.aws.iam import Policy
 from cloudformation_dataclasses.aws.logs import LogGroup
-from cloudformation_dataclasses.aws.secretsmanager import Secret
 from cloudformation_dataclasses.intrinsics import (
     AWS_NO_VALUE,
     AWS_STACK_NAME,
@@ -38,7 +30,7 @@ from cloudformation_dataclasses.intrinsics import (
     Sub,
 )
 
-from .config import (
+from .stack_config import (
     ADConnectorDescription,
     ADConnectorSize,
     CreateADConnectorDomainMembersSG,
@@ -91,7 +83,6 @@ __all__ = [
     "AssociationParameter",
     "BOOL",
     "CloudFormationResource",
-    "Code",
     "Condition",
     "CreateADConnectorDomainMembersSG",
     "CreateDHCPOptionSet",
@@ -107,12 +98,8 @@ __all__ = [
     "DomainMembersSGConditionCondition",
     "DomainNetBiosName",
     "Egress",
-    "Environment",
     "Equals",
-    "Function",
     "If",
-    "Ingress",
-    "InstanceProfile",
     "LambdaFunctionName",
     "LambdaLogLevel",
     "LambdaLogsCloudWatchKMSKey",
@@ -131,22 +118,21 @@ __all__ = [
     "PolicyStatement",
     "PrivateSubnet1ID",
     "PrivateSubnet2ID",
-    "Role",
     "SSMLogsBucketName",
     "SSMLogsBucketNameConditionCondition",
     "STRING",
-    "Secret",
     "SecretsManagerDomainCredentialsSecretsKMSKey",
     "SecretsManagerDomainCredentialsSecretsKMSKeyConditionCondition",
-    "SecurityGroup",
     "Sub",
     "Template",
     "VPCDHCPOptionsAssociation",
     "VPCID",
-    "VpcConfig",
     "WindowsEC2DomainJoinResourcesConditionCondition",
     "cloudformation_dataclass",
     "ec2",
     "get_att",
+    "iam",
+    "lambda_",
     "ref",
+    "secretsmanager",
 ]

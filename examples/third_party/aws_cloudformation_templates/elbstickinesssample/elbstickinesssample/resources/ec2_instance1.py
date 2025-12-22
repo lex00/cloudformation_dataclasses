@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class EC2Instance1:
     """AWS::EC2::Instance resource."""
 
-    resource: Instance
+    resource: ec2.Instance
     subnet_id = ref(SubnetId)
     security_group_ids = [get_att(InstanceSecurityGroup, "GroupId")]
     key_name = ref(KeyName)

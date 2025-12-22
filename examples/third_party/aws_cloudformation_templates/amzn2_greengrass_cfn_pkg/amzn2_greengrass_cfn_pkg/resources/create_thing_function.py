@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class CreateThingFunctionCode:
-    resource: Code
+    resource: lambda_.Code
     zip_file = """import sys
 import cfnresponse
 import boto3
@@ -114,7 +114,7 @@ def handler(event, context):
 class CreateThingFunction:
     """AWS::Lambda::Function resource."""
 
-    resource: Function
+    resource: lambda_.Function
     code = CreateThingFunctionCode
     description = 'Create thing, certificate, and policy, return cert and private key'
     handler = 'index.handler'

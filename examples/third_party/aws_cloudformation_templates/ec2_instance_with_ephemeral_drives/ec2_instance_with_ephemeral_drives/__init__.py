@@ -12,10 +12,10 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.ec2 import BlockDeviceMapping, Ingress, Instance, SecurityGroup
+from cloudformation_dataclasses.aws import ec2
 from cloudformation_dataclasses.intrinsics import Select
 
-from .config import (
+from .stack_config import (
     InstanceType,
     KeyName,
     LatestAmiId,
@@ -26,11 +26,8 @@ from .config import (
 from .resources import *  # noqa: F403, F401
 
 __all__ = [
-    "BlockDeviceMapping",
     "EC2Instance",
     "EC2SecurityGroup",
-    "Ingress",
-    "Instance",
     "InstanceType",
     "KeyName",
     "LatestAmiId",
@@ -39,11 +36,11 @@ __all__ = [
     "ParameterType",
     "SSHLocation",
     "STRING",
-    "SecurityGroup",
     "Select",
     "Subnets",
     "Template",
     "cloudformation_dataclass",
+    "ec2",
     "get_att",
     "ref",
 ]

@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import CoreName, InstanceType, LatestAmiId, SecurityAccessCIDR, myKeyPair
+from .stack_config import CoreName, InstanceType, LatestAmiId, SecurityAccessCIDR, myKeyPair
 from .outputs import EC2IPAddressOutput
 
 

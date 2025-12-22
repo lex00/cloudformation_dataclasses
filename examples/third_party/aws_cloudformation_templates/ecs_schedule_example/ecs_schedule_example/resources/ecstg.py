@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class ECSTG:
     """AWS::ElasticLoadBalancingV2::TargetGroup resource."""
 
-    resource: TargetGroup
+    resource: elasticloadbalancingv2.TargetGroup
     health_check_interval_seconds = 10
     health_check_path = '/'
     health_check_protocol = 'HTTP'

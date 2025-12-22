@@ -26,7 +26,7 @@ class DeliveryStreamProcessorParameter:
 
 @cloudformation_dataclass
 class DeliveryStreamProcessor:
-    resource: Processor
+    resource: kinesisfirehose.Processor
     type_ = 'AppendDelimiterToRecord'
     parameters = [DeliveryStreamProcessorParameter]
 

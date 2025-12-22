@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class AWSManagedADLinuxEC2DomainJoinInstanceProfile:
     """AWS::IAM::InstanceProfile resource."""
 
-    resource: InstanceProfile
+    resource: iam.InstanceProfile
     instance_profile_name = ref(AWSManagedADLinuxEC2DomainJoinRole)
     path = '/'
     roles = [ref(AWSManagedADLinuxEC2DomainJoinRole)]

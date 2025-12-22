@@ -7,4 +7,4 @@ from .. import *  # noqa: F403
 class NonExplodingBucket:
     """AWS::S3::Bucket resource."""
 
-    resource: Bucket
+    resource: s3.Bucket

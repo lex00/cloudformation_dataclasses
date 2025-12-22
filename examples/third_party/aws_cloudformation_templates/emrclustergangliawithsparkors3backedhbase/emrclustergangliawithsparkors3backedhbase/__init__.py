@@ -14,18 +14,11 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.emr import (
-    Application,
-    BootstrapActionConfig,
-    Cluster,
-    Configuration,
-    InstanceGroupConfig,
-    JobFlowInstancesConfig,
-)
-from cloudformation_dataclasses.aws.iam import InstanceProfile, Role
+from cloudformation_dataclasses.aws import emr, iam
+from cloudformation_dataclasses.aws.emr import BootstrapActionConfig, JobFlowInstancesConfig
 from cloudformation_dataclasses.intrinsics import AWS_NO_VALUE, Equals, If
 
-from .config import (
+from .stack_config import (
     Applications,
     CoreInstanceType,
     EMRClusterName,
@@ -44,12 +37,9 @@ from .resources import *  # noqa: F403, F401
 
 __all__ = [
     "AWS_NO_VALUE",
-    "Application",
     "Applications",
     "BootstrapActionConfig",
-    "Cluster",
     "Condition",
-    "Configuration",
     "CoreInstanceType",
     "EMRCluster",
     "EMRClusterName",
@@ -59,8 +49,6 @@ __all__ = [
     "Equals",
     "HbaseCondition",
     "If",
-    "InstanceGroupConfig",
-    "InstanceProfile",
     "JobFlowInstancesConfig",
     "KeyName",
     "LogUri",
@@ -71,13 +59,14 @@ __all__ = [
     "PolicyDocument",
     "PolicyStatement",
     "ReleaseLabel",
-    "Role",
     "S3DataUri",
     "STRING",
     "SparkCondition",
     "SubnetID",
     "Template",
     "cloudformation_dataclass",
+    "emr",
     "get_att",
+    "iam",
     "ref",
 ]

@@ -14,10 +14,10 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.s3 import BucketPolicy
+from cloudformation_dataclasses.aws import s3
 from cloudformation_dataclasses.intrinsics import AWS_ACCOUNT_ID, Sub
 
-from .config import PolicyBucketName
+from .stack_config import PolicyBucketName
 
 from .resources import *  # noqa: F403, F401
 
@@ -25,7 +25,6 @@ __all__ = [
     "ARN_LIKE",
     "AWS_ACCOUNT_ID",
     "BOOL",
-    "BucketPolicy",
     "DenyStatement",
     "Parameter",
     "Policy",
@@ -39,4 +38,5 @@ __all__ = [
     "cloudformation_dataclass",
     "get_att",
     "ref",
+    "s3",
 ]

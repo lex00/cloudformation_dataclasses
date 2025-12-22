@@ -49,6 +49,6 @@ class StorageReplicaBucketPolicyPolicyPolicyDocument:
 class StorageReplicaBucketPolicyPolicy:
     """AWS::S3::BucketPolicy resource."""
 
-    resource: BucketPolicy
+    resource: s3.BucketPolicy
     bucket = ref(StorageReplicaBucket)
     policy_document = StorageReplicaBucketPolicyPolicyPolicyDocument

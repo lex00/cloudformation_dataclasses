@@ -15,13 +15,12 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
+from cloudformation_dataclasses.aws import ec2, elasticloadbalancing, iam
 from cloudformation_dataclasses.aws.autoscaling import AutoScalingGroup, LaunchConfiguration
-from cloudformation_dataclasses.aws.ec2 import Ingress, SecurityGroup
-from cloudformation_dataclasses.aws.elasticloadbalancing import HealthCheck, Listeners, LoadBalancer
-from cloudformation_dataclasses.aws.iam import InstanceProfile, Policy, Role
+from cloudformation_dataclasses.aws.elasticloadbalancing import Listeners
 from cloudformation_dataclasses.intrinsics import Base64, GetAZs, Join, Sub
 
-from .config import (
+from .stack_config import (
     InstanceType,
     KeyName,
     LatestAmiId,
@@ -37,9 +36,6 @@ __all__ = [
     "DescribeHealthRole",
     "ElasticLoadBalancer",
     "GetAZs",
-    "HealthCheck",
-    "Ingress",
-    "InstanceProfile",
     "InstanceSecurityGroup",
     "InstanceType",
     "Join",
@@ -48,24 +44,23 @@ __all__ = [
     "LaunchConfig",
     "LaunchConfiguration",
     "Listeners",
-    "LoadBalancer",
     "Mapping",
     "Output",
     "Parameter",
     "ParameterType",
-    "Policy",
     "PolicyDocument",
     "PolicyStatement",
     "Region2ExamplesMapping",
-    "Role",
     "SSHLocation",
     "STRING",
-    "SecurityGroup",
     "Sub",
     "Template",
     "WebServerGroup",
     "WebServerInstanceProfile",
     "cloudformation_dataclass",
+    "ec2",
+    "elasticloadbalancing",
     "get_att",
+    "iam",
     "ref",
 ]

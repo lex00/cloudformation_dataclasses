@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class EcsSecurityGroupHTTPinbound:
     """AWS::EC2::SecurityGroupIngress resource."""
 
-    resource: SecurityGroupIngress
+    resource: ec2.SecurityGroupIngress
     group_id = ref(EcsSecurityGroup)
     ip_protocol = 'tcp'
     from_port = '80'

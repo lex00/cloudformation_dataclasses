@@ -14,7 +14,7 @@ class PrivateInstanceAssociationParameter:
 class PrivateInstance:
     """AWS::EC2::Instance resource."""
 
-    resource: Instance
+    resource: ec2.Instance
     key_name = ref(KeyName)
     instance_type = 't2.micro'
     security_group_ids = [ref(PrivateSG)]

@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import CentOSVersion, IAMRole, InstanceType, KeyName, RegionMapMapping, SSHLocation, SSMKey, SubnetId
+from .stack_config import CentOSVersion, IAMRole, InstanceType, KeyName, RegionMapMapping, SSHLocation, SSMKey, SubnetId
 
 
 def build_template() -> Template:

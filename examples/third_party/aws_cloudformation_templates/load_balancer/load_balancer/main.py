@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import CertificateArn, DestinationSecurityGroupId, PublicSubnet1, PublicSubnet2, VPCId
+from .stack_config import CertificateArn, DestinationSecurityGroupId, PublicSubnet1, PublicSubnet2, VPCId
 from .outputs import LoadBalancerDNSOutput
 
 

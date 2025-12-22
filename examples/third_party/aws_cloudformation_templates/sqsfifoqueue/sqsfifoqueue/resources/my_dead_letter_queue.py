@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class MyDeadLetterQueue:
     """AWS::SQS::Queue resource."""
 
-    resource: Queue
+    resource: sqs.Queue
     fifo_queue = 'true'
     queue_name = Join('', [
     ref(QueueName),

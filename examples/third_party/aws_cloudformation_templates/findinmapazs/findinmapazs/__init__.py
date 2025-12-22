@@ -15,16 +15,14 @@ from cloudformation_dataclasses.aws import ec2
 from cloudformation_dataclasses.aws.ec2 import (
     EIP,
     NatGateway,
-    Route,
     RouteTable,
-    SecurityGroup,
     Subnet,
     SubnetRouteTableAssociation,
     VPCGatewayAttachment,
 )
 from cloudformation_dataclasses.intrinsics import AWS_REGION, FindInMap, Select
 
-from .config import (
+from .stack_config import (
     PrivateSubnet1CIDR,
     PrivateSubnet2CIDR,
     PublicSubnet1CIDR,
@@ -68,10 +66,8 @@ __all__ = [
     "PublicSubnet2CIDR",
     "PublicSubnet2RouteTableAssociation",
     "RegionMapMapping",
-    "Route",
     "RouteTable",
     "STRING",
-    "SecurityGroup",
     "Select",
     "Subnet",
     "SubnetRouteTableAssociation",

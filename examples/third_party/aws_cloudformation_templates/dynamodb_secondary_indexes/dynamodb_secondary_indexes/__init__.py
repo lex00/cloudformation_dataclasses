@@ -11,44 +11,26 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.dynamodb import (
-    AttributeDefinition,
-    AttributeType,
-    GlobalSecondaryIndex,
-    KeySchema,
-    KeyType,
-    LocalSecondaryIndex,
-    PointInTimeRecoverySpecification,
-    Projection,
-    ProjectionType,
-    ProvisionedThroughput,
-    Table,
-)
+from cloudformation_dataclasses.aws import dynamodb
+from cloudformation_dataclasses.aws.dynamodb import AttributeType, KeyType, ProjectionType
 
-from .config import ReadCapacityUnits, WriteCapacityUnits
+from .stack_config import ReadCapacityUnits, WriteCapacityUnits
 
 from .resources import *  # noqa: F403, F401
 
 __all__ = [
-    "AttributeDefinition",
     "AttributeType",
-    "GlobalSecondaryIndex",
-    "KeySchema",
     "KeyType",
-    "LocalSecondaryIndex",
     "NUMBER",
     "Output",
     "Parameter",
-    "PointInTimeRecoverySpecification",
-    "Projection",
     "ProjectionType",
-    "ProvisionedThroughput",
     "ReadCapacityUnits",
-    "Table",
     "TableOfBooks",
     "Template",
     "WriteCapacityUnits",
     "cloudformation_dataclass",
+    "dynamodb",
     "get_att",
     "ref",
 ]

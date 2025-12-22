@@ -7,6 +7,6 @@ from .. import *  # noqa: F403
 class EcsSecurityGroup:
     """AWS::EC2::SecurityGroup resource."""
 
-    resource: SecurityGroup
+    resource: ec2.SecurityGroup
     group_description = 'ECS Security Group'
     vpc_id = ref(VpcId)

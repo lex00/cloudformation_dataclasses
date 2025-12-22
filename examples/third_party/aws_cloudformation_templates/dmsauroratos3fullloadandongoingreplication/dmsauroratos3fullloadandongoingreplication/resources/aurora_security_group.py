@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class AuroraSecurityGroupIngress:
-    resource: Ingress
+    resource: ec2.Ingress
     ip_protocol = 'tcp'
     from_port = '3306'
     to_port = '3306'
@@ -14,7 +14,7 @@ class AuroraSecurityGroupIngress:
 
 @cloudformation_dataclass
 class AuroraSecurityGroupIngress1:
-    resource: Ingress
+    resource: ec2.Ingress
     ip_protocol = 'tcp'
     from_port = '3306'
     to_port = '3306'
@@ -25,7 +25,7 @@ class AuroraSecurityGroupIngress1:
 class AuroraSecurityGroup:
     """AWS::EC2::SecurityGroup resource."""
 
-    resource: SecurityGroup
+    resource: ec2.SecurityGroup
     group_description = 'Security group for Aurora SampleDB DB Instance'
     group_name = 'Aurora SampleDB Security Group'
     vpc_id = ref(VPC)

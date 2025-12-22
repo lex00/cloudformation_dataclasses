@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class S3TriggerLambdaFunctionCode:
-    resource: Code
+    resource: lambda_.Code
     zip_file = """import json
 def lambda_handler(event,context):
     print(event)
@@ -17,7 +17,7 @@ def lambda_handler(event,context):
 class S3TriggerLambdaFunction:
     """AWS::Lambda::Function resource."""
 
-    resource: Function
+    resource: lambda_.Function
     code = S3TriggerLambdaFunctionCode
     handler = 'index.lambda_handler'
     role = get_att(LambdaIAMRole, "Arn")

@@ -7,5 +7,5 @@ from .. import *  # noqa: F403
 class DeadLetterQueue:
     """AWS::SQS::Queue resource."""
 
-    resource: Queue
+    resource: sqs.Queue
     queue_name = Sub('${CentralEventBusName}-DLQ')

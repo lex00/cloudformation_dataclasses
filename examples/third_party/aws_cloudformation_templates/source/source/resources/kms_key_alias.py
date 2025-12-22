@@ -7,6 +7,6 @@ from .. import *  # noqa: F403
 class KmsKeyAlias:
     """AWS::KMS::Alias resource."""
 
-    resource: Alias
+    resource: kms.Alias
     alias_name = Sub('alias/${AWS::StackName}-${AWS::AccountId}-kms-key')
     target_key_id = ref(KmsKey)

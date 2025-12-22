@@ -49,6 +49,6 @@ class SiteContentReplicaBucketAccessPolicyPolicyDocument:
 class SiteContentReplicaBucketAccessPolicy:
     """AWS::S3::BucketPolicy resource."""
 
-    resource: BucketPolicy
+    resource: s3.BucketPolicy
     bucket = ref(SiteContentReplicaBucket)
     policy_document = SiteContentReplicaBucketAccessPolicyPolicyDocument

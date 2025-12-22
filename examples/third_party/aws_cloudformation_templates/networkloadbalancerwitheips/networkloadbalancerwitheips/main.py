@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import ELBIpAddressType, ELBType, Subnet1, Subnet2, VPC
+from .stack_config import ELBIpAddressType, ELBType, Subnet1, Subnet2, VPC
 
 
 def build_template() -> Template:

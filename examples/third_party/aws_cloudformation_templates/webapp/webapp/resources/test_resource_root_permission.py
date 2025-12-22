@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class TestResourceRootPermission:
     """AWS::Lambda::Permission resource."""
 
-    resource: Permission
+    resource: lambda_.Permission
     action = 'lambda:InvokeFunction'
     function_name = get_att(TestResourceHandler, "Arn")
     principal = 'apigateway.amazonaws.com'

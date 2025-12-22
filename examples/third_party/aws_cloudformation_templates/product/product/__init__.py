@@ -11,16 +11,11 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.servicecatalog import (
-    CloudFormationProduct,
-    PortfolioProductAssociation,
-    ProvisioningArtifactProperties,
-    ProvisioningParameter,
-    TagOptionAssociation,
-)
+from cloudformation_dataclasses.aws import servicecatalog
+from cloudformation_dataclasses.aws.servicecatalog import CloudFormationProduct, PortfolioProductAssociation, ProvisioningArtifactProperties, TagOptionAssociation
 from cloudformation_dataclasses.intrinsics import ImportValue, Sub
 
-from .config import (
+from .stack_config import (
     AppName,
     Dept,
     Env,
@@ -55,7 +50,6 @@ __all__ = [
     "ProvisioningArtifactNameParameter",
     "ProvisioningArtifactProperties",
     "ProvisioningArtifactTemplateUrl",
-    "ProvisioningParameter",
     "SCProductDescription",
     "SCProductDistributor",
     "SCProductName",
@@ -75,4 +69,5 @@ __all__ = [
     "cloudformation_dataclass",
     "get_att",
     "ref",
+    "servicecatalog",
 ]

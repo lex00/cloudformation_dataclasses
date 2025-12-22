@@ -16,10 +16,8 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.iam import Policy, Role
-from cloudformation_dataclasses.aws.lambda_ import Code, Environment, Function, VpcConfig
+from cloudformation_dataclasses.aws import iam, lambda_, sns
 from cloudformation_dataclasses.aws.logs import LogGroup
-from cloudformation_dataclasses.aws.sns import Subscription, Topic
 from cloudformation_dataclasses.intrinsics import (
     AWS_NO_VALUE,
     AWS_STACK_NAME,
@@ -29,7 +27,7 @@ from cloudformation_dataclasses.intrinsics import (
     Sub,
 )
 
-from .config import (
+from .stack_config import (
     CreateDirectoryAlias,
     CreateDirectoryConsoleDelegatedAccessRoles,
     DirectoryAlias,
@@ -56,7 +54,6 @@ __all__ = [
     "AWS_NO_VALUE",
     "AWS_STACK_NAME",
     "CloudFormationResource",
-    "Code",
     "Condition",
     "CreateDirectoryAlias",
     "CreateDirectoryConsoleDelegatedAccessRoles",
@@ -74,9 +71,7 @@ __all__ = [
     "DirectorySettingsLambdaRole",
     "DirectorySettingsResource",
     "EnableDirectorySSO",
-    "Environment",
     "Equals",
-    "Function",
     "If",
     "LambdaFunctionName",
     "LambdaLogLevel",
@@ -90,19 +85,17 @@ __all__ = [
     "Output",
     "Parameter",
     "ParameterType",
-    "Policy",
     "PolicyDocument",
     "PolicyStatement",
-    "Role",
     "STRING",
     "SecurityGroups",
     "Sub",
     "Subnets",
-    "Subscription",
     "Template",
-    "Topic",
-    "VpcConfig",
     "cloudformation_dataclass",
     "get_att",
+    "iam",
+    "lambda_",
     "ref",
+    "sns",
 ]

@@ -13,9 +13,8 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.ec2 import Ingress, SecurityGroup
-from cloudformation_dataclasses.aws.rds import DBInstance, TagFormat
-from cloudformation_dataclasses.aws.secretsmanager import GenerateSecretString, Secret
+from cloudformation_dataclasses.aws import ec2, rds, secretsmanager
+from cloudformation_dataclasses.aws.secretsmanager import GenerateSecretString
 from cloudformation_dataclasses.intrinsics import (
     AWS_NO_VALUE,
     AWS_REGION,
@@ -26,7 +25,7 @@ from cloudformation_dataclasses.intrinsics import (
     Sub,
 )
 
-from .config import (
+from .stack_config import (
     DBAllocatedStorage,
     DBInstanceClass,
     DBName,
@@ -47,7 +46,6 @@ __all__ = [
     "DBAllocatedStorage",
     "DBCredential",
     "DBEC2SecurityGroup",
-    "DBInstance",
     "DBInstanceClass",
     "DBName",
     "DBUser",
@@ -57,7 +55,6 @@ __all__ = [
     "Equals",
     "GenerateSecretString",
     "If",
-    "Ingress",
     "IsEC2VPCCondition",
     "Join",
     "MainDB",
@@ -68,12 +65,12 @@ __all__ = [
     "Parameter",
     "ReplicaDB",
     "STRING",
-    "Secret",
-    "SecurityGroup",
     "Sub",
-    "TagFormat",
     "Template",
     "cloudformation_dataclass",
+    "ec2",
     "get_att",
+    "rds",
     "ref",
+    "secretsmanager",
 ]

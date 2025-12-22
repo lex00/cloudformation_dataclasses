@@ -42,7 +42,7 @@ class AWSManagedADWindowsEC2DomainJoinRolePolicies0PolicyDocument:
 
 @cloudformation_dataclass
 class AWSManagedADWindowsEC2DomainJoinRolePolicy:
-    resource: Policy
+    resource: iam.Policy
     policy_name = 'SSMAgent'
     policy_document = AWSManagedADWindowsEC2DomainJoinRolePolicies0PolicyDocument
 
@@ -51,7 +51,7 @@ class AWSManagedADWindowsEC2DomainJoinRolePolicy:
 class AWSManagedADWindowsEC2DomainJoinRole:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     role_name = Sub('${AWSManagedADDomainNetBiosName}-AWSManagedAD-WindowsEC2DomainJoinRole')
     description = Sub('IAM Role to Seamlessly Join Windows EC2 Instances to ${AWSManagedADDomainDNSName} Domain via AWS Managed Microsoft AD')
     assume_role_policy_document = AWSManagedADWindowsEC2DomainJoinRoleAssumeRolePolicyDocument

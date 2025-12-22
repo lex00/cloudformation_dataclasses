@@ -13,15 +13,8 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import ecs, elasticloadbalancingv2
-from cloudformation_dataclasses.aws.ecs import (
-    AwsVpcConfiguration,
-    ContainerDefinition,
-    DeploymentConfiguration,
-    LoadBalancer,
-    NetworkConfiguration,
-    PortMapping,
-)
-from cloudformation_dataclasses.aws.elasticloadbalancingv2 import Action, ListenerRule, RuleCondition
+from cloudformation_dataclasses.aws.ecs import AwsVpcConfiguration
+from cloudformation_dataclasses.aws.elasticloadbalancingv2 import ListenerRule
 from cloudformation_dataclasses.intrinsics import (
     AWS_NO_VALUE,
     Equals,
@@ -31,7 +24,7 @@ from cloudformation_dataclasses.intrinsics import (
     Not,
 )
 
-from .config import (
+from .stack_config import (
     ContainerCpu,
     ContainerMemory,
     ContainerPort,
@@ -49,14 +42,11 @@ from .resources import *  # noqa: F403, F401
 
 __all__ = [
     "AWS_NO_VALUE",
-    "Action",
     "AwsVpcConfiguration",
     "Condition",
     "ContainerCpu",
-    "ContainerDefinition",
     "ContainerMemory",
     "ContainerPort",
-    "DeploymentConfiguration",
     "DesiredCount",
     "Equals",
     "HasCustomRoleCondition",
@@ -65,17 +55,13 @@ __all__ = [
     "ImportValue",
     "Join",
     "ListenerRule",
-    "LoadBalancer",
     "LoadBalancerRule",
     "NUMBER",
-    "NetworkConfiguration",
     "Not",
     "Parameter",
     "Path",
-    "PortMapping",
     "Priority",
     "Role",
-    "RuleCondition",
     "STRING",
     "Service",
     "ServiceName",

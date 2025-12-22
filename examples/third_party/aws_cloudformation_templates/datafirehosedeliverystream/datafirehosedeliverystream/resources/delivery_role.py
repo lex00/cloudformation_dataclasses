@@ -67,7 +67,7 @@ class DeliveryRolePolicies0PolicyDocument:
 
 @cloudformation_dataclass
 class DeliveryRolePolicy:
-    resource: Policy
+    resource: iam.Policy
     policy_name = 'firehose_delivery_policy'
     policy_document = DeliveryRolePolicies0PolicyDocument
 
@@ -76,7 +76,7 @@ class DeliveryRolePolicy:
 class DeliveryRole:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     assume_role_policy_document = DeliveryRoleAssumeRolePolicyDocument
     path = '/'
     policies = [DeliveryRolePolicy]

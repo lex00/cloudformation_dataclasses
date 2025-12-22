@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class AuroraCluster:
     """AWS::RDS::DBCluster resource."""
 
-    resource: DBCluster
+    resource: rds.DBCluster
     database_name = 'dms_sample'
     backup_retention_period = 7
     db_subnet_group_name = ref(AuroraDBSubnetGroup)

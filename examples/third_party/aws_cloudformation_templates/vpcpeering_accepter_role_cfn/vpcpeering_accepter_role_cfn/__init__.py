@@ -13,10 +13,10 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.iam import Policy, Role
+from cloudformation_dataclasses.aws import iam
 from cloudformation_dataclasses.intrinsics import AWS_STACK_NAME, Split
 
-from .config import PeerOwnerIds
+from .stack_config import PeerOwnerIds
 
 from .resources import *  # noqa: F403, F401
 
@@ -26,14 +26,13 @@ __all__ = [
     "Parameter",
     "PeerOwnerIds",
     "PeerRole",
-    "Policy",
     "PolicyDocument",
     "PolicyStatement",
-    "Role",
     "STRING",
     "Split",
     "Template",
     "cloudformation_dataclass",
     "get_att",
+    "iam",
     "ref",
 ]

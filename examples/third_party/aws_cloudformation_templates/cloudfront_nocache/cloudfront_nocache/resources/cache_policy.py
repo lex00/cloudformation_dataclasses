@@ -5,20 +5,20 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class CachePolicyCookiesConfig:
-    resource: CookiesConfig
+    resource: cloudfront.CookiesConfig
     cookie_behavior = 'all'
 
 
 @cloudformation_dataclass
 class CachePolicyHeadersConfig:
-    resource: HeadersConfig
+    resource: cloudfront.HeadersConfig
     header_behavior = 'whitelist'
     headers = ['Accept-Charset', 'Authorization', 'Origin', 'Accept', 'Referer', 'Host', 'Accept-Language', 'Accept-Encoding', 'Accept-Datetime']
 
 
 @cloudformation_dataclass
 class CachePolicyQueryStringsConfig:
-    resource: QueryStringsConfig
+    resource: cloudfront.QueryStringsConfig
     query_string_behavior = 'all'
 
 

@@ -12,7 +12,7 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.ec2 import Route, SecurityGroupIngress
+from cloudformation_dataclasses.aws import ec2
 from cloudformation_dataclasses.intrinsics import (
     Condition,
     Equals,
@@ -22,7 +22,7 @@ from cloudformation_dataclasses.intrinsics import (
     Sub,
 )
 
-from .config import (
+from .stack_config import (
     NumberOfRouteTables,
     NumberOfSecurityGroups,
     PeerName,
@@ -66,11 +66,9 @@ __all__ = [
     "PeerRoute5",
     "PeerRoute6",
     "PeerVPCCIDR",
-    "Route",
     "RouteTableIds",
     "STRING",
     "SecurityGroupIds",
-    "SecurityGroupIngress",
     "Select",
     "Split",
     "Sub",
@@ -87,6 +85,7 @@ __all__ = [
     "_6RouteTableConditionCondition",
     "_6SecurityGroupConditionCondition",
     "cloudformation_dataclass",
+    "ec2",
     "get_att",
     "ref",
 ]

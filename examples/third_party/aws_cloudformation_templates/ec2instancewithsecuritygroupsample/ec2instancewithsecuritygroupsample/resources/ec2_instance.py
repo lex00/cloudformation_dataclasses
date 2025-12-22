@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class EC2Instance:
     """AWS::EC2::Instance resource."""
 
-    resource: Instance
+    resource: ec2.Instance
     instance_type = ref(InstanceType)
     subnet_id = Select(0, ref(Subnets))
     security_group_ids = [get_att(InstanceSecurityGroup, "GroupId")]

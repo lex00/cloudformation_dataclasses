@@ -18,9 +18,6 @@ from cloudformation_dataclasses.aws.ec2 import (
     EIP,
     NatGateway,
     NetworkAcl,
-    NetworkAclEntry,
-    PortRange,
-    Route,
     RouteTable,
     Subnet,
     SubnetNetworkAclAssociation,
@@ -36,7 +33,7 @@ from cloudformation_dataclasses.intrinsics import (
     Sub,
 )
 
-from .config import SubnetConfigMapping, VPCName
+from .stack_config import SubnetConfigMapping, VPCName
 
 from .resources import *  # noqa: F403, F401
 
@@ -57,11 +54,9 @@ __all__ = [
     "NATGateway1",
     "NatGateway",
     "NetworkAcl",
-    "NetworkAclEntry",
     "OutboundPublicNetworkAclEntry",
     "Output",
     "Parameter",
-    "PortRange",
     "PrivateRouteTable0",
     "PrivateRouteTable1",
     "PrivateRouteToInternet0",
@@ -79,7 +74,6 @@ __all__ = [
     "PublicSubnetNetworkAclAssociation1",
     "PublicSubnetRouteTableAssociation0",
     "PublicSubnetRouteTableAssociation1",
-    "Route",
     "RouteTable",
     "STRING",
     "Select",

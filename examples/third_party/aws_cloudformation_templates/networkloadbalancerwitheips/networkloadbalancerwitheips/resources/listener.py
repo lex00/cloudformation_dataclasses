@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class ListenerAction:
-    resource: Action
+    resource: elasticloadbalancingv2.Action
     type_ = 'forward'
     target_group_arn = ref(TargetGroup)
 

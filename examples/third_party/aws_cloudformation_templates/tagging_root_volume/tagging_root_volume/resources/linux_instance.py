@@ -12,7 +12,7 @@ class LinuxInstanceAssociationParameter:
 
 @cloudformation_dataclass
 class LinuxInstanceEbsBlockDevice:
-    resource: EbsBlockDevice
+    resource: ec2.EbsBlockDevice
     volume_type = 'io1'
     iops = '200'
     delete_on_termination = 'true'
@@ -21,7 +21,7 @@ class LinuxInstanceEbsBlockDevice:
 
 @cloudformation_dataclass
 class LinuxInstanceBlockDeviceMapping:
-    resource: BlockDeviceMapping
+    resource: ec2.BlockDeviceMapping
     device_name = '/dev/sdm'
     ebs = LinuxInstanceEbsBlockDevice
 
@@ -30,7 +30,7 @@ class LinuxInstanceBlockDeviceMapping:
 class LinuxInstance:
     """AWS::EC2::Instance resource."""
 
-    resource: Instance
+    resource: ec2.Instance
     image_id = ref(LinuxAMIID)
     subnet_id = ref(SubnetId)
     instance_type = ref(InstanceType)

@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class PeerIngressRule4:
     """AWS::EC2::SecurityGroupIngress resource."""
 
-    resource: SecurityGroupIngress
+    resource: ec2.SecurityGroupIngress
     ip_protocol = '-1'
     description = Sub('LAB - Allow All Inbound Communications from VPC Peer, ${PeerName}')
     group_id = Select(3, ref(SecurityGroupIds))

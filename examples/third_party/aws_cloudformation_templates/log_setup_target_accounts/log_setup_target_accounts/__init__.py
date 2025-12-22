@@ -13,12 +13,12 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.events import DeadLetterConfig, Rule, Target
-from cloudformation_dataclasses.aws.iam import Role, RolePolicy
-from cloudformation_dataclasses.aws.sqs import Queue, QueuePolicy
+from cloudformation_dataclasses.aws import events, iam, sqs
+from cloudformation_dataclasses.aws.iam import RolePolicy
+from cloudformation_dataclasses.aws.sqs import QueuePolicy
 from cloudformation_dataclasses.intrinsics import Sub
 
-from .config import CentralEventBusArn
+from .stack_config import CentralEventBusArn
 
 from .resources import *  # noqa: F403, F401
 
@@ -26,7 +26,6 @@ __all__ = [
     "ARN_LIKE",
     "CentralEventBusArn",
     "CloudFormationEventRule",
-    "DeadLetterConfig",
     "DeadLetterQueue",
     "DeadLetterQueuePolicy",
     "EventBridgeRole",
@@ -34,16 +33,15 @@ __all__ = [
     "Parameter",
     "PolicyDocument",
     "PolicyStatement",
-    "Queue",
     "QueuePolicy",
-    "Role",
     "RolePolicy",
-    "Rule",
     "STRING",
     "Sub",
-    "Target",
     "Template",
     "cloudformation_dataclass",
+    "events",
     "get_att",
+    "iam",
     "ref",
+    "sqs",
 ]

@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class AuroraSourceEndpoint:
     """AWS::DMS::Endpoint resource."""
 
-    resource: Endpoint
+    resource: dms.Endpoint
     endpoint_type = 'source'
     engine_name = 'AURORA'
     password = '{{resolve:secretsmanager:aurora-source-enpoint-password:SecretString:password}}'

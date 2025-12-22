@@ -15,8 +15,8 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
+from cloudformation_dataclasses.aws import iam
 from cloudformation_dataclasses.aws.ec2 import AssociationParameter, FlowLog
-from cloudformation_dataclasses.aws.iam import Policy, Role
 from cloudformation_dataclasses.aws.logs import LogGroup
 from cloudformation_dataclasses.intrinsics import (
     AWS_NO_VALUE,
@@ -26,7 +26,7 @@ from cloudformation_dataclasses.intrinsics import (
     Not,
 )
 
-from .config import (
+from .stack_config import (
     VPCFlowLogsCloudWatchKMSKey,
     VPCFlowLogsCloudWatchKMSKeyConditionCondition,
     VPCFlowLogsLogFormat,
@@ -51,10 +51,8 @@ __all__ = [
     "Output",
     "Parameter",
     "ParameterType",
-    "Policy",
     "PolicyDocument",
     "PolicyStatement",
-    "Role",
     "STRING",
     "Template",
     "VPCFlowLogsCloudWatchKMSKey",
@@ -69,5 +67,6 @@ __all__ = [
     "VPCID",
     "cloudformation_dataclass",
     "get_att",
+    "iam",
     "ref",
 ]

@@ -11,10 +11,10 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.ec2 import Instance
+from cloudformation_dataclasses.aws import ec2
 from cloudformation_dataclasses.intrinsics import Base64, Sub
 
-from .config import (
+from .stack_config import (
     IAMRole,
     InstanceAMI,
     InstanceType,
@@ -29,7 +29,6 @@ __all__ = [
     "Base64",
     "EC2Instance",
     "IAMRole",
-    "Instance",
     "InstanceAMI",
     "InstanceType",
     "KeyName",
@@ -41,6 +40,7 @@ __all__ = [
     "SubnetId",
     "Template",
     "cloudformation_dataclass",
+    "ec2",
     "get_att",
     "ref",
 ]

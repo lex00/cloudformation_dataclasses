@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class TaskDefinitionLogConfiguration:
-    resource: LogConfiguration
+    resource: ecs.LogConfiguration
     log_driver = 'awslogs'
     options = {
         'awslogs-group': ref(CloudwatchLogsGroup),
@@ -16,20 +16,20 @@ class TaskDefinitionLogConfiguration:
 
 @cloudformation_dataclass
 class TaskDefinitionMountPoint:
-    resource: MountPoint
+    resource: ecs.MountPoint
     container_path = '/usr/local/apache2/htdocs'
     source_volume = 'my-vol'
 
 
 @cloudformation_dataclass
 class TaskDefinitionPortMapping:
-    resource: PortMapping
+    resource: ecs.PortMapping
     container_port = 80
 
 
 @cloudformation_dataclass
 class TaskDefinitionContainerDefinition:
-    resource: ContainerDefinition
+    resource: ecs.ContainerDefinition
     name = 'simple-app'
     cpu = '10'
     essential = 'true'
@@ -42,7 +42,7 @@ class TaskDefinitionContainerDefinition:
 
 @cloudformation_dataclass
 class TaskDefinitionLogConfiguration1:
-    resource: LogConfiguration
+    resource: ecs.LogConfiguration
     log_driver = 'awslogs'
     options = {
         'awslogs-group': ref(CloudwatchLogsGroup),
@@ -59,7 +59,7 @@ class TaskDefinitionVolumeFrom:
 
 @cloudformation_dataclass
 class TaskDefinitionContainerDefinition1:
-    resource: ContainerDefinition
+    resource: ecs.ContainerDefinition
     name = 'busybox'
     cpu = 10
     command = ['/bin/sh -c "while true; do echo \'<html> <head> <title>Amazon ECS Sample App</title> <style>body {margin-top: 40px; background-color: #333;} </style> </head><body> <div style=color:white;text-align:center> <h1>Amazon ECS Sample App</h1> <h2>Congratulations!</h2> <p>Your application is now running on a container in Amazon ECS.</p>\' > top; /bin/date > date ; echo \'</div></body></html>\' > bottom; cat top date bottom > /usr/local/apache2/htdocs/index.html ; sleep 1; done"']
@@ -73,7 +73,7 @@ class TaskDefinitionContainerDefinition1:
 
 @cloudformation_dataclass
 class TaskDefinitionVolume:
-    resource: Volume
+    resource: ecs.Volume
     name = 'my-vol'
 
 

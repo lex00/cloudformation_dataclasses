@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class LoadBalancerSecurityGroupIngress:
-    resource: Ingress
+    resource: ec2.Ingress
     ip_protocol = 'tcp'
     from_port = 443
     to_port = 443
@@ -16,7 +16,7 @@ class LoadBalancerSecurityGroupIngress:
 class LoadBalancerSecurityGroup:
     """AWS::EC2::SecurityGroup resource."""
 
-    resource: SecurityGroup
+    resource: ec2.SecurityGroup
     group_description = 'Allows inbound traffic on port 443'
     security_group_ingress = [LoadBalancerSecurityGroupIngress]
     vpc_id = ref(VPC)

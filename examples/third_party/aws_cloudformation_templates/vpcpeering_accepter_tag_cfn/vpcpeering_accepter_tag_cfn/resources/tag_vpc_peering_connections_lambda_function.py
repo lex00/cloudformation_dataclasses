@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class TagVpcPeeringConnectionsLambdaFunctionEnvironment:
-    resource: Environment
+    resource: lambda_.Environment
     variables = {
         'LOG_LEVEL': ref(LambdaLogLevel),
     }
@@ -13,7 +13,7 @@ class TagVpcPeeringConnectionsLambdaFunctionEnvironment:
 
 @cloudformation_dataclass
 class TagVpcPeeringConnectionsLambdaFunctionCode:
-    resource: Code
+    resource: lambda_.Code
     zip_file = """import cfnresponse, json, os, logging, boto3
 
 LOGGER = logging.getLogger()
@@ -69,7 +69,7 @@ def handler(event, context):
 class TagVpcPeeringConnectionsLambdaFunction:
     """AWS::Lambda::Function resource."""
 
-    resource: Function
+    resource: lambda_.Function
     function_name = ref(LambdaFunctionName)
     handler = 'index.handler'
     role = get_att(TagVpcPeeringConnectionsLambdaRole, "Arn")

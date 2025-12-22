@@ -17,7 +17,7 @@ class GreengrassInstanceAssociationParameter:
 class GreengrassInstance:
     """AWS::EC2::Instance resource."""
 
-    resource: Instance
+    resource: ec2.Instance
     image_id = ref(LatestAmiId)
     instance_type = ref(InstanceType)
     key_name = ref(myKeyPair)

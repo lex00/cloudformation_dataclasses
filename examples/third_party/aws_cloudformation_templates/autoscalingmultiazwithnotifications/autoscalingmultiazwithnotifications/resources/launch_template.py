@@ -5,13 +5,13 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class LaunchTemplateEbsBlockDevice:
-    resource: EbsBlockDevice
+    resource: ec2.EbsBlockDevice
     volume_size = 32
 
 
 @cloudformation_dataclass
 class LaunchTemplateBlockDeviceMapping:
-    resource: BlockDeviceMapping
+    resource: ec2.BlockDeviceMapping
     device_name = '/dev/sda1'
     ebs = LaunchTemplateEbsBlockDevice
 
@@ -25,7 +25,7 @@ class LaunchTemplateAssociationParameter:
 
 @cloudformation_dataclass
 class LaunchTemplateTagSpecification:
-    resource: TagSpecification
+    resource: ec2.TagSpecification
     resource_type = 'instance'
     tags = [LaunchTemplateAssociationParameter]
 

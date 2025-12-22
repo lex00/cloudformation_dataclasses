@@ -5,14 +5,14 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class TestResourceHandlerCode:
-    resource: Code
+    resource: lambda_.Code
     s3_bucket = ref(LambdaCodeS3Bucket)
     s3_key = ref(LambdaCodeS3Key)
 
 
 @cloudformation_dataclass
 class TestResourceHandlerEnvironment:
-    resource: Environment
+    resource: lambda_.Environment
     variables = {
         'TABLE_NAME': ref(TestTable),
     }
@@ -22,7 +22,7 @@ class TestResourceHandlerEnvironment:
 class TestResourceHandler:
     """AWS::Lambda::Function resource."""
 
-    resource: Function
+    resource: lambda_.Function
     handler = 'bootstrap'
     function_name = Sub('${AppName}-test-handler')
     runtime = 'provided.al2023'

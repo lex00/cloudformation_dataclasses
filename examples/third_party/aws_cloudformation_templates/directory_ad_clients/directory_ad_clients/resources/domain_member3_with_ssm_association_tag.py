@@ -19,7 +19,7 @@ class DomainMember3WithSsmAssociationTagAssociationParameter1:
 
 @cloudformation_dataclass
 class DomainMember3WithSsmAssociationTagEbsBlockDevice:
-    resource: EbsBlockDevice
+    resource: ec2.EbsBlockDevice
     encrypted = True
     volume_type = 'gp3'
     delete_on_termination = True
@@ -29,7 +29,7 @@ class DomainMember3WithSsmAssociationTagEbsBlockDevice:
 
 @cloudformation_dataclass
 class DomainMember3WithSsmAssociationTagBlockDeviceMapping:
-    resource: BlockDeviceMapping
+    resource: ec2.BlockDeviceMapping
     device_name = '/dev/sda1'
     ebs = DomainMember3WithSsmAssociationTagEbsBlockDevice
 
@@ -38,7 +38,7 @@ class DomainMember3WithSsmAssociationTagBlockDeviceMapping:
 class DomainMember3WithSsmAssociationTag:
     """AWS::EC2::Instance resource."""
 
-    resource: Instance
+    resource: ec2.Instance
     image_id = ref(WINFULLBASE)
     iam_instance_profile = ref(DomainMembersWindowsInstanceProfile)
     instance_type = ref(DomainMembersInstanceType)

@@ -15,7 +15,7 @@ from cloudformation_dataclasses.aws import cloudwatch
 from cloudformation_dataclasses.aws.logs import QueryDefinition
 from cloudformation_dataclasses.intrinsics import Sub
 
-from .config import ClientVPNLogGroup, Folder
+from .stack_config import ClientVPNLogGroup, Folder
 
 from .resources import *  # noqa: F403, F401
 

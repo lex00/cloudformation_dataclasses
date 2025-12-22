@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import InstanceType, KeyName, LatestAmiId, Region2ELBAccountIdMapping, Region2ExamplesMapping, SSHLocation
+from .stack_config import InstanceType, KeyName, LatestAmiId, Region2ELBAccountIdMapping, Region2ExamplesMapping, SSHLocation
 from .outputs import URLOutput
 
 

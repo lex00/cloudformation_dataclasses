@@ -7,5 +7,5 @@ from .. import *  # noqa: F403
 class ApiDeployment:
     """AWS::ApiGateway::Deployment resource."""
 
-    resource: Deployment
+    resource: apigateway.Deployment
     rest_api_id = ref(Api)

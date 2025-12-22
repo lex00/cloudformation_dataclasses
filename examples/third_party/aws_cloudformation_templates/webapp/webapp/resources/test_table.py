@@ -5,14 +5,14 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class TestTableAttributeDefinition:
-    resource: AttributeDefinition
+    resource: dynamodb.AttributeDefinition
     attribute_name = 'id'
     attribute_type = AttributeType.S
 
 
 @cloudformation_dataclass
 class TestTableKeySchema:
-    resource: KeySchema
+    resource: dynamodb.KeySchema
     attribute_name = 'id'
     key_type = KeyType.HASH
 
@@ -21,7 +21,7 @@ class TestTableKeySchema:
 class TestTable:
     """AWS::DynamoDB::Table resource."""
 
-    resource: Table
+    resource: dynamodb.Table
     billing_mode = 'PAY_PER_REQUEST'
     table_name = Sub('${AppName}-test')
     attribute_definitions = [TestTableAttributeDefinition]

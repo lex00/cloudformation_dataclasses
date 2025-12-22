@@ -15,13 +15,17 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import autoscaling, iam
-from cloudformation_dataclasses.aws.autoscaling import LaunchConfiguration, ScalingPolicy
-from cloudformation_dataclasses.aws.cloudwatch import Alarm, Dimension
-from cloudformation_dataclasses.aws.ec2 import Ingress, SecurityGroup
-from cloudformation_dataclasses.aws.efs import FileSystem, MountTarget
-from cloudformation_dataclasses.aws.elasticloadbalancing import HealthCheck, Listeners, LoadBalancer
-from cloudformation_dataclasses.aws.iam import Policy, Role
+from cloudformation_dataclasses.aws import (
+    autoscaling,
+    cloudwatch,
+    ec2,
+    efs,
+    elasticloadbalancing,
+    iam,
+)
+from cloudformation_dataclasses.aws.autoscaling import LaunchConfiguration
+from cloudformation_dataclasses.aws.efs import MountTarget
+from cloudformation_dataclasses.aws.elasticloadbalancing import Listeners
 from cloudformation_dataclasses.intrinsics import (
     AWS_REGION,
     AWS_STACK_NAME,
@@ -32,7 +36,7 @@ from cloudformation_dataclasses.intrinsics import (
     Sub,
 )
 
-from .config import (
+from .stack_config import (
     EC2RegionMapMapping,
     InstanceType,
     KeyName,
@@ -45,12 +49,10 @@ from .resources import *  # noqa: F403, F401
 __all__ = [
     "AWS_REGION",
     "AWS_STACK_NAME",
-    "Alarm",
     "AutoScalingGroup",
     "Base64",
     "CPUAlarmHigh",
     "CPUAlarmLow",
-    "Dimension",
     "EC2RegionMapMapping",
     "EFSFileSystem",
     "EFSMountTarget1",
@@ -60,11 +62,8 @@ __all__ = [
     "EFSSecurityGroup",
     "ELBSecurityGroup",
     "ElasticLoadBalancer",
-    "FileSystem",
     "FindInMap",
-    "HealthCheck",
     "IAMAssumeInstanceRole",
-    "Ingress",
     "InstanceProfile",
     "InstanceSecurityGroup",
     "InstanceType",
@@ -73,21 +72,16 @@ __all__ = [
     "LaunchConfig",
     "LaunchConfiguration",
     "Listeners",
-    "LoadBalancer",
     "Mapping",
     "MountTarget",
     "Output",
     "Parameter",
     "ParameterType",
-    "Policy",
     "PolicyDocument",
     "PolicyStatement",
-    "Role",
     "STRING",
     "ScaleDownPolicy",
     "ScaleUpPolicy",
-    "ScalingPolicy",
-    "SecurityGroup",
     "Select",
     "Sub",
     "Subnets",
@@ -95,6 +89,10 @@ __all__ = [
     "VPC",
     "autoscaling",
     "cloudformation_dataclass",
+    "cloudwatch",
+    "ec2",
+    "efs",
+    "elasticloadbalancing",
     "get_att",
     "iam",
     "ref",

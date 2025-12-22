@@ -5,14 +5,14 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class Eth0PrivateIpAddressSpecification:
-    resource: PrivateIpAddressSpecification
+    resource: ec2.PrivateIpAddressSpecification
     private_ip_address = ref(PrimaryIPAddress)
     primary = 'true'
 
 
 @cloudformation_dataclass
 class Eth0PrivateIpAddressSpecification1:
-    resource: PrivateIpAddressSpecification
+    resource: ec2.PrivateIpAddressSpecification
     private_ip_address = ref(SecondaryIPAddress)
     primary = 'false'
 
@@ -35,7 +35,7 @@ class Eth0AssociationParameter1:
 class Eth0:
     """AWS::EC2::NetworkInterface resource."""
 
-    resource: NetworkInterface
+    resource: ec2.NetworkInterface
     description = 'eth0'
     group_set = [ref(SSHSecurityGroup)]
     private_ip_addresses = [Eth0PrivateIpAddressSpecification, Eth0PrivateIpAddressSpecification1]

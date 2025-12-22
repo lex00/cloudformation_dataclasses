@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import InstanceAMI, InstanceType, KeyName, SSHLocation, SubnetId
+from .stack_config import InstanceAMI, InstanceType, KeyName, SSHLocation, SubnetId
 
 
 def build_template() -> Template:

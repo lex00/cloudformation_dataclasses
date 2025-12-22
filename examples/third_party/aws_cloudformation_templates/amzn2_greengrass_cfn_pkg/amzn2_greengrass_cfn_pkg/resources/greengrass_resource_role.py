@@ -44,7 +44,7 @@ class GreengrassResourceRolePolicies0PolicyDocument:
 
 @cloudformation_dataclass
 class GreengrassResourceRolePolicy:
-    resource: Policy
+    resource: iam.Policy
     policy_document = GreengrassResourceRolePolicies0PolicyDocument
     policy_name = 'root'
 
@@ -53,6 +53,6 @@ class GreengrassResourceRolePolicy:
 class GreengrassResourceRole:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     assume_role_policy_document = GreengrassResourceRoleAssumeRolePolicyDocument
     policies = [GreengrassResourceRolePolicy]

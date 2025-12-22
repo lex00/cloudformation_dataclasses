@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class ScaleUpPolicy:
     """AWS::AutoScaling::ScalingPolicy resource."""
 
-    resource: ScalingPolicy
+    resource: autoscaling.ScalingPolicy
     adjustment_type = 'ChangeInCapacity'
     auto_scaling_group_name = ref(AutoScalingGroup)
     cooldown = '60'

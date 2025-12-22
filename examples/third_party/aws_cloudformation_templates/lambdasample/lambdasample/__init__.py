@@ -13,19 +13,15 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.iam import Role
-from cloudformation_dataclasses.aws.lambda_ import Code, Environment, Function
+from cloudformation_dataclasses.aws import iam, lambda_
 from cloudformation_dataclasses.intrinsics import Sub
 
-from .config import EnvName, LambdaHandlerPath
+from .stack_config import EnvName, LambdaHandlerPath
 
 from .resources import *  # noqa: F403, F401
 
 __all__ = [
-    "Code",
     "EnvName",
-    "Environment",
-    "Function",
     "LambdaFunction",
     "LambdaHandlerPath",
     "LambdaRole",
@@ -33,11 +29,12 @@ __all__ = [
     "Parameter",
     "PolicyDocument",
     "PolicyStatement",
-    "Role",
     "STRING",
     "Sub",
     "Template",
     "cloudformation_dataclass",
     "get_att",
+    "iam",
+    "lambda_",
     "ref",
 ]

@@ -14,7 +14,7 @@ class PrivateInstanceAssociationParameter:
 class PrivateInstance:
     """AWS::EC2::Instance resource."""
 
-    resource: Instance
+    resource: ec2.Instance
     instance_type = 't3.micro'
     security_group_ids = [ref(PrivateSG)]
     subnet_id = ref(PrivateSubnet1)

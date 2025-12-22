@@ -9,18 +9,18 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.rds import DBInstance
+from cloudformation_dataclasses.aws import rds
 from cloudformation_dataclasses.intrinsics import Join
 
 from .resources import *  # noqa: F403, F401
 
 __all__ = [
-    "DBInstance",
     "Join",
     "MyDB",
     "Output",
     "Template",
     "cloudformation_dataclass",
     "get_att",
+    "rds",
     "ref",
 ]

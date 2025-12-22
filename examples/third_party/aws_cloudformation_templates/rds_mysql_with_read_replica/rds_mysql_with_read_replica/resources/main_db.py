@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class MainDBTagFormat:
-    resource: TagFormat
+    resource: rds.TagFormat
     key = 'Name'
     value = 'Master Database'
 
@@ -14,7 +14,7 @@ class MainDBTagFormat:
 class MainDB:
     """AWS::RDS::DBInstance resource."""
 
-    resource: DBInstance
+    resource: rds.DBInstance
     db_name = ref(DBName)
     allocated_storage = ref(DBAllocatedStorage)
     backup_retention_period = 7

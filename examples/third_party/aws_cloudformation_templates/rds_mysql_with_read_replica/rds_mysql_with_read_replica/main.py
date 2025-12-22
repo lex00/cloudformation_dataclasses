@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import DBAllocatedStorage, DBInstanceClass, DBName, DBUser, EC2SecurityGroup, EnableReadReplica, EnableReadReplicaCondition, IsEC2VPCCondition, MultiAZ
+from .stack_config import DBAllocatedStorage, DBInstanceClass, DBName, DBUser, EC2SecurityGroup, EnableReadReplica, EnableReadReplicaCondition, IsEC2VPCCondition, MultiAZ
 from .outputs import DBCredentialSecretNameArnOutput, EC2PlatformOutput, JDBCConnectionStringOutput, ReplicaJDBCConnectionStringOutput
 
 

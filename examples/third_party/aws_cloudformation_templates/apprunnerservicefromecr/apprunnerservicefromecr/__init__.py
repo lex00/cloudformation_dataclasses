@@ -14,17 +14,11 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.apprunner import (
-    AuthenticationConfiguration,
-    ImageConfiguration,
-    ImageRepository,
-    Service,
-    SourceConfiguration,
-)
-from cloudformation_dataclasses.aws.iam import Policy, Role
+from cloudformation_dataclasses.aws import apprunner, iam
+from cloudformation_dataclasses.aws.apprunner import ImageConfiguration, ImageRepository
 from cloudformation_dataclasses.intrinsics import AWS_STACK_NAME, Join
 
-from .config import ECRURL, TCPPORT
+from .stack_config import ECRURL, TCPPORT
 
 from .resources import *  # noqa: F403, F401
 
@@ -32,7 +26,6 @@ __all__ = [
     "AWS_STACK_NAME",
     "AppRunner",
     "AppRunnerRole",
-    "AuthenticationConfiguration",
     "ECRURL",
     "ImageConfiguration",
     "ImageRepository",
@@ -40,16 +33,14 @@ __all__ = [
     "NUMBER",
     "Output",
     "Parameter",
-    "Policy",
     "PolicyDocument",
     "PolicyStatement",
-    "Role",
     "STRING",
-    "Service",
-    "SourceConfiguration",
     "TCPPORT",
     "Template",
+    "apprunner",
     "cloudformation_dataclass",
     "get_att",
+    "iam",
     "ref",
 ]

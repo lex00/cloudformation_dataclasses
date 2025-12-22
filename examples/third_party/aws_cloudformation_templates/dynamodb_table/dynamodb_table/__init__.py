@@ -12,36 +12,26 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws.dynamodb import (
-    AttributeDefinition,
-    KeySchema,
-    KeyType,
-    PointInTimeRecoverySpecification,
-    ProvisionedThroughput,
-    Table,
-)
+from cloudformation_dataclasses.aws import dynamodb
+from cloudformation_dataclasses.aws.dynamodb import KeyType
 
-from .config import HashKeyElementName, HashKeyElementType, ReadCapacityUnits, WriteCapacityUnits
+from .stack_config import HashKeyElementName, HashKeyElementType, ReadCapacityUnits, WriteCapacityUnits
 
 from .resources import *  # noqa: F403, F401
 
 __all__ = [
-    "AttributeDefinition",
     "HashKeyElementName",
     "HashKeyElementType",
-    "KeySchema",
     "KeyType",
     "NUMBER",
     "Output",
     "Parameter",
-    "PointInTimeRecoverySpecification",
-    "ProvisionedThroughput",
     "ReadCapacityUnits",
     "STRING",
-    "Table",
     "Template",
     "WriteCapacityUnits",
     "cloudformation_dataclass",
+    "dynamodb",
     "get_att",
     "myDynamoDBTable",
     "ref",

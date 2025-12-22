@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import ClientIP, ExistsDMSCloudwatchRole, ExistsDMSVPCRole, NotExistsDMSCloudwatchRoleCondition, NotExistsDMSVPCRoleCondition, SnapshotIdentifier
+from .stack_config import ClientIP, ExistsDMSCloudwatchRole, ExistsDMSVPCRole, NotExistsDMSCloudwatchRoleCondition, NotExistsDMSVPCRoleCondition, SnapshotIdentifier
 from .outputs import AuroraEndpointOutput, RegionNameOutput, S3BucketNameOutput, StackNameOutput
 
 

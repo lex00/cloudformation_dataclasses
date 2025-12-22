@@ -14,7 +14,7 @@ class DistributionDefaultCacheBehavior:
 
 @cloudformation_dataclass
 class DistributionLogging:
-    resource: Logging
+    resource: cloudfront.Logging
     bucket = get_att(CloudFrontLogsBucket, "RegionalDomainName")
 
 

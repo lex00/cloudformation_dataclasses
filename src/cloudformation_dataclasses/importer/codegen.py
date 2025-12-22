@@ -10,6 +10,7 @@ from cloudformation_dataclasses.constants import (
     PSEUDO_PARAMETER_MAP,
     find_property_type_for_cf_keys,
     get_property_type_info,
+    is_ambiguous_class_name,
     resolve_resource_type,
 )
 from cloudformation_dataclasses.importer.ir import (
@@ -98,6 +99,14 @@ class CodegenContext:
 
     # Current resource ID being generated (to avoid self-referential ref() replacements)
     current_resource_id: Optional[str] = None
+
+    # AWS class names that collide across modules (e.g., 'Policy' from both iam and iot)
+    # These need qualified access like iot.Policy instead of bare Policy
+    colliding_aws_names: dict[str, str] = field(default_factory=dict)  # name -> module
+
+    # Set of resource IDs that are forward references (defined later in same SCC file)
+    # For these, use string-based refs like ref("MyLambdaRole") instead of ref(MyLambdaRole)
+    forward_references: set[str] = field(default_factory=set)
 
     def add_import(self, module: str, name: str) -> None:
         """Add an import to track."""
@@ -765,9 +774,13 @@ def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str | A
             ctx.add_intrinsic_import("Ref")
             return f'Ref("{target}")'
         if target in ctx.template.parameters:
-            # Class ref for parameters - they're defined in config.py and re-exported
+            # Class ref for parameters - they're defined in stack_config.py and re-exported
             return f"ref({_format_ref_target(target)})"
         if target in ctx.template.resources:
+            # Check if this is a forward reference (defined later in same SCC file)
+            if target in ctx.forward_references:
+                # Use string-based ref to avoid NameError at class definition time
+                return f'ref("{_format_ref_target(target)}")'
             # Class-based ref for resources
             return f"ref({_format_ref_target(target)})"
         # Unknown reference - use string
@@ -777,6 +790,10 @@ def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str | A
     if intrinsic.type == IntrinsicType.GET_ATT:
         logical_id, attr = intrinsic.args
         if logical_id in ctx.template.resources:
+            # Check if this is a forward reference (defined later in same SCC file)
+            if logical_id in ctx.forward_references:
+                # Use string-based get_att to avoid NameError at class definition time
+                return f'get_att("{_format_ref_target(logical_id)}", "{attr}")'
             # Class-based get_att for resources
             return f'get_att({_format_ref_target(logical_id)}, "{attr}")'
         ctx.add_intrinsic_import("GetAtt")
@@ -825,6 +842,10 @@ def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str | A
             resource_id = ctx.name_pattern_map[template_str]
             # Don't replace if this is the resource that defines this name pattern
             if resource_id != ctx.current_resource_id:
+                # Check if this is a forward reference (defined later in same SCC file)
+                if resource_id in ctx.forward_references:
+                    # Use string-based ref to avoid NameError at class definition time
+                    return f'ref("{_format_ref_target(resource_id)}")'
                 # Class-based ref for resource
                 return f"ref({_format_ref_target(resource_id)})"
 
@@ -1092,10 +1113,15 @@ def _generate_property_type_wrapper(
     field_types = property_type_info["field_types"]
 
     lines = []
-    lines.append(f"    resource: {pt_class}")
 
-    # Add import for PropertyType
-    ctx.add_import(f"cloudformation_dataclasses.aws.{pt_module}", pt_class)
+    # Check if PropertyType class name is ambiguous (exists in multiple modules)
+    if is_ambiguous_class_name(pt_class):
+        # Use qualified name: resource: s3.BucketEncryption
+        ctx.add_import("cloudformation_dataclasses.aws", pt_module)
+        lines.append(f"    resource: {pt_module}.{pt_class}")
+    else:
+        ctx.add_import(f"cloudformation_dataclasses.aws.{pt_module}", pt_class)
+        lines.append(f"    resource: {pt_class}")
 
     # Convert each field
     for cf_key, val in value.items():
@@ -1345,10 +1371,16 @@ def _generate_resource_class(resource: IRResource, ctx: CodegenContext) -> str:
         resource_module = module
         ctx.current_module = module
 
-        # Check if wrapper class name collides with AWS resource class name
-        # If so, use fully qualified name to avoid self-reference issues
-        if resource.logical_id == class_name:
-            # Use module-qualified name: resource: s3.Bucket instead of resource: Bucket
+        # Check if we need qualified name to avoid collisions:
+        # 1. Wrapper class name matches AWS resource class name (e.g., class Policy uses iot.Policy)
+        # 2. Class name exists in multiple AWS modules (e.g., Policy in both iam and iot)
+        needs_qualified = (
+            resource.logical_id == class_name
+            or class_name in ctx.colliding_aws_names
+            or is_ambiguous_class_name(class_name)
+        )
+        if needs_qualified:
+            # Use module-qualified name: resource: iot.Policy instead of resource: Policy
             ctx.add_import("cloudformation_dataclasses.aws", module)
             lines.append(f"    resource: {module}.{class_name}")
         else:
@@ -1623,8 +1655,71 @@ def _generate_imports(ctx: CodegenContext) -> str:
 
 
 # =============================================================================
-# Topological Sort
+# Topological Sort and Cycle Detection
 # =============================================================================
+
+
+def _find_strongly_connected_components(template: IRTemplate) -> list[list[str]]:
+    """Find strongly connected components using Tarjan's algorithm.
+
+    Returns a list of SCCs, where each SCC is a list of resource IDs.
+    Resources in the same SCC form a cycle and should be in the same file.
+    SCCs are returned in reverse topological order (dependencies first).
+    """
+    # Only consider resources (not parameters, etc.)
+    resources = set(template.resources.keys())
+
+    # Build pattern maps for implicit ref/get_att detection
+    # These are needed to find dependencies created during code generation
+    name_pattern_map = _build_name_pattern_map(template)
+    arn_pattern_map = _build_arn_pattern_map(template)
+
+    # Build adjacency list for resources only, including implicit dependencies
+    graph: dict[str, list[str]] = {}
+    for resource_id in resources:
+        deps = _find_resource_dependencies(
+            template, resource_id, name_pattern_map, arn_pattern_map
+        )
+        graph[resource_id] = [d for d in deps if d in resources]
+
+    # Tarjan's algorithm
+    index_counter = [0]
+    stack: list[str] = []
+    lowlinks: dict[str, int] = {}
+    index: dict[str, int] = {}
+    on_stack: set[str] = set()
+    sccs: list[list[str]] = []
+
+    def strongconnect(node: str) -> None:
+        index[node] = index_counter[0]
+        lowlinks[node] = index_counter[0]
+        index_counter[0] += 1
+        stack.append(node)
+        on_stack.add(node)
+
+        for successor in graph.get(node, []):
+            if successor not in index:
+                strongconnect(successor)
+                lowlinks[node] = min(lowlinks[node], lowlinks[successor])
+            elif successor in on_stack:
+                lowlinks[node] = min(lowlinks[node], index[successor])
+
+        # If node is a root node, pop the stack and generate an SCC
+        if lowlinks[node] == index[node]:
+            scc: list[str] = []
+            while True:
+                successor = stack.pop()
+                on_stack.remove(successor)
+                scc.append(successor)
+                if successor == node:
+                    break
+            sccs.append(scc)
+
+    for node in resources:
+        if node not in index:
+            strongconnect(node)
+
+    return sccs
 
 
 def _topological_sort(template: IRTemplate) -> list[str]:
@@ -1887,15 +1982,60 @@ def _generate_init_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
         for mod, names in ctx.imports.items()
         if mod.startswith("cloudformation_dataclasses.aws.")
     )
+
+    # Detect name collisions across AWS modules
+    # When multiple modules export the same name (e.g., Policy from iam and iot),
+    # we need to use qualified imports instead of direct imports
+    all_aws_names: dict[str, list[str]] = {}
     for module, names in aws_modules:
-        sorted_names = sorted(names)
-        if len(sorted_names) <= 4:
-            lines.append(f"from {module} import {', '.join(sorted_names)}")
-        else:
-            lines.append(f"from {module} import (")
-            for name in sorted_names:
-                lines.append(f"    {name},")
-            lines.append(")")
+        for name in names:
+            all_aws_names.setdefault(name, []).append(module)
+
+    colliding_names = {name for name, mods in all_aws_names.items() if len(mods) > 1}
+
+    # Store colliding names in context so resource file codegen can use qualified access
+    # Map each colliding name to its module (for cases where we know which module to use)
+    for name in colliding_names:
+        for mod in all_aws_names[name]:
+            short_mod = mod.split(".")[-1]  # e.g., 'iot' from '...aws.iot'
+            # Store name -> module mapping for use in resource codegen
+            # If multiple modules have the same name, store all of them
+            ctx.colliding_aws_names[name] = short_mod  # Last one wins, but we also track in aws_base
+
+    # For colliding names, add their modules to aws_base for qualified access
+    if colliding_names:
+        if aws_base is None:
+            aws_base = set()
+        for name in colliding_names:
+            for mod in all_aws_names[name]:
+                short_mod = mod.split(".")[-1]  # e.g., 'iot' from '...aws.iot'
+                aws_base.add(short_mod)
+
+        # Re-emit aws_base imports if we added new modules
+        # (only if we didn't already emit them above)
+        if not ctx.imports.get("cloudformation_dataclasses.aws"):
+            sorted_modules = sorted(aws_base)
+            if len(sorted_modules) <= 4:
+                lines.append(
+                    f"from cloudformation_dataclasses.aws import {', '.join(sorted_modules)}"
+                )
+            else:
+                lines.append("from cloudformation_dataclasses.aws import (")
+                for name in sorted_modules:
+                    lines.append(f"    {name},")
+                lines.append(")")
+
+    for module, names in aws_modules:
+        # Only import non-colliding names directly
+        direct_names = sorted(n for n in names if n not in colliding_names)
+        if direct_names:
+            if len(direct_names) <= 4:
+                lines.append(f"from {module} import {', '.join(direct_names)}")
+            else:
+                lines.append(f"from {module} import (")
+                for name in direct_names:
+                    lines.append(f"    {name},")
+                lines.append(")")
 
     # Intrinsic imports
     if ctx.intrinsic_imports:
@@ -1926,9 +2066,9 @@ def _generate_init_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
     if config_names:
         sorted_config = sorted(config_names)
         if len(sorted_config) <= 4:
-            lines.append(f"from .config import {', '.join(sorted_config)}")
+            lines.append(f"from .stack_config import {', '.join(sorted_config)}")
         else:
-            lines.append("from .config import (")
+            lines.append("from .stack_config import (")
             for name in sorted_config:
                 lines.append(f"    {name},")
             lines.append(")")
@@ -1944,7 +2084,9 @@ def _generate_init_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
         lines.append("")
 
     # Generate __all__ with all exported names
-    all_names = sorted(core_imports | set().union(*[names for _, names in aws_modules]))
+    # Exclude colliding names - they're accessed via module (e.g., iot.Policy)
+    direct_aws_names = set().union(*[names for _, names in aws_modules]) - colliding_names
+    all_names = sorted(core_imports | direct_aws_names)
     # Add AWS module names (e.g., 's3') for qualified access like s3.Bucket
     if aws_base:
         all_names = sorted(set(all_names) | aws_base)
@@ -1964,7 +2106,7 @@ def _generate_init_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
 
 
 def _generate_config_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
-    """Generate config.py with Parameters, Mappings, Conditions."""
+    """Generate stack_config.py with Parameters, Mappings, Conditions."""
     lines = []
     lines.append('"""Configuration - Parameters, Mappings, Conditions."""')
     lines.append("")
@@ -2019,7 +2161,7 @@ def _generate_resources_py(pkg_ctx: PackageContext, template: IRTemplate) -> str
     config_refs = _find_config_references(template)
     if config_refs:
         sorted_refs = sorted(config_refs)
-        lines.append(f"from .config import {', '.join(sorted_refs)}")
+        lines.append(f"from .stack_config import {', '.join(sorted_refs)}")
 
     lines.append("")
     lines.append("")
@@ -2173,61 +2315,137 @@ def _find_sub_in_value(
 
 
 def _generate_resources_package(pkg_ctx: PackageContext, template: IRTemplate) -> dict[str, str]:
-    """Generate resources/ directory with one file per resource.
+    """Generate resources/ directory, merging cyclically-dependent resources.
+
+    Resources that form cycles (mutually reference each other) are placed in the
+    same file to avoid circular import issues at runtime.
 
     Returns:
         Dict mapping "resources/<filename>.py" to content
     """
-    from cloudformation_dataclasses.importer.parser import to_snake_case
-
     files = {}
     ctx = pkg_ctx.codegen_ctx
 
-    # Build a map of resource_id -> list of PropertyType class names it generates
-    # We'll collect these during generation
-    resource_property_types: dict[str, list[str]] = {}
+    # Find strongly connected components to detect cycles
+    sccs = _find_strongly_connected_components(template)
+
+    # Map each resource to its SCC (for grouping)
+    resource_to_scc: dict[str, int] = {}
+    for scc_idx, scc in enumerate(sccs):
+        for resource_id in scc:
+            resource_to_scc[resource_id] = scc_idx
+
+    # Build SCC ordering info for forward reference detection
+    scc_orderings: dict[int, list[str]] = {}  # scc_idx -> ordered list of resource IDs
+    for scc_idx, scc in enumerate(sccs):
+        if len(scc) > 1:
+            scc_orderings[scc_idx] = _order_scc_resources(scc, template)
 
     # First pass: generate all resources and collect their PropertyType classes
+    # For SCC members, set up forward_references before generating
     sorted_resources = _topological_sort(template)
     resource_classes: dict[str, tuple[str, list[str]]] = {}  # id -> (class_def, [pt_defs])
 
     for resource_id in sorted_resources:
         resource = template.resources[resource_id]
         ctx.property_type_class_defs = []
+
+        # Set up forward references for SCC members
+        scc_idx = resource_to_scc[resource_id]
+        if scc_idx in scc_orderings:
+            ordered_scc = scc_orderings[scc_idx]
+            # Resources after this one in the ordering are forward references
+            resource_pos = ordered_scc.index(resource_id)
+            ctx.forward_references = set(ordered_scc[resource_pos + 1:])
+        else:
+            ctx.forward_references = set()
+
         resource_class = _generate_resource_class(resource, ctx)
         resource_classes[resource_id] = (resource_class, list(ctx.property_type_class_defs))
         pkg_ctx.resources_exports.add(resource_id)
 
-    # Second pass: generate individual files
+    # Clear forward_references after generation
+    ctx.forward_references = set()
+
+    # Second pass: generate files, grouping SCCs with multiple resources
+    generated_sccs: set[int] = set()
+
     for resource_id in sorted_resources:
-        resource = template.resources[resource_id]
-        resource_class, pt_defs = resource_classes[resource_id]
+        scc_idx = resource_to_scc[resource_id]
+        if scc_idx in generated_sccs:
+            continue
+        generated_sccs.add(scc_idx)
 
-        lines = []
-        filename = _logical_id_to_filename(resource_id)
+        scc = sccs[scc_idx]
 
-        # Docstring
-        lines.append(f'"""{resource_id} - {resource.resource_type} resource."""')
-        lines.append("")
-        lines.append("from .. import *  # noqa: F403")
+        if len(scc) == 1:
+            # Single resource - generate individual file
+            resource = template.resources[resource_id]
+            resource_class, pt_defs = resource_classes[resource_id]
 
-        lines.append("")
-        lines.append("")
+            lines = []
+            filename = _logical_id_to_filename(resource_id)
 
-        # PropertyType wrappers for this resource
-        for pt_def in pt_defs:
-            lines.append(pt_def)
+            # Docstring
+            lines.append(f'"""{resource_id} - {resource.resource_type} resource."""')
+            lines.append("")
+            lines.append("from .. import *  # noqa: F403")
             lines.append("")
             lines.append("")
 
-        # The resource class itself
-        lines.append(resource_class)
+            # PropertyType wrappers for this resource
+            for pt_def in pt_defs:
+                lines.append(pt_def)
+                lines.append("")
+                lines.append("")
 
-        # Remove trailing empty lines
-        while lines and lines[-1] == "":
-            lines.pop()
+            # The resource class itself
+            lines.append(resource_class)
 
-        files[f"resources/{filename}.py"] = "\n".join(lines) + "\n"
+            # Remove trailing empty lines
+            while lines and lines[-1] == "":
+                lines.pop()
+
+            files[f"resources/{filename}.py"] = "\n".join(lines) + "\n"
+        else:
+            # Multiple resources in SCC - merge into one file
+            # Use pre-computed ordering
+            ordered_scc = scc_orderings[scc_idx]
+
+            lines = []
+            # Use first resource's name for filename, with _group suffix
+            first_resource = ordered_scc[0]
+            filename = _logical_id_to_filename(first_resource) + "_group"
+
+            # Docstring listing all resources
+            resource_names = ", ".join(ordered_scc)
+            lines.append(f'"""Grouped resources: {resource_names}."""')
+            lines.append("")
+            lines.append("from .. import *  # noqa: F403")
+            lines.append("")
+            lines.append("")
+
+            # Add all resources in order
+            for res_id in ordered_scc:
+                resource = template.resources[res_id]
+                resource_class, pt_defs = resource_classes[res_id]
+
+                # PropertyType wrappers for this resource
+                for pt_def in pt_defs:
+                    lines.append(pt_def)
+                    lines.append("")
+                    lines.append("")
+
+                # The resource class itself
+                lines.append(resource_class)
+                lines.append("")
+                lines.append("")
+
+            # Remove trailing empty lines
+            while lines and lines[-1] == "":
+                lines.pop()
+
+            files[f"resources/{filename}.py"] = "\n".join(lines) + "\n"
 
     # Generate resources/__init__.py with topological import ordering
     init_content = '''"""Resource definitions."""
@@ -2237,6 +2455,39 @@ setup_resources(__file__, __name__, globals())
     files["resources/__init__.py"] = init_content
 
     return files
+
+
+def _order_scc_resources(
+    scc: list[str],
+    template: IRTemplate,
+    name_pattern_map: dict[str, str] | None = None,
+    arn_pattern_map: dict[str, tuple[str, str]] | None = None,
+) -> list[str]:
+    """Order resources within an SCC to minimize forward references.
+
+    Uses a heuristic: resources with fewer dependencies on other SCC members
+    come first.
+    """
+    scc_set = set(scc)
+
+    # Build pattern maps if not provided
+    if name_pattern_map is None:
+        name_pattern_map = _build_name_pattern_map(template)
+    if arn_pattern_map is None:
+        arn_pattern_map = _build_arn_pattern_map(template)
+
+    # Count how many SCC members each resource depends on
+    # Use full dependency detection (including implicit refs from code generation)
+    dep_counts: dict[str, int] = {}
+    for resource_id in scc:
+        deps = _find_resource_dependencies(
+            template, resource_id, name_pattern_map, arn_pattern_map
+        )
+        scc_deps = [d for d in deps if d in scc_set]
+        dep_counts[resource_id] = len(scc_deps)
+
+    # Sort by dependency count (ascending), then alphabetically for stability
+    return sorted(scc, key=lambda r: (dep_counts[r], r))
 
 
 def _generate_outputs_py(pkg_ctx: PackageContext, template: IRTemplate) -> str | None:
@@ -2282,10 +2533,10 @@ def _generate_main_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
 
     ctx = pkg_ctx.codegen_ctx
 
-    # Add explicit imports from config (for parameters in build_template)
+    # Add explicit imports from stack_config (for parameters in build_template)
     if pkg_ctx.config_exports:
         sorted_exports = sorted(pkg_ctx.config_exports)
-        lines.append(f"from .config import {', '.join(sorted_exports)}")
+        lines.append(f"from .stack_config import {', '.join(sorted_exports)}")
 
     # Add explicit imports from outputs (if any)
     if pkg_ctx.outputs_exports:
@@ -2364,6 +2615,34 @@ def _find_resource_references_in_outputs(template: IRTemplate) -> set[str]:
     return refs
 
 
+def _detect_aws_name_collisions(ctx: CodegenContext, template: IRTemplate) -> None:
+    """
+    Pre-scan template to detect AWS class names that appear in multiple modules.
+
+    When multiple resources use the same class name from different modules
+    (e.g., iam.Policy and iot.Policy), we need to use qualified imports
+    to avoid Python import collisions.
+
+    Populates ctx.colliding_aws_names with name -> module mapping.
+    """
+    # Track all AWS class names and their modules
+    aws_class_to_modules: dict[str, set[str]] = {}
+
+    for resource in template.resources.values():
+        resolved = resolve_resource_type(resource.resource_type)
+        if resolved:
+            module, class_name = resolved
+            aws_class_to_modules.setdefault(class_name, set()).add(module)
+
+    # Find colliding names (same class name in multiple modules)
+    for class_name, modules in aws_class_to_modules.items():
+        if len(modules) > 1:
+            # This name appears in multiple modules - mark as colliding
+            # Store each module for the colliding name
+            for module in modules:
+                ctx.colliding_aws_names[class_name] = module  # Last one stored
+
+
 def generate_package(template: IRTemplate, package_name: str) -> dict[str, str]:
     """
     Generate a Python package from template (multi-file output).
@@ -2375,7 +2654,7 @@ def generate_package(template: IRTemplate, package_name: str) -> dict[str, str]:
     Returns:
         Dict mapping filename to content, with all files prefixed by package_name/:
         - "{package_name}/__init__.py": Centralized imports
-        - "{package_name}/config.py": Parameters, Mappings, Conditions
+        - "{package_name}/stack_config.py": Parameters, Mappings, Conditions
         - "{package_name}/resources/": Directory with one file per resource
         - "{package_name}/outputs.py": Output definitions (if any)
         - "{package_name}/main.py": build_template + entry point
@@ -2388,6 +2667,10 @@ def generate_package(template: IRTemplate, package_name: str) -> dict[str, str]:
     ctx.add_import("cloudformation_dataclasses.core", "ref")
     ctx.add_import("cloudformation_dataclasses.core", "get_att")
     ctx.add_import("cloudformation_dataclasses.core", "Template")
+
+    # Pre-pass: detect AWS class name collisions across modules
+    # We need to know this before generating resource files so they can use qualified names
+    _detect_aws_name_collisions(ctx, template)
 
     # Generate files in order (to collect imports)
     config_content = _generate_config_py(pkg_ctx, template)
@@ -2414,7 +2697,7 @@ main()
     files = {
         f"{package_name}/__init__.py": init_content,
         f"{package_name}/__main__.py": dunder_main_content,
-        f"{package_name}/config.py": config_content,
+        f"{package_name}/stack_config.py": config_content,
         f"{package_name}/main.py": main_content,
     }
 

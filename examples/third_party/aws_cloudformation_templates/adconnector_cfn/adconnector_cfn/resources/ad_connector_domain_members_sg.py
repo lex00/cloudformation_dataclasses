@@ -5,7 +5,7 @@ from .. import *  # noqa: F403
 
 @cloudformation_dataclass
 class ADConnectorDomainMembersSGIngress:
-    resource: Ingress
+    resource: ec2.Ingress
     ip_protocol = '-1'
     description = 'LAB - Allow All Private IP Communications'
     cidr_ip = '10.0.0.0/8'
@@ -13,7 +13,7 @@ class ADConnectorDomainMembersSGIngress:
 
 @cloudformation_dataclass
 class ADConnectorDomainMembersSGIngress1:
-    resource: Ingress
+    resource: ec2.Ingress
     ip_protocol = '-1'
     description = 'LAB - Allow All Private IP Communications'
     cidr_ip = '172.16.0.0/12'
@@ -21,7 +21,7 @@ class ADConnectorDomainMembersSGIngress1:
 
 @cloudformation_dataclass
 class ADConnectorDomainMembersSGIngress2:
-    resource: Ingress
+    resource: ec2.Ingress
     ip_protocol = '-1'
     description = 'LAB - Allow All Private IP Communications'
     cidr_ip = '192.168.0.0/16'
@@ -46,7 +46,7 @@ class ADConnectorDomainMembersSGAssociationParameter:
 class ADConnectorDomainMembersSG:
     """AWS::EC2::SecurityGroup resource."""
 
-    resource: SecurityGroup
+    resource: ec2.SecurityGroup
     group_description = Sub('${DomainNetBiosName} Domain Members SG via AD Connector')
     vpc_id = ref(VPCID)
     security_group_ingress = [ADConnectorDomainMembersSGIngress, ADConnectorDomainMembersSGIngress1, ADConnectorDomainMembersSGIngress2]

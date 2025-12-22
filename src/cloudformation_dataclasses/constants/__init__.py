@@ -427,3 +427,73 @@ def get_all_property_types() -> dict[tuple[str, str], dict[str, Any]]:
     """Get all known PropertyType classes and their information."""
     _build_property_type_map()
     return _PROPERTY_TYPE_MAP.copy()
+
+
+# =============================================================================
+# Ambiguous Class Name Detection
+# =============================================================================
+
+# Cache for class names that exist in multiple AWS modules
+# Structure: {class_name: [list of module names]}
+_CLASS_TO_MODULES: dict[str, list[str]] = {}
+_CLASS_TO_MODULES_BUILT = False
+
+
+def _build_class_to_modules_map() -> None:
+    """Build mapping of class names to their modules for collision detection."""
+    global _CLASS_TO_MODULES, _CLASS_TO_MODULES_BUILT
+    if _CLASS_TO_MODULES_BUILT:
+        return
+
+    from pathlib import Path
+    import cloudformation_dataclasses.aws as aws_pkg
+    import re
+
+    aws_dir = Path(aws_pkg.__file__).parent
+    class_pattern = re.compile(r"^class (\w+)\(", re.MULTILINE)
+
+    for py_file in aws_dir.glob("*.py"):
+        if py_file.name.startswith("_"):
+            continue
+        module_name = py_file.stem
+        content = py_file.read_text()
+
+        for match in class_pattern.finditer(content):
+            class_name = match.group(1)
+            if class_name not in _CLASS_TO_MODULES:
+                _CLASS_TO_MODULES[class_name] = []
+            _CLASS_TO_MODULES[class_name].append(module_name)
+
+    _CLASS_TO_MODULES_BUILT = True
+
+
+def is_ambiguous_class_name(class_name: str) -> bool:
+    """
+    Check if a class name exists in multiple AWS modules.
+
+    This is used during code generation to determine if we need to use
+    qualified imports (e.g., iot.Policy) vs direct imports (e.g., Policy).
+
+    Args:
+        class_name: The class name to check (e.g., "Policy", "Function")
+
+    Returns:
+        True if the class name exists in more than one AWS module.
+    """
+    _build_class_to_modules_map()
+    modules = _CLASS_TO_MODULES.get(class_name, [])
+    return len(modules) > 1
+
+
+def get_class_modules(class_name: str) -> list[str]:
+    """
+    Get all AWS modules that define a class with the given name.
+
+    Args:
+        class_name: The class name to check
+
+    Returns:
+        List of module names (e.g., ["iam", "iot"] for "Policy")
+    """
+    _build_class_to_modules_map()
+    return _CLASS_TO_MODULES.get(class_name, [])
