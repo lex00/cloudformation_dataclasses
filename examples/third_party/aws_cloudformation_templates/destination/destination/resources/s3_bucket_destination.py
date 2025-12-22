@@ -9,7 +9,7 @@ from .. import *  # noqa: F403
 class S3BucketDestinationServerSideEncryptionByDefault:
     resource: ServerSideEncryptionByDefault
     sse_algorithm = ServerSideEncryption.AWS_KMS
-    kms_master_key_id: Ref[KmsKey] = ref()
+    kms_master_key_id = ref(KmsKey)
 
 
 @cloudformation_dataclass

@@ -18,6 +18,6 @@ class DHCPOptions:
 
     resource: ec2.DHCPOptions
     domain_name = ref(AWSManagedADDomainDNSName)
-    domain_name_servers: GetAtt[AWSManagedAD] = get_att("DnsIpAddresses")
+    domain_name_servers = get_att(AWSManagedAD, "DnsIpAddresses")
     tags = [DHCPOptionsAssociationParameter]
     condition = 'DHCPOptionSetCondition'

@@ -8,8 +8,8 @@ from .. import *  # noqa: F403
 @cloudformation_dataclass
 class WebServerGroupLaunchTemplateSpecification:
     resource: LaunchTemplateSpecification
-    launch_template_id: Ref[LaunchTemplate] = ref()
-    version: GetAtt[LaunchTemplate] = get_att("LatestVersionNumber")
+    launch_template_id = ref(LaunchTemplate)
+    version = get_att(LaunchTemplate, "LatestVersionNumber")
 
 
 @cloudformation_dataclass
@@ -21,4 +21,4 @@ class WebServerGroup:
     launch_template = WebServerGroupLaunchTemplateSpecification
     min_size = 2
     max_size = 5
-    load_balancer_names = [ref("ElasticLoadBalancer")]
+    load_balancer_names = [ref(ElasticLoadBalancer)]

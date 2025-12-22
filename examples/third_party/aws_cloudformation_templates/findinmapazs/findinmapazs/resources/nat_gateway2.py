@@ -10,5 +10,5 @@ class NatGateway2:
     """AWS::EC2::NatGateway resource."""
 
     resource: NatGateway
-    allocation_id: GetAtt[NatGateway2EIP] = get_att("AllocationId")
-    subnet_id: Ref[PublicSubnet2] = ref()
+    allocation_id = get_att(NatGateway2EIP, "AllocationId")
+    subnet_id = ref(PublicSubnet2)

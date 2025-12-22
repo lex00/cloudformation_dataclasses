@@ -11,5 +11,5 @@ class PrivateSubnet2DefaultRoute:
 
     resource: Route
     destination_cidr_block = '0.0.0.0/0'
-    nat_gateway_id: Ref[PublicSubnet2NATGateway] = ref()
-    route_table_id: Ref[PrivateSubnet2RouteTable] = ref()
+    nat_gateway_id = ref(PublicSubnet2NATGateway)
+    route_table_id = ref(PrivateSubnet2RouteTable)

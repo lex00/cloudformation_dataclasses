@@ -10,4 +10,4 @@ class ApiDeployment:
     """AWS::ApiGateway::Deployment resource."""
 
     resource: Deployment
-    rest_api_id: Ref[Api] = ref()
+    rest_api_id = ref(Api)

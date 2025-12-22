@@ -15,8 +15,8 @@ class DeliveryStreamDeliveryStreamEncryptionConfigurationInput:
 class DeliveryStreamCloudWatchLoggingOptions:
     resource: CloudWatchLoggingOptions
     enabled = True
-    log_group_name: Ref[FirehoseLogGroup] = ref()
-    log_stream_name: Ref[FirehoseLogStream] = ref()
+    log_group_name = ref(FirehoseLogGroup)
+    log_stream_name = ref(FirehoseLogStream)
 
 
 @cloudformation_dataclass
@@ -44,7 +44,7 @@ class DeliveryStreamProcessingConfiguration:
 class DeliveryStreamExtendedS3DestinationConfiguration:
     resource: ExtendedS3DestinationConfiguration
     cloud_watch_logging_options = DeliveryStreamCloudWatchLoggingOptions
-    role_arn: GetAtt[DeliveryRole] = get_att("Arn")
+    role_arn = get_att(DeliveryRole, "Arn")
     bucket_arn = Join('', [
     'arn:aws:s3:::',
     ref(DestinationBucketName),

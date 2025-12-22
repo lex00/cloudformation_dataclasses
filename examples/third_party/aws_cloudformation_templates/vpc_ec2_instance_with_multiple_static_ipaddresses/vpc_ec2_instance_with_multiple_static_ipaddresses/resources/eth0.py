@@ -39,7 +39,7 @@ class Eth0:
 
     resource: NetworkInterface
     description = 'eth0'
-    group_set = [ref("SSHSecurityGroup")]
+    group_set = [ref(SSHSecurityGroup)]
     private_ip_addresses = [Eth0PrivateIpAddressSpecification, Eth0PrivateIpAddressSpecification1]
     source_dest_check = 'true'
     subnet_id = ref(SubnetId)

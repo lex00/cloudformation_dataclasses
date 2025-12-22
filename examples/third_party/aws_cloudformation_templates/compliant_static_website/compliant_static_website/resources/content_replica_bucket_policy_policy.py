@@ -52,5 +52,5 @@ class ContentReplicaBucketPolicyPolicy:
     """AWS::S3::BucketPolicy resource."""
 
     resource: BucketPolicy
-    bucket: Ref[ContentReplicaBucket] = ref()
+    bucket = ref(ContentReplicaBucket)
     policy_document = ContentReplicaBucketPolicyPolicyPolicyDocument

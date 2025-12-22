@@ -11,4 +11,4 @@ class EC2InstanceProfile:
 
     resource: InstanceProfile
     path = '/'
-    roles = [ref("EC2Role")]
+    roles = [ref(EC2Role)]

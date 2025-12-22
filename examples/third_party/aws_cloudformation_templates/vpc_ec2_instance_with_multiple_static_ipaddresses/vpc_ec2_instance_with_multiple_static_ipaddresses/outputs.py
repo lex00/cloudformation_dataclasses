@@ -8,7 +8,7 @@ class InstanceIdOutput:
     """Instance Id of newly created instance"""
 
     resource: Output
-    value = ref("EC2Instance")
+    value = ref(EC2Instance)
     description = 'Instance Id of newly created instance'
 
 
@@ -19,7 +19,7 @@ class EIP1Output:
     resource: Output
     value = Join(' ', [
     'IP address',
-    ref("EIP1"),
+    ref(EIP1),
     'on subnet',
     ref(SubnetId),
 ])
@@ -33,7 +33,7 @@ class PrimaryPrivateIPAddressOutput:
     resource: Output
     value = Join(' ', [
     'IP address',
-    get_att("Eth0", "PrimaryPrivateIpAddress"),
+    get_att(Eth0, "PrimaryPrivateIpAddress"),
     'on subnet',
     ref(SubnetId),
 ])
@@ -47,7 +47,7 @@ class SecondaryPrivateIPAddressesOutput:
     resource: Output
     value = Join(' ', [
     'IP address',
-    Select(0, get_att("Eth0", "SecondaryPrivateIpAddresses")),
+    Select(0, get_att(Eth0, "SecondaryPrivateIpAddresses")),
     'on subnet',
     ref(SubnetId),
 ])

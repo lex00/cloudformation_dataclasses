@@ -17,7 +17,7 @@ class SiteDistributionDefaultCacheBehavior:
 @cloudformation_dataclass
 class SiteDistributionLogging:
     resource: Logging
-    bucket: GetAtt[SiteCloudFrontLogsBucket] = get_att("RegionalDomainName")
+    bucket = get_att(SiteCloudFrontLogsBucket, "RegionalDomainName")
 
 
 @cloudformation_dataclass
@@ -29,9 +29,9 @@ class SiteDistributionS3OriginConfig:
 @cloudformation_dataclass
 class SiteDistributionOrigin:
     resource: Origin
-    domain_name: GetAtt[SiteContentBucket] = get_att("RegionalDomainName")
+    domain_name = get_att(SiteContentBucket, "RegionalDomainName")
     id = Sub('${AppName}-origin-1')
-    origin_access_control_id: GetAtt[SiteOriginAccessControl] = get_att("Id")
+    origin_access_control_id = get_att(SiteOriginAccessControl, "Id")
     s3_origin_config = SiteDistributionS3OriginConfig
 
 
@@ -52,7 +52,7 @@ class SiteDistributionDistributionConfig:
     logging = SiteDistributionLogging
     origins = [SiteDistributionOrigin]
     viewer_certificate = SiteDistributionViewerCertificate
-    web_acl_id: GetAtt[SiteWebACL] = get_att("Arn")
+    web_acl_id = get_att(SiteWebACL, "Arn")
 
 
 @cloudformation_dataclass

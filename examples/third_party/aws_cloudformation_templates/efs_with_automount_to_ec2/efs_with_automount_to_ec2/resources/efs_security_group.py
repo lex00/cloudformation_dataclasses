@@ -11,7 +11,7 @@ class EFSSecurityGroupIngress:
     from_port = '2049'
     ip_protocol = 'tcp'
     to_port = '2049'
-    source_security_group_id: GetAtt[InstanceSecurityGroup] = get_att("GroupId")
+    source_security_group_id = get_att(InstanceSecurityGroup, "GroupId")
 
 
 @cloudformation_dataclass

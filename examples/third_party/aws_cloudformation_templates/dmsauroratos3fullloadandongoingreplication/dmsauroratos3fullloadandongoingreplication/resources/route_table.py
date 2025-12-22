@@ -17,5 +17,5 @@ class RouteTable:
     """AWS::EC2::RouteTable resource."""
 
     resource: ec2.RouteTable
-    vpc_id: Ref[VPC] = ref()
+    vpc_id = ref(VPC)
     tags = [RouteTableAssociationParameter]

@@ -16,7 +16,10 @@ from cloudformation_dataclasses.intrinsics import Sub
 
 from .config import DBUser
 
+from .resources import *  # noqa: F403, F401
+
 __all__ = [
+    "DBCredential",
     "DBInstance",
     "DBUser",
     "GenerateSecretString",
@@ -27,5 +30,6 @@ __all__ = [
     "Template",
     "cloudformation_dataclass",
     "get_att",
+    "myDB",
     "ref",
 ]

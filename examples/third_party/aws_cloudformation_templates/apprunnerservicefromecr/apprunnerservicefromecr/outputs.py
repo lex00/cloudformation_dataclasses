@@ -10,6 +10,6 @@ class AppRunnerOutput:
     resource: Output
     value = Join('', [
     'https://',
-    get_att("AppRunner", "ServiceUrl"),
+    get_att(AppRunner, "ServiceUrl"),
 ])
     description = 'URL of the deployed App Runner Service'

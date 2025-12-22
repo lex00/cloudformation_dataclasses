@@ -6,7 +6,6 @@ from cloudformation_dataclasses.core import (
     NUMBER,
     Output,
     Parameter,
-    Ref,
     STRING,
     Template,
     cloudformation_dataclass,
@@ -24,6 +23,8 @@ from cloudformation_dataclasses.aws.dynamodb import (
 
 from .config import HashKeyElementName, HashKeyElementType, ReadCapacityUnits, WriteCapacityUnits
 
+from .resources import *  # noqa: F403, F401
+
 __all__ = [
     "AttributeDefinition",
     "HashKeyElementName",
@@ -36,12 +37,12 @@ __all__ = [
     "PointInTimeRecoverySpecification",
     "ProvisionedThroughput",
     "ReadCapacityUnits",
-    "Ref",
     "STRING",
     "Table",
     "Template",
     "WriteCapacityUnits",
     "cloudformation_dataclass",
     "get_att",
+    "myDynamoDBTable",
     "ref",
 ]

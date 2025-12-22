@@ -12,6 +12,6 @@ class BucketMapMapping:
             'Retention': 30,
         },
         'Yearly': {
-            TableInput.RETENTION: 365,
+            'Retention': 365,
         },
     }

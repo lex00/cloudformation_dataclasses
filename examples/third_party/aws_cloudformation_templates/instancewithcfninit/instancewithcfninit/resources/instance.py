@@ -27,8 +27,6 @@ class Instance:
     instance_type = 't4g.nano'
     key_name = 'sample'
     block_device_mappings = [InstanceBlockDeviceMapping]
-    user_data = Base64({
-    'Fn::Sub': """#!/bin/bash
+    user_data = Base64(Sub("""#!/bin/bash
 /opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --resource Instance --region ${AWS::Region}
-/opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --resource Instance --region ${AWS::Region}""",
-})
+/opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --resource Instance --region ${AWS::Region}"""))

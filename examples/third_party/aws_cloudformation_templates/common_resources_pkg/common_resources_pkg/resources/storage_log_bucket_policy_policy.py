@@ -52,5 +52,5 @@ class StorageLogBucketPolicyPolicy:
     """AWS::S3::BucketPolicy resource."""
 
     resource: BucketPolicy
-    bucket: Ref[StorageLogBucket] = ref()
+    bucket = ref(StorageLogBucket)
     policy_document = StorageLogBucketPolicyPolicyPolicyDocument

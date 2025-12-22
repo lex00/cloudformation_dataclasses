@@ -10,17 +10,12 @@ class EC2Instance:
     """AWS::EC2::Instance resource."""
 
     resource: Instance
-    user_data = Base64({
-    'Fn::Join': [
-        '',
-        [
-            'IPAddress=',
-            ref("IPAddress"),
-        ],
-    ],
-})
+    user_data = Base64(Join('', [
+    'IPAddress=',
+    ref(IPAddress),
+]))
     instance_type = ref(InstanceType)
     subnet_id = Select(0, ref(Subnets))
-    security_group_ids = [get_att("InstanceSecurityGroup", "GroupId")]
+    security_group_ids = [get_att(InstanceSecurityGroup, "GroupId")]
     key_name = ref(KeyName)
     image_id = ref(LatestAmiId)

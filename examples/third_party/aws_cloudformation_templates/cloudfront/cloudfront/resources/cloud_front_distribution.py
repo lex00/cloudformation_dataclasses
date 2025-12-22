@@ -19,8 +19,8 @@ class CloudFrontDistributionCustomOriginConfig:
 @cloudformation_dataclass
 class CloudFrontDistributionOrigin:
     resource: Origin
-    domain_name: GetAtt[OriginALB] = get_att("DNSName")
-    id: Ref[OriginALB] = ref()
+    domain_name = get_att(OriginALB, "DNSName")
+    id = ref(OriginALB)
     custom_origin_config = CloudFrontDistributionCustomOriginConfig
 
 
@@ -41,7 +41,7 @@ class CloudFrontDistributionForwardedValues:
 class CloudFrontDistributionLambdaFunctionAssociation:
     resource: LambdaFunctionAssociation
     event_type = ref(LambdaEventType)
-    lambda_function_arn: Ref[LambdaEdgeVersion] = ref()
+    lambda_function_arn = ref(LambdaEdgeVersion)
 
 
 @cloudformation_dataclass
@@ -53,7 +53,7 @@ class CloudFrontDistributionDefaultCacheBehavior:
     max_ttl = ref(MaxTTL)
     min_ttl = ref(MinTTL)
     smooth_streaming = 'false'
-    target_origin_id: Ref[OriginALB] = ref()
+    target_origin_id = ref(OriginALB)
     forwarded_values = CloudFrontDistributionForwardedValues
     viewer_protocol_policy = ref(ViewerProtocolPolicy)
     lambda_function_associations = [CloudFrontDistributionLambdaFunctionAssociation]

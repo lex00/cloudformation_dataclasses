@@ -26,6 +26,6 @@ class LoadBalancer:
     resource: elasticloadbalancingv2.LoadBalancer
     load_balancer_attributes = [LoadBalancerLoadBalancerAttribute, LoadBalancerLoadBalancerAttribute1]
     scheme = 'internet-facing'
-    security_groups = [get_att("LoadBalancerSecurityGroup", "GroupId")]
+    security_groups = [get_att(LoadBalancerSecurityGroup, "GroupId")]
     subnets = [ref(PublicSubnet1), ref(PublicSubnet2)]
     type_ = 'application'

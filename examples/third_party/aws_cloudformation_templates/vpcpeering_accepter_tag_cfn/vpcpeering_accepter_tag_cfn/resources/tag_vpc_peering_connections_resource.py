@@ -11,6 +11,6 @@ class TagVpcPeeringConnectionsResource:
 
     # Unknown resource type: Custom::TagVpcPeeringConnection
     resource: CloudFormationResource
-    service_token: GetAtt[TagVpcPeeringConnectionsLambdaFunction] = get_att("Arn")
+    service_token = get_att(TagVpcPeeringConnectionsLambdaFunction, "Arn")
     resource = ref(VPCPeeringConnectionId)
     name = ref(PeerName)

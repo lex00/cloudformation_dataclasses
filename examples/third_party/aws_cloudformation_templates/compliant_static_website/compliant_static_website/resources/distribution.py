@@ -17,7 +17,7 @@ class DistributionDefaultCacheBehavior:
 @cloudformation_dataclass
 class DistributionLogging:
     resource: Logging
-    bucket: GetAtt[CloudFrontLogsBucket] = get_att("RegionalDomainName")
+    bucket = get_att(CloudFrontLogsBucket, "RegionalDomainName")
 
 
 @cloudformation_dataclass
@@ -29,9 +29,9 @@ class DistributionS3OriginConfig:
 @cloudformation_dataclass
 class DistributionOrigin:
     resource: Origin
-    domain_name: GetAtt[ContentBucket] = get_att("RegionalDomainName")
+    domain_name = get_att(ContentBucket, "RegionalDomainName")
     id = 'rain-build-origin-1'
-    origin_access_control_id: GetAtt[OriginAccessControl] = get_att("Id")
+    origin_access_control_id = get_att(OriginAccessControl, "Id")
     s3_origin_config = DistributionS3OriginConfig
 
 

@@ -12,14 +12,14 @@ class NeptuneDBCluster:
     resource: DBCluster
     backup_retention_period = ref(BackupRetentionPeriod)
     db_cluster_identifier = ref(DBClusterIdentifier)
-    db_cluster_parameter_group_name: Ref[NeptuneDBClusterParameterGroup] = ref()
-    db_subnet_group_name: Ref[NeptuneDBSubnetGroup] = ref()
+    db_cluster_parameter_group_name = ref(NeptuneDBClusterParameterGroup)
+    db_subnet_group_name = ref(NeptuneDBSubnetGroup)
     iam_auth_enabled = ref(IAMAuthEnabled)
     db_port = ref(Port)
     preferred_backup_window = ref(NeptuneDBClusterPreferredBackupWindow)
     preferred_maintenance_window = ref(NeptuneDBClusterPreferredMaintenanceWindow)
     storage_encrypted = ref(StorageEncrypted)
-    vpc_security_group_ids = [ref("NeptuneDBSG")]
+    vpc_security_group_ids = [ref(NeptuneDBSG)]
     tags = [{
         'Key': 'Name',
         'Value': Sub('${Env}-${AppName}-Cluster'),

@@ -11,4 +11,4 @@ class InstanceProfile:
 
     resource: iam.InstanceProfile
     path = '/'
-    roles = [ref("InstanceRole")]
+    roles = [ref(InstanceRole)]

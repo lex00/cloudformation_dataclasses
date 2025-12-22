@@ -9,7 +9,7 @@ from .. import *  # noqa: F403
 class LoadBalancerListenerAction:
     resource: Action
     type_ = 'forward'
-    target_group_arn: Ref[TargetGroup] = ref()
+    target_group_arn = ref(TargetGroup)
 
 
 @cloudformation_dataclass
@@ -24,7 +24,7 @@ class LoadBalancerListener:
 
     resource: Listener
     default_actions = [LoadBalancerListenerAction]
-    load_balancer_arn: Ref[ElasticLoadBalancer] = ref()
+    load_balancer_arn = ref(ElasticLoadBalancer)
     port = 443
     protocol = 'HTTPS'
     ssl_policy = 'ELBSecurityPolicy-2016-08'

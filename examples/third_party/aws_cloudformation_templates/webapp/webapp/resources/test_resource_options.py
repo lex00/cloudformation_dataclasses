@@ -19,7 +19,7 @@ class TestResourceOptions:
 
     resource: Method
     http_method = 'OPTIONS'
-    resource_id: Ref[TestResourceResource] = ref()
-    rest_api_id: Ref[RestApi] = ref()
+    resource_id = ref(TestResourceResource)
+    rest_api_id = ref(RestApi)
     authorization_type = 'NONE'
     integration = TestResourceOptionsIntegration

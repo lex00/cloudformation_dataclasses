@@ -11,4 +11,4 @@ class EMRClusterinstanceProfile:
 
     resource: InstanceProfile
     path = '/'
-    roles = [ref("EMRClusterinstanceProfileRole")]
+    roles = [ref(EMRClusterinstanceProfileRole)]

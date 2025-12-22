@@ -17,7 +17,7 @@ class DBSubnet2:
     """AWS::EC2::Subnet resource."""
 
     resource: Subnet
-    vpc_id: Ref[VPC] = ref()
+    vpc_id = ref(VPC)
     cidr_block = '10.0.0.64/26'
     availability_zone = Select(1, GetAZs())
     tags = [DBSubnet2AssociationParameter]

@@ -8,7 +8,7 @@ class VPCOutput:
     """A reference to the created VPC"""
 
     resource: Output
-    value = ref("VPC")
+    value = ref(VPC)
     description = 'A reference to the created VPC'
 
 
@@ -18,8 +18,8 @@ class PrivateSubnetsOutput:
 
     resource: Output
     value = Join(',', [
-    ref("PrivateSubnet1"),
-    ref("PrivateSubnet2"),
+    ref(PrivateSubnet1),
+    ref(PrivateSubnet2),
 ])
     description = 'A list of the private subnets'
 
@@ -29,7 +29,7 @@ class CfnEndpointOutput:
     """A reference to the CloudFormation Endpoint used for signaling from the private instance"""
 
     resource: Output
-    value = ref("CfnEndpoint")
+    value = ref(CfnEndpoint)
     description = 'A reference to the CloudFormation Endpoint used for signaling from the private instance'
 
 
@@ -38,5 +38,5 @@ class S3EndpointOutput:
     """A reference to the S3 Endpoint used for signaling from the private instance"""
 
     resource: Output
-    value = ref("S3Endpoint")
+    value = ref(S3Endpoint)
     description = 'A reference to the S3 Endpoint used for signaling from the private instance'

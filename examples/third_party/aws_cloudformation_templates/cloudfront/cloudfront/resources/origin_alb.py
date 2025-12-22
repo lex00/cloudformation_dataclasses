@@ -50,5 +50,5 @@ class OriginALB:
     type_ = ref(ALBType)
     load_balancer_attributes = [OriginALBLoadBalancerAttribute, OriginALBLoadBalancerAttribute1, OriginALBLoadBalancerAttribute2]
     subnets = [ref(PublicSubnetId1), ref(PublicSubnetId2)]
-    security_groups = [ref("ALBExternalAccessSG")]
+    security_groups = [ref(ALBExternalAccessSG)]
     tags = [OriginALBListenerAttribute, OriginALBListenerAttribute1]

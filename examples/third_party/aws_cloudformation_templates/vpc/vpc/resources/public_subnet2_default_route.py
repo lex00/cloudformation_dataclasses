@@ -11,6 +11,6 @@ class PublicSubnet2DefaultRoute:
 
     resource: Route
     destination_cidr_block = '0.0.0.0/0'
-    gateway_id: Ref[InternetGateway] = ref()
-    route_table_id: Ref[PublicSubnet2RouteTable] = ref()
+    gateway_id = ref(InternetGateway)
+    route_table_id = ref(PublicSubnet2RouteTable)
     depends_on = ["VPCGW"]

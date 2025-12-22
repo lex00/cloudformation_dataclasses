@@ -11,16 +11,14 @@ class ContainerInstances:
 
     resource: LaunchConfiguration
     image_id = ref(LatestAmiId)
-    security_groups = [ref("EcsSecurityGroup")]
+    security_groups = [ref(EcsSecurityGroup)]
     instance_type = ref(InstanceType)
-    iam_instance_profile: Ref[EC2InstanceProfile] = ref()
+    iam_instance_profile = ref(EC2InstanceProfile)
     key_name = ref(KeyName)
-    user_data = Base64({
-    'Fn::Sub': """#!/bin/bash -xe
+    user_data = Base64(Sub("""#!/bin/bash -xe
 echo ECS_CLUSTER=${ECSCluster} >> /etc/ecs/ecs.config
 yum install -y aws-cfn-bootstrap
 /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} \
     --resource ECSAutoScalingGroup \
     --region ${AWS::Region}
-""",
-})
+"""))

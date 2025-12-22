@@ -10,7 +10,7 @@ class WebsiteURLOutput:
     resource: Output
     value = Join('', [
     'http://',
-    get_att("KWOSInstance", "PublicDnsName"),
+    get_att(KWOSInstance, "PublicDnsName"),
 ])
     description = 'URL for newly created KWOS deploy stack'
 
@@ -20,5 +20,5 @@ class InstanceIdOutput:
     """Instance Id of newly created instance"""
 
     resource: Output
-    value = ref("KWOSInstance")
+    value = ref(KWOSInstance)
     description = 'Instance Id of newly created instance'

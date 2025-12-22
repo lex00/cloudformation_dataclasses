@@ -24,7 +24,7 @@ class ADConnectorLambdaFunctionCode:
 class ADConnectorLambdaFunctionVpcConfig:
     resource: VpcConfig
     subnet_ids = ['PrivateSubnet1ID', 'PrivateSubnet2ID']
-    security_group_ids = [ref("ADConnectorDomainMembersSG")]
+    security_group_ids = [ref(ADConnectorDomainMembersSG)]
 
 
 @cloudformation_dataclass
@@ -34,7 +34,7 @@ class ADConnectorLambdaFunction:
     resource: Function
     function_name = ref(LambdaFunctionName)
     handler = 'adconnector_custom_resource.lambda_handler'
-    role: GetAtt[ADConnectorLambdaRole] = get_att("Arn")
+    role = get_att(ADConnectorLambdaRole, "Arn")
     runtime = 'python3.8'
     memory_size = 128
     timeout = 120

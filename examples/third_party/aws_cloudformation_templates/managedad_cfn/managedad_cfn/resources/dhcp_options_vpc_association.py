@@ -11,5 +11,5 @@ class DHCPOptionsVPCAssociation:
 
     resource: VPCDHCPOptionsAssociation
     vpc_id = ref(VPCID)
-    dhcp_options_id: Ref[DHCPOptions] = ref()
+    dhcp_options_id = ref(DHCPOptions)
     condition = 'DHCPOptionSetCondition'

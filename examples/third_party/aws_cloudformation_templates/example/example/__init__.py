@@ -3,8 +3,11 @@
 from cloudformation_dataclasses.core import Template, cloudformation_dataclass, get_att, ref
 from cloudformation_dataclasses.aws.s3 import Bucket
 
+from .resources import *  # noqa: F403, F401
+
 __all__ = [
     "Bucket",
+    "Bucket1",
     "Template",
     "cloudformation_dataclass",
     "get_att",

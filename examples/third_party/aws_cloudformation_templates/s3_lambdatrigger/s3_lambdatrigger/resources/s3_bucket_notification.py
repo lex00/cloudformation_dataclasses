@@ -36,7 +36,7 @@ class S3BucketNotificationPublicAccessBlockConfiguration:
 class S3BucketNotificationLambdaConfiguration:
     resource: LambdaConfiguration
     event = 's3:ObjectCreated:Put'
-    function: GetAtt[S3TriggerLambdaFunction] = get_att("Arn")
+    function = get_att(S3TriggerLambdaFunction, "Arn")
 
 
 @cloudformation_dataclass

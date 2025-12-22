@@ -51,7 +51,7 @@ class LambdaEdgeFunction:
     description = 'A custom Lambda@Edge function for serving custom headers from CloudFront Distribution'
     function_name = Sub('${AppName}-lambda-edge-${Environment}')
     handler = 'index.handler'
-    role: GetAtt[LambdaEdgeIAMRole] = get_att("Arn")
+    role = get_att(LambdaEdgeIAMRole, "Arn")
     memory_size = 128
     timeout = 5
     code = LambdaEdgeFunctionCode

@@ -8,11 +8,9 @@ from cloudformation_dataclasses.core import (
     ARN_LIKE,
     BOOL,
     DenyStatement,
-    GetAtt,
     Parameter,
     PolicyDocument,
     PolicyStatement,
-    Ref,
     STRING,
     STRING_EQUALS,
     Template,
@@ -47,6 +45,8 @@ from cloudformation_dataclasses.intrinsics import AWS_ACCOUNT_ID, Sub
 
 from .config import AppName
 
+from .resources import *  # noqa: F403, F401
+
 __all__ = [
     "ARN_LIKE",
     "AWS_ACCOUNT_ID",
@@ -58,7 +58,6 @@ __all__ = [
     "BucketVersioningStatus",
     "DefaultRetention",
     "DenyStatement",
-    "GetAtt",
     "LoggingConfiguration",
     "ObjectLockConfiguration",
     "ObjectLockEnabled",
@@ -69,7 +68,6 @@ __all__ = [
     "PolicyStatement",
     "PublicAccessBlockConfiguration",
     "Queue",
-    "Ref",
     "ReplicationConfiguration",
     "ReplicationDestination",
     "ReplicationRule",
@@ -81,8 +79,17 @@ __all__ = [
     "ServerSideEncryption",
     "ServerSideEncryptionByDefault",
     "ServerSideEncryptionRule",
+    "StorageBucket",
+    "StorageBucketPolicyPolicy",
+    "StorageLogBucket",
+    "StorageLogBucketPolicyPolicy",
+    "StorageReplicaBucket",
+    "StorageReplicaBucketPolicyPolicy",
+    "StorageReplicationPolicy",
+    "StorageReplicationRole",
     "Sub",
     "Template",
+    "TestQ",
     "VersioningConfiguration",
     "cloudformation_dataclass",
     "get_att",

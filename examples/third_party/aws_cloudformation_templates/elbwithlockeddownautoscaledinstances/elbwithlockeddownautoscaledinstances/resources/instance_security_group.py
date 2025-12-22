@@ -11,8 +11,8 @@ class InstanceSecurityGroupIngress:
     ip_protocol = 'tcp'
     from_port = '80'
     to_port = '80'
-    source_security_group_owner_id: GetAtt[ElasticLoadBalancer] = get_att("SourceSecurityGroup.OwnerAlias")
-    source_security_group_name: GetAtt[ElasticLoadBalancer] = get_att("SourceSecurityGroup.GroupName")
+    source_security_group_owner_id = get_att(ElasticLoadBalancer, "SourceSecurityGroup.OwnerAlias")
+    source_security_group_name = get_att(ElasticLoadBalancer, "SourceSecurityGroup.GroupName")
 
 
 @cloudformation_dataclass

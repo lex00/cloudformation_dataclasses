@@ -15,7 +15,7 @@ class OriginALBTGTargetGroupAttribute:
 @cloudformation_dataclass
 class OriginALBTGTargetDescription:
     resource: TargetDescription
-    id: Ref[EC2Instance] = ref()
+    id = ref(EC2Instance)
     port = ref(OriginALBTGPort)
 
 

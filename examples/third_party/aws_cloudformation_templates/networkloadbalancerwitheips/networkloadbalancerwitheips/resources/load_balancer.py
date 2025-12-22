@@ -8,14 +8,14 @@ from .. import *  # noqa: F403
 @cloudformation_dataclass
 class loadBalancerSubnetMapping:
     resource: SubnetMapping
-    allocation_id: GetAtt[EIP1] = get_att("AllocationId")
+    allocation_id = get_att(EIP1, "AllocationId")
     subnet_id = Select(0, ref(Subnet1))
 
 
 @cloudformation_dataclass
 class loadBalancerSubnetMapping1:
     resource: SubnetMapping
-    allocation_id: GetAtt[EIP2] = get_att("AllocationId")
+    allocation_id = get_att(EIP2, "AllocationId")
     subnet_id = Select(0, ref(Subnet2))
 
 

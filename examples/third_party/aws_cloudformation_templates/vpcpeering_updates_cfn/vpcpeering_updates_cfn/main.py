@@ -2,7 +2,7 @@
 
 from . import *  # noqa: F403
 from .resources import *  # noqa: F403, F401
-from .config import 2RouteTableConditionCondition, 2SecurityGroupConditionCondition, 3RouteTableConditionCondition, 3SecurityGroupConditionCondition, 4RouteTableConditionCondition, 4SecurityGroupConditionCondition, 5RouteTableConditionCondition, 5SecurityGroupConditionCondition, 6RouteTableConditionCondition, 6SecurityGroupConditionCondition, NumberOfRouteTables, NumberOfSecurityGroups, PeerName, PeerVPCCIDR, RouteTableIds, SecurityGroupIds, VPCPeeringConnectionId
+from .config import NumberOfRouteTables, NumberOfSecurityGroups, PeerName, PeerVPCCIDR, RouteTableIds, SecurityGroupIds, VPCPeeringConnectionId, _2RouteTableConditionCondition, _2SecurityGroupConditionCondition, _3RouteTableConditionCondition, _3SecurityGroupConditionCondition, _4RouteTableConditionCondition, _4SecurityGroupConditionCondition, _5RouteTableConditionCondition, _5SecurityGroupConditionCondition, _6RouteTableConditionCondition, _6SecurityGroupConditionCondition
 
 
 def build_template() -> Template:

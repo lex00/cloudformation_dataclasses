@@ -17,10 +17,10 @@ class AuroraDB:
     """AWS::RDS::DBInstance resource."""
 
     resource: DBInstance
-    db_cluster_identifier: Ref[AuroraCluster] = ref()
+    db_cluster_identifier = ref(AuroraCluster)
     db_instance_class = 'db.t3.medium'
     db_instance_identifier = 'dms-sample'
-    db_subnet_group_name: Ref[AuroraDBSubnetGroup] = ref()
+    db_subnet_group_name = ref(AuroraDBSubnetGroup)
     engine = 'aurora-postgresql'
     multi_az = False
     publicly_accessible = False

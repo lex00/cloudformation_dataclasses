@@ -34,5 +34,5 @@ class PublicRouteTable:
     """AWS::EC2::RouteTable resource."""
 
     resource: RouteTable
-    vpc_id: Ref[VPC] = ref()
+    vpc_id = ref(VPC)
     tags = [PublicRouteTableAssociationParameter, PublicRouteTableAssociationParameter1, PublicRouteTableAssociationParameter2]

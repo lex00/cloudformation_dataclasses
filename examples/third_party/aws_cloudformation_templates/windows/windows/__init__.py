@@ -12,7 +12,7 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws.ec2 import Instance
-from cloudformation_dataclasses.intrinsics import Base64
+from cloudformation_dataclasses.intrinsics import Base64, Sub
 
 from .config import (
     IAMRole,
@@ -23,8 +23,11 @@ from .config import (
     SubnetId,
 )
 
+from .resources import *  # noqa: F403, F401
+
 __all__ = [
     "Base64",
+    "EC2Instance",
     "IAMRole",
     "Instance",
     "InstanceAMI",
@@ -34,6 +37,7 @@ __all__ = [
     "ParameterType",
     "SSMKey",
     "STRING",
+    "Sub",
     "SubnetId",
     "Template",
     "cloudformation_dataclass",

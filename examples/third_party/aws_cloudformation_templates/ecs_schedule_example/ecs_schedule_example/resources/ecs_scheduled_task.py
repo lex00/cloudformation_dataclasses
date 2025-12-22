@@ -9,15 +9,15 @@ from .. import *  # noqa: F403
 class ECSScheduledTaskEcsParameters:
     resource: EcsParameters
     task_count = ref(SchedulerTasksCount)
-    task_definition_arn: Ref[TaskDefinition] = ref()
+    task_definition_arn = ref(TaskDefinition)
 
 
 @cloudformation_dataclass
 class ECSScheduledTaskTarget:
     resource: Target
-    arn: GetAtt[ECSCluster] = get_att("Arn")
+    arn = get_att(ECSCluster, "Arn")
     id = 'Target1'
-    role_arn: GetAtt[ECSEventRole] = get_att("Arn")
+    role_arn = get_att(ECSEventRole, "Arn")
     ecs_parameters = ECSScheduledTaskEcsParameters
 
 

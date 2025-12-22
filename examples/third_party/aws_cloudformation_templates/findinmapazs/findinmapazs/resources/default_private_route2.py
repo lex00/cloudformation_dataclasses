@@ -10,6 +10,6 @@ class DefaultPrivateRoute2:
     """AWS::EC2::Route resource."""
 
     resource: Route
-    route_table_id: Ref[PrivateRouteTable2] = ref()
+    route_table_id = ref(PrivateRouteTable2)
     destination_cidr_block = '0.0.0.0/0'
-    nat_gateway_id: Ref[NatGateway2] = ref()
+    nat_gateway_id = ref(NatGateway2)

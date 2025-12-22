@@ -38,7 +38,7 @@ class ElasticLoadBalancer:
     resource: LoadBalancer
     availability_zones = GetAZs()
     cross_zone = 'true'
-    instances = [ref("EC2Instance1"), ref("EC2Instance2")]
+    instances = [ref(EC2Instance1), ref(EC2Instance2)]
     lb_cookie_stickiness_policy = [ElasticLoadBalancerLBCookieStickinessPolicy]
     listeners = [ElasticLoadBalancerListeners]
     health_check = ElasticLoadBalancerHealthCheck

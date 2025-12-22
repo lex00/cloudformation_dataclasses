@@ -58,7 +58,7 @@ class ReplicationRoleAllowStatement2:
     resource: PolicyStatement
     sid = 'AllowKmsDecryptOnSourceKey'
     action = 'kms:Decrypt'
-    resource_arn = get_att("KmsKey", "Arn")
+    resource_arn = get_att(KmsKey, "Arn")
 
 
 @cloudformation_dataclass

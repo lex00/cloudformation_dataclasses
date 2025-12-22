@@ -11,7 +11,7 @@ class IoTThing:
 
     # Unknown resource type: Custom::IoTThing
     resource: CloudFormationResource
-    service_token: GetAtt[CreateThingFunction] = get_att("Arn")
+    service_token = get_att(CreateThingFunction, "Arn")
     thing_name = Join('_', [
     ref(CoreName),
     'Core',

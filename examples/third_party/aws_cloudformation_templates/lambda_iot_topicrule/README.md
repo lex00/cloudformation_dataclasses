@@ -1,9 +1,6 @@
 # LambdaIotTopicrule
 
-Migrated from [lambda-iot-topicrule.yaml](https://github.com/aws-cloudformation/aws-cloudformation-templates).
-
-**Source**: AWS CloudFormation Sample Templates
-**License**: Apache-2.0
+Imported from `lambda-iot-topicrule.yaml`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 

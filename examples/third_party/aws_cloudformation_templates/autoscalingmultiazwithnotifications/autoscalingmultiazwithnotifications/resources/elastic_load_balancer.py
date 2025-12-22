@@ -11,6 +11,6 @@ class ElasticLoadBalancer:
 
     resource: LoadBalancer
     scheme = 'internet-facing'
-    security_groups = [ref("LoadBalancerSecurityGroup")]
+    security_groups = [ref(LoadBalancerSecurityGroup)]
     subnets = ref(Subnets)
     type_ = 'application'

@@ -39,7 +39,7 @@ class CodeBuildRoleAllowStatement1:
         's3:PutObject',
     ]
     resource_arn = [
-        get_att("PipelineS3Bucket", "Arn"),
+        get_att(PipelineS3Bucket, "Arn"),
         Sub('${PipelineS3Bucket.Arn}/*'),
     ]
 
@@ -61,7 +61,7 @@ class CodeBuildRolePolicy:
 class CodeBuildRoleAllowStatement0_2:
     resource: PolicyStatement
     action = ['s3:GetObject']
-    resource_arn = [get_att("PipelineS3Bucket", "Arn")]
+    resource_arn = [get_att(PipelineS3Bucket, "Arn")]
 
 
 @cloudformation_dataclass

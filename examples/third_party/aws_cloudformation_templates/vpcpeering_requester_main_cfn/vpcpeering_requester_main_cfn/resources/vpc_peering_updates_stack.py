@@ -22,5 +22,5 @@ class VPCPeeringUpdatesStack:
         'PeerVPCCIDR': ref(PeerVPCCIDR),
         'RouteTableIds': ref(RouteTableIds),
         'SecurityGroupIds': Join(',', ref(SecurityGroupIds)),
-        'VPCPeeringConnectionId': get_att("VPCPeeringRequesterSetupStack", "Outputs.VPCPeeringConnectionId"),
+        'VPCPeeringConnectionId': get_att(VPCPeeringRequesterSetupStack, "Outputs.VPCPeeringConnectionId"),
     }

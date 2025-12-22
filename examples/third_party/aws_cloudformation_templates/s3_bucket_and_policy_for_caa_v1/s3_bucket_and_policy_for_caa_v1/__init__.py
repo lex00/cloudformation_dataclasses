@@ -9,7 +9,6 @@ from cloudformation_dataclasses.core import (
     Parameter,
     PolicyDocument,
     PolicyStatement,
-    Ref,
     STRING,
     Template,
     cloudformation_dataclass,
@@ -30,10 +29,14 @@ from cloudformation_dataclasses.intrinsics import Sub
 
 from .config import BucketName, PublisherAccountID
 
+from .resources import *  # noqa: F403, F401
+
 __all__ = [
     "BOOL",
+    "Bucket",
     "BucketEncryption",
     "BucketName",
+    "BucketPolicy",
     "BucketVersioningStatus",
     "DenyStatement",
     "Output",
@@ -42,7 +45,6 @@ __all__ = [
     "PolicyStatement",
     "PublicAccessBlockConfiguration",
     "PublisherAccountID",
-    "Ref",
     "STRING",
     "ServerSideEncryption",
     "ServerSideEncryptionByDefault",

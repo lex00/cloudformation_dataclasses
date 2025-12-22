@@ -49,7 +49,7 @@ class VPCFlowLogsBucket:
     public_access_block_configuration = VPCFlowLogsBucketPublicAccessBlockConfiguration
     bucket_encryption = VPCFlowLogsBucketBucketEncryption
     logging_configuration = If("S3AccessLogsCondition", {
-    LoggingConfiguration.DESTINATION_BUCKET_NAME: ref(S3AccessLogsBucketName),
+    LoggingConfiguration.destination_bucket_name: ref(S3AccessLogsBucketName),
 }, AWS_NO_VALUE)
     versioning_configuration = VPCFlowLogsBucketVersioningConfiguration
     condition = 'VPCFlowLogsNewBucketCondition'

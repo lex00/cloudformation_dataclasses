@@ -10,8 +10,8 @@ class EcsSecurityGroupALBports:
     """AWS::EC2::SecurityGroupIngress resource."""
 
     resource: SecurityGroupIngress
-    group_id: Ref[EcsSecurityGroup] = ref()
+    group_id = ref(EcsSecurityGroup)
     ip_protocol = 'tcp'
     from_port = '31000'
     to_port = '61000'
-    source_security_group_id: Ref[EcsSecurityGroup] = ref()
+    source_security_group_id = ref(EcsSecurityGroup)

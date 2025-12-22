@@ -9,7 +9,7 @@ from .. import *  # noqa: F403
 class ECSALBListenerRuleAction:
     resource: Action
     type_ = 'forward'
-    target_group_arn: Ref[ECSTG] = ref()
+    target_group_arn = ref(ECSTG)
 
 
 @cloudformation_dataclass
@@ -26,6 +26,6 @@ class ECSALBListenerRule:
     resource: ListenerRule
     actions = [ECSALBListenerRuleAction]
     conditions = [ECSALBListenerRuleRuleCondition]
-    listener_arn: Ref[ALBListener] = ref()
+    listener_arn = ref(ALBListener)
     priority = 1
     depends_on = ["ALBListener"]

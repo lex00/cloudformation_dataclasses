@@ -8,5 +8,5 @@ class VPCPeeringConnectionIdOutput:
     """VPC Peering Connection ID"""
 
     resource: Output
-    value = ref("VPCPeeringConnection")
+    value = ref(VPCPeeringConnection)
     description = 'VPC Peering Connection ID'

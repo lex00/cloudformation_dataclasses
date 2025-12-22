@@ -12,7 +12,7 @@ class Client:
     resource: UserPoolClient
     client_name = ref(AppName)
     generate_secret = False
-    user_pool_id: Ref[UserPool] = ref()
+    user_pool_id = ref(UserPool)
     callback_ur_ls = [ref(CallbackURL)]
     allowed_o_auth_flows = ['code']
     allowed_o_auth_flows_user_pool_client = True

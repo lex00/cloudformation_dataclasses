@@ -64,8 +64,8 @@ class ADConnectorWindowsEC2DomainJoinRole:
         'Value': AWS_STACK_NAME,
     }]
     policies = [ADConnectorWindowsEC2DomainJoinRolePolicy, If("SSMLogsBucketNameCondition", {
-    Policy.POLICY_NAME: 'SsmLogs',
-    Policy.POLICY_DOCUMENT: {
+    Policy.policy_name: 'SsmLogs',
+    Policy.policy_document: {
         'Version': '2012-10-17',
         'Statement': [{
             'Effect': 'Allow',

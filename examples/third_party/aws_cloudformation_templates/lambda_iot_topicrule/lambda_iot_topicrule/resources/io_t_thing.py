@@ -10,4 +10,4 @@ class IoTThing:
     """AWS::IoT::Thing resource."""
 
     resource: Thing
-    thing_name: Ref[MyLambda] = ref()
+    thing_name = ref(MyLambda)

@@ -26,7 +26,7 @@ class ConfigRoleAllowStatement0_1:
     action = 's3:GetBucketAcl'
     resource_arn = Join('', [
     'arn:aws:s3:::',
-    ref("ConfigBucket"),
+    ref(ConfigBucket),
 ])
 
 
@@ -36,7 +36,7 @@ class ConfigRoleAllowStatement1:
     action = 's3:PutObject'
     resource_arn = Join('', [
     'arn:aws:s3:::',
-    ref("ConfigBucket"),
+    ref(ConfigBucket),
     '/AWSLogs/',
     AWS_ACCOUNT_ID,
     '/*',

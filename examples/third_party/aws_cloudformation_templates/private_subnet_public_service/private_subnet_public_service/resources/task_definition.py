@@ -32,14 +32,9 @@ class TaskDefinition:
     memory = ref(ContainerMemory)
     network_mode = 'awsvpc'
     requires_compatibilities = ['FARGATE']
-    execution_role_arn = ImportValue({
-    'Fn::Join': [
-        ':',
-        [
-            ref(StackName),
-            'ECSTaskExecutionRole',
-        ],
-    ],
-})
+    execution_role_arn = ImportValue(Join(':', [
+    ref(StackName),
+    'ECSTaskExecutionRole',
+]))
     task_role_arn = If("HasCustomRole", ref(Role), AWS_NO_VALUE)
     container_definitions = [TaskDefinitionContainerDefinition]

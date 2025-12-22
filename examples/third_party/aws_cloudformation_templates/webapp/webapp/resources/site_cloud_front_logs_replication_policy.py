@@ -50,4 +50,4 @@ class SiteCloudFrontLogsReplicationPolicy:
     resource: RolePolicy
     policy_document = SiteCloudFrontLogsReplicationPolicyPolicyDocument
     policy_name = 'bucket-replication-policy'
-    role_name: Ref[SiteCloudFrontLogsReplicationRole] = ref()
+    role_name = ref(SiteCloudFrontLogsReplicationRole)

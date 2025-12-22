@@ -29,7 +29,7 @@ class LoggingBucketPublicAccessBlockConfiguration:
 @cloudformation_dataclass
 class LoggingBucketServerSideEncryptionByDefault:
     resource: ServerSideEncryptionByDefault
-    kms_master_key_id: GetAtt[LoggingBucketKMSKey] = get_att("Arn")
+    kms_master_key_id = get_att(LoggingBucketKMSKey, "Arn")
     sse_algorithm = ServerSideEncryption.AWS_KMS
 
 

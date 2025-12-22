@@ -10,5 +10,5 @@ class InternetGatewayAttachment:
     """AWS::EC2::VPCGatewayAttachment resource."""
 
     resource: VPCGatewayAttachment
-    internet_gateway_id: Ref[InternetGateway] = ref()
-    vpc_id: Ref[VPC] = ref()
+    internet_gateway_id = ref(InternetGateway)
+    vpc_id = ref(VPC)

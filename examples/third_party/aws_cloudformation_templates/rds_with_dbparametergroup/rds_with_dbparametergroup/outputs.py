@@ -10,9 +10,9 @@ class JDBCConnectionStringOutput:
     resource: Output
     value = Join('', [
     'jdbc:mysql://',
-    get_att("MyDB", "Endpoint.Address"),
+    get_att(MyDB, "Endpoint.Address"),
     ':',
-    get_att("MyDB", "Endpoint.Port"),
+    get_att(MyDB, "Endpoint.Port"),
     '/',
     ref(DBName),
 ])

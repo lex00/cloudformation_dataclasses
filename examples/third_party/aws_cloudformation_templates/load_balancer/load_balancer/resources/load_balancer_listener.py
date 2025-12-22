@@ -8,7 +8,7 @@ from .. import *  # noqa: F403
 @cloudformation_dataclass
 class LoadBalancerListenerAction:
     resource: Action
-    target_group_arn: Ref[TargetGroup] = ref()
+    target_group_arn = ref(TargetGroup)
     type_ = 'forward'
 
 
@@ -24,7 +24,7 @@ class LoadBalancerListener:
 
     resource: Listener
     default_actions = [LoadBalancerListenerAction]
-    load_balancer_arn: Ref[LoadBalancer] = ref()
+    load_balancer_arn = ref(LoadBalancer)
     port = 443
     protocol = 'HTTPS'
     certificates = [LoadBalancerListenerCertificate]

@@ -15,4 +15,4 @@ class CloudwatchLogsGroup:
     AWS_STACK_NAME,
 ])
     retention_in_days = 14
-    kms_key_id: Ref[LogsKmsKey] = ref()
+    kms_key_id = ref(LogsKmsKey)

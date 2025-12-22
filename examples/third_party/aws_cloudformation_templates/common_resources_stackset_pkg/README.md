@@ -1,9 +1,6 @@
 # CommonResourcesStacksetPkg
 
-Migrated from [common-resources-stackset-pkg.json](https://github.com/aws-cloudformation/aws-cloudformation-templates).
-
-**Source**: AWS CloudFormation Sample Templates
-**License**: Apache-2.0
+Imported from `common-resources-stackset-pkg.json`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 

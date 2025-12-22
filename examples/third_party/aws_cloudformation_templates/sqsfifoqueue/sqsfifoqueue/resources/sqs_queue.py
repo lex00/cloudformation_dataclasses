@@ -20,7 +20,7 @@ class SQSQueue:
     message_retention_period = ref(MessageRetentionPeriod)
     receive_message_wait_time_seconds = ref(ReceiveMessageWaitTimeSeconds)
     redrive_policy = If("CreateDeadLetterQueue", {
-    'deadLetterTargetArn': get_att("MyDeadLetterQueue", "Arn"),
+    'deadLetterTargetArn': get_att(MyDeadLetterQueue, "Arn"),
     'maxReceiveCount': 5,
 }, AWS_NO_VALUE)
     visibility_timeout = ref(VisibilityTimeout)

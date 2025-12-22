@@ -26,6 +26,8 @@ from cloudformation_dataclasses.intrinsics import Sub
 
 from .config import ProjectName, ScheduleExpression, SqlQuery
 
+from .resources import *  # noqa: F403, F401
+
 __all__ = [
     "Action",
     "Activity",
@@ -33,12 +35,14 @@ __all__ = [
     "Dataset",
     "Datastore",
     "Parameter",
+    "Pipeline",
     "ProjectName",
     "QueryAction",
     "RetentionPeriod",
     "STRING",
     "Schedule",
     "ScheduleExpression",
+    "SqlDataset",
     "SqlQuery",
     "Sub",
     "Template",

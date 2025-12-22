@@ -44,5 +44,5 @@ class AppBuild:
     name = Sub('${AWS::StackName}-app-build')
     artifacts = AppBuildArtifacts
     environment = AppBuildEnvironment
-    service_role: Ref[CodeBuildRole] = ref()
+    service_role = ref(CodeBuildRole)
     source = AppBuildSource

@@ -32,6 +32,8 @@ from .config import (
     VPCPeeringConnectionId,
 )
 
+from .resources import *  # noqa: F403, F401
+
 __all__ = [
     "Join",
     "LambdaFunctionName",
@@ -54,7 +56,9 @@ __all__ = [
     "TemplatesS3BucketName",
     "TemplatesS3BucketRegion",
     "TemplatesS3KeyPrefix",
+    "VPCPeeringAccepterTagStack",
     "VPCPeeringConnectionId",
+    "VPCPeeringUpdatesStack",
     "cloudformation_dataclass",
     "get_att",
     "ref",

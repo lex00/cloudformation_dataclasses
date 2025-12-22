@@ -10,7 +10,7 @@ class HTTPTcpIn:
     """AWS::EC2::SecurityGroupIngress resource."""
 
     resource: SecurityGroupIngress
-    group_id: Ref[ALBExternalAccessSG] = ref()
+    group_id = ref(ALBExternalAccessSG)
     to_port = 80
     ip_protocol = 'tcp'
     from_port = 80

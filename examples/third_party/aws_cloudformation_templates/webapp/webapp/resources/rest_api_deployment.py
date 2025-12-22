@@ -10,5 +10,5 @@ class RestApiDeployment:
     """AWS::ApiGateway::Deployment resource."""
 
     resource: Deployment
-    rest_api_id: Ref[RestApi] = ref()
+    rest_api_id = ref(RestApi)
     depends_on = ["TestResourceGet", "TestResourceOptions", "JwtResourceGet", "JwtResourceOptions"]

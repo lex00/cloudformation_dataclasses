@@ -8,7 +8,7 @@ from .. import *  # noqa: F403
 @cloudformation_dataclass
 class ConfigRuleForVolumeAutoEnableIOScope:
     resource: Scope
-    compliance_resource_id: Ref[Ec2Volume] = ref()
+    compliance_resource_id = ref(Ec2Volume)
     compliance_resource_types = ['AWS::EC2::Volume']
 
 
@@ -24,7 +24,7 @@ class ConfigRuleForVolumeAutoEnableIOSource:
     resource: Source
     owner = 'CUSTOM_LAMBDA'
     source_details = [ConfigRuleForVolumeAutoEnableIOSourceDetail]
-    source_identifier: GetAtt[VolumeAutoEnableIOComplianceCheck] = get_att("Arn")
+    source_identifier = get_att(VolumeAutoEnableIOComplianceCheck, "Arn")
 
 
 @cloudformation_dataclass

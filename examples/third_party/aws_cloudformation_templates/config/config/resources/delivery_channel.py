@@ -17,6 +17,6 @@ class DeliveryChannel:
 
     resource: config.DeliveryChannel
     config_snapshot_delivery_properties = DeliveryChannelConfigSnapshotDeliveryProperties
-    s3_bucket_name: Ref[ConfigBucket] = ref()
-    sns_topic_arn: Ref[ConfigTopic] = ref()
+    s3_bucket_name = ref(ConfigBucket)
+    sns_topic_arn = ref(ConfigTopic)
     condition = 'CreateDeliveryChannel'

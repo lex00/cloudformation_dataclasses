@@ -14,10 +14,13 @@ from cloudformation_dataclasses.aws.s3 import Bucket
 
 from .config import Tags
 
+from .resources import *  # noqa: F403, F401
+
 __all__ = [
     "Bucket",
     "Parameter",
     "ParameterType",
+    "S3Bucket",
     "Tags",
     "Template",
     "cloudformation_dataclass",

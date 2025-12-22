@@ -10,5 +10,5 @@ class EIPAssoc1:
     """AWS::EC2::EIPAssociation resource."""
 
     resource: EIPAssociation
-    network_interface_id: Ref[Eth0] = ref()
-    allocation_id: GetAtt[EIP1] = get_att("AllocationId")
+    network_interface_id = ref(Eth0)
+    allocation_id = get_att(EIP1, "AllocationId")

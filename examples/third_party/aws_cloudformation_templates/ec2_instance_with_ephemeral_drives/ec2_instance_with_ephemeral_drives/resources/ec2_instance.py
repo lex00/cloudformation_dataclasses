@@ -19,7 +19,7 @@ class EC2Instance:
     resource: Instance
     instance_type = ref(InstanceType)
     subnet_id = Select(0, ref(Subnets))
-    security_group_ids = [get_att("EC2SecurityGroup", "GroupId")]
+    security_group_ids = [get_att(EC2SecurityGroup, "GroupId")]
     key_name = ref(KeyName)
     image_id = ref(LatestAmiId)
     block_device_mappings = [EC2InstanceBlockDeviceMapping]

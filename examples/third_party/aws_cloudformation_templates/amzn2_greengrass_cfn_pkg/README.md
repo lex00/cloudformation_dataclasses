@@ -1,9 +1,6 @@
 # Amzn2GreengrassCfnPkg
 
-Migrated from [amzn2-greengrass-cfn-pkg.yaml](https://github.com/aws-cloudformation/aws-cloudformation-templates).
-
-**Source**: AWS CloudFormation Sample Templates
-**License**: Apache-2.0
+Imported from `amzn2-greengrass-cfn-pkg.yaml`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 

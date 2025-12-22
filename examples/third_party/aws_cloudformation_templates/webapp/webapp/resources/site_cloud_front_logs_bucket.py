@@ -26,7 +26,7 @@ class SiteCloudFrontLogsBucketBucketEncryption:
 @cloudformation_dataclass
 class SiteCloudFrontLogsBucketLoggingConfiguration:
     resource: LoggingConfiguration
-    destination_bucket_name: Ref[SiteCloudFrontLogsLogBucket] = ref()
+    destination_bucket_name = ref(SiteCloudFrontLogsLogBucket)
 
 
 @cloudformation_dataclass
@@ -41,7 +41,7 @@ class SiteCloudFrontLogsBucketPublicAccessBlockConfiguration:
 @cloudformation_dataclass
 class SiteCloudFrontLogsBucketReplicationDestination:
     resource: ReplicationDestination
-    bucket: GetAtt[SiteCloudFrontLogsReplicaBucket] = get_att("Arn")
+    bucket = get_att(SiteCloudFrontLogsReplicaBucket, "Arn")
 
 
 @cloudformation_dataclass
@@ -54,7 +54,7 @@ class SiteCloudFrontLogsBucketReplicationRule:
 @cloudformation_dataclass
 class SiteCloudFrontLogsBucketReplicationConfiguration:
     resource: ReplicationConfiguration
-    role: GetAtt[SiteCloudFrontLogsReplicationRole] = get_att("Arn")
+    role = get_att(SiteCloudFrontLogsReplicationRole, "Arn")
     rules = [SiteCloudFrontLogsBucketReplicationRule]
 
 

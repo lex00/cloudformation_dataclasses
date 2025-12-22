@@ -67,5 +67,5 @@ class SiteContentBucketAccessPolicy:
     """AWS::S3::BucketPolicy resource."""
 
     resource: BucketPolicy
-    bucket: Ref[SiteContentBucket] = ref()
+    bucket = ref(SiteContentBucket)
     policy_document = SiteContentBucketAccessPolicyPolicyDocument

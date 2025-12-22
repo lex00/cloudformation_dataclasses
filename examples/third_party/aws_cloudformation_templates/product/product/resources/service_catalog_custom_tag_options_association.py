@@ -10,7 +10,5 @@ class ServiceCatalogCustomTagOptionsAssociation:
     """AWS::ServiceCatalog::TagOptionAssociation resource."""
 
     resource: TagOptionAssociation
-    tag_option_id = ImportValue({
-    'Fn::Sub': '${ServiceCatalogPortfolioStackName}-ServiceCatalogProductTagOptionsDept',
-})
-    resource_id: Ref[ServiceCatalogCloudFormationProduct] = ref()
+    tag_option_id = ImportValue(Sub('${ServiceCatalogPortfolioStackName}-ServiceCatalogProductTagOptionsDept'))
+    resource_id = ref(ServiceCatalogCloudFormationProduct)

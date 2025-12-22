@@ -30,5 +30,5 @@ class AuroraSecurityGroup:
     resource: SecurityGroup
     group_description = 'Security group for Aurora SampleDB DB Instance'
     group_name = 'Aurora SampleDB Security Group'
-    vpc_id: Ref[VPC] = ref()
+    vpc_id = ref(VPC)
     security_group_ingress = [AuroraSecurityGroupIngress, AuroraSecurityGroupIngress1]

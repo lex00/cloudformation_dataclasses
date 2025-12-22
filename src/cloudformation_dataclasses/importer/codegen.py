@@ -26,6 +26,22 @@ from cloudformation_dataclasses.importer.parser import to_snake_case
 
 
 # =============================================================================
+# Helpers
+# =============================================================================
+
+
+def _sanitize_class_name(name: str) -> str:
+    """Ensure name is a valid Python identifier.
+
+    CloudFormation allows logical IDs starting with digits, but Python
+    class names cannot start with digits. Prepend underscore if needed.
+    """
+    if name and name[0].isdigit():
+        return f"_{name}"
+    return name
+
+
+# =============================================================================
 # Annotated Field Value (for annotation-based refs)
 # =============================================================================
 
@@ -591,9 +607,31 @@ def _escape_string(s: str) -> str:
     # Use repr for proper escaping, but handle multi-line strings
     if "\n" in s:
         # Use triple quotes for multi-line
+        if '"""' not in s:
+            return f'"""{s}"""'
+        # Contains triple double quotes - try triple single quotes
+        if "'''" not in s:
+            return f"'''{s}'''"
+        # Both quote styles present - fall back to repr
+        return repr(s)
+    return repr(s)
+
+
+def _escape_docstring(s: str) -> str:
+    """Escape a string for use as a docstring.
+
+    Returns the docstring with proper quoting to avoid syntax errors.
+    """
+    # If contains triple double quotes, escape them
+    if '"""' in s:
         escaped = s.replace('"""', '\\"\\"\\"')
         return f'"""{escaped}"""'
-    return repr(s)
+    # If contains double quotes that would break the docstring, use repr-style escaping
+    if '"' in s and s.endswith('"'):
+        # Ending with " followed by """ breaks syntax
+        escaped = s.replace('"', '\\"')
+        return f'"""{escaped}"""'
+    return f'"""{s}"""'
 
 
 def _annotated_to_class_ref(annotated: AnnotatedValue) -> str:
@@ -628,6 +666,7 @@ def _value_to_python(
     ctx: CodegenContext,
     indent: int = 0,
     parent_property_type: tuple[str, str] | None = None,
+    use_property_type_keys: bool = True,
 ) -> str:
     """Convert a value to Python source code.
 
@@ -636,6 +675,7 @@ def _value_to_python(
         ctx: Code generation context
         indent: Current indentation level
         parent_property_type: Optional (module, class_name) of parent PropertyType for dict key constants
+        use_property_type_keys: If False, don't use PropertyType constants for dict keys (for Mapping data)
     """
     indent_str = "    " * indent
 
@@ -662,8 +702,8 @@ def _value_to_python(
         if not value:
             return "[]"
         if len(value) == 1:
-            return f"[{_value_to_python(value[0], ctx, indent, parent_property_type)}]"
-        items = [_value_to_python(item, ctx, indent + 1, parent_property_type) for item in value]
+            return f"[{_value_to_python(value[0], ctx, indent, parent_property_type, use_property_type_keys)}]"
+        items = [_value_to_python(item, ctx, indent + 1, parent_property_type, use_property_type_keys) for item in value]
         inner = f",\n{indent_str}    ".join(items)
         return f"[\n{indent_str}    {inner},\n{indent_str}]"
 
@@ -672,16 +712,19 @@ def _value_to_python(
             return "{}"
 
         # Try to find the PropertyType for this dict based on its keys
+        # Skip for Mapping data (use_property_type_keys=False)
         cf_keys = set(value.keys())
         module_hint = parent_property_type[0] if parent_property_type else ctx.current_module
-        dict_property_type = find_property_type_for_cf_keys(cf_keys, module_hint)
+        dict_property_type = None
+        if use_property_type_keys:
+            dict_property_type = find_property_type_for_cf_keys(cf_keys, module_hint)
 
         items = []
         for k, v in value.items():
             # Generate dict key - use PropertyType constant if available
             if dict_property_type:
                 module, class_name = dict_property_type
-                const_name = to_snake_case(k).upper()
+                const_name = to_snake_case(k)  # PropertyType attrs are lowercase snake_case
                 key_str = f"{class_name}.{const_name}"
                 ctx.add_import(f"cloudformation_dataclasses.aws.{module}", class_name)
             else:
@@ -694,7 +737,7 @@ def _value_to_python(
                 if child_info:
                     child_property_type = (module_hint, k)
 
-            val_str = _value_to_python(v, ctx, indent + 1, child_property_type)
+            val_str = _value_to_python(v, ctx, indent + 1, child_property_type, use_property_type_keys)
             items.append(f"{key_str}: {val_str}")
         inner = f",\n{indent_str}    ".join(items)
         return f"{{\n{indent_str}    {inner},\n{indent_str}}}"
@@ -725,11 +768,8 @@ def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str | A
             # Class ref for parameters - they're defined in config.py and re-exported
             return f"ref({_format_ref_target(target)})"
         if target in ctx.template.resources:
-            # Annotation-based ref for resources - uses type annotation for forward refs
-            # Returns AnnotatedValue which gets special handling in property generation
-            ctx.add_import("cloudformation_dataclasses.core", "Ref")
-            target_class = _format_ref_target(target)
-            return AnnotatedValue(annotation=f"Ref[{target_class}]", value="ref()")
+            # Class-based ref for resources
+            return f"ref({_format_ref_target(target)})"
         # Unknown reference - use string
         ctx.add_intrinsic_import("Ref")
         return f'Ref("{target}")'
@@ -737,12 +777,8 @@ def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str | A
     if intrinsic.type == IntrinsicType.GET_ATT:
         logical_id, attr = intrinsic.args
         if logical_id in ctx.template.resources:
-            # Annotation-based ref for resources - uses type annotation for forward refs
-            ctx.add_import("cloudformation_dataclasses.core", "GetAtt")
-            target_class = _format_ref_target(logical_id)
-            return AnnotatedValue(
-                annotation=f"GetAtt[{target_class}]", value=f'get_att("{attr}")'
-            )
+            # Class-based get_att for resources
+            return f'get_att({_format_ref_target(logical_id)}, "{attr}")'
         ctx.add_intrinsic_import("GetAtt")
         return f'GetAtt("{logical_id}", "{attr}")'
 
@@ -789,10 +825,8 @@ def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str | A
             resource_id = ctx.name_pattern_map[template_str]
             # Don't replace if this is the resource that defines this name pattern
             if resource_id != ctx.current_resource_id:
-                # Annotation-based ref for resource
-                ctx.add_import("cloudformation_dataclasses.core", "Ref")
-                target_class = _format_ref_target(resource_id)
-                return AnnotatedValue(annotation=f"Ref[{target_class}]", value="ref()")
+                # Class-based ref for resource
+                return f"ref({_format_ref_target(resource_id)})"
 
         # Fall back to Sub() intrinsic
         ctx.add_intrinsic_import("Sub")
@@ -837,12 +871,12 @@ def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str | A
     if intrinsic.type == IntrinsicType.AND:
         ctx.add_intrinsic_import("And")
         conditions = [_value_to_python(c, ctx) for c in intrinsic.args]
-        return f"And({', '.join(conditions)})"
+        return f"And(conditions=[{', '.join(conditions)}])"
 
     if intrinsic.type == IntrinsicType.OR:
         ctx.add_intrinsic_import("Or")
         conditions = [_value_to_python(c, ctx) for c in intrinsic.args]
-        return f"Or({', '.join(conditions)})"
+        return f"Or(conditions=[{', '.join(conditions)}])"
 
     if intrinsic.type == IntrinsicType.NOT:
         ctx.add_intrinsic_import("Not")
@@ -884,7 +918,21 @@ def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str | A
 
     if intrinsic.type == IntrinsicType.TRANSFORM:
         ctx.add_intrinsic_import("Transform")
-        val_str = _value_to_python(intrinsic.args, ctx)
+        args = intrinsic.args
+        # Handle list form: Fn::Transform: [{Name: ..., Parameters: ...}]
+        if isinstance(args, list) and len(args) == 1 and isinstance(args[0], dict):
+            args = args[0]
+        # Transform args is a dict with 'Name' and optionally 'Parameters'
+        if isinstance(args, dict):
+            name = args.get("Name", "")
+            params = args.get("Parameters")
+            name_str = _escape_string(name) if isinstance(name, str) else _value_to_python(name, ctx)
+            if params:
+                params_str = _value_to_python(params, ctx)
+                return f"Transform(name={name_str}, parameters={params_str})"
+            return f"Transform(name={name_str})"
+        # Fallback for unexpected format
+        val_str = _value_to_python(args, ctx)
         return f"Transform({val_str})"
 
     # Fallback
@@ -1072,7 +1120,14 @@ def _generate_property_type_wrapper(
         else:
             # Unknown key - still include it but as comment
             val_str = _value_to_python(val, ctx, indent=1)
-            lines.append(f"    # Unknown CF key: {cf_key} = {val_str}")
+            # Comment out each line for multi-line values
+            comment_lines = val_str.split("\n")
+            if len(comment_lines) == 1:
+                lines.append(f"    # Unknown CF key: {cf_key} = {val_str}")
+            else:
+                lines.append(f"    # Unknown CF key: {cf_key} = {comment_lines[0]}")
+                for line in comment_lines[1:]:
+                    lines.append(f"    # {line}")
 
     # Add import for decorator
     ctx.add_import("cloudformation_dataclasses.core", "cloudformation_dataclass")
@@ -1226,7 +1281,7 @@ def _generate_parameter_class(param: IRParameter, ctx: CodegenContext) -> str:
 
     # Docstring
     if ctx.include_docstrings and param.description:
-        lines.append(f'    """{param.description}"""')
+        lines.append(f'    {_escape_docstring(param.description)}')
         lines.append("")
 
     # Resource type annotation
@@ -1265,7 +1320,8 @@ def _generate_parameter_class(param: IRParameter, ctx: CodegenContext) -> str:
 
     ctx.add_import("cloudformation_dataclasses.core", "cloudformation_dataclass")
 
-    return f"@cloudformation_dataclass\nclass {param.logical_id}:\n" + "\n".join(lines)
+    class_name = _sanitize_class_name(param.logical_id)
+    return f"@cloudformation_dataclass\nclass {class_name}:\n" + "\n".join(lines)
 
 
 def _generate_resource_class(resource: IRResource, ctx: CodegenContext) -> str:
@@ -1362,7 +1418,8 @@ def _generate_resource_class(resource: IRResource, ctx: CodegenContext) -> str:
 
     ctx.add_import("cloudformation_dataclasses.core", "cloudformation_dataclass")
 
-    return f"@cloudformation_dataclass\nclass {resource.logical_id}:\n" + "\n".join(lines)
+    class_name = _sanitize_class_name(resource.logical_id)
+    return f"@cloudformation_dataclass\nclass {class_name}:\n" + "\n".join(lines)
 
 
 def _generate_output_class(output: IROutput, ctx: CodegenContext) -> str:
@@ -1371,7 +1428,7 @@ def _generate_output_class(output: IROutput, ctx: CodegenContext) -> str:
 
     # Docstring
     if ctx.include_docstrings and output.description:
-        lines.append(f'    """{output.description}"""')
+        lines.append(f'    {_escape_docstring(output.description)}')
         lines.append("")
 
     ctx.add_import("cloudformation_dataclasses.core", "Output")
@@ -1392,7 +1449,8 @@ def _generate_output_class(output: IROutput, ctx: CodegenContext) -> str:
 
     ctx.add_import("cloudformation_dataclasses.core", "cloudformation_dataclass")
 
-    return f"@cloudformation_dataclass\nclass {output.logical_id}Output:\n" + "\n".join(lines)
+    class_name = _sanitize_class_name(output.logical_id)
+    return f"@cloudformation_dataclass\nclass {class_name}Output:\n" + "\n".join(lines)
 
 
 def _generate_mapping_class(mapping: IRMapping, ctx: CodegenContext) -> str:
@@ -1402,13 +1460,14 @@ def _generate_mapping_class(mapping: IRMapping, ctx: CodegenContext) -> str:
     ctx.add_import("cloudformation_dataclasses.core", "Mapping")
     lines.append("    resource: Mapping")
 
-    # Map data as dict
-    map_str = _value_to_python(mapping.map_data, ctx, indent=1)
+    # Map data as dict - disable PropertyType keys since mapping data is user-defined
+    map_str = _value_to_python(mapping.map_data, ctx, indent=1, use_property_type_keys=False)
     lines.append(f"    map_data = {map_str}")
 
     ctx.add_import("cloudformation_dataclasses.core", "cloudformation_dataclass")
 
-    return f"@cloudformation_dataclass\nclass {mapping.logical_id}Mapping:\n" + "\n".join(lines)
+    class_name = _sanitize_class_name(mapping.logical_id)
+    return f"@cloudformation_dataclass\nclass {class_name}Mapping:\n" + "\n".join(lines)
 
 
 def _generate_condition_class(condition: IRCondition, ctx: CodegenContext) -> str:
@@ -1424,7 +1483,8 @@ def _generate_condition_class(condition: IRCondition, ctx: CodegenContext) -> st
 
     ctx.add_import("cloudformation_dataclasses.core", "cloudformation_dataclass")
 
-    return f"@cloudformation_dataclass\nclass {condition.logical_id}Condition:\n" + "\n".join(lines)
+    class_name = _sanitize_class_name(condition.logical_id)
+    return f"@cloudformation_dataclass\nclass {class_name}Condition:\n" + "\n".join(lines)
 
 
 def _generate_tag_class(key: str, value: str, ctx: CodegenContext) -> str:
@@ -1857,11 +1917,11 @@ def _generate_init_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
     # so resource files can use ref(ParameterName) via `from .. import *`
     config_names: list[str] = []
     for param in template.parameters.values():
-        config_names.append(param.logical_id)
+        config_names.append(_sanitize_class_name(param.logical_id))
     for mapping in template.mappings.values():
-        config_names.append(mapping.logical_id)
+        config_names.append(f"{_sanitize_class_name(mapping.logical_id)}Mapping")
     for condition in template.conditions.values():
-        config_names.append(condition.logical_id)
+        config_names.append(f"{_sanitize_class_name(condition.logical_id)}Condition")
 
     if config_names:
         sorted_config = sorted(config_names)
@@ -1874,6 +1934,15 @@ def _generate_init_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
             lines.append(")")
         lines.append("")
 
+    # Re-export resource classes so outputs and other resources can use ref(ResourceClass)
+    resource_names: list[str] = []
+    for resource in template.resources.values():
+        resource_names.append(_sanitize_class_name(resource.logical_id))
+
+    if resource_names:
+        lines.append("from .resources import *  # noqa: F403, F401")
+        lines.append("")
+
     # Generate __all__ with all exported names
     all_names = sorted(core_imports | set().union(*[names for _, names in aws_modules]))
     # Add AWS module names (e.g., 's3') for qualified access like s3.Bucket
@@ -1883,6 +1952,8 @@ def _generate_init_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
         all_names = sorted(set(all_names) | ctx.intrinsic_imports)
     # Add config names to __all__
     all_names = sorted(set(all_names) | set(config_names))
+    # Add resource names to __all__
+    all_names = sorted(set(all_names) | set(resource_names))
 
     lines.append("__all__ = [")
     for name in all_names:
@@ -1909,7 +1980,7 @@ def _generate_config_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
         lines.append(class_def)
         lines.append("")
         lines.append("")
-        pkg_ctx.config_exports.add(param.logical_id)
+        pkg_ctx.config_exports.add(_sanitize_class_name(param.logical_id))
 
     # Mappings
     for mapping in template.mappings.values():
@@ -1917,7 +1988,7 @@ def _generate_config_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
         lines.append(class_def)
         lines.append("")
         lines.append("")
-        pkg_ctx.config_exports.add(f"{mapping.logical_id}Mapping")
+        pkg_ctx.config_exports.add(f"{_sanitize_class_name(mapping.logical_id)}Mapping")
 
     # Conditions
     for condition in template.conditions.values():
@@ -1925,7 +1996,7 @@ def _generate_config_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
         lines.append(class_def)
         lines.append("")
         lines.append("")
-        pkg_ctx.config_exports.add(f"{condition.logical_id}Condition")
+        pkg_ctx.config_exports.add(f"{_sanitize_class_name(condition.logical_id)}Condition")
 
     # Remove trailing empty lines
     while lines and lines[-1] == "":
@@ -2162,21 +2233,10 @@ def _generate_resources_package(pkg_ctx: PackageContext, template: IRTemplate) -
 
         files[f"resources/{filename}.py"] = "\n".join(lines) + "\n"
 
-    # Generate resources/__init__.py with auto-discovery
-    init_content = '''"""Resource definitions - auto-discovers all resources."""
-import pkgutil
-import importlib
-from pathlib import Path
-
-# Auto-discover and import all modules in this package
-_pkg_path = Path(__file__).parent
-for _finder, _name, _ispkg in pkgutil.iter_modules([str(_pkg_path)]):
-    if not _name.startswith("_"):
-        _module = importlib.import_module(f".{_name}", __package__)
-        # Export all public names from each module
-        for _attr in dir(_module):
-            if not _attr.startswith("_"):
-                globals()[_attr] = getattr(_module, _attr)
+    # Generate resources/__init__.py with topological import ordering
+    init_content = '''"""Resource definitions."""
+from cloudformation_dataclasses.core.resource_loader import setup_resources
+setup_resources(__file__, __name__, globals())
 '''
     files["resources/__init__.py"] = init_content
 

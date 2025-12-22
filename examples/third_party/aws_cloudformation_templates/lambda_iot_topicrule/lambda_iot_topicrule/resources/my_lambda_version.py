@@ -10,5 +10,5 @@ class MyLambdaVersion:
     """AWS::Lambda::Version resource."""
 
     resource: Version
-    function_name: Ref[MyLambda] = ref()
+    function_name = ref(MyLambda)
     depends_on = ["MyLambda"]

@@ -24,8 +24,8 @@ class DomainMember1WithInlineSsmAssociationSsmAssociation:
     resource: SsmAssociation
     document_name = 'AWS-JoinDirectoryServiceDomain'
     association_parameters = [DomainMember1WithInlineSsmAssociationAssociationParameter, DomainMember1WithInlineSsmAssociationAssociationParameter1, If("DomainDNSServersCondition", {
-    AssociationParameter.KEY: 'dnsIpAddresses',
-    AssociationParameter.VALUE: [
+    AssociationParameter.key: 'dnsIpAddresses',
+    AssociationParameter.value: [
         If("DomainDNSServer1Condition", ref(DomainDNSServer1), AWS_NO_VALUE),
         If("DomainDNSServer2Condition", ref(DomainDNSServer2), AWS_NO_VALUE),
         If("DomainDNSServer3Condition", ref(DomainDNSServer3), AWS_NO_VALUE),
@@ -72,8 +72,7 @@ class DomainMember1WithInlineSsmAssociation:
     block_device_mappings = [DomainMember1WithInlineSsmAssociationBlockDeviceMapping]
     security_group_ids = [ref(DomainMembersSGID)]
     key_name = ref(KeyPairName)
-    user_data = Base64({
-    'Fn::Sub': """<powershell>
+    user_data = Base64(Sub("""<powershell>
 $instanceId = "null"
 while ($instanceId -NotLike "i-*") {
 Start-Sleep -s 3
@@ -85,5 +84,4 @@ Rename-Computer -NewName ${DomainMember1NetBIOSName} -Force
 Install-WindowsFeature -IncludeAllSubFeature RSAT
 Restart-Computer -Force
 </powershell>
-""",
-})
+"""))

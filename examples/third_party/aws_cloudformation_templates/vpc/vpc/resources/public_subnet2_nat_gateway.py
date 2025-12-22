@@ -10,6 +10,6 @@ class PublicSubnet2NATGateway:
     """AWS::EC2::NatGateway resource."""
 
     resource: NatGateway
-    allocation_id: GetAtt[PublicSubnet2EIP] = get_att("AllocationId")
-    subnet_id: Ref[PublicSubnet2] = ref()
+    allocation_id = get_att(PublicSubnet2EIP, "AllocationId")
+    subnet_id = ref(PublicSubnet2)
     depends_on = ["PublicSubnet2DefaultRoute", "PublicSubnet2RouteTableAssociation"]

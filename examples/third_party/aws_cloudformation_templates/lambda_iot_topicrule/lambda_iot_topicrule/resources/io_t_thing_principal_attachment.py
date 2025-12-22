@@ -11,4 +11,4 @@ class IoTThingPrincipalAttachment:
 
     resource: ThingPrincipalAttachment
     principal = ref(CertificateARN)
-    thing_name: Ref[IoTThing] = ref()
+    thing_name = ref(IoTThing)

@@ -9,7 +9,7 @@ from .. import *  # noqa: F403
 class ALBListenerAction:
     resource: Action
     type_ = 'forward'
-    target_group_arn: Ref[ECSTG] = ref()
+    target_group_arn = ref(ECSTG)
 
 
 @cloudformation_dataclass
@@ -18,7 +18,7 @@ class ALBListener:
 
     resource: Listener
     default_actions = [ALBListenerAction]
-    load_balancer_arn: Ref[ECSALB] = ref()
+    load_balancer_arn = ref(ECSALB)
     port = '80'
     protocol = 'HTTP'
     depends_on = ["ECSServiceRole"]

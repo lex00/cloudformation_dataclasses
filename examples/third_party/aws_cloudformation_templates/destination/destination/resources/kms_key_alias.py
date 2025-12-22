@@ -11,4 +11,4 @@ class KmsKeyAlias:
 
     resource: Alias
     alias_name = Sub('alias/${AWS::StackName}-${AWS::AccountId}-kms-key')
-    target_key_id: Ref[KmsKey] = ref()
+    target_key_id = ref(KmsKey)

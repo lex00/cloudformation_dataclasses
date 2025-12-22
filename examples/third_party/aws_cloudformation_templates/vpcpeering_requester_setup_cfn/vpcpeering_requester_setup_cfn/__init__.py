@@ -7,7 +7,6 @@ from cloudformation_dataclasses.core import (
     Output,
     Parameter,
     ParameterType,
-    Ref,
     STRING,
     Template,
     cloudformation_dataclass,
@@ -22,10 +21,12 @@ from .config import (
     PeerName,
     PeerOwnerId,
     PeerRoleARN,
-    PeerRoleCondition,
+    PeerRoleConditionCondition,
     PeerVPCID,
     VPCID,
 )
+
+from .resources import *  # noqa: F403, F401
 
 __all__ = [
     "AWS_NO_VALUE",
@@ -40,12 +41,12 @@ __all__ = [
     "PeerName",
     "PeerOwnerId",
     "PeerRoleARN",
-    "PeerRoleCondition",
+    "PeerRoleConditionCondition",
     "PeerVPCID",
-    "Ref",
     "STRING",
     "Template",
     "VPCID",
+    "VPCPeeringConnection",
     "cloudformation_dataclass",
     "ec2",
     "get_att",

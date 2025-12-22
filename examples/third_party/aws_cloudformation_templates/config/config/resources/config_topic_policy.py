@@ -27,4 +27,4 @@ class ConfigTopicPolicy:
 
     resource: TopicPolicy
     policy_document = ConfigTopicPolicyPolicyDocument
-    topics = [ref("ConfigTopic")]
+    topics = [ref(ConfigTopic)]

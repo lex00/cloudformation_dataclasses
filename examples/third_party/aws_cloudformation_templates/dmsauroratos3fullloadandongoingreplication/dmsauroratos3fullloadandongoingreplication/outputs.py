@@ -18,10 +18,10 @@ class RegionNameOutput:
 @cloudformation_dataclass
 class S3BucketNameOutput:
     resource: Output
-    value = ref("S3Bucket")
+    value = ref(S3Bucket)
 
 
 @cloudformation_dataclass
 class AuroraEndpointOutput:
     resource: Output
-    value = get_att("AuroraCluster", "Endpoint.Address")
+    value = get_att(AuroraCluster, "Endpoint.Address")

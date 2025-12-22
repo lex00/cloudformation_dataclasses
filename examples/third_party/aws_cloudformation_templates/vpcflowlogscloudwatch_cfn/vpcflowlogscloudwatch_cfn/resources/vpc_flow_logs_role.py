@@ -30,7 +30,7 @@ class VPCFlowLogsRoleAllowStatement0_1:
         'logs:DescribeLogGroups',
         'logs:DescribeLogStreams',
     ]
-    resource_arn = get_att("VPCFlowLogsLogGroup", "Arn")
+    resource_arn = get_att(VPCFlowLogsLogGroup, "Arn")
 
 
 @cloudformation_dataclass

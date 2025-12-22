@@ -12,4 +12,4 @@ class InstanceAZ:
     # Unknown resource type: Custom::InstanceAZ
     resource: CloudFormationResource
     region = AWS_REGION
-    service_token: GetAtt[InstanceAZFunction] = get_att("Arn")
+    service_token = get_att(InstanceAZFunction, "Arn")

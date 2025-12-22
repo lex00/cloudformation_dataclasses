@@ -16,7 +16,7 @@ class GreengrassCoreDefinitionVersionCore:
     AWS_ACCOUNT_ID,
     Join('/', [
     'cert',
-    get_att("IoTThing", "certificateId"),
+    get_att(IoTThing, "certificateId"),
 ]),
 ])
     id = Join('_', [
@@ -45,5 +45,5 @@ class GreengrassCoreDefinitionVersion:
     """AWS::Greengrass::CoreDefinitionVersion resource."""
 
     resource: CoreDefinitionVersion
-    core_definition_id: Ref[GreengrassCoreDefinition] = ref()
+    core_definition_id = ref(GreengrassCoreDefinition)
     cores = [GreengrassCoreDefinitionVersionCore]

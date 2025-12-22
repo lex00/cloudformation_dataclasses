@@ -28,11 +28,13 @@ from .config import (
     VPCFlowLogsLogFormat,
     VPCFlowLogsLogGroupRetention,
     VPCFlowLogsMaxAggregationInterval,
-    VPCFlowLogsToCloudWatchCondition,
-    VPCFlowLogsToS3Condition,
+    VPCFlowLogsToCloudWatchConditionCondition,
+    VPCFlowLogsToS3ConditionCondition,
     VPCFlowLogsTrafficType,
     VPCID,
 )
+
+from .resources import *  # noqa: F403, F401
 
 __all__ = [
     "Condition",
@@ -52,11 +54,13 @@ __all__ = [
     "VPCFlowLogsBucketKeyEnabled",
     "VPCFlowLogsBucketName",
     "VPCFlowLogsCloudWatchKMSKey",
+    "VPCFlowLogsCloudWatchStack",
     "VPCFlowLogsLogFormat",
     "VPCFlowLogsLogGroupRetention",
     "VPCFlowLogsMaxAggregationInterval",
-    "VPCFlowLogsToCloudWatchCondition",
-    "VPCFlowLogsToS3Condition",
+    "VPCFlowLogsS3Stack",
+    "VPCFlowLogsToCloudWatchConditionCondition",
+    "VPCFlowLogsToS3ConditionCondition",
     "VPCFlowLogsTrafficType",
     "VPCID",
     "cloudformation_dataclass",

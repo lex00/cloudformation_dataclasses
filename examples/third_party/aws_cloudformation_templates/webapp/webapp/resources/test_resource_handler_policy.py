@@ -17,7 +17,7 @@ class TestResourceHandlerPolicyAllowStatement0:
         'dynamodb:PutItem',
         'dynamodb:UpdateItem',
     ]
-    resource_arn = [get_att("TestTable", "Arn")]
+    resource_arn = [get_att(TestTable, "Arn")]
 
 
 @cloudformation_dataclass
@@ -33,4 +33,4 @@ class TestResourceHandlerPolicy:
     resource: RolePolicy
     policy_document = TestResourceHandlerPolicyPolicyDocument
     policy_name = 'handler-policy'
-    role_name: Ref[TestResourceHandlerRole] = ref()
+    role_name = ref(TestResourceHandlerRole)

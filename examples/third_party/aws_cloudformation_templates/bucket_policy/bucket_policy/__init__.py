@@ -19,6 +19,8 @@ from cloudformation_dataclasses.intrinsics import AWS_ACCOUNT_ID, Sub
 
 from .config import PolicyBucketName
 
+from .resources import *  # noqa: F403, F401
+
 __all__ = [
     "ARN_LIKE",
     "AWS_ACCOUNT_ID",
@@ -26,6 +28,7 @@ __all__ = [
     "BucketPolicy",
     "DenyStatement",
     "Parameter",
+    "Policy",
     "PolicyBucketName",
     "PolicyDocument",
     "PolicyStatement",

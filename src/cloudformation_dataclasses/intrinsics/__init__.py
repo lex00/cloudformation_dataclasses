@@ -4,6 +4,7 @@ from cloudformation_dataclasses.intrinsics.functions import (
     And,
     Base64,
     Cidr,
+    Condition,
     Equals,
     FindInMap,
     GetAtt,
@@ -18,6 +19,7 @@ from cloudformation_dataclasses.intrinsics.functions import (
     Select,
     Split,
     Sub,
+    Transform,
 )
 from cloudformation_dataclasses.intrinsics.pseudo import (
     AWS_ACCOUNT_ID,
@@ -35,6 +37,7 @@ __all__ = [
     "And",
     "Base64",
     "Cidr",
+    "Condition",
     "Equals",
     "FindInMap",
     "GetAtt",
@@ -49,6 +52,7 @@ __all__ = [
     "Select",
     "Split",
     "Sub",
+    "Transform",
     # Pseudo-parameters
     "AWS_ACCOUNT_ID",
     "AWS_NO_VALUE",

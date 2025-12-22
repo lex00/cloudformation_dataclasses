@@ -10,6 +10,6 @@ class EFSMountTarget2:
     """AWS::EFS::MountTarget resource."""
 
     resource: MountTarget
-    file_system_id: Ref[EFSFileSystem] = ref()
-    security_groups = [get_att("EFSSecurityGroup", "GroupId")]
+    file_system_id = ref(EFSFileSystem)
+    security_groups = [get_att(EFSSecurityGroup, "GroupId")]
     subnet_id = Select(1, ref(Subnets))

@@ -8,7 +8,7 @@ class VPCIdOutput:
     """VPCId of VPC"""
 
     resource: Output
-    value = ref("VPC")
+    value = ref(VPC)
     description = 'VPCId of VPC'
     export_name = Sub('${AWS::Region}-${AWS::StackName}-VPC')
 
@@ -18,7 +18,7 @@ class PublicSubnet0Output:
     """SubnetId of public subnet 0"""
 
     resource: Output
-    value = ref("PublicSubnet0")
+    value = ref(PublicSubnet0)
     description = 'SubnetId of public subnet 0'
     export_name = Sub('${AWS::Region}-${AWS::StackName}-PublicSubnet0')
 
@@ -28,7 +28,7 @@ class PublicSubnet1Output:
     """SubnetId of public subnet 1"""
 
     resource: Output
-    value = ref("PublicSubnet1")
+    value = ref(PublicSubnet1)
     description = 'SubnetId of public subnet 1'
     export_name = Sub('${AWS::Region}-${AWS::StackName}-PublicSubnet1')
 
@@ -38,7 +38,7 @@ class PrivateSubnet0Output:
     """SubnetId of private subnet 0"""
 
     resource: Output
-    value = ref("PrivateSubnet0")
+    value = ref(PrivateSubnet0)
     description = 'SubnetId of private subnet 0'
     export_name = Sub('${AWS::Region}-${AWS::StackName}-PrivateSubnet0')
 
@@ -48,7 +48,7 @@ class PrivateSubnet1Output:
     """SubnetId of private subnet 1"""
 
     resource: Output
-    value = ref("PrivateSubnet1")
+    value = ref(PrivateSubnet1)
     description = 'SubnetId of private subnet 1'
     export_name = Sub('${AWS::Region}-${AWS::StackName}-PrivateSubnet1')
 
@@ -58,6 +58,6 @@ class DefaultSecurityGroupOutput:
     """DefaultSecurityGroup Id"""
 
     resource: Output
-    value = get_att("VPC", "DefaultSecurityGroup")
+    value = get_att(VPC, "DefaultSecurityGroup")
     description = 'DefaultSecurityGroup Id'
     export_name = Sub('${AWS::Region}-${AWS::StackName}-DefaultSecurityGroup')

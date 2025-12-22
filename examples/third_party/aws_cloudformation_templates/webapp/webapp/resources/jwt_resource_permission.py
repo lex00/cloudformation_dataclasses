@@ -11,6 +11,6 @@ class JwtResourcePermission:
 
     resource: Permission
     action = 'lambda:InvokeFunction'
-    function_name: GetAtt[JwtResourceHandler] = get_att("Arn")
+    function_name = get_att(JwtResourceHandler, "Arn")
     principal = 'apigateway.amazonaws.com'
     source_arn = Sub('arn:${AWS::Partition}:execute-api:${AWS::Region}:${AWS::AccountId}:${RestApi}/*/*/*')

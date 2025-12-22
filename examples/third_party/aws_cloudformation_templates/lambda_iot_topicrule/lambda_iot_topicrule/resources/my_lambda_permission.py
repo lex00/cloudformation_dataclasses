@@ -11,7 +11,7 @@ class MyLambdaPermission:
 
     resource: Permission
     action = 'lambda:InvokeFunction'
-    function_name: Ref[MyLambda] = ref()
+    function_name = ref(MyLambda)
     principal = 'iot.amazonaws.com'
     source_account = Sub('${AWS::AccountId}')
-    source_arn: GetAtt[IoTTopicRule] = get_att("Arn")
+    source_arn = get_att(IoTTopicRule, "Arn")

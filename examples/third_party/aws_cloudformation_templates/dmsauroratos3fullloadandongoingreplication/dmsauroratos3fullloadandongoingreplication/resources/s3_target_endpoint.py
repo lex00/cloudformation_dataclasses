@@ -8,8 +8,8 @@ from .. import *  # noqa: F403
 @cloudformation_dataclass
 class S3TargetEndpointS3Settings:
     resource: S3Settings
-    bucket_name: Ref[S3Bucket] = ref()
-    service_access_role_arn: GetAtt[S3TargetDMSRole] = get_att("Arn")
+    bucket_name = ref(S3Bucket)
+    service_access_role_arn = get_att(S3TargetDMSRole, "Arn")
 
 
 @cloudformation_dataclass

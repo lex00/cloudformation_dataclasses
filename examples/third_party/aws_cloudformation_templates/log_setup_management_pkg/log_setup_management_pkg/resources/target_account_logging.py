@@ -22,7 +22,7 @@ class TargetAccountLoggingStackInstances:
 class TargetAccountLoggingParameter:
     resource: Parameter
     parameter_key = 'CentralEventBusArn'
-    parameter_value: GetAtt[CentralEventBus] = get_att("Arn")
+    parameter_value = get_att(CentralEventBus, "Arn")
 
 
 @cloudformation_dataclass

@@ -21,4 +21,4 @@ class InstanceSecurityGroup:
     resource: SecurityGroup
     group_description = 'Allow inbound SSH access'
     security_group_ingress = [InstanceSecurityGroupIngress]
-    vpc_id: Ref[VPC] = ref()
+    vpc_id = ref(VPC)

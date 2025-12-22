@@ -42,8 +42,7 @@ class DomainMember4LinuxWithSsmAssociationInstance:
     block_device_mappings = [DomainMember4LinuxWithSsmAssociationInstanceBlockDeviceMapping]
     security_group_ids = [ref(DomainMembersSGID)]
     key_name = ref(KeyPairName)
-    user_data = Base64({
-    'Fn::Sub': """# Set HostName
+    user_data = Base64(Sub("""# Set HostName
 LowerEc2Name=$(echo ${DomainMember4NetBIOSName} | tr '[:upper:]' '[:lower:]')
 hostnamectl set-hostname $LowerEc2Name
 # Set TimeZone
@@ -53,5 +52,4 @@ hostnamectl set-hostname $LowerEc2Name
 yum update -y
 # Reboot
 reboot
-""",
-})
+"""))

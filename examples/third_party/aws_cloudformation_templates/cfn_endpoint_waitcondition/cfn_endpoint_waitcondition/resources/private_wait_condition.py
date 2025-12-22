@@ -10,7 +10,7 @@ class PrivateWaitCondition:
     """AWS::CloudFormation::WaitCondition resource."""
 
     resource: WaitCondition
-    handle: Ref[PrivateWaitHandle] = ref()
+    handle = ref(PrivateWaitHandle)
     timeout = '3600'
     count = 1
     depends_on = ["PrivateInstance"]

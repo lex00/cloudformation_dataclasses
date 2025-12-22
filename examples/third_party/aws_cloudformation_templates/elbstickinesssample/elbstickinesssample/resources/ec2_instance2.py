@@ -11,12 +11,11 @@ class EC2Instance2:
 
     resource: Instance
     subnet_id = ref(SubnetId)
-    security_group_ids = [get_att("InstanceSecurityGroup", "GroupId")]
+    security_group_ids = [get_att(InstanceSecurityGroup, "GroupId")]
     key_name = ref(KeyName)
     instance_type = ref(InstanceType)
     image_id = ref(LatestAmiId)
-    user_data = Base64({
-    'Fn::Sub': """#!/bin/bash -xe          
+    user_data = Base64(Sub("""#!/bin/bash -xe          
 yum update -y aws-cfn-bootstrap 
 /opt/aws/bin/cfn-init -v --stack ${AWS::StackName} \
          --resource EC2Instance1 \
@@ -25,5 +24,4 @@ yum update -y aws-cfn-bootstrap
 /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} \
          --resource EC2Instance2 \
          --region ${AWS::Region} 
-""",
-})
+"""))

@@ -9,7 +9,7 @@ from .. import *  # noqa: F403
 class NeptunePrimaryCpuAlarmDimension:
     resource: Dimension
     name = 'DBClusterIdentifier'
-    value: Ref[NeptuneDBCluster] = ref()
+    value = ref(NeptuneDBCluster)
 
 
 @cloudformation_dataclass
@@ -27,5 +27,5 @@ class NeptunePrimaryCpuAlarm:
     threshold = ref(HighCpuAlarmThreshold)
     comparison_operator = 'GreaterThanOrEqualToThreshold'
     dimensions = [NeptunePrimaryCpuAlarmDimension]
-    alarm_actions = [If("CreateSnsTopic", ref("NeptuneAlarmTopic"), ref(NeptuneSNSTopicArn))]
-    insufficient_data_actions = [If("CreateSnsTopic", ref("NeptuneAlarmTopic"), ref(NeptuneSNSTopicArn))]
+    alarm_actions = [If("CreateSnsTopic", ref(NeptuneAlarmTopic), ref(NeptuneSNSTopicArn))]
+    insufficient_data_actions = [If("CreateSnsTopic", ref(NeptuneAlarmTopic), ref(NeptuneSNSTopicArn))]

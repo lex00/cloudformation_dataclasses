@@ -14,14 +14,14 @@ class SubscriptionDefinitionSubscription:
     ref(CoreName),
     'in',
 ])
-    target: Ref[GGSampleFunctionVersion] = ref()
+    target = ref(GGSampleFunctionVersion)
 
 
 @cloudformation_dataclass
 class SubscriptionDefinitionSubscription1:
     resource: Subscription
     id = 'Subscription2'
-    source: Ref[GGSampleFunctionVersion] = ref()
+    source = ref(GGSampleFunctionVersion)
     subject = Join('/', [
     ref(CoreName),
     'out',
@@ -33,7 +33,7 @@ class SubscriptionDefinitionSubscription1:
 class SubscriptionDefinitionSubscription2:
     resource: Subscription
     id = 'Subscription3'
-    source: Ref[GGSampleFunctionVersion] = ref()
+    source = ref(GGSampleFunctionVersion)
     subject = Join('/', [
     ref(CoreName),
     'telem',

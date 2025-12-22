@@ -16,6 +16,8 @@ from cloudformation_dataclasses.intrinsics import Transform
 
 from .config import Date, Date2, Days
 
+from .resources import *  # noqa: F403, F401
+
 __all__ = [
     "Bucket",
     "Date",
@@ -23,6 +25,7 @@ __all__ = [
     "Days",
     "NUMBER",
     "Parameter",
+    "S3Bucket",
     "STRING",
     "TagFilter",
     "Template",

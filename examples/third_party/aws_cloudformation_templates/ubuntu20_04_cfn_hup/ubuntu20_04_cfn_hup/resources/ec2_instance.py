@@ -12,11 +12,10 @@ class EC2Instance:
     resource: Instance
     instance_type = ref(InstanceType)
     subnet_id = ref(SubnetId)
-    security_group_ids = [get_att("InstanceSecurityGroup", "GroupId")]
+    security_group_ids = [get_att(InstanceSecurityGroup, "GroupId")]
     key_name = ref(KeyName)
     image_id = FindInMap("AWSRegionArch2AMI", AWS_REGION, FindInMap("AWSInstanceType2Arch", ref(InstanceType), 'Arch'))
-    user_data = Base64({
-    'Fn::Sub': """#!/bin/bash -xe
+    user_data = Base64(Sub("""#!/bin/bash -xe
 sudo apt-get update -y
 sudo apt-get -y install python3-pip
 mkdir -p /opt/aws/
@@ -24,5 +23,4 @@ sudo pip3 install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-boots
 sudo ln -s /usr/local/init/ubuntu/cfn-hup /etc/init.d/cfn-hup
 /usr/local/bin/cfn-init -v --stack ${AWS::StackName} --resource EC2Instance --configsets full_install --region ${AWS::Region}
 /usr/local/bin/cfn-signal -e $?  --stack ${AWS::StackName} --resource EC2Instance --region ${AWS::Region}
-""",
-})
+"""))

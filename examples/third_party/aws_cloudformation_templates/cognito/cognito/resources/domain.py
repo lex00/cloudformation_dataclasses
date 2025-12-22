@@ -11,4 +11,4 @@ class Domain:
 
     resource: UserPoolDomain
     domain = ref(AppName)
-    user_pool_id: Ref[UserPool] = ref()
+    user_pool_id = ref(UserPool)

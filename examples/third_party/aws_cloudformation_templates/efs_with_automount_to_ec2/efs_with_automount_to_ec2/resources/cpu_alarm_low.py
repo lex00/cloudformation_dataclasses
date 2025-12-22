@@ -9,7 +9,7 @@ from .. import *  # noqa: F403
 class CPUAlarmLowDimension:
     resource: Dimension
     name = 'AutoScalingGroupName'
-    value: Ref[AutoScalingGroup] = ref()
+    value = ref(AutoScalingGroup)
 
 
 @cloudformation_dataclass
@@ -17,7 +17,7 @@ class CPUAlarmLow:
     """AWS::CloudWatch::Alarm resource."""
 
     resource: Alarm
-    alarm_actions = [ref("ScaleDownPolicy")]
+    alarm_actions = [ref(ScaleDownPolicy)]
     alarm_description = 'Scale-down if CPU < 70% for 10 minutes'
     comparison_operator = 'LessThanThreshold'
     dimensions = [CPUAlarmLowDimension]

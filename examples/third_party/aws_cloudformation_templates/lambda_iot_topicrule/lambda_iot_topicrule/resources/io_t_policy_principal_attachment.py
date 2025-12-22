@@ -10,5 +10,5 @@ class IoTPolicyPrincipalAttachment:
     """AWS::IoT::PolicyPrincipalAttachment resource."""
 
     resource: PolicyPrincipalAttachment
-    policy_name: Ref[IoTPolicy] = ref()
+    policy_name = ref(IoTPolicy)
     principal = ref(CertificateARN)

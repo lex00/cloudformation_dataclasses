@@ -8,7 +8,7 @@ class DirectoryIDOutput:
     """ID of the SimpleAD"""
 
     resource: Output
-    value = ref("SimpleAD")
+    value = ref(SimpleAD)
     description = 'ID of the SimpleAD'
 
 
@@ -17,7 +17,7 @@ class PrimaryDNSOutput:
     """DNS IPs of the SimpleAD"""
 
     resource: Output
-    value = Select(0, get_att("SimpleAD", "DnsIpAddresses"))
+    value = Select(0, get_att(SimpleAD, "DnsIpAddresses"))
     description = 'DNS IPs of the SimpleAD'
 
 
@@ -26,7 +26,7 @@ class SecondaryDNSOutput:
     """DNS IPs of the SimpleAD"""
 
     resource: Output
-    value = Select(1, get_att("SimpleAD", "DnsIpAddresses"))
+    value = Select(1, get_att(SimpleAD, "DnsIpAddresses"))
     description = 'DNS IPs of the SimpleAD'
 
 
@@ -35,6 +35,6 @@ class DirectoryAliasOutput:
     """URL for the alias"""
 
     resource: Output
-    value = get_att("SimpleAD", "Alias")
+    value = get_att(SimpleAD, "Alias")
     description = 'URL for the alias'
     condition = 'Alias'

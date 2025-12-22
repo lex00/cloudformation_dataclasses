@@ -10,6 +10,6 @@ class URLOutput:
     resource: Output
     value = Join('', [
     'https://',
-    get_att("ElasticLoadBalancer", "DNSName"),
+    get_att(ElasticLoadBalancer, "DNSName"),
 ])
     description = 'The URL of the website'

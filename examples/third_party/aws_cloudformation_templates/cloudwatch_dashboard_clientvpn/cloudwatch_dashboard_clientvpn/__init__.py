@@ -17,15 +17,31 @@ from cloudformation_dataclasses.intrinsics import Sub
 
 from .config import ClientVPNLogGroup, Folder
 
+from .resources import *  # noqa: F403, F401
+
 __all__ = [
+    "ADSAMLAuthDistinctUsers",
+    "ADSAMLAuthDistinctUsersConnectionDuration",
+    "ADSAMLAuthTotalUsageReport",
+    "ADSAMLAuthUsersConnectionDuration",
     "ClientVPNLogGroup",
+    "Dashboard",
     "Folder",
+    "MixAuthDistinctUsers",
+    "MixAuthDistinctUsersConnectionDuration",
+    "MixAuthTotalUsageReport",
+    "MixAuthUsersConnectionDuration",
+    "MutualAuthDistinctUsers",
+    "MutualAuthDistinctUsersConnectionDuration",
+    "MutualAuthTotalUsageReport",
+    "MutualAuthUsersConnectionDuration",
     "Output",
     "Parameter",
     "QueryDefinition",
     "STRING",
     "Sub",
     "Template",
+    "TotalUsagePerClientVPNEndpoint",
     "cloudformation_dataclass",
     "cloudwatch",
     "get_att",

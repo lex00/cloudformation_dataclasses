@@ -34,7 +34,7 @@ class DirectorySettingsLambdaFunction:
     resource: Function
     function_name = ref(LambdaFunctionName)
     handler = 'directory_settings_custom_resource.lambda_handler'
-    role: GetAtt[DirectorySettingsLambdaRole] = get_att("Arn")
+    role = get_att(DirectorySettingsLambdaRole, "Arn")
     runtime = 'python3.12'
     memory_size = 128
     timeout = 120

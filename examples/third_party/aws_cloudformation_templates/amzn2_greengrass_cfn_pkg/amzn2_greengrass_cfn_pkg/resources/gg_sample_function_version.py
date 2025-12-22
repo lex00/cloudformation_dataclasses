@@ -10,4 +10,4 @@ class GGSampleFunctionVersion:
     """AWS::Lambda::Version resource."""
 
     resource: Version
-    function_name: GetAtt[GGSampleFunction] = get_att("Arn")
+    function_name = get_att(GGSampleFunction, "Arn")

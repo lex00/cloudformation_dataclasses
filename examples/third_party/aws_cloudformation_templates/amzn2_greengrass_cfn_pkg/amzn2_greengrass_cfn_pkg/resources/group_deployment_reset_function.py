@@ -146,6 +146,6 @@ class GroupDeploymentResetFunction:
     description = 'Resets any deployments during stack delete and manages Greengrass service role needs'
     environment = GroupDeploymentResetFunctionEnvironment
     handler = 'index.handler'
-    role: GetAtt[LambdaExecutionRole] = get_att("Arn")
+    role = get_att(LambdaExecutionRole, "Arn")
     runtime = 'python3.12'
     timeout = 60

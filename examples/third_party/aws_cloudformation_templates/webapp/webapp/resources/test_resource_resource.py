@@ -12,4 +12,4 @@ class TestResourceResource:
     resource: Resource
     parent_id = Sub('${RestApi.RootResourceId}')
     path_part = 'test'
-    rest_api_id: Ref[RestApi] = ref()
+    rest_api_id = ref(RestApi)

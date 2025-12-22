@@ -76,49 +76,44 @@ class KWOSInstance:
     image_id = ref(ImageId)
     instance_type = ref(InstanceType)
     subnet_id = ref(SubnetId)
-    security_group_ids = [ref("KWOSSecurityGroup")]
+    security_group_ids = [ref(KWOSSecurityGroup)]
     key_name = ref(KeyName)
     tags = [KWOSInstanceAssociationParameter, KWOSInstanceAssociationParameter1, KWOSInstanceAssociationParameter2, KWOSInstanceAssociationParameter3, KWOSInstanceAssociationParameter4, KWOSInstanceAssociationParameter5, KWOSInstanceAssociationParameter6, KWOSInstanceAssociationParameter7, KWOSInstanceAssociationParameter8]
     monitoring = False
-    user_data = Base64({
-    'Fn::Join': [
-        '',
-        [
-            """#!/bin/bash
+    user_data = Base64(Join('', [
+    """#!/bin/bash
 """,
-            """apt-get -y install python-pip
+    """apt-get -y install python-pip
 """,
-            """pip install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz
+    """pip install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz
 """,
-            """# Helper function
+    """# Helper function
 """,
-            """function error_exit
+    """function error_exit
 """,
-            """{
+    """{
 """,
-            '  /usr/local/bin/cfn-signal -e 1 -r "$1" \'',
-            ref("KWOSWaitHandle"),
-            """'
+    '  /usr/local/bin/cfn-signal -e 1 -r "$1" \'',
+    ref(KWOSWaitHandle),
+    """'
 """,
-            """  exit 1
+    """  exit 1
 """,
-            """}
+    """}
 """,
-            """# Install the basic system configuration
+    """# Install the basic system configuration
 """,
-            '/usr/local/bin/cfn-init -s ',
-            AWS_STACK_ID,
-            ' -r KWOSInstance ',
-            '         --region ',
-            AWS_REGION,
-            """ || error_exit 'Failed to run cfn-init'
+    '/usr/local/bin/cfn-init -s ',
+    AWS_STACK_ID,
+    ' -r KWOSInstance ',
+    '         --region ',
+    AWS_REGION,
+    """ || error_exit 'Failed to run cfn-init'
 """,
-            """# All done so signal success
+    """# All done so signal success
 """,
-            '/usr/local/bin/cfn-signal -e 0 -r "KWOS setup complete" \'',
-            ref("KWOSWaitHandle"),
-            """'
+    '/usr/local/bin/cfn-signal -e 0 -r "KWOS setup complete" \'',
+    ref(KWOSWaitHandle),
+    """'
 """,
-        ],
-    ],
-})
+]))

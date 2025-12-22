@@ -10,5 +10,5 @@ class PrivateSubnet1RouteTableAssociation:
     """AWS::EC2::SubnetRouteTableAssociation resource."""
 
     resource: SubnetRouteTableAssociation
-    route_table_id: Ref[PrivateSubnet1RouteTable] = ref()
-    subnet_id: Ref[PrivateSubnet1Subnet] = ref()
+    route_table_id = ref(PrivateSubnet1RouteTable)
+    subnet_id = ref(PrivateSubnet1Subnet)

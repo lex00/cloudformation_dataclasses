@@ -32,7 +32,7 @@ class ElasticLoadBalancer:
     """AWS::ElasticLoadBalancing::LoadBalancer resource."""
 
     resource: LoadBalancer
-    security_groups = [ref("ELBSecurityGroup")]
+    security_groups = [ref(ELBSecurityGroup)]
     subnets = ref(Subnets)
     cross_zone = 'true'
     health_check = ElasticLoadBalancerHealthCheck

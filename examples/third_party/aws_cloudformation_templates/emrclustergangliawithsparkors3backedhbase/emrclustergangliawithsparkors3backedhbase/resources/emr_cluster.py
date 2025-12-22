@@ -63,17 +63,17 @@ class EMRCluster:
 
     resource: Cluster
     applications = [EMRClusterApplication, If("Spark", {
-    BootstrapActionConfig.NAME: 'Spark',
+    BootstrapActionConfig.name: 'Spark',
 }, AWS_NO_VALUE), If("Hbase", {
-    BootstrapActionConfig.NAME: 'Hbase',
+    BootstrapActionConfig.name: 'Hbase',
 }, AWS_NO_VALUE)]
     configurations = [EMRClusterConfiguration, EMRClusterConfiguration1]
     instances = EMRClusterJobFlowInstancesConfig
     visible_to_all_users = True
-    job_flow_role: Ref[EMRClusterinstanceProfile] = ref()
+    job_flow_role = ref(EMRClusterinstanceProfile)
     release_label = ref(ReleaseLabel)
     log_uri = ref(LogUri)
     name = ref(EMRClusterName)
     auto_scaling_role = 'EMR_AutoScaling_DefaultRole'
-    service_role: Ref[EMRClusterServiceRole] = ref()
+    service_role = ref(EMRClusterServiceRole)
     depends_on = ["EMRClusterServiceRole", "EMRClusterinstanceProfileRole", "EMRClusterinstanceProfile"]

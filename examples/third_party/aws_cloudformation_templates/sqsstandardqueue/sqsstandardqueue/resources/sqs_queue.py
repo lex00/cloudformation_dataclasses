@@ -16,7 +16,7 @@ class SQSQueue:
     receive_message_wait_time_seconds = ref(ReceiveMessageWaitTimeSeconds)
     kms_master_key_id = If("IsKmsExist", ref(KmsMasterKeyIdForSqs), AWS_NO_VALUE)
     redrive_policy = If("CreateDeadLetterQueue", {
-    'deadLetterTargetArn': get_att("MyDeadLetterQueue", "Arn"),
+    'deadLetterTargetArn': get_att(MyDeadLetterQueue, "Arn"),
     'maxReceiveCount': 5,
 }, AWS_NO_VALUE)
     visibility_timeout = ref(VisibilityTimeout)

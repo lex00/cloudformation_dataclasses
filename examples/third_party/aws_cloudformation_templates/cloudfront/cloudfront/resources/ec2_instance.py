@@ -42,6 +42,6 @@ class EC2Instance:
     instance_type = ref(EC2InstanceType)
     subnet_id = ref(PublicSubnetId1)
     block_device_mappings = [EC2InstanceBlockDeviceMapping]
-    security_group_ids = [ref("EC2InstanceSG"), ref("ALBExternalAccessSG")]
+    security_group_ids = [ref(EC2InstanceSG), ref(ALBExternalAccessSG)]
     key_name = ref(KeyPairName)
     tags = [EC2InstanceAssociationParameter, EC2InstanceAssociationParameter1]

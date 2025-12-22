@@ -16,7 +16,7 @@ class TestResourceHandlerCode:
 class TestResourceHandlerEnvironment:
     resource: Environment
     variables = {
-        'TABLE_NAME': ref("TestTable"),
+        'TABLE_NAME': ref(TestTable),
     }
 
 
@@ -29,5 +29,5 @@ class TestResourceHandler:
     function_name = Sub('${AppName}-test-handler')
     runtime = 'provided.al2023'
     code = TestResourceHandlerCode
-    role: GetAtt[TestResourceHandlerRole] = get_att("Arn")
+    role = get_att(TestResourceHandlerRole, "Arn")
     environment = TestResourceHandlerEnvironment

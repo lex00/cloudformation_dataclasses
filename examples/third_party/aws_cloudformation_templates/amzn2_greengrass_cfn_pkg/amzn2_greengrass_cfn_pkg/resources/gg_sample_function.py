@@ -51,6 +51,6 @@ class GGSampleFunction:
     'sample',
 ])
     handler = 'index.function_handler'
-    role: GetAtt[LambdaExecutionRole] = get_att("Arn")
+    role = get_att(LambdaExecutionRole, "Arn")
     runtime = 'python3.12'
     timeout = 60

@@ -15,4 +15,4 @@ class PrivateSubnet2Subnet:
 })
     cidr_block = '10.0.192.0/18'
     map_public_ip_on_launch = False
-    vpc_id: Ref[VPC] = ref()
+    vpc_id = ref(VPC)

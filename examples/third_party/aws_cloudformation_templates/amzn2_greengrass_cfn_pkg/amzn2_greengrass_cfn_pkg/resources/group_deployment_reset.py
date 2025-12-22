@@ -12,7 +12,7 @@ class GroupDeploymentReset:
     # Unknown resource type: Custom::GroupDeploymentReset
     resource: CloudFormationResource
     region = AWS_REGION
-    service_token: GetAtt[GroupDeploymentResetFunction] = get_att("Arn")
+    service_token = get_att(GroupDeploymentResetFunction, "Arn")
     thing_name = Join('_', [
     ref(CoreName),
     'Core',

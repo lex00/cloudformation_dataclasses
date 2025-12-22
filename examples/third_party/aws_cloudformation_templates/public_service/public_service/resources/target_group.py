@@ -20,12 +20,7 @@ class TargetGroup:
     port = ref(ContainerPort)
     protocol = 'HTTP'
     unhealthy_threshold_count = 2
-    vpc_id = ImportValue({
-    'Fn::Join': [
-        ':',
-        [
-            ref(StackName),
-            'VPCId',
-        ],
-    ],
-})
+    vpc_id = ImportValue(Join(':', [
+    ref(StackName),
+    'VPCId',
+]))

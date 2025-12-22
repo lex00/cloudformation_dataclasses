@@ -12,10 +12,10 @@ class NeptuneDBInstance:
     resource: DBInstance
     allow_major_version_upgrade = ref(MajorVersionUpgrade)
     auto_minor_version_upgrade = ref(MinorVersionUpgrade)
-    db_cluster_identifier: Ref[NeptuneDBCluster] = ref()
+    db_cluster_identifier = ref(NeptuneDBCluster)
     db_instance_class = ref(DBInstanceClass)
-    db_parameter_group_name: Ref[NeptuneDBParameterGroup] = ref()
-    db_subnet_group_name: Ref[NeptuneDBSubnetGroup] = ref()
+    db_parameter_group_name = ref(NeptuneDBParameterGroup)
+    db_subnet_group_name = ref(NeptuneDBSubnetGroup)
     preferred_maintenance_window = ref(NeptuneDBInstancePreferredMaintenanceWindow)
     tags = [{
         'Key': 'Name',

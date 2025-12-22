@@ -8,7 +8,7 @@ class QueueURLOutput:
     """URL of newly created SQS Queue"""
 
     resource: Output
-    value = ref("SQSQueue")
+    value = ref(SQSQueue)
     description = 'URL of newly created SQS Queue'
 
 
@@ -17,7 +17,7 @@ class QueueARNOutput:
     """ARN of newly created SQS Queue"""
 
     resource: Output
-    value = get_att("SQSQueue", "Arn")
+    value = get_att(SQSQueue, "Arn")
     description = 'ARN of newly created SQS Queue'
 
 
@@ -26,5 +26,5 @@ class QueueNameOutput:
     """Name newly created SQS Queue"""
 
     resource: Output
-    value = get_att("SQSQueue", "QueueName")
+    value = get_att(SQSQueue, "QueueName")
     description = 'Name newly created SQS Queue'

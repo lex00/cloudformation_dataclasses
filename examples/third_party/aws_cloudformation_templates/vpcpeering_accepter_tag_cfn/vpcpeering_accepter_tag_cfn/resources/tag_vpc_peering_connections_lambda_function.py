@@ -74,7 +74,7 @@ class TagVpcPeeringConnectionsLambdaFunction:
     resource: Function
     function_name = ref(LambdaFunctionName)
     handler = 'index.handler'
-    role: GetAtt[TagVpcPeeringConnectionsLambdaRole] = get_att("Arn")
+    role = get_att(TagVpcPeeringConnectionsLambdaRole, "Arn")
     runtime = 'python3.12'
     memory_size = 128
     timeout = 120

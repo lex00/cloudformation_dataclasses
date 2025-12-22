@@ -11,7 +11,7 @@ class ADConnectorResource:
 
     # Unknown resource type: Custom::ADConnectorResource
     resource: CloudFormationResource
-    service_token: GetAtt[ADConnectorLambdaFunction] = get_att("Arn")
+    service_token = get_att(ADConnectorLambdaFunction, "Arn")
     adconnector_description = ref(ADConnectorDescription)
     adconnector_size = ref(ADConnectorSize)
     adconnector_subnet_id1 = ref(PrivateSubnet1ID)
@@ -20,4 +20,4 @@ class ADConnectorResource:
     domain_dns_name = ref(DomainDNSName)
     domain_dns_servers = ref(DomainDNSServers)
     domain_netbios_name = ref(DomainNetBiosName)
-    domain_join_secret_id: Ref[ADConnectorServiceAccountSecret] = ref()
+    domain_join_secret_id = ref(ADConnectorServiceAccountSecret)

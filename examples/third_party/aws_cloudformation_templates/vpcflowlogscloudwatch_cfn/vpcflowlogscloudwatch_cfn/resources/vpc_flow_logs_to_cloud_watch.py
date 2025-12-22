@@ -18,8 +18,8 @@ class VPCFlowLogsToCloudWatch:
 
     resource: FlowLog
     log_destination_type = 'cloud-watch-logs'
-    log_group_name: Ref[VPCFlowLogsLogGroup] = ref()
-    deliver_logs_permission_arn: GetAtt[VPCFlowLogsRole] = get_att("Arn")
+    log_group_name = ref(VPCFlowLogsLogGroup)
+    deliver_logs_permission_arn = get_att(VPCFlowLogsRole, "Arn")
     log_format = ref(VPCFlowLogsLogFormat)
     max_aggregation_interval = ref(VPCFlowLogsMaxAggregationInterval)
     resource_id = ref(VPCID)

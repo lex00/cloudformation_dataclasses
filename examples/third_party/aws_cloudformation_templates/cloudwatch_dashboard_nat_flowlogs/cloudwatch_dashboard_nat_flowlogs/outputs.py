@@ -8,5 +8,5 @@ class DashboardArnOutput:
     """ARN of the created CloudWatch Dashboard"""
 
     resource: Output
-    value = ref("CloudWatchDashboard")
+    value = ref(CloudWatchDashboard)
     description = 'ARN of the created CloudWatch Dashboard'

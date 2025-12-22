@@ -10,5 +10,5 @@ class KWOSWaitCondition:
     """AWS::CloudFormation::WaitCondition resource."""
 
     resource: WaitCondition
-    handle: Ref[KWOSWaitHandle] = ref()
+    handle = ref(KWOSWaitHandle)
     timeout = '300'

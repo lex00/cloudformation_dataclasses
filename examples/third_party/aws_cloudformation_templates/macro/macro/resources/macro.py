@@ -11,4 +11,4 @@ class Macro:
 
     resource: cloudformation.Macro
     name = 'StackMetrics'
-    function_name: GetAtt[MacroFunction] = get_att("Arn")
+    function_name = get_att(MacroFunction, "Arn")

@@ -120,6 +120,6 @@ class CreateThingFunction:
     code = CreateThingFunctionCode
     description = 'Create thing, certificate, and policy, return cert and private key'
     handler = 'index.handler'
-    role: GetAtt[LambdaExecutionRole] = get_att("Arn")
+    role = get_att(LambdaExecutionRole, "Arn")
     runtime = 'python3.12'
     timeout = 60

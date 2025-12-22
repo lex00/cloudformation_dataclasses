@@ -8,7 +8,7 @@ class CodeCommitNameOutput:
     """The code commit repository name"""
 
     resource: Output
-    value = get_att("CodeCommitRepo", "Name")
+    value = get_att(CodeCommitRepo, "Name")
     description = 'The code commit repository name'
     export_name = Sub('${AWS::StackName}-CodeCommitName')
 
@@ -18,7 +18,7 @@ class CodeCommitArnOutput:
     """The code commit repository arn"""
 
     resource: Output
-    value = get_att("CodeCommitRepo", "Arn")
+    value = get_att(CodeCommitRepo, "Arn")
     description = 'The code commit repository arn'
     export_name = Sub('${AWS::StackName}-CodeCommitArn')
 
@@ -28,7 +28,7 @@ class PipelineS3BucketOutput:
     """The s3 bucket used by the deployment codepipelines"""
 
     resource: Output
-    value = ref("PipelineS3Bucket")
+    value = ref(PipelineS3Bucket)
     description = 'The s3 bucket used by the deployment codepipelines'
     export_name = Sub('${AWS::StackName}-PipelineS3Bucket')
 
@@ -38,7 +38,7 @@ class PipelineS3BucketArnOutput:
     """The s3 bucket used by the deployment codepipelines"""
 
     resource: Output
-    value = get_att("PipelineS3Bucket", "Arn")
+    value = get_att(PipelineS3Bucket, "Arn")
     description = 'The s3 bucket used by the deployment codepipelines'
     export_name = Sub('${AWS::StackName}-PipelineS3BucketArn')
 
@@ -48,7 +48,7 @@ class CodeBuildRoleOutput:
     """IAM Role ARN associated with CodeBuild projects"""
 
     resource: Output
-    value = ref("CodeBuildRole")
+    value = ref(CodeBuildRole)
     description = 'IAM Role ARN associated with CodeBuild projects'
     export_name = Sub('${AWS::StackName}-CodeBuildRole')
 
@@ -58,7 +58,7 @@ class CodeBuildRoleArnOutput:
     """IAM Role ARN associated with CodeBuild projects"""
 
     resource: Output
-    value = get_att("CodeBuildRole", "Arn")
+    value = get_att(CodeBuildRole, "Arn")
     description = 'IAM Role ARN associated with CodeBuild projects'
     export_name = Sub('${AWS::StackName}-CodeBuildRoleArn')
 
@@ -66,26 +66,26 @@ class CodeBuildRoleArnOutput:
 @cloudformation_dataclass
 class AppDeployOutput:
     resource: Output
-    value = ref("AppDeploy")
+    value = ref(AppDeploy)
     export_name = Sub('${AWS::StackName}-AppDeploy')
 
 
 @cloudformation_dataclass
 class AppDeploydArnOutput:
     resource: Output
-    value = get_att("AppDeploy", "Arn")
+    value = get_att(AppDeploy, "Arn")
     export_name = Sub('${AWS::StackName}-AppDeployArn')
 
 
 @cloudformation_dataclass
 class AppBuildOutput:
     resource: Output
-    value = ref("AppBuild")
+    value = ref(AppBuild)
     export_name = Sub('${AWS::StackName}-AppBuild')
 
 
 @cloudformation_dataclass
 class AppBuildArnOutput:
     resource: Output
-    value = get_att("AppBuild", "Arn")
+    value = get_att(AppBuild, "Arn")
     export_name = Sub('${AWS::StackName}-AppBuildArn')

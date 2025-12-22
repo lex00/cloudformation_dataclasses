@@ -50,4 +50,4 @@ class ObjectStorageReplicationPolicy:
     resource: RolePolicy
     policy_document = ObjectStorageReplicationPolicyPolicyDocument
     policy_name = 'bucket-replication-policy'
-    role_name: Ref[ObjectStorageReplicationRole] = ref()
+    role_name = ref(ObjectStorageReplicationRole)

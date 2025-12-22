@@ -8,5 +8,5 @@ class PeerRoleARNOutput:
     """VPC Peer Role ARN"""
 
     resource: Output
-    value = get_att("PeerRole", "Arn")
+    value = get_att(PeerRole, "Arn")
     description = 'VPC Peer Role ARN'

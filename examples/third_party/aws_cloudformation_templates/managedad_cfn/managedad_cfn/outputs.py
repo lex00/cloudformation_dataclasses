@@ -8,7 +8,7 @@ class AWSManagedADDirectoryIdOutput:
     """AWS Managed Microsoft AD Directory ID"""
 
     resource: Output
-    value = ref("AWSManagedAD")
+    value = ref(AWSManagedAD)
     description = 'AWS Managed Microsoft AD Directory ID'
     export_name = Sub('${AWS::StackName}-AWSManagedADDirectoryId')
 
@@ -28,7 +28,7 @@ class AWSManagedADAWSManagedADDomainMembersSGOutput:
     """AWS Managed Microsoft AD Domain Members Security Group"""
 
     resource: Output
-    value = ref("AWSManagedADDomainMembersSG")
+    value = ref(AWSManagedADDomainMembersSG)
     description = 'AWS Managed Microsoft AD Domain Members Security Group'
     export_name = Sub('${AWS::StackName}-${AWSManagedADDomainNetBiosName}-AWSManagedADDomainMembersSG')
     condition = 'DomainMembersSGCondition'
@@ -39,7 +39,7 @@ class AWSManagedADWindowsEC2SeamlessDomainJoinInstanceProfileOutput:
     """IAM Instance Profile with SSM Document Rights to Join Windows Computers via AWS Managed Microsoft AD"""
 
     resource: Output
-    value = ref("AWSManagedADWindowsEC2DomainJoinInstanceProfile")
+    value = ref(AWSManagedADWindowsEC2DomainJoinInstanceProfile)
     description = 'IAM Instance Profile with SSM Document Rights to Join Windows Computers via AWS Managed Microsoft AD'
     export_name = Sub('${AWS::StackName}-${AWSManagedADDomainNetBiosName}-AWSManagedADWindowsEC2DomainJoinProfile')
     condition = 'WindowsEC2DomainJoinResourcesCondition'
@@ -50,7 +50,7 @@ class AWSManagedADWindowsEC2SeamlessDomainJoinRoleOutput:
     """IAM Instance Profile with SSM Document Rights to Join Windows Computers via AWS Managed Microsoft AD"""
 
     resource: Output
-    value = ref("AWSManagedADWindowsEC2DomainJoinRole")
+    value = ref(AWSManagedADWindowsEC2DomainJoinRole)
     description = 'IAM Instance Profile with SSM Document Rights to Join Windows Computers via AWS Managed Microsoft AD'
     export_name = Sub('${AWS::StackName}-${AWSManagedADDomainNetBiosName}-AWSManagedADWindowsEC2DomainJoinRole')
     condition = 'WindowsEC2DomainJoinResourcesCondition'
@@ -61,7 +61,7 @@ class AWSManagedADLinuxEC2SeamlessDomainJoinInstanceProfileOutput:
     """IAM Instance Profile with SSM Document Rights to Join Linux Computers via AWS Managed Microsoft AD"""
 
     resource: Output
-    value = ref("AWSManagedADLinuxEC2DomainJoinInstanceProfile")
+    value = ref(AWSManagedADLinuxEC2DomainJoinInstanceProfile)
     description = 'IAM Instance Profile with SSM Document Rights to Join Linux Computers via AWS Managed Microsoft AD'
     export_name = Sub('${AWS::StackName}-${AWSManagedADDomainNetBiosName}-AWSManagedADLinuxEC2DomainJoinProfile')
     condition = 'LinuxEC2DomainJoinResourcesCondition'
@@ -72,7 +72,7 @@ class AWSManagedADLinuxEC2SeamlessDomainJoinRoleOutput:
     """IAM Instance Profile with SSM Document Rights to Join Linux Computers via AWS Managed Microsoft AD"""
 
     resource: Output
-    value = ref("AWSManagedADLinuxEC2DomainJoinRole")
+    value = ref(AWSManagedADLinuxEC2DomainJoinRole)
     description = 'IAM Instance Profile with SSM Document Rights to Join Linux Computers via AWS Managed Microsoft AD'
     export_name = Sub('${AWS::StackName}-${AWSManagedADDomainNetBiosName}-AWSManagedADLinuxEC2DomainJoinRole')
     condition = 'LinuxEC2DomainJoinResourcesCondition'

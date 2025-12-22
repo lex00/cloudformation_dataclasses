@@ -50,4 +50,4 @@ class ContentReplicationPolicy:
     resource: RolePolicy
     policy_document = ContentReplicationPolicyPolicyDocument
     policy_name = 'bucket-replication-policy'
-    role_name: Ref[ContentReplicationRole] = ref()
+    role_name = ref(ContentReplicationRole)

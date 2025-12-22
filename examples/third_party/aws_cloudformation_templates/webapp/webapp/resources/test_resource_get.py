@@ -19,8 +19,8 @@ class TestResourceGet:
 
     resource: Method
     http_method = 'GET'
-    resource_id: Ref[TestResourceResource] = ref()
-    rest_api_id: Ref[RestApi] = ref()
+    resource_id = ref(TestResourceResource)
+    rest_api_id = ref(RestApi)
     authorization_type = 'COGNITO_USER_POOLS'
-    authorizer_id: Ref[RestApiAuthorizer] = ref()
+    authorizer_id = ref(RestApiAuthorizer)
     integration = TestResourceGetIntegration

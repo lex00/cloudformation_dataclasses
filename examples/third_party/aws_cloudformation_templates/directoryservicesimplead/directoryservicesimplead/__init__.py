@@ -2,11 +2,9 @@
 
 from cloudformation_dataclasses.core import (
     Condition,
-    GetAtt,
     Output,
     Parameter,
     ParameterType,
-    Ref,
     STRING,
     Template,
     cloudformation_dataclass,
@@ -18,7 +16,7 @@ from cloudformation_dataclasses.aws.directoryservice import VpcSettings
 from cloudformation_dataclasses.intrinsics import Equals, Select
 
 from .config import (
-    Alias,
+    AliasCondition,
     CreateAlias,
     DomainName,
     PrivateSubnet1,
@@ -28,21 +26,22 @@ from .config import (
     VPCID,
 )
 
+from .resources import *  # noqa: F403, F401
+
 __all__ = [
-    "Alias",
+    "AliasCondition",
     "Condition",
     "CreateAlias",
     "DomainName",
     "Equals",
-    "GetAtt",
     "Output",
     "Parameter",
     "ParameterType",
     "PrivateSubnet1",
     "PrivateSubnet2",
-    "Ref",
     "STRING",
     "Select",
+    "SimpleAD",
     "SimpleADShortName",
     "Size",
     "Template",

@@ -6,7 +6,6 @@ from cloudformation_dataclasses.core import (
     Condition,
     NUMBER,
     Parameter,
-    Ref,
     STRING,
     Template,
     cloudformation_dataclass,
@@ -28,6 +27,7 @@ from cloudformation_dataclasses.intrinsics import (
     Equals,
     If,
     ImportValue,
+    Join,
     Not,
 )
 
@@ -36,7 +36,7 @@ from .config import (
     ContainerMemory,
     ContainerPort,
     DesiredCount,
-    HasCustomRole,
+    HasCustomRoleCondition,
     ImageUrl,
     Path,
     Priority,
@@ -44,6 +44,8 @@ from .config import (
     ServiceName,
     StackName,
 )
+
+from .resources import *  # noqa: F403, F401
 
 __all__ = [
     "AWS_NO_VALUE",
@@ -57,12 +59,14 @@ __all__ = [
     "DeploymentConfiguration",
     "DesiredCount",
     "Equals",
-    "HasCustomRole",
+    "HasCustomRoleCondition",
     "If",
     "ImageUrl",
     "ImportValue",
+    "Join",
     "ListenerRule",
     "LoadBalancer",
+    "LoadBalancerRule",
     "NUMBER",
     "NetworkConfiguration",
     "Not",
@@ -70,12 +74,14 @@ __all__ = [
     "Path",
     "PortMapping",
     "Priority",
-    "Ref",
     "Role",
     "RuleCondition",
     "STRING",
+    "Service",
     "ServiceName",
     "StackName",
+    "TargetGroup",
+    "TaskDefinition",
     "Template",
     "cloudformation_dataclass",
     "ecs",

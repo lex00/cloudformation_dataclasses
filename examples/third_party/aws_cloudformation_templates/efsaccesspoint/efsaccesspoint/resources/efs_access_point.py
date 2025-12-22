@@ -17,5 +17,5 @@ class EFSAccessPoint:
     """AWS::EFS::AccessPoint resource."""
 
     resource: AccessPoint
-    file_system_id: Ref[EFSFileSystem] = ref()
+    file_system_id = ref(EFSFileSystem)
     access_point_tags = [EFSAccessPointAccessPointTag]

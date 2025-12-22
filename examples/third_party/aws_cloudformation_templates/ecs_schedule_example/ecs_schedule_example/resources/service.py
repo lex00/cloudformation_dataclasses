@@ -10,7 +10,7 @@ class ServiceLoadBalancer:
     resource: LoadBalancer
     container_name = 'simple-app'
     container_port = '80'
-    target_group_arn: Ref[ECSTG] = ref()
+    target_group_arn = ref(ECSTG)
 
 
 @cloudformation_dataclass
@@ -18,9 +18,9 @@ class Service:
     """AWS::ECS::Service resource."""
 
     resource: ecs.Service
-    cluster: Ref[ECSCluster] = ref()
+    cluster = ref(ECSCluster)
     desired_count = '1'
     load_balancers = [ServiceLoadBalancer]
-    role: Ref[ECSServiceRole] = ref()
-    task_definition: Ref[TaskDefinition] = ref()
+    role = ref(ECSServiceRole)
+    task_definition = ref(TaskDefinition)
     depends_on = ["ALBListener"]

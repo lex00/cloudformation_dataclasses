@@ -17,10 +17,10 @@ class JwtResourceHandlerEnvironment:
     resource: Environment
     variables = {
         'COGNITO_REGION': 'us-east-1',
-        'COGNITO_POOL_ID': ref("CognitoUserPool"),
+        'COGNITO_POOL_ID': ref(CognitoUserPool),
         'COGNITO_REDIRECT_URI': Sub('https://${SiteDistribution.DomainName}/index.html'),
         'COGNITO_DOMAIN_PREFIX': ref(AppName),
-        'COGNITO_APP_CLIENT_ID': ref("CognitoClient"),
+        'COGNITO_APP_CLIENT_ID': ref(CognitoClient),
     }
 
 
@@ -33,5 +33,5 @@ class JwtResourceHandler:
     function_name = Sub('${AppName}-jwt-handler')
     runtime = 'provided.al2023'
     code = JwtResourceHandlerCode
-    role: GetAtt[JwtResourceHandlerRole] = get_att("Arn")
+    role = get_att(JwtResourceHandlerRole, "Arn")
     environment = JwtResourceHandlerEnvironment

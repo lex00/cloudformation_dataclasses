@@ -24,8 +24,8 @@ class S3Endpoint:
     """AWS::EC2::VPCEndpoint resource."""
 
     resource: VPCEndpoint
-    vpc_id: Ref[VPC] = ref()
+    vpc_id = ref(VPC)
     service_name = Sub('com.amazonaws.${AWS::Region}.s3')
     vpc_endpoint_type = 'Gateway'
     policy_document = S3EndpointPolicyDocument
-    route_table_ids = [ref("PrivateRouteTable1"), ref("PrivateRouteTable2")]
+    route_table_ids = [ref(PrivateRouteTable1), ref(PrivateRouteTable2)]

@@ -18,7 +18,7 @@ class VPCFlowLogstoS3:
 
     resource: FlowLog
     log_destination_type = 's3'
-    log_destination = If("VPCFlowLogsNewBucketCondition", get_att("VPCFlowLogsBucket", "Arn"), Sub('arn:${AWS::Partition}:s3:::${VPCFlowLogsBucketName}'))
+    log_destination = If("VPCFlowLogsNewBucketCondition", get_att(VPCFlowLogsBucket, "Arn"), Sub('arn:${AWS::Partition}:s3:::${VPCFlowLogsBucketName}'))
     log_format = ref(VPCFlowLogsLogFormat)
     max_aggregation_interval = ref(VPCFlowLogsMaxAggregationInterval)
     resource_id = ref(VPCID)

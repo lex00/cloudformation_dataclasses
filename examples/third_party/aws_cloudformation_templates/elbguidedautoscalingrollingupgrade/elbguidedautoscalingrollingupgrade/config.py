@@ -104,42 +104,42 @@ class Region2ExamplesMapping:
     resource: Mapping
     map_data = {
         'us-east-1': {
-            GuardrailTopicConfig.EXAMPLES: 'https://s3.amazonaws.com/cloudformation-examples-us-east-1',
+            'Examples': 'https://s3.amazonaws.com/cloudformation-examples-us-east-1',
         },
         'us-west-2': {
-            GuardrailTopicConfig.EXAMPLES: 'https://s3-us-west-2.amazonaws.com/cloudformation-examples-us-west-2',
+            'Examples': 'https://s3-us-west-2.amazonaws.com/cloudformation-examples-us-west-2',
         },
         'us-west-1': {
-            GuardrailTopicConfig.EXAMPLES: 'https://s3-us-west-1.amazonaws.com/cloudformation-examples-us-west-1',
+            'Examples': 'https://s3-us-west-1.amazonaws.com/cloudformation-examples-us-west-1',
         },
         'eu-west-1': {
-            GuardrailTopicConfig.EXAMPLES: 'https://s3-eu-west-1.amazonaws.com/cloudformation-examples-eu-west-1',
+            'Examples': 'https://s3-eu-west-1.amazonaws.com/cloudformation-examples-eu-west-1',
         },
         'eu-central-1': {
-            GuardrailTopicConfig.EXAMPLES: 'https://s3-eu-central-1.amazonaws.com/cloudformation-examples-eu-central-1',
+            'Examples': 'https://s3-eu-central-1.amazonaws.com/cloudformation-examples-eu-central-1',
         },
         'ap-southeast-1': {
-            GuardrailTopicConfig.EXAMPLES: 'https://s3-ap-southeast-1.amazonaws.com/cloudformation-examples-ap-southeast-1',
+            'Examples': 'https://s3-ap-southeast-1.amazonaws.com/cloudformation-examples-ap-southeast-1',
         },
         'ap-northeast-1': {
-            GuardrailTopicConfig.EXAMPLES: 'https://s3-ap-northeast-1.amazonaws.com/cloudformation-examples-ap-northeast-1',
+            'Examples': 'https://s3-ap-northeast-1.amazonaws.com/cloudformation-examples-ap-northeast-1',
         },
         'ap-northeast-2': {
-            GuardrailTopicConfig.EXAMPLES: 'https://s3-ap-northeast-2.amazonaws.com/cloudformation-examples-ap-northeast-2',
+            'Examples': 'https://s3-ap-northeast-2.amazonaws.com/cloudformation-examples-ap-northeast-2',
         },
         'ap-southeast-2': {
-            GuardrailTopicConfig.EXAMPLES: 'https://s3-ap-southeast-2.amazonaws.com/cloudformation-examples-ap-southeast-2',
+            'Examples': 'https://s3-ap-southeast-2.amazonaws.com/cloudformation-examples-ap-southeast-2',
         },
         'ap-south-1': {
-            GuardrailTopicConfig.EXAMPLES: 'https://s3-ap-south-1.amazonaws.com/cloudformation-examples-ap-south-1',
+            'Examples': 'https://s3-ap-south-1.amazonaws.com/cloudformation-examples-ap-south-1',
         },
         'us-east-2': {
-            GuardrailTopicConfig.EXAMPLES: 'https://s3-us-east-2.amazonaws.com/cloudformation-examples-us-east-2',
+            'Examples': 'https://s3-us-east-2.amazonaws.com/cloudformation-examples-us-east-2',
         },
         'sa-east-1': {
-            GuardrailTopicConfig.EXAMPLES: 'https://s3-sa-east-1.amazonaws.com/cloudformation-examples-sa-east-1',
+            'Examples': 'https://s3-sa-east-1.amazonaws.com/cloudformation-examples-sa-east-1',
         },
         'cn-north-1': {
-            GuardrailTopicConfig.EXAMPLES: 'https://s3.cn-north-1.amazonaws.com.cn/cloudformation-examples-cn-north-1',
+            'Examples': 'https://s3.cn-north-1.amazonaws.com.cn/cloudformation-examples-cn-north-1',
         },
     }

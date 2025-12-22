@@ -18,7 +18,5 @@ class NeptuneDBSG:
 
     resource: SecurityGroup
     group_description = 'SG of Neptune DB'
-    vpc_id = ImportValue({
-    'Fn::Sub': '${VPCStack}-VPCID',
-})
+    vpc_id = ImportValue(Sub('${VPCStack}-VPCID'))
     tags = [NeptuneDBSGAssociationParameter]

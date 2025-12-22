@@ -44,5 +44,5 @@ class AppDeploy:
     name = Sub('${AWS::StackName}-app-deploy')
     artifacts = AppDeployArtifacts
     environment = AppDeployEnvironment
-    service_role: Ref[CodeBuildRole] = ref()
+    service_role = ref(CodeBuildRole)
     source = AppDeploySource

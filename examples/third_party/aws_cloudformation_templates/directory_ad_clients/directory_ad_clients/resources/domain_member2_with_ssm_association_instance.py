@@ -42,8 +42,7 @@ class DomainMember2WithSsmAssociationInstance:
     block_device_mappings = [DomainMember2WithSsmAssociationInstanceBlockDeviceMapping]
     security_group_ids = [ref(DomainMembersSGID)]
     key_name = ref(KeyPairName)
-    user_data = Base64({
-    'Fn::Sub': """<powershell>
+    user_data = Base64(Sub("""<powershell>
 $instanceId = "null"
 while ($instanceId -NotLike "i-*") {
 Start-Sleep -s 3
@@ -55,5 +54,4 @@ Rename-Computer -NewName ${DomainMember2NetBIOSName} -Force
 Install-WindowsFeature -IncludeAllSubFeature RSAT
 Restart-Computer -Force
 </powershell>
-""",
-})
+"""))

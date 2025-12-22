@@ -10,8 +10,6 @@ class ServiceCatalogPortfolioProductAssociation:
     """AWS::ServiceCatalog::PortfolioProductAssociation resource."""
 
     resource: PortfolioProductAssociation
-    portfolio_id = ImportValue({
-    'Fn::Sub': '${ServiceCatalogPortfolioStackName}-ServiceCatalogPortfolio',
-})
-    product_id: Ref[ServiceCatalogCloudFormationProduct] = ref()
+    portfolio_id = ImportValue(Sub('${ServiceCatalogPortfolioStackName}-ServiceCatalogPortfolio'))
+    product_id = ref(ServiceCatalogCloudFormationProduct)
     depends_on = ["ServiceCatalogCloudFormationProduct"]

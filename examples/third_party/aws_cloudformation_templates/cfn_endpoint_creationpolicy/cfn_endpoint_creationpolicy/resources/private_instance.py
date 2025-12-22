@@ -19,17 +19,15 @@ class PrivateInstance:
     resource: Instance
     key_name = ref(KeyName)
     instance_type = 't2.micro'
-    security_group_ids = [ref("PrivateSG")]
-    subnet_id: Ref[PrivateSubnet1] = ref()
+    security_group_ids = [ref(PrivateSG)]
+    subnet_id = ref(PrivateSubnet1)
     image_id = ref(LinuxAMI)
-    iam_instance_profile: Ref[PrivateProfile] = ref()
-    user_data = Base64({
-    'Fn::Sub': """#!/bin/bash -x
+    iam_instance_profile = ref(PrivateProfile)
+    user_data = Base64(Sub("""#!/bin/bash -x
 date > /tmp/datefile
 cat /tmp/datefile
 # Signal the status from instance
 /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --resource PrivateInstance --region ${AWS::Region}
-""",
-})
+"""))
     tags = [PrivateInstanceAssociationParameter]
     depends_on = ["CfnEndpoint"]

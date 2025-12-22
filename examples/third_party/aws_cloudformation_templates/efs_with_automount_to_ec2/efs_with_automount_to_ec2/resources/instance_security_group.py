@@ -19,7 +19,7 @@ class InstanceSecurityGroupIngress1:
     resource: Ingress
     from_port = '80'
     ip_protocol = 'tcp'
-    source_security_group_id: GetAtt[ELBSecurityGroup] = get_att("GroupId")
+    source_security_group_id = get_att(ELBSecurityGroup, "GroupId")
     to_port = '80'
 
 

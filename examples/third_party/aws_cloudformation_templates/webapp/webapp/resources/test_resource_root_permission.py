@@ -11,6 +11,6 @@ class TestResourceRootPermission:
 
     resource: Permission
     action = 'lambda:InvokeFunction'
-    function_name: GetAtt[TestResourceHandler] = get_att("Arn")
+    function_name = get_att(TestResourceHandler, "Arn")
     principal = 'apigateway.amazonaws.com'
     source_arn = Sub('arn:${AWS::Partition}:execute-api:${AWS::Region}:${AWS::AccountId}:${RestApi}/*/*/')

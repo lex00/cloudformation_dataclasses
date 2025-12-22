@@ -90,60 +90,60 @@ class VPCPeeringConnectionId:
 
 
 @cloudformation_dataclass
-class 2RouteTableConditionCondition:
+class _2RouteTableConditionCondition:
     resource: Condition
-    expression = Or(Equals(ref(NumberOfRouteTables), 2), Condition("3RouteTableCondition"), Condition("4RouteTableCondition"), Condition("5RouteTableCondition"), Condition("6RouteTableCondition"))
+    expression = Or(conditions=[Equals(ref(NumberOfRouteTables), 2), Condition("3RouteTableCondition"), Condition("4RouteTableCondition"), Condition("5RouteTableCondition"), Condition("6RouteTableCondition")])
 
 
 @cloudformation_dataclass
-class 3RouteTableConditionCondition:
+class _3RouteTableConditionCondition:
     resource: Condition
-    expression = Or(Equals(ref(NumberOfRouteTables), 3), Condition("4RouteTableCondition"), Condition("5RouteTableCondition"), Condition("6RouteTableCondition"))
+    expression = Or(conditions=[Equals(ref(NumberOfRouteTables), 3), Condition("4RouteTableCondition"), Condition("5RouteTableCondition"), Condition("6RouteTableCondition")])
 
 
 @cloudformation_dataclass
-class 4RouteTableConditionCondition:
+class _4RouteTableConditionCondition:
     resource: Condition
-    expression = Or(Equals(ref(NumberOfRouteTables), 4), Condition("5RouteTableCondition"), Condition("6RouteTableCondition"))
+    expression = Or(conditions=[Equals(ref(NumberOfRouteTables), 4), Condition("5RouteTableCondition"), Condition("6RouteTableCondition")])
 
 
 @cloudformation_dataclass
-class 5RouteTableConditionCondition:
+class _5RouteTableConditionCondition:
     resource: Condition
-    expression = Or(Equals(ref(NumberOfRouteTables), 5), Condition("6RouteTableCondition"))
+    expression = Or(conditions=[Equals(ref(NumberOfRouteTables), 5), Condition("6RouteTableCondition")])
 
 
 @cloudformation_dataclass
-class 6RouteTableConditionCondition:
+class _6RouteTableConditionCondition:
     resource: Condition
     expression = Equals(ref(NumberOfRouteTables), 6)
 
 
 @cloudformation_dataclass
-class 2SecurityGroupConditionCondition:
+class _2SecurityGroupConditionCondition:
     resource: Condition
-    expression = Or(Equals(ref(NumberOfSecurityGroups), 2), Condition("3SecurityGroupCondition"), Condition("4SecurityGroupCondition"), Condition("5SecurityGroupCondition"), Condition("6SecurityGroupCondition"))
+    expression = Or(conditions=[Equals(ref(NumberOfSecurityGroups), 2), Condition("3SecurityGroupCondition"), Condition("4SecurityGroupCondition"), Condition("5SecurityGroupCondition"), Condition("6SecurityGroupCondition")])
 
 
 @cloudformation_dataclass
-class 3SecurityGroupConditionCondition:
+class _3SecurityGroupConditionCondition:
     resource: Condition
-    expression = Or(Equals(ref(NumberOfSecurityGroups), 3), Condition("4SecurityGroupCondition"), Condition("5SecurityGroupCondition"), Condition("6SecurityGroupCondition"))
+    expression = Or(conditions=[Equals(ref(NumberOfSecurityGroups), 3), Condition("4SecurityGroupCondition"), Condition("5SecurityGroupCondition"), Condition("6SecurityGroupCondition")])
 
 
 @cloudformation_dataclass
-class 4SecurityGroupConditionCondition:
+class _4SecurityGroupConditionCondition:
     resource: Condition
-    expression = Or(Equals(ref(NumberOfSecurityGroups), 4), Condition("5SecurityGroupCondition"), Condition("6SecurityGroupCondition"))
+    expression = Or(conditions=[Equals(ref(NumberOfSecurityGroups), 4), Condition("5SecurityGroupCondition"), Condition("6SecurityGroupCondition")])
 
 
 @cloudformation_dataclass
-class 5SecurityGroupConditionCondition:
+class _5SecurityGroupConditionCondition:
     resource: Condition
-    expression = Or(Equals(ref(NumberOfSecurityGroups), 5), Condition("6SecurityGroupCondition"))
+    expression = Or(conditions=[Equals(ref(NumberOfSecurityGroups), 5), Condition("6SecurityGroupCondition")])
 
 
 @cloudformation_dataclass
-class 6SecurityGroupConditionCondition:
+class _6SecurityGroupConditionCondition:
     resource: Condition
     expression = Equals(ref(NumberOfSecurityGroups), 6)

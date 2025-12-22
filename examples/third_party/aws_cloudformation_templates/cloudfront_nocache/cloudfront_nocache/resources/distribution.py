@@ -21,7 +21,7 @@ class DistributionCacheBehavior:
 class DistributionDefaultCacheBehavior:
     resource: DefaultCacheBehavior
     allowed_methods = ['GET', 'HEAD', 'OPTIONS', 'PUT', 'PATCH', 'POST', 'DELETE']
-    cache_policy_id: Ref[CachePolicy] = ref()
+    cache_policy_id = ref(CachePolicy)
     origin_request_policy_id = '216adef6-5c7f-47e4-b989-5492eafa07d3'
     target_origin_id = Sub('CloudFront-${AWS::StackName}')
     viewer_protocol_policy = 'allow-all'

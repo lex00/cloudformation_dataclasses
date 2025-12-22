@@ -2,7 +2,6 @@
 
 from cloudformation_dataclasses.core import (
     Parameter,
-    Ref,
     STRING,
     Template,
     cloudformation_dataclass,
@@ -26,12 +25,16 @@ from cloudformation_dataclasses.intrinsics import Sub
 
 from .config import DomainName, Name, Port
 
+from .resources import *  # noqa: F403, F401
+
 __all__ = [
     "CacheBehavior",
+    "CachePolicy",
     "CachePolicyConfig",
     "CookiesConfig",
     "CustomOriginConfig",
     "DefaultCacheBehavior",
+    "Distribution",
     "DistributionConfig",
     "DomainName",
     "HeadersConfig",
@@ -41,7 +44,6 @@ __all__ = [
     "ParametersInCacheKeyAndForwardedToOrigin",
     "Port",
     "QueryStringsConfig",
-    "Ref",
     "STRING",
     "Sub",
     "Template",

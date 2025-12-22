@@ -10,7 +10,7 @@ class ADConnectorLinuxEC2DomainJoinInstanceProfile:
     """AWS::IAM::InstanceProfile resource."""
 
     resource: InstanceProfile
-    instance_profile_name: Ref[ADConnectorLinuxEC2DomainJoinRole] = ref()
+    instance_profile_name = ref(ADConnectorLinuxEC2DomainJoinRole)
     path = '/'
-    roles = [ref("ADConnectorLinuxEC2DomainJoinRole")]
+    roles = [ref(ADConnectorLinuxEC2DomainJoinRole)]
     condition = 'LinuxEC2DomainJoinResourcesCondition'

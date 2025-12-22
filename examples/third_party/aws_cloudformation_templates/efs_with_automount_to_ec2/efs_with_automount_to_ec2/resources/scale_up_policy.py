@@ -11,6 +11,6 @@ class ScaleUpPolicy:
 
     resource: ScalingPolicy
     adjustment_type = 'ChangeInCapacity'
-    auto_scaling_group_name: Ref[AutoScalingGroup] = ref()
+    auto_scaling_group_name = ref(AutoScalingGroup)
     cooldown = '60'
     scaling_adjustment = '1'

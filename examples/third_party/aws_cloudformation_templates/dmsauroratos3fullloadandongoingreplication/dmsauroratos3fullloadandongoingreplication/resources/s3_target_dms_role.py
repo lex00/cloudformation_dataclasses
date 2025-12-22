@@ -28,7 +28,7 @@ class S3TargetDMSRoleAllowStatement0_1:
         's3:DeleteObject',
     ]
     resource_arn = [
-        get_att("S3Bucket", "Arn"),
+        get_att(S3Bucket, "Arn"),
         Sub('${S3Bucket.Arn}/*'),
     ]
 
@@ -37,7 +37,7 @@ class S3TargetDMSRoleAllowStatement0_1:
 class S3TargetDMSRoleAllowStatement1:
     resource: PolicyStatement
     action = 's3:ListBucket'
-    resource_arn = get_att("S3Bucket", "Arn")
+    resource_arn = get_att(S3Bucket, "Arn")
 
 
 @cloudformation_dataclass

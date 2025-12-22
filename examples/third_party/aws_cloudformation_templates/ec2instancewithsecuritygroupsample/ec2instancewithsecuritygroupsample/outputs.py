@@ -8,7 +8,7 @@ class InstanceIdOutput:
     """InstanceId of the newly created EC2 instance"""
 
     resource: Output
-    value = ref("EC2Instance")
+    value = ref(EC2Instance)
     description = 'InstanceId of the newly created EC2 instance'
 
 
@@ -17,7 +17,7 @@ class AZOutput:
     """Availability Zone of the newly created EC2 instance"""
 
     resource: Output
-    value = get_att("EC2Instance", "AvailabilityZone")
+    value = get_att(EC2Instance, "AvailabilityZone")
     description = 'Availability Zone of the newly created EC2 instance'
 
 
@@ -26,7 +26,7 @@ class PublicDNSOutput:
     """Public DNSName of the newly created EC2 instance"""
 
     resource: Output
-    value = get_att("EC2Instance", "PublicDnsName")
+    value = get_att(EC2Instance, "PublicDnsName")
     description = 'Public DNSName of the newly created EC2 instance'
 
 
@@ -35,5 +35,5 @@ class PublicIPOutput:
     """Public IP address of the newly created EC2 instance"""
 
     resource: Output
-    value = get_att("EC2Instance", "PublicIp")
+    value = get_att(EC2Instance, "PublicIp")
     description = 'Public IP address of the newly created EC2 instance'

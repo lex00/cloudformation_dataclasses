@@ -18,7 +18,7 @@ class MyDB:
     engine_version = '8.0.36'
     master_username = ref(DBUser)
     manage_master_user_password = True
-    db_parameter_group_name: Ref[MyRDSParamGroup] = ref()
+    db_parameter_group_name = ref(MyRDSParamGroup)
     publicly_accessible = False
     storage_encrypted = True
     deletion_policy = 'Snapshot'

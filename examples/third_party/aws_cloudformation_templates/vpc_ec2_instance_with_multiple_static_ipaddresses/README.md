@@ -1,9 +1,6 @@
 # VpcEc2InstanceWithMultipleStaticIpaddresses
 
-Migrated from [VPC_EC2_Instance_With_Multiple_Static_IPAddresses.yaml](https://github.com/aws-cloudformation/aws-cloudformation-templates).
-
-**Source**: AWS CloudFormation Sample Templates
-**License**: Apache-2.0
+Imported from `VPC_EC2_Instance_With_Multiple_Static_IPAddresses.yaml`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 

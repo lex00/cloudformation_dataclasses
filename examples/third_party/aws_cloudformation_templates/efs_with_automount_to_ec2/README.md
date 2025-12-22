@@ -1,9 +1,6 @@
 # EfsWithAutomountToEc2
 
-Migrated from [efs_with_automount_to_ec2.yaml](https://github.com/aws-cloudformation/aws-cloudformation-templates).
-
-**Source**: AWS CloudFormation Sample Templates
-**License**: Apache-2.0
+Imported from `efs_with_automount_to_ec2.yaml`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 

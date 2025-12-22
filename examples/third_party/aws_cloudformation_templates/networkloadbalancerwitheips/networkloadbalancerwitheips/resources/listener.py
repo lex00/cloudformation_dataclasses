@@ -9,7 +9,7 @@ from .. import *  # noqa: F403
 class ListenerAction:
     resource: Action
     type_ = 'forward'
-    target_group_arn: Ref[TargetGroup] = ref()
+    target_group_arn = ref(TargetGroup)
 
 
 @cloudformation_dataclass
@@ -18,6 +18,6 @@ class Listener:
 
     resource: elasticloadbalancingv2.Listener
     default_actions = [ListenerAction]
-    load_balancer_arn: Ref[loadBalancer] = ref()
+    load_balancer_arn = ref(loadBalancer)
     port = '80'
     protocol = 'TCP'

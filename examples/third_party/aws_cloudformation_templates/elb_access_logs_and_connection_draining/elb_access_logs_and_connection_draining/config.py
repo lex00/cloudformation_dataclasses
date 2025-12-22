@@ -50,43 +50,43 @@ class Region2ExamplesMapping:
     resource: Mapping
     map_data = {
         'us-east-1': {
-            GuardrailTopicConfig.EXAMPLES: 'https://s3.amazonaws.com/cloudformation-examples-us-east-1',
+            'Examples': 'https://s3.amazonaws.com/cloudformation-examples-us-east-1',
         },
         'us-west-2': {
-            GuardrailTopicConfig.EXAMPLES: 'https://s3-us-west-2.amazonaws.com/cloudformation-examples-us-west-2',
+            'Examples': 'https://s3-us-west-2.amazonaws.com/cloudformation-examples-us-west-2',
         },
         'us-west-1': {
-            GuardrailTopicConfig.EXAMPLES: 'https://s3-us-west-1.amazonaws.com/cloudformation-examples-us-west-1',
+            'Examples': 'https://s3-us-west-1.amazonaws.com/cloudformation-examples-us-west-1',
         },
         'eu-west-1': {
-            GuardrailTopicConfig.EXAMPLES: 'https://s3-eu-west-1.amazonaws.com/cloudformation-examples-eu-west-1',
+            'Examples': 'https://s3-eu-west-1.amazonaws.com/cloudformation-examples-eu-west-1',
         },
         'eu-central-1': {
-            GuardrailTopicConfig.EXAMPLES: 'https://s3-eu-central-1.amazonaws.com/cloudformation-examples-eu-central-1',
+            'Examples': 'https://s3-eu-central-1.amazonaws.com/cloudformation-examples-eu-central-1',
         },
         'ap-southeast-1': {
-            GuardrailTopicConfig.EXAMPLES: 'https://s3-ap-southeast-1.amazonaws.com/cloudformation-examples-ap-southeast-1',
+            'Examples': 'https://s3-ap-southeast-1.amazonaws.com/cloudformation-examples-ap-southeast-1',
         },
         'ap-northeast-1': {
-            GuardrailTopicConfig.EXAMPLES: 'https://s3-ap-northeast-1.amazonaws.com/cloudformation-examples-ap-northeast-1',
+            'Examples': 'https://s3-ap-northeast-1.amazonaws.com/cloudformation-examples-ap-northeast-1',
         },
         'ap-northeast-2': {
-            GuardrailTopicConfig.EXAMPLES: 'https://s3-ap-northeast-2.amazonaws.com/cloudformation-examples-ap-northeast-2',
+            'Examples': 'https://s3-ap-northeast-2.amazonaws.com/cloudformation-examples-ap-northeast-2',
         },
         'ap-southeast-2': {
-            GuardrailTopicConfig.EXAMPLES: 'https://s3-ap-southeast-2.amazonaws.com/cloudformation-examples-ap-southeast-2',
+            'Examples': 'https://s3-ap-southeast-2.amazonaws.com/cloudformation-examples-ap-southeast-2',
         },
         'ap-south-1': {
-            GuardrailTopicConfig.EXAMPLES: 'https://s3-ap-south-1.amazonaws.com/cloudformation-examples-ap-south-1',
+            'Examples': 'https://s3-ap-south-1.amazonaws.com/cloudformation-examples-ap-south-1',
         },
         'us-east-2': {
-            GuardrailTopicConfig.EXAMPLES: 'https://s3-us-east-2.amazonaws.com/cloudformation-examples-us-east-2',
+            'Examples': 'https://s3-us-east-2.amazonaws.com/cloudformation-examples-us-east-2',
         },
         'sa-east-1': {
-            GuardrailTopicConfig.EXAMPLES: 'https://s3-sa-east-1.amazonaws.com/cloudformation-examples-sa-east-1',
+            'Examples': 'https://s3-sa-east-1.amazonaws.com/cloudformation-examples-sa-east-1',
         },
         'cn-north-1': {
-            GuardrailTopicConfig.EXAMPLES: 'https://s3.cn-north-1.amazonaws.com.cn/cloudformation-examples-cn-north-1',
+            'Examples': 'https://s3.cn-north-1.amazonaws.com.cn/cloudformation-examples-cn-north-1',
         },
     }
 
@@ -96,42 +96,42 @@ class Region2ELBAccountIdMapping:
     resource: Mapping
     map_data = {
         'us-east-1': {
-            LakeFormationConfiguration.ACCOUNT_ID: '127311923021',
+            'AccountId': '127311923021',
         },
         'us-west-1': {
-            LakeFormationConfiguration.ACCOUNT_ID: '027434742980',
+            'AccountId': '027434742980',
         },
         'us-west-2': {
-            LakeFormationConfiguration.ACCOUNT_ID: '797873946194',
+            'AccountId': '797873946194',
         },
         'eu-west-1': {
-            LakeFormationConfiguration.ACCOUNT_ID: '156460612806',
+            'AccountId': '156460612806',
         },
         'ap-northeast-1': {
-            LakeFormationConfiguration.ACCOUNT_ID: '582318560864',
+            'AccountId': '582318560864',
         },
         'ap-northeast-2': {
-            LakeFormationConfiguration.ACCOUNT_ID: '600734575887',
+            'AccountId': '600734575887',
         },
         'ap-southeast-1': {
-            LakeFormationConfiguration.ACCOUNT_ID: '114774131450',
+            'AccountId': '114774131450',
         },
         'ap-southeast-2': {
-            LakeFormationConfiguration.ACCOUNT_ID: '783225319266',
+            'AccountId': '783225319266',
         },
         'ap-south-1': {
-            LakeFormationConfiguration.ACCOUNT_ID: '718504428378',
+            'AccountId': '718504428378',
         },
         'us-east-2': {
-            LakeFormationConfiguration.ACCOUNT_ID: '033677994240',
+            'AccountId': '033677994240',
         },
         'sa-east-1': {
-            LakeFormationConfiguration.ACCOUNT_ID: '507241528517',
+            'AccountId': '507241528517',
         },
         'cn-north-1': {
-            LakeFormationConfiguration.ACCOUNT_ID: '638102146993',
+            'AccountId': '638102146993',
         },
         'eu-central-1': {
-            LakeFormationConfiguration.ACCOUNT_ID: '054676820928',
+            'AccountId': '054676820928',
         },
     }

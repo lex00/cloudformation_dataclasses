@@ -28,5 +28,5 @@ class BastionSG:
     resource: SecurityGroup
     group_description = 'Inbound Bastion Traffic'
     security_group_ingress = [BastionSGIngress]
-    vpc_id: Ref[VPC] = ref()
+    vpc_id = ref(VPC)
     tags = [BastionSGAssociationParameter]

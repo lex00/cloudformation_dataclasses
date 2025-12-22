@@ -12,9 +12,9 @@ class AuroraCluster:
     resource: DBCluster
     database_name = 'dms_sample'
     backup_retention_period = 7
-    db_subnet_group_name: Ref[AuroraDBSubnetGroup] = ref()
+    db_subnet_group_name = ref(AuroraDBSubnetGroup)
     engine = 'aurora-postgresql'
     snapshot_identifier = ref(SnapshotIdentifier)
-    vpc_security_group_ids = [ref("AuroraSecurityGroup")]
+    vpc_security_group_ids = [ref(AuroraSecurityGroup)]
     storage_encrypted = True
     deletion_policy = 'Retain'

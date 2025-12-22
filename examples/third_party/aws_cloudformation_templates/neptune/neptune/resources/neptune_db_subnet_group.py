@@ -12,11 +12,7 @@ class NeptuneDBSubnetGroup:
     resource: DBSubnetGroup
     db_subnet_group_description = Sub('CloudFormation managed Neptune DB Subnet Group - ${Env}-${AppName}-subnet-group')
     db_subnet_group_name = ref(NeptuneDBSubnetGroupName)
-    subnet_ids = [ImportValue({
-    'Fn::Sub': '${VPCStack}-PrivateSubnet1',
-}), ImportValue({
-    'Fn::Sub': '${VPCStack}-PrivateSubnet2',
-})]
+    subnet_ids = [ImportValue(Sub('${VPCStack}-PrivateSubnet1')), ImportValue(Sub('${VPCStack}-PrivateSubnet2'))]
     tags = [{
         'Key': 'Name',
         'Value': Sub('${Env}-${AppName}-subnet-group'),

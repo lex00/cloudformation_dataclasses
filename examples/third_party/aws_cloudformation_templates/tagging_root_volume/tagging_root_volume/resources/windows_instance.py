@@ -37,7 +37,7 @@ class WindowsInstance:
     subnet_id = ref(SubnetId)
     instance_type = ref(InstanceType)
     availability_zone = ref(InstanceAZ)
-    iam_instance_profile: Ref[InstanceProfile] = ref()
+    iam_instance_profile = ref(InstanceProfile)
     key_name = ref(KeyName)
     user_data = Base64("""<powershell>
   $AWS_AVAIL_ZONE=(curl http://169.254.169.254/latest/meta-data/placement/availability-zone).Content

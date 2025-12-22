@@ -8,7 +8,7 @@ class DBCredentialSecretNameArnOutput:
     """Name of the secret containing the database credential"""
 
     resource: Output
-    value = ref("DBCredential")
+    value = ref(DBCredential)
     description = 'Name of the secret containing the database credential'
 
 
@@ -28,9 +28,9 @@ class JDBCConnectionStringOutput:
     resource: Output
     value = Join('', [
     'jdbc:mysql://',
-    get_att("MainDB", "Endpoint.Address"),
+    get_att(MainDB, "Endpoint.Address"),
     ':',
-    get_att("MainDB", "Endpoint.Port"),
+    get_att(MainDB, "Endpoint.Port"),
     '/',
     ref(DBName),
 ])
@@ -44,9 +44,9 @@ class ReplicaJDBCConnectionStringOutput:
     resource: Output
     value = Join('', [
     'jdbc:mysql://',
-    get_att("ReplicaDB", "Endpoint.Address"),
+    get_att(ReplicaDB, "Endpoint.Address"),
     ':',
-    get_att("ReplicaDB", "Endpoint.Port"),
+    get_att(ReplicaDB, "Endpoint.Port"),
     '/',
     ref(DBName),
 ])

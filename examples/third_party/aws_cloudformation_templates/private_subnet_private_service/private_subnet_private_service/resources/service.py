@@ -16,36 +16,21 @@ class ServiceDeploymentConfiguration:
 class ServiceNetworkConfiguration:
     resource: NetworkConfiguration
     # Unknown CF key: AwsvpcConfiguration = {
-        AwsVpcConfiguration.SECURITY_GROUPS: [ImportValue({
-    'Fn::Join': [
-        ':',
-        [
-            ref(StackName),
-            'FargateContainerSecurityGroup',
-        ],
-    ],
-})],
-        AwsVpcConfiguration.SUBNETS: [
-            ImportValue({
-    'Fn::Join': [
-        ':',
-        [
-            ref(StackName),
-            'PrivateSubnetOne',
-        ],
-    ],
-}),
-            ImportValue({
-    'Fn::Join': [
-        ':',
-        [
-            ref(StackName),
-            'PrivateSubnetTwo',
-        ],
-    ],
-}),
-        ],
-    }
+    #         AwsVpcConfiguration.security_groups: [ImportValue(Join(':', [
+    #     ref(StackName),
+    #     'FargateContainerSecurityGroup',
+    # ]))],
+    #         AwsVpcConfiguration.subnets: [
+    #             ImportValue(Join(':', [
+    #     ref(StackName),
+    #     'PrivateSubnetOne',
+    # ])),
+    #             ImportValue(Join(':', [
+    #     ref(StackName),
+    #     'PrivateSubnetTwo',
+    # ])),
+    #         ],
+    #     }
 
 
 @cloudformation_dataclass
@@ -53,7 +38,7 @@ class ServiceLoadBalancer:
     resource: LoadBalancer
     container_name = ref(ServiceName)
     container_port = ref(ContainerPort)
-    target_group_arn: Ref[TargetGroup] = ref()
+    target_group_arn = ref(TargetGroup)
 
 
 @cloudformation_dataclass
@@ -62,19 +47,14 @@ class Service:
 
     resource: ecs.Service
     service_name = ref(ServiceName)
-    cluster = ImportValue({
-    'Fn::Join': [
-        ':',
-        [
-            ref(StackName),
-            'ClusterName',
-        ],
-    ],
-})
+    cluster = ImportValue(Join(':', [
+    ref(StackName),
+    'ClusterName',
+]))
     launch_type = 'FARGATE'
     deployment_configuration = ServiceDeploymentConfiguration
     desired_count = ref(DesiredCount)
     network_configuration = ServiceNetworkConfiguration
-    task_definition: Ref[TaskDefinition] = ref()
+    task_definition = ref(TaskDefinition)
     load_balancers = [ServiceLoadBalancer]
     depends_on = ["LoadBalancerRule"]

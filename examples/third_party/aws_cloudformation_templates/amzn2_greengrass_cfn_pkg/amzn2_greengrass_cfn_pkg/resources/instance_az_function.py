@@ -75,6 +75,6 @@ class InstanceAZFunction:
     code = InstanceAZFunctionCode
     description = 'Queries account and region for supported AZ'
     handler = 'index.handler'
-    role: GetAtt[LambdaExecutionRole] = get_att("Arn")
+    role = get_att(LambdaExecutionRole, "Arn")
     runtime = 'python3.12'
     timeout = 60

@@ -13,6 +13,6 @@ class LoadBalancerEgress:
     description = 'Load balancer to target'
     destination_security_group_id = ref(DestinationSecurityGroupId)
     from_port = 80
-    group_id: GetAtt[LoadBalancerSecurityGroup] = get_att("GroupId")
+    group_id = get_att(LoadBalancerSecurityGroup, "GroupId")
     ip_protocol = 'tcp'
     to_port = 80

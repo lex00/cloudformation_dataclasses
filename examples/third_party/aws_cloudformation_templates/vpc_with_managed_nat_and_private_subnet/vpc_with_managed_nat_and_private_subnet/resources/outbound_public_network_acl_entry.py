@@ -17,7 +17,7 @@ class OutboundPublicNetworkAclEntry:
     """AWS::EC2::NetworkAclEntry resource."""
 
     resource: NetworkAclEntry
-    network_acl_id: Ref[PublicNetworkAcl] = ref()
+    network_acl_id = ref(PublicNetworkAcl)
     rule_number = '100'
     protocol = '-1'
     rule_action = 'allow'

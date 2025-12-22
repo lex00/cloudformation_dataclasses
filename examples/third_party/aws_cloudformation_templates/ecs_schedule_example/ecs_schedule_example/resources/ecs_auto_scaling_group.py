@@ -11,7 +11,7 @@ class ECSAutoScalingGroup:
 
     resource: AutoScalingGroup
     vpc_zone_identifier = ref(SubnetId)
-    launch_configuration_name: Ref[ContainerInstances] = ref()
+    launch_configuration_name = ref(ContainerInstances)
     min_size = '1'
     max_size = ref(MaxSize)
     desired_capacity = ref(DesiredCapacity)

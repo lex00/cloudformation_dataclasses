@@ -19,7 +19,7 @@ class JwtResourceOptions:
 
     resource: Method
     http_method = 'OPTIONS'
-    resource_id: Ref[JwtResourceResource] = ref()
-    rest_api_id: Ref[RestApi] = ref()
+    resource_id = ref(JwtResourceResource)
+    rest_api_id = ref(RestApi)
     authorization_type = 'NONE'
     integration = JwtResourceOptionsIntegration

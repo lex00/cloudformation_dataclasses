@@ -12,4 +12,4 @@ class JwtResourceResource:
     resource: Resource
     parent_id = Sub('${RestApi.RootResourceId}')
     path_part = 'jwt'
-    rest_api_id: Ref[RestApi] = ref()
+    rest_api_id = ref(RestApi)

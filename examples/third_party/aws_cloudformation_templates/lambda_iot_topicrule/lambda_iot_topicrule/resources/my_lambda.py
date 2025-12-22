@@ -21,4 +21,4 @@ class MyLambda:
     handler = 'index.handler'
     code = MyLambdaCode
     function_name = Sub('${AWS::StackName}')
-    role: GetAtt[MyLambdaRole] = get_att("Arn")
+    role = get_att(MyLambdaRole, "Arn")

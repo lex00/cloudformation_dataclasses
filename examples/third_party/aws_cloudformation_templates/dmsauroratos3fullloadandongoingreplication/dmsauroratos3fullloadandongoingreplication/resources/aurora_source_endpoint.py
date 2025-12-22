@@ -14,6 +14,6 @@ class AuroraSourceEndpoint:
     engine_name = 'AURORA'
     password = '{{resolve:secretsmanager:aurora-source-enpoint-password:SecretString:password}}'
     port = 3306
-    server_name: GetAtt[AuroraCluster] = get_att("Endpoint.Address")
+    server_name = get_att(AuroraCluster, "Endpoint.Address")
     username = 'admin'
     depends_on = ["DMSReplicationInstance", "AuroraCluster", "AuroraDB"]

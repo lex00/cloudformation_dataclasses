@@ -46,7 +46,7 @@ class MyLambdaRolePolicies0PolicyDocument:
 @cloudformation_dataclass
 class MyLambdaRolePolicy:
     resource: Policy
-    policy_name: Ref[MyLambda] = ref()
+    policy_name = ref(MyLambda)
     policy_document = MyLambdaRolePolicies0PolicyDocument
 
 

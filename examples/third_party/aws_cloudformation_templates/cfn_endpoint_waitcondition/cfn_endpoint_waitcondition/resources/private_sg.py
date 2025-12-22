@@ -11,7 +11,7 @@ class PrivateSGIngress:
     ip_protocol = 'tcp'
     from_port = 22
     to_port = 22
-    source_security_group_id: Ref[BastionSG] = ref()
+    source_security_group_id = ref(BastionSG)
 
 
 @cloudformation_dataclass
@@ -28,5 +28,5 @@ class PrivateSG:
     resource: SecurityGroup
     group_description = 'Traffic from Bastion'
     security_group_ingress = [PrivateSGIngress]
-    vpc_id: Ref[VPC] = ref()
+    vpc_id = ref(VPC)
     tags = [PrivateSGAssociationParameter]

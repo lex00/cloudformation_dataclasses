@@ -18,4 +18,4 @@ class ConfigRecorder:
     resource: ConfigurationRecorder
     name = 'default'
     recording_group = ConfigRecorderRecordingGroup
-    role_arn: GetAtt[ConfigRole] = get_att("Arn")
+    role_arn = get_att(ConfigRole, "Arn")

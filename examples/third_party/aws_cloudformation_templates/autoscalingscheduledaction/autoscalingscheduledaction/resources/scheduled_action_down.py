@@ -10,7 +10,7 @@ class ScheduledActionDown:
     """AWS::AutoScaling::ScheduledAction resource."""
 
     resource: ScheduledAction
-    auto_scaling_group_name: Ref[WebServerGroup] = ref()
+    auto_scaling_group_name = ref(WebServerGroup)
     max_size = '1'
     min_size = '1'
     recurrence = '0 19 * * *'

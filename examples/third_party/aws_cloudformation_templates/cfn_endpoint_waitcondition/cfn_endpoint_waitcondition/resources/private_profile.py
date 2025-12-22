@@ -11,4 +11,4 @@ class PrivateProfile:
 
     resource: InstanceProfile
     path = '/'
-    roles = [ref("RootRole")]
+    roles = [ref(RootRole)]

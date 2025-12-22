@@ -40,5 +40,5 @@ class LambdaFunction:
     handler = Sub('${LambdaHandlerPath}')
     memory_size = 128
     timeout = 10
-    role: GetAtt[LambdaRole] = get_att("Arn")
+    role = get_att(LambdaRole, "Arn")
     environment = LambdaFunctionEnvironment

@@ -6,7 +6,6 @@ from cloudformation_dataclasses.core import (
     Output,
     Parameter,
     ParameterType,
-    Ref,
     STRING,
     Template,
     cloudformation_dataclass,
@@ -32,18 +31,24 @@ from .config import (
     Subnet3,
 )
 
+from .resources import *  # noqa: F403, F401
+
 __all__ = [
     "AccessPoint",
     "AccessPointName",
     "AccessPointTag",
+    "EFSAccessPoint",
+    "EFSFileSystem",
     "EFSFileSystemName",
+    "EFSMountTarget1",
+    "EFSMountTarget2",
+    "EFSMountTarget3",
     "ElasticFileSystemTag",
     "FileSystem",
     "MountTarget",
     "Output",
     "Parameter",
     "ParameterType",
-    "Ref",
     "STRING",
     "SecurityGroup1",
     "SecurityGroup2",

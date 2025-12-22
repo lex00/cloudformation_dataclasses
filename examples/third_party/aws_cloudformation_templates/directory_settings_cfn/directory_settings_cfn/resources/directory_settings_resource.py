@@ -11,9 +11,9 @@ class DirectorySettingsResource:
 
     # Unknown resource type: Custom::DirectorySettingsResource
     resource: CloudFormationResource
-    service_token: GetAtt[DirectorySettingsLambdaFunction] = get_att("Arn")
+    service_token = get_att(DirectorySettingsLambdaFunction, "Arn")
     directory_id = ref(DirectoryID)
     create_directory_alias = ref(CreateDirectoryAlias)
     enable_directory_sso = ref(EnableDirectorySSO)
     directory_alias = ref(DirectoryAlias)
-    directory_monitoring_topic_name: GetAtt[DirectoryMonitoringTopic] = get_att("TopicName")
+    directory_monitoring_topic_name = get_att(DirectoryMonitoringTopic, "TopicName")

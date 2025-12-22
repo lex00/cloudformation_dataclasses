@@ -8,5 +8,5 @@ class EC2IPAddressOutput:
     """EC2 Instance Public IP Address"""
 
     resource: Output
-    value = get_att("GreengrassInstance", "PublicIp")
+    value = get_att(GreengrassInstance, "PublicIp")
     description = 'EC2 Instance Public IP Address'

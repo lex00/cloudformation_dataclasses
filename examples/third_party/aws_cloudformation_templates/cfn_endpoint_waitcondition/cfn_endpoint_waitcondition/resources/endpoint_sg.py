@@ -28,5 +28,5 @@ class EndpointSG:
     resource: SecurityGroup
     group_description = 'Traffic into CloudFormation Endpoint'
     security_group_ingress = [EndpointSGIngress]
-    vpc_id: Ref[VPC] = ref()
+    vpc_id = ref(VPC)
     tags = [EndpointSGAssociationParameter]

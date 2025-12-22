@@ -131,7 +131,7 @@ class Port:
 
 @cloudformation_dataclass
 class NeptuneQueryTimeout:
-    """Neptune DB parameters. Allowed values "10-2147483647""""
+    """Neptune DB parameters. Allowed values \"10-2147483647\""""
 
     resource: Parameter
     type = STRING

@@ -8,7 +8,7 @@ class BucketOutput:
     """S3 Bucket Name"""
 
     resource: Output
-    value = ref("Bucket")
+    value = ref(Bucket)
     description = 'S3 Bucket Name'
 
 
@@ -17,5 +17,5 @@ class BucketPolicyOutput:
     """S3 Bucket Policy Name"""
 
     resource: Output
-    value = ref("BucketPolicy")
+    value = ref(BucketPolicy)
     description = 'S3 Bucket Policy Name'

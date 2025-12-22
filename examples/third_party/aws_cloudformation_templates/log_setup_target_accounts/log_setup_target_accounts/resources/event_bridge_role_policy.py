@@ -25,4 +25,4 @@ class EventBridgeRolePolicy:
     resource: RolePolicy
     policy_name = 'EventBridgeRolePolicy'
     policy_document = EventBridgeRolePolicyPolicyDocument
-    role_name: Ref[EventBridgeRole] = ref()
+    role_name = ref(EventBridgeRole)

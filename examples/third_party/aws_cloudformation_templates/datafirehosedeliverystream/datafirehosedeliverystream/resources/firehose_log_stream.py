@@ -10,5 +10,5 @@ class FirehoseLogStream:
     """AWS::Logs::LogStream resource."""
 
     resource: LogStream
-    log_group_name: Ref[FirehoseLogGroup] = ref()
+    log_group_name = ref(FirehoseLogGroup)
     log_stream_name = ref(LogStreamName)

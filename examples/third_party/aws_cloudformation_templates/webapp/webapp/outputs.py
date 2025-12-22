@@ -30,7 +30,7 @@ class RestApiInvokeURLOutput:
 @cloudformation_dataclass
 class AppClientIdOutput:
     resource: Output
-    value = ref("CognitoClient")
+    value = ref(CognitoClient)
 
 
 @cloudformation_dataclass

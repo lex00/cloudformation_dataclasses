@@ -52,4 +52,4 @@ class VolumeAutoEnableIOComplianceCheck:
     handler = 'index.handler'
     runtime = 'nodejs20.x'
     timeout = '30'
-    role: GetAtt[LambdaExecutionRole] = get_att("Arn")
+    role = get_att(LambdaExecutionRole, "Arn")

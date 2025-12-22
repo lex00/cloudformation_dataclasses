@@ -13,7 +13,7 @@ class DeadLetterQueuePolicyAllowStatement0:
         'Service': 'events.amazonaws.com',
     }
     action = 'sqs:SendMessage'
-    resource_arn = get_att("DeadLetterQueue", "Arn")
+    resource_arn = get_att(DeadLetterQueue, "Arn")
     condition = {
         ARN_LIKE: {
             'aws:SourceArn': Sub('arn:aws:events:${AWS::Region}:${AWS::AccountId}:rule/CloudFormationEventRule'),
@@ -33,4 +33,4 @@ class DeadLetterQueuePolicy:
 
     resource: QueuePolicy
     policy_document = DeadLetterQueuePolicyPolicyDocument
-    queues = [ref("DeadLetterQueue")]
+    queues = [ref(DeadLetterQueue)]

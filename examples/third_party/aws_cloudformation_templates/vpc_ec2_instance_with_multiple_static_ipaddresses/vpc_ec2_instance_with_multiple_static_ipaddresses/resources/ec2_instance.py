@@ -8,7 +8,7 @@ from .. import *  # noqa: F403
 @cloudformation_dataclass
 class EC2InstanceNetworkInterface:
     resource: NetworkInterface
-    network_interface_id: Ref[Eth0] = ref()
+    network_interface_id = ref(Eth0)
     device_index = '0'
 
 

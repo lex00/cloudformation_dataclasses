@@ -9,7 +9,7 @@ from .. import *  # noqa: F403
 class CPUAlarmHighDimension:
     resource: Dimension
     name = 'AutoScalingGroupName'
-    value: Ref[WebServerGroup] = ref()
+    value = ref(WebServerGroup)
 
 
 @cloudformation_dataclass
@@ -24,6 +24,6 @@ class CPUAlarmHigh:
     period = 300
     evaluation_periods = 2
     threshold = 90
-    alarm_actions = [ref("WebServerScaleUpPolicy")]
+    alarm_actions = [ref(WebServerScaleUpPolicy)]
     dimensions = [CPUAlarmHighDimension]
     comparison_operator = 'GreaterThanThreshold'

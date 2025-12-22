@@ -8,7 +8,7 @@ from .. import *  # noqa: F403
 @cloudformation_dataclass
 class IoTTopicRuleLambdaAction:
     resource: LambdaAction
-    function_arn: GetAtt[MyLambda] = get_att("Arn")
+    function_arn = get_att(MyLambda, "Arn")
 
 
 @cloudformation_dataclass
@@ -31,5 +31,5 @@ class IoTTopicRule:
     """AWS::IoT::TopicRule resource."""
 
     resource: TopicRule
-    rule_name: Ref[MyLambda] = ref()
+    rule_name = ref(MyLambda)
     topic_rule_payload = IoTTopicRuleTopicRulePayload

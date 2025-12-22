@@ -15,4 +15,4 @@ class InstanceProfile:
     'InstanceProfile',
 ])
     path = '/'
-    roles = [ref("IAMAssumeInstanceRole")]
+    roles = [ref(IAMAssumeInstanceRole)]

@@ -22,6 +22,6 @@ class S3TriggerLambdaFunction:
     resource: Function
     code = S3TriggerLambdaFunctionCode
     handler = 'index.lambda_handler'
-    role: GetAtt[LambdaIAMRole] = get_att("Arn")
+    role = get_att(LambdaIAMRole, "Arn")
     runtime = 'python3.9'
     timeout = 30

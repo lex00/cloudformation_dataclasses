@@ -8,7 +8,7 @@ class ADConnectorDirectoryIdOutput:
     """AD Connector Directory ID"""
 
     resource: Output
-    value = ref("ADConnectorResource")
+    value = ref(ADConnectorResource)
     description = 'AD Connector Directory ID'
     export_name = Sub('${AWS::StackName}-ADConnectorDirectoryId')
 
@@ -28,7 +28,7 @@ class ADConnectorADConnectorDomainMembersSGOutput:
     """ADConnector Domain Members Security Group"""
 
     resource: Output
-    value = ref("ADConnectorDomainMembersSG")
+    value = ref(ADConnectorDomainMembersSG)
     description = 'ADConnector Domain Members Security Group'
     export_name = Sub('${AWS::StackName}-${DomainNetBiosName}-ADConnectorDomainMembersSG')
     condition = 'DomainMembersSGCondition'
@@ -39,7 +39,7 @@ class ADConnectorWindowsEC2SeamlessDomainJoinInstanceProfileOutput:
     """IAM Instance Profile with SSM Document Rights to Join Windows Computers via AD Connector"""
 
     resource: Output
-    value = ref("ADConnectorWindowsEC2DomainJoinInstanceProfile")
+    value = ref(ADConnectorWindowsEC2DomainJoinInstanceProfile)
     description = 'IAM Instance Profile with SSM Document Rights to Join Windows Computers via AD Connector'
     export_name = Sub('${AWS::StackName}-${DomainNetBiosName}-ADConnectorWindowsEC2DomainJoinProfile')
     condition = 'WindowsEC2DomainJoinResourcesCondition'
@@ -50,7 +50,7 @@ class ADConnectorWindowsEC2SeamlessDomainJoinRoleOutput:
     """IAM Instance Profile with SSM Document Rights to Join Windows Computers via AD Connector"""
 
     resource: Output
-    value = ref("ADConnectorWindowsEC2DomainJoinRole")
+    value = ref(ADConnectorWindowsEC2DomainJoinRole)
     description = 'IAM Instance Profile with SSM Document Rights to Join Windows Computers via AD Connector'
     export_name = Sub('${AWS::StackName}-${DomainNetBiosName}-ADConnectorWindowsEC2DomainJoinRole')
     condition = 'WindowsEC2DomainJoinResourcesCondition'
@@ -61,7 +61,7 @@ class ADConnectorLinuxEC2SeamlessDomainJoinInstanceProfileOutput:
     """IAM Instance Profile with SSM Document Rights to Join Linux Computers via AD Connector"""
 
     resource: Output
-    value = ref("ADConnectorLinuxEC2DomainJoinInstanceProfile")
+    value = ref(ADConnectorLinuxEC2DomainJoinInstanceProfile)
     description = 'IAM Instance Profile with SSM Document Rights to Join Linux Computers via AD Connector'
     export_name = Sub('${AWS::StackName}-${DomainNetBiosName}-ADConnectorLinuxEC2DomainJoinProfile')
     condition = 'LinuxEC2DomainJoinResourcesCondition'
@@ -72,7 +72,7 @@ class ADConnectorLinuxEC2SeamlessDomainJoinRoleOutput:
     """IAM Instance Profile with SSM Document Rights to Join Linux Computers via AD Connector"""
 
     resource: Output
-    value = ref("ADConnectorLinuxEC2DomainJoinRole")
+    value = ref(ADConnectorLinuxEC2DomainJoinRole)
     description = 'IAM Instance Profile with SSM Document Rights to Join Linux Computers via AD Connector'
     export_name = Sub('${AWS::StackName}-${DomainNetBiosName}-ADConnectorLinuxEC2DomainJoinRole')
     condition = 'LinuxEC2DomainJoinResourcesCondition'

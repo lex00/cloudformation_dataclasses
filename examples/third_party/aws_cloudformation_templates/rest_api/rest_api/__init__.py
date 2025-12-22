@@ -2,7 +2,6 @@
 
 from cloudformation_dataclasses.core import (
     Parameter,
-    Ref,
     STRING,
     Template,
     cloudformation_dataclass,
@@ -13,12 +12,17 @@ from cloudformation_dataclasses.aws.apigateway import Authorizer, Deployment, Re
 
 from .config import AppName, UserPoolArn
 
+from .resources import *  # noqa: F403, F401
+
 __all__ = [
+    "Api",
+    "ApiAuthorizer",
+    "ApiDeployment",
+    "ApiStage",
     "AppName",
     "Authorizer",
     "Deployment",
     "Parameter",
-    "Ref",
     "RestApi",
     "STRING",
     "Stage",

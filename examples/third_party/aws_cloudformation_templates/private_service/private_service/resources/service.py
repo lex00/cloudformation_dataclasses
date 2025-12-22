@@ -17,7 +17,7 @@ class ServiceLoadBalancer:
     resource: LoadBalancer
     container_name = ref(ServiceName)
     container_port = ref(ContainerPort)
-    target_group_arn: Ref[TargetGroup] = ref()
+    target_group_arn = ref(TargetGroup)
 
 
 @cloudformation_dataclass
@@ -26,17 +26,12 @@ class Service:
 
     resource: ecs.Service
     service_name = ref(ServiceName)
-    cluster = ImportValue({
-    'Fn::Join': [
-        ':',
-        [
-            ref(StackName),
-            'ClusterName',
-        ],
-    ],
-})
+    cluster = ImportValue(Join(':', [
+    ref(StackName),
+    'ClusterName',
+]))
     deployment_configuration = ServiceDeploymentConfiguration
     desired_count = ref(DesiredCount)
-    task_definition: Ref[TaskDefinition] = ref()
+    task_definition = ref(TaskDefinition)
     load_balancers = [ServiceLoadBalancer]
     depends_on = ["LoadBalancerRule"]

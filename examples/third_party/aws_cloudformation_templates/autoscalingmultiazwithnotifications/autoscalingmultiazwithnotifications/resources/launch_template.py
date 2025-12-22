@@ -40,12 +40,10 @@ class LaunchTemplateLaunchTemplateData:
     security_group_ids = ref(SecurityGroups)
     key_name = ref(KeyName)
     block_device_mappings = [LaunchTemplateBlockDeviceMapping]
-    user_data = Base64({
-    'Fn::Sub': """#!/bin/bash
+    user_data = Base64(Sub("""#!/bin/bash
 /opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --resource LaunchTemplate --region ${AWS::Region}
 /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --resource WebServerGroup --region ${AWS::Region}
-""",
-})
+"""))
     tag_specifications = [LaunchTemplateTagSpecification]
 
 

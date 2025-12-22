@@ -10,7 +10,7 @@ class ADConnectorWindowsEC2DomainJoinInstanceProfile:
     """AWS::IAM::InstanceProfile resource."""
 
     resource: InstanceProfile
-    instance_profile_name: Ref[ADConnectorWindowsEC2DomainJoinRole] = ref()
+    instance_profile_name = ref(ADConnectorWindowsEC2DomainJoinRole)
     path = '/'
-    roles = [ref("ADConnectorWindowsEC2DomainJoinRole")]
+    roles = [ref(ADConnectorWindowsEC2DomainJoinRole)]
     condition = 'WindowsEC2DomainJoinResourcesCondition'

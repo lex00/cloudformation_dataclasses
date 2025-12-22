@@ -6,7 +6,6 @@ from cloudformation_dataclasses.core import (
     NUMBER,
     Output,
     Parameter,
-    Ref,
     Template,
     cloudformation_dataclass,
     get_att,
@@ -28,6 +27,8 @@ from cloudformation_dataclasses.aws.dynamodb import (
 
 from .config import ReadCapacityUnits, WriteCapacityUnits
 
+from .resources import *  # noqa: F403, F401
+
 __all__ = [
     "AttributeDefinition",
     "AttributeType",
@@ -43,8 +44,8 @@ __all__ = [
     "ProjectionType",
     "ProvisionedThroughput",
     "ReadCapacityUnits",
-    "Ref",
     "Table",
+    "TableOfBooks",
     "Template",
     "WriteCapacityUnits",
     "cloudformation_dataclass",

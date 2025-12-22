@@ -8,7 +8,7 @@ from .. import *  # noqa: F403
 @cloudformation_dataclass
 class OriginALBHttpsListenerAction:
     resource: Action
-    target_group_arn: Ref[OriginALBTG] = ref()
+    target_group_arn = ref(OriginALBTG)
     type_ = 'forward'
 
 
@@ -24,7 +24,7 @@ class OriginALBHttpsListener:
 
     resource: Listener
     default_actions = [OriginALBHttpsListenerAction]
-    load_balancer_arn: Ref[OriginALB] = ref()
+    load_balancer_arn = ref(OriginALB)
     port = 443
     protocol = 'HTTPS'
     certificates = [OriginALBHttpsListenerCertificate]

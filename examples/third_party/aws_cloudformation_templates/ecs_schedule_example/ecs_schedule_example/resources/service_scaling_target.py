@@ -14,11 +14,11 @@ class ServiceScalingTarget:
     min_capacity = 1
     resource_id = Join('', [
     'service/',
-    ref("ECSCluster"),
+    ref(ECSCluster),
     '/',
-    get_att("Service", "Name"),
+    get_att(Service, "Name"),
 ])
-    role_arn: GetAtt[AutoscalingRole] = get_att("Arn")
+    role_arn = get_att(AutoscalingRole, "Arn")
     scalable_dimension = 'ecs:service:DesiredCount'
     service_namespace = 'ecs'
     depends_on = ["Service"]

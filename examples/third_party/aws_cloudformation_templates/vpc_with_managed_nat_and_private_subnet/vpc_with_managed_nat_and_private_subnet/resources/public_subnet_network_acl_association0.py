@@ -10,5 +10,5 @@ class PublicSubnetNetworkAclAssociation0:
     """AWS::EC2::SubnetNetworkAclAssociation resource."""
 
     resource: SubnetNetworkAclAssociation
-    subnet_id: Ref[PublicSubnet0] = ref()
-    network_acl_id: Ref[PublicNetworkAcl] = ref()
+    subnet_id = ref(PublicSubnet0)
+    network_acl_id = ref(PublicNetworkAcl)

@@ -10,6 +10,6 @@ class RestApiStage:
     """AWS::ApiGateway::Stage resource."""
 
     resource: Stage
-    rest_api_id: Ref[RestApi] = ref()
-    deployment_id: Ref[RestApiDeployment] = ref()
+    rest_api_id = ref(RestApi)
+    deployment_id = ref(RestApiDeployment)
     stage_name = 'prod'

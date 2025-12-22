@@ -19,8 +19,8 @@ class BastionInstance:
     resource: Instance
     key_name = ref(KeyName)
     instance_type = 't2.micro'
-    security_group_ids = [ref("BastionSG")]
-    subnet_id: Ref[PublicSubnet1] = ref()
+    security_group_ids = [ref(BastionSG)]
+    subnet_id = ref(PublicSubnet1)
     image_id = ref(LinuxAMI)
-    iam_instance_profile: Ref[BastionProfile] = ref()
+    iam_instance_profile = ref(BastionProfile)
     tags = [BastionInstanceAssociationParameter]

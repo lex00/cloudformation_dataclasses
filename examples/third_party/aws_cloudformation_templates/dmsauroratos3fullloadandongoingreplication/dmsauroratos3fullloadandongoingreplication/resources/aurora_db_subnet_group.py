@@ -11,4 +11,4 @@ class AuroraDBSubnetGroup:
 
     resource: DBSubnetGroup
     db_subnet_group_description = 'Subnets available for the Aurora SampleDB DB Instance'
-    subnet_ids = [ref("DBSubnet1"), ref("DBSubnet2")]
+    subnet_ids = [ref(DBSubnet1), ref(DBSubnet2)]

@@ -10,13 +10,15 @@
 # 2. Run batch import via cfn-dataclasses-import
 # 3. Parse import.log for failures
 # 4. Remove directories for failed imports
-# 5. Report final statistics
+# 5. Validate each package by running it
+# 6. Report final statistics
 #
 # Usage:
-#   ./scripts/import_third_party.sh                        # Full import
+#   ./scripts/import_third_party.sh                        # Full import with validation
 #   ./scripts/import_third_party.sh --source /path         # Custom source
 #   ./scripts/import_third_party.sh --clean-only           # Just clean output
 #   ./scripts/import_third_party.sh --skip-cleanup         # Keep failed imports
+#   ./scripts/import_third_party.sh --skip-validation      # Skip package validation
 #
 
 set -e  # Exit on error
@@ -69,6 +71,7 @@ header() {
 SOURCE_DIR="$DEFAULT_SOURCE"
 CLEAN_ONLY=false
 SKIP_CLEANUP=false
+SKIP_VALIDATION=false
 
 while [[ $# -gt 0 ]]; do
     case $1 in
@@ -84,6 +87,10 @@ while [[ $# -gt 0 ]]; do
             SKIP_CLEANUP=true
             shift
             ;;
+        --skip-validation)
+            SKIP_VALIDATION=true
+            shift
+            ;;
         --help|-h)
             echo "Usage: $0 [OPTIONS]"
             echo ""
@@ -95,6 +102,7 @@ while [[ $# -gt 0 ]]; do
             echo "                     (default: ../aws-cloudformation-templates)"
             echo "  --clean-only       Only clean the output directory, don't import"
             echo "  --skip-cleanup     Don't remove failed imports after completion"
+            echo "  --skip-validation  Skip running each package to validate it works"
             echo "  --help, -h         Show this help message"
             echo ""
             echo "Examples:"
@@ -219,7 +227,100 @@ else
     fi
 fi
 
-# Step 5: Report
+# Step 5: Validate each package by running it
+VALIDATION_FAILED=()
+
+if [ "$SKIP_VALIDATION" = false ]; then
+    header "Validating Packages"
+
+    # Get list of package directories (excluding import.log)
+    PACKAGE_DIRS=()
+    for dir in "$OUTPUT_DIR"/*/; do
+        if [ -d "$dir" ]; then
+            PACKAGE_DIRS+=("$dir")
+        fi
+    done
+
+    TOTAL_PACKAGES=${#PACKAGE_DIRS[@]}
+    VALIDATED_COUNT=0
+
+    info "Validating $TOTAL_PACKAGES packages..."
+    echo ""
+
+    for pkg_dir in "${PACKAGE_DIRS[@]}"; do
+        pkg_name=$(basename "$pkg_dir")
+
+        # Run the package using uv run (each has its own pyproject.toml)
+        # Install local dev version of cloudformation_dataclasses for testing
+        set +e
+        cd "$pkg_dir"
+        rm -rf .venv 2>/dev/null
+        uv venv --quiet 2>/dev/null
+        uv pip install -e "$PROJECT_ROOT" --quiet 2>/dev/null
+        uv pip install -e . --quiet 2>/dev/null
+        OUTPUT=$(uv run "$pkg_name" 2>&1)
+        EXIT_CODE=$?
+        cd "$PROJECT_ROOT"
+        set -e
+
+        if [ $EXIT_CODE -eq 0 ]; then
+            success "$pkg_name"
+            VALIDATED_COUNT=$((VALIDATED_COUNT + 1))
+        else
+            error "$pkg_name"
+            VALIDATION_FAILED+=("$pkg_name")
+            # Show first line of error for debugging
+            FIRST_ERROR=$(echo "$OUTPUT" | grep -i "error\|exception\|traceback" | head -1)
+            if [ -n "$FIRST_ERROR" ]; then
+                echo "      $FIRST_ERROR"
+            fi
+        fi
+    done
+
+    echo ""
+    success "Validated: $VALIDATED_COUNT/$TOTAL_PACKAGES packages"
+
+    # Remove packages that failed validation
+    if [ ${#VALIDATION_FAILED[@]} -gt 0 ] && [ "$SKIP_CLEANUP" = false ]; then
+        echo ""
+        info "Removing ${#VALIDATION_FAILED[@]} packages that failed validation..."
+        for pkg in "${VALIDATION_FAILED[@]}"; do
+            PKG_DIR="$OUTPUT_DIR/$pkg"
+            if [ -d "$PKG_DIR" ]; then
+                rm -rf "$PKG_DIR"
+            fi
+        done
+        success "Removed failed packages"
+
+        # Re-import failed packages with --skip-checks so they can be inspected
+        echo ""
+        info "Re-importing ${#VALIDATION_FAILED[@]} failed packages with --skip-checks for inspection..."
+
+        for pkg in "${VALIDATION_FAILED[@]}"; do
+            # Find the original template file from import.log
+            ORIGINAL_TEMPLATE=$(grep -B 50 "Generated:.*/$pkg/" "$LOG_FILE" | grep "Importing " | tail -1 | sed 's/.*Importing //')
+
+            if [ -n "$ORIGINAL_TEMPLATE" ] && [ -f "$ORIGINAL_TEMPLATE" ]; then
+                # Create package subdirectory (CLI uses output dir name as package name)
+                PKG_OUTPUT="$OUTPUT_DIR/$pkg"
+                set +e
+                uv run cfn-dataclasses-import "$ORIGINAL_TEMPLATE" -o "$PKG_OUTPUT" --skip-checks 2>/dev/null
+                set -e
+                success "Re-imported for inspection: $pkg"
+            else
+                warn "Could not find original template for: $pkg"
+            fi
+        done
+
+        echo ""
+        warn "Failed packages have been re-imported without validation."
+        warn "Inspect them in: $OUTPUT_DIR/<package_name>/"
+    fi
+else
+    warn "Skipping validation (--skip-validation flag)"
+fi
+
+# Step 6: Report
 header "Import Summary"
 
 # Recount after cleanup
@@ -230,6 +331,12 @@ echo ""
 success "Successful packages: $FINAL_DIRS"
 if [ ${#FAILED_PACKAGES[@]} -gt 0 ]; then
     warn "Failed imports: ${#FAILED_PACKAGES[@]}"
+fi
+if [ ${#VALIDATION_FAILED[@]} -gt 0 ]; then
+    warn "Failed validation: ${#VALIDATION_FAILED[@]}"
+    if [ "$SKIP_CLEANUP" = false ]; then
+        info "Failed packages re-imported for inspection (without validation)"
+    fi
 fi
 echo ""
 

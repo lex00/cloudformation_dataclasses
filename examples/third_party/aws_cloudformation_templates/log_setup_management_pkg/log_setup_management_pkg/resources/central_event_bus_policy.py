@@ -10,7 +10,7 @@ class CentralEventBusPolicy:
     """AWS::Events::EventBusPolicy resource."""
 
     resource: EventBusPolicy
-    event_bus_name: Ref[CentralEventBus] = ref()
+    event_bus_name = ref(CentralEventBus)
     statement_id = 'CentralEventBusPolicyStatement'
     statement = {
         'Effect': 'Allow',

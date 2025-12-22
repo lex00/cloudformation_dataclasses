@@ -7,7 +7,6 @@ from cloudformation_dataclasses.core import (
     ParameterType,
     PolicyDocument,
     PolicyStatement,
-    Ref,
     STRING,
     Template,
     cloudformation_dataclass,
@@ -28,6 +27,8 @@ from .config import (
     WindowsAMIID,
 )
 
+from .resources import *  # noqa: F403, F401
+
 __all__ = [
     "AWS_STACK_NAME",
     "AssociationParameter",
@@ -36,20 +37,23 @@ __all__ = [
     "EbsBlockDevice",
     "Instance",
     "InstanceAZ",
+    "InstanceProfile",
+    "InstanceRole",
     "InstanceType",
     "KeyName",
     "LinuxAMIID",
+    "LinuxInstance",
     "Parameter",
     "ParameterType",
     "Policy",
     "PolicyDocument",
     "PolicyStatement",
-    "Ref",
     "Role",
     "STRING",
     "SubnetId",
     "Template",
     "WindowsAMIID",
+    "WindowsInstance",
     "cloudformation_dataclass",
     "get_att",
     "iam",

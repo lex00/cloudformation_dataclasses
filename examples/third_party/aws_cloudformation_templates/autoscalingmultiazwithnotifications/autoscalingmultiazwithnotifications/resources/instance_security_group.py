@@ -20,7 +20,7 @@ class InstanceSecurityGroupIngress1:
     ip_protocol = 'tcp'
     from_port = 80
     to_port = 80
-    source_security_group_id: Ref[LoadBalancerSecurityGroup] = ref()
+    source_security_group_id = ref(LoadBalancerSecurityGroup)
 
 
 @cloudformation_dataclass

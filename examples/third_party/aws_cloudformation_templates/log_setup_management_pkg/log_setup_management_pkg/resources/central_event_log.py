@@ -12,5 +12,5 @@ class CentralEventLog:
     resource: LogGroup
     log_group_class = 'STANDARD'
     log_group_name = ref(CentralEventLogName)
-    kms_key_id: GetAtt[CentralEventLogKey] = get_att("Arn")
+    kms_key_id = get_att(CentralEventLogKey, "Arn")
     depends_on = ["CentralEventBus"]

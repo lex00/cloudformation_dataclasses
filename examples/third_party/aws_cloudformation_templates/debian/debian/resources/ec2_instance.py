@@ -15,10 +15,8 @@ class EC2Instance:
     key_name = ref(KeyName)
     image_id = ref(InstanceAMI)
     subnet_id = ref(SubnetId)
-    security_group_ids = [get_att("InstanceSecurityGroup", "GroupId")]
-    user_data = Base64({
-    'Fn::Sub': [
-        """#!/bin/bash
+    security_group_ids = [get_att(InstanceSecurityGroup, "GroupId")]
+    user_data = Base64(Sub("""#!/bin/bash
 wget https://s3.amazonaws.com/amazoncloudwatch-agent/debian/amd64/latest/amazon-cloudwatch-agent.deb -O /tmp/amazon-cloudwatch-agent.deb
 sudo dpkg -i /tmp/amazon-cloudwatch-agent.deb
 /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c ssm:${ssmkey} -s
@@ -40,9 +38,6 @@ sudo ln -s /opt/aws/virtualenv/bin/cfn-* /opt/aws/bin/
 # Run cfn-init
 /opt/aws/bin/cfn-init -v --stack ${AWS::StackId} --resource EC2Instance --region ${AWS::Region} --configsets default
 /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackId} --resource EC2Instance --region ${AWS::Region}
-""",
-        {
-            'ssmkey': ref(SSMKey),
-        },
-    ],
-})
+""", {
+    'ssmkey': ref(SSMKey),
+}))

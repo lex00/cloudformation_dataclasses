@@ -9,7 +9,7 @@ from .. import *  # noqa: F403
 class NeptunePrimarySparqlRequestsPerSecAlarmDimension:
     resource: Dimension
     name = 'DBClusterIdentifier'
-    value: Ref[NeptuneDBCluster] = ref()
+    value = ref(NeptuneDBCluster)
 
 
 @cloudformation_dataclass
@@ -26,5 +26,5 @@ class NeptunePrimarySparqlRequestsPerSecAlarm:
     threshold = ref(SparqlRequestsPerSecThreshold)
     comparison_operator = 'GreaterThanOrEqualToThreshold'
     dimensions = [NeptunePrimarySparqlRequestsPerSecAlarmDimension]
-    alarm_actions = [If("CreateSnsTopic", ref("NeptuneAlarmTopic"), ref(NeptuneSNSTopicArn))]
-    insufficient_data_actions = [If("CreateSnsTopic", ref("NeptuneAlarmTopic"), ref(NeptuneSNSTopicArn))]
+    alarm_actions = [If("CreateSnsTopic", ref(NeptuneAlarmTopic), ref(NeptuneSNSTopicArn))]
+    insufficient_data_actions = [If("CreateSnsTopic", ref(NeptuneAlarmTopic), ref(NeptuneSNSTopicArn))]

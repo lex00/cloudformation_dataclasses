@@ -12,4 +12,4 @@ class DMSSecurityGroup:
     resource: SecurityGroup
     group_description = 'Security group for DMS Instance'
     group_name = 'DMS Demo Security Group'
-    vpc_id: Ref[VPC] = ref()
+    vpc_id = ref(VPC)

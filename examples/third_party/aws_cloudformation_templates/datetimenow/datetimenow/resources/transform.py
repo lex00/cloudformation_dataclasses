@@ -12,4 +12,4 @@ class Transform:
     resource: Macro
     name = 'DatetimeNow'
     description = 'Provides the current datetime as string in the format requested.'
-    function_name: GetAtt[TransformFunction] = get_att("Arn")
+    function_name = get_att(TransformFunction, "Arn")

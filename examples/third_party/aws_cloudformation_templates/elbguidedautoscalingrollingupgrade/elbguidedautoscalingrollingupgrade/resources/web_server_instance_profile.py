@@ -11,4 +11,4 @@ class WebServerInstanceProfile:
 
     resource: InstanceProfile
     path = '/'
-    roles = [ref("DescribeHealthRole")]
+    roles = [ref(DescribeHealthRole)]

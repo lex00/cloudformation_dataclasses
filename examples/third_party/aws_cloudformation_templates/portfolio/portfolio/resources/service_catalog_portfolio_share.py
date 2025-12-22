@@ -11,5 +11,5 @@ class ServiceCatalogPortfolioShare:
 
     resource: PortfolioShare
     account_id = ref(AccountIdOfChildAWSAccount)
-    portfolio_id: Ref[ServiceCatalogPortfolio] = ref()
+    portfolio_id = ref(ServiceCatalogPortfolio)
     condition = 'ConditionShareThisPortfolio'

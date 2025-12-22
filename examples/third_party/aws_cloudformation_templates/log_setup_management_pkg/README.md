@@ -1,9 +1,6 @@
 # LogSetupManagementPkg
 
-Migrated from [log-setup-management-pkg.json](https://github.com/aws-cloudformation/aws-cloudformation-templates).
-
-**Source**: AWS CloudFormation Sample Templates
-**License**: Apache-2.0
+Imported from `log-setup-management-pkg.json`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 

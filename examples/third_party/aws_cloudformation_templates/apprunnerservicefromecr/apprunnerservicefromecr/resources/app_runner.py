@@ -8,7 +8,7 @@ from .. import *  # noqa: F403
 @cloudformation_dataclass
 class AppRunnerAuthenticationConfiguration:
     resource: AuthenticationConfiguration
-    access_role_arn: GetAtt[AppRunnerRole] = get_att("Arn")
+    access_role_arn = get_att(AppRunnerRole, "Arn")
 
 
 @cloudformation_dataclass

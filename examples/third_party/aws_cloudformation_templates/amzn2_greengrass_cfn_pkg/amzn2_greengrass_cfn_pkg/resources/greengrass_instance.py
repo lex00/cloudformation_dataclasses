@@ -23,11 +23,10 @@ class GreengrassInstance:
     image_id = ref(LatestAmiId)
     instance_type = ref(InstanceType)
     key_name = ref(myKeyPair)
-    security_group_ids = Split(',', get_att("InstanceSecurityGroup", "GroupId"))
-    subnet_id: Ref[SubnetAPublic] = ref()
+    security_group_ids = Split(',', get_att(InstanceSecurityGroup, "GroupId"))
+    subnet_id = ref(SubnetAPublic)
     tags = [GreengrassInstanceAssociationParameter]
-    user_data = Base64({
-    'Fn::Sub': """#!/bin/bash
+    user_data = Base64(Sub("""#!/bin/bash
 yum -y install python3-pip
 pip3 install greengrasssdk
 adduser --system ggc_user
@@ -95,6 +94,5 @@ EOT
 cp greengrass.service /etc/systemd/system
 systemctl enable greengrass.service
 reboot
-""",
-})
+"""))
     depends_on = ["GreengrassGroup"]

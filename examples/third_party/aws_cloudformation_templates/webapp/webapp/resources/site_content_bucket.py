@@ -26,7 +26,7 @@ class SiteContentBucketBucketEncryption:
 @cloudformation_dataclass
 class SiteContentBucketLoggingConfiguration:
     resource: LoggingConfiguration
-    destination_bucket_name: Ref[SiteContentLogBucket] = ref()
+    destination_bucket_name = ref(SiteContentLogBucket)
 
 
 @cloudformation_dataclass
@@ -41,7 +41,7 @@ class SiteContentBucketPublicAccessBlockConfiguration:
 @cloudformation_dataclass
 class SiteContentBucketReplicationDestination:
     resource: ReplicationDestination
-    bucket: GetAtt[SiteContentReplicaBucket] = get_att("Arn")
+    bucket = get_att(SiteContentReplicaBucket, "Arn")
 
 
 @cloudformation_dataclass
@@ -54,7 +54,7 @@ class SiteContentBucketReplicationRule:
 @cloudformation_dataclass
 class SiteContentBucketReplicationConfiguration:
     resource: ReplicationConfiguration
-    role: GetAtt[SiteContentReplicationRole] = get_att("Arn")
+    role = get_att(SiteContentReplicationRole, "Arn")
     rules = [SiteContentBucketReplicationRule]
 
 

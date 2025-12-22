@@ -8,9 +8,9 @@ from .. import *  # noqa: F403
 @cloudformation_dataclass
 class GreengrassGroupGroupVersion:
     resource: GroupVersion
-    core_definition_version_arn: Ref[GreengrassCoreDefinitionVersion] = ref()
-    function_definition_version_arn: GetAtt[FunctionDefinition] = get_att("LatestVersionArn")
-    subscription_definition_version_arn: GetAtt[SubscriptionDefinition] = get_att("LatestVersionArn")
+    core_definition_version_arn = ref(GreengrassCoreDefinitionVersion)
+    function_definition_version_arn = get_att(FunctionDefinition, "LatestVersionArn")
+    subscription_definition_version_arn = get_att(SubscriptionDefinition, "LatestVersionArn")
 
 
 @cloudformation_dataclass
@@ -20,4 +20,4 @@ class GreengrassGroup:
     resource: Group
     initial_version = GreengrassGroupGroupVersion
     name = ref(CoreName)
-    role_arn: GetAtt[GreengrassResourceRole] = get_att("Arn")
+    role_arn = get_att(GreengrassResourceRole, "Arn")

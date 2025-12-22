@@ -55,7 +55,7 @@ class FunctionDefinitionFunctionConfiguration:
 @cloudformation_dataclass
 class FunctionDefinitionFunction:
     resource: Function
-    function_arn: Ref[GGSampleFunctionVersion] = ref()
+    function_arn = ref(GGSampleFunctionVersion)
     function_configuration = FunctionDefinitionFunctionConfiguration
     id = Join('_', [
     ref(CoreName),

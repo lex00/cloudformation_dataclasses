@@ -17,7 +17,7 @@ class ReplicaDB:
     """AWS::RDS::DBInstance resource."""
 
     resource: DBInstance
-    source_db_instance_identifier: Ref[MainDB] = ref()
+    source_db_instance_identifier = ref(MainDB)
     publicly_accessible = False
     db_instance_class = ref(DBInstanceClass)
     tags = [ReplicaDBTagFormat]

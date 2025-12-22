@@ -13,5 +13,5 @@ class ApiAuthorizer:
     identity_source = 'method.request.header.authorization'
     name = 'CognitoApiAuthorizer'
     provider_ar_ns = [ref(UserPoolArn)]
-    rest_api_id: Ref[Api] = ref()
+    rest_api_id = ref(Api)
     type_ = 'COGNITO_USER_POOLS'

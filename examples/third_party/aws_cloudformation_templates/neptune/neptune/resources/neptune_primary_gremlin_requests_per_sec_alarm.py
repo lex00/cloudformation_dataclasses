@@ -26,5 +26,5 @@ class NeptunePrimaryGremlinRequestsPerSecAlarm:
     threshold = ref(GremlinRequestsPerSecThreshold)
     comparison_operator = 'GreaterThanOrEqualToThreshold'
     dimensions = [NeptunePrimaryGremlinRequestsPerSecAlarmDimension]
-    alarm_actions = [If("CreateSnsTopic", ref("NeptuneAlarmTopic"), ref(NeptuneSNSTopicArn))]
-    insufficient_data_actions = [If("CreateSnsTopic", ref("NeptuneAlarmTopic"), ref(NeptuneSNSTopicArn))]
+    alarm_actions = [If("CreateSnsTopic", ref(NeptuneAlarmTopic), ref(NeptuneSNSTopicArn))]
+    insufficient_data_actions = [If("CreateSnsTopic", ref(NeptuneAlarmTopic), ref(NeptuneSNSTopicArn))]

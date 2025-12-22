@@ -11,6 +11,6 @@ class RouteTablePublicInternetRoute:
 
     resource: Route
     destination_cidr_block = '0.0.0.0/0'
-    gateway_id: Ref[InternetGateway] = ref()
-    route_table_id: Ref[RouteTablePublic] = ref()
+    gateway_id = ref(InternetGateway)
+    route_table_id = ref(RouteTablePublic)
     depends_on = ["VPCGatewayAttachment"]

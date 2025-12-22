@@ -100,7 +100,7 @@ class EnableReadReplica:
 @cloudformation_dataclass
 class IsEC2VPCCondition:
     resource: Condition
-    expression = Or(Equals(AWS_REGION, 'eu-central-1'), Equals(AWS_REGION, 'cn-north-1'))
+    expression = Or(conditions=[Equals(AWS_REGION, 'eu-central-1'), Equals(AWS_REGION, 'cn-north-1')])
 
 
 @cloudformation_dataclass

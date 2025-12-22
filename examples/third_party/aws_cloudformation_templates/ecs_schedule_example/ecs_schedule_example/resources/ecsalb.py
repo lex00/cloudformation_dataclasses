@@ -21,4 +21,4 @@ class ECSALB:
     scheme = 'internet-facing'
     load_balancer_attributes = [ECSALBLoadBalancerAttribute]
     subnets = ref(SubnetId)
-    security_groups = [ref("EcsSecurityGroup")]
+    security_groups = [ref(EcsSecurityGroup)]

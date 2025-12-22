@@ -12,4 +12,4 @@ class SNSSubscription:
     resource: Subscription
     endpoint = ref(SubscriptionEndPoint)
     protocol = ref(SubscriptionProtocol)
-    topic_arn: Ref[SNSTopic] = ref()
+    topic_arn = ref(SNSTopic)

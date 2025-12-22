@@ -10,4 +10,4 @@ class LambdaEdgeVersion:
     """AWS::Lambda::Version resource."""
 
     resource: Version
-    function_name: Ref[LambdaEdgeFunction] = ref()
+    function_name = ref(LambdaEdgeFunction)

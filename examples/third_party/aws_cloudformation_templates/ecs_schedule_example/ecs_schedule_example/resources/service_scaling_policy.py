@@ -28,5 +28,5 @@ class ServiceScalingPolicy:
     resource: ScalingPolicy
     policy_name = 'AStepPolicy'
     policy_type = 'StepScaling'
-    scaling_target_id: Ref[ServiceScalingTarget] = ref()
+    scaling_target_id = ref(ServiceScalingTarget)
     step_scaling_policy_configuration = ServiceScalingPolicyStepScalingPolicyConfiguration

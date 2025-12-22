@@ -8,7 +8,7 @@ from .. import *  # noqa: F403
 @cloudformation_dataclass
 class LoadBalancerRuleAction:
     resource: Action
-    target_group_arn: Ref[TargetGroup] = ref()
+    target_group_arn = ref(TargetGroup)
     type_ = 'forward'
 
 
@@ -26,13 +26,8 @@ class LoadBalancerRule:
     resource: ListenerRule
     actions = [LoadBalancerRuleAction]
     conditions = [LoadBalancerRuleRuleCondition]
-    listener_arn = ImportValue({
-    'Fn::Join': [
-        ':',
-        [
-            ref(StackName),
-            'PublicListener',
-        ],
-    ],
-})
+    listener_arn = ImportValue(Join(':', [
+    ref(StackName),
+    'PublicListener',
+]))
     priority = ref(Priority)

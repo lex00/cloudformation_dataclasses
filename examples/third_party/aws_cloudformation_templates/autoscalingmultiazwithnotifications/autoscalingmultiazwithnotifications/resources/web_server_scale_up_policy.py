@@ -11,6 +11,6 @@ class WebServerScaleUpPolicy:
 
     resource: ScalingPolicy
     adjustment_type = 'ChangeInCapacity'
-    auto_scaling_group_name: Ref[WebServerGroup] = ref()
+    auto_scaling_group_name = ref(WebServerGroup)
     cooldown = '60'
     scaling_adjustment = 1

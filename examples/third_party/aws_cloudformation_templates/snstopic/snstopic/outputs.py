@@ -8,7 +8,7 @@ class TopicARNOutput:
     """ARN of newly created SNS Topic"""
 
     resource: Output
-    value = ref("SNSTopic")
+    value = ref(SNSTopic)
     description = 'ARN of newly created SNS Topic'
 
 
@@ -17,5 +17,5 @@ class QueueNameOutput:
     """Name of newly created SNS Topic"""
 
     resource: Output
-    value = get_att("SNSTopic", "TopicName")
+    value = get_att(SNSTopic, "TopicName")
     description = 'Name of newly created SNS Topic'

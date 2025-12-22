@@ -52,5 +52,5 @@ class CloudFrontLogsBucketPolicyPolicy:
     """AWS::S3::BucketPolicy resource."""
 
     resource: BucketPolicy
-    bucket: Ref[CloudFrontLogsBucket] = ref()
+    bucket = ref(CloudFrontLogsBucket)
     policy_document = CloudFrontLogsBucketPolicyPolicyPolicyDocument

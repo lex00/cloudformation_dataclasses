@@ -11,4 +11,4 @@ class CognitoDomain:
 
     resource: UserPoolDomain
     domain = ref(AppName)
-    user_pool_id: Ref[CognitoUserPool] = ref()
+    user_pool_id = ref(CognitoUserPool)

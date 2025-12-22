@@ -56,7 +56,7 @@ class AWSManagedADLinuxEC2DomainJoinRoleAllowStatement0_2:
         'secretsmanager:GetSecretValue',
         'secretsmanager:DescribeSecret',
     ]
-    resource_arn = ref("AWSManagedADLinuxEC2SeamlessDomainJoinSecret")
+    resource_arn = ref(AWSManagedADLinuxEC2SeamlessDomainJoinSecret)
 
 
 @cloudformation_dataclass
@@ -87,8 +87,8 @@ class AWSManagedADLinuxEC2DomainJoinRole:
         'Value': AWS_STACK_NAME,
     }]
     policies = [AWSManagedADLinuxEC2DomainJoinRolePolicy, If("SSMLogsBucketNameCondition", {
-    Policy.POLICY_NAME: 'SsmLogs',
-    Policy.POLICY_DOCUMENT: {
+    Policy.policy_name: 'SsmLogs',
+    Policy.policy_document: {
         'Version': '2012-10-17',
         'Statement': [{
             'Effect': 'Allow',
@@ -105,8 +105,8 @@ class AWSManagedADLinuxEC2DomainJoinRole:
         }],
     },
 }, AWS_NO_VALUE), AWSManagedADLinuxEC2DomainJoinRolePolicy1, If("SecretsManagerDomainCredentialsSecretsKMSKeyCondition", {
-    Policy.POLICY_NAME: 'KMSKeyForSecret',
-    Policy.POLICY_DOCUMENT: {
+    Policy.policy_name: 'KMSKeyForSecret',
+    Policy.policy_document: {
         'Version': '2012-10-17',
         'Statement': [{
             'Effect': 'Allow',

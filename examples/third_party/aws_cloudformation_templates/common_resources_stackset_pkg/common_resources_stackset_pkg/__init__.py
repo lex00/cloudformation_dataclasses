@@ -21,6 +21,8 @@ from cloudformation_dataclasses.aws.cloudformation import (
 
 from .config import OUID
 
+from .resources import *  # noqa: F403, F401
+
 __all__ = [
     "AutoDeployment",
     "DeploymentTargets",
@@ -29,6 +31,7 @@ __all__ = [
     "Parameter",
     "STRING",
     "StackInstances",
+    "StackSet",
     "Template",
     "cloudformation",
     "cloudformation_dataclass",

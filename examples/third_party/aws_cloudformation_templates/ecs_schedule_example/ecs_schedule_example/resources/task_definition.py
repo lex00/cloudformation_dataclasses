@@ -10,7 +10,7 @@ class TaskDefinitionLogConfiguration:
     resource: LogConfiguration
     log_driver = 'awslogs'
     options = {
-        'awslogs-group': ref("CloudwatchLogsGroup"),
+        'awslogs-group': ref(CloudwatchLogsGroup),
         'awslogs-region': AWS_REGION,
         'awslogs-stream-prefix': 'ecs-demo-app',
     }
@@ -47,7 +47,7 @@ class TaskDefinitionLogConfiguration1:
     resource: LogConfiguration
     log_driver = 'awslogs'
     options = {
-        'awslogs-group': ref("CloudwatchLogsGroup"),
+        'awslogs-group': ref(CloudwatchLogsGroup),
         'awslogs-region': AWS_REGION,
         'awslogs-stream-prefix': 'ecs-demo-app',
     }

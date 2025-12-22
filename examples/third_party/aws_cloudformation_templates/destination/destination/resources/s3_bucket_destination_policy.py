@@ -20,7 +20,7 @@ class S3BucketDestinationPolicyAllowStatement0:
         's3:ObjectOwnerOverrideToBucketOwner',
     ]
     resource_arn = Sub('${varBucketArn}/*', {
-    'varBucketArn': get_att("S3BucketDestination", "Arn"),
+    'varBucketArn': get_att(S3BucketDestination, "Arn"),
 })
 
 
@@ -32,7 +32,7 @@ class S3BucketDestinationPolicyDenyStatement1:
     }
     action = 's3:*'
     resource_arn = Sub('${varBucketArn}/*', {
-    'varBucketArn': get_att("S3BucketDestination", "Arn"),
+    'varBucketArn': get_att(S3BucketDestination, "Arn"),
 })
     condition = {
         BOOL: {
@@ -52,5 +52,5 @@ class S3BucketDestinationPolicy:
     """AWS::S3::BucketPolicy resource."""
 
     resource: BucketPolicy
-    bucket: Ref[S3BucketDestination] = ref()
+    bucket = ref(S3BucketDestination)
     policy_document = S3BucketDestinationPolicyPolicyDocument

@@ -12,4 +12,4 @@ class NoIngressSecurityGroup:
     resource: SecurityGroup
     group_name = 'no-ingress-sg'
     group_description = 'Security group with no ingress rule'
-    vpc_id: Ref[VPC] = ref()
+    vpc_id = ref(VPC)

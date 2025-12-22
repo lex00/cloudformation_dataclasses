@@ -9,12 +9,9 @@ from .. import *  # noqa: F403
 class S3BucketTagFilter:
     resource: TagFilter
     key = 'Upper'
-    value = Transform({
-    'Name': 'String',
-    'Parameters': {
-        'InputString': ref(InputString),
-        'Operation': 'Upper',
-    },
+    value = Transform(name='String', parameters={
+    'InputString': ref(InputString),
+    'Operation': 'Upper',
 })
 
 
@@ -22,12 +19,9 @@ class S3BucketTagFilter:
 class S3BucketTagFilter1:
     resource: TagFilter
     key = 'Lower'
-    value = Transform({
-    'Name': 'String',
-    'Parameters': {
-        'InputString': ref(InputString),
-        'Operation': 'Lower',
-    },
+    value = Transform(name='String', parameters={
+    'InputString': ref(InputString),
+    'Operation': 'Lower',
 })
 
 
@@ -35,12 +29,9 @@ class S3BucketTagFilter1:
 class S3BucketTagFilter2:
     resource: TagFilter
     key = 'Capitalize'
-    value = Transform({
-    'Name': 'String',
-    'Parameters': {
-        'InputString': ref(InputString),
-        'Operation': 'Capitalize',
-    },
+    value = Transform(name='String', parameters={
+    'InputString': ref(InputString),
+    'Operation': 'Capitalize',
 })
 
 
@@ -48,12 +39,9 @@ class S3BucketTagFilter2:
 class S3BucketTagFilter3:
     resource: TagFilter
     key = 'Title'
-    value = Transform({
-    'Name': 'String',
-    'Parameters': {
-        'InputString': ref(InputString),
-        'Operation': 'Title',
-    },
+    value = Transform(name='String', parameters={
+    'InputString': ref(InputString),
+    'Operation': 'Title',
 })
 
 
@@ -61,14 +49,11 @@ class S3BucketTagFilter3:
 class S3BucketTagFilter4:
     resource: TagFilter
     key = 'Replace'
-    value = Transform({
-    'Name': 'String',
-    'Parameters': {
-        'InputString': ref(InputString),
-        'Operation': 'Replace',
-        'Old': ' ',
-        'New': '_',
-    },
+    value = Transform(name='String', parameters={
+    'InputString': ref(InputString),
+    'Operation': 'Replace',
+    'Old': ' ',
+    'New': '_',
 })
 
 
@@ -76,13 +61,10 @@ class S3BucketTagFilter4:
 class S3BucketTagFilter5:
     resource: TagFilter
     key = 'Strip'
-    value = Transform({
-    'Name': 'String',
-    'Parameters': {
-        'InputString': ref(InputString),
-        'Operation': 'Strip',
-        'Chars': 'Tgif',
-    },
+    value = Transform(name='String', parameters={
+    'InputString': ref(InputString),
+    'Operation': 'Strip',
+    'Chars': 'Tgif',
 })
 
 
@@ -90,14 +72,11 @@ class S3BucketTagFilter5:
 class S3BucketTagFilter6:
     resource: TagFilter
     key = 'ShortenLeft'
-    value = Transform({
-    'Name': 'String',
-    'Parameters': {
-        'InputString': ref(InputString),
-        'Operation': 'MaxLength',
-        'Length': 4,
-        'StripFrom': 'Left',
-    },
+    value = Transform(name='String', parameters={
+    'InputString': ref(InputString),
+    'Operation': 'MaxLength',
+    'Length': 4,
+    'StripFrom': 'Left',
 })
 
 
@@ -105,13 +84,10 @@ class S3BucketTagFilter6:
 class S3BucketTagFilter7:
     resource: TagFilter
     key = 'ShortenRight'
-    value = Transform({
-    'Name': 'String',
-    'Parameters': {
-        'InputString': ref(InputString),
-        'Operation': 'MaxLength',
-        'Length': 4,
-    },
+    value = Transform(name='String', parameters={
+    'InputString': ref(InputString),
+    'Operation': 'MaxLength',
+    'Length': 4,
 })
 
 

@@ -26,7 +26,7 @@ class ObjectStorageBucketBucketEncryption:
 @cloudformation_dataclass
 class ObjectStorageBucketLoggingConfiguration:
     resource: LoggingConfiguration
-    destination_bucket_name: Ref[ObjectStorageLogBucket] = ref()
+    destination_bucket_name = ref(ObjectStorageLogBucket)
 
 
 @cloudformation_dataclass
@@ -41,7 +41,7 @@ class ObjectStorageBucketPublicAccessBlockConfiguration:
 @cloudformation_dataclass
 class ObjectStorageBucketReplicationDestination:
     resource: ReplicationDestination
-    bucket: GetAtt[ObjectStorageReplicaBucket] = get_att("Arn")
+    bucket = get_att(ObjectStorageReplicaBucket, "Arn")
 
 
 @cloudformation_dataclass
@@ -54,7 +54,7 @@ class ObjectStorageBucketReplicationRule:
 @cloudformation_dataclass
 class ObjectStorageBucketReplicationConfiguration:
     resource: ReplicationConfiguration
-    role: GetAtt[ObjectStorageReplicationRole] = get_att("Arn")
+    role = get_att(ObjectStorageReplicationRole, "Arn")
     rules = [ObjectStorageBucketReplicationRule]
 
 

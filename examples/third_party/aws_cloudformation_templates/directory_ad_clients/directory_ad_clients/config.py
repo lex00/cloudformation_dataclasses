@@ -249,7 +249,7 @@ class DomainDNSServer4ConditionCondition:
 @cloudformation_dataclass
 class DomainDNSServersConditionCondition:
     resource: Condition
-    expression = Or(Condition("DomainDNSServer1Condition"), Condition("DomainDNSServer2Condition"), Condition("DomainDNSServer3Condition"), Condition("DomainDNSServer4Condition"))
+    expression = Or(conditions=[Condition("DomainDNSServer1Condition"), Condition("DomainDNSServer2Condition"), Condition("DomainDNSServer3Condition"), Condition("DomainDNSServer4Condition")])
 
 
 @cloudformation_dataclass

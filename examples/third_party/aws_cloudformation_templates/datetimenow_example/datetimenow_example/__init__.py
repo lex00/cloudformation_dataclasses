@@ -6,8 +6,11 @@ from cloudformation_dataclasses.core import Template, cloudformation_dataclass, 
 from cloudformation_dataclasses.aws.s3 import Bucket, TagFilter
 from cloudformation_dataclasses.intrinsics import Transform
 
+from .resources import *  # noqa: F403, F401
+
 __all__ = [
     "Bucket",
+    "S3Bucket",
     "TagFilter",
     "Template",
     "Transform",

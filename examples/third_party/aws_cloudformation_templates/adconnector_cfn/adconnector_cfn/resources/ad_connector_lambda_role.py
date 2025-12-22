@@ -123,7 +123,7 @@ class ADConnectorLambdaRoleAllowStatement0_3:
     resource: PolicyStatement
     sid = 'GetSecret'
     action = 'secretsmanager:GetSecretValue'
-    resource_arn = ref("ADConnectorServiceAccountSecret")
+    resource_arn = ref(ADConnectorServiceAccountSecret)
 
 
 @cloudformation_dataclass
@@ -153,8 +153,8 @@ class ADConnectorLambdaRole:
         'Value': AWS_STACK_NAME,
     }]
     policies = [ADConnectorLambdaRolePolicy, ADConnectorLambdaRolePolicy1, ADConnectorLambdaRolePolicy2, If("SecretsManagerDomainCredentialsSecretsKMSKeyCondition", {
-    Policy.POLICY_NAME: 'KMSKeyForSecret',
-    Policy.POLICY_DOCUMENT: {
+    Policy.policy_name: 'KMSKeyForSecret',
+    Policy.policy_document: {
         'Version': '2012-10-17',
         'Statement': [{
             'Effect': 'Allow',

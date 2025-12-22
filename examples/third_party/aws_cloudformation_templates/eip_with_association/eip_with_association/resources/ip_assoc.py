@@ -10,5 +10,5 @@ class IPAssoc:
     """AWS::EC2::EIPAssociation resource."""
 
     resource: EIPAssociation
-    instance_id: Ref[EC2Instance] = ref()
-    allocation_id: GetAtt[IPAddress] = get_att("AllocationId")
+    instance_id = ref(EC2Instance)
+    allocation_id = get_att(IPAddress, "AllocationId")

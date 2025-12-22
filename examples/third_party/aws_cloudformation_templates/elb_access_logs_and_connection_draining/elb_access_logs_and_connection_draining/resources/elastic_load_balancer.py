@@ -33,7 +33,7 @@ class ElasticLoadBalancerConnectionDrainingPolicy:
 @cloudformation_dataclass
 class ElasticLoadBalancerAccessLoggingPolicy:
     resource: AccessLoggingPolicy
-    s3_bucket_name: Ref[LogsBucket] = ref()
+    s3_bucket_name = ref(LogsBucket)
     s3_bucket_prefix = 'Logs'
     enabled = 'true'
     emit_interval = '60'
