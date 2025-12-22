@@ -109,10 +109,10 @@ if [ "$FRAMEWORK_ONLY" = true ]; then
     TEST_PATHS="tests/"
     info "Running framework validation tests only"
 elif [ "$EXAMPLES_ONLY" = true ]; then
-    TEST_PATHS="examples/"
+    TEST_PATHS="examples/with_context/"
     info "Running example tests only"
 else
-    TEST_PATHS="tests/ examples/"
+    TEST_PATHS="tests/ examples/with_context/"
     info "Running all tests (framework + examples)"
 fi
 
@@ -144,7 +144,7 @@ if [ "$WATCH_MODE" = true ]; then
         exit 1
     fi
     info "Starting test watch mode (Ctrl+C to exit)..."
-    uv run ptw $TEST_PATHS -- -v --tb=short
+    uv run ptw tests/ examples/with_context/ -- -v --tb=short
     exit 0
 fi
 
