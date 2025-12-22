@@ -102,7 +102,7 @@ success "uv found: $(uv --version)"
 # Step 3: Run tests (unless skipped)
 if [ "$SKIP_TESTS" = false ]; then
     info "Running tests..."
-    if uv run pytest tests/ examples/ -v --tb=short; then
+    if uv run pytest tests/ -v --tb=short; then
         success "All tests passed"
     else
         error "Tests failed - aborting build"

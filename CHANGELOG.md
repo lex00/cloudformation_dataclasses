@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.4] - 2025-12-21
+
+### Fixed
+- **Example Python version** - Added `.python-version` files to all example directories so `uv run` uses Python 3.10 instead of system default
+
+---
+
 ## [0.5.3] - 2025-12-21
 
 ### Added
@@ -20,15 +27,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Importer `.logical_id` error** - Fixed iteration over `template.mappings` and `template.conditions` in `_generate_init_py`
 - **Rain template detection** - Added early detection for `!Rain::` tags with clear error message
 - **Kubernetes manifest detection** - Added detection for non-CloudFormation YAML files
-
-
-## [Unreleased]
-
-### Planning
-- Extended examples (Lambda, API Gateway, etc.)
-- API documentation site (auto-generated from docstrings)
-- Best practices guide and tutorials
-- Contributing guidelines and code of conduct
 
 ---
 
