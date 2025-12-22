@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.3] - 2025-12-21
+
+### Added
+- **Versioning documentation** (`docs/VERSIONING.md`) - Explains the three-version system (package, spec, generator)
+- **Version bump script** (`scripts/bump_version.sh`) - Automates version updates across all files
+- **Third-party import script** (`scripts/import_third_party.sh`) - Repeatable script for importing aws-cloudformation-templates
+
+### Changed
+- **Simplified `__init__.py` docstring** - Removed hardcoded version numbers that were getting stale
+
+### Fixed
+- **Importer MappingNode handling** - Fixed `!Base64`, `!ImportValue`, and `!GetAZs` YAML constructors to handle mapping nodes (e.g., `!Base64 { Fn::Sub: "..." }`)
+- **Importer `.logical_id` error** - Fixed iteration over `template.mappings` and `template.conditions` in `_generate_init_py`
+- **Rain template detection** - Added early detection for `!Rain::` tags with clear error message
+- **Kubernetes manifest detection** - Added detection for non-CloudFormation YAML files
+
+
 ## [Unreleased]
 
 ### Planning
