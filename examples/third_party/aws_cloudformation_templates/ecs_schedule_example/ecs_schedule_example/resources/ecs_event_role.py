@@ -42,7 +42,7 @@ class ECSEventRolePolicy:
 class ECSEventRole:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     assume_role_policy_document = ECSEventRoleAssumeRolePolicyDocument
     path = '/'
     policies = [ECSEventRolePolicy]

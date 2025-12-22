@@ -27,7 +27,6 @@ from cloudformation_dataclasses.aws import (
 )
 from cloudformation_dataclasses.aws.ec2 import SecurityGroupEgress
 from cloudformation_dataclasses.aws.elasticloadbalancingv2 import ListenerRule
-from cloudformation_dataclasses.aws.iam import Role
 from cloudformation_dataclasses.aws.lambda_ import Version
 from cloudformation_dataclasses.aws.s3 import ServerSideEncryption
 from cloudformation_dataclasses.intrinsics import Sub
@@ -143,7 +142,6 @@ __all__ = [
     "PublicSubnetId1",
     "PublicSubnetId2",
     "QueryString",
-    "Role",
     "STRING",
     "SecurityGroupEgress",
     "ServerSideEncryption",

@@ -22,7 +22,6 @@ from cloudformation_dataclasses.aws.ec2 import (
     VPCEndpoint,
     VPCGatewayAttachment,
 )
-from cloudformation_dataclasses.aws.iam import Role
 from cloudformation_dataclasses.intrinsics import (
     Base64,
     GetAZs,
@@ -82,7 +81,6 @@ __all__ = [
     "PublicSubnet2",
     "PublicSubnet2CIDR",
     "PublicSubnet2RouteTableAssociation",
-    "Role",
     "RootRole",
     "RouteTable",
     "STRING",

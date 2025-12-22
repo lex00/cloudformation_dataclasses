@@ -24,7 +24,12 @@ from cloudformation_dataclasses.aws.events import EventBus, EventBusPolicy
 from cloudformation_dataclasses.aws.logs import LogGroup, QueryDefinition
 from cloudformation_dataclasses.intrinsics import Sub
 
-from .stack_config import CentralEventBusName, CentralEventLogName, OUID, OrgID
+from .stack_config import (
+    CentralEventBusName,
+    CentralEventLogName,
+    OUID,
+    OrgID,
+)
 
 from .resources import *  # noqa: F403, F401
 

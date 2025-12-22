@@ -13,8 +13,12 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import codebuild, codecommit, iam, s3
-from cloudformation_dataclasses.aws.iam import Role
+from cloudformation_dataclasses.aws import (
+    codebuild,
+    codecommit,
+    iam,
+    s3,
+)
 from cloudformation_dataclasses.aws.s3 import ServerSideEncryption
 from cloudformation_dataclasses.intrinsics import Sub
 
@@ -33,7 +37,6 @@ __all__ = [
     "PipelineS3Bucket",
     "PolicyDocument",
     "PolicyStatement",
-    "Role",
     "STRING",
     "ServerSideEncryption",
     "Sub",

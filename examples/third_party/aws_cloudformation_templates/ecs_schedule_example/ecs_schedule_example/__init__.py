@@ -29,7 +29,6 @@ from cloudformation_dataclasses.aws import (
 from cloudformation_dataclasses.aws.applicationautoscaling import ScalableTarget
 from cloudformation_dataclasses.aws.autoscaling import AutoScalingGroup, LaunchConfiguration
 from cloudformation_dataclasses.aws.elasticloadbalancingv2 import ListenerRule
-from cloudformation_dataclasses.aws.iam import Role
 from cloudformation_dataclasses.aws.logs import LogGroup
 from cloudformation_dataclasses.intrinsics import (
     AWS_REGION,
@@ -105,7 +104,6 @@ __all__ = [
     "PolicyDocument",
     "PolicyStatement",
     "RateSchedule",
-    "Role",
     "STRING",
     "ScalableTarget",
     "SchedulerTasksCount",

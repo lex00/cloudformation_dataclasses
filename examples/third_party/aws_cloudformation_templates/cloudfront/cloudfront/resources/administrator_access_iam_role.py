@@ -22,7 +22,7 @@ class AdministratorAccessIAMRoleAssumeRolePolicyDocument:
 class AdministratorAccessIAMRole:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     role_name = Sub('AdministratorAccess-${AppName}')
     managed_policy_arns = [Sub('arn:${AWS::Partition}:iam::aws:policy/AdministratorAccess')]
     assume_role_policy_document = AdministratorAccessIAMRoleAssumeRolePolicyDocument

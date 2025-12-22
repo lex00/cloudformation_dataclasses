@@ -63,7 +63,7 @@ class IAMAssumeInstanceRolePolicy:
 class IAMAssumeInstanceRole:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     assume_role_policy_document = IAMAssumeInstanceRoleAssumeRolePolicyDocument
     path = '/'
     policies = [IAMAssumeInstanceRolePolicy]

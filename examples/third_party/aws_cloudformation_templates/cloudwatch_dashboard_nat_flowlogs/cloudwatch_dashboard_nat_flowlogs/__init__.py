@@ -14,7 +14,12 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.aws import cloudwatch
 from cloudformation_dataclasses.intrinsics import Sub
 
-from .stack_config import LogGroupName, NatGatewayID, NatGatewayPrivateIP, VpcCidr
+from .stack_config import (
+    LogGroupName,
+    NatGatewayID,
+    NatGatewayPrivateIP,
+    VpcCidr,
+)
 
 from .resources import *  # noqa: F403, F401
 

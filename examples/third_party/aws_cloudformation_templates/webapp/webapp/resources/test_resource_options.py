@@ -15,7 +15,7 @@ class TestResourceOptionsIntegration:
 class TestResourceOptions:
     """AWS::ApiGateway::Method resource."""
 
-    resource: Method
+    resource: apigateway.Method
     http_method = 'OPTIONS'
     resource_id = ref(TestResourceResource)
     rest_api_id = ref(RestApi)

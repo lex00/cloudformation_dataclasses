@@ -22,16 +22,21 @@ from cloudformation_dataclasses.aws import (
     cloudfront,
     cognito,
     dynamodb,
+    iam,
     lambda_,
     s3,
     wafv2,
 )
-from cloudformation_dataclasses.aws.apigateway import Method
 from cloudformation_dataclasses.aws.cloudfront import OriginAccessControl
 from cloudformation_dataclasses.aws.cognito import UserPool, UserPoolClient, UserPoolDomain
 from cloudformation_dataclasses.aws.dynamodb import AttributeType, KeyType
-from cloudformation_dataclasses.aws.iam import Role, RolePolicy
-from cloudformation_dataclasses.aws.s3 import ObjectLockEnabled, ObjectLockRetentionMode, ReplicationRuleStatus, ServerSideEncryption
+from cloudformation_dataclasses.aws.iam import RolePolicy
+from cloudformation_dataclasses.aws.s3 import (
+    ObjectLockEnabled,
+    ObjectLockRetentionMode,
+    ReplicationRuleStatus,
+    ServerSideEncryption,
+)
 from cloudformation_dataclasses.intrinsics import (
     AWS_ACCOUNT_ID,
     AWS_STACK_ID,
@@ -67,7 +72,6 @@ __all__ = [
     "KeyType",
     "LambdaCodeS3Bucket",
     "LambdaCodeS3Key",
-    "Method",
     "ObjectLockEnabled",
     "ObjectLockRetentionMode",
     "OriginAccessControl",
@@ -80,7 +84,6 @@ __all__ = [
     "RestApiAuthorizer",
     "RestApiDeployment",
     "RestApiStage",
-    "Role",
     "RolePolicy",
     "STRING",
     "STRING_EQUALS",
@@ -126,6 +129,7 @@ __all__ = [
     "cognito",
     "dynamodb",
     "get_att",
+    "iam",
     "lambda_",
     "ref",
     "s3",

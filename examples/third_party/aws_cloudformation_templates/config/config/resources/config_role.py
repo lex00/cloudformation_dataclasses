@@ -70,7 +70,7 @@ class ConfigRolePolicy:
 class ConfigRole:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     assume_role_policy_document = ConfigRoleAssumeRolePolicyDocument
     managed_policy_arns = ['arn:aws:iam::aws:policy/service-role/AWS_ConfigRole']
     policies = [ConfigRolePolicy]

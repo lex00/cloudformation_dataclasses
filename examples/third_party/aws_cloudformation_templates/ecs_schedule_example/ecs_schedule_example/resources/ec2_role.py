@@ -52,7 +52,7 @@ class EC2RolePolicy:
 class EC2Role:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     assume_role_policy_document = EC2RoleAssumeRolePolicyDocument
     path = '/'
     policies = [EC2RolePolicy]

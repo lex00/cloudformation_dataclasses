@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class ExecutionRoleBuilderMacroTestRole:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     type_ = 'Lambda'
     name = 'ExecutionRoleForAppA'
     path = '/boundedexecroles/'

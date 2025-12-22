@@ -80,6 +80,6 @@ class LambdaExecutionRolePolicy:
 class LambdaExecutionRole:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     assume_role_policy_document = LambdaExecutionRoleAssumeRolePolicyDocument
     policies = [LambdaExecutionRolePolicy]

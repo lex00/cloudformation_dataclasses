@@ -14,7 +14,6 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import ec2, iam
-from cloudformation_dataclasses.aws.iam import Role
 from cloudformation_dataclasses.intrinsics import AWS_STACK_NAME, Base64
 
 from .stack_config import (
@@ -42,7 +41,6 @@ __all__ = [
     "ParameterType",
     "PolicyDocument",
     "PolicyStatement",
-    "Role",
     "STRING",
     "SubnetId",
     "Template",

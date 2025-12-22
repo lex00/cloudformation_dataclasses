@@ -42,6 +42,45 @@ def _sanitize_class_name(name: str) -> str:
     return name
 
 
+def _resolve_property_type(
+    expected_class: Optional[str],
+    expected_module: Optional[str],
+    cf_keys: Optional[set[str]] = None,
+    module_hint: Optional[str] = None,
+) -> Optional[tuple[str, str, dict[str, Any]]]:
+    """
+    Resolve a PropertyType by expected class/module or by CF property keys.
+
+    First tries to match using expected_class and expected_module.
+    If that fails, falls back to searching by CF property keys.
+
+    Args:
+        expected_class: Expected class name from type hint
+        expected_module: Expected module name from type hint
+        cf_keys: Set of CloudFormation property names in the dict
+        module_hint: Module hint for key-based lookup (e.g., "ec2")
+
+    Returns:
+        Tuple of (module_name, class_name, property_type_info) or None if not found.
+    """
+    # Try expected class first
+    if expected_class and expected_module:
+        info = get_property_type_info(expected_module, expected_class)
+        if info:
+            return (expected_module, expected_class, info)
+
+    # Fall back to key-based lookup
+    if cf_keys:
+        match = find_property_type_for_cf_keys(cf_keys, module_hint=module_hint)
+        if match:
+            pt_module, pt_class = match
+            info = get_property_type_info(pt_module, pt_class)
+            if info:
+                return (pt_module, pt_class, info)
+
+    return None
+
+
 # =============================================================================
 # Annotated Field Value (for annotation-based refs)
 # =============================================================================
@@ -543,24 +582,12 @@ def _value_to_python_typed(
         cf_keys = set(value.keys())
         module_hint = expected_module or ctx.current_module
 
-        # If we have an expected class, check if it matches
-        property_type_info = None
-        pt_module = None
-        pt_class = None
+        resolved = _resolve_property_type(
+            expected_class, expected_module, cf_keys, module_hint
+        )
 
-        if expected_class and expected_module:
-            property_type_info = get_property_type_info(expected_module, expected_class)
-            if property_type_info:
-                pt_module = expected_module
-                pt_class = expected_class
-        else:
-            # Try to find a matching PropertyType
-            match = find_property_type_for_cf_keys(cf_keys, module_hint=module_hint)
-            if match:
-                pt_module, pt_class = match
-                property_type_info = get_property_type_info(pt_module, pt_class)
-
-        if property_type_info and pt_module and pt_class:
+        if resolved:
+            pt_module, pt_class, property_type_info = resolved
             # Convert to PropertyType constructor
             cf_to_python = property_type_info["cf_to_python"]
             field_types = property_type_info["field_types"]
@@ -1042,26 +1069,14 @@ def _property_value_to_python_block(
 
         # Try to match to PropertyType
         expected_class = _extract_class_from_type_hint(expected_type)
-
-        if expected_class and expected_module:
-            pt_info = get_property_type_info(expected_module, expected_class)
-            if pt_info:
-                # Generate wrapper class, return class name
-                class_name = _generate_property_type_wrapper(
-                    value,
-                    parent_logical_id,
-                    property_path,
-                    expected_module,
-                    expected_class,
-                    ctx,
-                )
-                return class_name
-
-        # Try to find matching PropertyType by keys
         cf_keys = set(value.keys())
-        match = find_property_type_for_cf_keys(cf_keys, module_hint=expected_module)
-        if match:
-            pt_module, pt_class = match
+
+        resolved = _resolve_property_type(
+            expected_class, expected_module, cf_keys, module_hint=expected_module
+        )
+
+        if resolved:
+            pt_module, pt_class, _ = resolved
             class_name = _generate_property_type_wrapper(
                 value,
                 parent_logical_id,
@@ -1963,7 +1978,7 @@ def _generate_init_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
 
     if core_imports:
         sorted_imports = sorted(core_imports)
-        if len(sorted_imports) <= 4:
+        if len(sorted_imports) <= 3:
             lines.append(
                 f"from cloudformation_dataclasses.core import {', '.join(sorted_imports)}"
             )
@@ -1978,7 +1993,7 @@ def _generate_init_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
     aws_base = ctx.imports.get("cloudformation_dataclasses.aws", set())
     if aws_base:
         sorted_modules = sorted(aws_base)
-        if len(sorted_modules) <= 4:
+        if len(sorted_modules) <= 3:
             lines.append(
                 f"from cloudformation_dataclasses.aws import {', '.join(sorted_modules)}"
             )
@@ -2027,7 +2042,7 @@ def _generate_init_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
         # (only if we didn't already emit them above)
         if not ctx.imports.get("cloudformation_dataclasses.aws"):
             sorted_modules = sorted(aws_base)
-            if len(sorted_modules) <= 4:
+            if len(sorted_modules) <= 3:
                 lines.append(
                     f"from cloudformation_dataclasses.aws import {', '.join(sorted_modules)}"
                 )
@@ -2041,7 +2056,7 @@ def _generate_init_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
         # Only import non-colliding names directly
         direct_names = sorted(n for n in names if n not in colliding_names)
         if direct_names:
-            if len(direct_names) <= 4:
+            if len(direct_names) <= 3:
                 lines.append(f"from {module} import {', '.join(direct_names)}")
             else:
                 lines.append(f"from {module} import (")
@@ -2052,7 +2067,7 @@ def _generate_init_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
     # Intrinsic imports
     if ctx.intrinsic_imports:
         sorted_intrinsics = sorted(ctx.intrinsic_imports)
-        if len(sorted_intrinsics) <= 4:
+        if len(sorted_intrinsics) <= 3:
             lines.append(
                 f"from cloudformation_dataclasses.intrinsics import "
                 f"{', '.join(sorted_intrinsics)}"
@@ -2077,7 +2092,7 @@ def _generate_init_py(pkg_ctx: PackageContext, template: IRTemplate) -> str:
 
     if config_names:
         sorted_config = sorted(config_names)
-        if len(sorted_config) <= 4:
+        if len(sorted_config) <= 3:
             lines.append(f"from .stack_config import {', '.join(sorted_config)}")
         else:
             lines.append("from .stack_config import (")

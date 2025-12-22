@@ -148,6 +148,94 @@ import re
 from pathlib import Path
 from typing import Any, Optional
 
+# =============================================================================
+# Shared Regex Patterns
+# =============================================================================
+
+# Pattern to extract class name from class definition (captures name only)
+CLASS_NAME_PATTERN = re.compile(r"^class\s+(\w+)", re.MULTILINE)
+
+# Pattern to extract class name and parent from class definition
+CLASS_WITH_PARENT_PATTERN = re.compile(r"^class\s+(\w+)\s*\(\s*(\w+)\s*\)")
+
+# =============================================================================
+# AWS Module Scanner (shared infrastructure)
+# =============================================================================
+
+def _get_aws_dir() -> Optional[Path]:
+    """Get the path to the AWS modules directory."""
+    try:
+        import cloudformation_dataclasses.aws as aws_pkg
+        return Path(aws_pkg.__file__).parent
+    except (ImportError, AttributeError):
+        return None
+
+
+def _scan_aws_modules(
+    on_init_file: Optional[callable] = None,
+    on_submodule: Optional[callable] = None,
+    on_flat_file: Optional[callable] = None,
+) -> None:
+    """
+    Unified scanner for AWS modules directory.
+
+    Iterates through the aws/ directory and calls callbacks for each file type:
+    - on_init_file(path, module_name, content): For package __init__.py files (e.g., ec2/__init__.py)
+    - on_submodule(path, module_name, content): For package submodules (e.g., ec2/instance.py)
+    - on_flat_file(path, module_name, content): For flat module files (legacy, e.g., s3.py)
+
+    All callbacks receive: (file_path: Path, module_name: str, content: str)
+    For submodules, module_name is dotted (e.g., "ec2.instance").
+    """
+    aws_dir = _get_aws_dir()
+    if not aws_dir:
+        return
+
+    for entry in aws_dir.iterdir():
+        if entry.name.startswith("_"):
+            continue
+
+        if entry.is_file() and entry.suffix == ".py":
+            # Flat module: aws/s3.py (legacy)
+            if on_flat_file:
+                try:
+                    content = entry.read_text()
+                    on_flat_file(entry, entry.stem, content)
+                except Exception:
+                    pass
+
+        elif entry.is_dir():
+            # Nested package: aws/ec2/
+            service_name = entry.name
+
+            # Process __init__.py (Resources)
+            init_file = entry / "__init__.py"
+            if init_file.exists() and on_init_file:
+                try:
+                    content = init_file.read_text()
+                    on_init_file(init_file, service_name, content)
+                except Exception:
+                    pass
+
+            # Process submodules (PropertyTypes)
+            if on_submodule:
+                for py_file in entry.glob("*.py"):
+                    if py_file.name.startswith("_"):
+                        continue
+                    if py_file.name == "__init__.py":
+                        continue
+                    try:
+                        content = py_file.read_text()
+                        full_module = f"{service_name}.{py_file.stem}"
+                        on_submodule(py_file, full_module, content)
+                    except Exception:
+                        pass
+
+
+# =============================================================================
+# Registry Caches
+# =============================================================================
+
 # Cache for resource type mappings
 _RESOURCE_TYPE_MAP: dict[str, tuple[str, str]] = {}
 _RESOURCE_TYPE_MAP_BUILT = False
@@ -156,8 +244,7 @@ _RESOURCE_TYPE_MAP_BUILT = False
 def _build_resource_type_map() -> None:
     """Build mapping from CloudFormation types to Python classes by scanning aws modules.
 
-    Supports both flat modules (aws/s3.py) and nested packages (aws/ec2/__init__.py).
-    Resources are defined in __init__.py files for packages.
+    Resources are in __init__.py files for nested packages.
     """
     global _RESOURCE_TYPE_MAP, _RESOURCE_TYPE_MAP_BUILT
     if _RESOURCE_TYPE_MAP_BUILT:
@@ -165,30 +252,16 @@ def _build_resource_type_map() -> None:
 
     _RESOURCE_TYPE_MAP_BUILT = True
 
-    # Find the aws directory
-    try:
-        import cloudformation_dataclasses.aws as aws_pkg
-        aws_dir = Path(aws_pkg.__file__).parent
-    except (ImportError, AttributeError):
-        return
-
     # Pattern to find resource_type class variable assignments
     resource_type_pattern = re.compile(
         r'resource_type:\s*ClassVar\[str\]\s*=\s*["\']([^"\']+)["\']'
     )
-    class_name_pattern = re.compile(r'^class\s+(\w+)\s*\(')
 
-    def scan_file(py_file: Path, module_name: str) -> None:
-        """Scan a single Python file for resource types."""
-        try:
-            content = py_file.read_text()
-        except Exception:
-            return
-
-        # Find all class definitions and their resource_type
+    def scan_for_resources(path: Path, module_name: str, content: str) -> None:
+        """Extract resource type mappings from file content."""
         current_class = None
         for line in content.split("\n"):
-            class_match = class_name_pattern.match(line)
+            class_match = CLASS_NAME_PATTERN.match(line)
             if class_match:
                 current_class = class_match.group(1)
                 continue
@@ -199,21 +272,11 @@ def _build_resource_type_map() -> None:
                     resource_type = type_match.group(1)
                     _RESOURCE_TYPE_MAP[resource_type] = (module_name, current_class)
 
-    # Scan entries in the aws directory
-    for entry in aws_dir.iterdir():
-        if entry.name.startswith("_"):
-            continue
-
-        if entry.is_file() and entry.suffix == ".py":
-            # Flat module: aws/s3.py
-            module_name = entry.stem
-            scan_file(entry, module_name)
-        elif entry.is_dir():
-            # Nested package: aws/ec2/__init__.py
-            init_file = entry / "__init__.py"
-            if init_file.exists():
-                module_name = entry.name
-                scan_file(init_file, module_name)
+    # Resources are only in __init__.py (nested) or flat .py files (legacy)
+    _scan_aws_modules(
+        on_init_file=scan_for_resources,
+        on_flat_file=scan_for_resources,
+    )
 
 
 def resolve_resource_type(resource_type: str) -> Optional[tuple[str, str]]:
@@ -260,8 +323,7 @@ _CF_PROPERTY_TO_CLASSES: dict[str, list[tuple[str, str]]] = {}
 def _build_property_type_map() -> None:
     """Build mapping of PropertyType classes and their field information.
 
-    Supports both flat modules (aws/s3.py) and nested packages (aws/ec2/instance.py).
-    For nested packages, PropertyTypes are in submodules like ec2/instance.py,
+    PropertyTypes are in submodules (ec2/instance.py) for nested packages,
     and the module_name will be "ec2.instance" to enable correct imports.
     """
     global _PROPERTY_TYPE_MAP, _PROPERTY_TYPE_MAP_BUILT, _CF_PROPERTY_TO_CLASSES
@@ -270,25 +332,27 @@ def _build_property_type_map() -> None:
 
     _PROPERTY_TYPE_MAP_BUILT = True
 
-    # Find the aws directory
-    try:
-        import cloudformation_dataclasses.aws as aws_pkg
-        aws_dir = Path(aws_pkg.__file__).parent
-    except (ImportError, AttributeError):
-        return
-
     # Patterns for parsing
-    class_pattern = re.compile(r'^class\s+(\w+)\s*\(\s*(\w+)\s*\)')
     field_pattern = re.compile(r'^\s+(\w+):\s*(.+?)\s*(?:=|$)')
     mapping_entry_pattern = re.compile(r'"(\w+)":\s*"(\w+)"')
 
-    def scan_file_for_property_types(py_file: Path, module_name: str) -> None:
-        """Scan a file for PropertyType classes and register them."""
-        try:
-            content = py_file.read_text()
-        except Exception:
-            return
+    def _register_property_type(module_name: str, class_name: str,
+                                 mappings: dict[str, str], fields: dict[str, str]) -> None:
+        """Register a PropertyType class in the global maps."""
+        key = (module_name, class_name)
+        cf_to_python = {v: k for k, v in mappings.items()}
+        _PROPERTY_TYPE_MAP[key] = {
+            "cf_to_python": cf_to_python,
+            "python_to_cf": mappings.copy(),
+            "field_types": fields.copy(),
+        }
+        for cf_name in cf_to_python:
+            if cf_name not in _CF_PROPERTY_TO_CLASSES:
+                _CF_PROPERTY_TO_CLASSES[cf_name] = []
+            _CF_PROPERTY_TO_CLASSES[cf_name].append(key)
 
+    def scan_for_property_types(path: Path, module_name: str, content: str) -> None:
+        """Scan content for PropertyType classes and register them."""
         current_class: Optional[str] = None
         current_parent: Optional[str] = None
         current_mappings: dict[str, str] = {}
@@ -298,22 +362,12 @@ def _build_property_type_map() -> None:
         lines = content.split("\n")
         for i, line in enumerate(lines):
             # Check for class definition
-            class_match = class_pattern.match(line)
+            class_match = CLASS_WITH_PARENT_PATTERN.match(line)
             if class_match:
                 # Save previous class if it was a PropertyType
                 if current_class and current_parent == "PropertyType" and current_mappings:
-                    key = (module_name, current_class)
-                    cf_to_python = {v: k for k, v in current_mappings.items()}
-                    _PROPERTY_TYPE_MAP[key] = {
-                        "cf_to_python": cf_to_python,
-                        "python_to_cf": current_mappings.copy(),
-                        "field_types": current_fields.copy(),
-                    }
-                    # Add to reverse lookup
-                    for cf_name in cf_to_python:
-                        if cf_name not in _CF_PROPERTY_TO_CLASSES:
-                            _CF_PROPERTY_TO_CLASSES[cf_name] = []
-                        _CF_PROPERTY_TO_CLASSES[cf_name].append(key)
+                    _register_property_type(module_name, current_class,
+                                            current_mappings, current_fields)
 
                 current_class = class_match.group(1)
                 current_parent = class_match.group(2)
@@ -348,40 +402,15 @@ def _build_property_type_map() -> None:
 
         # Don't forget the last class
         if current_class and current_parent == "PropertyType" and current_mappings:
-            key = (module_name, current_class)
-            cf_to_python = {v: k for k, v in current_mappings.items()}
-            _PROPERTY_TYPE_MAP[key] = {
-                "cf_to_python": cf_to_python,
-                "python_to_cf": current_mappings.copy(),
-                "field_types": current_fields.copy(),
-            }
-            for cf_name in cf_to_python:
-                if cf_name not in _CF_PROPERTY_TO_CLASSES:
-                    _CF_PROPERTY_TO_CLASSES[cf_name] = []
-                _CF_PROPERTY_TO_CLASSES[cf_name].append(key)
+            _register_property_type(module_name, current_class,
+                                    current_mappings, current_fields)
 
-    # Scan entries in the aws directory
-    for entry in aws_dir.iterdir():
-        if entry.name.startswith("_"):
-            continue
-
-        if entry.is_file() and entry.suffix == ".py":
-            # Flat module: aws/s3.py - PropertyTypes are in the same file
-            module_name = entry.stem
-            scan_file_for_property_types(entry, module_name)
-        elif entry.is_dir():
-            # Nested package: aws/ec2/
-            service_name = entry.name
-            # Scan all .py files in the package (not just __init__.py)
-            for py_file in entry.glob("*.py"):
-                if py_file.name == "__init__.py":
-                    # __init__.py may have PropertyTypes too (legacy or special cases)
-                    scan_file_for_property_types(py_file, service_name)
-                elif not py_file.name.startswith("_"):
-                    # Submodule: aws/ec2/instance.py -> module_name = "ec2.instance"
-                    submodule_name = py_file.stem
-                    full_module = f"{service_name}.{submodule_name}"
-                    scan_file_for_property_types(py_file, full_module)
+    # PropertyTypes can be in __init__.py (legacy), submodules, or flat files
+    _scan_aws_modules(
+        on_init_file=scan_for_property_types,
+        on_submodule=scan_for_property_types,
+        on_flat_file=scan_for_property_types,
+    )
 
 
 def get_property_type_info(
@@ -477,47 +506,26 @@ _CLASS_TO_MODULES_BUILT = False
 def _build_class_to_modules_map() -> None:
     """Build mapping of class names to their modules for collision detection.
 
-    Supports both flat modules (aws/s3.py) and nested packages (aws/ec2/__init__.py).
-    For nested packages, only classes in __init__.py are tracked (Resources),
-    since PropertyTypes in submodules use qualified access (ec2.instance.NetworkInterface).
+    Only classes in __init__.py are tracked (Resources), since PropertyTypes
+    in submodules use qualified access (ec2.instance.NetworkInterface).
     """
     global _CLASS_TO_MODULES, _CLASS_TO_MODULES_BUILT
     if _CLASS_TO_MODULES_BUILT:
         return
 
-    from pathlib import Path
-    import cloudformation_dataclasses.aws as aws_pkg
-    import re
+    def scan_for_class_names(path: Path, module_name: str, content: str) -> None:
+        """Extract class names from file content."""
+        for match in CLASS_NAME_PATTERN.finditer(content):
+            class_name = match.group(1)
+            if class_name not in _CLASS_TO_MODULES:
+                _CLASS_TO_MODULES[class_name] = []
+            _CLASS_TO_MODULES[class_name].append(module_name)
 
-    aws_dir = Path(aws_pkg.__file__).parent
-    class_pattern = re.compile(r"^class (\w+)\(", re.MULTILINE)
-
-    for entry in aws_dir.iterdir():
-        if entry.name.startswith("_"):
-            continue
-
-        if entry.is_file() and entry.suffix == ".py":
-            # Flat module: aws/s3.py
-            module_name = entry.stem
-            content = entry.read_text()
-
-            for match in class_pattern.finditer(content):
-                class_name = match.group(1)
-                if class_name not in _CLASS_TO_MODULES:
-                    _CLASS_TO_MODULES[class_name] = []
-                _CLASS_TO_MODULES[class_name].append(module_name)
-        elif entry.is_dir():
-            # Nested package: aws/ec2/__init__.py
-            init_file = entry / "__init__.py"
-            if init_file.exists():
-                module_name = entry.name
-                content = init_file.read_text()
-
-                for match in class_pattern.finditer(content):
-                    class_name = match.group(1)
-                    if class_name not in _CLASS_TO_MODULES:
-                        _CLASS_TO_MODULES[class_name] = []
-                    _CLASS_TO_MODULES[class_name].append(module_name)
+    # Only scan __init__.py (nested) or flat .py files (legacy) - not submodules
+    _scan_aws_modules(
+        on_init_file=scan_for_class_names,
+        on_flat_file=scan_for_class_names,
+    )
 
     _CLASS_TO_MODULES_BUILT = True
 

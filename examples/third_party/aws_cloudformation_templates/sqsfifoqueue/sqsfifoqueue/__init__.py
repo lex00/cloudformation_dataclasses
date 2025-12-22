@@ -14,7 +14,12 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import sqs
-from cloudformation_dataclasses.intrinsics import AWS_NO_VALUE, Equals, If, Join
+from cloudformation_dataclasses.intrinsics import (
+    AWS_NO_VALUE,
+    Equals,
+    If,
+    Join,
+)
 
 from .stack_config import (
     ContentBasedDeduplication,

@@ -15,8 +15,14 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import cloudwatch, ec2, neptune, sns
-from cloudformation_dataclasses.aws.iam import ManagedPolicy, Role
+from cloudformation_dataclasses.aws import (
+    cloudwatch,
+    ec2,
+    iam,
+    neptune,
+    sns,
+)
+from cloudformation_dataclasses.aws.iam import ManagedPolicy
 from cloudformation_dataclasses.aws.sns import Subscription
 from cloudformation_dataclasses.intrinsics import (
     Equals,
@@ -111,7 +117,6 @@ __all__ = [
     "PolicyDocument",
     "PolicyStatement",
     "Port",
-    "Role",
     "SNSEmailSubscription",
     "STRING",
     "SparqlRequestsPerSecThreshold",
@@ -129,6 +134,7 @@ __all__ = [
     "cloudwatch",
     "ec2",
     "get_att",
+    "iam",
     "neptune",
     "ref",
     "sns",

@@ -74,7 +74,7 @@ class AWSManagedADLinuxEC2DomainJoinRolePolicy1:
 class AWSManagedADLinuxEC2DomainJoinRole:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     role_name = Sub('${AWSManagedADDomainNetBiosName}-LinuxEC2DomainJoinRole-AWSManagedAD')
     description = Sub('IAM Role to Seamlessly Join Linux EC2 Instances to ${AWSManagedADDomainNetBiosName} Domain via AWS Managed Microsoft AD')
     assume_role_policy_document = AWSManagedADLinuxEC2DomainJoinRoleAssumeRolePolicyDocument

@@ -99,7 +99,7 @@ class DirectorySettingsLambdaRolePolicy1:
 class DirectorySettingsLambdaRole:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     role_name = Sub('${LambdaFunctionName}-LambdaRole')
     description = Sub('Rights to Setup Directory Settings for Directory ID, ${DirectoryID}')
     assume_role_policy_document = DirectorySettingsLambdaRoleAssumeRolePolicyDocument

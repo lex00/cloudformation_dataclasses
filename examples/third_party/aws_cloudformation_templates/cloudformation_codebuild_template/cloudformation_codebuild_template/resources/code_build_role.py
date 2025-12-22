@@ -99,6 +99,6 @@ class CodeBuildRolePolicy2:
 class CodeBuildRole:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     assume_role_policy_document = CodeBuildRoleAssumeRolePolicyDocument
     policies = [CodeBuildRolePolicy, CodeBuildRolePolicy1, CodeBuildRolePolicy2]

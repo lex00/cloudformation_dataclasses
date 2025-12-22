@@ -13,7 +13,12 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import ec2
-from cloudformation_dataclasses.intrinsics import AWS_REGION, Base64, FindInMap, Sub
+from cloudformation_dataclasses.intrinsics import (
+    AWS_REGION,
+    Base64,
+    FindInMap,
+    Sub,
+)
 
 from .stack_config import (
     IAMRole,

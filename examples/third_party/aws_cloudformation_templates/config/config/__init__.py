@@ -24,7 +24,6 @@ from cloudformation_dataclasses.aws import (
     sns,
 )
 from cloudformation_dataclasses.aws.config import ConfigRule, ConfigurationRecorder
-from cloudformation_dataclasses.aws.iam import Role
 from cloudformation_dataclasses.aws.s3 import ServerSideEncryption
 from cloudformation_dataclasses.aws.sns import TopicPolicy
 from cloudformation_dataclasses.intrinsics import (
@@ -35,7 +34,12 @@ from cloudformation_dataclasses.intrinsics import (
     Select,
 )
 
-from .stack_config import CreateDeliveryChannelCondition, DeliveryChannelExists, Ec2VolumeAutoEnableIO, Ec2VolumeTagKey
+from .stack_config import (
+    CreateDeliveryChannelCondition,
+    DeliveryChannelExists,
+    Ec2VolumeAutoEnableIO,
+    Ec2VolumeTagKey,
+)
 
 from .resources import *  # noqa: F403, F401
 
@@ -66,7 +70,6 @@ __all__ = [
     "Parameter",
     "PolicyDocument",
     "PolicyStatement",
-    "Role",
     "STRING",
     "STRING_EQUALS",
     "Select",

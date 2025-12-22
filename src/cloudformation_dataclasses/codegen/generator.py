@@ -558,21 +558,6 @@ def generate_service_package(
     return package_dir
 
 
-# Keep old function for backwards compatibility during transition
-def generate_service_module(
-    service: str,
-    spec: CloudFormationSpec,
-    output_dir: Path,
-) -> Path:
-    """
-    Generate a complete module file for an AWS service.
-
-    DEPRECATED: Use generate_service_package() instead.
-    This function now delegates to generate_service_package().
-    """
-    return generate_service_package(service, spec, output_dir)
-
-
 if __name__ == "__main__":
     """CLI for generating resource classes."""
     import sys

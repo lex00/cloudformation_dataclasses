@@ -25,6 +25,8 @@ from pathlib import Path
 from types import ModuleType
 from typing import Any
 
+from cloudformation_dataclasses.constants import CLASS_NAME_PATTERN
+
 
 def _find_class_refs_in_source(source: str) -> set[str]:
     """Extract class names from ref(X), get_att(X, ...), and Ref[X] patterns.
@@ -50,7 +52,7 @@ def _find_class_refs_in_source(source: str) -> set[str]:
 
 def _find_class_definitions(source: str) -> list[str]:
     """Extract class names defined in a source file."""
-    return re.findall(r'^class (\w+)', source, re.MULTILINE)
+    return CLASS_NAME_PATTERN.findall(source)
 
 
 def _topological_sort(deps: dict[str, set[str]]) -> list[str]:

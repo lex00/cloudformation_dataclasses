@@ -51,7 +51,7 @@ class ADConnectorWindowsEC2DomainJoinRolePolicy:
 class ADConnectorWindowsEC2DomainJoinRole:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     role_name = Sub('${DomainNetBiosName}-ADConnector-WindowsEC2DomainJoinRole')
     description = Sub('IAM Role to Seamlessly Join Windows EC2 Instances to ${DomainDNSName} Domain via AD Connector')
     assume_role_policy_document = ADConnectorWindowsEC2DomainJoinRoleAssumeRolePolicyDocument

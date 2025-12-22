@@ -23,7 +23,6 @@ from cloudformation_dataclasses.aws import (
 )
 from cloudformation_dataclasses.aws.dms import ReplicationInstance, ReplicationSubnetGroup, ReplicationTask
 from cloudformation_dataclasses.aws.ec2 import Subnet, SubnetRouteTableAssociation, VPCGatewayAttachment
-from cloudformation_dataclasses.aws.iam import Role
 from cloudformation_dataclasses.aws.s3 import ServerSideEncryption
 from cloudformation_dataclasses.intrinsics import (
     AWS_REGION,
@@ -80,7 +79,6 @@ __all__ = [
     "ReplicationInstance",
     "ReplicationSubnetGroup",
     "ReplicationTask",
-    "Role",
     "Route",
     "RouteTable",
     "S3Bucket",

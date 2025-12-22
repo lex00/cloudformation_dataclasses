@@ -15,7 +15,7 @@ class TestResourceGetIntegration:
 class TestResourceGet:
     """AWS::ApiGateway::Method resource."""
 
-    resource: Method
+    resource: apigateway.Method
     http_method = 'GET'
     resource_id = ref(TestResourceResource)
     rest_api_id = ref(RestApi)

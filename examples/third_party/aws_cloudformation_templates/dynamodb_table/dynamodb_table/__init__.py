@@ -15,7 +15,12 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.aws import dynamodb
 from cloudformation_dataclasses.aws.dynamodb import KeyType
 
-from .stack_config import HashKeyElementName, HashKeyElementType, ReadCapacityUnits, WriteCapacityUnits
+from .stack_config import (
+    HashKeyElementName,
+    HashKeyElementType,
+    ReadCapacityUnits,
+    WriteCapacityUnits,
+)
 
 from .resources import *  # noqa: F403, F401
 

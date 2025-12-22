@@ -17,7 +17,6 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import iam, lambda_, sns
-from cloudformation_dataclasses.aws.iam import Role
 from cloudformation_dataclasses.aws.logs import LogGroup
 from cloudformation_dataclasses.intrinsics import (
     AWS_NO_VALUE,
@@ -88,7 +87,6 @@ __all__ = [
     "ParameterType",
     "PolicyDocument",
     "PolicyStatement",
-    "Role",
     "STRING",
     "SecurityGroups",
     "Sub",

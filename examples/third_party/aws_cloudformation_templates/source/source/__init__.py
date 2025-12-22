@@ -14,7 +14,6 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import iam, kms, s3
-from cloudformation_dataclasses.aws.iam import Role
 from cloudformation_dataclasses.aws.s3 import ReplicationRuleStatus, ServerSideEncryption
 from cloudformation_dataclasses.intrinsics import Sub
 
@@ -31,7 +30,6 @@ __all__ = [
     "PolicyStatement",
     "ReplicationRole",
     "ReplicationRuleStatus",
-    "Role",
     "S3BucketSource",
     "STRING",
     "STRING_EQUALS",

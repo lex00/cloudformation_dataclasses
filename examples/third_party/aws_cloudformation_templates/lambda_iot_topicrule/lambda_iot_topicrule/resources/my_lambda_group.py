@@ -71,7 +71,7 @@ class MyLambdaRolePolicy:
 class MyLambdaRole:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     assume_role_policy_document = MyLambdaRoleAssumeRolePolicyDocument
     path = '/'
     policies = [MyLambdaRolePolicy]

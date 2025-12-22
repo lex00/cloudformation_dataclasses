@@ -15,7 +15,6 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import iam, kinesisfirehose
-from cloudformation_dataclasses.aws.iam import Role
 from cloudformation_dataclasses.aws.logs import LogGroup, LogStream
 from cloudformation_dataclasses.intrinsics import (
     AWS_ACCOUNT_ID,
@@ -63,7 +62,6 @@ __all__ = [
     "Parameter",
     "PolicyDocument",
     "PolicyStatement",
-    "Role",
     "STRING",
     "STRING_EQUALS",
     "Sub",

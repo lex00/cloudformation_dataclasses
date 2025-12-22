@@ -141,7 +141,7 @@ class ADConnectorLambdaRolePolicy2:
 class ADConnectorLambdaRole:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     role_name = Sub('${LambdaFunctionName}-LambdaRole')
     description = 'Rights to Setup AD Connector'
     assume_role_policy_document = ADConnectorLambdaRoleAssumeRolePolicyDocument

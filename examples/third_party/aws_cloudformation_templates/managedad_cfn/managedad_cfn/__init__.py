@@ -18,7 +18,6 @@ from cloudformation_dataclasses.core import (
 from cloudformation_dataclasses.aws import directoryservice, ec2, iam
 from cloudformation_dataclasses.aws.directoryservice import MicrosoftAD
 from cloudformation_dataclasses.aws.ec2 import VPCDHCPOptionsAssociation
-from cloudformation_dataclasses.aws.iam import Role
 from cloudformation_dataclasses.aws.iam.user import Policy
 from cloudformation_dataclasses.aws.secretsmanager import Secret
 from cloudformation_dataclasses.intrinsics import (
@@ -88,7 +87,6 @@ __all__ = [
     "PolicyStatement",
     "PrivateSubnet1ID",
     "PrivateSubnet2ID",
-    "Role",
     "SSMLogsBucketName",
     "SSMLogsBucketNameConditionCondition",
     "STRING",

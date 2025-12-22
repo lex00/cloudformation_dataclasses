@@ -76,7 +76,7 @@ class DeliveryRolePolicy:
 class DeliveryRole:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     assume_role_policy_document = DeliveryRoleAssumeRolePolicyDocument
     path = '/'
     policies = [DeliveryRolePolicy]

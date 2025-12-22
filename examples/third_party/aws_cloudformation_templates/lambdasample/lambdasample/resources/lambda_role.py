@@ -22,7 +22,7 @@ class LambdaRoleAssumeRolePolicyDocument:
 class LambdaRole:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     role_name = 'lambda-role'
     assume_role_policy_document = LambdaRoleAssumeRolePolicyDocument
     managed_policy_arns = ['arn:aws:iam::aws:policy/AWSLambdaExecute', 'arn:aws:iam::aws:policy/AmazonS3FullAccess', 'arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess', 'arn:aws:iam::aws:policy/AmazonKinesisFullAccess']

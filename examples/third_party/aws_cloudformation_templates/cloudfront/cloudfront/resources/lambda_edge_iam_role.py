@@ -46,7 +46,7 @@ class LambdaEdgeIAMRolePolicy:
 class LambdaEdgeIAMRole:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     role_name = Sub('${AppName}-iam-lambda-edge-role-${Environment}')
     assume_role_policy_document = LambdaEdgeIAMRoleAssumeRolePolicyDocument
     managed_policy_arns = ['arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole', 'arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess']

@@ -17,7 +17,6 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.aws import ec2, iam
 from cloudformation_dataclasses.aws.ec2 import FlowLog
-from cloudformation_dataclasses.aws.iam import Role
 from cloudformation_dataclasses.aws.logs import LogGroup
 from cloudformation_dataclasses.intrinsics import (
     AWS_NO_VALUE,
@@ -53,7 +52,6 @@ __all__ = [
     "ParameterType",
     "PolicyDocument",
     "PolicyStatement",
-    "Role",
     "STRING",
     "Template",
     "VPCFlowLogsCloudWatchKMSKey",

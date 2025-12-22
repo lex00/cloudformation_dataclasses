@@ -15,10 +15,14 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import ec2, greengrass, iam, lambda_
+from cloudformation_dataclasses.aws import (
+    ec2,
+    greengrass,
+    iam,
+    lambda_,
+)
 from cloudformation_dataclasses.aws.ec2 import RouteTable, Subnet, SubnetRouteTableAssociation
 from cloudformation_dataclasses.aws.greengrass import CoreDefinition, CoreDefinitionVersion
-from cloudformation_dataclasses.aws.iam import Role
 from cloudformation_dataclasses.aws.lambda_ import Version
 from cloudformation_dataclasses.intrinsics import (
     AWS_ACCOUNT_ID,
@@ -76,7 +80,6 @@ __all__ = [
     "ParameterType",
     "PolicyDocument",
     "PolicyStatement",
-    "Role",
     "RouteTable",
     "RouteTableAssociationAPublic",
     "RouteTablePublic",

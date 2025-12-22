@@ -14,7 +14,6 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import iam
-from cloudformation_dataclasses.aws.iam import Role
 from cloudformation_dataclasses.intrinsics import AWS_STACK_NAME, Split
 
 from .stack_config import PeerOwnerIds
@@ -29,7 +28,6 @@ __all__ = [
     "PeerRole",
     "PolicyDocument",
     "PolicyStatement",
-    "Role",
     "STRING",
     "Split",
     "Template",

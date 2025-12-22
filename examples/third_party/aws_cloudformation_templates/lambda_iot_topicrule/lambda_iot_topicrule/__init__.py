@@ -13,8 +13,12 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import iam, iot, lambda_
-from cloudformation_dataclasses.aws.iam import Role
-from cloudformation_dataclasses.aws.iot import PolicyPrincipalAttachment, Thing, ThingPrincipalAttachment, TopicRule
+from cloudformation_dataclasses.aws.iot import (
+    PolicyPrincipalAttachment,
+    Thing,
+    ThingPrincipalAttachment,
+    TopicRule,
+)
 from cloudformation_dataclasses.aws.lambda_ import Version
 from cloudformation_dataclasses.intrinsics import Sub
 
@@ -38,7 +42,6 @@ __all__ = [
     "PolicyDocument",
     "PolicyPrincipalAttachment",
     "PolicyStatement",
-    "Role",
     "STRING",
     "Sub",
     "Template",

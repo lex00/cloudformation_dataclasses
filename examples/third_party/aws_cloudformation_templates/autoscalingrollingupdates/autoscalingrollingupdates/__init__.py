@@ -15,9 +15,13 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import autoscaling, ec2, elasticloadbalancing, iam
+from cloudformation_dataclasses.aws import (
+    autoscaling,
+    ec2,
+    elasticloadbalancing,
+    iam,
+)
 from cloudformation_dataclasses.aws.autoscaling import AutoScalingGroup
-from cloudformation_dataclasses.aws.iam import Role
 from cloudformation_dataclasses.intrinsics import (
     AWS_REGION,
     Base64,
@@ -58,7 +62,6 @@ __all__ = [
     "ParameterType",
     "PolicyDocument",
     "PolicyStatement",
-    "Role",
     "SSHLocation",
     "STRING",
     "Sub",

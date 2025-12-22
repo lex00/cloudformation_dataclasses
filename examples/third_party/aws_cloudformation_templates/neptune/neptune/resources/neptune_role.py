@@ -25,7 +25,7 @@ class NeptuneRoleAssumeRolePolicyDocument:
 class NeptuneRole:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     role_name = Sub('${Env}-${AppName}-neptune-iam-role-${AWS::Region}')
     assume_role_policy_document = NeptuneRoleAssumeRolePolicyDocument
     managed_policy_arns = [ref(NeptuneCloudWatchPolicy), ref(NeptuneS3Policy)]

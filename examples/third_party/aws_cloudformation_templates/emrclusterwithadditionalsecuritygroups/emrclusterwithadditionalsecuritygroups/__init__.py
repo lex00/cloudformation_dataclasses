@@ -17,7 +17,6 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.aws import emr, iam
 from cloudformation_dataclasses.aws.emr.cluster import BootstrapActionConfig
-from cloudformation_dataclasses.aws.iam import Role
 from cloudformation_dataclasses.intrinsics import AWS_NO_VALUE, Equals, If
 
 from .stack_config import (
@@ -65,7 +64,6 @@ __all__ = [
     "PolicyDocument",
     "PolicyStatement",
     "ReleaseLabel",
-    "Role",
     "S3DataUri",
     "STRING",
     "SparkCondition",

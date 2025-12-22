@@ -15,7 +15,7 @@ class JwtResourceOptionsIntegration:
 class JwtResourceOptions:
     """AWS::ApiGateway::Method resource."""
 
-    resource: Method
+    resource: apigateway.Method
     http_method = 'OPTIONS'
     resource_id = ref(JwtResourceResource)
     rest_api_id = ref(RestApi)

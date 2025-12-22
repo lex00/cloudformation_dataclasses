@@ -78,7 +78,7 @@ class TagVpcPeeringConnectionsLambdaRolePolicy1:
 class TagVpcPeeringConnectionsLambdaRole:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     role_name = Sub('${LambdaFunctionName}-LambdaRole')
     description = 'Rights to Tag VPC Peering Connection'
     assume_role_policy_document = TagVpcPeeringConnectionsLambdaRoleAssumeRolePolicyDocument

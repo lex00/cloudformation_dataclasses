@@ -14,7 +14,12 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import ec2, elasticloadbalancing
-from cloudformation_dataclasses.intrinsics import Base64, GetAZs, Join, Sub
+from cloudformation_dataclasses.intrinsics import (
+    Base64,
+    GetAZs,
+    Join,
+    Sub,
+)
 
 from .stack_config import (
     InstanceType,

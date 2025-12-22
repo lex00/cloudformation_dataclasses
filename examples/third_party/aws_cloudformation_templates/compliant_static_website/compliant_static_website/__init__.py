@@ -19,9 +19,14 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import cloudfront, s3
-from cloudformation_dataclasses.aws.iam import Role, RolePolicy
-from cloudformation_dataclasses.aws.s3 import ObjectLockEnabled, ObjectLockRetentionMode, ReplicationRuleStatus, ServerSideEncryption
+from cloudformation_dataclasses.aws import cloudfront, iam, s3
+from cloudformation_dataclasses.aws.iam import RolePolicy
+from cloudformation_dataclasses.aws.s3 import (
+    ObjectLockEnabled,
+    ObjectLockRetentionMode,
+    ReplicationRuleStatus,
+    ServerSideEncryption,
+)
 from cloudformation_dataclasses.intrinsics import (
     AWS_ACCOUNT_ID,
     AWS_STACK_ID,
@@ -68,7 +73,6 @@ __all__ = [
     "PolicyDocument",
     "PolicyStatement",
     "ReplicationRuleStatus",
-    "Role",
     "RolePolicy",
     "STRING",
     "STRING_EQUALS",
@@ -81,6 +85,7 @@ __all__ = [
     "cloudformation_dataclass",
     "cloudfront",
     "get_att",
+    "iam",
     "ref",
     "s3",
 ]

@@ -22,7 +22,7 @@ class DirectoryConsoleDelegatedAccessEC2ReadOnlyRoleAssumeRolePolicyDocument:
 class DirectoryConsoleDelegatedAccessEC2ReadOnlyRole:
     """AWS::IAM::Role resource."""
 
-    resource: Role
+    resource: iam.Role
     description = 'IAM Role for Directory Service \'AWS Management Console\' Delegated Access for "EC2 ReadOnly"'
     assume_role_policy_document = DirectoryConsoleDelegatedAccessEC2ReadOnlyRoleAssumeRolePolicyDocument
     managed_policy_arns = [Sub('arn:${AWS::Partition}:iam::aws:policy/AmazonEC2ReadOnlyAccess')]
