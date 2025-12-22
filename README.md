@@ -71,7 +71,6 @@ pip install cloudformation-dataclasses
 | **[Quick Start](docs/QUICK_START.md)** | Create new projects with `cfn-dataclasses-init` |
 | **[Template Importer](docs/IMPORTER.md)** | Convert existing YAML/JSON templates to Python |
 | **[Linter](docs/LINTER.md)** | Detect and auto-fix common mistakes |
-| **[Forward References](docs/FORWARD_REFERENCES.md)** | Cross-module resource references with `Ref[T]` |
 | **[Resource Registry](docs/REGISTRY.md)** | Auto-registration and multi-file organization |
 | **[Agent Guide](docs/AGENT_GUIDE.md)** | Workflows for AI assistants |
 | **[Code Generator](docs/GENERATOR.md)** | Regenerate AWS resources from CloudFormation specs |

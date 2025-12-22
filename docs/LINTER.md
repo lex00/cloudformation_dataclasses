@@ -241,7 +241,6 @@ issues = lint_code(code, rules=[
 
 ## See Also
 
-- [Forward References](./FORWARD_REFERENCES.md) - Cross-module resource references with `Ref[T]` and `GetAtt[T]` (not handled by linter)
 - [Agent Guide](./AGENT_GUIDE.md) - Workflows for AI assistants
 - [IMPORTER.md](IMPORTER.md) - Full importer documentation
 - [README.md](../README.md) - Library overview

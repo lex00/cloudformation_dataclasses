@@ -391,10 +391,8 @@ from __future__ import annotations
 @cloudformation_dataclass
 class MyBucketPolicy:
     resource: BucketPolicy
-    bucket: Ref[MyBucket] = ref()  # Uses generated Ref type marker
+    bucket = ref(MyBucket)  # Direct class reference
 ```
-
-See [Forward References](FORWARD_REFERENCES.md) for detailed documentation on how annotation-based references work in user code.
 
 ## Files
 

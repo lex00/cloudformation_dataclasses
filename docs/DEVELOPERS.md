@@ -718,7 +718,6 @@ uv run python -m cloudformation_dataclasses.codegen.spec_parser version
 ## Additional Resources
 
 - **User Guide**: [README.md](../README.md) - End-user documentation
-- **Forward References**: [FORWARD_REFERENCES.md](./FORWARD_REFERENCES.md) - Cross-module refs with `Ref[T]` and `GetAtt[T]`
 - **Template Importer**: [IMPORTER.md](./IMPORTER.md) - Convert CloudFormation templates to Python
 - **Linter**: [LINTER.md](./LINTER.md) - Detect and fix common mistakes
 - **Agent Guide**: [AGENT_GUIDE.md](./AGENT_GUIDE.md) - Workflows for AI assistants

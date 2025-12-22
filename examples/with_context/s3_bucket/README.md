@@ -324,11 +324,9 @@ bucket: Ref[MyData] = ref()  # Creates {"Ref": "MyData"}
 **Which pattern to use?**
 - **String refs** - Simple cases, no IDE navigation needed
 - **Direct refs** - Same-file or already-imported classes
-- **Annotation-based refs** - Cross-module with full IDE support (autocomplete, go-to-definition)
+- **Class-based refs** - Cross-module with full IDE support (autocomplete, go-to-definition)
 
-For cross-module references, annotation-based refs are recommended because they provide IDE support without creating import dependencies.
-
-See [Forward References](../../../docs/FORWARD_REFERENCES.md) for detailed documentation on annotation-based patterns with `Ref[T]` and `GetAtt[T]`.
+For cross-module references, import the target class and use `ref(ClassName)` or `get_att(ClassName, "Attr")`.
 
 ### 5. Tag Merging
 

@@ -672,10 +672,8 @@ class ContentBucketLoggingConfiguration:
 @cloudformation_dataclass
 class MyLambdaFunction:
     resource: Function
-    role: GetAtt[LambdaIAMRole] = get_att("Arn")  # Annotation-based GetAtt
+    role = get_att(LambdaIAMRole, "Arn")
 ```
-
-See [Forward References](FORWARD_REFERENCES.md) for details.
 
 ### DependsOn Class References
 
