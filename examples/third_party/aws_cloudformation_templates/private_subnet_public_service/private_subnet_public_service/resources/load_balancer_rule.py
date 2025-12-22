@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """LoadBalancerRule - AWS::ElasticLoadBalancingV2::ListenerRule resource."""
 
 from .. import *  # noqa: F403

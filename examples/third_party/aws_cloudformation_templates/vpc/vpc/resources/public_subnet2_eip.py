@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """PublicSubnet2EIP - AWS::EC2::EIP resource."""
 
 from .. import *  # noqa: F403

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """AWSCloudFormationStackSetAdministrationRole - AWS::IAM::Role resource."""
 
 from .. import *  # noqa: F403

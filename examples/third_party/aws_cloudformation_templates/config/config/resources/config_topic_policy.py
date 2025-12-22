@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """ConfigTopicPolicy - AWS::SNS::TopicPolicy resource."""
 
 from .. import *  # noqa: F403

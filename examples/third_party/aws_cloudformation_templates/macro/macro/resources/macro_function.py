@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """MacroFunction - AWS::Serverless::Function resource."""
 
 from .. import *  # noqa: F403

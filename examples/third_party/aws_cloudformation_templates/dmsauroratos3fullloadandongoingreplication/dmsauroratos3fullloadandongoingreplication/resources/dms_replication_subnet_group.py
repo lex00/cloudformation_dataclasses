@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """DMSReplicationSubnetGroup - AWS::DMS::ReplicationSubnetGroup resource."""
 
 from .. import *  # noqa: F403

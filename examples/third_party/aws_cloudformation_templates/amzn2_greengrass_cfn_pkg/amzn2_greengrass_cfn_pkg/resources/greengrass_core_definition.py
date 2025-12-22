@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """GreengrassCoreDefinition - AWS::Greengrass::CoreDefinition resource."""
 
 from .. import *  # noqa: F403

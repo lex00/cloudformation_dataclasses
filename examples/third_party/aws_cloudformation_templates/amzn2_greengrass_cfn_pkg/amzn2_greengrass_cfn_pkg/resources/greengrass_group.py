@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """GreengrassGroup - AWS::Greengrass::Group resource."""
 
 from .. import *  # noqa: F403

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """HTTPTcpIn - AWS::EC2::SecurityGroupIngress resource."""
 
 from .. import *  # noqa: F403

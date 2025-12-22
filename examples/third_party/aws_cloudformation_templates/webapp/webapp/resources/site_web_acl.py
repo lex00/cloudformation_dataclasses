@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """SiteWebACL - AWS::WAFv2::WebACL resource."""
 
 from .. import *  # noqa: F403

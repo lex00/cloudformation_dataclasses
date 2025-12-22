@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """LaunchConfig - AWS::AutoScaling::LaunchConfiguration resource."""
 
 from .. import *  # noqa: F403

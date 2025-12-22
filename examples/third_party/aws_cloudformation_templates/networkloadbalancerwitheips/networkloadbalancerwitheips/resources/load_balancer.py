@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """loadBalancer - AWS::ElasticLoadBalancingV2::LoadBalancer resource."""
 
 from .. import *  # noqa: F403

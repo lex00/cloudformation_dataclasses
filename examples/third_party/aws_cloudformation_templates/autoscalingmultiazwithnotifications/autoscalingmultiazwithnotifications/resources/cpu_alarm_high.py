@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """CPUAlarmHigh - AWS::CloudWatch::Alarm resource."""
 
 from .. import *  # noqa: F403

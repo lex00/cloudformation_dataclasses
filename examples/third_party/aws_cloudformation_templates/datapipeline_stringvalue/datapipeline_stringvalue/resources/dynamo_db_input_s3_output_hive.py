@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """DynamoDBInputS3OutputHive - AWS::DataPipeline::Pipeline resource."""
 
 from .. import *  # noqa: F403

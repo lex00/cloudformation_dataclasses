@@ -2206,10 +2206,6 @@ def _generate_resources_package(pkg_ctx: PackageContext, template: IRTemplate) -
         lines = []
         filename = _logical_id_to_filename(resource_id)
 
-        # PEP 563 future annotations for forward references
-        lines.append("from __future__ import annotations")
-        lines.append("")
-
         # Docstring
         lines.append(f'"""{resource_id} - {resource.resource_type} resource."""')
         lines.append("")

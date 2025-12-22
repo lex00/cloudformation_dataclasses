@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """ServiceCatalogPortfolioShare - AWS::ServiceCatalog::PortfolioShare resource."""
 
 from .. import *  # noqa: F403

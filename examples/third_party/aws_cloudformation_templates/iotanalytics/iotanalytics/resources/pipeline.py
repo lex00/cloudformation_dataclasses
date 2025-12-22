@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Pipeline - AWS::IoTAnalytics::Pipeline resource."""
 
 from .. import *  # noqa: F403

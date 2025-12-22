@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """TestResourceResource - AWS::ApiGateway::Resource resource."""
 
 from .. import *  # noqa: F403

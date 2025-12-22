@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """PeerRoute2 - AWS::EC2::Route resource."""
 
 from .. import *  # noqa: F403

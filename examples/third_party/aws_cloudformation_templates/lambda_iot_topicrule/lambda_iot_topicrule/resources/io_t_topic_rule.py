@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """IoTTopicRule - AWS::IoT::TopicRule resource."""
 
 from .. import *  # noqa: F403

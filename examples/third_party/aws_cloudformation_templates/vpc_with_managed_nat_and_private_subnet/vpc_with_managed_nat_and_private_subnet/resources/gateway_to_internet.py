@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """GatewayToInternet - AWS::EC2::VPCGatewayAttachment resource."""
 
 from .. import *  # noqa: F403

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """InstanceAZ - Custom::InstanceAZ resource."""
 
 from .. import *  # noqa: F403

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """AWSManagedADLinuxEC2SeamlessDomainJoinSecret - AWS::SecretsManager::Secret resource."""
 
 from .. import *  # noqa: F403

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """CloudFrontLogsReplicaBucket - AWS::S3::Bucket resource."""
 
 from .. import *  # noqa: F403

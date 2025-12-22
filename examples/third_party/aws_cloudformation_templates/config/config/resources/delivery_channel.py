@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """DeliveryChannel - AWS::Config::DeliveryChannel resource."""
 
 from .. import *  # noqa: F403

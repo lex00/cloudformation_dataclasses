@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """CentralEventLogQuery - AWS::Logs::QueryDefinition resource."""
 
 from .. import *  # noqa: F403

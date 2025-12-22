@@ -1,12 +1,12 @@
-"""Tests for config example."""
+"""Tests for efs_with_automount_to_ec2 example."""
 
 import pytest
 
-from config.main import build_template
+from efs_with_automount_to_ec2.main import build_template
 
 
-class TestConfig:
-    """Test config example."""
+class TestEfsWithAutomountToEc2:
+    """Test efs_with_automount_to_ec2 example."""
 
     @pytest.fixture
     def template(self):
@@ -21,4 +21,4 @@ class TestConfig:
     def test_resource_count(self, template):
         """Verify expected number of resources."""
         output = template.to_dict()
-        assert len(output["Resources"]) == 12
+        assert len(output["Resources"]) == 17

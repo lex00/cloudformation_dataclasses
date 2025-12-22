@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """CloudFormationEventRule - AWS::Events::Rule resource."""
 
 from .. import *  # noqa: F403

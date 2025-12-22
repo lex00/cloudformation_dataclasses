@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """NeptunePrimarySparqlRequestsPerSecAlarm - AWS::CloudWatch::Alarm resource."""
 
 from .. import *  # noqa: F403

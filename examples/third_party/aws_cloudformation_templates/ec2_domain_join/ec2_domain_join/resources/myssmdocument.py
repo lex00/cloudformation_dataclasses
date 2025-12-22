@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """myssmdocument - AWS::SSM::Document resource."""
 
 from .. import *  # noqa: F403

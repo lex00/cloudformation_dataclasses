@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """IPAddress - AWS::EC2::EIP resource."""
 
 from .. import *  # noqa: F403

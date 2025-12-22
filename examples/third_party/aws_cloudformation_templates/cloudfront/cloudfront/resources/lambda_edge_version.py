@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """LambdaEdgeVersion - AWS::Lambda::Version resource."""
 
 from .. import *  # noqa: F403

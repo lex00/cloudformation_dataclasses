@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """RestApiAuthorizer - AWS::ApiGateway::Authorizer resource."""
 
 from .. import *  # noqa: F403

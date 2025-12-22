@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """OriginALBHttpsListener - AWS::ElasticLoadBalancingV2::Listener resource."""
 
 from .. import *  # noqa: F403

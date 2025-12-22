@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """ECSCluster - AWS::ECS::Cluster resource."""
 
 from .. import *  # noqa: F403

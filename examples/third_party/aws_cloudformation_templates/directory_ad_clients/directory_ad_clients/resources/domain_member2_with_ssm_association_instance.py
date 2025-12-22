@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """DomainMember2WithSsmAssociationInstance - AWS::EC2::Instance resource."""
 
 from .. import *  # noqa: F403

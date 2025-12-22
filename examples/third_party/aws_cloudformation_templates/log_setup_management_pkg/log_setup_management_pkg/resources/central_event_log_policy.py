@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """CentralEventLogPolicy - AWS::Logs::ResourcePolicy resource."""
 
 from .. import *  # noqa: F403

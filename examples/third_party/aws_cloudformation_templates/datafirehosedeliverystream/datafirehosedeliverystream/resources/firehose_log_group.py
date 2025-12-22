@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """FirehoseLogGroup - AWS::Logs::LogGroup resource."""
 
 from .. import *  # noqa: F403

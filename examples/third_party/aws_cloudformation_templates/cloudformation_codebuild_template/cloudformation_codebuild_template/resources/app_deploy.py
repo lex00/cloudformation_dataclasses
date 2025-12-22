@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """AppDeploy - AWS::CodeBuild::Project resource."""
 
 from .. import *  # noqa: F403

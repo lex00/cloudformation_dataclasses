@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """SqlDataset - AWS::IoTAnalytics::Dataset resource."""
 
 from .. import *  # noqa: F403

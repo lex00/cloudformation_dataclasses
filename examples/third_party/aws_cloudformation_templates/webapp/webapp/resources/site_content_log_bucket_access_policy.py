@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """SiteContentLogBucketAccessPolicy - AWS::S3::BucketPolicy resource."""
 
 from .. import *  # noqa: F403

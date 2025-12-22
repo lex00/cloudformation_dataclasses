@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """AWSManagedADWindowsEC2DomainJoinInstanceProfile - AWS::IAM::InstanceProfile resource."""
 
 from .. import *  # noqa: F403

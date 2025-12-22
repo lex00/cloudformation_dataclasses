@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """AuroraDB - AWS::RDS::DBInstance resource."""
 
 from .. import *  # noqa: F403

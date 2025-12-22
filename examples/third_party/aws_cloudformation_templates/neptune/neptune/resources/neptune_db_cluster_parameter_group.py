@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """NeptuneDBClusterParameterGroup - AWS::Neptune::DBClusterParameterGroup resource."""
 
 from .. import *  # noqa: F403

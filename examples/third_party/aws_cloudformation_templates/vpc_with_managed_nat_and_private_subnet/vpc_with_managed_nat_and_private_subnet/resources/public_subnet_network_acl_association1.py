@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """PublicSubnetNetworkAclAssociation1 - AWS::EC2::SubnetNetworkAclAssociation resource."""
 
 from .. import *  # noqa: F403

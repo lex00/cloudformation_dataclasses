@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Channel - AWS::IoTAnalytics::Channel resource."""
 
 from .. import *  # noqa: F403

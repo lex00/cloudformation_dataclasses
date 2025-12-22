@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Datastore - AWS::IoTAnalytics::Datastore resource."""
 
 from .. import *  # noqa: F403

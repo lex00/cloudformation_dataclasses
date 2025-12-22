@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """ConfigRuleForVolumeAutoEnableIO - AWS::Config::ConfigRule resource."""
 
 from .. import *  # noqa: F403

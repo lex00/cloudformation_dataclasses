@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """GetFromJsonCustomResourceSampleGetFromMap - Custom::GetFromJson resource."""
 
 from .. import *  # noqa: F403

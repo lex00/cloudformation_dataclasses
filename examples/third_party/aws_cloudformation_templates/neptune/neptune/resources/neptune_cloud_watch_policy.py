@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """NeptuneCloudWatchPolicy - AWS::IAM::ManagedPolicy resource."""
 
 from .. import *  # noqa: F403

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """ObjectStorageReplicationPolicy - AWS::IAM::RolePolicy resource."""
 
 from .. import *  # noqa: F403

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """PrivateSubnetRouteTableAssociation1 - AWS::EC2::SubnetRouteTableAssociation resource."""
 
 from .. import *  # noqa: F403

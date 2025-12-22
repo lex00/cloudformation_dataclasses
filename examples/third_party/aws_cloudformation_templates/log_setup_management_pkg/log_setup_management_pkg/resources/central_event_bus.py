@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """CentralEventBus - AWS::Events::EventBus resource."""
 
 from .. import *  # noqa: F403

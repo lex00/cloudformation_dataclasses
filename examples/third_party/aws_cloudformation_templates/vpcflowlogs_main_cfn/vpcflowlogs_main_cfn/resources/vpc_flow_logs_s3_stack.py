@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """VPCFlowLogsS3Stack - AWS::CloudFormation::Stack resource."""
 
 from .. import *  # noqa: F403

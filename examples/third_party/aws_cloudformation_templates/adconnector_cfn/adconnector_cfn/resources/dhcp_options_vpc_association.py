@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """DHCPOptionsVPCAssociation - AWS::EC2::VPCDHCPOptionsAssociation resource."""
 
 from .. import *  # noqa: F403

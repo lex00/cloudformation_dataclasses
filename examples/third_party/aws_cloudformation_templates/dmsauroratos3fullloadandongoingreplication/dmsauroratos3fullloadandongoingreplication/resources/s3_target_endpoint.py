@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """S3TargetEndpoint - AWS::DMS::Endpoint resource."""
 
 from .. import *  # noqa: F403

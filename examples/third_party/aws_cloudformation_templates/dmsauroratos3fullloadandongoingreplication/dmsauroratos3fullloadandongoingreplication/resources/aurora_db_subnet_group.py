@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """AuroraDBSubnetGroup - AWS::RDS::DBSubnetGroup resource."""
 
 from .. import *  # noqa: F403

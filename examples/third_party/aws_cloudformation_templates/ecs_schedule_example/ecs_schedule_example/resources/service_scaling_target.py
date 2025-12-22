@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """ServiceScalingTarget - AWS::ApplicationAutoScaling::ScalableTarget resource."""
 
 from .. import *  # noqa: F403

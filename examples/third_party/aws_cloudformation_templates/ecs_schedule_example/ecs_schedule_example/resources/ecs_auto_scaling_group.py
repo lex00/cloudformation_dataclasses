@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """ECSAutoScalingGroup - AWS::AutoScaling::AutoScalingGroup resource."""
 
 from .. import *  # noqa: F403

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Distribution - AWS::CloudFront::Distribution resource."""
 
 from .. import *  # noqa: F403

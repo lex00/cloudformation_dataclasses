@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """AWSManagedADLinuxEC2DomainJoinRole - AWS::IAM::Role resource."""
 
 from .. import *  # noqa: F403

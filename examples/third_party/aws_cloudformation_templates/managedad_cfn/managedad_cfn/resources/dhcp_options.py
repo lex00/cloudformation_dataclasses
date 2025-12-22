@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """DHCPOptions - AWS::EC2::DHCPOptions resource."""
 
 from .. import *  # noqa: F403

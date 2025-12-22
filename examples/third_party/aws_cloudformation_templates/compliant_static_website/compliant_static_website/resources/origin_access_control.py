@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """OriginAccessControl - AWS::CloudFront::OriginAccessControl resource."""
 
 from .. import *  # noqa: F403

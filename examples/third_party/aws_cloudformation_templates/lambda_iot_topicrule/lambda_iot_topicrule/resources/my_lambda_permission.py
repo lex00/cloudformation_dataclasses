@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """MyLambdaPermission - AWS::Lambda::Permission resource."""
 
 from .. import *  # noqa: F403

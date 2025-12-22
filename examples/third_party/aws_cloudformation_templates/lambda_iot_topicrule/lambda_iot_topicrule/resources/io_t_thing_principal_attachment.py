@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """IoTThingPrincipalAttachment - AWS::IoT::ThingPrincipalAttachment resource."""
 
 from .. import *  # noqa: F403

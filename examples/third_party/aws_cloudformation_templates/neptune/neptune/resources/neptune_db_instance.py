@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """NeptuneDBInstance - AWS::Neptune::DBInstance resource."""
 
 from .. import *  # noqa: F403

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """LoadBalancerEgress - AWS::EC2::SecurityGroupEgress resource."""
 
 from .. import *  # noqa: F403

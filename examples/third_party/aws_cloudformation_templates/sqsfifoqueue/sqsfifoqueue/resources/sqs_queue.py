@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """SQSQueue - AWS::SQS::Queue resource."""
 
 from .. import *  # noqa: F403

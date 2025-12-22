@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """ADConnectorDomainMembersSG - AWS::EC2::SecurityGroup resource."""
 
 from .. import *  # noqa: F403

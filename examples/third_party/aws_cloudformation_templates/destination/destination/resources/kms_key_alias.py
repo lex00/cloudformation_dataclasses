@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """KmsKeyAlias - AWS::KMS::Alias resource."""
 
 from .. import *  # noqa: F403

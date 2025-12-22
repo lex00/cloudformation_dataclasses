@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Dashboard - AWS::CloudWatch::Dashboard resource."""
 
 from .. import *  # noqa: F403

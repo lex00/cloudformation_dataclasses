@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """TaskDefinition - AWS::ECS::TaskDefinition resource."""
 
 from .. import *  # noqa: F403

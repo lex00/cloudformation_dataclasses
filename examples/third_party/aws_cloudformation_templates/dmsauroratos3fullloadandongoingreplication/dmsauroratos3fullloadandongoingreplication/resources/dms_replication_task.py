@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """DMSReplicationTask - AWS::DMS::ReplicationTask resource."""
 
 from .. import *  # noqa: F403

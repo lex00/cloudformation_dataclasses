@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """DirectoryConsoleDelegatedAccessEC2ReadOnlyRole - AWS::IAM::Role resource."""
 
 from .. import *  # noqa: F403

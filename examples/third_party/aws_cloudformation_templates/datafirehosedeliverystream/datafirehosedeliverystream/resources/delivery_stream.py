@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """DeliveryStream - AWS::KinesisFirehose::DeliveryStream resource."""
 
 from .. import *  # noqa: F403

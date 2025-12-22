@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """KWOSInstance - AWS::EC2::Instance resource."""
 
 from .. import *  # noqa: F403

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """GroupDeploymentResetFunction - AWS::Lambda::Function resource."""
 
 from .. import *  # noqa: F403

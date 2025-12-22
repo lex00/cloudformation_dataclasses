@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """CodeCommitRepo - AWS::CodeCommit::Repository resource."""
 
 from .. import *  # noqa: F403

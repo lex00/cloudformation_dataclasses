@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """VPCPeeringConnection - AWS::EC2::VPCPeeringConnection resource."""
 
 from .. import *  # noqa: F403

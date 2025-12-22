@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """PrivateWaitHandle - AWS::CloudFormation::WaitConditionHandle resource."""
 
 from .. import *  # noqa: F403

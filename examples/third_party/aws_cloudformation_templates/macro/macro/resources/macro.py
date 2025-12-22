@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Macro - AWS::CloudFormation::Macro resource."""
 
 from .. import *  # noqa: F403

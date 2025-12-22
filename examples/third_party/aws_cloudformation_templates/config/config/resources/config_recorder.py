@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """ConfigRecorder - AWS::Config::ConfigurationRecorder resource."""
 
 from .. import *  # noqa: F403

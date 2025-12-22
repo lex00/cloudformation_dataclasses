@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Service - AWS::ECS::Service resource."""
 
 from .. import *  # noqa: F403

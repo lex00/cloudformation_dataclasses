@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """CfnEndpoint - AWS::EC2::VPCEndpoint resource."""
 
 from .. import *  # noqa: F403

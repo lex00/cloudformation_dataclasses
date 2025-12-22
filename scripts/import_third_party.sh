@@ -40,7 +40,22 @@ PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 DEFAULT_SOURCE="$PROJECT_ROOT/../aws-cloudformation-templates"
 OUTPUT_DIR="$PROJECT_ROOT/examples/third_party/aws_cloudformation_templates"
 
+# Templates with known defects that cannot be imported correctly
+# These will be skipped during validation (but still imported for inspection)
+SKIP_TEMPLATES=(
+    "efs_with_automount_to_ec2"  # Malformed: JSON array syntax in YAML literal block
+)
+
 cd "$PROJECT_ROOT"
+
+# Check if a template should be skipped during validation
+should_skip_validation() {
+    local template_name="$1"
+    for skip in "${SKIP_TEMPLATES[@]}"; do
+        [[ "$template_name" == "$skip" ]] && return 0
+    done
+    return 1
+}
 
 # Helper functions
 info() {
@@ -250,14 +265,30 @@ if [ "$SKIP_VALIDATION" = false ]; then
     for pkg_dir in "${PACKAGE_DIRS[@]}"; do
         pkg_name=$(basename "$pkg_dir")
 
+        # Skip templates with known defects
+        if should_skip_validation "$pkg_name"; then
+            warn "$pkg_name (skipped - known malformed template)"
+            continue
+        fi
+
         # Run the package using uv run (each has its own pyproject.toml)
         # Install local dev version of cloudformation_dataclasses for testing
         set +e
         cd "$pkg_dir"
         rm -rf .venv 2>/dev/null
-        uv venv --quiet 2>/dev/null
-        uv pip install -e "$PROJECT_ROOT" --quiet 2>/dev/null
-        uv pip install -e . --quiet 2>/dev/null
+        uv venv --quiet
+        if ! uv pip install -e "$PROJECT_ROOT" --quiet; then
+            error "$pkg_name (failed to install dev version)"
+            VALIDATION_FAILED+=("$pkg_name")
+            cd "$PROJECT_ROOT"
+            continue
+        fi
+        if ! uv pip install -e . --quiet; then
+            error "$pkg_name (failed to install package)"
+            VALIDATION_FAILED+=("$pkg_name")
+            cd "$PROJECT_ROOT"
+            continue
+        fi
         OUTPUT=$(uv run "$pkg_name" 2>&1)
         EXIT_CODE=$?
         cd "$PROJECT_ROOT"

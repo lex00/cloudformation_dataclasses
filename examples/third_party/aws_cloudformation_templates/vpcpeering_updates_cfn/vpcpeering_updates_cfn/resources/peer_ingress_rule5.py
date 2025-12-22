@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """PeerIngressRule5 - AWS::EC2::SecurityGroupIngress resource."""
 
 from .. import *  # noqa: F403

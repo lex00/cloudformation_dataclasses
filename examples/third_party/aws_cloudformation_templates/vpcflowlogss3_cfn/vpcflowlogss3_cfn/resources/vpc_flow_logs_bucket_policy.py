@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """VPCFlowLogsBucketPolicy - AWS::S3::BucketPolicy resource."""
 
 from .. import *  # noqa: F403

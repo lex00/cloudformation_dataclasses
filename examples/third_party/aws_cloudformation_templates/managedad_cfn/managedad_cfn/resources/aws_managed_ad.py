@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """AWSManagedAD - AWS::DirectoryService::MicrosoftAD resource."""
 
 from .. import *  # noqa: F403

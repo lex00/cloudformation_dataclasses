@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """InboundHTTPPublicNetworkAclEntry - AWS::EC2::NetworkAclEntry resource."""
 
 from .. import *  # noqa: F403

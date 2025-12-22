@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """NatGateway1 - AWS::EC2::NatGateway resource."""
 
 from .. import *  # noqa: F403

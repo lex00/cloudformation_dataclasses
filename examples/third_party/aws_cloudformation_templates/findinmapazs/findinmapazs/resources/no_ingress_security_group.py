@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """NoIngressSecurityGroup - AWS::EC2::SecurityGroup resource."""
 
 from .. import *  # noqa: F403

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """ReplicaDB - AWS::RDS::DBInstance resource."""
 
 from .. import *  # noqa: F403

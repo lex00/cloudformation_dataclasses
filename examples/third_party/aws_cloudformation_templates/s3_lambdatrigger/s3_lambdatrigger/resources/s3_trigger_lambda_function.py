@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """S3TriggerLambdaFunction - AWS::Lambda::Function resource."""
 
 from .. import *  # noqa: F403

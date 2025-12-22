@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """AuroraSourceEndpoint - AWS::DMS::Endpoint resource."""
 
 from .. import *  # noqa: F403

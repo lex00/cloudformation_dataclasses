@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """MyDeadLetterQueue - AWS::SQS::Queue resource."""
 
 from .. import *  # noqa: F403

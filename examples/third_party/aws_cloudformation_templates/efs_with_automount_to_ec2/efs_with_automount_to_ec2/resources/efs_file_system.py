@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """EFSFileSystem - AWS::EFS::FileSystem resource."""
 
 from .. import *  # noqa: F403

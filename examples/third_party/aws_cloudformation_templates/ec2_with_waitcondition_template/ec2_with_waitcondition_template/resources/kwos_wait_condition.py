@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """KWOSWaitCondition - AWS::CloudFormation::WaitCondition resource."""
 
 from .. import *  # noqa: F403

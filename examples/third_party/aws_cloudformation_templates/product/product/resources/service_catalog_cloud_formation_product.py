@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """ServiceCatalogCloudFormationProduct - AWS::ServiceCatalog::CloudFormationProduct resource."""
 
 from .. import *  # noqa: F403

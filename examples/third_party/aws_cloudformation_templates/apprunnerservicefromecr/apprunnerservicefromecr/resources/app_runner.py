@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """AppRunner - AWS::AppRunner::Service resource."""
 
 from .. import *  # noqa: F403

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """EC2Instance2 - AWS::EC2::Instance resource."""
 
 from .. import *  # noqa: F403

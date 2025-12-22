@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """myEC2InstanceSSM - AWS::EC2::Instance resource."""
 
 from .. import *  # noqa: F403

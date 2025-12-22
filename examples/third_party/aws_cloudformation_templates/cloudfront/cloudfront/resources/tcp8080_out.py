@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Tcp8080Out - AWS::EC2::SecurityGroupEgress resource."""
 
 from .. import *  # noqa: F403

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """DefaultPrivateRoute1 - AWS::EC2::Route resource."""
 
 from .. import *  # noqa: F403

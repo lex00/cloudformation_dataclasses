@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """ADConnectorResource - Custom::ADConnectorResource resource."""
 
 from .. import *  # noqa: F403

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """MixAuthTotalUsageReport - AWS::Logs::QueryDefinition resource."""
 
 from .. import *  # noqa: F403

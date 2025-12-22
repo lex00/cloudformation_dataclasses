@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """ALB500sAlarmScaleUp - AWS::CloudWatch::Alarm resource."""
 
 from .. import *  # noqa: F403

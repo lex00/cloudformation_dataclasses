@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """MutualAuthDistinctUsersConnectionDuration - AWS::Logs::QueryDefinition resource."""
 
 from .. import *  # noqa: F403

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """EFSAccessPoint - AWS::EFS::AccessPoint resource."""
 
 from .. import *  # noqa: F403

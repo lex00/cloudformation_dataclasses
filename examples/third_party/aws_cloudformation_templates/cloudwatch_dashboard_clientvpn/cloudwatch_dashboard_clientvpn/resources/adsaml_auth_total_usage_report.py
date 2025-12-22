@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """ADSAMLAuthTotalUsageReport - AWS::Logs::QueryDefinition resource."""
 
 from .. import *  # noqa: F403

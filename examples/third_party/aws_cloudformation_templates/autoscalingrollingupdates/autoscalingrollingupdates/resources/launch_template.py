@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """LaunchTemplate - AWS::EC2::LaunchTemplate resource."""
 
 from .. import *  # noqa: F403

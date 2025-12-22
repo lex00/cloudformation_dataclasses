@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """DirectorySettingsLambdaFunction - AWS::Lambda::Function resource."""
 
 from .. import *  # noqa: F403

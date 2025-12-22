@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """ADConnectorLambdaLogsLogGroup - AWS::Logs::LogGroup resource."""
 
 from .. import *  # noqa: F403

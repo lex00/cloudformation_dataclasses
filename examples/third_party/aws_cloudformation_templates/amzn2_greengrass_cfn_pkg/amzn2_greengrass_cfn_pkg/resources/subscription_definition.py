@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """SubscriptionDefinition - AWS::Greengrass::SubscriptionDefinition resource."""
 
 from .. import *  # noqa: F403

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """PrivateSubnet1Subnet - AWS::EC2::Subnet resource."""
 
 from .. import *  # noqa: F403

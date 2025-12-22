@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """DBCredential - AWS::SecretsManager::Secret resource."""
 
 from .. import *  # noqa: F403

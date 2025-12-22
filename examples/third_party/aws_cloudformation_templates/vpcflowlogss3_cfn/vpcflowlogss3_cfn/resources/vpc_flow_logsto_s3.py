@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """VPCFlowLogstoS3 - AWS::EC2::FlowLog resource."""
 
 from .. import *  # noqa: F403

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """WebServerScaleDownPolicy - AWS::AutoScaling::ScalingPolicy resource."""
 
 from .. import *  # noqa: F403

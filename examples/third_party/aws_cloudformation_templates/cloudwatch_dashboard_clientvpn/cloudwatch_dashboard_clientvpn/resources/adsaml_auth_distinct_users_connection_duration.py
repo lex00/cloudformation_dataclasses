@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """ADSAMLAuthDistinctUsersConnectionDuration - AWS::Logs::QueryDefinition resource."""
 
 from .. import *  # noqa: F403

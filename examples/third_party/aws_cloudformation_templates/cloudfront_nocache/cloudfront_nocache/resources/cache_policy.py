@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """CachePolicy - AWS::CloudFront::CachePolicy resource."""
 
 from .. import *  # noqa: F403

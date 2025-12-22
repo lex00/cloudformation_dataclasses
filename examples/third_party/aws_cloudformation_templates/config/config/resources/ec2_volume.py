@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Ec2Volume - AWS::EC2::Volume resource."""
 
 from .. import *  # noqa: F403

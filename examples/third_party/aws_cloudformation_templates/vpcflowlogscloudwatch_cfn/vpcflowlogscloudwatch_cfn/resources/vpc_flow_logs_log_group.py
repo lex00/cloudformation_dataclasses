@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """VPCFlowLogsLogGroup - AWS::Logs::LogGroup resource."""
 
 from .. import *  # noqa: F403

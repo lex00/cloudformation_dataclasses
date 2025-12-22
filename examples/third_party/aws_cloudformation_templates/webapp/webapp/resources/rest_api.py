@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """RestApi - AWS::ApiGateway::RestApi resource."""
 
 from .. import *  # noqa: F403

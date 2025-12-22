@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """LogsKmsKey - AWS::KMS::Key resource."""
 
 from .. import *  # noqa: F403

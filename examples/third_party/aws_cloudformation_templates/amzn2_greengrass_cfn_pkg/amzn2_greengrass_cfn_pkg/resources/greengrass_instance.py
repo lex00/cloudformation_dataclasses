@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """GreengrassInstance - AWS::EC2::Instance resource."""
 
 from .. import *  # noqa: F403

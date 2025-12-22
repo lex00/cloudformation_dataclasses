@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """TagVpcPeeringConnectionsResource - Custom::TagVpcPeeringConnection resource."""
 
 from .. import *  # noqa: F403

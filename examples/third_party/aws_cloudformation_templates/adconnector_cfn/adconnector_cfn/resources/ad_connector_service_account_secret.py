@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """ADConnectorServiceAccountSecret - AWS::SecretsManager::Secret resource."""
 
 from .. import *  # noqa: F403

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Eth0 - AWS::EC2::NetworkInterface resource."""
 
 from .. import *  # noqa: F403

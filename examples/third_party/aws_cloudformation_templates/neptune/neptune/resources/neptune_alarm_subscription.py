@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """NeptuneAlarmSubscription - AWS::SNS::Subscription resource."""
 
 from .. import *  # noqa: F403

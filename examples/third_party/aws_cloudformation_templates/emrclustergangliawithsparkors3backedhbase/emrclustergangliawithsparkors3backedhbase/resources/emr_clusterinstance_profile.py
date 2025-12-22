@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """EMRClusterinstanceProfile - AWS::IAM::InstanceProfile resource."""
 
 from .. import *  # noqa: F403

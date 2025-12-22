@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """JoinDomainAssociationInstances - AWS::SSM::Association resource."""
 
 from .. import *  # noqa: F403

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """MixAuthUsersConnectionDuration - AWS::Logs::QueryDefinition resource."""
 
 from .. import *  # noqa: F403

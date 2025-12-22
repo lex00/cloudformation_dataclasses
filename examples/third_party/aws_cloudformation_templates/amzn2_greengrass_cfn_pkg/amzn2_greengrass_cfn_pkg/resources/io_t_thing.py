@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """IoTThing - Custom::IoTThing resource."""
 
 from .. import *  # noqa: F403

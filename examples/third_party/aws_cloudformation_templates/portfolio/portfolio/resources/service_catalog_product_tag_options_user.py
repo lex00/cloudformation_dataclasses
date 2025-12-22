@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """ServiceCatalogProductTagOptionsUser - AWS::ServiceCatalog::TagOption resource."""
 
 from .. import *  # noqa: F403

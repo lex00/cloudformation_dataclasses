@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """EMRCluster - AWS::EMR::Cluster resource."""
 
 from .. import *  # noqa: F403

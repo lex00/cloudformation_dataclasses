@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """DMSCloudwatchRole - AWS::IAM::Role resource."""
 
 from .. import *  # noqa: F403

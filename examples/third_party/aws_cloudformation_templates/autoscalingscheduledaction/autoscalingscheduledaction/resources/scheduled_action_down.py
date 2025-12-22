@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """ScheduledActionDown - AWS::AutoScaling::ScheduledAction resource."""
 
 from .. import *  # noqa: F403

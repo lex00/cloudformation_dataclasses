@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """MyDB - AWS::RDS::DBInstance resource."""
 
 from .. import *  # noqa: F403

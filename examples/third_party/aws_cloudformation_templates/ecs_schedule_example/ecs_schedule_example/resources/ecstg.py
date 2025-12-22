@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """ECSTG - AWS::ElasticLoadBalancingV2::TargetGroup resource."""
 
 from .. import *  # noqa: F403

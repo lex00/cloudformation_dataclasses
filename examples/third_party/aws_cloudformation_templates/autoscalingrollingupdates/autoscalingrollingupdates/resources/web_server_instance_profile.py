@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """WebServerInstanceProfile - AWS::IAM::InstanceProfile resource."""
 
 from .. import *  # noqa: F403

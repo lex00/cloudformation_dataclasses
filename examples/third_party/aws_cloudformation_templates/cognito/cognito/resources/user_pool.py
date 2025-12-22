@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """UserPool - AWS::Cognito::UserPool resource."""
 
 from .. import *  # noqa: F403

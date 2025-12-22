@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Association1 - AWS::EC2::EIPAssociation resource."""
 
 from .. import *  # noqa: F403

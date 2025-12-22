@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """VPC - AWS::EC2::VPC resource."""
 
 from .. import *  # noqa: F403

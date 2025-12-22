@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """FunctionDefinition - AWS::Greengrass::FunctionDefinition resource."""
 
 from .. import *  # noqa: F403

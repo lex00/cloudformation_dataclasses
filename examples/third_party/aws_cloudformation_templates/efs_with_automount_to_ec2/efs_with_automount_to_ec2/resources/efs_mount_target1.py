@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """EFSMountTarget1 - AWS::EFS::MountTarget resource."""
 
 from .. import *  # noqa: F403

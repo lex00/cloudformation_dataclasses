@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """TargetAccountLogging - AWS::CloudFormation::StackSet resource."""
 
 from .. import *  # noqa: F403

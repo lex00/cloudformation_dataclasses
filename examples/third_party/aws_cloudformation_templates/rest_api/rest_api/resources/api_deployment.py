@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """ApiDeployment - AWS::ApiGateway::Deployment resource."""
 
 from .. import *  # noqa: F403

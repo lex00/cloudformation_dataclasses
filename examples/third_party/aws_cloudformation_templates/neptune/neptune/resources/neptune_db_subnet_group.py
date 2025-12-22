@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """NeptuneDBSubnetGroup - AWS::Neptune::DBSubnetGroup resource."""
 
 from .. import *  # noqa: F403

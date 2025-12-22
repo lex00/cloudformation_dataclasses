@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """BastionSG - AWS::EC2::SecurityGroup resource."""
 
 from .. import *  # noqa: F403

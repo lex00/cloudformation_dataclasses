@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """TestTable - AWS::DynamoDB::Table resource."""
 
 from .. import *  # noqa: F403

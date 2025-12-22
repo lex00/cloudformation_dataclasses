@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """SimpleAD - AWS::DirectoryService::SimpleAD resource."""
 
 from .. import *  # noqa: F403

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """MyRDSParamGroup - AWS::RDS::DBParameterGroup resource."""
 
 from .. import *  # noqa: F403

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """myEC2SSMRole - AWS::IAM::Role resource."""
 
 from .. import *  # noqa: F403

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """CloudFrontLogsReplicationPolicy - AWS::IAM::RolePolicy resource."""
 
 from .. import *  # noqa: F403

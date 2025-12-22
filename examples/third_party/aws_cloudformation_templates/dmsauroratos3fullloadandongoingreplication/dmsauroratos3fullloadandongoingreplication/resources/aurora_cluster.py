@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """AuroraCluster - AWS::RDS::DBCluster resource."""
 
 from .. import *  # noqa: F403
