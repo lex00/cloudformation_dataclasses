@@ -456,7 +456,7 @@ def _value_to_python_typed(
         result = _intrinsic_to_python(value, ctx)
         # AnnotatedValue is only for top-level properties, not inline values
         if isinstance(result, AnnotatedValue):
-            return _annotated_to_string_ref(result)
+            return _annotated_to_class_ref(result)
         return result
 
     if value is None:
@@ -596,29 +596,29 @@ def _escape_string(s: str) -> str:
     return repr(s)
 
 
-def _annotated_to_string_ref(annotated: AnnotatedValue) -> str:
-    """Convert an AnnotatedValue back to a string-based ref for inline use.
+def _annotated_to_class_ref(annotated: AnnotatedValue) -> str:
+    """Convert an AnnotatedValue to a class-based ref for inline use.
 
     AnnotatedValue is for top-level properties only. When used inline
-    (in lists, dicts, etc.), we need string-based refs.
+    (in lists, dicts, etc.), we use class-based refs like ref(ClassName).
     """
     import re
 
     # Extract target from annotation like "Ref[Bucket]" -> "Bucket"
     if match := re.match(r"Ref\[(\w+)\]", annotated.annotation):
         target = match.group(1)
-        return f'ref("{target}")'
+        return f"ref({target})"
     elif match := re.match(r"GetAtt\[(\w+)\]", annotated.annotation):
         target = match.group(1)
         # Extract attribute from value like 'get_att("Arn")' -> "Arn"
         if attr_match := re.search(r'get_att\("(\w+)"\)', annotated.value):
             attr = attr_match.group(1)
-            return f'get_att("{target}", "{attr}")'
+            return f'get_att({target}, "{attr}")'
         # Handle get_att(ARN) constant - extract constant name
         if "(" in annotated.value:
             const = annotated.value.split("(")[1].rstrip(")")
-            return f'get_att("{target}", {const})'
-        return f'get_att("{target}")'
+            return f"get_att({target}, {const})"
+        return f"get_att({target})"
     # Fallback - shouldn't happen
     return annotated.value
 
@@ -643,7 +643,7 @@ def _value_to_python(
         result = _intrinsic_to_python(value, ctx)
         # AnnotatedValue is only for top-level properties, not inline values
         if isinstance(result, AnnotatedValue):
-            return _annotated_to_string_ref(result)
+            return _annotated_to_class_ref(result)
         return result
 
     if value is None:
@@ -955,7 +955,7 @@ def _property_value_to_python_block(
             )
             # AnnotatedValue is only for top-level properties, not inside lists
             if isinstance(item_result, AnnotatedValue):
-                item_str = _annotated_to_string_ref(item_result)
+                item_str = _annotated_to_class_ref(item_result)
             else:
                 item_str = item_result
             items.append(item_str)
