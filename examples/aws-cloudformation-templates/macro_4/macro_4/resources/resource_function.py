@@ -1,0 +1,15 @@
+"""ResourceFunction - AWS::Serverless::Function resource."""
+
+from .. import *  # noqa: F403
+
+
+@cloudformation_dataclass
+class ResourceFunction:
+    """AWS::Serverless::Function resource."""
+
+    # Unknown resource type: AWS::Serverless::Function
+    resource: CloudFormationResource
+    runtime = 'python3.11'
+    code_uri = 'lambda'
+    handler = 'resource.handler'
+    policies = 'AmazonS3FullAccess'

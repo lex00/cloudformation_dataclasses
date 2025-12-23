@@ -4,16 +4,19 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
+class WebServerGroupLaunchTemplateSpecification:
+    resource: autoscaling.auto_scaling_group.LaunchTemplateSpecification
+    launch_template_id = ref(LaunchTemplate)
+    version = get_att(LaunchTemplate, "LatestVersionNumber")
+
+
+@cloudformation_dataclass
 class WebServerGroup:
     """AWS::AutoScaling::AutoScalingGroup resource."""
 
-    # Unknown resource type: AWS::AutoScaling::AutoScalingGroup
-    resource: CloudFormationResource
+    resource: autoscaling.AutoScalingGroup
     availability_zones = GetAZs()
-    launch_template = {
-        'LaunchTemplateId': ref(LaunchTemplate),
-        'Version': get_att(LaunchTemplate, "LatestVersionNumber"),
-    }
+    launch_template = WebServerGroupLaunchTemplateSpecification
     min_size = 2
     max_size = 4
     load_balancer_names = [ref(ElasticLoadBalancer)]

@@ -7,8 +7,7 @@ from .. import *  # noqa: F403
 class InstanceSecurityGroup:
     """AWS::EC2::SecurityGroup resource."""
 
-    # Unknown resource type: AWS::EC2::SecurityGroup
-    resource: CloudFormationResource
+    resource: ec2.SecurityGroup
     group_description = 'Enable SSH access and HTTP from the load balancer only'
     security_group_ingress = [{
         'IpProtocol': 'tcp',

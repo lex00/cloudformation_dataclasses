@@ -170,19 +170,40 @@ if [ ! -d "$SOURCE_DIR" ]; then
     exit 1
 fi
 
-# Step 1.5: Apply known fixes to source templates
+# Step 1.5: Copy source to temp directory and apply fixes
+# We don't want to modify the original vendor directory
+header "Preparing Template Copy"
+TEMP_SOURCE_DIR=$(mktemp -d)
+info "Copying templates to temp directory..."
+cp -r "$SOURCE_DIR"/* "$TEMP_SOURCE_DIR/"
+success "Copied to: $TEMP_SOURCE_DIR"
+
+# Clean up temp files on exit
+cleanup_temp() {
+    if [ -n "${TEMP_SOURCE_DIR:-}" ] && [ -d "$TEMP_SOURCE_DIR" ]; then
+        rm -rf "$TEMP_SOURCE_DIR"
+    fi
+    if [ -n "${RESULTS_FILE:-}" ] && [ -f "$RESULTS_FILE" ]; then
+        rm -f "$RESULTS_FILE"
+    fi
+}
+trap cleanup_temp EXIT
+
 header "Applying Template Fixes"
-python3 "$SCRIPT_DIR/fix_templates.py" "$SOURCE_DIR"
+python3 "$SCRIPT_DIR/fix_templates.py" "$TEMP_SOURCE_DIR"
+
+# Use the temp directory as source for import
+IMPORT_SOURCE_DIR="$TEMP_SOURCE_DIR"
 
 # Step 2: Run batch import
 header "Running Batch Import"
-info "Source: $SOURCE_DIR"
+info "Source: $SOURCE_DIR (via temp copy)"
 info "Output: $OUTPUT_DIR"
 echo ""
 
 # Run import (allow failure - we'll handle it in cleanup)
 set +e
-uv run cfn-dataclasses-import "$SOURCE_DIR" -o "$OUTPUT_DIR"
+uv run cfn-dataclasses-import "$IMPORT_SOURCE_DIR" -o "$OUTPUT_DIR"
 IMPORT_EXIT_CODE=$?
 set -e
 
@@ -268,7 +289,6 @@ if [ "$SKIP_VALIDATION" = false ]; then
 
     # Create a temporary file to track results
     RESULTS_FILE=$(mktemp)
-    trap "rm -f $RESULTS_FILE" EXIT
 
     # Number of parallel jobs (use CPU count, cap at 8)
     JOBS=$(nproc 2>/dev/null || sysctl -n hw.ncpu 2>/dev/null || echo 4)
@@ -279,23 +299,33 @@ if [ "$SKIP_VALIDATION" = false ]; then
 
     # Validation function for a single package (runs in parallel)
     # Uses PYTHONPATH instead of venv - much faster, no pip install needed
+    # PROJECT_SRC and VALIDATION_ERRORS_FILE are exported as environment variables
+    export PROJECT_SRC="$PROJECT_ROOT/src"
+    export VALIDATION_ERRORS_FILE="$OUTPUT_DIR/validation_errors.log"
+    > "$VALIDATION_ERRORS_FILE"  # Clear/create the file
+
     validate_package() {
         local pkg_dir="$1"
-        local project_src="$2"
         local pkg_name=$(basename "$pkg_dir")
 
-        # Run directly with PYTHONPATH - no venv needed
-        if PYTHONPATH="$project_src:$pkg_dir" python3 -m "$pkg_name" >/dev/null 2>&1; then
+        # Run directly with PYTHONPATH - capture stderr for debugging
+        local error_output
+        if error_output=$(PYTHONPATH="$PROJECT_SRC:$pkg_dir" python3 -m "$pkg_name" 2>&1 >/dev/null); then
             echo "OK:$pkg_name"
         else
             echo "FAIL:$pkg_name"
+            # Log the error for debugging (use flock to prevent race conditions)
+            {
+                echo "=== $pkg_name ==="
+                echo "$error_output"
+                echo ""
+            } >> "$VALIDATION_ERRORS_FILE"
         fi
     }
     export -f validate_package
 
     # Run validations in parallel using xargs
     # Filter out skipped packages first
-    PROJECT_SRC="$PROJECT_ROOT/src"
     for pkg_dir in "${PACKAGE_DIRS[@]}"; do
         pkg_name=$(basename "$pkg_dir")
         if should_skip_validation "$pkg_name"; then
@@ -303,7 +333,7 @@ if [ "$SKIP_VALIDATION" = false ]; then
         else
             echo "$pkg_dir"
         fi
-    done | xargs -P "$JOBS" -I {} bash -c 'validate_package "$@"' _ {} "$PROJECT_SRC" >> "$RESULTS_FILE"
+    done | xargs -P "$JOBS" -I {} bash -c 'validate_package "$@"' _ {} >> "$RESULTS_FILE"
 
     # Process results
     VALIDATED_COUNT=0
@@ -317,27 +347,18 @@ if [ "$SKIP_VALIDATION" = false ]; then
         fi
     done < "$RESULTS_FILE"
 
-    rm -f "$RESULTS_FILE"
-
     echo ""
     success "Validated: $VALIDATED_COUNT/$TOTAL_PACKAGES packages"
 
-    # Remove packages that failed validation
+    # Re-import and re-validate packages that failed
     if [ ${#VALIDATION_FAILED[@]} -gt 0 ] && [ "$SKIP_CLEANUP" = false ]; then
         echo ""
-        info "Removing ${#VALIDATION_FAILED[@]} packages that failed validation..."
-        for pkg in "${VALIDATION_FAILED[@]}"; do
-            PKG_DIR="$OUTPUT_DIR/$pkg"
-            if [ -d "$PKG_DIR" ]; then
-                rm -rf "$PKG_DIR"
-            fi
-        done
-        success "Removed failed packages"
+        info "Re-importing ${#VALIDATION_FAILED[@]} failed packages..."
 
-        # Re-import failed packages with --skip-checks so they can be inspected
-        echo ""
-        info "Re-importing ${#VALIDATION_FAILED[@]} failed packages with --skip-checks for inspection..."
+        # Clear the validation errors file before re-validation
+        > "$VALIDATION_ERRORS_FILE"
 
+        STILL_FAILING=()
         for pkg in "${VALIDATION_FAILED[@]}"; do
             # Find the original template file from import.log
             ORIGINAL_TEMPLATE=$(grep -B 50 "Generated:.*/$pkg/" "$LOG_FILE" | grep "Importing " | tail -1 | sed 's/.*Importing //')
@@ -350,15 +371,42 @@ if [ "$SKIP_VALIDATION" = false ]; then
                 set +e
                 uv run cfn-dataclasses-import "$ORIGINAL_TEMPLATE" -o "$PKG_OUTPUT" --skip-checks 2>/dev/null
                 set -e
-                success "Re-imported for inspection: $pkg"
+
+                # Re-validate the re-imported package
+                if PYTHONPATH="$PROJECT_SRC:$PKG_OUTPUT" python3 -m "$pkg" >/dev/null 2>&1; then
+                    success "$pkg (fixed on re-import)"
+                else
+                    error "$pkg (still failing)"
+                    STILL_FAILING+=("$pkg")
+                    # Log the error
+                    {
+                        echo "=== $pkg ==="
+                        PYTHONPATH="$PROJECT_SRC:$PKG_OUTPUT" python3 -m "$pkg" 2>&1 || true
+                        echo ""
+                    } >> "$VALIDATION_ERRORS_FILE"
+                fi
             else
                 warn "Could not find original template for: $pkg"
+                STILL_FAILING+=("$pkg")
             fi
         done
 
-        echo ""
-        warn "Failed packages have been re-imported without validation."
-        warn "Inspect them in: $OUTPUT_DIR/<package_name>/"
+        # Update VALIDATION_FAILED to only contain packages that still fail
+        VALIDATION_FAILED=()
+        if [ ${#STILL_FAILING[@]} -gt 0 ]; then
+            VALIDATION_FAILED=("${STILL_FAILING[@]}")
+        fi
+
+        if [ ${#VALIDATION_FAILED[@]} -gt 0 ]; then
+            echo ""
+            warn "${#VALIDATION_FAILED[@]} packages still failing after re-import."
+            warn "Inspect them in: $OUTPUT_DIR/<package_name>/"
+        else
+            echo ""
+            success "All packages validated successfully after re-import!"
+            # Clear the validation errors file since all are fixed
+            > "$VALIDATION_ERRORS_FILE"
+        fi
     fi
 else
     warn "Skipping validation (--skip-validation flag)"
@@ -386,6 +434,9 @@ echo ""
 
 info "Output directory: $OUTPUT_DIR"
 info "Import log: $LOG_FILE"
+if [ -s "$OUTPUT_DIR/validation_errors.log" ]; then
+    info "Validation errors: $OUTPUT_DIR/validation_errors.log"
+fi
 echo ""
 
 # List failure reasons from log

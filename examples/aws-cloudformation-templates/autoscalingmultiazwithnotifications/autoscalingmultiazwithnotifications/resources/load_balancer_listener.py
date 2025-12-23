@@ -4,19 +4,26 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
+class LoadBalancerListenerAction:
+    resource: elasticloadbalancingv2.listener_rule.Action
+    type_ = 'forward'
+    target_group_arn = ref(TargetGroup)
+
+
+@cloudformation_dataclass
+class LoadBalancerListenerCertificate:
+    resource: elasticloadbalancingv2.listener_certificate.Certificate
+    certificate_arn = ref(CertificateArn)
+
+
+@cloudformation_dataclass
 class LoadBalancerListener:
     """AWS::ElasticLoadBalancingV2::Listener resource."""
 
-    # Unknown resource type: AWS::ElasticLoadBalancingV2::Listener
-    resource: CloudFormationResource
-    default_actions = [{
-        'Type': 'forward',
-        'TargetGroupArn': ref(TargetGroup),
-    }]
+    resource: elasticloadbalancingv2.Listener
+    default_actions = [LoadBalancerListenerAction]
     load_balancer_arn = ref(ElasticLoadBalancer)
     port = 443
     protocol = 'HTTPS'
     ssl_policy = 'ELBSecurityPolicy-2016-08'
-    certificates = [{
-        'CertificateArn': ref(CertificateArn),
-    }]
+    certificates = [LoadBalancerListenerCertificate]

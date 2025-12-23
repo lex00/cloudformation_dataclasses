@@ -16,6 +16,12 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
+from cloudformation_dataclasses.aws import (
+    autoscaling,
+    ec2,
+    elasticloadbalancing,
+    iam,
+)
 from cloudformation_dataclasses.intrinsics import (
     AWS_REGION,
     Base64,
@@ -62,7 +68,11 @@ __all__ = [
     "Template",
     "WebServerGroup",
     "WebServerInstanceProfile",
+    "autoscaling",
     "cloudformation_dataclass",
+    "ec2",
+    "elasticloadbalancing",
     "get_att",
+    "iam",
     "ref",
 ]

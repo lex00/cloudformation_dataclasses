@@ -1,5 +1,6 @@
 """Python code generation from IR."""
 
+import datetime
 import re
 from dataclasses import dataclass, field
 from typing import Any, Optional
@@ -1290,7 +1291,10 @@ def _generate_policy_document_wrapper_block(
     lines.append("    resource: PolicyDocument")
 
     # Handle version if not default
+    # Note: YAML may parse "2012-10-17" as a datetime.date, so convert to string
     version = doc.get("Version", "2012-10-17")
+    if isinstance(version, (datetime.date, datetime.datetime)):
+        version = version.strftime("%Y-%m-%d")
     if version != "2012-10-17":
         lines.append(f"    version = {_escape_string(version)}")
 

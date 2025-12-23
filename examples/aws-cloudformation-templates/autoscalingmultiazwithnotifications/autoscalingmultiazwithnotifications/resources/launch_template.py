@@ -7,8 +7,7 @@ from .. import *  # noqa: F403
 class LaunchTemplate:
     """AWS::EC2::LaunchTemplate resource."""
 
-    # Unknown resource type: AWS::EC2::LaunchTemplate
-    resource: CloudFormationResource
+    resource: ec2.LaunchTemplate
     launch_template_name = Sub('${AWS::StackName}-LaunchTemplate')
     launch_template_data = {
         'ImageId': ref(LatestAmiId),

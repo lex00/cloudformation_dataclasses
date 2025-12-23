@@ -359,11 +359,11 @@ class GetAZs:
         {"Fn::GetAZs": ""}
     """
 
-    region: str = ""
+    region: str | Any = ""
 
-    def to_dict(self) -> dict[str, str]:
+    def to_dict(self) -> dict[str, Any]:
         """Serialize to CloudFormation JSON format."""
-        return {"Fn::GetAZs": self.region}
+        return {"Fn::GetAZs": _serialize_value(self.region)}
 
 
 @dataclass

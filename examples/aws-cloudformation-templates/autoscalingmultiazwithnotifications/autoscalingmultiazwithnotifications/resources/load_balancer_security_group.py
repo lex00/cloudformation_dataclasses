@@ -7,8 +7,7 @@ from .. import *  # noqa: F403
 class LoadBalancerSecurityGroup:
     """AWS::EC2::SecurityGroup resource."""
 
-    # Unknown resource type: AWS::EC2::SecurityGroup
-    resource: CloudFormationResource
+    resource: ec2.SecurityGroup
     group_description = 'Allows inbound traffic on port 443'
     security_group_ingress = [{
         'IpProtocol': 'tcp',

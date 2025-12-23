@@ -1,0 +1,19 @@
+"""NetworkPrivateSubnet2RouteTable - AWS::EC2::RouteTable resource."""
+
+from .. import *  # noqa: F403
+
+
+@cloudformation_dataclass
+class NetworkPrivateSubnet2RouteTableAssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Name'
+    value = 'gitea-server-private-subnet-2-rt'
+
+
+@cloudformation_dataclass
+class NetworkPrivateSubnet2RouteTable:
+    """AWS::EC2::RouteTable resource."""
+
+    resource: ec2.RouteTable
+    vpc_id = ref(NetworkVPC)
+    tags = [NetworkPrivateSubnet2RouteTableAssociationParameter]

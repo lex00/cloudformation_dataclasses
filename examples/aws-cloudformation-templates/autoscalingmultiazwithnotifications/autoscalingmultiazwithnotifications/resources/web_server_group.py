@@ -7,8 +7,7 @@ from .. import *  # noqa: F403
 class WebServerGroup:
     """AWS::AutoScaling::AutoScalingGroup resource."""
 
-    # Unknown resource type: AWS::AutoScaling::AutoScalingGroup
-    resource: CloudFormationResource
+    resource: autoscaling.AutoScalingGroup
     availability_zones = ref(AZs)
     launch_template = {
         'LaunchTemplateId': ref(LaunchTemplate),

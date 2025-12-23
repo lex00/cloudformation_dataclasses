@@ -4,20 +4,28 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
+class InstanceSecurityGroupEgress:
+    resource: ec2.security_group.Egress
+    ip_protocol = 'tcp'
+    from_port = '22'
+    to_port = '22'
+    cidr_ip = ref(SSHLocation)
+
+
+@cloudformation_dataclass
+class InstanceSecurityGroupEgress1:
+    resource: ec2.security_group.Egress
+    ip_protocol = 'tcp'
+    from_port = '80'
+    to_port = '80'
+    cidr_ip = '0.0.0.0/0'
+
+
+@cloudformation_dataclass
 class InstanceSecurityGroup:
     """AWS::EC2::SecurityGroup resource."""
 
     # Unknown resource type: AWS::EC2::SecurityGroup
     resource: CloudFormationResource
     group_description = 'Enable SSH access and HTTP access on the configured port'
-    security_group_ingress = [{
-        'IpProtocol': 'tcp',
-        'FromPort': '22',
-        'ToPort': '22',
-        'CidrIp': ref(SSHLocation),
-    }, {
-        'IpProtocol': 'tcp',
-        'FromPort': '80',
-        'ToPort': '80',
-        'CidrIp': '0.0.0.0/0',
-    }]
+    security_group_ingress = [InstanceSecurityGroupEgress, InstanceSecurityGroupEgress1]
