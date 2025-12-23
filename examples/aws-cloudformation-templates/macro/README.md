@@ -1,6 +1,6 @@
 # Macro
 
-Imported from `CloudWatch_Dashboard_ClientVPN.yml`.
+Imported from `stackset-administration-role.yaml`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -31,17 +31,4 @@ pip install .
 
 | Logical ID | Type |
 |------------|------|
-| `TotalUsagePerClientVPNEndpoint` | AWS::Logs::QueryDefinition |
-| `ADSAMLAuthTotalUsageReport` | AWS::Logs::QueryDefinition |
-| `ADSAMLAuthDistinctUsersConnectionDuration` | AWS::Logs::QueryDefinition |
-| `ADSAMLAuthDistinctUsers` | AWS::Logs::QueryDefinition |
-| `ADSAMLAuthUsersConnectionDuration` | AWS::Logs::QueryDefinition |
-| `MutualAuthTotalUsageReport` | AWS::Logs::QueryDefinition |
-| `MutualAuthDistinctUsersConnectionDuration` | AWS::Logs::QueryDefinition |
-| `MutualAuthDistinctUsers` | AWS::Logs::QueryDefinition |
-| `MutualAuthUsersConnectionDuration` | AWS::Logs::QueryDefinition |
-| `MixAuthTotalUsageReport` | AWS::Logs::QueryDefinition |
-| `MixAuthDistinctUsersConnectionDuration` | AWS::Logs::QueryDefinition |
-| `MixAuthDistinctUsers` | AWS::Logs::QueryDefinition |
-| `MixAuthUsersConnectionDuration` | AWS::Logs::QueryDefinition |
-| `Dashboard` | AWS::CloudWatch::Dashboard |
+| `AWSCloudFormationStackSetAdministrationRole` | AWS::IAM::Role |

@@ -8,5 +8,5 @@ class Macro:
     """AWS::CloudFormation::Macro resource."""
 
     resource: cloudformation.Macro
-    name = 'Explode'
-    function_name = get_att(MacroFunction, "Arn")
+    name = 'ExecutionRoleBuilder'
+    function_name = get_att(Function, "Arn")

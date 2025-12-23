@@ -13,8 +13,8 @@ from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "CloudFormationResource",
+    "Function",
     "Macro",
-    "MacroFunction",
     "Template",
     "cloudformation",
     "cloudformation_dataclass",
