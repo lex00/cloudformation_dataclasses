@@ -1,6 +1,6 @@
 # EventInvalidSearchInput
 
-Migrated from [event-invalid-search-input.json](https://github.com/aws-cloudformation/aws-cloudformation-templates).
+Migrated from [event-invalid-search-input.json](https://github.com/aws-cloudformation/cfn-lint).
 
 **Source**: AWS CloudFormation Sample Templates
 **License**: Apache-2.0

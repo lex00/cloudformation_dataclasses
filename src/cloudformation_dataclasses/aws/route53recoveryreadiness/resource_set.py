@@ -9,16 +9,6 @@ from cloudformation_dataclasses.core.base import PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
-# Service Constants (auto-generated from botocore)
-class Readiness:
-    """Readiness enum values."""
-
-    READY = "READY"
-    NOT_READY = "NOT_READY"
-    UNKNOWN = "UNKNOWN"
-    NOT_AUTHORIZED = "NOT_AUTHORIZED"
-
-
 @dataclass
 class DNSTargetResource(PropertyType):
     TARGET_RESOURCE = "TargetResource"

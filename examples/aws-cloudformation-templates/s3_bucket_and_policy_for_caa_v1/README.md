@@ -1,6 +1,6 @@
 # S3BucketAndPolicyForCaaV1
 
-Migrated from [s3-bucket-and-policy-for-caa-v1.yaml](https://github.com/aws-cloudformation/aws-cloudformation-templates).
+Migrated from [s3-bucket-and-policy-for-caa-v1.yaml](https://github.com/aws-cloudformation/cfn-lint).
 
 **Source**: AWS CloudFormation Sample Templates
 **License**: Apache-2.0

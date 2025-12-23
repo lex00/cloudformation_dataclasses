@@ -1,6 +1,6 @@
 # DirectoryAdClients
 
-Migrated from [DIRECTORY-AD-CLIENTS.yaml](https://github.com/aws-cloudformation/aws-cloudformation-templates).
+Migrated from [DIRECTORY-AD-CLIENTS.yaml](https://github.com/aws-cloudformation/cfn-lint).
 
 **Source**: AWS CloudFormation Sample Templates
 **License**: Apache-2.0

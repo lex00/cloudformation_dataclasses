@@ -9,63 +9,6 @@ from cloudformation_dataclasses.core.base import PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
-# Service Constants (auto-generated from botocore)
-class CampaignState:
-    """CampaignState enum values."""
-
-    INITIALIZED = "Initialized"
-    RUNNING = "Running"
-    PAUSED = "Paused"
-    STOPPED = "Stopped"
-    FAILED = "Failed"
-
-
-class EncryptionType:
-    """EncryptionType enum values."""
-
-    KMS = "KMS"
-
-
-class FailureCode:
-    """FailureCode enum values."""
-
-    INVALIDINPUT = "InvalidInput"
-    REQUESTTHROTTLED = "RequestThrottled"
-    UNKNOWNERROR = "UnknownError"
-
-
-class GetCampaignStateBatchFailureCode:
-    """GetCampaignStateBatchFailureCode enum values."""
-
-    RESOURCENOTFOUND = "ResourceNotFound"
-    UNKNOWNERROR = "UnknownError"
-
-
-class InstanceIdFilterOperator:
-    """InstanceIdFilterOperator enum values."""
-
-    EQ = "Eq"
-
-
-class InstanceOnboardingJobFailureCode:
-    """InstanceOnboardingJobFailureCode enum values."""
-
-    EVENT_BRIDGE_ACCESS_DENIED = "EVENT_BRIDGE_ACCESS_DENIED"
-    EVENT_BRIDGE_MANAGED_RULE_LIMIT_EXCEEDED = "EVENT_BRIDGE_MANAGED_RULE_LIMIT_EXCEEDED"
-    IAM_ACCESS_DENIED = "IAM_ACCESS_DENIED"
-    KMS_ACCESS_DENIED = "KMS_ACCESS_DENIED"
-    KMS_KEY_NOT_FOUND = "KMS_KEY_NOT_FOUND"
-    INTERNAL_FAILURE = "INTERNAL_FAILURE"
-
-
-class InstanceOnboardingJobStatusCode:
-    """InstanceOnboardingJobStatusCode enum values."""
-
-    IN_PROGRESS = "IN_PROGRESS"
-    SUCCEEDED = "SUCCEEDED"
-    FAILED = "FAILED"
-
-
 @dataclass
 class AgentlessDialerConfig(PropertyType):
     DIALING_CAPACITY = "DialingCapacity"

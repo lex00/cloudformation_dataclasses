@@ -1,6 +1,6 @@
 # Ubuntu2204CfnHup
 
-Migrated from [Ubuntu22.04_cfn-hup.yaml](https://github.com/aws-cloudformation/aws-cloudformation-templates).
+Migrated from [Ubuntu22.04_cfn-hup.yaml](https://github.com/aws-cloudformation/cfn-lint).
 
 **Source**: AWS CloudFormation Sample Templates
 **License**: Apache-2.0

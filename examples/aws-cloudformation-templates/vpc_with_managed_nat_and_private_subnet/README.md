@@ -1,6 +1,6 @@
 # VpcWithManagedNatAndPrivateSubnet
 
-Migrated from [VPC_With_Managed_NAT_And_Private_Subnet.yaml](https://github.com/aws-cloudformation/aws-cloudformation-templates).
+Migrated from [VPC_With_Managed_NAT_And_Private_Subnet.yaml](https://github.com/aws-cloudformation/cfn-lint).
 
 **Source**: AWS CloudFormation Sample Templates
 **License**: Apache-2.0

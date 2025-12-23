@@ -9,25 +9,6 @@ from cloudformation_dataclasses.core.base import PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
-# Service Constants (auto-generated from botocore)
-class OperatorType:
-    """OperatorType enum values."""
-
-    EQ = "EQ"
-    REF_EQ = "REF_EQ"
-    LE = "LE"
-    GE = "GE"
-    BETWEEN = "BETWEEN"
-
-
-class TaskStatus:
-    """TaskStatus enum values."""
-
-    FINISHED = "FINISHED"
-    FAILED = "FAILED"
-    FALSE = "FALSE"
-
-
 @dataclass
 class Field(PropertyType):
     REF_VALUE = "RefValue"

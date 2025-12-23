@@ -1,6 +1,6 @@
 # Ubuntu2004CfnHup
 
-Migrated from [ubuntu20.04_cfn-hup.yaml](https://github.com/aws-cloudformation/aws-cloudformation-templates).
+Migrated from [ubuntu20.04_cfn-hup.yaml](https://github.com/aws-cloudformation/cfn-lint).
 
 **Source**: AWS CloudFormation Sample Templates
 **License**: Apache-2.0

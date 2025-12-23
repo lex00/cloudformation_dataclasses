@@ -9,67 +9,6 @@ from cloudformation_dataclasses.core.base import PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
-# Service Constants (auto-generated from botocore)
-class ConflictExceptionReason:
-    """ConflictExceptionReason enum values."""
-
-    INVALID_RULE_STATE = "INVALID_RULE_STATE"
-
-
-class LockState:
-    """LockState enum values."""
-
-    LOCKED = "locked"
-    PENDING_UNLOCK = "pending_unlock"
-    UNLOCKED = "unlocked"
-
-
-class ResourceNotFoundExceptionReason:
-    """ResourceNotFoundExceptionReason enum values."""
-
-    RULE_NOT_FOUND = "RULE_NOT_FOUND"
-
-
-class ResourceType:
-    """ResourceType enum values."""
-
-    EBS_SNAPSHOT = "EBS_SNAPSHOT"
-    EC2_IMAGE = "EC2_IMAGE"
-    EBS_VOLUME = "EBS_VOLUME"
-
-
-class RetentionPeriodUnit:
-    """RetentionPeriodUnit enum values."""
-
-    DAYS = "DAYS"
-
-
-class RuleStatus:
-    """RuleStatus enum values."""
-
-    PENDING = "pending"
-    AVAILABLE = "available"
-
-
-class ServiceQuotaExceededExceptionReason:
-    """ServiceQuotaExceededExceptionReason enum values."""
-
-    SERVICE_QUOTA_EXCEEDED = "SERVICE_QUOTA_EXCEEDED"
-
-
-class UnlockDelayUnit:
-    """UnlockDelayUnit enum values."""
-
-    DAYS = "DAYS"
-
-
-class ValidationExceptionReason:
-    """ValidationExceptionReason enum values."""
-
-    INVALID_PAGE_TOKEN = "INVALID_PAGE_TOKEN"
-    INVALID_PARAMETER_VALUE = "INVALID_PARAMETER_VALUE"
-
-
 @dataclass
 class ResourceTag(PropertyType):
     RESOURCE_TAG_VALUE = "ResourceTagValue"

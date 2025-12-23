@@ -9,43 +9,6 @@ from cloudformation_dataclasses.core.base import PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
-# Service Constants (auto-generated from botocore)
-class FilterNameStringType:
-    """FilterNameStringType enum values."""
-
-    DESCRIPTION = "description"
-    NAME = "name"
-    TAG_KEY = "tag-key"
-    TAG_VALUE = "tag-value"
-    PRIMARY_REGION = "primary-region"
-    OWNING_SERVICE = "owning-service"
-    ALL = "all"
-
-
-class SortByType:
-    """SortByType enum values."""
-
-    CREATED_DATE = "created-date"
-    LAST_ACCESSED_DATE = "last-accessed-date"
-    LAST_CHANGED_DATE = "last-changed-date"
-    NAME = "name"
-
-
-class SortOrderType:
-    """SortOrderType enum values."""
-
-    ASC = "asc"
-    DESC = "desc"
-
-
-class StatusType:
-    """StatusType enum values."""
-
-    INSYNC = "InSync"
-    FAILED = "Failed"
-    INPROGRESS = "InProgress"
-
-
 @dataclass
 class ExternalSecretRotationMetadataItem(PropertyType):
     VALUE = "Value"

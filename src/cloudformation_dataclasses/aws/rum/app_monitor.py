@@ -9,52 +9,6 @@ from cloudformation_dataclasses.core.base import PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
-# Service Constants (auto-generated from botocore)
-class AppMonitorPlatform:
-    """AppMonitorPlatform enum values."""
-
-    WEB = "Web"
-    ANDROID = "Android"
-    IOS = "iOS"
-
-
-class CustomEventsStatus:
-    """CustomEventsStatus enum values."""
-
-    ENABLED = "ENABLED"
-    DISABLED = "DISABLED"
-
-
-class DeobfuscationStatus:
-    """DeobfuscationStatus enum values."""
-
-    ENABLED = "ENABLED"
-    DISABLED = "DISABLED"
-
-
-class MetricDestination:
-    """MetricDestination enum values."""
-
-    CLOUDWATCH = "CloudWatch"
-    EVIDENTLY = "Evidently"
-
-
-class StateEnum:
-    """StateEnum enum values."""
-
-    CREATED = "CREATED"
-    DELETING = "DELETING"
-    ACTIVE = "ACTIVE"
-
-
-class Telemetry:
-    """Telemetry enum values."""
-
-    ERRORS = "errors"
-    PERFORMANCE = "performance"
-    HTTP = "http"
-
-
 @dataclass
 class AppMonitorConfiguration(PropertyType):
     METRIC_DESTINATIONS = "MetricDestinations"

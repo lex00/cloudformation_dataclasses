@@ -9,64 +9,6 @@ from cloudformation_dataclasses.core.base import PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
-# Service Constants (auto-generated from botocore)
-class ChangeProgressStageStatuses:
-    """ChangeProgressStageStatuses enum values."""
-
-    PENDING = "PENDING"
-    IN_PROGRESS = "IN_PROGRESS"
-    COMPLETED = "COMPLETED"
-    FAILED = "FAILED"
-
-
-class ChangeProgressStatuses:
-    """ChangeProgressStatuses enum values."""
-
-    PENDING = "PENDING"
-    IN_PROGRESS = "IN_PROGRESS"
-    COMPLETED = "COMPLETED"
-    FAILED = "FAILED"
-
-
-class PipelineEndpointStatus:
-    """PipelineEndpointStatus enum values."""
-
-    CREATING = "CREATING"
-    ACTIVE = "ACTIVE"
-    CREATE_FAILED = "CREATE_FAILED"
-    DELETING = "DELETING"
-    REVOKING = "REVOKING"
-    REVOKED = "REVOKED"
-
-
-class PipelineStatus:
-    """PipelineStatus enum values."""
-
-    CREATING = "CREATING"
-    ACTIVE = "ACTIVE"
-    UPDATING = "UPDATING"
-    DELETING = "DELETING"
-    CREATE_FAILED = "CREATE_FAILED"
-    UPDATE_FAILED = "UPDATE_FAILED"
-    STARTING = "STARTING"
-    START_FAILED = "START_FAILED"
-    STOPPING = "STOPPING"
-    STOPPED = "STOPPED"
-
-
-class VpcEndpointManagement:
-    """VpcEndpointManagement enum values."""
-
-    CUSTOMER = "CUSTOMER"
-    SERVICE = "SERVICE"
-
-
-class VpcEndpointServiceName:
-    """VpcEndpointServiceName enum values."""
-
-    OPENSEARCH_SERVERLESS = "OPENSEARCH_SERVERLESS"
-
-
 @dataclass
 class BufferOptions(PropertyType):
     PERSISTENT_BUFFER_ENABLED = "PersistentBufferEnabled"

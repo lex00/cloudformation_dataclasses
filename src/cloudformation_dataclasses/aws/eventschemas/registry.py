@@ -9,29 +9,6 @@ from cloudformation_dataclasses.core.base import PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
-# Service Constants (auto-generated from botocore)
-class CodeGenerationStatus:
-    """CodeGenerationStatus enum values."""
-
-    CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS"
-    CREATE_COMPLETE = "CREATE_COMPLETE"
-    CREATE_FAILED = "CREATE_FAILED"
-
-
-class DiscovererState:
-    """DiscovererState enum values."""
-
-    STARTED = "STARTED"
-    STOPPED = "STOPPED"
-
-
-class Type:
-    """Type enum values."""
-
-    OPENAPI3 = "OpenApi3"
-    JSONSCHEMADRAFT4 = "JSONSchemaDraft4"
-
-
 @dataclass
 class TagsEntry(PropertyType):
     VALUE = "Value"

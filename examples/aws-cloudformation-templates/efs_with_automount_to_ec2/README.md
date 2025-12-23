@@ -1,6 +1,6 @@
 # EfsWithAutomountToEc2
 
-Migrated from [efs_with_automount_to_ec2.yaml](https://github.com/aws-cloudformation/aws-cloudformation-templates).
+Migrated from [efs_with_automount_to_ec2.yaml](https://github.com/aws-cloudformation/cfn-lint).
 
 **Source**: AWS CloudFormation Sample Templates
 **License**: Apache-2.0

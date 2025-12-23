@@ -463,20 +463,16 @@ def _generate_property_type_module(
     resource_spec: ResourceSpec,
     prop_types: dict[str, PropertyTypeSpec],
     enum_mappings: dict[tuple[str, str], str] | None,
-    enum_classes: str | None,
 ) -> None:
-    """Generate a module containing PropertyTypes for a single resource."""
+    """Generate a module containing PropertyTypes for a single resource.
+
+    Enums are NOT duplicated here - they are defined once in __init__.py
+    and imported via 'from . import *' if needed.
+    """
     lines = [
         f'"""PropertyTypes for {resource_spec.resource_type}."""',
         _generate_property_type_imports(),
     ]
-
-    # Include enum classes if they reference types used in this module
-    if enum_classes:
-        lines.append("")
-        lines.append("")
-        lines.append("# Service Constants (auto-generated from botocore)")
-        lines.append(enum_classes)
 
     lines.append("")
     lines.append("")
@@ -555,7 +551,7 @@ def generate_service_package(
             # Generate submodule for PropertyTypes
             submodule_path = package_dir / f"{resource_name_lower}.py"
             _generate_property_type_module(
-                submodule_path, resource_spec, prop_types, enum_mappings, enum_classes
+                submodule_path, resource_spec, prop_types, enum_mappings
             )
             submodules.append(resource_name_lower)
 

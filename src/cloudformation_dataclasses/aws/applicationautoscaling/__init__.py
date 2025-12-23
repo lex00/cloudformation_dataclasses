@@ -10,7 +10,7 @@ Version Information:
   CloudFormation Spec: 2025.12.11
   Generator Version: 1.0.0
   Combined: spec-2025.12.11_gen-1.0.0
-  Generated: 2025-12-22 18:29:53
+  Generated: 2025-12-22 18:50:43
 
 To regenerate:
     uv run python -m cloudformation_dataclasses.codegen.generator --service ApplicationAutoScaling

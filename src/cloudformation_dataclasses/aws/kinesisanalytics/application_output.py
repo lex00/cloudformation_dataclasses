@@ -9,33 +9,6 @@ from cloudformation_dataclasses.core.base import PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
-# Service Constants (auto-generated from botocore)
-class ApplicationStatus:
-    """ApplicationStatus enum values."""
-
-    DELETING = "DELETING"
-    STARTING = "STARTING"
-    STOPPING = "STOPPING"
-    READY = "READY"
-    RUNNING = "RUNNING"
-    UPDATING = "UPDATING"
-
-
-class InputStartingPosition:
-    """InputStartingPosition enum values."""
-
-    NOW = "NOW"
-    TRIM_HORIZON = "TRIM_HORIZON"
-    LAST_STOPPED_POINT = "LAST_STOPPED_POINT"
-
-
-class RecordFormatType:
-    """RecordFormatType enum values."""
-
-    JSON = "JSON"
-    CSV = "CSV"
-
-
 @dataclass
 class DestinationSchema(PropertyType):
     RECORD_FORMAT_TYPE = "RecordFormatType"

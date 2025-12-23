@@ -17,3 +17,5 @@ htmlcov/
 # CloudFormation spec cache (for local development, not committed)
 # Note: The actual spec is committed in specs/ for reproducibility
 .cloudformation_spec_cache/
+
+*.log

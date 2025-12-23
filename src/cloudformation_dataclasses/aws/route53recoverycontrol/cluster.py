@@ -9,30 +9,6 @@ from cloudformation_dataclasses.core.base import PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
-# Service Constants (auto-generated from botocore)
-class NetworkType:
-    """NetworkType enum values."""
-
-    IPV4 = "IPV4"
-    DUALSTACK = "DUALSTACK"
-
-
-class RuleType:
-    """RuleType enum values."""
-
-    ATLEAST = "ATLEAST"
-    AND = "AND"
-    OR = "OR"
-
-
-class Status:
-    """Status enum values."""
-
-    PENDING = "PENDING"
-    DEPLOYED = "DEPLOYED"
-    PENDING_DELETION = "PENDING_DELETION"
-
-
 @dataclass
 class ClusterEndpoint(PropertyType):
     ENDPOINT = "Endpoint"

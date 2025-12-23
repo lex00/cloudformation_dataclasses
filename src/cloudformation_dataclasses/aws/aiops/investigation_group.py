@@ -9,14 +9,6 @@ from cloudformation_dataclasses.core.base import PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
-# Service Constants (auto-generated from botocore)
-class EncryptionConfigurationType:
-    """EncryptionConfigurationType enum values."""
-
-    AWS_OWNED_KEY = "AWS_OWNED_KEY"
-    CUSTOMER_MANAGED_KMS_KEY = "CUSTOMER_MANAGED_KMS_KEY"
-
-
 @dataclass
 class ChatbotNotificationChannel(PropertyType):
     SNS_TOPIC_ARN = "SNSTopicArn"

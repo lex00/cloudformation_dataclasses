@@ -9,27 +9,6 @@ from cloudformation_dataclasses.core.base import PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
-# Service Constants (auto-generated from botocore)
-class DataType:
-    """DataType enum values."""
-
-    FLOAT32 = "float32"
-
-
-class DistanceMetric:
-    """DistanceMetric enum values."""
-
-    EUCLIDEAN = "euclidean"
-    COSINE = "cosine"
-
-
-class SseType:
-    """SseType enum values."""
-
-    AES256 = "AES256"
-    AWS_KMS = "aws:kms"
-
-
 @dataclass
 class EncryptionConfiguration(PropertyType):
     KMS_KEY_ARN = "KmsKeyArn"

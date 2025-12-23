@@ -9,36 +9,6 @@ from cloudformation_dataclasses.core.base import PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
-# Service Constants (auto-generated from botocore)
-class CertificateField:
-    """CertificateField enum values."""
-
-    X509SUBJECT = "x509Subject"
-    X509ISSUER = "x509Issuer"
-    X509SAN = "x509SAN"
-
-
-class NotificationChannel:
-    """NotificationChannel enum values."""
-
-    ALL = "ALL"
-
-
-class NotificationEvent:
-    """NotificationEvent enum values."""
-
-    CA_CERTIFICATE_EXPIRY = "CA_CERTIFICATE_EXPIRY"
-    END_ENTITY_CERTIFICATE_EXPIRY = "END_ENTITY_CERTIFICATE_EXPIRY"
-
-
-class TrustAnchorType:
-    """TrustAnchorType enum values."""
-
-    AWS_ACM_PCA = "AWS_ACM_PCA"
-    CERTIFICATE_BUNDLE = "CERTIFICATE_BUNDLE"
-    SELF_SIGNED_REPOSITORY = "SELF_SIGNED_REPOSITORY"
-
-
 @dataclass
 class AttributeMapping(PropertyType):
     MAPPING_RULES = "MappingRules"

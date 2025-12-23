@@ -1,6 +1,6 @@
 # DateExample
 
-Migrated from [date_example.yaml](https://github.com/aws-cloudformation/aws-cloudformation-templates).
+Migrated from [date_example.yaml](https://github.com/aws-cloudformation/cfn-lint).
 
 **Source**: AWS CloudFormation Sample Templates
 **License**: Apache-2.0

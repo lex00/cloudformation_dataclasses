@@ -9,60 +9,6 @@ from cloudformation_dataclasses.core.base import PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
-# Service Constants (auto-generated from botocore)
-class AccessType:
-    """AccessType enum values."""
-
-    LAKEFORMATION = "LAKEFORMATION"
-    S3 = "S3"
-
-
-class AwsLogSourceName:
-    """AwsLogSourceName enum values."""
-
-    ROUTE53 = "ROUTE53"
-    VPC_FLOW = "VPC_FLOW"
-    SH_FINDINGS = "SH_FINDINGS"
-    CLOUD_TRAIL_MGMT = "CLOUD_TRAIL_MGMT"
-    LAMBDA_EXECUTION = "LAMBDA_EXECUTION"
-    S3_DATA = "S3_DATA"
-    EKS_AUDIT = "EKS_AUDIT"
-    WAF = "WAF"
-
-
-class DataLakeStatus:
-    """DataLakeStatus enum values."""
-
-    INITIALIZED = "INITIALIZED"
-    PENDING = "PENDING"
-    COMPLETED = "COMPLETED"
-    FAILED = "FAILED"
-
-
-class HttpMethod:
-    """HttpMethod enum values."""
-
-    POST = "POST"
-    PUT = "PUT"
-
-
-class SourceCollectionStatus:
-    """SourceCollectionStatus enum values."""
-
-    COLLECTING = "COLLECTING"
-    MISCONFIGURED = "MISCONFIGURED"
-    NOT_COLLECTING = "NOT_COLLECTING"
-
-
-class SubscriberStatus:
-    """SubscriberStatus enum values."""
-
-    ACTIVE = "ACTIVE"
-    DEACTIVATED = "DEACTIVATED"
-    PENDING = "PENDING"
-    READY = "READY"
-
-
 @dataclass
 class EncryptionConfiguration(PropertyType):
     KMS_KEY_ID = "KmsKeyId"

@@ -9,21 +9,6 @@ from cloudformation_dataclasses.core.base import PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
-# Service Constants (auto-generated from botocore)
-class EmailContactStatus:
-    """EmailContactStatus enum values."""
-
-    INACTIVE = "inactive"
-    ACTIVE = "active"
-
-
-class ValidationExceptionReason:
-    """ValidationExceptionReason enum values."""
-
-    FIELDVALIDATIONFAILED = "fieldValidationFailed"
-    OTHER = "other"
-
-
 @dataclass
 class EmailContact(PropertyType):
     STATUS = "Status"

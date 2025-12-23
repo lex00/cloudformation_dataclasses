@@ -9,14 +9,6 @@ from cloudformation_dataclasses.core.base import PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
-# Service Constants (auto-generated from botocore)
-class CustomActionAttachmentCriteriaOperator:
-    """CustomActionAttachmentCriteriaOperator enum values."""
-
-    HAS_VALUE = "HAS_VALUE"
-    EQUALS = "EQUALS"
-
-
 @dataclass
 class CustomActionAttachment(PropertyType):
     VARIABLES = "Variables"

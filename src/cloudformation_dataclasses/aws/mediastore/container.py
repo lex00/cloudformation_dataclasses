@@ -9,31 +9,6 @@ from cloudformation_dataclasses.core.base import PropertyType, Tag
 from cloudformation_dataclasses.intrinsics.functions import GetAtt, Ref, Sub
 
 
-# Service Constants (auto-generated from botocore)
-class ContainerLevelMetrics:
-    """ContainerLevelMetrics enum values."""
-
-    ENABLED = "ENABLED"
-    DISABLED = "DISABLED"
-
-
-class ContainerStatus:
-    """ContainerStatus enum values."""
-
-    ACTIVE = "ACTIVE"
-    CREATING = "CREATING"
-    DELETING = "DELETING"
-
-
-class MethodName:
-    """MethodName enum values."""
-
-    PUT = "PUT"
-    GET = "GET"
-    DELETE = "DELETE"
-    HEAD = "HEAD"
-
-
 @dataclass
 class CorsRule(PropertyType):
     ALLOWED_METHODS = "AllowedMethods"
