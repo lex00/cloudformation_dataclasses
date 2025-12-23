@@ -16,21 +16,12 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import (
-    autoscaling,
-    cloudwatch,
-    ec2,
-    elasticloadbalancingv2,
-    sns,
-)
-from cloudformation_dataclasses.aws.ec2.instance import AssociationParameter
 from cloudformation_dataclasses.intrinsics import Base64, Join, Sub
 
 from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "AZs",
-    "AssociationParameter",
     "Base64",
     "CPUAlarmHigh",
     "CPUAlarmLow",
@@ -65,12 +56,7 @@ __all__ = [
     "WebServerGroup",
     "WebServerScaleDownPolicy",
     "WebServerScaleUpPolicy",
-    "autoscaling",
     "cloudformation_dataclass",
-    "cloudwatch",
-    "ec2",
-    "elasticloadbalancingv2",
     "get_att",
     "ref",
-    "sns",
 ]

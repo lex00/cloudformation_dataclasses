@@ -6,7 +6,9 @@ from . import *  # noqa: F403, F401
 def build_template() -> Template:
     """Build the CloudFormation template."""
     return Template.from_registry(
-        parameters=[ApiType, ApigatewayTimeout, LambdaFunctionName],
+        description='This AWS CloudFormation template describes a sample CloudFormation custom resource consumer for the GetFromJson Lambda-backed custom resource provider.',
+        parameters=[GetFromListJsonData, GetFromListJsonDataQuery, GetFromMapJsonData, GetFromMapJsonDataQuery],
+        outputs=[GetFromJsonCustomResourceSampleGetFromListValueOutput, GetFromJsonCustomResourceSampleGetFromMapValueOutput],
     )
 
 

@@ -28,6 +28,112 @@ from cloudformation_dataclasses.importer.parser import to_snake_case
 
 
 # =============================================================================
+# Service Category Mapping for Resource File Organization
+# =============================================================================
+
+# Map AWS service names to category files for large templates (10+ resources)
+SERVICE_CATEGORIES: dict[str, str] = {
+    # Compute
+    "EC2": "compute",
+    "Lambda": "compute",
+    "ECS": "compute",
+    "EKS": "compute",
+    "Batch": "compute",
+    "AutoScaling": "compute",
+    "ElasticBeanstalk": "compute",
+    "Lightsail": "compute",
+    # Storage
+    "S3": "storage",
+    "EFS": "storage",
+    "FSx": "storage",
+    "Backup": "storage",
+    # Database
+    "RDS": "database",
+    "DynamoDB": "database",
+    "ElastiCache": "database",
+    "Neptune": "database",
+    "DocumentDB": "database",
+    "Redshift": "database",
+    "MemoryDB": "database",
+    # Networking
+    "ElasticLoadBalancing": "network",
+    "ElasticLoadBalancingV2": "network",
+    "Route53": "network",
+    "CloudFront": "network",
+    "APIGateway": "network",
+    "ApiGatewayV2": "network",
+    "GlobalAccelerator": "network",
+    # Security/IAM
+    "IAM": "security",
+    "Cognito": "security",
+    "SecretsManager": "security",
+    "KMS": "security",
+    "WAF": "security",
+    "WAFv2": "security",
+    "ACM": "security",
+    "SSM": "security",
+    # Messaging/Integration
+    "SNS": "messaging",
+    "SQS": "messaging",
+    "EventBridge": "messaging",
+    "Events": "messaging",
+    "StepFunctions": "messaging",
+    "AppSync": "messaging",
+    # Monitoring/Logging
+    "CloudWatch": "monitoring",
+    "Logs": "monitoring",
+    "CloudTrail": "monitoring",
+    "XRay": "monitoring",
+    # CI/CD
+    "CodeBuild": "cicd",
+    "CodePipeline": "cicd",
+    "CodeCommit": "cicd",
+    "CodeDeploy": "cicd",
+    # Infrastructure
+    "CloudFormation": "infra",
+    "Config": "infra",
+    "ServiceCatalog": "infra",
+}
+
+# EC2 resource types that should go to network.py instead of compute.py
+EC2_NETWORK_TYPES: set[str] = {
+    "VPC",
+    "Subnet",
+    "InternetGateway",
+    "NatGateway",
+    "RouteTable",
+    "Route",
+    "SecurityGroup",
+    "NetworkAcl",
+    "VPCEndpoint",
+    "EIP",
+    "VPCGatewayAttachment",
+    "SubnetRouteTableAssociation",
+    "NetworkInterface",
+    "VPNGateway",
+    "VPNConnection",
+    "CustomerGateway",
+    "TransitGateway",
+    "TransitGatewayAttachment",
+}
+
+
+def _get_resource_category(resource: IRResource) -> str:
+    """Get the category file for a resource based on its AWS service.
+
+    Returns 'main' for uncategorized services, or a category name like
+    'compute', 'storage', 'network', etc.
+    """
+    service = resource.service
+
+    # Special case: EC2 VPC-related resources go to network
+    if service == "EC2" and resource.type_name in EC2_NETWORK_TYPES:
+        return "network"
+
+    return SERVICE_CATEGORIES.get(service, "main")
+
+
+# =============================================================================
 # Helpers
 # =============================================================================
 
@@ -2365,10 +2471,6 @@ def _generate_stack_package(pkg_ctx: PackageContext, template: IRTemplate) -> di
     files = {}
     ctx = pkg_ctx.codegen_ctx
 
-    # Consolidation threshold
-    total_resources = len(template.resources)
-    consolidate_all = total_resources < 5
-
     # Find strongly connected components to detect cycles
     sccs = _find_strongly_connected_components(template)
 
@@ -2424,22 +2526,25 @@ def _generate_stack_package(pkg_ctx: PackageContext, template: IRTemplate) -> di
 
         scc = sccs[scc_idx]
 
-        if consolidate_all:
-            # Small template: all resources go to main.py
-            if len(scc) > 1:
-                main_py_resources.extend(scc_orderings[scc_idx])
-            else:
-                main_py_resources.append(resource_id)
-        elif len(scc) > 1:
-            # SCC (cyclic dependencies) always goes to main.py
+        if len(scc) > 1:
+            # SCC (cyclic dependencies) goes to main.py
             main_py_resources.extend(scc_orderings[scc_idx])
         else:
-            # Single resource also goes to main.py (fewer files is better)
-            main_py_resources.append(resource_id)
+            # Single resource: group by category
+            resource = template.resources[resource_id]
+            category = _get_resource_category(resource)
+            if category == "main":
+                main_py_resources.append(resource_id)
+            else:
+                if category not in separate_files:
+                    separate_files[category] = []
+                separate_files[category].append(resource_id)
 
-    # Re-sort main_py_resources in topological order to ensure dependencies come first
+    # Re-sort resources in topological order to ensure dependencies come first
     topo_order = {rid: idx for idx, rid in enumerate(sorted_resources)}
     main_py_resources.sort(key=lambda rid: topo_order[rid])
+    for category in separate_files:
+        separate_files[category].sort(key=lambda rid: topo_order[rid])
 
     # Generate main.py with all consolidated resources
     if main_py_resources:
@@ -2470,11 +2575,11 @@ def _generate_stack_package(pkg_ctx: PackageContext, template: IRTemplate) -> di
 
         files["stack/main.py"] = "\n".join(lines) + "\n"
 
-    # Generate any separate files (currently none with our consolidation logic)
+    # Generate category files (compute.py, network.py, etc.)
     for filename, resource_ids in separate_files.items():
         lines = []
         resource_names = ", ".join(resource_ids)
-        lines.append(f'"""Resources: {resource_names}."""')
+        lines.append(f'"""{filename.title()} resources: {resource_names}."""')
         lines.append("")
         lines.append("from .. import *  # noqa: F403")
         lines.append("")

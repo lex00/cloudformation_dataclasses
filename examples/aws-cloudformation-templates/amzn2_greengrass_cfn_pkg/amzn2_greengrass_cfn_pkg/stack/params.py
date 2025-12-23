@@ -4,43 +4,28 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class CoreName:
-    """Greengrass Core name to be created. A "Thing" with be created with _Core appended to the name"""
+class DBName:
+    """The database name"""
 
     resource: Parameter
     type = STRING
-    description = 'Greengrass Core name to be created. A "Thing" with be created with _Core appended to the name'
-    default = 'gg_cfn'
+    description = 'The database name'
+    default = 'MyDatabase'
+    allowed_pattern = '[a-zA-Z][a-zA-Z0-9]*'
+    min_length = 1
+    max_length = 64
+    constraint_description = 'must begin with a letter and contain only alphanumeric characters.'
 
 
 @cloudformation_dataclass
-class InstanceType:
-    resource: Parameter
-    type = STRING
-    default = 't3.micro'
-
-
-@cloudformation_dataclass
-class LatestAmiId:
-    resource: Parameter
-    type = 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
-    default = '/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2'
-
-
-@cloudformation_dataclass
-class SecurityAccessCIDR:
-    """CIDR block to limit inbound access for only SSH"""
+class DBUser:
+    """The database admin account username"""
 
     resource: Parameter
     type = STRING
-    description = 'CIDR block to limit inbound access for only SSH'
-    default = '0.0.0.0/0'
-
-
-@cloudformation_dataclass
-class myKeyPair:
-    """Amazon EC2 Key Pair for accessing Greengrass Core instance"""
-
-    resource: Parameter
-    type = ParameterType.AWS_EC2_KEY_PAIR_KEY_NAME
-    description = 'Amazon EC2 Key Pair for accessing Greengrass Core instance'
+    description = 'The database admin account username'
+    allowed_pattern = '[a-zA-Z][a-zA-Z0-9]*'
+    min_length = 1
+    max_length = 16
+    constraint_description = 'must begin with a letter and contain only alphanumeric characters.'
+    no_echo = True

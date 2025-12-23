@@ -34,12 +34,3 @@ class MacroFunction:
     handler = 'macro.handler'
     policies = 'AmazonS3FullAccess'
     environment = MacroFunctionEnvironment
-
-
-@cloudformation_dataclass
-class Macro:
-    """AWS::CloudFormation::Macro resource."""
-
-    resource: cloudformation.Macro
-    name = 'S3Objects'
-    function_name = get_att(MacroFunction, "Arn")

@@ -1,6 +1,9 @@
 # Ec2WithWaitconditionTemplate
 
-Imported from `public-service.json`.
+Migrated from [ec2_with_waitcondition_template.yaml](https://github.com/aws-cloudformation/cfn-lint).
+
+**Source**: AWS CloudFormation Sample Templates
+**License**: Apache-2.0
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -31,7 +34,7 @@ pip install .
 
 | Logical ID | Type |
 |------------|------|
-| `TaskDefinition` | AWS::ECS::TaskDefinition |
-| `Service` | AWS::ECS::Service |
-| `TargetGroup` | AWS::ElasticLoadBalancingV2::TargetGroup |
-| `LoadBalancerRule` | AWS::ElasticLoadBalancingV2::ListenerRule |
+| `KWOSInstance` | AWS::EC2::Instance |
+| `KWOSWaitHandle` | AWS::CloudFormation::WaitConditionHandle |
+| `KWOSWaitCondition` | AWS::CloudFormation::WaitCondition |
+| `KWOSSecurityGroup` | AWS::EC2::SecurityGroup |

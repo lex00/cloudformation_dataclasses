@@ -4,95 +4,92 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class DesiredCapacity:
-    """Number of EC2 instances to launch in your ECS cluster."""
-
-    resource: Parameter
-    type = NUMBER
-    description = 'Number of EC2 instances to launch in your ECS cluster.'
-    default = '3'
-
-
-@cloudformation_dataclass
-class MaxSize:
-    """Maximum number of EC2 instances that can be launched in your ECS cluster."""
-
-    resource: Parameter
-    type = NUMBER
-    description = 'Maximum number of EC2 instances that can be launched in your ECS cluster.'
-    default = '6'
-
-
-@cloudformation_dataclass
-class ECSAMI:
-    """AMI ID"""
-
-    resource: Parameter
-    type = 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
-    description = 'AMI ID'
-    default = '/aws/service/ecs/optimized-ami/amazon-linux-2/recommended/image_id'
-
-
-@cloudformation_dataclass
 class InstanceType:
-    """EC2 instance type"""
+    """WebServer EC2 instance type"""
 
     resource: Parameter
     type = STRING
-    description = 'EC2 instance type'
-    default = 'c4.xlarge'
+    description = 'WebServer EC2 instance type'
+    default = 't3.small'
     allowed_values = [
-    't3.micro',
-    't3.small',
-    't3.medium',
-    't3.large',
+    't2.nano',
     't2.micro',
     't2.small',
     't2.medium',
     't2.large',
-    'm3.medium',
-    'm3.large',
-    'm3.xlarge',
-    'm3.2xlarge',
+    't2.xlarge',
+    't2.2xlarge',
+    't3.nano',
+    't3.micro',
+    't3.small',
+    't3.medium',
+    't3.large',
+    't3.xlarge',
+    't3.2xlarge',
     'm4.large',
     'm4.xlarge',
     'm4.2xlarge',
     'm4.4xlarge',
     'm4.10xlarge',
-    'c4.large',
-    'c4.xlarge',
-    'c4.2xlarge',
-    'c4.4xlarge',
-    'c4.8xlarge',
-    'c3.large',
-    'c3.xlarge',
-    'c3.2xlarge',
-    'c3.4xlarge',
-    'c3.8xlarge',
-    'r3.large',
-    'r3.xlarge',
-    'r3.2xlarge',
-    'r3.4xlarge',
-    'r3.8xlarge',
-    'i2.xlarge',
-    'i2.2xlarge',
-    'i2.4xlarge',
-    'i2.8xlarge',
+    'm5.large',
+    'm5.xlarge',
+    'm5.2xlarge',
+    'm5.4xlarge',
+    'c5.large',
+    'c5.xlarge',
+    'c5.2xlarge',
+    'c5.4xlarge',
+    'c5.9xlarge',
+    'g3.8xlarge',
+    'r5.large',
+    'r5.xlarge',
+    'r5.2xlarge',
+    'r5.4xlarge',
+    'r5.12xlarge',
+    'i3.xlarge',
+    'i3.2xlarge',
+    'i3.4xlarge',
+    'i3.8xlarge',
+    'd2.xlarge',
+    'd2.2xlarge',
+    'd2.4xlarge',
+    'd2.8xlarge',
 ]
-    constraint_description = 'Please choose a valid instance type.'
+    constraint_description = 'must be a valid EC2 instance type.'
 
 
 @cloudformation_dataclass
-class SubnetConfigMapping:
-    resource: Mapping
-    map_data = {
-        'VPC': {
-            'CIDR': '10.0.0.0/16',
-        },
-        'PublicOne': {
-            'CIDR': '10.0.0.0/24',
-        },
-        'PublicTwo': {
-            'CIDR': '10.0.1.0/24',
-        },
-    }
+class KeyName:
+    """Name of an existing EC2 KeyPair to enable SSH access to the instances"""
+
+    resource: Parameter
+    type = ParameterType.AWS_EC2_KEY_PAIR_KEY_NAME
+    description = 'Name of an existing EC2 KeyPair to enable SSH access to the instances'
+    constraint_description = 'must be the name of an existing EC2 KeyPair.'
+
+
+@cloudformation_dataclass
+class SSHLocation:
+    """The IP address range that can be used to SSH to the EC2 instances"""
+
+    resource: Parameter
+    type = STRING
+    description = 'The IP address range that can be used to SSH to the EC2 instances'
+    default = '0.0.0.0/0'
+    allowed_pattern = '(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})'
+    min_length = 9
+    max_length = 18
+    constraint_description = 'must be a valid IP CIDR range of the form x.x.x.x/x.'
+
+
+@cloudformation_dataclass
+class LatestAmiId:
+    resource: Parameter
+    type = 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
+    default = '/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2'
+
+
+@cloudformation_dataclass
+class Subnets:
+    resource: Parameter
+    type = ParameterType.LIST_AWS_EC2_SUBNET_ID

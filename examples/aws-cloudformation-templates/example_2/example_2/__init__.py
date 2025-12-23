@@ -2,28 +2,22 @@
 
 from cloudformation_dataclasses.core import (
     CloudFormationResource,
-    Output,
     Template,
     cloudformation_dataclass,
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import cloudformation, cloudwatch
+from cloudformation_dataclasses.aws import cloudformation
 
 from .stack import *  # noqa: F403, F401
 
 __all__ = [
     "CloudFormationResource",
-    "Dashboard",
     "Macro",
     "MacroFunction",
-    "Output",
-    "ResourceFunction",
-    "ResourceFunctionOutput",
     "Template",
     "cloudformation",
     "cloudformation_dataclass",
-    "cloudwatch",
     "get_att",
     "ref",
 ]

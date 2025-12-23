@@ -12,12 +12,3 @@ class Function:
     runtime = 'python3.11'
     code_uri = 'lambda'
     handler = 'index.handler'
-
-
-@cloudformation_dataclass
-class Macro:
-    """AWS::CloudFormation::Macro resource."""
-
-    resource: cloudformation.Macro
-    name = 'ExecutionRoleBuilder'
-    function_name = get_att(Function, "Arn")

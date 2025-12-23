@@ -12,12 +12,3 @@ class MacroFunction:
     runtime = 'python3.11'
     code_uri = 'lambda'
     handler = 'explode.handler'
-
-
-@cloudformation_dataclass
-class Macro:
-    """AWS::CloudFormation::Macro resource."""
-
-    resource: cloudformation.Macro
-    name = 'Explode'
-    function_name = get_att(MacroFunction, "Arn")

@@ -1,9 +1,6 @@
 # Example
 
-Migrated from [example.json](https://github.com/aws-cloudformation/cfn-lint).
-
-**Source**: AWS CloudFormation Sample Templates
-**License**: Apache-2.0
+Imported from `string_example.yaml`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -34,4 +31,4 @@ pip install .
 
 | Logical ID | Type |
 |------------|------|
-| `Bucket1` | AWS::S3::Bucket |
+| `S3Bucket` | AWS::S3::Bucket |

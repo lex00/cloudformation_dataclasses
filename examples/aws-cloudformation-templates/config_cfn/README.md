@@ -1,6 +1,6 @@
 # ConfigCfn
 
-Imported from `DynamoDB_Secondary_Indexes.yaml`.
+Imported from `EC2InstanceWithSecurityGroupSample.yaml`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -31,4 +31,5 @@ pip install .
 
 | Logical ID | Type |
 |------------|------|
-| `TableOfBooks` | AWS::DynamoDB::Table |
+| `EC2Instance` | AWS::EC2::Instance |
+| `InstanceSecurityGroup` | AWS::EC2::SecurityGroup |

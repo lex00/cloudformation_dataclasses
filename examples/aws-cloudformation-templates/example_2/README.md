@@ -1,6 +1,6 @@
 # Example2
 
-Imported from `macro_5.yaml`.
+Imported from `macro_3.yaml`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -31,7 +31,5 @@ pip install .
 
 | Logical ID | Type |
 |------------|------|
-| `ResourceFunction` | AWS::Serverless::Function |
 | `MacroFunction` | AWS::Serverless::Function |
 | `Macro` | AWS::CloudFormation::Macro |
-| `Dashboard` | AWS::CloudWatch::Dashboard |

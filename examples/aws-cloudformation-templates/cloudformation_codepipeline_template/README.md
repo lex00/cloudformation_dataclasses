@@ -1,9 +1,6 @@
 # CloudformationCodepipelineTemplate
 
-Migrated from [cloudformation-codepipeline-template.yaml](https://github.com/aws-cloudformation/cfn-lint).
-
-**Source**: AWS CloudFormation Sample Templates
-**License**: Apache-2.0
+Imported from `DIRECTORY-AD-CLIENTS.yaml`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -34,7 +31,9 @@ pip install .
 
 | Logical ID | Type |
 |------------|------|
-| `PipelineRole` | AWS::IAM::Role |
-| `EventRole` | AWS::IAM::Role |
-| `EventRule` | AWS::Events::Rule |
-| `Pipeline` | AWS::CodePipeline::Pipeline |
+| `DomainMember1WithInlineSsmAssociation` | AWS::EC2::Instance |
+| `DomainMember2WithSsmAssociationInstance` | AWS::EC2::Instance |
+| `DomainMember3WithSsmAssociationTag` | AWS::EC2::Instance |
+| `DomainMember4LinuxWithSsmAssociationInstance` | AWS::EC2::Instance |
+| `JoinDomainAssociationInstances` | AWS::SSM::Association |
+| `JoinDomainAssociationTags` | AWS::SSM::Association |

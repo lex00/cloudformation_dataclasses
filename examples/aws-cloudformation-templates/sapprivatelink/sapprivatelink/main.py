@@ -6,9 +6,7 @@ from . import *  # noqa: F403, F401
 def build_template() -> Template:
     """Build the CloudFormation template."""
     return Template.from_registry(
-        description='CloudFormation template to create PrivateLink infrastructure',
-        parameters=[DomainName, HostedZone, VpcId, Subnets, SecurityGroups, IP, Protocol, Port, HealthCheckPath, InVpc],
-        outputs=[CertificateURLOutput, VPCEndpointServiceURLOutput, TargetGroupURLOutput],
+        description='Demonstrate using the Fn::ForEach function to create multiple buckets and outputs for each one',
     )
 
 

@@ -6,8 +6,9 @@ from . import *  # noqa: F403, F401
 def build_template() -> Template:
     """Build the CloudFormation template."""
     return Template.from_registry(
-        description='Deploy a service into an ECS cluster behind a public load balancer.',
-        parameters=[StackName, ServiceName, ImageUrl, ContainerPort, ContainerCpu, ContainerMemory, Path, Priority, DesiredCount, Role],
+        description='Create a variable number of EC2 instance resources.',
+        parameters=[KeyName, InstanceName, InstanceType, ImageId, VpcId, SubnetId, SSHLocation, BudgetCode, LaunchPlatform, LaunchUser, TestID, TestTarget, AgentID, IsMaster, MasterID],
+        outputs=[WebsiteURLOutput, InstanceIdOutput],
     )
 
 

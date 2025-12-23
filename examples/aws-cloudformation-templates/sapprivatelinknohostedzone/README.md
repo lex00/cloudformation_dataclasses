@@ -1,9 +1,6 @@
 # Sapprivatelinknohostedzone
 
-Migrated from [SapPrivateLinkNoHostedZone.yaml](https://github.com/aws-cloudformation/cfn-lint).
-
-**Source**: AWS CloudFormation Sample Templates
-**License**: Apache-2.0
+Imported from `AppRunnerServiceFromECR.yaml`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -34,12 +31,5 @@ pip install .
 
 | Logical ID | Type |
 |------------|------|
-| `ASCPrivateLinkCertificate` | AWS::CertificateManager::Certificate |
-| `ASCPrivateLinkLambdaRole` | AWS::IAM::Role |
-| `ASCPrivateLinkLambdaFunction` | AWS::Lambda::Function |
-| `ASCPrivateLinkEnablePrivateDNS` | Custom::CustomResource |
-| `ASCPrivateLinkNLB` | AWS::ElasticLoadBalancingV2::LoadBalancer |
-| `ASCPrivateLinkTargetGroup` | AWS::ElasticLoadBalancingV2::TargetGroup |
-| `ASCPrivateLinkListener` | AWS::ElasticLoadBalancingV2::Listener |
-| `ASCPrivateLinkVPCES` | AWS::EC2::VPCEndpointService |
-| `ASCPrivateLinkVPCESPermission` | AWS::EC2::VPCEndpointServicePermissions |
+| `AppRunnerRole` | AWS::IAM::Role |
+| `AppRunner` | AWS::AppRunner::Service |

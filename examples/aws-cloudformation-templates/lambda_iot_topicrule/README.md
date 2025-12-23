@@ -1,6 +1,6 @@
 # LambdaIotTopicrule
 
-Imported from `RDS_PIOPS.yaml`.
+Imported from `RDS_Snapshot_On_Delete.yaml`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -31,5 +31,4 @@ pip install .
 
 | Logical ID | Type |
 |------------|------|
-| `DBCredential` | AWS::SecretsManager::Secret |
-| `myDB` | AWS::RDS::DBInstance |
+| `MyDB` | AWS::RDS::DBInstance |

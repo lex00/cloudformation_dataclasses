@@ -4,15 +4,6 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class Repo:
-    """AWS::CodeCommit::Repository resource."""
-
-    # Unknown resource type: AWS::CodeCommit::Repository
-    resource: CloudFormationResource
-    repository_name = 'my-repo'
-
-
-@cloudformation_dataclass
 class AddReadme:
     """Boto3::CodeCommit.put_file resource."""
 
