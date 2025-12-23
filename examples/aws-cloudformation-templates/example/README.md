@@ -1,9 +1,6 @@
 # Example
 
-Migrated from [example.yaml](https://github.com/aws-cloudformation/cfn-lint).
-
-**Source**: AWS CloudFormation Sample Templates
-**License**: Apache-2.0
+Imported from `macro_5.yaml`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -34,4 +31,7 @@ pip install .
 
 | Logical ID | Type |
 |------------|------|
-| `Bucket1` | AWS::S3::Bucket |
+| `ResourceFunction` | AWS::Serverless::Function |
+| `MacroFunction` | AWS::Serverless::Function |
+| `Macro` | AWS::CloudFormation::Macro |
+| `Dashboard` | AWS::CloudWatch::Dashboard |

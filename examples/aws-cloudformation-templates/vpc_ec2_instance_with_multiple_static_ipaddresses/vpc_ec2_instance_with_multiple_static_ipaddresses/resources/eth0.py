@@ -35,7 +35,7 @@ class Eth0AssociationParameter1:
 class Eth0:
     """AWS::EC2::NetworkInterface resource."""
 
-    resource: NetworkInterface
+    resource: ec2.NetworkInterface
     description = 'eth0'
     group_set = [ref(SSHSecurityGroup)]
     private_ip_addresses = [Eth0PrivateIpAddressSpecification, Eth0PrivateIpAddressSpecification1]

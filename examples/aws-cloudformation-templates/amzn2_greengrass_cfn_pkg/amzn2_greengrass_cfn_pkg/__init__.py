@@ -21,9 +21,7 @@ from cloudformation_dataclasses.aws import (
     iam,
     lambda_,
 )
-from cloudformation_dataclasses.aws.ec2 import RouteTable, Subnet, SubnetRouteTableAssociation
-from cloudformation_dataclasses.aws.greengrass import CoreDefinition, CoreDefinitionVersion
-from cloudformation_dataclasses.aws.lambda_ import Version
+from cloudformation_dataclasses.aws.greengrassv2.component_version import LambdaLinuxProcessParams
 from cloudformation_dataclasses.intrinsics import (
     AWS_ACCOUNT_ID,
     AWS_PARTITION,
@@ -52,8 +50,6 @@ __all__ = [
     "AWS_STACK_NAME",
     "Base64",
     "CloudFormationResource",
-    "CoreDefinition",
-    "CoreDefinitionVersion",
     "CoreName",
     "CreateThingFunction",
     "FunctionDefinition",
@@ -74,13 +70,13 @@ __all__ = [
     "IoTThing",
     "Join",
     "LambdaExecutionRole",
+    "LambdaLinuxProcessParams",
     "LatestAmiId",
     "Output",
     "Parameter",
     "ParameterType",
     "PolicyDocument",
     "PolicyStatement",
-    "RouteTable",
     "RouteTableAssociationAPublic",
     "RouteTablePublic",
     "RouteTablePublicInternetRoute",
@@ -88,14 +84,11 @@ __all__ = [
     "SecurityAccessCIDR",
     "Split",
     "Sub",
-    "Subnet",
     "SubnetAPublic",
-    "SubnetRouteTableAssociation",
     "SubscriptionDefinition",
     "Template",
     "VPC",
     "VPCGatewayAttachment",
-    "Version",
     "cloudformation_dataclass",
     "ec2",
     "get_att",

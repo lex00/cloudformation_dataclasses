@@ -19,39 +19,6 @@ class S3TargetDMSRoleAssumeRolePolicyDocument:
 
 
 @cloudformation_dataclass
-class S3TargetDMSRoleAllowStatement0_1:
-    resource: PolicyStatement
-    action = [
-        's3:PutObject',
-        's3:DeleteObject',
-    ]
-    resource_arn = [
-        get_att(S3Bucket, "Arn"),
-        Sub('${S3Bucket.Arn}/*'),
-    ]
-
-
-@cloudformation_dataclass
-class S3TargetDMSRoleAllowStatement1:
-    resource: PolicyStatement
-    action = 's3:ListBucket'
-    resource_arn = get_att(S3Bucket, "Arn")
-
-
-@cloudformation_dataclass
-class S3TargetDMSRolePolicies0PolicyDocument:
-    resource: PolicyDocument
-    statement = [S3TargetDMSRoleAllowStatement0_1, S3TargetDMSRoleAllowStatement1]
-
-
-@cloudformation_dataclass
-class S3TargetDMSRolePolicy:
-    resource: iam.user.Policy
-    policy_name = 'S3AccessForDMSPolicy'
-    policy_document = S3TargetDMSRolePolicies0PolicyDocument
-
-
-@cloudformation_dataclass
 class S3TargetDMSRole:
     """AWS::IAM::Role resource."""
 
@@ -59,5 +26,28 @@ class S3TargetDMSRole:
     role_name = 'dms-s3-target-role'
     assume_role_policy_document = S3TargetDMSRoleAssumeRolePolicyDocument
     path = '/'
-    policies = [S3TargetDMSRolePolicy]
+    policies = [{
+        'PolicyName': 'S3AccessForDMSPolicy',
+        'PolicyDocument': {
+            'Version': '2012-10-17',
+            'Statement': [
+                {
+                    'Effect': 'Allow',
+                    'Action': [
+                        's3:PutObject',
+                        's3:DeleteObject',
+                    ],
+                    'Resource': [
+                        get_att(S3Bucket, "Arn"),
+                        Sub('${S3Bucket.Arn}/*'),
+                    ],
+                },
+                {
+                    'Effect': 'Allow',
+                    'Action': 's3:ListBucket',
+                    'Resource': get_att(S3Bucket, "Arn"),
+                },
+            ],
+        },
+    }]
     depends_on = ["S3Bucket"]

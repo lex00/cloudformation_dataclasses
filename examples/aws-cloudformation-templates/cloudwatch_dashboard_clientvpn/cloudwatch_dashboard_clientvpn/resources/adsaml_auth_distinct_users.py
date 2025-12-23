@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class ADSAMLAuthDistinctUsers:
     """AWS::Logs::QueryDefinition resource."""
 
-    resource: QueryDefinition
+    resource: logs.QueryDefinition
     name = Sub('${Folder}/AD or SAML Auth Distinct Users')
     query_string = """fields @timestamp, `client-vpn-endpoint-id`, `username` 
 | sort @timestamp asc 

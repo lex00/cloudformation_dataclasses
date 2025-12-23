@@ -15,7 +15,6 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import ec2
-from cloudformation_dataclasses.aws.ec2 import EIP, EIPAssociation, NetworkInterface
 from cloudformation_dataclasses.intrinsics import Join, Select
 
 from .stack_config import (
@@ -33,16 +32,13 @@ from .resources import *  # noqa: F403, F401
 
 __all__ = [
     "EC2Instance",
-    "EIP",
     "EIP1",
     "EIPAssoc1",
-    "EIPAssociation",
     "Eth0",
     "InstanceType",
     "Join",
     "KeyName",
     "LatestAMI",
-    "NetworkInterface",
     "Output",
     "Parameter",
     "ParameterType",

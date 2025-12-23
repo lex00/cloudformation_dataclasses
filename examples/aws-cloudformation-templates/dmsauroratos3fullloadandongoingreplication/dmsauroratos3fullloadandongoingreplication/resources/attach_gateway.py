@@ -7,6 +7,6 @@ from .. import *  # noqa: F403
 class AttachGateway:
     """AWS::EC2::VPCGatewayAttachment resource."""
 
-    resource: VPCGatewayAttachment
+    resource: ec2.VPCGatewayAttachment
     vpc_id = ref(VPC)
     internet_gateway_id = ref(InternetGateway)

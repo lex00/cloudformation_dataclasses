@@ -25,58 +25,48 @@ class DeliveryRoleAssumeRolePolicyDocument:
 
 
 @cloudformation_dataclass
-class DeliveryRoleAllowStatement0_1:
-    resource: PolicyStatement
-    action = [
-        's3:AbortMultipartUpload',
-        's3:GetBucketLocation',
-        's3:GetObject',
-        's3:ListBucket',
-        's3:ListBucketMultipartUploads',
-        's3:PutObject',
-    ]
-    resource_arn = [
-        Join('', [
-    'arn:aws:s3:::',
-    ref(DestinationBucketName),
-]),
-        Join('', [
-    'arn:aws:s3:::',
-    ref(DestinationBucketName),
-    '/*',
-]),
-    ]
-
-
-@cloudformation_dataclass
-class DeliveryRoleAllowStatement1:
-    resource: PolicyStatement
-    action = ['logs:PutLogEvents']
-    resource_arn = Join('', [
-    Sub('arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/kinesisfirehose/'),
-    ref(LogGroupName),
-    ':*',
-])
-
-
-@cloudformation_dataclass
-class DeliveryRolePolicies0PolicyDocument:
-    resource: PolicyDocument
-    statement = [DeliveryRoleAllowStatement0_1, DeliveryRoleAllowStatement1]
-
-
-@cloudformation_dataclass
-class DeliveryRolePolicy:
-    resource: iam.user.Policy
-    policy_name = 'firehose_delivery_policy'
-    policy_document = DeliveryRolePolicies0PolicyDocument
-
-
-@cloudformation_dataclass
 class DeliveryRole:
     """AWS::IAM::Role resource."""
 
     resource: iam.Role
     assume_role_policy_document = DeliveryRoleAssumeRolePolicyDocument
     path = '/'
-    policies = [DeliveryRolePolicy]
+    policies = [{
+        'PolicyName': 'firehose_delivery_policy',
+        'PolicyDocument': {
+            'Version': '2012-10-17',
+            'Statement': [
+                {
+                    'Effect': 'Allow',
+                    'Action': [
+                        's3:AbortMultipartUpload',
+                        's3:GetBucketLocation',
+                        's3:GetObject',
+                        's3:ListBucket',
+                        's3:ListBucketMultipartUploads',
+                        's3:PutObject',
+                    ],
+                    'Resource': [
+                        Join('', [
+    'arn:aws:s3:::',
+    ref(DestinationBucketName),
+]),
+                        Join('', [
+    'arn:aws:s3:::',
+    ref(DestinationBucketName),
+    '/*',
+]),
+                    ],
+                },
+                {
+                    'Effect': 'Allow',
+                    'Action': ['logs:PutLogEvents'],
+                    'Resource': Join('', [
+    Sub('arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/kinesisfirehose/'),
+    ref(LogGroupName),
+    ':*',
+]),
+                },
+            ],
+        },
+    }]

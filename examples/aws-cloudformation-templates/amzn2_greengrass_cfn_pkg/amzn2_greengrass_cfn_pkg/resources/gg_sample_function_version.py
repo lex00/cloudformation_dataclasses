@@ -7,5 +7,5 @@ from .. import *  # noqa: F403
 class GGSampleFunctionVersion:
     """AWS::Lambda::Version resource."""
 
-    resource: Version
+    resource: lambda_.Version
     function_name = get_att(GGSampleFunction, "Arn")

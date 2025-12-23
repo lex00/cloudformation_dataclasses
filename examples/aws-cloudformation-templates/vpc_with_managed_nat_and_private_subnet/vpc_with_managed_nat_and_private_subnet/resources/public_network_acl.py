@@ -31,6 +31,6 @@ class PublicNetworkAclAssociationParameter2:
 class PublicNetworkAcl:
     """AWS::EC2::NetworkAcl resource."""
 
-    resource: NetworkAcl
+    resource: ec2.NetworkAcl
     vpc_id = ref(VPC)
     tags = [PublicNetworkAclAssociationParameter, PublicNetworkAclAssociationParameter1, PublicNetworkAclAssociationParameter2]

@@ -28,7 +28,7 @@ class TestResourceHandlerPolicyPolicyDocument:
 class TestResourceHandlerPolicy:
     """AWS::IAM::RolePolicy resource."""
 
-    resource: RolePolicy
+    resource: iam.RolePolicy
     policy_document = TestResourceHandlerPolicyPolicyDocument
     policy_name = 'handler-policy'
     role_name = ref(TestResourceHandlerRole)

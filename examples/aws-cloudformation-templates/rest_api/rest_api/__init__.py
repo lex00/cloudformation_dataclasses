@@ -9,7 +9,6 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import apigateway
-from cloudformation_dataclasses.aws.apigateway import RestApi
 
 from .stack_config import AppName, UserPoolArn
 
@@ -22,7 +21,6 @@ __all__ = [
     "ApiStage",
     "AppName",
     "Parameter",
-    "RestApi",
     "STRING",
     "Template",
     "UserPoolArn",

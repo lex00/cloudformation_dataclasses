@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class CloudwatchLogsGroup:
     """AWS::Logs::LogGroup resource."""
 
-    resource: LogGroup
+    resource: logs.LogGroup
     log_group_name = Join('-', [
     'ECSLogGroup',
     AWS_STACK_NAME,

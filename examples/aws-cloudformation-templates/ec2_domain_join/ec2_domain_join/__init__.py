@@ -13,8 +13,7 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import ec2, iam
-from cloudformation_dataclasses.aws.ssm import Document
+from cloudformation_dataclasses.aws import ec2, iam, ssm
 
 from .stack_config import (
     ADDirectoryId,
@@ -36,7 +35,6 @@ __all__ = [
     "ADDnsIpAddresses1",
     "ADDnsIpAddresses2",
     "AMI",
-    "Document",
     "InstanceSecurityGroup",
     "InstanceType",
     "KeyPair",
@@ -57,4 +55,5 @@ __all__ = [
     "myInstanceProfile",
     "myssmdocument",
     "ref",
+    "ssm",
 ]

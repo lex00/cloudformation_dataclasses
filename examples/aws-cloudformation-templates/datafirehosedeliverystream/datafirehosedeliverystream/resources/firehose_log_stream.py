@@ -7,6 +7,6 @@ from .. import *  # noqa: F403
 class FirehoseLogStream:
     """AWS::Logs::LogStream resource."""
 
-    resource: LogStream
+    resource: logs.LogStream
     log_group_name = ref(FirehoseLogGroup)
     log_stream_name = ref(LogStreamName)

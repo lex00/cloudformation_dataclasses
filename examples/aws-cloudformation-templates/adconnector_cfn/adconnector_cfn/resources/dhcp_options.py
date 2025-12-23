@@ -4,18 +4,14 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class DHCPOptionsAssociationParameter:
-    resource: ec2.instance.AssociationParameter
-    key = 'Name'
-    value = ref(DomainDNSName)
-
-
-@cloudformation_dataclass
 class DHCPOptions:
     """AWS::EC2::DHCPOptions resource."""
 
     resource: ec2.DHCPOptions
     domain_name = ref(DomainDNSName)
     domain_name_servers = [ref(DomainDNSServers)]
-    tags = [DHCPOptionsAssociationParameter]
+    tags = [{
+        'Key': 'Name',
+        'Value': ref(DomainDNSName),
+    }]
     condition = 'DHCPOptionSetCondition'

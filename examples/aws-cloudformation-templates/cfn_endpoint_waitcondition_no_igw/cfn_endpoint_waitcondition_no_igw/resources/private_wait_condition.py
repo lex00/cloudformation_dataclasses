@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class PrivateWaitCondition:
     """AWS::CloudFormation::WaitCondition resource."""
 
-    resource: WaitCondition
+    resource: cloudformation.WaitCondition
     handle = ref(PrivateWaitHandle)
     timeout = '3600'
     count = 1

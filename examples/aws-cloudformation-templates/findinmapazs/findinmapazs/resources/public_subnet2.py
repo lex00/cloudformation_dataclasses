@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class PublicSubnet2:
     """AWS::EC2::Subnet resource."""
 
-    resource: Subnet
+    resource: ec2.Subnet
     vpc_id = ref(VPC)
     availability_zone = Select(1, FindInMap("RegionMap", AWS_REGION, 'AZs'))
     cidr_block = ref(PublicSubnet2CIDR)

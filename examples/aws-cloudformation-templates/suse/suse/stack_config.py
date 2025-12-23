@@ -96,18 +96,18 @@ class RegionMapMapping:
             'SLES15SP5': 'ami-028867095499bce4b',
         },
         'eu-west-2': {
-            'SLES15SP5': 'ami-03d783398e1e54eb1',
+            'RHEL9': 'ami-03d783398e1e54eb1',
         },
         'ap-northeast-1': {
-            'SLES15SP5': 'ami-05ef8ea5a07946994',
+            'RHEL9': 'ami-05ef8ea5a07946994',
         },
         'ap-northeast-2': {
-            'SLES15SP5': 'ami-0f8bf550807d8d01a',
+            'RHEL9': 'ami-0f8bf550807d8d01a',
         },
         'ap-southeast-1': {
-            'SLES15SP5': 'ami-0db03992e79210b9f',
+            'RHEL9': 'ami-0db03992e79210b9f',
         },
         'ap-southeast-2': {
-            'SLES15SP5': 'ami-084fd76702fabcf2c',
+            'RHEL9': 'ami-084fd76702fabcf2c',
         },
     }

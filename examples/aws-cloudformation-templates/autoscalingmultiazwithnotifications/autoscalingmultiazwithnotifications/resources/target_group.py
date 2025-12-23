@@ -7,7 +7,8 @@ from .. import *  # noqa: F403
 class TargetGroup:
     """AWS::ElasticLoadBalancingV2::TargetGroup resource."""
 
-    resource: elasticloadbalancingv2.TargetGroup
+    # Unknown resource type: AWS::ElasticLoadBalancingV2::TargetGroup
+    resource: CloudFormationResource
     health_check_path = '/'
     name = 'MyTargetGroup'
     port = 80

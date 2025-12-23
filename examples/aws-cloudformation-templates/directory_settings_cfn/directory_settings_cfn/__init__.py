@@ -16,8 +16,12 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import iam, lambda_, sns
-from cloudformation_dataclasses.aws.logs import LogGroup
+from cloudformation_dataclasses.aws import (
+    iam,
+    lambda_,
+    logs,
+    sns,
+)
 from cloudformation_dataclasses.intrinsics import (
     AWS_NO_VALUE,
     AWS_STACK_NAME,
@@ -80,7 +84,6 @@ __all__ = [
     "LambdaLogsLogGroupRetention",
     "LambdaS3BucketName",
     "LambdaZipFileName",
-    "LogGroup",
     "Not",
     "Output",
     "Parameter",
@@ -96,6 +99,7 @@ __all__ = [
     "get_att",
     "iam",
     "lambda_",
+    "logs",
     "ref",
     "sns",
 ]

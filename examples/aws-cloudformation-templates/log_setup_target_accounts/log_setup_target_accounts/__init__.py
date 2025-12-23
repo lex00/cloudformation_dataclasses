@@ -14,8 +14,6 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import events, iam, sqs
-from cloudformation_dataclasses.aws.iam import RolePolicy
-from cloudformation_dataclasses.aws.sqs import QueuePolicy
 from cloudformation_dataclasses.intrinsics import Sub
 
 from .stack_config import CentralEventBusArn
@@ -33,8 +31,6 @@ __all__ = [
     "Parameter",
     "PolicyDocument",
     "PolicyStatement",
-    "QueuePolicy",
-    "RolePolicy",
     "STRING",
     "Sub",
     "Template",

@@ -7,6 +7,6 @@ from .. import *  # noqa: F403
 class NatGateway1EIP:
     """AWS::EC2::EIP resource."""
 
-    resource: EIP
+    resource: ec2.EIP
     domain = 'vpc'
     depends_on = ["InternetGatewayAttachment"]

@@ -42,7 +42,7 @@ class ServiceCatalogPortfolioProvisioningParameter4:
 class ServiceCatalogPortfolio:
     """AWS::ServiceCatalog::Portfolio resource."""
 
-    resource: Portfolio
+    resource: servicecatalog.Portfolio
     provider_name = ref(PortfolioProviderName)
     description = ref(PortfolioDescription)
     display_name = ref(PortfolioDisplayName)

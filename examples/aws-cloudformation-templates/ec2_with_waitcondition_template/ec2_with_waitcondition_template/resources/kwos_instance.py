@@ -4,69 +4,6 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class KWOSInstanceAssociationParameter:
-    resource: ec2.instance.AssociationParameter
-    key = 'LaunchPlatform'
-    value = ref(LaunchPlatform)
-
-
-@cloudformation_dataclass
-class KWOSInstanceAssociationParameter1:
-    resource: ec2.instance.AssociationParameter
-    key = 'LaunchUser'
-    value = ref(LaunchUser)
-
-
-@cloudformation_dataclass
-class KWOSInstanceAssociationParameter2:
-    resource: ec2.instance.AssociationParameter
-    key = 'TestID'
-    value = ref(TestID)
-
-
-@cloudformation_dataclass
-class KWOSInstanceAssociationParameter3:
-    resource: ec2.instance.AssociationParameter
-    key = 'Name'
-    value = ref(InstanceName)
-
-
-@cloudformation_dataclass
-class KWOSInstanceAssociationParameter4:
-    resource: ec2.instance.AssociationParameter
-    key = 'BudgetCode'
-    value = ref(BudgetCode)
-
-
-@cloudformation_dataclass
-class KWOSInstanceAssociationParameter5:
-    resource: ec2.instance.AssociationParameter
-    key = 'TestTarget'
-    value = ref(TestTarget)
-
-
-@cloudformation_dataclass
-class KWOSInstanceAssociationParameter6:
-    resource: ec2.instance.AssociationParameter
-    key = 'AgentID'
-    value = ref(AgentID)
-
-
-@cloudformation_dataclass
-class KWOSInstanceAssociationParameter7:
-    resource: ec2.instance.AssociationParameter
-    key = 'IsMaster'
-    value = ref(IsMaster)
-
-
-@cloudformation_dataclass
-class KWOSInstanceAssociationParameter8:
-    resource: ec2.instance.AssociationParameter
-    key = 'MasterID'
-    value = ref(MasterID)
-
-
-@cloudformation_dataclass
 class KWOSInstance:
     """AWS::EC2::Instance resource."""
 
@@ -76,7 +13,34 @@ class KWOSInstance:
     subnet_id = ref(SubnetId)
     security_group_ids = [ref(KWOSSecurityGroup)]
     key_name = ref(KeyName)
-    tags = [KWOSInstanceAssociationParameter, KWOSInstanceAssociationParameter1, KWOSInstanceAssociationParameter2, KWOSInstanceAssociationParameter3, KWOSInstanceAssociationParameter4, KWOSInstanceAssociationParameter5, KWOSInstanceAssociationParameter6, KWOSInstanceAssociationParameter7, KWOSInstanceAssociationParameter8]
+    tags = [{
+        'Key': 'LaunchPlatform',
+        'Value': ref(LaunchPlatform),
+    }, {
+        'Key': 'LaunchUser',
+        'Value': ref(LaunchUser),
+    }, {
+        'Key': 'TestID',
+        'Value': ref(TestID),
+    }, {
+        'Key': 'Name',
+        'Value': ref(InstanceName),
+    }, {
+        'Key': 'BudgetCode',
+        'Value': ref(BudgetCode),
+    }, {
+        'Key': 'TestTarget',
+        'Value': ref(TestTarget),
+    }, {
+        'Key': 'AgentID',
+        'Value': ref(AgentID),
+    }, {
+        'Key': 'IsMaster',
+        'Value': ref(IsMaster),
+    }, {
+        'Key': 'MasterID',
+        'Value': ref(MasterID),
+    }]
     monitoring = False
     user_data = Base64(Join('', [
     """#!/bin/bash

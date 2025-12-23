@@ -45,7 +45,7 @@ class SiteCloudFrontLogsReplicationPolicyPolicyDocument:
 class SiteCloudFrontLogsReplicationPolicy:
     """AWS::IAM::RolePolicy resource."""
 
-    resource: RolePolicy
+    resource: iam.RolePolicy
     policy_document = SiteCloudFrontLogsReplicationPolicyPolicyDocument
     policy_name = 'bucket-replication-policy'
     role_name = ref(SiteCloudFrontLogsReplicationRole)

@@ -1,6 +1,6 @@
 # Test
 
-Migrated from [test.yaml](https://github.com/aws-cloudformation/cfn-lint).
+Migrated from [test.json](https://github.com/aws-cloudformation/cfn-lint).
 
 **Source**: AWS CloudFormation Sample Templates
 **License**: Apache-2.0

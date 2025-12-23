@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class DMSReplicationInstance:
     """AWS::DMS::ReplicationInstance resource."""
 
-    resource: ReplicationInstance
+    resource: dms.ReplicationInstance
     availability_zone = get_att(DBSubnet1, "AvailabilityZone")
     publicly_accessible = False
     replication_instance_class = 'dms.t3.medium'

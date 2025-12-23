@@ -7,6 +7,6 @@ from .. import *  # noqa: F403
 class IPAssoc:
     """AWS::EC2::EIPAssociation resource."""
 
-    resource: EIPAssociation
+    resource: ec2.EIPAssociation
     instance_id = ref(EC2Instance)
     allocation_id = get_att(IPAddress, "AllocationId")

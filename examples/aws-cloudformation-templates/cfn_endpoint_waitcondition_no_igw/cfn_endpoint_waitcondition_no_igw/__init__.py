@@ -13,14 +13,7 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import ec2
-from cloudformation_dataclasses.aws.cloudformation import WaitCondition, WaitConditionHandle
-from cloudformation_dataclasses.aws.ec2 import (
-    RouteTable,
-    Subnet,
-    SubnetRouteTableAssociation,
-    VPCEndpoint,
-)
+from cloudformation_dataclasses.aws import cloudformation, ec2
 from cloudformation_dataclasses.intrinsics import (
     Base64,
     GetAZs,
@@ -63,19 +56,14 @@ __all__ = [
     "PrivateSubnet2RouteTableAssociation",
     "PrivateWaitCondition",
     "PrivateWaitHandle",
-    "RouteTable",
     "S3Endpoint",
     "STRING",
     "Select",
     "Sub",
-    "Subnet",
-    "SubnetRouteTableAssociation",
     "Template",
     "VPC",
-    "VPCEndpoint",
     "VpcCIDR",
-    "WaitCondition",
-    "WaitConditionHandle",
+    "cloudformation",
     "cloudformation_dataclass",
     "ec2",
     "get_att",

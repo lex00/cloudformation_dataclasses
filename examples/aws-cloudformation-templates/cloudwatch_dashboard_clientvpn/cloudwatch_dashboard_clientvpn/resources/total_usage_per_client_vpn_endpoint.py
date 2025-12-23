@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class TotalUsagePerClientVPNEndpoint:
     """AWS::Logs::QueryDefinition resource."""
 
-    resource: QueryDefinition
+    resource: logs.QueryDefinition
     name = Sub('${Folder}/Total Usage per Client VPN Endpoint')
     query_string = """fields @timestamp, `client-vpn-endpoint-id`, `ingress-bytes`, `egress-bytes`, `connection-duration-seconds`, `username`, `common-name`
 | sort @timestamp asc

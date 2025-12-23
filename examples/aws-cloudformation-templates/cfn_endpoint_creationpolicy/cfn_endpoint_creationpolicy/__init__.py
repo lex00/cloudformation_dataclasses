@@ -15,13 +15,6 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import ec2, iam
-from cloudformation_dataclasses.aws.ec2 import (
-    RouteTable,
-    Subnet,
-    SubnetRouteTableAssociation,
-    VPCEndpoint,
-    VPCGatewayAttachment,
-)
 from cloudformation_dataclasses.intrinsics import (
     Base64,
     GetAZs,
@@ -82,16 +75,11 @@ __all__ = [
     "PublicSubnet2CIDR",
     "PublicSubnet2RouteTableAssociation",
     "RootRole",
-    "RouteTable",
     "STRING",
     "Select",
     "Sub",
-    "Subnet",
-    "SubnetRouteTableAssociation",
     "Template",
     "VPC",
-    "VPCEndpoint",
-    "VPCGatewayAttachment",
     "VpcCIDR",
     "cloudformation_dataclass",
     "ec2",

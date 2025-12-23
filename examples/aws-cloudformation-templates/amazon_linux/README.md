@@ -1,6 +1,6 @@
 # AmazonLinux
 
-Migrated from [amazon_linux.yaml](https://github.com/aws-cloudformation/cfn-lint).
+Migrated from [amazon_linux.json](https://github.com/aws-cloudformation/cfn-lint).
 
 **Source**: AWS CloudFormation Sample Templates
 **License**: Apache-2.0

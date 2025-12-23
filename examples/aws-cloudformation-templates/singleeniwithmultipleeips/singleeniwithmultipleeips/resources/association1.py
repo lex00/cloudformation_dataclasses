@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class Association1:
     """AWS::EC2::EIPAssociation resource."""
 
-    resource: EIPAssociation
+    resource: ec2.EIPAssociation
     allocation_id = get_att(EIP1, "AllocationId")
     network_interface_id = ref(ENI)
     private_ip_address = Select(0, get_att(ENI, "SecondaryPrivateIpAddresses"))

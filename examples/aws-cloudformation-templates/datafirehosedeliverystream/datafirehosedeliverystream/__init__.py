@@ -14,8 +14,7 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import iam, kinesisfirehose
-from cloudformation_dataclasses.aws.logs import LogGroup, LogStream
+from cloudformation_dataclasses.aws import iam, kinesisfirehose, logs
 from cloudformation_dataclasses.intrinsics import (
     AWS_ACCOUNT_ID,
     AWS_NO_VALUE,
@@ -54,9 +53,7 @@ __all__ = [
     "FirehoseLogStream",
     "If",
     "Join",
-    "LogGroup",
     "LogGroupName",
-    "LogStream",
     "LogStreamName",
     "Not",
     "Parameter",
@@ -70,5 +67,6 @@ __all__ = [
     "get_att",
     "iam",
     "kinesisfirehose",
+    "logs",
     "ref",
 ]

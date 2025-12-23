@@ -18,6 +18,7 @@ from cloudformation_dataclasses.core import (
 )
 from cloudformation_dataclasses.aws import (
     applicationautoscaling,
+    autoscaling,
     cloudwatch,
     ec2,
     ecs,
@@ -25,11 +26,8 @@ from cloudformation_dataclasses.aws import (
     events,
     iam,
     kms,
+    logs,
 )
-from cloudformation_dataclasses.aws.applicationautoscaling import ScalableTarget
-from cloudformation_dataclasses.aws.autoscaling import AutoScalingGroup, LaunchConfiguration
-from cloudformation_dataclasses.aws.elasticloadbalancingv2 import ListenerRule
-from cloudformation_dataclasses.aws.logs import LogGroup
 from cloudformation_dataclasses.intrinsics import (
     AWS_REGION,
     AWS_STACK_NAME,
@@ -62,7 +60,6 @@ __all__ = [
     "ALBListener",
     "AWS_REGION",
     "AWS_STACK_NAME",
-    "AutoScalingGroup",
     "AutoscalingRole",
     "Base64",
     "CloudwatchLogsGroup",
@@ -92,9 +89,6 @@ __all__ = [
     "Join",
     "KeyName",
     "LatestAmiId",
-    "LaunchConfiguration",
-    "ListenerRule",
-    "LogGroup",
     "LogsKmsKey",
     "MaxSize",
     "NUMBER",
@@ -105,7 +99,6 @@ __all__ = [
     "PolicyStatement",
     "RateSchedule",
     "STRING",
-    "ScalableTarget",
     "SchedulerTasksCount",
     "Service",
     "ServiceScalingPolicy",
@@ -116,6 +109,7 @@ __all__ = [
     "Template",
     "VpcId",
     "applicationautoscaling",
+    "autoscaling",
     "cloudformation_dataclass",
     "cloudwatch",
     "ec2",
@@ -125,5 +119,6 @@ __all__ = [
     "get_att",
     "iam",
     "kms",
+    "logs",
     "ref",
 ]

@@ -21,8 +21,6 @@ from cloudformation_dataclasses.aws import (
     rds,
     s3,
 )
-from cloudformation_dataclasses.aws.dms import ReplicationInstance, ReplicationSubnetGroup, ReplicationTask
-from cloudformation_dataclasses.aws.ec2 import Subnet, SubnetRouteTableAssociation, VPCGatewayAttachment
 from cloudformation_dataclasses.aws.s3 import ServerSideEncryption
 from cloudformation_dataclasses.intrinsics import (
     AWS_REGION,
@@ -76,9 +74,6 @@ __all__ = [
     "Parameter",
     "PolicyDocument",
     "PolicyStatement",
-    "ReplicationInstance",
-    "ReplicationSubnetGroup",
-    "ReplicationTask",
     "Route",
     "RouteTable",
     "S3Bucket",
@@ -89,12 +84,10 @@ __all__ = [
     "ServerSideEncryption",
     "SnapshotIdentifier",
     "Sub",
-    "Subnet",
     "SubnetRouteTableAssociation",
     "SubnetRouteTableAssociation1",
     "Template",
     "VPC",
-    "VPCGatewayAttachment",
     "cloudformation_dataclass",
     "dms",
     "ec2",

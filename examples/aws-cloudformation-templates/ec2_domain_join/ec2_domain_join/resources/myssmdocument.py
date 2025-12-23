@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class myssmdocument:
     """AWS::SSM::Document resource."""
 
-    resource: Document
+    resource: ssm.Document
     content = {
         'schemaVersion': '1.2',
         'description': 'Join instances to an AWS Directory Service domain.',

@@ -4,16 +4,6 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class GreengrassInstanceAssociationParameter:
-    resource: ec2.instance.AssociationParameter
-    key = 'Name'
-    value = Join('-', [
-    'Greengrass Core Blog ',
-    ref(CoreName),
-])
-
-
-@cloudformation_dataclass
 class GreengrassInstance:
     """AWS::EC2::Instance resource."""
 
@@ -23,7 +13,13 @@ class GreengrassInstance:
     key_name = ref(myKeyPair)
     security_group_ids = Split(',', get_att(InstanceSecurityGroup, "GroupId"))
     subnet_id = ref(SubnetAPublic)
-    tags = [GreengrassInstanceAssociationParameter]
+    tags = [{
+        'Key': 'Name',
+        'Value': Join('-', [
+    'Greengrass Core Blog ',
+    ref(CoreName),
+]),
+    }]
     user_data = Base64(Sub("""#!/bin/bash
 yum -y install python3-pip
 pip3 install greengrasssdk

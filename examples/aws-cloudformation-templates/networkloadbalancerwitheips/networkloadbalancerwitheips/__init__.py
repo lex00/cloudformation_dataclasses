@@ -11,8 +11,7 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import elasticloadbalancingv2
-from cloudformation_dataclasses.aws.ec2 import EIP
+from cloudformation_dataclasses.aws import ec2, elasticloadbalancingv2
 from cloudformation_dataclasses.intrinsics import Select
 
 from .stack_config import (
@@ -26,7 +25,6 @@ from .stack_config import (
 from .resources import *  # noqa: F403, F401
 
 __all__ = [
-    "EIP",
     "EIP1",
     "EIP2",
     "ELBIpAddressType",
@@ -44,6 +42,7 @@ __all__ = [
     "Template",
     "VPC",
     "cloudformation_dataclass",
+    "ec2",
     "elasticloadbalancingv2",
     "get_att",
     "loadBalancer",

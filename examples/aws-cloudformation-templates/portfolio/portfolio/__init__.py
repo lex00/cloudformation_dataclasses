@@ -13,7 +13,6 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import servicecatalog
-from cloudformation_dataclasses.aws.servicecatalog import Portfolio, PortfolioShare, TagOption
 from cloudformation_dataclasses.intrinsics import Equals, Sub
 
 from .stack_config import (
@@ -47,11 +46,9 @@ __all__ = [
     "Output",
     "Owner",
     "Parameter",
-    "Portfolio",
     "PortfolioDescription",
     "PortfolioDisplayName",
     "PortfolioProviderName",
-    "PortfolioShare",
     "ProductDept",
     "ProductEnv",
     "ProductOwner",
@@ -65,7 +62,6 @@ __all__ = [
     "ServiceCatalogProductTagOptionsUser",
     "ShareThisPortfolio",
     "Sub",
-    "TagOption",
     "Template",
     "User",
     "cloudformation_dataclass",

@@ -7,7 +7,8 @@ from .. import *  # noqa: F403
 class WebServerScaleUpPolicy:
     """AWS::AutoScaling::ScalingPolicy resource."""
 
-    resource: autoscaling.ScalingPolicy
+    # Unknown resource type: AWS::AutoScaling::ScalingPolicy
+    resource: CloudFormationResource
     adjustment_type = 'ChangeInCapacity'
     auto_scaling_group_name = ref(WebServerGroup)
     cooldown = '60'

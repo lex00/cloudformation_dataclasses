@@ -12,7 +12,6 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import ec2, elasticloadbalancingv2
-from cloudformation_dataclasses.aws.ec2 import SecurityGroupEgress
 
 from .stack_config import (
     CertificateArn,
@@ -36,7 +35,6 @@ __all__ = [
     "PublicSubnet1",
     "PublicSubnet2",
     "STRING",
-    "SecurityGroupEgress",
     "TargetGroup",
     "Template",
     "VPCId",

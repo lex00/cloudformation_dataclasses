@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class DHCPOptionsVPCAssociation:
     """AWS::EC2::VPCDHCPOptionsAssociation resource."""
 
-    resource: VPCDHCPOptionsAssociation
+    resource: ec2.VPCDHCPOptionsAssociation
     vpc_id = ref(VPCID)
     dhcp_options_id = ref(DHCPOptions)
     condition = 'DHCPOptionSetCondition'

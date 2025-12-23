@@ -7,6 +7,6 @@ from .. import *  # noqa: F403
 class KWOSWaitCondition:
     """AWS::CloudFormation::WaitCondition resource."""
 
-    resource: WaitCondition
+    resource: cloudformation.WaitCondition
     handle = ref(KWOSWaitHandle)
     timeout = '300'

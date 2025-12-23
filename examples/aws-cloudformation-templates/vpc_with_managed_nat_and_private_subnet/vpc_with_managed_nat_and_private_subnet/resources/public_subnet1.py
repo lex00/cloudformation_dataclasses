@@ -32,7 +32,7 @@ class PublicSubnet1AssociationParameter2:
 class PublicSubnet1:
     """AWS::EC2::Subnet resource."""
 
-    resource: Subnet
+    resource: ec2.Subnet
     vpc_id = ref(VPC)
     availability_zone = Select(1, GetAZs())
     cidr_block = FindInMap("SubnetConfig", 'Public1', 'CIDR')

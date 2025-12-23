@@ -28,6 +28,6 @@ class IoTTopicRuleTopicRulePayload:
 class IoTTopicRule:
     """AWS::IoT::TopicRule resource."""
 
-    resource: TopicRule
+    resource: iot.TopicRule
     rule_name = ref(MyLambda)
     topic_rule_payload = IoTTopicRuleTopicRulePayload

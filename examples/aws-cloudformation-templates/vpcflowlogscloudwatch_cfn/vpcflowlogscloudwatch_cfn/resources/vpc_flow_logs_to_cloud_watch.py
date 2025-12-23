@@ -14,7 +14,7 @@ class VPCFlowLogsToCloudWatchAssociationParameter:
 class VPCFlowLogsToCloudWatch:
     """AWS::EC2::FlowLog resource."""
 
-    resource: FlowLog
+    resource: ec2.FlowLog
     log_destination_type = 'cloud-watch-logs'
     log_group_name = ref(VPCFlowLogsLogGroup)
     deliver_logs_permission_arn = get_att(VPCFlowLogsRole, "Arn")

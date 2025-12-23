@@ -4,9 +4,11 @@ from __future__ import annotations
 
 import argparse
 import logging
+import os
 import re
 import shutil
 import sys
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from importlib import resources
 from pathlib import Path
@@ -28,9 +30,10 @@ def _get_aws_module_names() -> set[str]:
 
     aws_path = Path(aws_pkg.__file__).parent
     modules = set()
-    for py_file in aws_path.glob("*.py"):
-        name = py_file.stem
-        if not name.startswith("_"):
+    for item in aws_path.iterdir():
+        # AWS modules are stored as directories (packages), not .py files
+        if item.is_dir() and not item.name.startswith("_"):
+            name = item.name
             # lambda_ is stored with underscore to avoid Python keyword
             # but template named "lambda.yaml" would become "lambda" package
             if name == "lambda_":
@@ -621,19 +624,18 @@ def run_batch_import(
     print(f"Found {len(templates)} template(s) in {source_dir}", file=sys.stderr)
     logger.info(f"Starting batch import of {len(templates)} templates")
 
-    for template_path in sorted(templates):
+    # Prepare import tasks
+    def _import_template(template_path: Path) -> tuple[str, int]:
+        """Import a single template and return (name, result)."""
         template_name = template_path.stem
         # Convert to valid Python package name
         package_name = re.sub(r"[^a-zA-Z0-9_]", "_", template_name).lower()
 
         # Avoid collision with AWS module names (e.g., config, s3, iam)
-        # These would shadow cloudformation_dataclasses.aws.<name> imports
         if _collides_with_aws_module(package_name):
             package_name = f"{package_name}_cfn"
 
         package_output = output_dir / package_name
-
-        print(f"Importing {template_path.name}... ", end="", file=sys.stderr)
         logger.info(f"Importing {template_path}")
 
         result = run_single_import(
@@ -643,13 +645,24 @@ def run_batch_import(
             attribution=attribution,
             logger=logger,
         )
+        return (template_path.name, result)
 
-        if result == 0:
-            print("✓", file=sys.stderr)
-            succeeded.append(template_path.name)
-        else:
-            print("✗", file=sys.stderr)
-            failed.append((template_path.name, "Import failed (see log for details)"))
+    # Run imports in parallel
+    max_workers = min(os.cpu_count() or 4, 8)  # Cap to avoid overwhelming I/O
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = {
+            executor.submit(_import_template, t): t
+            for t in sorted(templates)
+        }
+
+        for future in as_completed(futures):
+            template_name, result = future.result()
+            if result == 0:
+                print(f"✓ {template_name}", file=sys.stderr)
+                succeeded.append(template_name)
+            else:
+                print(f"✗ {template_name}", file=sys.stderr)
+                failed.append((template_name, "Import failed (see log for details)"))
 
     # Print summary
     print(file=sys.stderr)

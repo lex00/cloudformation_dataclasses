@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class SNSSubscription:
     """AWS::SNS::Subscription resource."""
 
-    resource: Subscription
+    resource: sns.Subscription
     endpoint = ref(SubscriptionEndPoint)
     protocol = ref(SubscriptionProtocol)
     topic_arn = ref(SNSTopic)

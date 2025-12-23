@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class ECSAutoScalingGroup:
     """AWS::AutoScaling::AutoScalingGroup resource."""
 
-    resource: AutoScalingGroup
+    resource: autoscaling.AutoScalingGroup
     vpc_zone_identifier = ref(SubnetId)
     launch_configuration_name = ref(ContainerInstances)
     min_size = '1'

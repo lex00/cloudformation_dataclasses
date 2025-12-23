@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class CfnEndpoint:
     """AWS::EC2::VPCEndpoint resource."""
 
-    resource: VPCEndpoint
+    resource: ec2.VPCEndpoint
     vpc_id = ref(VPC)
     service_name = Sub('com.amazonaws.${AWS::Region}.cloudformation')
     vpc_endpoint_type = 'Interface'

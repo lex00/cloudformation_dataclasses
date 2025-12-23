@@ -1,6 +1,6 @@
 # Macro
 
-Migrated from [macro.yaml](https://github.com/aws-cloudformation/cfn-lint).
+Migrated from [macro.json](https://github.com/aws-cloudformation/cfn-lint).
 
 **Source**: AWS CloudFormation Sample Templates
 **License**: Apache-2.0

@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class LaunchConfig:
     """AWS::AutoScaling::LaunchConfiguration resource."""
 
-    resource: LaunchConfiguration
+    resource: autoscaling.LaunchConfiguration
     key_name = ref(KeyName)
     image_id = ref(LatestAmiId)
     security_groups = [ref(InstanceSecurityGroup)]

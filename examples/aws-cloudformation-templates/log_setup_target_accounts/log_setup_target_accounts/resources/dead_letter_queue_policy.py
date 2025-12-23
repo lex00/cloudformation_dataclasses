@@ -29,6 +29,6 @@ class DeadLetterQueuePolicyPolicyDocument:
 class DeadLetterQueuePolicy:
     """AWS::SQS::QueuePolicy resource."""
 
-    resource: QueuePolicy
+    resource: sqs.QueuePolicy
     policy_document = DeadLetterQueuePolicyPolicyDocument
     queues = [ref(DeadLetterQueue)]

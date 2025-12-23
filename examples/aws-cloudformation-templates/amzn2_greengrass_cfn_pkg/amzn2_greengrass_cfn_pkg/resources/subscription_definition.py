@@ -4,51 +4,39 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class SubscriptionDefinitionSubscription:
-    resource: greengrass.subscription_definition.Subscription
-    id = 'Subscription1'
-    source = 'cloud'
-    subject = Join('/', [
-    ref(CoreName),
-    'in',
-])
-    target = ref(GGSampleFunctionVersion)
-
-
-@cloudformation_dataclass
-class SubscriptionDefinitionSubscription1:
-    resource: greengrass.subscription_definition.Subscription
-    id = 'Subscription2'
-    source = ref(GGSampleFunctionVersion)
-    subject = Join('/', [
-    ref(CoreName),
-    'out',
-])
-    target = 'cloud'
-
-
-@cloudformation_dataclass
-class SubscriptionDefinitionSubscription2:
-    resource: greengrass.subscription_definition.Subscription
-    id = 'Subscription3'
-    source = ref(GGSampleFunctionVersion)
-    subject = Join('/', [
-    ref(CoreName),
-    'telem',
-])
-    target = 'cloud'
-
-
-@cloudformation_dataclass
-class SubscriptionDefinitionSubscriptionDefinitionVersion:
-    resource: greengrass.subscription_definition.SubscriptionDefinitionVersion
-    subscriptions = [SubscriptionDefinitionSubscription, SubscriptionDefinitionSubscription1, SubscriptionDefinitionSubscription2]
-
-
-@cloudformation_dataclass
 class SubscriptionDefinition:
     """AWS::Greengrass::SubscriptionDefinition resource."""
 
     resource: greengrass.SubscriptionDefinition
-    initial_version = SubscriptionDefinitionSubscriptionDefinitionVersion
+    initial_version = {
+        'Subscriptions': [
+            {
+                'Id': 'Subscription1',
+                'Source': 'cloud',
+                'Subject': Join('/', [
+    ref(CoreName),
+    'in',
+]),
+                'Target': ref(GGSampleFunctionVersion),
+            },
+            {
+                'Id': 'Subscription2',
+                'Source': ref(GGSampleFunctionVersion),
+                'Subject': Join('/', [
+    ref(CoreName),
+    'out',
+]),
+                'Target': 'cloud',
+            },
+            {
+                'Id': 'Subscription3',
+                'Source': ref(GGSampleFunctionVersion),
+                'Subject': Join('/', [
+    ref(CoreName),
+    'telem',
+]),
+                'Target': 'cloud',
+            },
+        ],
+    }
     name = 'SubscriptionDefinition'

@@ -14,8 +14,7 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import iam, lambda_
-from cloudformation_dataclasses.aws.logs import LogGroup
+from cloudformation_dataclasses.aws import iam, lambda_, logs
 from cloudformation_dataclasses.intrinsics import (
     AWS_NO_VALUE,
     AWS_STACK_NAME,
@@ -49,7 +48,6 @@ __all__ = [
     "LambdaLogsCloudWatchKMSKey",
     "LambdaLogsCloudWatchKMSKeyConditionCondition",
     "LambdaLogsLogGroupRetention",
-    "LogGroup",
     "Not",
     "Parameter",
     "PeerName",
@@ -67,5 +65,6 @@ __all__ = [
     "get_att",
     "iam",
     "lambda_",
+    "logs",
     "ref",
 ]

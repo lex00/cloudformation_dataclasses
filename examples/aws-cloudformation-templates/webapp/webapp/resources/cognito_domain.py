@@ -7,6 +7,6 @@ from .. import *  # noqa: F403
 class CognitoDomain:
     """AWS::Cognito::UserPoolDomain resource."""
 
-    resource: UserPoolDomain
+    resource: cognito.UserPoolDomain
     domain = ref(AppName)
     user_pool_id = ref(CognitoUserPool)

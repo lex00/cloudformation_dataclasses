@@ -12,7 +12,6 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import servicecatalog
-from cloudformation_dataclasses.aws.servicecatalog import CloudFormationProduct, PortfolioProductAssociation, TagOptionAssociation
 from cloudformation_dataclasses.intrinsics import ImportValue, Sub
 
 from .stack_config import (
@@ -38,14 +37,12 @@ from .resources import *  # noqa: F403, F401
 
 __all__ = [
     "AppName",
-    "CloudFormationProduct",
     "Dept",
     "Env",
     "ImportValue",
     "Output",
     "Owner",
     "Parameter",
-    "PortfolioProductAssociation",
     "ProvisioningArtifactDescriptionParameter",
     "ProvisioningArtifactNameParameter",
     "ProvisioningArtifactTemplateUrl",
@@ -62,7 +59,6 @@ __all__ = [
     "ServiceCatalogPortfolioProductAssociation",
     "ServiceCatalogPortfolioStackName",
     "Sub",
-    "TagOptionAssociation",
     "Template",
     "User",
     "cloudformation_dataclass",

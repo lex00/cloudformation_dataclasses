@@ -13,7 +13,6 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import ec2
-from cloudformation_dataclasses.aws.ec2 import EIP, EIPAssociation
 from cloudformation_dataclasses.intrinsics import Base64, Join, Select
 
 from .stack_config import (
@@ -29,8 +28,6 @@ from .resources import *  # noqa: F403, F401
 __all__ = [
     "Base64",
     "EC2Instance",
-    "EIP",
-    "EIPAssociation",
     "IPAddress",
     "IPAssoc",
     "InstanceSecurityGroup",

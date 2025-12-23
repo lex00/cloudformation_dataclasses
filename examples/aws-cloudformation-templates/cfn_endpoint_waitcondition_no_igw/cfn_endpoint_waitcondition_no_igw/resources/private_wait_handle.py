@@ -7,4 +7,4 @@ from .. import *  # noqa: F403
 class PrivateWaitHandle:
     """AWS::CloudFormation::WaitConditionHandle resource."""
 
-    resource: WaitConditionHandle
+    resource: cloudformation.WaitConditionHandle

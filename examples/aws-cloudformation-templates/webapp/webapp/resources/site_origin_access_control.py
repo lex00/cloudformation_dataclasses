@@ -19,5 +19,5 @@ class SiteOriginAccessControlOriginAccessControlConfig:
 class SiteOriginAccessControl:
     """AWS::CloudFront::OriginAccessControl resource."""
 
-    resource: OriginAccessControl
+    resource: cloudfront.OriginAccessControl
     origin_access_control_config = SiteOriginAccessControlOriginAccessControlConfig

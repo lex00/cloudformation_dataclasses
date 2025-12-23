@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class MixAuthTotalUsageReport:
     """AWS::Logs::QueryDefinition resource."""
 
-    resource: QueryDefinition
+    resource: logs.QueryDefinition
     name = Sub('${Folder}/Mix Auth Total Usage Report')
     query_string = """fields @timestamp, `client-vpn-endpoint-id`, `username`, `common-name`, `ingress-bytes`, `egress-bytes`, `connection-start-time`, `connection-end-time`, `connection-duration-seconds` 
 | sort @timestamp asc

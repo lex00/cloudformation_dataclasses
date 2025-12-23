@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class FirehoseLogGroup:
     """AWS::Logs::LogGroup resource."""
 
-    resource: LogGroup
+    resource: logs.LogGroup
     log_group_name = Join('', [
     '/aws/kinesisfirehose/',
     ref(LogGroupName),

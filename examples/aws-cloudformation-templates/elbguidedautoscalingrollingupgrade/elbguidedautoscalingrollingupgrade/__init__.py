@@ -15,8 +15,12 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import ec2, elasticloadbalancing, iam
-from cloudformation_dataclasses.aws.autoscaling import AutoScalingGroup, LaunchConfiguration
+from cloudformation_dataclasses.aws import (
+    autoscaling,
+    ec2,
+    elasticloadbalancing,
+    iam,
+)
 from cloudformation_dataclasses.intrinsics import (
     Base64,
     GetAZs,
@@ -35,7 +39,6 @@ from .stack_config import (
 from .resources import *  # noqa: F403, F401
 
 __all__ = [
-    "AutoScalingGroup",
     "Base64",
     "DescribeHealthRole",
     "ElasticLoadBalancer",
@@ -46,7 +49,6 @@ __all__ = [
     "KeyName",
     "LatestAmiId",
     "LaunchConfig",
-    "LaunchConfiguration",
     "Mapping",
     "Output",
     "Parameter",
@@ -60,6 +62,7 @@ __all__ = [
     "Template",
     "WebServerGroup",
     "WebServerInstanceProfile",
+    "autoscaling",
     "cloudformation_dataclass",
     "ec2",
     "elasticloadbalancing",

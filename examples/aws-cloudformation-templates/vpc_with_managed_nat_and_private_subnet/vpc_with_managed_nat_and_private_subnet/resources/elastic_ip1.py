@@ -7,5 +7,5 @@ from .. import *  # noqa: F403
 class ElasticIP1:
     """AWS::EC2::EIP resource."""
 
-    resource: EIP
+    resource: ec2.EIP
     domain = 'vpc'

@@ -4,13 +4,6 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class MainDBTagFormat:
-    resource: rds.db_proxy.TagFormat
-    key = 'Name'
-    value = 'Master Database'
-
-
-@cloudformation_dataclass
 class MainDB:
     """AWS::RDS::DBInstance resource."""
 
@@ -25,7 +18,10 @@ class MainDB:
     multi_az = ref(MultiAZ)
     publicly_accessible = False
     storage_encrypted = True
-    tags = [MainDBTagFormat]
+    tags = [{
+        'Key': 'Name',
+        'Value': 'Master Database',
+    }]
     vpc_security_groups = If("IsEC2VPC", [get_att(DBEC2SecurityGroup, "GroupId")], AWS_NO_VALUE)
     depends_on = ["DBCredential"]
     deletion_policy = 'Snapshot'

@@ -15,5 +15,5 @@ class DBCredentialGenerateSecretString:
 class DBCredential:
     """AWS::SecretsManager::Secret resource."""
 
-    resource: Secret
+    resource: secretsmanager.Secret
     generate_secret_string = DBCredentialGenerateSecretString

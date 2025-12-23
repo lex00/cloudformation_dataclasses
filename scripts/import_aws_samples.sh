@@ -43,14 +43,7 @@ OUTPUT_DIR="$PROJECT_ROOT/examples/aws-cloudformation-templates"
 # Templates with known defects that cannot be imported correctly
 # These will be skipped during validation (but still imported for inspection)
 SKIP_TEMPLATES=(
-    # Read-only attribute used as property (source template bug)
-    "vpc_ec2_instance_with_multiple_static_ipaddresses"  # NetworkInterfaceId is GetAtt only
-
-    # Template name collision (multiple source files with same base name)
-    "example"  # 4 different example.yaml files in aws-cloudformation-templates
-
-    # Rain-specific syntax
-    "test"  # Uses Rain !Explode macro
+    # Currently none - all templates validate successfully
 )
 
 cd "$PROJECT_ROOT"
@@ -58,7 +51,8 @@ cd "$PROJECT_ROOT"
 # Check if a template should be skipped during validation
 should_skip_validation() {
     local template_name="$1"
-    for skip in "${SKIP_TEMPLATES[@]}"; do
+    # Handle empty array safely with ${SKIP_TEMPLATES[@]+"${SKIP_TEMPLATES[@]}"}
+    for skip in ${SKIP_TEMPLATES[@]+"${SKIP_TEMPLATES[@]}"}; do
         [[ "$template_name" == "$skip" ]] && return 0
     done
     return 1
@@ -271,56 +265,59 @@ if [ "$SKIP_VALIDATION" = false ]; then
     done
 
     TOTAL_PACKAGES=${#PACKAGE_DIRS[@]}
-    VALIDATED_COUNT=0
 
-    info "Validating $TOTAL_PACKAGES packages..."
+    # Create a temporary file to track results
+    RESULTS_FILE=$(mktemp)
+    trap "rm -f $RESULTS_FILE" EXIT
+
+    # Number of parallel jobs (use CPU count, cap at 8)
+    JOBS=$(nproc 2>/dev/null || sysctl -n hw.ncpu 2>/dev/null || echo 4)
+    JOBS=$((JOBS > 8 ? 8 : JOBS))
+
+    info "Validating $TOTAL_PACKAGES packages (${JOBS} parallel jobs)..."
     echo ""
 
+    # Validation function for a single package (runs in parallel)
+    # Uses PYTHONPATH instead of venv - much faster, no pip install needed
+    validate_package() {
+        local pkg_dir="$1"
+        local project_src="$2"
+        local pkg_name=$(basename "$pkg_dir")
+
+        # Run directly with PYTHONPATH - no venv needed
+        if PYTHONPATH="$project_src:$pkg_dir" python3 -m "$pkg_name" >/dev/null 2>&1; then
+            echo "OK:$pkg_name"
+        else
+            echo "FAIL:$pkg_name"
+        fi
+    }
+    export -f validate_package
+
+    # Run validations in parallel using xargs
+    # Filter out skipped packages first
+    PROJECT_SRC="$PROJECT_ROOT/src"
     for pkg_dir in "${PACKAGE_DIRS[@]}"; do
         pkg_name=$(basename "$pkg_dir")
-
-        # Skip templates with known defects
         if should_skip_validation "$pkg_name"; then
             warn "$pkg_name (skipped - known malformed template)"
-            continue
+        else
+            echo "$pkg_dir"
         fi
+    done | xargs -P "$JOBS" -I {} bash -c 'validate_package "$@"' _ {} "$PROJECT_SRC" >> "$RESULTS_FILE"
 
-        # Run the package using uv run (each has its own pyproject.toml)
-        # Install local dev version of cloudformation_dataclasses for testing
-        set +e
-        cd "$pkg_dir"
-        rm -rf .venv 2>/dev/null
-        uv venv --quiet
-        if ! uv pip install -e "$PROJECT_ROOT" --quiet; then
-            error "$pkg_name (failed to install dev version)"
-            VALIDATION_FAILED+=("$pkg_name")
-            cd "$PROJECT_ROOT"
-            continue
-        fi
-        if ! uv pip install -e . --quiet; then
-            error "$pkg_name (failed to install package)"
-            VALIDATION_FAILED+=("$pkg_name")
-            cd "$PROJECT_ROOT"
-            continue
-        fi
-        OUTPUT=$(uv run "$pkg_name" 2>&1)
-        EXIT_CODE=$?
-        cd "$PROJECT_ROOT"
-        set -e
-
-        if [ $EXIT_CODE -eq 0 ]; then
+    # Process results
+    VALIDATED_COUNT=0
+    while IFS=: read -r status pkg_name; do
+        if [ "$status" = "OK" ]; then
             success "$pkg_name"
             VALIDATED_COUNT=$((VALIDATED_COUNT + 1))
         else
             error "$pkg_name"
             VALIDATION_FAILED+=("$pkg_name")
-            # Show first line of error for debugging
-            FIRST_ERROR=$(echo "$OUTPUT" | grep -i "error\|exception\|traceback" | head -1)
-            if [ -n "$FIRST_ERROR" ]; then
-                echo "      $FIRST_ERROR"
-            fi
         fi
-    done
+    done < "$RESULTS_FILE"
+
+    rm -f "$RESULTS_FILE"
 
     echo ""
     success "Validated: $VALIDATED_COUNT/$TOTAL_PACKAGES packages"
@@ -348,6 +345,8 @@ if [ "$SKIP_VALIDATION" = false ]; then
             if [ -n "$ORIGINAL_TEMPLATE" ] && [ -f "$ORIGINAL_TEMPLATE" ]; then
                 # Create package subdirectory (CLI uses output dir name as package name)
                 PKG_OUTPUT="$OUTPUT_DIR/$pkg"
+                # Ensure clean state before re-import
+                rm -rf "$PKG_OUTPUT"
                 set +e
                 uv run cfn-dataclasses-import "$ORIGINAL_TEMPLATE" -o "$PKG_OUTPUT" --skip-checks 2>/dev/null
                 set -e

@@ -11,7 +11,6 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import rds, secretsmanager
-from cloudformation_dataclasses.aws.secretsmanager import Secret
 from cloudformation_dataclasses.intrinsics import Sub
 
 from .stack_config import DBUser
@@ -23,7 +22,6 @@ __all__ = [
     "DBUser",
     "Parameter",
     "STRING",
-    "Secret",
     "Sub",
     "Template",
     "cloudformation_dataclass",

@@ -20,7 +20,7 @@ class EventBridgeRolePolicyPolicyDocument:
 class EventBridgeRolePolicy:
     """AWS::IAM::RolePolicy resource."""
 
-    resource: RolePolicy
+    resource: iam.RolePolicy
     policy_name = 'EventBridgeRolePolicy'
     policy_document = EventBridgeRolePolicyPolicyDocument
     role_name = ref(EventBridgeRole)

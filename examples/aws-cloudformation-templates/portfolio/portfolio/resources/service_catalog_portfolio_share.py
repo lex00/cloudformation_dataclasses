@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class ServiceCatalogPortfolioShare:
     """AWS::ServiceCatalog::PortfolioShare resource."""
 
-    resource: PortfolioShare
+    resource: servicecatalog.PortfolioShare
     account_id = ref(AccountIdOfChildAWSAccount)
     portfolio_id = ref(ServiceCatalogPortfolio)
     condition = 'ConditionShareThisPortfolio'

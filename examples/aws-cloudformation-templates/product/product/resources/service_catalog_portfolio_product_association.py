@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class ServiceCatalogPortfolioProductAssociation:
     """AWS::ServiceCatalog::PortfolioProductAssociation resource."""
 
-    resource: PortfolioProductAssociation
+    resource: servicecatalog.PortfolioProductAssociation
     portfolio_id = ImportValue(Sub('${ServiceCatalogPortfolioStackName}-ServiceCatalogPortfolio'))
     product_id = ref(ServiceCatalogCloudFormationProduct)
     depends_on = ["ServiceCatalogCloudFormationProduct"]

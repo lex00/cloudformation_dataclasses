@@ -7,6 +7,6 @@ from .. import *  # noqa: F403
 class RouteTableAssociationAPublic:
     """AWS::EC2::SubnetRouteTableAssociation resource."""
 
-    resource: SubnetRouteTableAssociation
+    resource: ec2.SubnetRouteTableAssociation
     route_table_id = ref(RouteTablePublic)
     subnet_id = ref(SubnetAPublic)

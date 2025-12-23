@@ -13,17 +13,6 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import ec2
-from cloudformation_dataclasses.aws.ec2 import (
-    EIP,
-    NatGateway,
-    NetworkAcl,
-    NetworkAclEntry,
-    RouteTable,
-    Subnet,
-    SubnetNetworkAclAssociation,
-    SubnetRouteTableAssociation,
-    VPCGatewayAttachment,
-)
 from cloudformation_dataclasses.intrinsics import (
     AWS_STACK_NAME,
     FindInMap,
@@ -39,7 +28,6 @@ from .resources import *  # noqa: F403, F401
 
 __all__ = [
     "AWS_STACK_NAME",
-    "EIP",
     "ElasticIP0",
     "ElasticIP1",
     "FindInMap",
@@ -51,9 +39,6 @@ __all__ = [
     "Mapping",
     "NATGateway0",
     "NATGateway1",
-    "NatGateway",
-    "NetworkAcl",
-    "NetworkAclEntry",
     "OutboundPublicNetworkAclEntry",
     "Output",
     "Parameter",
@@ -74,17 +59,12 @@ __all__ = [
     "PublicSubnetNetworkAclAssociation1",
     "PublicSubnetRouteTableAssociation0",
     "PublicSubnetRouteTableAssociation1",
-    "RouteTable",
     "STRING",
     "Select",
     "Sub",
-    "Subnet",
     "SubnetConfigMapping",
-    "SubnetNetworkAclAssociation",
-    "SubnetRouteTableAssociation",
     "Template",
     "VPC",
-    "VPCGatewayAttachment",
     "VPCName",
     "cloudformation_dataclass",
     "ec2",

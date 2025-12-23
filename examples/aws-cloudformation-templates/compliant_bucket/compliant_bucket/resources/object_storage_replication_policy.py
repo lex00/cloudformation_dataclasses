@@ -45,7 +45,7 @@ class ObjectStorageReplicationPolicyPolicyDocument:
 class ObjectStorageReplicationPolicy:
     """AWS::IAM::RolePolicy resource."""
 
-    resource: RolePolicy
+    resource: iam.RolePolicy
     policy_document = ObjectStorageReplicationPolicyPolicyDocument
     policy_name = 'bucket-replication-policy'
     role_name = ref(ObjectStorageReplicationRole)

@@ -23,8 +23,6 @@ from cloudformation_dataclasses.aws import (
     elasticloadbalancing,
     iam,
 )
-from cloudformation_dataclasses.aws.autoscaling import LaunchConfiguration
-from cloudformation_dataclasses.aws.efs import MountTarget
 from cloudformation_dataclasses.intrinsics import (
     AWS_REGION,
     AWS_STACK_NAME,
@@ -69,9 +67,7 @@ __all__ = [
     "Join",
     "KeyName",
     "LaunchConfig",
-    "LaunchConfiguration",
     "Mapping",
-    "MountTarget",
     "Output",
     "Parameter",
     "ParameterType",

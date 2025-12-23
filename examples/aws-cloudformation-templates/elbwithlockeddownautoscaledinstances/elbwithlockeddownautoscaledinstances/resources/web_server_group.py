@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class WebServerGroup:
     """AWS::AutoScaling::AutoScalingGroup resource."""
 
-    resource: AutoScalingGroup
+    resource: autoscaling.AutoScalingGroup
     availability_zones = GetAZs()
     launch_configuration_name = ref(LaunchConfig)
     min_size = '2'

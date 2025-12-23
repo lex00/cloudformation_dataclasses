@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class MutualAuthDistinctUsers:
     """AWS::Logs::QueryDefinition resource."""
 
-    resource: QueryDefinition
+    resource: logs.QueryDefinition
     name = Sub('${Folder}/Mutual Auth Distinct Users')
     query_string = """fields @timestamp, `client-vpn-endpoint-id`, `common-name`
 | sort @timestamp asc

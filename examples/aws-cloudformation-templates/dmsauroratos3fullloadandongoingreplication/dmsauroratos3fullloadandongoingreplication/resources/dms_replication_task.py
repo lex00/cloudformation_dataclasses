@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class DMSReplicationTask:
     """AWS::DMS::ReplicationTask resource."""
 
-    resource: ReplicationTask
+    resource: dms.ReplicationTask
     migration_type = 'full-load-and-cdc'
     replication_instance_arn = ref(DMSReplicationInstance)
     replication_task_settings = '{ "Logging" : { "EnableLogging" : true, "LogComponents": [ { "Id" : "SOURCE_UNLOAD", "Severity" : "LOGGER_SEVERITY_DEFAULT" }, { "Id" : "SOURCE_CAPTURE", "Severity" : "LOGGER_SEVERITY_DEFAULT" }, { "Id" : "TARGET_LOAD", "Severity" : "LOGGER_SEVERITY_DEFAULT" }, { "Id" : "TARGET_APPLY", "Severity" : "LOGGER_SEVERITY_DEFAULT" } ] } }'

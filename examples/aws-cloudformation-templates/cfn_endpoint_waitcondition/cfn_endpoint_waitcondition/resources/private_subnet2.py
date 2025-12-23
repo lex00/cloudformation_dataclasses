@@ -14,7 +14,7 @@ class PrivateSubnet2AssociationParameter:
 class PrivateSubnet2:
     """AWS::EC2::Subnet resource."""
 
-    resource: Subnet
+    resource: ec2.Subnet
     vpc_id = ref(VPC)
     availability_zone = Select(1, GetAZs())
     cidr_block = ref(PrivateSubnet2CIDR)

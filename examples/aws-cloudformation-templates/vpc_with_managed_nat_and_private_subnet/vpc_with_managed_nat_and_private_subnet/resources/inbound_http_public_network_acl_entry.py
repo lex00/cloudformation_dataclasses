@@ -14,7 +14,7 @@ class InboundHTTPPublicNetworkAclEntryPortRange:
 class InboundHTTPPublicNetworkAclEntry:
     """AWS::EC2::NetworkAclEntry resource."""
 
-    resource: NetworkAclEntry
+    resource: ec2.NetworkAclEntry
     network_acl_id = ref(PublicNetworkAcl)
     rule_number = '100'
     protocol = '-1'

@@ -899,6 +899,10 @@ def _intrinsic_to_python(intrinsic: IRIntrinsic, ctx: CodegenContext) -> str | A
         ctx.add_intrinsic_import("GetAZs")
         region = intrinsic.args
         if region:
+            # Region can be a string or an intrinsic like !Ref AWS::Region
+            if isinstance(region, IRIntrinsic):
+                region_str = _intrinsic_to_python(region, ctx)
+                return f"GetAZs({region_str})"
             return f"GetAZs({_escape_string(region)})"
         return "GetAZs()"
 

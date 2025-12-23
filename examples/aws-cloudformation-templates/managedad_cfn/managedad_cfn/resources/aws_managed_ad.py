@@ -14,7 +14,7 @@ class AWSManagedADVpcSettings:
 class AWSManagedAD:
     """AWS::DirectoryService::MicrosoftAD resource."""
 
-    resource: MicrosoftAD
+    resource: directoryservice.MicrosoftAD
     name = ref(AWSManagedADDomainDNSName)
     short_name = ref(AWSManagedADDomainNetBiosName)
     password = '{{resolve:secretsmanager:AWSManagedADAdminPassword:SecretString:password}}'

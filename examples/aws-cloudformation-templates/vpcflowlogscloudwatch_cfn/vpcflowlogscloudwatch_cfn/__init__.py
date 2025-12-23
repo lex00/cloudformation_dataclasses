@@ -15,9 +15,7 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import ec2, iam
-from cloudformation_dataclasses.aws.ec2 import FlowLog
-from cloudformation_dataclasses.aws.logs import LogGroup
+from cloudformation_dataclasses.aws import ec2, iam, logs
 from cloudformation_dataclasses.intrinsics import (
     AWS_NO_VALUE,
     AWS_STACK_NAME,
@@ -43,9 +41,7 @@ __all__ = [
     "AWS_STACK_NAME",
     "Condition",
     "Equals",
-    "FlowLog",
     "If",
-    "LogGroup",
     "Not",
     "Output",
     "Parameter",
@@ -68,5 +64,6 @@ __all__ = [
     "ec2",
     "get_att",
     "iam",
+    "logs",
     "ref",
 ]

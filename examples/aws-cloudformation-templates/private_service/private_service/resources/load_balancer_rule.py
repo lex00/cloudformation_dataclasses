@@ -21,7 +21,7 @@ class LoadBalancerRuleRuleCondition:
 class LoadBalancerRule:
     """AWS::ElasticLoadBalancingV2::ListenerRule resource."""
 
-    resource: ListenerRule
+    resource: elasticloadbalancingv2.ListenerRule
     actions = [LoadBalancerRuleAction]
     conditions = [LoadBalancerRuleRuleCondition]
     listener_arn = ImportValue(Join(':', [

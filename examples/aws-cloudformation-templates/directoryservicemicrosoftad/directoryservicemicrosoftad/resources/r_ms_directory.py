@@ -14,7 +14,7 @@ class rMSDirectoryVpcSettings:
 class rMSDirectory:
     """AWS::DirectoryService::MicrosoftAD resource."""
 
-    resource: MicrosoftAD
+    resource: directoryservice.MicrosoftAD
     create_alias = ref(pCreateAlias)
     edition = ref(pEdition)
     enable_sso = ref(pEnableSingleSignOn)

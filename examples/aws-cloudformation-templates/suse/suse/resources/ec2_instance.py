@@ -20,7 +20,7 @@ rpm -Uvh https://s3.amazonaws.com/amazoncloudwatch-agent/suse/amd64/latest/amazo
 curl -O https://bootstrap.pypa.io/pip/3.6/get-pip.py
 # Install pip using python3
 python3 get-pip.py
-export PATH=$PATH:/usr/local/bin	
+export PATH=$PATH:/usr/local/bin
 pip3 install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz
 cfn-init -v --stack ${AWS::StackId} --resource EC2Instance --region ${AWS::Region} --configsets default
 cfn-signal -e $? --stack ${AWS::StackId} --resource EC2Instance --region ${AWS::Region}

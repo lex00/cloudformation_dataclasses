@@ -4,20 +4,6 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class VPCAssociationParameter:
-    resource: ec2.instance.AssociationParameter
-    key = 'Application'
-    value = AWS_STACK_ID
-
-
-@cloudformation_dataclass
-class VPCAssociationParameter1:
-    resource: ec2.instance.AssociationParameter
-    key = 'Name'
-    value = AWS_STACK_NAME
-
-
-@cloudformation_dataclass
 class VPC:
     """AWS::EC2::VPC resource."""
 
@@ -25,4 +11,10 @@ class VPC:
     cidr_block = '10.0.0.0/24'
     enable_dns_support = 'true'
     enable_dns_hostnames = 'true'
-    tags = [VPCAssociationParameter, VPCAssociationParameter1]
+    tags = [{
+        'Key': 'Application',
+        'Value': AWS_STACK_ID,
+    }, {
+        'Key': 'Name',
+        'Value': AWS_STACK_NAME,
+    }]

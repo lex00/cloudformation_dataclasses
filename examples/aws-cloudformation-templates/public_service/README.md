@@ -1,6 +1,6 @@
 # PublicService
 
-Migrated from [public-service.yaml](https://github.com/aws-cloudformation/cfn-lint).
+Migrated from [public-service.json](https://github.com/aws-cloudformation/cfn-lint).
 
 **Source**: AWS CloudFormation Sample Templates
 **License**: Apache-2.0

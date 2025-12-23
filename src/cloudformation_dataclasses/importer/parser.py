@@ -508,6 +508,9 @@ def parse_template(
 
     # Parse resources
     for logical_id, resource_def in data.get("Resources", {}).items():
+        # Skip Fn::ForEach meta-resources - they define loop structure, not actual resources
+        if logical_id.startswith("Fn::ForEach::"):
+            continue
         template.resources[logical_id] = _parse_resource(logical_id, resource_def)
 
     # Parse outputs

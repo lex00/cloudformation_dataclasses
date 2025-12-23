@@ -7,6 +7,6 @@ from .. import *  # noqa: F403
 class MyLambdaVersion:
     """AWS::Lambda::Version resource."""
 
-    resource: Version
+    resource: lambda_.Version
     function_name = ref(MyLambda)
     depends_on = ["MyLambda"]

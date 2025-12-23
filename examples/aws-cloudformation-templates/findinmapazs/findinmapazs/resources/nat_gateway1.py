@@ -7,6 +7,6 @@ from .. import *  # noqa: F403
 class NatGateway1:
     """AWS::EC2::NatGateway resource."""
 
-    resource: NatGateway
+    resource: ec2.NatGateway
     allocation_id = get_att(NatGateway1EIP, "AllocationId")
     subnet_id = ref(PublicSubnet1)

@@ -45,7 +45,7 @@ class StorageReplicationPolicyPolicyDocument:
 class StorageReplicationPolicy:
     """AWS::IAM::RolePolicy resource."""
 
-    resource: RolePolicy
+    resource: iam.RolePolicy
     policy_document = StorageReplicationPolicyPolicyDocument
     policy_name = 'bucket-replication-policy'
     role_name = ref(StorageReplicationRole)

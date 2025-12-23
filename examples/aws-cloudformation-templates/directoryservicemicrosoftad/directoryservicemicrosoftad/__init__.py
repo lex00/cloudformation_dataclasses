@@ -14,7 +14,6 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import directoryservice
-from cloudformation_dataclasses.aws.directoryservice import MicrosoftAD
 from cloudformation_dataclasses.intrinsics import Equals, Select
 
 from .stack_config import (
@@ -34,7 +33,6 @@ from .resources import *  # noqa: F403, F401
 __all__ = [
     "Condition",
     "Equals",
-    "MicrosoftAD",
     "Output",
     "Parameter",
     "ParameterType",

@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class ServiceCatalogProductTagOptionsDept:
     """AWS::ServiceCatalog::TagOption resource."""
 
-    resource: TagOption
+    resource: servicecatalog.TagOption
     active = ref(ActivateProductTagOptions)
     key = 'Dept'
     value = Sub('${ProductDept}')

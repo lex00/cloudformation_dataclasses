@@ -17,11 +17,14 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import ec2, iam, lambda_
-from cloudformation_dataclasses.aws.ec2 import VPCDHCPOptionsAssociation
+from cloudformation_dataclasses.aws import (
+    ec2,
+    iam,
+    lambda_,
+    logs,
+    secretsmanager,
+)
 from cloudformation_dataclasses.aws.iam.user import Policy
-from cloudformation_dataclasses.aws.logs import LogGroup
-from cloudformation_dataclasses.aws.secretsmanager import Secret
 from cloudformation_dataclasses.intrinsics import (
     AWS_NO_VALUE,
     AWS_STACK_NAME,
@@ -107,7 +110,6 @@ __all__ = [
     "LambdaS3BucketName",
     "LambdaZipFileName",
     "LinuxEC2DomainJoinResourcesConditionCondition",
-    "LogGroup",
     "Not",
     "Output",
     "Parameter",
@@ -120,12 +122,10 @@ __all__ = [
     "SSMLogsBucketName",
     "SSMLogsBucketNameConditionCondition",
     "STRING",
-    "Secret",
     "SecretsManagerDomainCredentialsSecretsKMSKey",
     "SecretsManagerDomainCredentialsSecretsKMSKeyConditionCondition",
     "Sub",
     "Template",
-    "VPCDHCPOptionsAssociation",
     "VPCID",
     "WindowsEC2DomainJoinResourcesConditionCondition",
     "cloudformation_dataclass",
@@ -133,5 +133,7 @@ __all__ = [
     "get_att",
     "iam",
     "lambda_",
+    "logs",
     "ref",
+    "secretsmanager",
 ]

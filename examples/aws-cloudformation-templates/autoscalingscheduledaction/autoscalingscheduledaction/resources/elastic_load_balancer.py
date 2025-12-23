@@ -4,29 +4,22 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class ElasticLoadBalancerListeners:
-    resource: elasticloadbalancing.load_balancer.Listeners
-    load_balancer_port = '80'
-    instance_port = '80'
-    protocol = 'HTTP'
-
-
-@cloudformation_dataclass
-class ElasticLoadBalancerHealthCheck:
-    resource: elasticloadbalancing.load_balancer.HealthCheck
-    target = 'HTTP:80/'
-    healthy_threshold = '3'
-    unhealthy_threshold = '5'
-    interval = '30'
-    timeout = '5'
-
-
-@cloudformation_dataclass
 class ElasticLoadBalancer:
     """AWS::ElasticLoadBalancing::LoadBalancer resource."""
 
-    resource: elasticloadbalancing.LoadBalancer
+    # Unknown resource type: AWS::ElasticLoadBalancing::LoadBalancer
+    resource: CloudFormationResource
     availability_zones = GetAZs()
     cross_zone = 'true'
-    listeners = [ElasticLoadBalancerListeners]
-    health_check = ElasticLoadBalancerHealthCheck
+    listeners = [{
+        'LoadBalancerPort': '80',
+        'InstancePort': '80',
+        'Protocol': 'HTTP',
+    }]
+    health_check = {
+        'Target': 'HTTP:80/',
+        'HealthyThreshold': '3',
+        'UnhealthyThreshold': '5',
+        'Interval': '30',
+        'Timeout': '5',
+    }

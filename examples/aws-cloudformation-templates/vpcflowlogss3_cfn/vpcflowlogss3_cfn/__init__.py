@@ -19,7 +19,6 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import ec2, s3
-from cloudformation_dataclasses.aws.ec2 import FlowLog
 from cloudformation_dataclasses.aws.s3.bucket import LoggingConfiguration
 from cloudformation_dataclasses.intrinsics import (
     AWS_NO_VALUE,
@@ -51,7 +50,6 @@ __all__ = [
     "Condition",
     "DenyStatement",
     "Equals",
-    "FlowLog",
     "If",
     "LoggingConfiguration",
     "Not",

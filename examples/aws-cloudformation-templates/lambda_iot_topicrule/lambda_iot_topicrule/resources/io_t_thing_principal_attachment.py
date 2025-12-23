@@ -7,6 +7,6 @@ from .. import *  # noqa: F403
 class IoTThingPrincipalAttachment:
     """AWS::IoT::ThingPrincipalAttachment resource."""
 
-    resource: ThingPrincipalAttachment
+    resource: iot.ThingPrincipalAttachment
     principal = ref(CertificateARN)
     thing_name = ref(IoTThing)

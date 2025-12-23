@@ -7,5 +7,5 @@ from .. import *  # noqa: F403
 class PrivateRouteTable1:
     """AWS::EC2::RouteTable resource."""
 
-    resource: RouteTable
+    resource: ec2.RouteTable
     vpc_id = ref(VPC)

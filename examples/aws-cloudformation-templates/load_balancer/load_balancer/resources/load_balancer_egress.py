@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class LoadBalancerEgress:
     """AWS::EC2::SecurityGroupEgress resource."""
 
-    resource: SecurityGroupEgress
+    resource: ec2.SecurityGroupEgress
     description = 'Load balancer to target'
     destination_security_group_id = ref(DestinationSecurityGroupId)
     from_port = 80

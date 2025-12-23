@@ -21,7 +21,7 @@ class S3EndpointPolicyDocument:
 class S3Endpoint:
     """AWS::EC2::VPCEndpoint resource."""
 
-    resource: VPCEndpoint
+    resource: ec2.VPCEndpoint
     vpc_id = ref(VPC)
     service_name = Sub('com.amazonaws.${AWS::Region}.s3')
     vpc_endpoint_type = 'Gateway'

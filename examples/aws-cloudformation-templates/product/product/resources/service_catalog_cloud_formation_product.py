@@ -59,7 +59,7 @@ class ServiceCatalogCloudFormationProductProvisioningArtifactProperties:
 class ServiceCatalogCloudFormationProduct:
     """AWS::ServiceCatalog::CloudFormationProduct resource."""
 
-    resource: CloudFormationProduct
+    resource: servicecatalog.CloudFormationProduct
     name = ref(SCProductName)
     description = ref(SCProductDescription)
     owner = ref(SCProductOwner)

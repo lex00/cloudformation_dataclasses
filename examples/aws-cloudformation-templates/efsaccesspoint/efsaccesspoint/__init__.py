@@ -13,7 +13,6 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import efs
-from cloudformation_dataclasses.aws.efs import MountTarget
 
 from .stack_config import (
     AccessPointName,
@@ -36,7 +35,6 @@ __all__ = [
     "EFSMountTarget1",
     "EFSMountTarget2",
     "EFSMountTarget3",
-    "MountTarget",
     "Output",
     "Parameter",
     "ParameterType",

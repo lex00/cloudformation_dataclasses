@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class ADSAMLAuthUsersConnectionDuration:
     """AWS::Logs::QueryDefinition resource."""
 
-    resource: QueryDefinition
+    resource: logs.QueryDefinition
     name = Sub('${Folder}/AD or SAML Auth Users Connection Duration')
     query_string = """fields @timestamp, `client-vpn-endpoint-id`, `username`, `ingress-bytes`, `egress-bytes`, `connection-start-time`, `connection-end-time`, `connection-duration-seconds` 
 | sort @timestamp asc 

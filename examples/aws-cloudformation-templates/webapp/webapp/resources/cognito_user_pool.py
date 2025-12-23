@@ -34,7 +34,7 @@ class CognitoUserPoolSchemaAttribute2:
 class CognitoUserPool:
     """AWS::Cognito::UserPool resource."""
 
-    resource: UserPool
+    resource: cognito.UserPool
     user_pool_name = ref(AppName)
     admin_create_user_config = CognitoUserPoolAdminCreateUserConfig
     auto_verified_attributes = ['email']

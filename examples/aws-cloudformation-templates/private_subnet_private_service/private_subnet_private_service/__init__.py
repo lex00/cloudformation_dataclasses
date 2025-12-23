@@ -13,7 +13,6 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import ecs, elasticloadbalancingv2
-from cloudformation_dataclasses.aws.elasticloadbalancingv2 import ListenerRule
 from cloudformation_dataclasses.intrinsics import (
     AWS_NO_VALUE,
     Equals,
@@ -52,7 +51,6 @@ __all__ = [
     "ImageUrl",
     "ImportValue",
     "Join",
-    "ListenerRule",
     "LoadBalancerRule",
     "NUMBER",
     "Not",

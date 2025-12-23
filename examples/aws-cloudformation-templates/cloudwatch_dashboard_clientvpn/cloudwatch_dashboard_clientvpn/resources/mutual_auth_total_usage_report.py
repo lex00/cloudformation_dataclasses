@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class MutualAuthTotalUsageReport:
     """AWS::Logs::QueryDefinition resource."""
 
-    resource: QueryDefinition
+    resource: logs.QueryDefinition
     name = Sub('${Folder}/Mutual Auth Total Usage Report')
     query_string = """fields @timestamp, `client-vpn-endpoint-id`, `common-name`, `ingress-bytes`, `egress-bytes`, `connection-start-time`, `connection-end-time`, `connection-duration-seconds` 
 | sort @timestamp asc 

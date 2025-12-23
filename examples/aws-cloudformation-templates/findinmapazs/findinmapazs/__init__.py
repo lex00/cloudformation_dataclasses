@@ -12,14 +12,6 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import ec2
-from cloudformation_dataclasses.aws.ec2 import (
-    EIP,
-    NatGateway,
-    RouteTable,
-    Subnet,
-    SubnetRouteTableAssociation,
-    VPCGatewayAttachment,
-)
 from cloudformation_dataclasses.intrinsics import AWS_REGION, FindInMap, Select
 
 from .stack_config import (
@@ -38,12 +30,10 @@ __all__ = [
     "DefaultPrivateRoute1",
     "DefaultPrivateRoute2",
     "DefaultPublicRoute",
-    "EIP",
     "FindInMap",
     "InternetGateway",
     "InternetGatewayAttachment",
     "Mapping",
-    "NatGateway",
     "NatGateway1",
     "NatGateway1EIP",
     "NatGateway2",
@@ -66,14 +56,10 @@ __all__ = [
     "PublicSubnet2CIDR",
     "PublicSubnet2RouteTableAssociation",
     "RegionMapMapping",
-    "RouteTable",
     "STRING",
     "Select",
-    "Subnet",
-    "SubnetRouteTableAssociation",
     "Template",
     "VPC",
-    "VPCGatewayAttachment",
     "VpcCIDR",
     "cloudformation_dataclass",
     "ec2",

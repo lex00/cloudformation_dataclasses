@@ -12,8 +12,7 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import ec2
-from cloudformation_dataclasses.aws.cloudformation import WaitCondition, WaitConditionHandle
+from cloudformation_dataclasses.aws import cloudformation, ec2
 from cloudformation_dataclasses.intrinsics import (
     AWS_REGION,
     AWS_STACK_ID,
@@ -70,8 +69,7 @@ __all__ = [
     "TestID",
     "TestTarget",
     "VpcId",
-    "WaitCondition",
-    "WaitConditionHandle",
+    "cloudformation",
     "cloudformation_dataclass",
     "ec2",
     "get_att",

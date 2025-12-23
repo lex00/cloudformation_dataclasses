@@ -13,13 +13,6 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import iam, iot, lambda_
-from cloudformation_dataclasses.aws.iot import (
-    PolicyPrincipalAttachment,
-    Thing,
-    ThingPrincipalAttachment,
-    TopicRule,
-)
-from cloudformation_dataclasses.aws.lambda_ import Version
 from cloudformation_dataclasses.intrinsics import Sub
 
 from .stack_config import CertificateARN
@@ -40,15 +33,10 @@ __all__ = [
     "OpenIoTStarPolicy",
     "Parameter",
     "PolicyDocument",
-    "PolicyPrincipalAttachment",
     "PolicyStatement",
     "STRING",
     "Sub",
     "Template",
-    "Thing",
-    "ThingPrincipalAttachment",
-    "TopicRule",
-    "Version",
     "cloudformation_dataclass",
     "get_att",
     "iam",

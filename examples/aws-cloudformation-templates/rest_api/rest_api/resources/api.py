@@ -7,5 +7,5 @@ from .. import *  # noqa: F403
 class Api:
     """AWS::ApiGateway::RestApi resource."""
 
-    resource: RestApi
+    resource: apigateway.RestApi
     name = ref(AppName)

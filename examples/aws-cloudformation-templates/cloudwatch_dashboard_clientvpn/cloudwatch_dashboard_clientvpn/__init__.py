@@ -11,8 +11,7 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import cloudwatch
-from cloudformation_dataclasses.aws.logs import QueryDefinition
+from cloudformation_dataclasses.aws import cloudwatch, logs
 from cloudformation_dataclasses.intrinsics import Sub
 
 from .stack_config import ClientVPNLogGroup, Folder
@@ -37,7 +36,6 @@ __all__ = [
     "MutualAuthUsersConnectionDuration",
     "Output",
     "Parameter",
-    "QueryDefinition",
     "STRING",
     "Sub",
     "Template",
@@ -45,5 +43,6 @@ __all__ = [
     "cloudformation_dataclass",
     "cloudwatch",
     "get_att",
+    "logs",
     "ref",
 ]

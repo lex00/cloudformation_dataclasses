@@ -7,7 +7,40 @@ can be parsed correctly.
 """
 
 import re
+from collections import defaultdict
 from pathlib import Path
+
+
+def rename_duplicate_templates(source_dir: Path) -> int:
+    """Rename templates with duplicate base names to avoid collisions.
+
+    When multiple templates have the same filename (e.g., example.yaml in
+    different directories), they would all generate packages with the same
+    name, causing file collisions. This function renames them with numeric
+    suffixes (example_1.yaml, example_2.yaml, etc.).
+
+    Returns:
+        Count of files renamed.
+    """
+    # Find all yaml files and group by basename
+    templates_by_name: dict[str, list[Path]] = defaultdict(list)
+    for template_path in source_dir.rglob("*.yaml"):
+        templates_by_name[template_path.name].append(template_path)
+
+    renamed_count = 0
+    for name, paths in templates_by_name.items():
+        if len(paths) > 1:
+            # Multiple templates with same name - rename them
+            stem = Path(name).stem
+            suffix = Path(name).suffix
+            for i, path in enumerate(sorted(paths), start=1):
+                new_name = f"{stem}_{i}{suffix}"
+                new_path = path.parent / new_name
+                path.rename(new_path)
+                print(f"  Renamed: {path.name} -> {new_name}")
+                renamed_count += 1
+
+    return renamed_count
 
 
 def fix_efs_with_automount(content: str) -> str:
@@ -41,6 +74,11 @@ def apply_fixes(source_dir: Path) -> int:
         Count of fixes applied.
     """
     fixed_count = 0
+
+    # First, rename duplicate templates to avoid package name collisions
+    fixed_count += rename_duplicate_templates(source_dir)
+
+    # Then apply content fixes
     for template_path in source_dir.rglob("*.yaml"):
         fix_func = FIXES.get(template_path.name)
         if fix_func:

@@ -17,6 +17,6 @@ class PrivateRouteTable0AssociationParameter:
 class PrivateRouteTable0:
     """AWS::EC2::RouteTable resource."""
 
-    resource: RouteTable
+    resource: ec2.RouteTable
     vpc_id = ref(VPC)
     tags = [PrivateRouteTable0AssociationParameter]

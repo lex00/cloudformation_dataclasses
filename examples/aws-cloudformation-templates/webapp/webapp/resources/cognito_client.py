@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class CognitoClient:
     """AWS::Cognito::UserPoolClient resource."""
 
-    resource: UserPoolClient
+    resource: cognito.UserPoolClient
     client_name = ref(AppName)
     generate_secret = False
     user_pool_id = ref(CognitoUserPool)

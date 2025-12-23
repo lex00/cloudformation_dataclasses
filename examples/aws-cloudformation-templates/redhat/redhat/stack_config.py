@@ -93,7 +93,7 @@ class RegionMapMapping:
             'RHEL9': 'ami-0367f2b5c3d1ef960',
         },
         'eu-west-1': {
-            'RHEL9': 'ami-0e28d6c0c65e7f82f',
+            'RHEL9': 'ami-0f0f1c02e5e4d9d9f',
         },
         'eu-west-2': {
             'RHEL9': 'ami-02b1e3a99e36afd1a',

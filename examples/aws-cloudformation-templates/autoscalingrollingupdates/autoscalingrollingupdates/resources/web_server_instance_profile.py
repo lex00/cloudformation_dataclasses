@@ -7,6 +7,7 @@ from .. import *  # noqa: F403
 class WebServerInstanceProfile:
     """AWS::IAM::InstanceProfile resource."""
 
-    resource: iam.InstanceProfile
+    # Unknown resource type: AWS::IAM::InstanceProfile
+    resource: CloudFormationResource
     path = '/'
     roles = [ref(DescribeHealthRole)]

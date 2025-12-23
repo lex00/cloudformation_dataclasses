@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class AppRunnerRoleAllowStatement0:
     resource: PolicyStatement
     principal = {
-        'Service': ['build.apprunner.amazonaws.com'],
+        PresentationDetails.service: ['build.apprunner.amazonaws.com'],
     }
     action = ['sts:AssumeRole']
 
@@ -48,7 +48,8 @@ class AppRunnerRolePolicy:
 class AppRunnerRole:
     """AWS::IAM::Role resource."""
 
-    resource: iam.Role
+    # Unknown resource type: AWS::IAM::Role
+    resource: CloudFormationResource
     assume_role_policy_document = AppRunnerRoleAssumeRolePolicyDocument
     path = '/'
     policies = [AppRunnerRolePolicy]

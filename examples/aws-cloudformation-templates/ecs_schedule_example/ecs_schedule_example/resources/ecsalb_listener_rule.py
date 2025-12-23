@@ -21,7 +21,7 @@ class ECSALBListenerRuleRuleCondition:
 class ECSALBListenerRule:
     """AWS::ElasticLoadBalancingV2::ListenerRule resource."""
 
-    resource: ListenerRule
+    resource: elasticloadbalancingv2.ListenerRule
     actions = [ECSALBListenerRuleAction]
     conditions = [ECSALBListenerRuleRuleCondition]
     listener_arn = ref(ALBListener)

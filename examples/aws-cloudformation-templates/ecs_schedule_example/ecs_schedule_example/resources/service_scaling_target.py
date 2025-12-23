@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class ServiceScalingTarget:
     """AWS::ApplicationAutoScaling::ScalableTarget resource."""
 
-    resource: ScalableTarget
+    resource: applicationautoscaling.ScalableTarget
     max_capacity = 2
     min_capacity = 1
     resource_id = Join('', [

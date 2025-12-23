@@ -4,22 +4,19 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class LaunchTemplateSpotFleetLaunchSpecification:
-    resource: ec2.spot_fleet.SpotFleetLaunchSpecification
-    key_name = ref(KeyName)
-    image_id = FindInMap("AWSRegionArch2AMI", AWS_REGION, FindInMap("AWSInstanceType2Arch", ref(InstanceType), 'Arch'))
-    security_groups = [ref(InstanceSecurityGroup)]
-    instance_type = ref(InstanceType)
-    user_data = Base64(Sub("""#!/bin/bash -xe
-yum install -y aws-cfn-bootstrap
-/opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --resource LaunchTemplate  --region ${AWS::Region}
-/opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --resource WebServerGroup --region ${AWS::Region}
-"""))
-
-
-@cloudformation_dataclass
 class LaunchTemplate:
     """AWS::EC2::LaunchTemplate resource."""
 
-    resource: ec2.LaunchTemplate
-    launch_template_data = LaunchTemplateSpotFleetLaunchSpecification
+    # Unknown resource type: AWS::EC2::LaunchTemplate
+    resource: CloudFormationResource
+    launch_template_data = {
+        'KeyName': ref(KeyName),
+        'ImageId': FindInMap("AWSRegionArch2AMI", AWS_REGION, FindInMap("AWSInstanceType2Arch", ref(InstanceType), 'Arch')),
+        'SecurityGroups': [ref(InstanceSecurityGroup)],
+        'InstanceType': ref(InstanceType),
+        'UserData': Base64(Sub("""#!/bin/bash -xe
+yum install -y aws-cfn-bootstrap
+/opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --resource LaunchTemplate  --region ${AWS::Region}
+/opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --resource WebServerGroup --region ${AWS::Region}
+""")),
+    }

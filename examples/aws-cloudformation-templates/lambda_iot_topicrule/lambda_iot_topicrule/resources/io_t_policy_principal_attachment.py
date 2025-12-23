@@ -7,6 +7,6 @@ from .. import *  # noqa: F403
 class IoTPolicyPrincipalAttachment:
     """AWS::IoT::PolicyPrincipalAttachment resource."""
 
-    resource: PolicyPrincipalAttachment
+    resource: iot.PolicyPrincipalAttachment
     policy_name = ref(IoTPolicy)
     principal = ref(CertificateARN)

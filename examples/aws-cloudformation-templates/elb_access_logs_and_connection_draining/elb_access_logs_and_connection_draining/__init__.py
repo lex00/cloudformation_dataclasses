@@ -17,8 +17,12 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import ec2, elasticloadbalancing, s3
-from cloudformation_dataclasses.aws.autoscaling import AutoScalingGroup, LaunchConfiguration
+from cloudformation_dataclasses.aws import (
+    autoscaling,
+    ec2,
+    elasticloadbalancing,
+    s3,
+)
 from cloudformation_dataclasses.intrinsics import (
     AWS_REGION,
     Base64,
@@ -41,7 +45,6 @@ from .resources import *  # noqa: F403, F401
 
 __all__ = [
     "AWS_REGION",
-    "AutoScalingGroup",
     "BOOL",
     "Base64",
     "DenyStatement",
@@ -54,7 +57,6 @@ __all__ = [
     "KeyName",
     "LatestAmiId",
     "LaunchConfig",
-    "LaunchConfiguration",
     "LogsBucket",
     "LogsBucketPolicy",
     "Mapping",
@@ -70,6 +72,7 @@ __all__ = [
     "Sub",
     "Template",
     "WebServerGroup",
+    "autoscaling",
     "cloudformation_dataclass",
     "ec2",
     "elasticloadbalancing",

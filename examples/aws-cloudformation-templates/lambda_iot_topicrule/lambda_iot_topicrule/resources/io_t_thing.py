@@ -7,5 +7,5 @@ from .. import *  # noqa: F403
 class IoTThing:
     """AWS::IoT::Thing resource."""
 
-    resource: Thing
+    resource: iot.Thing
     thing_name = ref(MyLambda)

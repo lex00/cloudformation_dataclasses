@@ -20,7 +20,6 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import cloudfront, iam, s3
-from cloudformation_dataclasses.aws.iam import RolePolicy
 from cloudformation_dataclasses.aws.s3 import (
     ObjectLockEnabled,
     ObjectLockRetentionMode,
@@ -73,7 +72,6 @@ __all__ = [
     "PolicyDocument",
     "PolicyStatement",
     "ReplicationRuleStatus",
-    "RolePolicy",
     "STRING",
     "STRING_EQUALS",
     "Select",

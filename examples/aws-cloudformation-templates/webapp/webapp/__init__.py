@@ -27,10 +27,7 @@ from cloudformation_dataclasses.aws import (
     s3,
     wafv2,
 )
-from cloudformation_dataclasses.aws.cloudfront import OriginAccessControl
-from cloudformation_dataclasses.aws.cognito import UserPool, UserPoolClient, UserPoolDomain
 from cloudformation_dataclasses.aws.dynamodb import AttributeType, KeyType
-from cloudformation_dataclasses.aws.iam import RolePolicy
 from cloudformation_dataclasses.aws.s3 import (
     ObjectLockEnabled,
     ObjectLockRetentionMode,
@@ -74,7 +71,6 @@ __all__ = [
     "LambdaCodeS3Key",
     "ObjectLockEnabled",
     "ObjectLockRetentionMode",
-    "OriginAccessControl",
     "Output",
     "Parameter",
     "PolicyDocument",
@@ -84,7 +80,6 @@ __all__ = [
     "RestApiAuthorizer",
     "RestApiDeployment",
     "RestApiStage",
-    "RolePolicy",
     "STRING",
     "STRING_EQUALS",
     "Select",
@@ -120,9 +115,6 @@ __all__ = [
     "TestResourceResource",
     "TestResourceRootPermission",
     "TestTable",
-    "UserPool",
-    "UserPoolClient",
-    "UserPoolDomain",
     "apigateway",
     "cloudformation_dataclass",
     "cloudfront",

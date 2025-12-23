@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class MixAuthDistinctUsers:
     """AWS::Logs::QueryDefinition resource."""
 
-    resource: QueryDefinition
+    resource: logs.QueryDefinition
     name = Sub('${Folder}/Mix Auth Distinct Users')
     query_string = """fields @timestamp, `client-vpn-endpoint-id`, `common-name`, `username`
 | sort @timestamp asc

@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class GreengrassCoreDefinition:
     """AWS::Greengrass::CoreDefinition resource."""
 
-    resource: CoreDefinition
+    resource: greengrass.CoreDefinition
     name = Join('_', [
     ref(CoreName),
     'Core',

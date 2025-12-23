@@ -4,9 +4,13 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class GreengrassCoreDefinitionVersionDevice:
-    resource: greengrass.device_definition.Device
-    certificate_arn = Join(':', [
+class GreengrassCoreDefinitionVersion:
+    """AWS::Greengrass::CoreDefinitionVersion resource."""
+
+    resource: greengrass.CoreDefinitionVersion
+    core_definition_id = ref(GreengrassCoreDefinition)
+    cores = [{
+        'CertificateArn': Join(':', [
     'arn:',
     AWS_PARTITION,
     ':iot',
@@ -16,13 +20,13 @@ class GreengrassCoreDefinitionVersionDevice:
     'cert',
     get_att(IoTThing, "certificateId"),
 ]),
-])
-    id = Join('_', [
+]),
+        'Id': Join('_', [
     ref(CoreName),
     'Core',
-])
-    sync_shadow = 'false'
-    thing_arn = Join(':', [
+]),
+        'SyncShadow': 'false',
+        'ThingArn': Join(':', [
     'arn:',
     AWS_PARTITION,
     ':iot',
@@ -35,13 +39,5 @@ class GreengrassCoreDefinitionVersionDevice:
     'Core',
 ]),
 ]),
-])
-
-
-@cloudformation_dataclass
-class GreengrassCoreDefinitionVersion:
-    """AWS::Greengrass::CoreDefinitionVersion resource."""
-
-    resource: CoreDefinitionVersion
-    core_definition_id = ref(GreengrassCoreDefinition)
-    cores = [GreengrassCoreDefinitionVersionDevice]
+]),
+    }]

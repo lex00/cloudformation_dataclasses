@@ -7,4 +7,4 @@ from .. import *  # noqa: F403
 class IPAddress:
     """AWS::EC2::EIP resource."""
 
-    resource: EIP
+    resource: ec2.EIP

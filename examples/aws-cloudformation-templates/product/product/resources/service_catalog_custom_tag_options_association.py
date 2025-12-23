@@ -7,6 +7,6 @@ from .. import *  # noqa: F403
 class ServiceCatalogCustomTagOptionsAssociation:
     """AWS::ServiceCatalog::TagOptionAssociation resource."""
 
-    resource: TagOptionAssociation
+    resource: servicecatalog.TagOptionAssociation
     tag_option_id = ImportValue(Sub('${ServiceCatalogPortfolioStackName}-ServiceCatalogProductTagOptionsDept'))
     resource_id = ref(ServiceCatalogCloudFormationProduct)

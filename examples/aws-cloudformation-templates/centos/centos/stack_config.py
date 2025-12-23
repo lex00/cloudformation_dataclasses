@@ -96,18 +96,18 @@ class RegionMapMapping:
             'CentOS9': 'ami-05a7b8270231783b2',
         },
         'eu-west-2': {
-            'CentOS9': 'ami-0086646e63ce5aaf1',
+            'RHEL9': 'ami-0086646e63ce5aaf1',
         },
         'ap-northeast-1': {
-            'CentOS9': 'ami-0d8ee41b4b6f8343b',
+            'RHEL9': 'ami-0d8ee41b4b6f8343b',
         },
         'ap-northeast-2': {
-            'CentOS9': 'ami-031e0786d2134adf6',
+            'RHEL9': 'ami-031e0786d2134adf6',
         },
         'ap-southeast-1': {
-            'CentOS9': 'ami-0a9082a6b182a840b',
+            'RHEL9': 'ami-0a9082a6b182a840b',
         },
         'ap-southeast-2': {
-            'CentOS9': 'ami-05ffc8a6cb624035b',
+            'RHEL9': 'ami-05ffc8a6cb624035b',
         },
     }

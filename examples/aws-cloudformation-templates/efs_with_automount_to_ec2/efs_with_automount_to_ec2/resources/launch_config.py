@@ -7,7 +7,7 @@ from .. import *  # noqa: F403
 class LaunchConfig:
     """AWS::AutoScaling::LaunchConfiguration resource."""
 
-    resource: LaunchConfiguration
+    resource: autoscaling.LaunchConfiguration
     iam_instance_profile = ref(InstanceProfile)
     image_id = FindInMap("EC2RegionMap", AWS_REGION, '64')
     instance_type = ref(InstanceType)
