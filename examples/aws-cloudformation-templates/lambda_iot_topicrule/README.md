@@ -1,6 +1,6 @@
 # LambdaIotTopicrule
 
-Imported from `RDS_Snapshot_On_Delete.yaml`.
+Imported from `cloudfront-nocache.yml`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -31,4 +31,5 @@ pip install .
 
 | Logical ID | Type |
 |------------|------|
-| `MyDB` | AWS::RDS::DBInstance |
+| `CachePolicy` | AWS::CloudFront::CachePolicy |
+| `Distribution` | AWS::CloudFront::Distribution |

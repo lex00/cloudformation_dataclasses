@@ -245,12 +245,14 @@ def _build_resource_type_map() -> None:
     """Build mapping from CloudFormation types to Python classes by scanning aws modules.
 
     Resources are in __init__.py files for nested packages.
+    Thread-safe: uses local dict and atomic assignment.
     """
     global _RESOURCE_TYPE_MAP, _RESOURCE_TYPE_MAP_BUILT
     if _RESOURCE_TYPE_MAP_BUILT:
         return
 
-    _RESOURCE_TYPE_MAP_BUILT = True
+    # Build into a local dict first, then assign atomically
+    local_map: dict[str, tuple[str, str]] = {}
 
     # Pattern to find resource_type class variable assignments
     resource_type_pattern = re.compile(
@@ -270,13 +272,17 @@ def _build_resource_type_map() -> None:
                 type_match = resource_type_pattern.search(line)
                 if type_match:
                     resource_type = type_match.group(1)
-                    _RESOURCE_TYPE_MAP[resource_type] = (module_name, current_class)
+                    local_map[resource_type] = (module_name, current_class)
 
     # Resources are only in __init__.py (nested) or flat .py files (legacy)
     _scan_aws_modules(
         on_init_file=scan_for_resources,
         on_flat_file=scan_for_resources,
     )
+
+    # Atomic assignment after building is complete
+    _RESOURCE_TYPE_MAP.update(local_map)
+    _RESOURCE_TYPE_MAP_BUILT = True
 
 
 def resolve_resource_type(resource_type: str) -> Optional[tuple[str, str]]:
@@ -325,12 +331,15 @@ def _build_property_type_map() -> None:
 
     PropertyTypes are in submodules (ec2/instance.py) for nested packages,
     and the module_name will be "ec2.instance" to enable correct imports.
+    Thread-safe: uses local dicts and atomic assignment.
     """
     global _PROPERTY_TYPE_MAP, _PROPERTY_TYPE_MAP_BUILT, _CF_PROPERTY_TO_CLASSES
     if _PROPERTY_TYPE_MAP_BUILT:
         return
 
-    _PROPERTY_TYPE_MAP_BUILT = True
+    # Build into local dicts first
+    local_type_map: dict[tuple[str, str], dict[str, Any]] = {}
+    local_cf_to_classes: dict[str, list[tuple[str, str]]] = {}
 
     # Patterns for parsing
     field_pattern = re.compile(r'^\s+(\w+):\s*(.+?)\s*(?:=|$)')
@@ -338,18 +347,18 @@ def _build_property_type_map() -> None:
 
     def _register_property_type(module_name: str, class_name: str,
                                  mappings: dict[str, str], fields: dict[str, str]) -> None:
-        """Register a PropertyType class in the global maps."""
+        """Register a PropertyType class in the local maps."""
         key = (module_name, class_name)
         cf_to_python = {v: k for k, v in mappings.items()}
-        _PROPERTY_TYPE_MAP[key] = {
+        local_type_map[key] = {
             "cf_to_python": cf_to_python,
             "python_to_cf": mappings.copy(),
             "field_types": fields.copy(),
         }
         for cf_name in cf_to_python:
-            if cf_name not in _CF_PROPERTY_TO_CLASSES:
-                _CF_PROPERTY_TO_CLASSES[cf_name] = []
-            _CF_PROPERTY_TO_CLASSES[cf_name].append(key)
+            if cf_name not in local_cf_to_classes:
+                local_cf_to_classes[cf_name] = []
+            local_cf_to_classes[cf_name].append(key)
 
     def scan_for_property_types(path: Path, module_name: str, content: str) -> None:
         """Scan content for PropertyType classes and register them."""
@@ -411,6 +420,11 @@ def _build_property_type_map() -> None:
         on_submodule=scan_for_property_types,
         on_flat_file=scan_for_property_types,
     )
+
+    # Atomic assignment after building is complete
+    _PROPERTY_TYPE_MAP.update(local_type_map)
+    _CF_PROPERTY_TO_CLASSES.update(local_cf_to_classes)
+    _PROPERTY_TYPE_MAP_BUILT = True
 
 
 def get_property_type_info(

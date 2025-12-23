@@ -1,9 +1,6 @@
 # Macro
 
-Migrated from [macro.json](https://github.com/aws-cloudformation/cfn-lint).
-
-**Source**: AWS CloudFormation Sample Templates
-**License**: Apache-2.0
+Imported from `CloudWatch_Dashboard_ClientVPN.yml`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -34,7 +31,17 @@ pip install .
 
 | Logical ID | Type |
 |------------|------|
-| `ResourceFunction` | AWS::Serverless::Function |
-| `MacroFunction` | AWS::Serverless::Function |
-| `Macro` | AWS::CloudFormation::Macro |
+| `TotalUsagePerClientVPNEndpoint` | AWS::Logs::QueryDefinition |
+| `ADSAMLAuthTotalUsageReport` | AWS::Logs::QueryDefinition |
+| `ADSAMLAuthDistinctUsersConnectionDuration` | AWS::Logs::QueryDefinition |
+| `ADSAMLAuthDistinctUsers` | AWS::Logs::QueryDefinition |
+| `ADSAMLAuthUsersConnectionDuration` | AWS::Logs::QueryDefinition |
+| `MutualAuthTotalUsageReport` | AWS::Logs::QueryDefinition |
+| `MutualAuthDistinctUsersConnectionDuration` | AWS::Logs::QueryDefinition |
+| `MutualAuthDistinctUsers` | AWS::Logs::QueryDefinition |
+| `MutualAuthUsersConnectionDuration` | AWS::Logs::QueryDefinition |
+| `MixAuthTotalUsageReport` | AWS::Logs::QueryDefinition |
+| `MixAuthDistinctUsersConnectionDuration` | AWS::Logs::QueryDefinition |
+| `MixAuthDistinctUsers` | AWS::Logs::QueryDefinition |
+| `MixAuthUsersConnectionDuration` | AWS::Logs::QueryDefinition |
 | `Dashboard` | AWS::CloudWatch::Dashboard |

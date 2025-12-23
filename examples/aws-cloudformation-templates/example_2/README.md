@@ -1,6 +1,6 @@
 # Example2
 
-Imported from `macro_3.yaml`.
+Imported from `macro.json`.
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 

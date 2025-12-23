@@ -4,6 +4,13 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
+class VPCAssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Name'
+    value = Sub('${AWS::StackName}-vpc')
+
+
+@cloudformation_dataclass
 class VPC:
     """AWS::EC2::VPC resource."""
 
@@ -12,10 +19,14 @@ class VPC:
     enable_dns_support = True
     enable_dns_hostnames = True
     instance_tenancy = 'default'
-    tags = [{
-        'Key': 'Name',
-        'Value': Sub('${AWS::StackName}-vpc'),
-    }]
+    tags = [VPCAssociationParameter]
+
+
+@cloudformation_dataclass
+class InternetGatewayAssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Name'
+    value = Sub('${AWS::StackName}-ig')
 
 
 @cloudformation_dataclass
@@ -23,10 +34,7 @@ class InternetGateway:
     """AWS::EC2::InternetGateway resource."""
 
     resource: ec2.InternetGateway
-    tags = [{
-        'Key': 'Name',
-        'Value': Sub('${AWS::StackName}-ig'),
-    }]
+    tags = [InternetGatewayAssociationParameter]
 
 
 @cloudformation_dataclass
@@ -39,15 +47,19 @@ class AttachGateway:
 
 
 @cloudformation_dataclass
+class PublicRouteTableAssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Name'
+    value = Sub('${AWS::StackName}-public-route-table')
+
+
+@cloudformation_dataclass
 class PublicRouteTable:
     """AWS::EC2::RouteTable resource."""
 
     resource: ec2.RouteTable
     vpc_id = ref(VPC)
-    tags = [{
-        'Key': 'Name',
-        'Value': Sub('${AWS::StackName}-public-route-table'),
-    }]
+    tags = [PublicRouteTableAssociationParameter]
 
 
 @cloudformation_dataclass
@@ -61,6 +73,20 @@ class RouteInternetGateway:
 
 
 @cloudformation_dataclass
+class PublicSubnet1AssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Name'
+    value = Sub('${AWS::StackName}-public-subnet1')
+
+
+@cloudformation_dataclass
+class PublicSubnet1AssociationParameter1:
+    resource: ec2.instance.AssociationParameter
+    key = 'kubernetes.io/role/elb'
+    value = 1
+
+
+@cloudformation_dataclass
 class PublicSubnet1:
     """AWS::EC2::Subnet resource."""
 
@@ -68,13 +94,7 @@ class PublicSubnet1:
     vpc_id = ref(VPC)
     availability_zone = Select(0, GetAZs(AWS_REGION))
     cidr_block = ref(PublicCidrBlock1)
-    tags = [{
-        'Key': 'Name',
-        'Value': Sub('${AWS::StackName}-public-subnet1'),
-    }, {
-        'Key': 'kubernetes.io/role/elb',
-        'Value': 1,
-    }]
+    tags = [PublicSubnet1AssociationParameter, PublicSubnet1AssociationParameter1]
 
 
 @cloudformation_dataclass
@@ -87,6 +107,20 @@ class PublicRouteTableAssociation1:
 
 
 @cloudformation_dataclass
+class PublicSubnet2AssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Name'
+    value = Sub('${AWS::StackName}-public-subnet2')
+
+
+@cloudformation_dataclass
+class PublicSubnet2AssociationParameter1:
+    resource: ec2.instance.AssociationParameter
+    key = 'kubernetes.io/role/elb'
+    value = 1
+
+
+@cloudformation_dataclass
 class PublicSubnet2:
     """AWS::EC2::Subnet resource."""
 
@@ -94,13 +128,7 @@ class PublicSubnet2:
     vpc_id = ref(VPC)
     availability_zone = Select(1, GetAZs(AWS_REGION))
     cidr_block = ref(PublicCidrBlock2)
-    tags = [{
-        'Key': 'Name',
-        'Value': Sub('${AWS::StackName}-public-subnet2'),
-    }, {
-        'Key': 'kubernetes.io/role/elb',
-        'Value': 1,
-    }]
+    tags = [PublicSubnet2AssociationParameter, PublicSubnet2AssociationParameter1]
 
 
 @cloudformation_dataclass
@@ -113,6 +141,20 @@ class PublicRouteTableAssociation2:
 
 
 @cloudformation_dataclass
+class PublicSubnet3AssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Name'
+    value = Sub('${AWS::StackName}-public-subnet3')
+
+
+@cloudformation_dataclass
+class PublicSubnet3AssociationParameter1:
+    resource: ec2.instance.AssociationParameter
+    key = 'kubernetes.io/role/elb'
+    value = 1
+
+
+@cloudformation_dataclass
 class PublicSubnet3:
     """AWS::EC2::Subnet resource."""
 
@@ -120,13 +162,7 @@ class PublicSubnet3:
     vpc_id = ref(VPC)
     availability_zone = Select(2, GetAZs(AWS_REGION))
     cidr_block = ref(PublicCidrBlock3)
-    tags = [{
-        'Key': 'Name',
-        'Value': Sub('${AWS::StackName}-public-subnet3'),
-    }, {
-        'Key': 'kubernetes.io/role/elb',
-        'Value': 1,
-    }]
+    tags = [PublicSubnet3AssociationParameter, PublicSubnet3AssociationParameter1]
 
 
 @cloudformation_dataclass
@@ -147,16 +183,20 @@ class EIP1:
 
 
 @cloudformation_dataclass
+class NATGateway1AssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Name'
+    value = Sub('${AWS::StackName}-nat-gw1')
+
+
+@cloudformation_dataclass
 class NATGateway1:
     """AWS::EC2::NatGateway resource."""
 
     resource: ec2.NatGateway
     allocation_id = get_att(EIP1, "AllocationId")
     subnet_id = ref(PublicSubnet1)
-    tags = [{
-        'Key': 'Name',
-        'Value': Sub('${AWS::StackName}-nat-gw1'),
-    }]
+    tags = [NATGateway1AssociationParameter]
 
 
 @cloudformation_dataclass
@@ -168,16 +208,20 @@ class EIP2:
 
 
 @cloudformation_dataclass
+class NATGateway2AssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Name'
+    value = Sub('${AWS::StackName}-nat-gw2')
+
+
+@cloudformation_dataclass
 class NATGateway2:
     """AWS::EC2::NatGateway resource."""
 
     resource: ec2.NatGateway
     allocation_id = get_att(EIP2, "AllocationId")
     subnet_id = ref(PublicSubnet2)
-    tags = [{
-        'Key': 'Name',
-        'Value': Sub('${AWS::StackName}-nat-gw2'),
-    }]
+    tags = [NATGateway2AssociationParameter]
 
 
 @cloudformation_dataclass
@@ -189,16 +233,27 @@ class EIP3:
 
 
 @cloudformation_dataclass
+class NATGateway3AssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Name'
+    value = Sub('${AWS::StackName}-nat-gw3')
+
+
+@cloudformation_dataclass
 class NATGateway3:
     """AWS::EC2::NatGateway resource."""
 
     resource: ec2.NatGateway
     allocation_id = get_att(EIP3, "AllocationId")
     subnet_id = ref(PublicSubnet3)
-    tags = [{
-        'Key': 'Name',
-        'Value': Sub('${AWS::StackName}-nat-gw3'),
-    }]
+    tags = [NATGateway3AssociationParameter]
+
+
+@cloudformation_dataclass
+class PrivateSubnet1AssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Name'
+    value = Sub('${AWS::StackName}-private-subnet1')
 
 
 @cloudformation_dataclass
@@ -210,10 +265,14 @@ class PrivateSubnet1:
     availability_zone = Select(0, GetAZs(AWS_REGION))
     cidr_block = ref(PrivateCidrBlock1)
     map_public_ip_on_launch = False
-    tags = [{
-        'Key': 'Name',
-        'Value': Sub('${AWS::StackName}-private-subnet1'),
-    }]
+    tags = [PrivateSubnet1AssociationParameter]
+
+
+@cloudformation_dataclass
+class PrivateRouteTable1AssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Name'
+    value = Sub('${AWS::StackName}-private-route-table1')
 
 
 @cloudformation_dataclass
@@ -222,10 +281,7 @@ class PrivateRouteTable1:
 
     resource: ec2.RouteTable
     vpc_id = ref(VPC)
-    tags = [{
-        'Key': 'Name',
-        'Value': Sub('${AWS::StackName}-private-route-table1'),
-    }]
+    tags = [PrivateRouteTable1AssociationParameter]
 
 
 @cloudformation_dataclass
@@ -248,6 +304,13 @@ class PrivateRoute1:
 
 
 @cloudformation_dataclass
+class PrivateSubnet2AssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Name'
+    value = Sub('${AWS::StackName}-private-subnet2')
+
+
+@cloudformation_dataclass
 class PrivateSubnet2:
     """AWS::EC2::Subnet resource."""
 
@@ -256,10 +319,14 @@ class PrivateSubnet2:
     availability_zone = Select(1, GetAZs(AWS_REGION))
     cidr_block = ref(PrivateCidrBlock2)
     map_public_ip_on_launch = False
-    tags = [{
-        'Key': 'Name',
-        'Value': Sub('${AWS::StackName}-private-subnet2'),
-    }]
+    tags = [PrivateSubnet2AssociationParameter]
+
+
+@cloudformation_dataclass
+class PrivateRouteTable2AssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Name'
+    value = Sub('${AWS::StackName}-private-route-table2')
 
 
 @cloudformation_dataclass
@@ -268,10 +335,7 @@ class PrivateRouteTable2:
 
     resource: ec2.RouteTable
     vpc_id = ref(VPC)
-    tags = [{
-        'Key': 'Name',
-        'Value': Sub('${AWS::StackName}-private-route-table2'),
-    }]
+    tags = [PrivateRouteTable2AssociationParameter]
 
 
 @cloudformation_dataclass
@@ -294,6 +358,13 @@ class PrivateRoute2:
 
 
 @cloudformation_dataclass
+class PrivateSubnet3AssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Name'
+    value = Sub('${AWS::StackName}-private-subnet3')
+
+
+@cloudformation_dataclass
 class PrivateSubnet3:
     """AWS::EC2::Subnet resource."""
 
@@ -302,10 +373,14 @@ class PrivateSubnet3:
     availability_zone = Select(2, GetAZs(AWS_REGION))
     cidr_block = ref(PrivateCidrBlock3)
     map_public_ip_on_launch = False
-    tags = [{
-        'Key': 'Name',
-        'Value': Sub('${AWS::StackName}-private-subnet3'),
-    }]
+    tags = [PrivateSubnet3AssociationParameter]
+
+
+@cloudformation_dataclass
+class PrivateRouteTable3AssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Name'
+    value = Sub('${AWS::StackName}-private-route-table3')
 
 
 @cloudformation_dataclass
@@ -314,10 +389,7 @@ class PrivateRouteTable3:
 
     resource: ec2.RouteTable
     vpc_id = ref(VPC)
-    tags = [{
-        'Key': 'Name',
-        'Value': Sub('${AWS::StackName}-private-route-table3'),
-    }]
+    tags = [PrivateRouteTable3AssociationParameter]
 
 
 @cloudformation_dataclass

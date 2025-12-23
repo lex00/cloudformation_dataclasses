@@ -1,6 +1,9 @@
 # CloudfrontCfn
 
-Imported from `EC2-Domain-Join.yaml`.
+Migrated from [CloudFront.yaml](https://github.com/aws-cloudformation/cfn-lint).
+
+**Source**: AWS CloudFormation Sample Templates
+**License**: Apache-2.0
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -31,8 +34,23 @@ pip install .
 
 | Logical ID | Type |
 |------------|------|
-| `myssmdocument` | AWS::SSM::Document |
-| `myEC2InstanceSSM` | AWS::EC2::Instance |
-| `myInstanceProfile` | AWS::IAM::InstanceProfile |
-| `myEC2SSMRole` | AWS::IAM::Role |
-| `InstanceSecurityGroup` | AWS::EC2::SecurityGroup |
+| `AdministratorAccessIAMRole` | AWS::IAM::Role |
+| `LambdaEdgeIAMRole` | AWS::IAM::Role |
+| `LoggingBucketKMSKey` | AWS::KMS::Key |
+| `LoggingBucketKMSKeyAlias` | AWS::KMS::Alias |
+| `LoggingBucket` | AWS::S3::Bucket |
+| `LoggingBucketPolicy` | AWS::S3::BucketPolicy |
+| `EC2Instance` | AWS::EC2::Instance |
+| `EC2InstanceSG` | AWS::EC2::SecurityGroup |
+| `Tcp8080In` | AWS::EC2::SecurityGroupIngress |
+| `OriginALB` | AWS::ElasticLoadBalancingV2::LoadBalancer |
+| `OriginALBTG` | AWS::ElasticLoadBalancingV2::TargetGroup |
+| `OriginALBHttpsListener` | AWS::ElasticLoadBalancingV2::Listener |
+| `OriginALBHttpsListenerRule` | AWS::ElasticLoadBalancingV2::ListenerRule |
+| `ALBExternalAccessSG` | AWS::EC2::SecurityGroup |
+| `HTTPSTcpIn` | AWS::EC2::SecurityGroupIngress |
+| `HTTPTcpIn` | AWS::EC2::SecurityGroupIngress |
+| `Tcp8080Out` | AWS::EC2::SecurityGroupEgress |
+| `CloudFrontDistribution` | AWS::CloudFront::Distribution |
+| `LambdaEdgeFunction` | AWS::Lambda::Function |
+| `LambdaEdgeVersion` | AWS::Lambda::Version |

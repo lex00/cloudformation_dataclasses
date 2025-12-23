@@ -4,6 +4,13 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
+class VPCAssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Name'
+    value = ref(EnvironmentName)
+
+
+@cloudformation_dataclass
 class VPC:
     """AWS::EC2::VPC resource."""
 
@@ -11,10 +18,14 @@ class VPC:
     enable_dns_support = True
     enable_dns_hostnames = True
     cidr_block = ref(VpcCIDR)
-    tags = [{
-        'Key': 'Name',
-        'Value': ref(EnvironmentName),
-    }]
+    tags = [VPCAssociationParameter]
+
+
+@cloudformation_dataclass
+class PrivateSubnet1AssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Name'
+    value = Sub('${EnvironmentName} Private Subnet (AZ1)')
 
 
 @cloudformation_dataclass
@@ -26,10 +37,14 @@ class PrivateSubnet1:
     availability_zone = Select(0, GetAZs())
     cidr_block = ref(PrivateSubnet1CIDR)
     map_public_ip_on_launch = False
-    tags = [{
-        'Key': 'Name',
-        'Value': Sub('${EnvironmentName} Private Subnet (AZ1)'),
-    }]
+    tags = [PrivateSubnet1AssociationParameter]
+
+
+@cloudformation_dataclass
+class PrivateSubnet2AssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Name'
+    value = Sub('${EnvironmentName} Private Subnet (AZ2)')
 
 
 @cloudformation_dataclass
@@ -41,10 +56,23 @@ class PrivateSubnet2:
     availability_zone = Select(1, GetAZs())
     cidr_block = ref(PrivateSubnet2CIDR)
     map_public_ip_on_launch = False
-    tags = [{
-        'Key': 'Name',
-        'Value': Sub('${EnvironmentName} Private Subnet (AZ2)'),
-    }]
+    tags = [PrivateSubnet2AssociationParameter]
+
+
+@cloudformation_dataclass
+class EndpointSGEgress:
+    resource: ec2.security_group.Egress
+    ip_protocol = 'tcp'
+    from_port = 443
+    to_port = 443
+    cidr_ip = '0.0.0.0/0'
+
+
+@cloudformation_dataclass
+class EndpointSGAssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Name'
+    value = 'EndpointSG'
 
 
 @cloudformation_dataclass
@@ -53,17 +81,9 @@ class EndpointSG:
 
     resource: ec2.SecurityGroup
     group_description = 'Traffic into CloudFormation Endpoint'
-    security_group_ingress = [{
-        'IpProtocol': 'tcp',
-        'FromPort': 443,
-        'ToPort': 443,
-        'CidrIp': '0.0.0.0/0',
-    }]
+    security_group_ingress = [EndpointSGEgress]
     vpc_id = ref(VPC)
-    tags = [{
-        'Key': 'Name',
-        'Value': 'EndpointSG',
-    }]
+    tags = [EndpointSGAssociationParameter]
 
 
 @cloudformation_dataclass
@@ -80,15 +100,19 @@ class CfnEndpoint:
 
 
 @cloudformation_dataclass
+class PrivateRouteTable1AssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Name'
+    value = Sub('${EnvironmentName} Private Routes (AZ1)')
+
+
+@cloudformation_dataclass
 class PrivateRouteTable1:
     """AWS::EC2::RouteTable resource."""
 
     resource: ec2.RouteTable
     vpc_id = ref(VPC)
-    tags = [{
-        'Key': 'Name',
-        'Value': Sub('${EnvironmentName} Private Routes (AZ1)'),
-    }]
+    tags = [PrivateRouteTable1AssociationParameter]
 
 
 @cloudformation_dataclass
@@ -101,15 +125,19 @@ class PrivateSubnet1RouteTableAssociation:
 
 
 @cloudformation_dataclass
+class PrivateRouteTable2AssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Name'
+    value = Sub('${EnvironmentName} Private Routes (AZ2)')
+
+
+@cloudformation_dataclass
 class PrivateRouteTable2:
     """AWS::EC2::RouteTable resource."""
 
     resource: ec2.RouteTable
     vpc_id = ref(VPC)
-    tags = [{
-        'Key': 'Name',
-        'Value': Sub('${EnvironmentName} Private Routes (AZ2)'),
-    }]
+    tags = [PrivateRouteTable2AssociationParameter]
 
 
 @cloudformation_dataclass
@@ -122,19 +150,27 @@ class PrivateSubnet2RouteTableAssociation:
 
 
 @cloudformation_dataclass
+class PrivateSGEgress:
+    resource: ec2.security_group.Egress
+    ip_protocol = 'tcp'
+    from_port = 22
+    to_port = 22
+    cidr_ip = ref(VpcCIDR)
+
+
+@cloudformation_dataclass
+class PrivateSGAssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Name'
+    value = 'PrivateSG'
+
+
+@cloudformation_dataclass
 class PrivateSG:
     """AWS::EC2::SecurityGroup resource."""
 
     resource: ec2.SecurityGroup
     group_description = 'Traffic from Bastion'
-    security_group_ingress = [{
-        'IpProtocol': 'tcp',
-        'FromPort': 22,
-        'ToPort': 22,
-        'CidrIp': ref(VpcCIDR),
-    }]
+    security_group_ingress = [PrivateSGEgress]
     vpc_id = ref(VPC)
-    tags = [{
-        'Key': 'Name',
-        'Value': 'PrivateSG',
-    }]
+    tags = [PrivateSGAssociationParameter]

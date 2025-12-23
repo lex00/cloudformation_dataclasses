@@ -19,27 +19,36 @@ class AppRunnerRoleAssumeRolePolicyDocument:
 
 
 @cloudformation_dataclass
+class AppRunnerRoleAllowStatement0_1:
+    resource: PolicyStatement
+    action = [
+        'ecr:GetDownloadUrlForLayer',
+        'ecr:BatchGetImage',
+        'ecr:DescribeImages',
+        'ecr:GetAuthorizationToken',
+        'ecr:BatchCheckLayerAvailability',
+    ]
+    resource_arn = '*'
+
+
+@cloudformation_dataclass
+class AppRunnerRolePolicies0PolicyDocument:
+    resource: PolicyDocument
+    statement = [AppRunnerRoleAllowStatement0_1]
+
+
+@cloudformation_dataclass
+class AppRunnerRolePolicy:
+    resource: iam.user.Policy
+    policy_name = 'root'
+    policy_document = AppRunnerRolePolicies0PolicyDocument
+
+
+@cloudformation_dataclass
 class AppRunnerRole:
     """AWS::IAM::Role resource."""
 
-    # Unknown resource type: AWS::IAM::Role
-    resource: CloudFormationResource
+    resource: iam.Role
     assume_role_policy_document = AppRunnerRoleAssumeRolePolicyDocument
     path = '/'
-    policies = [{
-        'PolicyName': 'root',
-        'PolicyDocument': {
-            'Version': '2012-10-17',
-            'Statement': [{
-                'Effect': 'Allow',
-                'Action': [
-                    'ecr:GetDownloadUrlForLayer',
-                    'ecr:BatchGetImage',
-                    'ecr:DescribeImages',
-                    'ecr:GetAuthorizationToken',
-                    'ecr:BatchCheckLayerAvailability',
-                ],
-                'Resource': '*',
-            }],
-        },
-    }]
+    policies = [AppRunnerRolePolicy]

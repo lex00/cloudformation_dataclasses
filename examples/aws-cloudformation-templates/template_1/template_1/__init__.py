@@ -9,6 +9,7 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
+from cloudformation_dataclasses.aws import cloudformation
 
 from .stack import *  # noqa: F403, F401
 
@@ -17,6 +18,7 @@ __all__ = [
     "CountMacroFunction",
     "Macro",
     "Template",
+    "cloudformation",
     "cloudformation_dataclass",
     "get_att",
     "ref",

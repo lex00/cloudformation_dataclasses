@@ -25,8 +25,7 @@ class InstanceSecurityGroupEgress1:
 class InstanceSecurityGroup:
     """AWS::EC2::SecurityGroup resource."""
 
-    # Unknown resource type: AWS::EC2::SecurityGroup
-    resource: CloudFormationResource
+    resource: ec2.SecurityGroup
     group_description = 'Enable SSH access and HTTP access on the configured port'
     security_group_ingress = [InstanceSecurityGroupEgress, InstanceSecurityGroupEgress1]
 

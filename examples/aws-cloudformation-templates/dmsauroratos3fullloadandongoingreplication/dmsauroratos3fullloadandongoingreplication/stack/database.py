@@ -28,6 +28,13 @@ class AuroraCluster:
 
 
 @cloudformation_dataclass
+class AuroraDBTagFormat:
+    resource: rds.db_proxy.TagFormat
+    key = 'Application'
+    value = AWS_STACK_ID
+
+
+@cloudformation_dataclass
 class AuroraDB:
     """AWS::RDS::DBInstance resource."""
 
@@ -39,9 +46,6 @@ class AuroraDB:
     engine = 'aurora-postgresql'
     multi_az = False
     publicly_accessible = False
-    tags = [{
-        'Key': 'Application',
-        'Value': AWS_STACK_ID,
-    }]
+    tags = [AuroraDBTagFormat]
     depends_on = ["AuroraCluster"]
     deletion_policy = 'Retain'

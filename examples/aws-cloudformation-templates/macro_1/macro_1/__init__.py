@@ -7,7 +7,7 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
-from cloudformation_dataclasses.aws import lambda_
+from cloudformation_dataclasses.aws import cloudformation, lambda_
 
 from .stack import *  # noqa: F403, F401
 
@@ -17,6 +17,7 @@ __all__ = [
     "MacroFunction",
     "ResourceFunction",
     "Template",
+    "cloudformation",
     "cloudformation_dataclass",
     "get_att",
     "lambda_",

@@ -196,9 +196,12 @@ yaml = [
 [package.dev-dependencies]
 dev = [
     { name = "black" },
+    { name = "botocore" },
     { name = "mypy" },
     { name = "pytest" },
     { name = "pytest-cov" },
+    { name = "pyyaml" },
+    { name = "requests" },
     { name = "ruff" },
 ]
 
@@ -220,9 +223,12 @@ provides-extras = ["yaml", "importer", "dev"]
 [package.metadata.requires-dev]
 dev = [
     { name = "black", specifier = ">=23.12" },
+    { name = "botocore", specifier = ">=1.35.0" },
     { name = "mypy", specifier = ">=1.8" },
     { name = "pytest", specifier = ">=7.4" },
     { name = "pytest-cov", specifier = ">=4.1" },
+    { name = "pyyaml", specifier = ">=6.0" },
+    { name = "requests", specifier = ">=2.31" },
     { name = "ruff", specifier = ">=0.1" },
 ]
 

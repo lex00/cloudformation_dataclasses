@@ -4,23 +4,49 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
+class ELBSecurityGroupEgress:
+    resource: ec2.security_group.Egress
+    cidr_ip = '0.0.0.0/0'
+    from_port = '80'
+    ip_protocol = 'tcp'
+    to_port = '80'
+
+
+@cloudformation_dataclass
+class ELBSecurityGroupEgress1:
+    resource: ec2.security_group.Egress
+    cidr_ip = '0.0.0.0/0'
+    from_port = '443'
+    ip_protocol = 'tcp'
+    to_port = '443'
+
+
+@cloudformation_dataclass
 class ELBSecurityGroup:
     """AWS::EC2::SecurityGroup resource."""
 
     resource: ec2.SecurityGroup
     group_description = 'Enable public access HTTP and HTTPS'
-    security_group_ingress = [{
-        'CidrIp': '0.0.0.0/0',
-        'FromPort': '80',
-        'IpProtocol': 'tcp',
-        'ToPort': '80',
-    }, {
-        'CidrIp': '0.0.0.0/0',
-        'FromPort': '443',
-        'IpProtocol': 'tcp',
-        'ToPort': '443',
-    }]
+    security_group_ingress = [ELBSecurityGroupEgress, ELBSecurityGroupEgress1]
     vpc_id = ref(VPC)
+
+
+@cloudformation_dataclass
+class InstanceSecurityGroupEgress:
+    resource: ec2.security_group.Egress
+    cidr_ip = '0.0.0.0/0'
+    from_port = '22'
+    ip_protocol = 'tcp'
+    to_port = '22'
+
+
+@cloudformation_dataclass
+class InstanceSecurityGroupIngress:
+    resource: ec2.security_group.Ingress
+    from_port = '80'
+    ip_protocol = 'tcp'
+    source_security_group_id = get_att(ELBSecurityGroup, "GroupId")
+    to_port = '80'
 
 
 @cloudformation_dataclass
@@ -29,18 +55,17 @@ class InstanceSecurityGroup:
 
     resource: ec2.SecurityGroup
     group_description = 'Enable SSH public access and HTTP from the load balancer only'
-    security_group_ingress = [{
-        'CidrIp': '0.0.0.0/0',
-        'FromPort': '22',
-        'IpProtocol': 'tcp',
-        'ToPort': '22',
-    }, {
-        'FromPort': '80',
-        'IpProtocol': 'tcp',
-        'SourceSecurityGroupId': get_att(ELBSecurityGroup, "GroupId"),
-        'ToPort': '80',
-    }]
+    security_group_ingress = [InstanceSecurityGroupEgress, InstanceSecurityGroupIngress]
     vpc_id = ref(VPC)
+
+
+@cloudformation_dataclass
+class EFSSecurityGroupIngress:
+    resource: ec2.security_group.Ingress
+    from_port = '2049'
+    ip_protocol = 'tcp'
+    to_port = '2049'
+    source_security_group_id = get_att(InstanceSecurityGroup, "GroupId")
 
 
 @cloudformation_dataclass
@@ -49,12 +74,7 @@ class EFSSecurityGroup:
 
     resource: ec2.SecurityGroup
     group_description = 'Enable NFS access from EC2'
-    security_group_ingress = [{
-        'FromPort': '2049',
-        'IpProtocol': 'tcp',
-        'ToPort': '2049',
-        'SourceSecurityGroupId': get_att(InstanceSecurityGroup, "GroupId"),
-    }]
+    security_group_ingress = [EFSSecurityGroupIngress]
     vpc_id = ref(VPC)
 
 

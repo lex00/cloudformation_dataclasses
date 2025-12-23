@@ -4,40 +4,37 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
-class GetFromListJsonData:
-    """Example JSON data representing a list of values."""
+class ApiType:
+    """The Endpoint type for RESTApi"""
 
     resource: Parameter
     type = STRING
-    description = 'Example JSON data representing a list of values.'
-    default = '["test0", "test1", "test2"]'
+    description = 'The Endpoint type for RESTApi'
+    default = 'REGIONAL'
+    allowed_values = [
+    'EDGE',
+    'REGIONAL',
+    'PRIVATE',
+]
 
 
 @cloudformation_dataclass
-class GetFromListJsonDataQuery:
-    """Example query for JSON data representing a list of values."""
+class ApigatewayTimeout:
+    """ApiGateway Backend Integration timeout in milliseconds"""
 
     resource: Parameter
-    type = STRING
-    description = 'Example query for JSON data representing a list of values.'
-    default = '[2]'
+    type = NUMBER
+    description = 'ApiGateway Backend Integration timeout in milliseconds'
+    default = '29000'
+    min_value = 50
+    max_value = 29000
 
 
 @cloudformation_dataclass
-class GetFromMapJsonData:
-    """Example JSON data representing a map data structure."""
+class LambdaFunctionName:
+    """The Name for the Lambda Function"""
 
     resource: Parameter
     type = STRING
-    description = 'Example JSON data representing a map data structure.'
-    default = '{"test": {"test1": ["x", "y"]}}'
-
-
-@cloudformation_dataclass
-class GetFromMapJsonDataQuery:
-    """Example query for JSON data representing a map data structure."""
-
-    resource: Parameter
-    type = STRING
-    description = 'Example query for JSON data representing a map data structure.'
-    default = '["test"]["test1"][1]'
+    description = 'The Name for the Lambda Function'
+    default = 'My-APIGW-Integ-Function'

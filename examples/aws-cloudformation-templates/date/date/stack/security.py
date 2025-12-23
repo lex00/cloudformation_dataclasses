@@ -19,21 +19,30 @@ class TransformExecutionRoleAssumeRolePolicyDocument:
 
 
 @cloudformation_dataclass
+class TransformExecutionRoleAllowStatement0_1:
+    resource: PolicyStatement
+    action = ['logs:*']
+    resource_arn = 'arn:aws:logs:*:*:*'
+
+
+@cloudformation_dataclass
+class TransformExecutionRolePolicies0PolicyDocument:
+    resource: PolicyDocument
+    statement = [TransformExecutionRoleAllowStatement0_1]
+
+
+@cloudformation_dataclass
+class TransformExecutionRolePolicy:
+    resource: iam.user.Policy
+    policy_name = 'root'
+    policy_document = TransformExecutionRolePolicies0PolicyDocument
+
+
+@cloudformation_dataclass
 class TransformExecutionRole:
     """AWS::IAM::Role resource."""
 
-    # Unknown resource type: AWS::IAM::Role
-    resource: CloudFormationResource
+    resource: iam.Role
     assume_role_policy_document = TransformExecutionRoleAssumeRolePolicyDocument
     path = '/'
-    policies = [{
-        'PolicyName': 'root',
-        'PolicyDocument': {
-            'Version': '2012-10-17',
-            'Statement': [{
-                'Effect': 'Allow',
-                'Action': ['logs:*'],
-                'Resource': 'arn:aws:logs:*:*:*',
-            }],
-        },
-    }]
+    policies = [TransformExecutionRolePolicy]

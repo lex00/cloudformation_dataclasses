@@ -98,16 +98,20 @@ class FargateContainerSecurityGroup:
 
 
 @cloudformation_dataclass
+class PublicLoadBalancerSGEgress:
+    resource: ec2.security_group.Egress
+    cidr_ip = '0.0.0.0/0'
+    ip_protocol = '-1'
+
+
+@cloudformation_dataclass
 class PublicLoadBalancerSG:
     """AWS::EC2::SecurityGroup resource."""
 
     resource: ec2.SecurityGroup
     group_description = 'Access to the public facing load balancer'
     vpc_id = ref(VPC)
-    security_group_ingress = [{
-        'CidrIp': '0.0.0.0/0',
-        'IpProtocol': '-1',
-    }]
+    security_group_ingress = [PublicLoadBalancerSGEgress]
 
 
 @cloudformation_dataclass

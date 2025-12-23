@@ -1,6 +1,9 @@
 # VscodeserverPkg
 
-Imported from `VPC_With_Managed_NAT_And_Private_Subnet.yaml`.
+Migrated from [VSCodeServer-pkg.yaml](https://github.com/aws-cloudformation/cfn-lint).
+
+**Source**: AWS CloudFormation Sample Templates
+**License**: Apache-2.0
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -31,29 +34,33 @@ pip install .
 
 | Logical ID | Type |
 |------------|------|
-| `VPC` | AWS::EC2::VPC |
-| `PublicSubnet0` | AWS::EC2::Subnet |
-| `PublicSubnet1` | AWS::EC2::Subnet |
-| `PrivateSubnet0` | AWS::EC2::Subnet |
-| `PrivateSubnet1` | AWS::EC2::Subnet |
-| `InternetGateway` | AWS::EC2::InternetGateway |
-| `GatewayToInternet` | AWS::EC2::VPCGatewayAttachment |
-| `PublicRouteTable` | AWS::EC2::RouteTable |
-| `PublicRoute` | AWS::EC2::Route |
-| `PublicSubnetRouteTableAssociation0` | AWS::EC2::SubnetRouteTableAssociation |
-| `PublicSubnetRouteTableAssociation1` | AWS::EC2::SubnetRouteTableAssociation |
-| `PublicNetworkAcl` | AWS::EC2::NetworkAcl |
-| `InboundHTTPPublicNetworkAclEntry` | AWS::EC2::NetworkAclEntry |
-| `OutboundPublicNetworkAclEntry` | AWS::EC2::NetworkAclEntry |
-| `PublicSubnetNetworkAclAssociation0` | AWS::EC2::SubnetNetworkAclAssociation |
-| `PublicSubnetNetworkAclAssociation1` | AWS::EC2::SubnetNetworkAclAssociation |
-| `ElasticIP0` | AWS::EC2::EIP |
-| `ElasticIP1` | AWS::EC2::EIP |
-| `NATGateway0` | AWS::EC2::NatGateway |
-| `NATGateway1` | AWS::EC2::NatGateway |
-| `PrivateRouteTable0` | AWS::EC2::RouteTable |
-| `PrivateRouteTable1` | AWS::EC2::RouteTable |
-| `PrivateRouteToInternet0` | AWS::EC2::Route |
-| `PrivateRouteToInternet1` | AWS::EC2::Route |
-| `PrivateSubnetRouteTableAssociation0` | AWS::EC2::SubnetRouteTableAssociation |
-| `PrivateSubnetRouteTableAssociation1` | AWS::EC2::SubnetRouteTableAssociation |
+| `InstanceSecurityGroup` | AWS::EC2::SecurityGroup |
+| `InstanceRole` | AWS::IAM::Role |
+| `InstanceRolePolicy` | AWS::IAM::RolePolicy |
+| `InstanceProfile` | AWS::IAM::InstanceProfile |
+| `Server` | AWS::EC2::Instance |
+| `NetworkVPC` | AWS::EC2::VPC |
+| `NetworkPublicSubnet1` | AWS::EC2::Subnet |
+| `NetworkPublicSubnet1RouteTable` | AWS::EC2::RouteTable |
+| `NetworkPublicSubnet1RouteTableAssociation` | AWS::EC2::SubnetRouteTableAssociation |
+| `NetworkPublicSubnet1DefaultRoute` | AWS::EC2::Route |
+| `NetworkPublicSubnet1EIP` | AWS::EC2::EIP |
+| `NetworkPublicSubnet1NATGateway` | AWS::EC2::NatGateway |
+| `NetworkPublicSubnet2` | AWS::EC2::Subnet |
+| `NetworkPublicSubnet2RouteTable` | AWS::EC2::RouteTable |
+| `NetworkPublicSubnet2RouteTableAssociation` | AWS::EC2::SubnetRouteTableAssociation |
+| `NetworkPublicSubnet2DefaultRoute` | AWS::EC2::Route |
+| `NetworkPublicSubnet2EIP` | AWS::EC2::EIP |
+| `NetworkPublicSubnet2NATGateway` | AWS::EC2::NatGateway |
+| `NetworkPrivateSubnet1Subnet` | AWS::EC2::Subnet |
+| `NetworkPrivateSubnet1RouteTable` | AWS::EC2::RouteTable |
+| `NetworkPrivateSubnet1RouteTableAssociation` | AWS::EC2::SubnetRouteTableAssociation |
+| `NetworkPrivateSubnet1DefaultRoute` | AWS::EC2::Route |
+| `NetworkPrivateSubnet2Subnet` | AWS::EC2::Subnet |
+| `NetworkPrivateSubnet2RouteTable` | AWS::EC2::RouteTable |
+| `NetworkPrivateSubnet2RouteTableAssociation` | AWS::EC2::SubnetRouteTableAssociation |
+| `NetworkPrivateSubnet2DefaultRoute` | AWS::EC2::Route |
+| `NetworkInternetGateway` | AWS::EC2::InternetGateway |
+| `NetworkVPCGW` | AWS::EC2::VPCGatewayAttachment |
+| `CloudFrontCachePolicy` | AWS::CloudFront::CachePolicy |
+| `CloudFrontDistribution` | AWS::CloudFront::Distribution |

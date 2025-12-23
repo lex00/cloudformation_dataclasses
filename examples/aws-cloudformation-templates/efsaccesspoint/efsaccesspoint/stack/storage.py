@@ -4,16 +4,20 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
+class EFSFileSystemAccessPointTag:
+    resource: efs.access_point.AccessPointTag
+    key = 'Name'
+    value = ref(EFSFileSystemName)
+
+
+@cloudformation_dataclass
 class EFSFileSystem:
     """AWS::EFS::FileSystem resource."""
 
     resource: efs.FileSystem
     encrypted = True
     performance_mode = 'generalPurpose'
-    file_system_tags = [{
-        'Key': 'Name',
-        'Value': ref(EFSFileSystemName),
-    }]
+    file_system_tags = [EFSFileSystemAccessPointTag]
 
 
 @cloudformation_dataclass
@@ -47,12 +51,16 @@ class EFSMountTarget3:
 
 
 @cloudformation_dataclass
+class EFSAccessPointAccessPointTag:
+    resource: efs.access_point.AccessPointTag
+    key = 'Name'
+    value = ref(AccessPointName)
+
+
+@cloudformation_dataclass
 class EFSAccessPoint:
     """AWS::EFS::AccessPoint resource."""
 
     resource: efs.AccessPoint
     file_system_id = ref(EFSFileSystem)
-    access_point_tags = [{
-        'Key': 'Name',
-        'Value': ref(AccessPointName),
-    }]
+    access_point_tags = [EFSAccessPointAccessPointTag]

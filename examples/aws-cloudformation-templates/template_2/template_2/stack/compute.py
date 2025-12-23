@@ -33,79 +33,91 @@ class ControlPlaneSecurityGroupIngress:
 
 
 @cloudformation_dataclass
+class LaunchTemplateEbs:
+    resource: ec2.launch_template.Ebs
+    iops = 3000
+    throughput = 125
+    volume_size = 80
+    volume_type = 'gp3'
+
+
+@cloudformation_dataclass
+class LaunchTemplateBlockDeviceMapping:
+    resource: ec2.launch_template.BlockDeviceMapping
+    device_name = '/dev/xvda'
+    ebs = LaunchTemplateEbs
+
+
+@cloudformation_dataclass
+class LaunchTemplateMetadataOptions:
+    resource: ec2.launch_template.MetadataOptions
+    http_put_response_hop_limit = 2
+    http_tokens = 'optional'
+
+
+@cloudformation_dataclass
+class LaunchTemplateTagSpecification:
+    resource: ec2.launch_template.TagSpecification
+    resource_type = 'instance'
+    tags = [{
+        AssociationParameter.key: 'Name',
+        AssociationParameter.value: Sub('ekshandson-ng-${AWS::StackName}-Node'),
+    }, {
+        AssociationParameter.key: 'alpha.eksctl.io/nodegroup-name',
+        AssociationParameter.value: Sub('ng-${AWS::StackName}'),
+    }, {
+        AssociationParameter.key: 'alpha.eksctl.io/nodegroup-type',
+        AssociationParameter.value: 'managed',
+    }]
+
+
+@cloudformation_dataclass
+class LaunchTemplateTagSpecification1:
+    resource: ec2.launch_template.TagSpecification
+    resource_type = 'volume'
+    tags = [{
+        AssociationParameter.key: 'Name',
+        AssociationParameter.value: Sub('ekshandson-ng-${AWS::StackName}-Node'),
+    }, {
+        AssociationParameter.key: 'alpha.eksctl.io/nodegroup-name',
+        AssociationParameter.value: Sub('ng-${AWS::StackName}'),
+    }, {
+        AssociationParameter.key: 'alpha.eksctl.io/nodegroup-type',
+        AssociationParameter.value: 'managed',
+    }]
+
+
+@cloudformation_dataclass
+class LaunchTemplateTagSpecification2:
+    resource: ec2.launch_template.TagSpecification
+    resource_type = 'network-interface'
+    tags = [{
+        AssociationParameter.key: 'Name',
+        AssociationParameter.value: Sub('ekshandson-ng-${AWS::StackName}-Node'),
+    }, {
+        AssociationParameter.key: 'alpha.eksctl.io/nodegroup-name',
+        AssociationParameter.value: Sub('ng-${AWS::StackName}'),
+    }, {
+        AssociationParameter.key: 'alpha.eksctl.io/nodegroup-type',
+        AssociationParameter.value: 'managed',
+    }]
+
+
+@cloudformation_dataclass
+class LaunchTemplateLaunchTemplateData:
+    resource: ec2.launch_template.LaunchTemplateData
+    block_device_mappings = [LaunchTemplateBlockDeviceMapping]
+    metadata_options = LaunchTemplateMetadataOptions
+    security_group_ids = [ref(ControlPlaneSecurityGroup)]
+    tag_specifications = [LaunchTemplateTagSpecification, LaunchTemplateTagSpecification1, LaunchTemplateTagSpecification2]
+
+
+@cloudformation_dataclass
 class LaunchTemplate:
     """AWS::EC2::LaunchTemplate resource."""
 
     resource: ec2.LaunchTemplate
-    launch_template_data = {
-        'BlockDeviceMappings': [{
-            'DeviceName': '/dev/xvda',
-            'Ebs': {
-                'Iops': 3000,
-                'Throughput': 125,
-                'VolumeSize': 80,
-                'VolumeType': 'gp3',
-            },
-        }],
-        'MetadataOptions': {
-            'HttpPutResponseHopLimit': 2,
-            'HttpTokens': 'optional',
-        },
-        'SecurityGroupIds': [ref(ControlPlaneSecurityGroup)],
-        'TagSpecifications': [
-            {
-                'ResourceType': 'instance',
-                'Tags': [
-                    {
-                        'Key': 'Name',
-                        'Value': Sub('ekshandson-ng-${AWS::StackName}-Node'),
-                    },
-                    {
-                        'Key': 'alpha.eksctl.io/nodegroup-name',
-                        'Value': Sub('ng-${AWS::StackName}'),
-                    },
-                    {
-                        'Key': 'alpha.eksctl.io/nodegroup-type',
-                        'Value': 'managed',
-                    },
-                ],
-            },
-            {
-                'ResourceType': 'volume',
-                'Tags': [
-                    {
-                        'Key': 'Name',
-                        'Value': Sub('ekshandson-ng-${AWS::StackName}-Node'),
-                    },
-                    {
-                        'Key': 'alpha.eksctl.io/nodegroup-name',
-                        'Value': Sub('ng-${AWS::StackName}'),
-                    },
-                    {
-                        'Key': 'alpha.eksctl.io/nodegroup-type',
-                        'Value': 'managed',
-                    },
-                ],
-            },
-            {
-                'ResourceType': 'network-interface',
-                'Tags': [
-                    {
-                        'Key': 'Name',
-                        'Value': Sub('ekshandson-ng-${AWS::StackName}-Node'),
-                    },
-                    {
-                        'Key': 'alpha.eksctl.io/nodegroup-name',
-                        'Value': Sub('ng-${AWS::StackName}'),
-                    },
-                    {
-                        'Key': 'alpha.eksctl.io/nodegroup-type',
-                        'Value': 'managed',
-                    },
-                ],
-            },
-        ],
-    }
+    launch_template_data = LaunchTemplateLaunchTemplateData
     launch_template_name = Sub('${AWS::StackName}-LaunchTemplate')
 
 

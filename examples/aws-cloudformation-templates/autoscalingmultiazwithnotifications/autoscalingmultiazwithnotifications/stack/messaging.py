@@ -4,14 +4,17 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
+class NotificationTopicSubscription:
+    resource: sns.topic.Subscription
+    endpoint = ref(OperatorEMail)
+    protocol = 'email'
+
+
+@cloudformation_dataclass
 class NotificationTopic:
     """AWS::SNS::Topic resource."""
 
-    # Unknown resource type: AWS::SNS::Topic
-    resource: CloudFormationResource
+    resource: sns.Topic
     display_name = Sub('${AWS::StackName}-NotificationTopic')
-    subscription = [{
-        'Endpoint': ref(OperatorEMail),
-        'Protocol': 'email',
-    }]
+    subscription = [NotificationTopicSubscription]
     kms_master_key_id = ref(KmsKeyArn)

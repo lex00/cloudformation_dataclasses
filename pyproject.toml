@@ -85,6 +85,9 @@ dev = [
     "pytest-cov>=4.1",
     "ruff>=0.1",
     "black>=23.12",
+    "pyyaml>=6.0",  # For importer
+    "requests>=2.31",  # For downloading CloudFormation specs during codegen
+    "botocore>=1.35.0",  # For extracting AWS enum values during codegen
 ]
 
 [tool.black]

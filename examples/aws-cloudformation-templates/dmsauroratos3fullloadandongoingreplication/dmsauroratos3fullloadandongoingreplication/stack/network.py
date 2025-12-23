@@ -4,6 +4,20 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
+class VPCAssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Application'
+    value = AWS_STACK_ID
+
+
+@cloudformation_dataclass
+class VPCAssociationParameter1:
+    resource: ec2.instance.AssociationParameter
+    key = 'Name'
+    value = AWS_STACK_NAME
+
+
+@cloudformation_dataclass
 class VPC:
     """AWS::EC2::VPC resource."""
 
@@ -11,13 +25,14 @@ class VPC:
     cidr_block = '10.0.0.0/24'
     enable_dns_support = 'true'
     enable_dns_hostnames = 'true'
-    tags = [{
-        'Key': 'Application',
-        'Value': AWS_STACK_ID,
-    }, {
-        'Key': 'Name',
-        'Value': AWS_STACK_NAME,
-    }]
+    tags = [VPCAssociationParameter, VPCAssociationParameter1]
+
+
+@cloudformation_dataclass
+class DBSubnet1AssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Application'
+    value = AWS_STACK_ID
 
 
 @cloudformation_dataclass
@@ -28,10 +43,14 @@ class DBSubnet1:
     vpc_id = ref(VPC)
     cidr_block = '10.0.0.0/26'
     availability_zone = Select(0, GetAZs())
-    tags = [{
-        'Key': 'Application',
-        'Value': AWS_STACK_ID,
-    }]
+    tags = [DBSubnet1AssociationParameter]
+
+
+@cloudformation_dataclass
+class DBSubnet2AssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Application'
+    value = AWS_STACK_ID
 
 
 @cloudformation_dataclass
@@ -42,10 +61,14 @@ class DBSubnet2:
     vpc_id = ref(VPC)
     cidr_block = '10.0.0.64/26'
     availability_zone = Select(1, GetAZs())
-    tags = [{
-        'Key': 'Application',
-        'Value': AWS_STACK_ID,
-    }]
+    tags = [DBSubnet2AssociationParameter]
+
+
+@cloudformation_dataclass
+class InternetGatewayAssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Application'
+    value = AWS_STACK_ID
 
 
 @cloudformation_dataclass
@@ -53,10 +76,7 @@ class InternetGateway:
     """AWS::EC2::InternetGateway resource."""
 
     resource: ec2.InternetGateway
-    tags = [{
-        'Key': 'Application',
-        'Value': AWS_STACK_ID,
-    }]
+    tags = [InternetGatewayAssociationParameter]
 
 
 @cloudformation_dataclass
@@ -69,15 +89,19 @@ class AttachGateway:
 
 
 @cloudformation_dataclass
+class RouteTableAssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Application'
+    value = AWS_STACK_ID
+
+
+@cloudformation_dataclass
 class RouteTable:
     """AWS::EC2::RouteTable resource."""
 
     resource: ec2.RouteTable
     vpc_id = ref(VPC)
-    tags = [{
-        'Key': 'Application',
-        'Value': AWS_STACK_ID,
-    }]
+    tags = [RouteTableAssociationParameter]
 
 
 @cloudformation_dataclass
@@ -110,6 +134,24 @@ class SubnetRouteTableAssociation1:
 
 
 @cloudformation_dataclass
+class AuroraSecurityGroupEgress:
+    resource: ec2.security_group.Egress
+    ip_protocol = 'tcp'
+    from_port = '3306'
+    to_port = '3306'
+    cidr_ip = ref(ClientIP)
+
+
+@cloudformation_dataclass
+class AuroraSecurityGroupEgress1:
+    resource: ec2.security_group.Egress
+    ip_protocol = 'tcp'
+    from_port = '3306'
+    to_port = '3306'
+    cidr_ip = '10.0.0.0/24'
+
+
+@cloudformation_dataclass
 class AuroraSecurityGroup:
     """AWS::EC2::SecurityGroup resource."""
 
@@ -117,17 +159,7 @@ class AuroraSecurityGroup:
     group_description = 'Security group for Aurora SampleDB DB Instance'
     group_name = 'Aurora SampleDB Security Group'
     vpc_id = ref(VPC)
-    security_group_ingress = [{
-        'IpProtocol': 'tcp',
-        'FromPort': '3306',
-        'ToPort': '3306',
-        'CidrIp': ref(ClientIP),
-    }, {
-        'IpProtocol': 'tcp',
-        'FromPort': '3306',
-        'ToPort': '3306',
-        'CidrIp': '10.0.0.0/24',
-    }]
+    security_group_ingress = [AuroraSecurityGroupEgress, AuroraSecurityGroupEgress1]
 
 
 @cloudformation_dataclass

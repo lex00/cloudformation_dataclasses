@@ -7,6 +7,7 @@ from cloudformation_dataclasses.core import (
     get_att,
     ref,
 )
+from cloudformation_dataclasses.aws import cloudformation
 
 from .stack import *  # noqa: F403, F401
 
@@ -15,6 +16,7 @@ __all__ = [
     "Template",
     "Transform",
     "TransformFunction",
+    "cloudformation",
     "cloudformation_dataclass",
     "get_att",
     "ref",

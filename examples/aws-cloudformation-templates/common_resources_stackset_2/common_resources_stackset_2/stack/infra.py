@@ -4,6 +4,48 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
+class StackSetDeploymentTargets:
+    resource: cloudformation.stack_set.DeploymentTargets
+    organizational_unit_ids = [ref(OUID)]
+
+
+@cloudformation_dataclass
+class StackSetStackInstances:
+    resource: cloudformation.stack_set.StackInstances
+    deployment_targets = StackSetDeploymentTargets
+    regions = ref(StackSetRegions)
+
+
+@cloudformation_dataclass
+class StackSetParameter:
+    resource: cloudformation.stack_set.Parameter
+    parameter_key = 'AppName'
+    parameter_value = 'stackset-logging-sample'
+
+
+@cloudformation_dataclass
+class StackSetParameter1:
+    resource: cloudformation.stack_set.Parameter
+    parameter_key = 'KmsKeyId'
+    parameter_value = ref(KmsKeyId)
+
+
+@cloudformation_dataclass
+class StackSetOperationPreferences:
+    resource: cloudformation.stack_set.OperationPreferences
+    failure_tolerance_count = 0
+    max_concurrent_count = 2
+    region_concurrency_type = 'PARALLEL'
+
+
+@cloudformation_dataclass
+class StackSetAutoDeployment:
+    resource: cloudformation.stack_set.AutoDeployment
+    enabled = True
+    retain_stacks_on_account_removal = True
+
+
+@cloudformation_dataclass
 class StackSet:
     """AWS::CloudFormation::StackSet resource."""
 
@@ -261,28 +303,10 @@ Resources:
         Version: "2012-10-17"
 """
     capabilities = ['CAPABILITY_IAM']
-    stack_instances_group = [{
-        'DeploymentTargets': {
-            'OrganizationalUnitIds': [ref(OUID)],
-        },
-        'Regions': ref(StackSetRegions),
-    }]
-    parameters = [{
-        'ParameterKey': 'AppName',
-        'ParameterValue': 'stackset-logging-sample',
-    }, {
-        'ParameterKey': 'KmsKeyId',
-        'ParameterValue': ref(KmsKeyId),
-    }]
+    stack_instances_group = [StackSetStackInstances]
+    parameters = [StackSetParameter, StackSetParameter1]
     permission_model = 'SERVICE_MANAGED'
     description = 'This stack set is part of a sample that demonstrates how to set up cross account logging'
-    operation_preferences = {
-        'FailureToleranceCount': 0,
-        'MaxConcurrentCount': 2,
-        'RegionConcurrencyType': 'PARALLEL',
-    }
-    auto_deployment = {
-        'Enabled': True,
-        'RetainStacksOnAccountRemoval': True,
-    }
+    operation_preferences = StackSetOperationPreferences
+    auto_deployment = StackSetAutoDeployment
     stack_set_name = 'common-resources'

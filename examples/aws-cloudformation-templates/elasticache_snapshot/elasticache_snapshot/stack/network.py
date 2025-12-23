@@ -85,15 +85,19 @@ class PublicSubnetBRouteTableAssociation:
 
 
 @cloudformation_dataclass
+class RedisSecurityGroupEgress:
+    resource: ec2.security_group.Egress
+    ip_protocol = 'tcp'
+    from_port = '6379'
+    to_port = '6379'
+    cidr_ip = '192.168.1.0/32'
+
+
+@cloudformation_dataclass
 class RedisSecurityGroup:
     """AWS::EC2::SecurityGroup resource."""
 
     resource: ec2.SecurityGroup
     group_description = 'RedisSecurityGroup'
     vpc_id = ref(VPC)
-    security_group_ingress = [{
-        'IpProtocol': 'tcp',
-        'FromPort': '6379',
-        'ToPort': '6379',
-        'CidrIp': '192.168.1.0/32',
-    }]
+    security_group_ingress = [RedisSecurityGroupEgress]

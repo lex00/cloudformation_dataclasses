@@ -1,6 +1,9 @@
 # ApigatewayLambdaIntegration
 
-Imported from `getfromjson-consumer.yml`.
+Migrated from [apigateway_lambda_integration.json](https://github.com/aws-cloudformation/cfn-lint).
+
+**Source**: AWS CloudFormation Sample Templates
+**License**: Apache-2.0
 
 **Requires [uv](https://docs.astral.sh/uv/getting-started/installation/)**
 
@@ -31,5 +34,10 @@ pip install .
 
 | Logical ID | Type |
 |------------|------|
-| `GetFromJsonCustomResourceSampleGetFromList` | Custom::GetFromJson |
-| `GetFromJsonCustomResourceSampleGetFromMap` | Custom::GetFromJson |
+| `RestApi` | AWS::ApiGateway::RestApi |
+| `ApiResource` | AWS::ApiGateway::Resource |
+| `RequestModel` | AWS::ApiGateway::Model |
+| `ApiMethod` | AWS::ApiGateway::Method |
+| `LambdaFunction` | AWS::Lambda::Function |
+| `LambdaIamRole` | AWS::IAM::Role |
+| `LambdaApiGatewayInvoke` | AWS::Lambda::Permission |

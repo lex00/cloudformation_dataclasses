@@ -6,8 +6,7 @@ from . import *  # noqa: F403, F401
 def build_template() -> Template:
     """Build the CloudFormation template."""
     return Template.from_registry(
-        description='tests String macro functions',
-        parameters=[InputString],
+        outputs=[ResourceFunctionOutput],
     )
 
 

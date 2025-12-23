@@ -12,6 +12,21 @@ class DeadLetterQueue:
 
 
 @cloudformation_dataclass
+class CloudFormationEventRuleDeadLetterConfig:
+    resource: events.rule.DeadLetterConfig
+    arn = get_att(DeadLetterQueue, "Arn")
+
+
+@cloudformation_dataclass
+class CloudFormationEventRuleTarget:
+    resource: events.rule.Target
+    arn = ref(CentralEventBusArn)
+    role_arn = get_att(EventBridgeRole, "Arn")
+    id = 'CentralEventBus'
+    dead_letter_config = CloudFormationEventRuleDeadLetterConfig
+
+
+@cloudformation_dataclass
 class CloudFormationEventRule:
     """AWS::Events::Rule resource."""
 
@@ -22,14 +37,7 @@ class CloudFormationEventRule:
         'source': ['aws.cloudformation'],
     }
     state = 'ENABLED'
-    targets = [{
-        'Arn': ref(CentralEventBusArn),
-        'RoleArn': get_att(EventBridgeRole, "Arn"),
-        'Id': 'CentralEventBus',
-        'DeadLetterConfig': {
-            'Arn': get_att(DeadLetterQueue, "Arn"),
-        },
-    }]
+    targets = [CloudFormationEventRuleTarget]
 
 
 @cloudformation_dataclass

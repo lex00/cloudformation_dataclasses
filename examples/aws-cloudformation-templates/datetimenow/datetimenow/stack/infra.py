@@ -7,8 +7,7 @@ from .. import *  # noqa: F403
 class Transform:
     """AWS::CloudFormation::Macro resource."""
 
-    # Unknown resource type: AWS::CloudFormation::Macro
-    resource: CloudFormationResource
+    resource: cloudformation.Macro
     name = 'DatetimeNow'
     description = 'Provides the current datetime as string in the format requested.'
     function_name = get_att(TransformFunction, "Arn")

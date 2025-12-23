@@ -6,7 +6,10 @@ from . import *  # noqa: F403, F401
 def build_template() -> Template:
     """Build the CloudFormation template."""
     return Template.from_registry(
-        outputs=[ResourceFunctionOutput],
+        description="""This CloudFormation template creates a set of CloudWatch Logs Insights queries and a corresponding dashboard  for comprehensive AWS Client VPN usage reporting. It provides detailed insights into VPN usage patterns,  connection durations, data transfer volumes, and user activities across different authentication methods  (AD/SAML, Mutual Auth, and Mixed Auth).
+""",
+        parameters=[Folder, ClientVPNLogGroup],
+        outputs=[LogInsightsUrlOutput, DashboardUrlOutput],
     )
 
 

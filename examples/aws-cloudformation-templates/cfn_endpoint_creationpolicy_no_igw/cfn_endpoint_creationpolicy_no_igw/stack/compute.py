@@ -4,6 +4,13 @@ from .. import *  # noqa: F403
 
 
 @cloudformation_dataclass
+class PrivateInstanceAssociationParameter:
+    resource: ec2.instance.AssociationParameter
+    key = 'Name'
+    value = 'Private'
+
+
+@cloudformation_dataclass
 class PrivateInstance:
     """AWS::EC2::Instance resource."""
 
@@ -18,8 +25,5 @@ cat /tmp/datefile
 # Signal the status from instance
 /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --resource PrivateInstance --region ${AWS::Region}
 """))
-    tags = [{
-        'Key': 'Name',
-        'Value': 'Private',
-    }]
+    tags = [PrivateInstanceAssociationParameter]
     depends_on = ["CfnEndpoint"]

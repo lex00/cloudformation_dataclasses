@@ -14,6 +14,7 @@ from cloudformation_dataclasses.core import (
     ref,
 )
 from cloudformation_dataclasses.aws import ec2, eks, iam
+from cloudformation_dataclasses.aws.ec2.instance import AssociationParameter
 from cloudformation_dataclasses.intrinsics import (
     AWS_ACCOUNT_ID,
     AWS_PARTITION,
@@ -30,6 +31,7 @@ __all__ = [
     "AWS_ACCOUNT_ID",
     "AWS_PARTITION",
     "AWS_REGION",
+    "AssociationParameter",
     "AttachGateway",
     "ControlPlane",
     "ControlPlaneSecurityGroup",

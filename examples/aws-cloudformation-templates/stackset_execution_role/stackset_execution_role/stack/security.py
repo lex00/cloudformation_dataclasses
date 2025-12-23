@@ -19,72 +19,88 @@ class AWSCloudFormationStackSetExecutionRoleAssumeRolePolicyDocument:
 
 
 @cloudformation_dataclass
+class AWSCloudFormationStackSetExecutionRoleAllowStatement0_1:
+    resource: PolicyStatement
+    action = [
+        'cloudformation:CreateStack',
+        'cloudformation:UpdateStack',
+        'cloudformation:DeleteStack',
+        'cloudformation:DescribeStacks',
+        'cloudformation:DescribeStackEvents',
+        'cloudformation:DescribeStackResources',
+        'cloudformation:GetTemplate',
+        'cloudformation:ValidateTemplate',
+    ]
+    resource_arn = '*'
+
+
+@cloudformation_dataclass
+class AWSCloudFormationStackSetExecutionRoleAllowStatement1:
+    resource: PolicyStatement
+    action = [
+        'cloudwatch:PutDashboard',
+        'cloudwatch:DeleteDashboards',
+        'cloudwatch:PutMetricAlarm',
+        'cloudwatch:DeleteAlarms',
+        'cloudwatch:DescribeAlarms',
+    ]
+    resource_arn = '*'
+
+
+@cloudformation_dataclass
+class AWSCloudFormationStackSetExecutionRoleAllowStatement2:
+    resource: PolicyStatement
+    action = [
+        'sns:CreateTopic',
+        'sns:DeleteTopic',
+        'sns:Subscribe',
+        'sns:Unsubscribe',
+        'sns:SetTopicAttributes',
+        'sns:GetTopicAttributes',
+        'sns:ListSubscriptionsByTopic',
+    ]
+    resource_arn = '*'
+
+
+@cloudformation_dataclass
+class AWSCloudFormationStackSetExecutionRoleAllowStatement3:
+    resource: PolicyStatement
+    action = [
+        'kms:Decrypt',
+        'kms:DescribeKey',
+    ]
+    resource_arn = '*'
+
+
+@cloudformation_dataclass
+class AWSCloudFormationStackSetExecutionRoleAllowStatement4:
+    resource: PolicyStatement
+    action = [
+        'ssm:GetParameter',
+        'ssm:GetParameters',
+        'ssm:GetParametersByPath',
+    ]
+    resource_arn = ['arn:aws:ssm:*:*:parameter/cdk-bootstrap/*']
+
+
+@cloudformation_dataclass
+class AWSCloudFormationStackSetExecutionRolePolicies0PolicyDocument:
+    resource: PolicyDocument
+    statement = [AWSCloudFormationStackSetExecutionRoleAllowStatement0_1, AWSCloudFormationStackSetExecutionRoleAllowStatement1, AWSCloudFormationStackSetExecutionRoleAllowStatement2, AWSCloudFormationStackSetExecutionRoleAllowStatement3, AWSCloudFormationStackSetExecutionRoleAllowStatement4]
+
+
+@cloudformation_dataclass
+class AWSCloudFormationStackSetExecutionRolePolicy:
+    resource: iam.user.Policy
+    policy_name = 'ExecutionRolePolicy'
+    policy_document = AWSCloudFormationStackSetExecutionRolePolicies0PolicyDocument
+
+
+@cloudformation_dataclass
 class AWSCloudFormationStackSetExecutionRole:
     """AWS::IAM::Role resource."""
 
     resource: iam.Role
     role_name = 'AWSCloudFormationStackSetExecutionRole'
     assume_role_policy_document = AWSCloudFormationStackSetExecutionRoleAssumeRolePolicyDocument
-    policies = [{
-        'PolicyName': 'ExecutionRolePolicy',
-        'PolicyDocument': {
-            'Version': '2012-10-17',
-            'Statement': [
-                {
-                    'Effect': 'Allow',
-                    'Action': [
-                        'cloudformation:CreateStack',
-                        'cloudformation:UpdateStack',
-                        'cloudformation:DeleteStack',
-                        'cloudformation:DescribeStacks',
-                        'cloudformation:DescribeStackEvents',
-                        'cloudformation:DescribeStackResources',
-                        'cloudformation:GetTemplate',
-                        'cloudformation:ValidateTemplate',
-                    ],
-                    'Resource': '*',
-                },
-                {
-                    'Effect': 'Allow',
-                    'Action': [
-                        'cloudwatch:PutDashboard',
-                        'cloudwatch:DeleteDashboards',
-                        'cloudwatch:PutMetricAlarm',
-                        'cloudwatch:DeleteAlarms',
-                        'cloudwatch:DescribeAlarms',
-                    ],
-                    'Resource': '*',
-                },
-                {
-                    'Effect': 'Allow',
-                    'Action': [
-                        'sns:CreateTopic',
-                        'sns:DeleteTopic',
-                        'sns:Subscribe',
-                        'sns:Unsubscribe',
-                        'sns:SetTopicAttributes',
-                        'sns:GetTopicAttributes',
-                        'sns:ListSubscriptionsByTopic',
-                    ],
-                    'Resource': '*',
-                },
-                {
-                    'Effect': 'Allow',
-                    'Action': [
-                        'kms:Decrypt',
-                        'kms:DescribeKey',
-                    ],
-                    'Resource': '*',
-                },
-                {
-                    'Effect': 'Allow',
-                    'Action': [
-                        'ssm:GetParameter',
-                        'ssm:GetParameters',
-                        'ssm:GetParametersByPath',
-                    ],
-                    'Resource': ['arn:aws:ssm:*:*:parameter/cdk-bootstrap/*'],
-                },
-            ],
-        },
-    }]
+    policies = [AWSCloudFormationStackSetExecutionRolePolicy]

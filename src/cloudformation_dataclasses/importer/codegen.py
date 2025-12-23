@@ -2540,6 +2540,85 @@ def _generate_stack_package(pkg_ctx: PackageContext, template: IRTemplate) -> di
                     separate_files[category] = []
                 separate_files[category].append(resource_id)
 
+    # Build file-level dependency graph and move resources to break import cycles
+    # This is necessary because category files are loaded dynamically by setup_resources()
+    # which uses topological sort - if there's a cycle, it can't resolve correctly.
+    #
+    # Example cycle: compute.py (EC2) -> network.py (SecurityGroup) -> main.py (CustomResource) -> compute.py
+    # Fix: move resources from category files to main.py until no cycles remain
+    resource_to_file: dict[str, str] = {}
+    for rid in main_py_resources:
+        resource_to_file[rid] = "main"
+    for cat, rids in separate_files.items():
+        for rid in rids:
+            resource_to_file[rid] = cat
+
+    # Build resource dependency map (resource_id -> set of resource_ids it depends on)
+    # Use only explicit references (reference_graph + DependsOn), not Sub pattern matching
+    all_resource_deps: dict[str, set[str]] = {}
+    for rid in template.resources:
+        all_resource_deps[rid] = _find_resource_dependencies(template, rid)
+
+    # Iteratively move resources to main.py to break file-level cycles
+    max_iterations = len(template.resources) + 1
+    for _ in range(max_iterations):
+        # Build file-level dependency graph
+        file_deps: dict[str, set[str]] = {"main": set()}
+        for cat in separate_files:
+            file_deps[cat] = set()
+
+        for rid, rid_deps in all_resource_deps.items():
+            rid_file = resource_to_file.get(rid, "main")
+            for dep_rid in rid_deps:
+                dep_file = resource_to_file.get(dep_rid, "main")
+                if dep_file != rid_file:
+                    file_deps[rid_file].add(dep_file)
+
+        # Detect cycles using DFS
+        def find_cycle() -> list[str] | None:
+            visited: set[str] = set()
+            rec_stack: set[str] = set()
+            path: list[str] = []
+
+            def dfs(node: str) -> list[str] | None:
+                visited.add(node)
+                rec_stack.add(node)
+                path.append(node)
+
+                for neighbor in file_deps.get(node, set()):
+                    if neighbor not in visited:
+                        result = dfs(neighbor)
+                        if result:
+                            return result
+                    elif neighbor in rec_stack:
+                        # Found cycle - return the cycle path
+                        cycle_start = path.index(neighbor)
+                        return path[cycle_start:]
+
+                path.pop()
+                rec_stack.remove(node)
+                return None
+
+            for node in file_deps:
+                if node not in visited:
+                    result = dfs(node)
+                    if result:
+                        return result
+            return None
+
+        cycle = find_cycle()
+        if not cycle:
+            break  # No cycles, we're done
+
+        # Move all resources from non-main cycle members to main.py
+        for cycle_file in cycle:
+            if cycle_file != "main" and cycle_file in separate_files:
+                # Move all resources from this category to main
+                for rid in separate_files[cycle_file]:
+                    main_py_resources.append(rid)
+                    resource_to_file[rid] = "main"
+                del separate_files[cycle_file]
+
     # Re-sort resources in topological order to ensure dependencies come first
     topo_order = {rid: idx for idx, rid in enumerate(sorted_resources)}
     main_py_resources.sort(key=lambda rid: topo_order[rid])

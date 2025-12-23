@@ -7,6 +7,5 @@ from .. import *  # noqa: F403
 class Repo:
     """AWS::CodeCommit::Repository resource."""
 
-    # Unknown resource type: AWS::CodeCommit::Repository
-    resource: CloudFormationResource
+    resource: codecommit.Repository
     repository_name = 'my-repo'
