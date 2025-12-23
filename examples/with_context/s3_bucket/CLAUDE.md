@@ -5,9 +5,25 @@ CloudFormation infrastructure using cloudformation_dataclasses.
 ## Key Patterns
 
 1. **Wrapper classes** with `@cloudformation_dataclass` decorator
-2. **DeploymentContext** for consistent naming
+2. **Template-level context** - pass `context=ctx` to `Template.from_registry()`
 3. **Type-safe enums** - use enum values, not strings
 4. **ref() for references** - `ref(MyResource)`, not string literals
+
+## Context
+
+Context is applied at the template level:
+
+```python
+# main.py
+Template.from_registry(
+    description='...',
+    context=ctx,  # Auto-names resources and applies tags
+)
+```
+
+This automatically:
+- Sets physical names (e.g., `bucket_name`) from the naming pattern
+- Merges context tags with resource-specific tags
 
 ## Commands
 
@@ -19,19 +35,11 @@ python -m s3_bucket.main
 mypy s3_bucket/
 
 # Run tests
-pytest s3_bucket/tests/
-```
-
-## Validation
-
-```python
-template = Template.from_registry()
-errors = template.validate()
-assert errors == []
+pytest tests/
 ```
 
 ## Adding Resources
 
-1. Create wrapper class in new file
-2. Import in `__init__.py`
-3. Instantiate in `main.py` before `Template.from_registry()`
+1. Create wrapper class in `resources/` directory
+2. Import in `resources/__init__.py`
+3. Resource auto-registers and gets context from template
